@@ -1,11 +1,20 @@
 @import 'tailwindcss';
 
-/*
- * The Tides Index — foundation design tokens.
- * Source: DESIGN_SYSTEM.md. These are a starting palette; visual refinement is
- * deliberately deferred to Phase D/E, after the evidence system works.
- */
+/* ==========================================================================
+   The Tides Index — design tokens
+
+   The reference this wants to sit beside is a well-set scientific monograph,
+   not a dashboard. That means: one strong text column, a type scale with real
+   contrast between levels, tables that are readable at density, and colour used
+   sparingly enough that when it does appear it means something.
+
+   "Tides" is carried by rhythm rather than imagery — a consistent vertical
+   cadence, layered surfaces that recede as they go back, and a single curved
+   rule that separates major movements of a page. No waves, no beaches.
+   ========================================================================== */
+
 @theme {
+  /* --- Core palette (DESIGN_SYSTEM.md) --------------------------------- */
   --color-ink: #0b1f2a;
   --color-deep-tide: #123f4a;
   --color-tide-teal: #1f6b73;
@@ -15,34 +24,302 @@
   --color-slate: #66747b;
   --color-rule: #d6e0e2;
 
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
-  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+  /* Derived steps, for hierarchy without introducing new hues. */
+  --color-ink-soft: #2c4551;
+  --color-slate-light: #8b979d;
+  --color-rule-soft: #e6edee;
+  --color-surface-sunk: #eef4f4;
 
-  /* Comfortable measure for long-form reference reading. */
-  --container-measure: 68ch;
+  /* --- Evidence semantics ----------------------------------------------
+     Three classes, three restrained tints. Never the only signal: every use
+     is paired with a word, and the shapes differ too. */
+  --color-evidence-human: #1f6b73;
+  --color-evidence-human-bg: #e4f0f1;
+  --color-evidence-preclinical: #7a6420;
+  --color-evidence-preclinical-bg: #f6f1e2;
+  --color-evidence-reference: #5d6470;
+  --color-evidence-reference-bg: #eef0f3;
+
+  /* Attention states. Muted on purpose — this is a reference, not an alarm. */
+  --color-caution: #8a6116;
+  --color-caution-bg: #fbf3e3;
+  --color-caution-rule: #e6d4ad;
+
+  /* --- Typography ------------------------------------------------------- */
+  --font-serif:
+    var(--font-source-serif), ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+
+  /* A modest scale: 1.2 at body sizes, opening up for display. */
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1.45;
+  --text-xs: 0.78125rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1rem;
+  --text-base--line-height: 1.7;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.65;
+  --text-xl: 1.3125rem;
+  --text-xl--line-height: 1.45;
+  --text-2xl: 1.625rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 2.0625rem;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 2.625rem;
+  --text-4xl--line-height: 1.12;
+
+  /* --- Measure ---------------------------------------------------------- */
+  --container-prose: 34rem;
+  --container-reading: 42rem;
+  --container-page: 72rem;
+  --container-wide: 84rem;
 }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
 
 :root {
   color-scheme: light;
+  /* Vertical rhythm unit. Section spacing is a multiple of this throughout,
+     which is most of what makes a long page feel composed rather than stacked. */
+  --rhythm: 1.5rem;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Anchored headings clear the sticky header. */
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
   background-color: var(--color-warm-white);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Never rely on colour alone to convey evidence or status (DESIGN_SYSTEM.md). */
+/* Numerals line up in tables and in anything comparative. */
+table,
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  text-wrap: balance;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 :where(a):focus-visible,
 :where(button):focus-visible,
-:where(input, select, textarea):focus-visible {
+:where(select, input, textarea):focus-visible,
+:where([tabindex]):focus-visible {
   outline: 2px solid var(--color-tide-teal);
   outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-sea-glass);
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-ink);
+  color: var(--color-warm-white);
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* The one place the tide metaphor is drawn rather than felt: a layered rule
+   that separates major movements of a page. Two offset curves, low contrast. */
+.tide-rule {
+  height: 10px;
+  width: 100%;
+  border: 0;
+  background-repeat: repeat-x;
+  background-size: 96px 10px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='10' viewBox='0 0 96 10'%3E%3Cpath d='M0 7c12 0 12-4 24-4s12 4 24 4 12-4 24-4 12 4 24 4' fill='none' stroke='%23d6e0e2' stroke-width='1'/%3E%3Cpath d='M0 4c12 0 12-3 24-3s12 3 24 3 12-3 24-3 12 3 24 3' fill='none' stroke='%23e6edee' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.9;
+}
+
+/* Long reference pages carry a lot of small metadata. This keeps it legible
+   without shouting. */
+.meta-label {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+  font-weight: 500;
+}
+
+/* Wide content must scroll inside itself, never push the page sideways. */
+.scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+/* ==========================================================================
+   Prose
+   ========================================================================== */
+
+.prose-tides {
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  color: var(--color-ink-soft);
+}
+.prose-tides > * + * {
+  margin-top: var(--rhythm);
+}
+.prose-tides h2 {
+  font-size: var(--text-xl);
+  margin-top: calc(var(--rhythm) * 2);
+  color: var(--color-ink);
+}
+.prose-tides h3 {
+  font-size: var(--text-lg);
+  margin-top: calc(var(--rhythm) * 1.5);
+  color: var(--color-ink);
+}
+.prose-tides ul,
+.prose-tides ol {
+  padding-left: 1.25rem;
+}
+.prose-tides ul {
+  list-style: disc;
+}
+.prose-tides ol {
+  list-style: decimal;
+}
+.prose-tides li + li {
+  margin-top: 0.4rem;
+}
+.prose-tides a {
+  color: var(--color-deep-tide);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-rule);
+}
+.prose-tides a:hover {
+  text-decoration-color: var(--color-tide-teal);
+}
+.prose-tides strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Print
+
+   Reference pages are printed and taken into consultations, so print is a
+   supported output rather than an afterthought. Citations are expanded, chrome
+   is dropped, and the patient view stays patient-safe on paper — it is rendered
+   from the same dose-free relation as the screen.
+   ========================================================================== */
+
+@media print {
+  @page {
+    margin: 18mm 16mm 20mm;
+  }
+
+  html {
+    font-size: 10.5pt;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .no-print,
+  nav[aria-label='Primary'],
+  .tide-rule {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* Expand citation targets so a printed page remains traceable. */
+  .print-url::after {
+    content: ' (' attr(data-print-url) ')';
+    font-size: 9pt;
+    color: #333;
+    word-break: break-all;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  table,
+  figure,
+  .avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  .print-full-width {
+    max-width: none !important;
+  }
+}
+
+.print-only {
+  display: none;
 }

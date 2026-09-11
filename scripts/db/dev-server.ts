@@ -48,7 +48,16 @@ console.log(
     `${String(seeded.verificationIssues)} verification issues — all unpublished.`,
 );
 
-const server = new PGLiteSocketServer({ db: client, port: PORT, host: '127.0.0.1' });
+const server = new PGLiteSocketServer({
+  db: client,
+  port: PORT,
+  host: '127.0.0.1',
+  // The default is a single connection, which is not enough: a Next.js dev
+  // server holds a pool, and a second client would be reset. Queries are
+  // serialised inside PGlite regardless, so raising this costs nothing.
+  maxConnections: 20,
+  idleTimeout: 5 * 60 * 1000,
+});
 await server.start();
 
 console.log(`\nPostgres listening on 127.0.0.1:${String(PORT)}`);
