@@ -1,0 +1,83 @@
+[
+  {
+    "peptide_key": "bpc-157",
+    "canonical_name": "BPC-157",
+    "aliases": [
+      "Body Protection Compound 157"
+    ],
+    "primary_category": "repair-recovery",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "thymosin-beta-4",
+    "canonical_name": "Thymosin beta-4",
+    "aliases": [
+      "TB-4",
+      "TB4"
+    ],
+    "primary_category": "repair-immune",
+    "status": "nomenclature_review_required",
+    "notes": "Do not treat TB-500 as automatically identical; resolve nomenclature in evidence records."
+  },
+  {
+    "peptide_key": "ghk-cu",
+    "canonical_name": "GHK-Cu",
+    "aliases": [
+      "Copper tripeptide GHK-Cu"
+    ],
+    "primary_category": "skin-repair",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "cjc-1295",
+    "canonical_name": "CJC-1295",
+    "aliases": [],
+    "primary_category": "gh-endocrine",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "ipamorelin",
+    "canonical_name": "Ipamorelin",
+    "aliases": [],
+    "primary_category": "gh-endocrine",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "tesamorelin",
+    "canonical_name": "Tesamorelin",
+    "aliases": [],
+    "primary_category": "gh-endocrine-metabolic",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "mots-c",
+    "canonical_name": "MOTS-c",
+    "aliases": [
+      "MOTS-C"
+    ],
+    "primary_category": "mitochondrial-metabolic",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "semax",
+    "canonical_name": "Semax",
+    "aliases": [],
+    "primary_category": "neuro-cognitive",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "selank",
+    "canonical_name": "Selank",
+    "aliases": [],
+    "primary_category": "neuro-cognitive",
+    "status": "seeded"
+  },
+  {
+    "peptide_key": "retatrutide",
+    "canonical_name": "Retatrutide",
+    "aliases": [],
+    "primary_category": "metabolic",
+    "status": "seeded",
+    "notes": "Investigational status is time-sensitive; verify before publication."
+  }
+]

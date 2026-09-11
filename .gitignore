@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+.next/
+dist/
+coverage/
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Private research sources
+sources/**/*.pdf
+sources/**/*.epub
+sources/**/*.docx
+
+# Private imports
+data/import/*
+
+# Generated publications
+publishing/pdf/generated/

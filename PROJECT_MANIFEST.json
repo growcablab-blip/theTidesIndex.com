@@ -1,0 +1,40 @@
+{
+  "project_name": "The Tides Index",
+  "domain": "thetidesindex.com",
+  "local_target": "C:\\The Tides Index",
+  "version": "foundation-1.0",
+  "created": "2026-09-10",
+  "primary_audiences": [
+    "patients",
+    "practitioners",
+    "clinic staff"
+  ],
+  "primary_sections": [
+    "Learn",
+    "Science",
+    "Peptides",
+    "Evidence",
+    "Protocols",
+    "Quality",
+    "Sources"
+  ],
+  "mvp_seed_peptides": [
+    "BPC-157",
+    "Thymosin beta-4",
+    "GHK-Cu",
+    "CJC-1295",
+    "Ipamorelin",
+    "Tesamorelin",
+    "MOTS-c",
+    "Semax",
+    "Selank",
+    "Retatrutide"
+  ],
+  "not_in_mvp": [
+    "ecommerce",
+    "vendor rankings",
+    "affiliate links",
+    "personalized prescribing",
+    "automated treatment plans"
+  ]
+}

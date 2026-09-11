@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claim",
+  "type": "object",
+  "required": [
+    "claim_key",
+    "claim_text",
+    "verification_status"
+  ],
+  "properties": {
+    "claim_key": {
+      "type": "string"
+    },
+    "claim_text": {
+      "type": "string"
+    },
+    "plain_language_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verification_status": {
+      "type": "string"
+    },
+    "importance": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    }
+  }
+}

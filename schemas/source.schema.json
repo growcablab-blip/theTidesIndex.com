@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source",
+  "type": "object",
+  "required": [
+    "source_key",
+    "title",
+    "source_type",
+    "qc_status"
+  ],
+  "properties": {
+    "source_key": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "qc_status": {
+      "enum": [
+        "usable",
+        "incomplete",
+        "replace",
+        "pending",
+        "exclude"
+      ]
+    },
+    "year": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_filename": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "public_fulltext_allowed": {
+      "type": "boolean"
+    }
+  }
+}

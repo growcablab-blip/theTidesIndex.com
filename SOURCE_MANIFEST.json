@@ -1,0 +1,257 @@
+{
+  "project": "The Tides Index",
+  "version": "1.0",
+  "sources": [
+    {
+      "source_key": "SRC-001",
+      "title": "The Peptide Protocols, Volume 1: A Handbook for Practitioners",
+      "authors": [
+        "William A. Seeds, MD"
+      ],
+      "year": 2020,
+      "source_type": "practitioner_handbook",
+      "priority": "core",
+      "qc_status": "usable",
+      "canonical_filename": "Seeds_Peptide_Protocols_Vol_1.pdf",
+      "known_local_filename": "Peptide Protocol Dr. Seeds(1).pdf",
+      "primary_role": "mechanisms, cellular systems, practitioner protocol examples",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-002",
+      "title": "Peptide Handbook: A Professional's Guide to Peptide Therapeutics",
+      "authors": [
+        "James B. LaValle",
+        "Gordon Crozier",
+        "Joseph P. Cleaver",
+        "Andrew Heyman"
+      ],
+      "year": 2022,
+      "source_type": "practitioner_handbook",
+      "priority": "core",
+      "qc_status": "usable",
+      "canonical_filename": "LaValle_Peptide_Handbook_2022.pdf",
+      "known_local_filename": "904653287-James-B-LaValle-Gordon-Crozier-Joseph-P-Cleaver-Andrew-Heym-Peptide-Handbook-a-Professional-s-Guide-to-Peptide-Therapeutics-2022-Interactive.pdf",
+      "primary_role": "monographs, routes, cautions, condition-based protocols",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-003",
+      "title": "Optimize Your Health with Therapeutic Peptides",
+      "authors": [
+        "Jay Campbell"
+      ],
+      "year": 2023,
+      "source_type": "practitioner_handbook",
+      "priority": "supporting",
+      "qc_status": "usable",
+      "canonical_filename": "Campbell_Optimize_Your_Health_with_Therapeutic_Peptides.pdf",
+      "known_local_filename": "Peptide book(1).pdf",
+      "primary_role": "practitioner framing and practical organization",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-004",
+      "title": "Peptide Cheat Sheet",
+      "authors": [
+        "Jay Campbell"
+      ],
+      "year": 2025,
+      "source_type": "practitioner_handbook",
+      "priority": "supporting",
+      "qc_status": "usable",
+      "canonical_filename": "Campbell_Peptide_Cheat_Sheet.pdf",
+      "known_local_filename": "Peptide cheat sheet 1(1).pdf",
+      "primary_role": "quick-reference UX inspiration; protocol records require verification",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-005",
+      "title": "The Complete Guide to Peptides",
+      "authors": [
+        "Hack Smith"
+      ],
+      "year": null,
+      "source_type": "practitioner_handbook",
+      "priority": "supporting",
+      "qc_status": "usable",
+      "canonical_filename": "Hack_Smith_Complete_Guide_to_Peptides.pdf",
+      "known_local_filename": "Peptide book 3(1).pdf",
+      "primary_role": "broad compound catalog, routes, storage, practical topics",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-006",
+      "title": "Synthetic Peptides: A User's Guide, 2nd Edition",
+      "authors": [
+        "Gregory A. Grant (ed.)"
+      ],
+      "year": 2002,
+      "source_type": "academic_textbook",
+      "priority": "core",
+      "qc_status": "usable",
+      "canonical_filename": "Grant_Synthetic_Peptides_2e_2002.pdf",
+      "known_local_filename": "73671816-Synthetic-Peptides.pdf",
+      "primary_role": "chemistry, SPPS, evaluation, purification, applications",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-007",
+      "title": "Advances in the Discovery and Development of Peptide Therapeutics",
+      "authors": [
+        "Gert Kruger (ed.)",
+        "Fernando Albericio (ed.)"
+      ],
+      "year": 2015,
+      "source_type": "academic_textbook",
+      "priority": "core",
+      "qc_status": "usable",
+      "canonical_filename": "Kruger_Albericio_Advances_Peptide_Therapeutics_2015.pdf",
+      "known_local_filename": "1029470766-2015-Advances-Discovery-Development-Peptide-Therapeutics.pdf",
+      "primary_role": "drug discovery, manufacturing, formulation, delivery",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-008",
+      "title": "Peptide Synthesis and Applications, 2nd Edition",
+      "authors": [
+        "Knud J. Jensen (ed.)",
+        "Pernille Tofteng Shelton (ed.)",
+        "Søren L. Pedersen (ed.)"
+      ],
+      "year": null,
+      "source_type": "academic_methods_reference",
+      "priority": "supporting",
+      "qc_status": "incomplete",
+      "canonical_filename": "Jensen_Peptide_Synthesis_and_Applications_2e.pdf",
+      "known_local_filename": "1074265399-Read-Peptide-Synthesis-and-Applications-...pdf",
+      "primary_role": "synthesis methods and troubleshooting",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-009",
+      "title": "Pharmaceutical Biotechnology: Fundamentals and Applications, 6th Edition",
+      "authors": [
+        "Daan J. A. Crommelin (ed.)",
+        "Robert D. Sindelar (ed.)",
+        "Bernd Meibohm (ed.)"
+      ],
+      "year": 2024,
+      "source_type": "academic_textbook",
+      "priority": "supporting",
+      "qc_status": "incomplete",
+      "canonical_filename": "Crommelin_Pharmaceutical_Biotechnology_6e_2024.pdf",
+      "known_local_filename": "1071771071-Pharmaceutical-Biotechnology-Fundamentals-and-Applications-6th-ebook-pdf.pdf",
+      "primary_role": "pharma biotech, formulation, manufacture, development",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-010",
+      "title": "Peptide-based Drug Discovery: Challenges and New Therapeutics",
+      "authors": [
+        "Ved Srivastava (ed.)"
+      ],
+      "year": 2017,
+      "source_type": "academic_textbook",
+      "priority": "supporting",
+      "qc_status": "incomplete",
+      "canonical_filename": "Srivastava_Peptide_Based_Drug_Discovery_2017.pdf",
+      "known_local_filename": "1042230279-Peptide-based-Drug-Discovery-...pdf",
+      "primary_role": "drug design, ADME, delivery, translation",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-011",
+      "title": "Peptide Characterization and Application Protocols",
+      "authors": [
+        "Gregg B. Fields (ed.)"
+      ],
+      "year": 2007,
+      "source_type": "academic_methods_reference",
+      "priority": "core",
+      "qc_status": "incomplete",
+      "canonical_filename": "Fields_Peptide_Characterization_and_Application_Protocols_2007.pdf",
+      "known_local_filename": "1010686727-Peptide-Characterization-and-Application-Protoc...pdf",
+      "primary_role": "HPLC, mass spectrometry, characterization",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-012",
+      "title": "Peptides: Biology and Chemistry — Proceedings of the 1996 Chinese Peptide Symposium",
+      "authors": [
+        "Xiao-Jie Xu (ed.)",
+        "Yun-Hua Ye (ed.)",
+        "James P. Tam (ed.)"
+      ],
+      "year": 2002,
+      "source_type": "academic_textbook",
+      "priority": "supporting",
+      "qc_status": "usable",
+      "canonical_filename": "Xu_Ye_Tam_Peptides_Biology_and_Chemistry_2002.pdf",
+      "known_local_filename": "185968952-Peptides-Biology-and-Chemistry.pdf",
+      "primary_role": "historical/supporting peptide science",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-013",
+      "title": "Lyophilization of Biopharmaceuticals",
+      "authors": [
+        "Henry R. Costantino (ed.)",
+        "Michael J. Pikal (ed.)"
+      ],
+      "year": null,
+      "source_type": "academic_textbook",
+      "priority": "supporting",
+      "qc_status": "replace",
+      "canonical_filename": "Costantino_Pikal_Lyophilization_of_Biopharmaceuticals.pdf",
+      "known_local_filename": "88403241-Lyophilization-of-Biopharmaceuticals.pdf",
+      "primary_role": "freeze-drying, excipients, stability, degradation; current file only TOC",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-014",
+      "title": "Therapeutic Peptides and Proteins: Formulation, Processing, and Delivery Systems, 3rd Edition",
+      "authors": [
+        "Ajay K. Banga"
+      ],
+      "year": null,
+      "source_type": "academic_textbook",
+      "priority": "supporting",
+      "qc_status": "replace",
+      "canonical_filename": "Banga_Therapeutic_Peptides_and_Proteins_3e.pdf",
+      "known_local_filename": "1047650095-Download-Ebook-Therapeutic-Peptides-and-Prote...pdf",
+      "primary_role": "formulation, processing, delivery; current copy corrupted",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-015",
+      "title": "Handbook of Biologically Active Peptides, 2nd Edition",
+      "authors": [
+        "Abba J. Kastin (ed.)"
+      ],
+      "year": null,
+      "source_type": "academic_textbook",
+      "priority": "supporting",
+      "qc_status": "replace",
+      "canonical_filename": "Kastin_Handbook_Biologically_Active_Peptides_2e.pdf",
+      "known_local_filename": "1047568316-Handbook-of-biologically-active-peptides-2nd-Edition-Ebook-PDF-download.pdf",
+      "primary_role": "biological peptide families and mechanisms; current copy corrupted",
+      "public_fulltext_allowed": false
+    },
+    {
+      "source_key": "SRC-016",
+      "title": "Tremblay / CanLab Source Dossier",
+      "authors": [
+        "Jean-François Tremblay / CanLab archive"
+      ],
+      "year": null,
+      "source_type": "expert_interview",
+      "priority": "supporting",
+      "qc_status": "pending",
+      "canonical_filename": null,
+      "known_local_filename": null,
+      "primary_role": "practitioner commentary, nomenclature, protocol trails, older literature leads",
+      "public_fulltext_allowed": false
+    }
+  ]
+}

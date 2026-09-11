@@ -1,0 +1,50 @@
+{
+  "source_types": [
+    "regulatory_label",
+    "regulatory_guidance",
+    "compendial_standard",
+    "primary_journal_article",
+    "systematic_review_meta_analysis",
+    "clinical_trial_registry",
+    "academic_textbook",
+    "academic_methods_reference",
+    "practitioner_handbook",
+    "expert_interview",
+    "conference_presentation",
+    "manufacturer_quality_document",
+    "community_experiential",
+    "other"
+  ],
+  "evidence_types": [
+    "approved_label_evidence",
+    "human_rct",
+    "human_controlled_nonrandomized",
+    "human_prospective_uncontrolled",
+    "human_observational",
+    "human_case_series",
+    "human_case_report",
+    "human_pk_pd",
+    "human_safety_only",
+    "animal_in_vivo",
+    "ex_vivo",
+    "in_vitro",
+    "mechanistic_computational",
+    "academic_reference",
+    "practitioner_reference",
+    "expert_commentary",
+    "experiential_anecdotal"
+  ],
+  "verification_statuses": [
+    "unreviewed",
+    "captured",
+    "source_checked",
+    "primary_source_checked",
+    "scientific_reviewed",
+    "clinical_reviewed",
+    "compliance_reviewed",
+    "published",
+    "needs_update",
+    "superseded",
+    "rejected"
+  ]
+}

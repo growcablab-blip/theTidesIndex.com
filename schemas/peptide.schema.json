@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Peptide",
+  "type": "object",
+  "required": [
+    "peptide_key",
+    "canonical_name"
+  ],
+  "properties": {
+    "peptide_key": {
+      "type": "string"
+    },
+    "canonical_name": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compound_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "primary_category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "simple_summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "practitioner_summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "unknowns_summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

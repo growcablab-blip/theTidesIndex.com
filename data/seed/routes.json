@@ -1,0 +1,42 @@
+[
+  {
+    "route_key": "subcutaneous",
+    "name": "Subcutaneous"
+  },
+  {
+    "route_key": "intramuscular",
+    "name": "Intramuscular"
+  },
+  {
+    "route_key": "intravenous",
+    "name": "Intravenous"
+  },
+  {
+    "route_key": "intranasal",
+    "name": "Intranasal"
+  },
+  {
+    "route_key": "oral",
+    "name": "Oral"
+  },
+  {
+    "route_key": "sublingual-buccal",
+    "name": "Sublingual / Buccal"
+  },
+  {
+    "route_key": "topical",
+    "name": "Topical"
+  },
+  {
+    "route_key": "intradermal",
+    "name": "Intradermal"
+  },
+  {
+    "route_key": "intra-articular",
+    "name": "Intra-articular"
+  },
+  {
+    "route_key": "other",
+    "name": "Other / Specialized"
+  }
+]

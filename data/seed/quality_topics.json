@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Peptide synthesis / SPPS",
+    "status": "seeded"
+  },
+  {
+    "name": "Purification",
+    "status": "seeded"
+  },
+  {
+    "name": "Identity testing",
+    "status": "seeded"
+  },
+  {
+    "name": "HPLC / chromatographic purity",
+    "status": "seeded"
+  },
+  {
+    "name": "Mass spectrometry",
+    "status": "seeded"
+  },
+  {
+    "name": "Peptide content / assay",
+    "status": "seeded"
+  },
+  {
+    "name": "Sterility",
+    "status": "seeded"
+  },
+  {
+    "name": "Bacterial endotoxin",
+    "status": "seeded"
+  },
+  {
+    "name": "GMP / cGMP",
+    "status": "seeded"
+  },
+  {
+    "name": "Lyophilization",
+    "status": "seeded"
+  },
+  {
+    "name": "Formulation / excipients",
+    "status": "seeded"
+  },
+  {
+    "name": "Administration / delivery",
+    "status": "seeded"
+  },
+  {
+    "name": "Storage / stability",
+    "status": "seeded"
+  },
+  {
+    "name": "Transportation / excursions",
+    "status": "seeded"
+  },
+  {
+    "name": "Lot / batch traceability",
+    "status": "seeded"
+  },
+  {
+    "name": "Global manufacturing / supplier qualification",
+    "status": "seeded"
+  }
+]

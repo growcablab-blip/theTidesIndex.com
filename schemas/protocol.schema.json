@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Protocol",
+  "type": "object",
+  "required": [
+    "protocol_key",
+    "objective_context",
+    "evidence_type",
+    "verification_status"
+  ],
+  "properties": {
+    "protocol_key": {
+      "type": "string"
+    },
+    "peptide_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "objective_context": {
+      "type": "string"
+    },
+    "population_model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "route_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "amount_reported": {
+      "type": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "amount_unit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "frequency_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "duration_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "monitoring_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "safety_notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "verification_status": {
+      "type": "string"
+    },
+    "patient_visibility": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
