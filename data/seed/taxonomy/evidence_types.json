@@ -80,7 +80,6 @@
     "isInterpretive": false,
     "sortOrder": 90
   },
-
   {
     "key": "animal_in_vivo",
     "publicLabel": "Animal study",
@@ -117,7 +116,6 @@
     "isInterpretive": false,
     "sortOrder": 130
   },
-
   {
     "key": "academic_reference",
     "publicLabel": "Academic reference",
@@ -153,5 +151,14 @@
     "isHumanEvidence": false,
     "isInterpretive": true,
     "sortOrder": 170
+  },
+  {
+    "key": "regulatory_reference",
+    "publicLabel": "Regulatory or compendial guidance",
+    "description": "An official guideline or standard issued by a regulator or a pharmacopoeia. It states what should be done, within a stated scope — it is not a study, and it reports no result.",
+    "evidenceClass": "reference_opinion",
+    "isHumanEvidence": false,
+    "isInterpretive": true,
+    "sortOrder": 139
   }
 ]

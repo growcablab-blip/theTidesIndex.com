@@ -92,6 +92,20 @@
       "when": 1789144971400,
       "tag": "0012_public_quality_page",
       "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1789148532535,
+      "tag": "0013_certificates",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1789148535535,
+      "tag": "0014_claim_scope_public",
+      "breakpoints": true
     }
   ]
 }

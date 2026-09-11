@@ -68,7 +68,8 @@ describe('the quality map', () => {
       [HUB],
     );
 
-    expect(edges).toHaveLength(seedData.qualityMap.edges.length);
+    const fromHub = seedData.qualityMap.edges.filter((e) => e.from === HUB);
+    expect(edges).toHaveLength(fromHub.length);
 
     const byKey = new Map(edges.map((e) => [e.to_key, e.relationship_type]));
     // The two statements the packet actually supports.

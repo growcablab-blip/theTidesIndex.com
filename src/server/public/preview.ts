@@ -2,6 +2,7 @@ import 'server-only';
 import { getStaffDb } from '../db/client';
 import { currentPreviewEnv, previewAllowed, previewRefusal } from './preview-gate';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
+import { readSpecimenCertificate, type CertificateReading } from './certificate';
 
 /**
  * Looking at an unpublished record during development.
@@ -45,4 +46,12 @@ export function previewRefusalReason(): string | null {
 export async function previewQualityTopic(slug: string): Promise<QualityTopicReading | null> {
   if (!previewEnabled()) return null;
   return readQualityTopic(getStaffDb(), slug, { preview: true });
+}
+
+/** The specimen certificate, read without the publication filter. */
+export async function previewSpecimenCertificate(
+  certificateKey: string,
+): Promise<CertificateReading | null> {
+  if (!previewEnabled()) return null;
+  return readSpecimenCertificate(getStaffDb(), certificateKey, { preview: true });
 }

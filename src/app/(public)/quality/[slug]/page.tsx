@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getQualityTopicPage, type Citation } from '@/server/public/queries';
-import { previewQualityTopic } from '@/server/public/preview';
+import { getQualityTopicPage, getSpecimenCertificate, type Citation } from '@/server/public/queries';
+import { previewQualityTopic, previewSpecimenCertificate } from '@/server/public/preview';
+import { transparencyDimensions, type CertificateReading } from '@/server/public/certificate';
 import type { QualityTopicReading } from '@/server/public/quality-topic';
 import { getReadingMode } from '@/server/public/reading-mode';
 import {
@@ -31,6 +32,11 @@ import {
   PreviewBanner,
   ReviewStatusPanel,
 } from '@/components/public/record-status';
+import {
+  AnnotatedCertificate,
+  ChainOfCustodyFigure,
+  TransparencyDimensions,
+} from '@/components/public/certificate';
 
 /**
  * A quality topic.
@@ -67,6 +73,15 @@ async function loadTopic(slug: string): Promise<QualityTopicReading | null> {
   const published = await getQualityTopicPage(slug);
   if (published) return published;
   return previewQualityTopic(slug);
+}
+
+/** The specimen is published content; the preview path is the same fallback. */
+const SPECIMEN_KEY = 'specimen-third-party-report';
+
+async function loadSpecimen(): Promise<CertificateReading | null> {
+  const published = await getSpecimenCertificate(SPECIMEN_KEY);
+  if (published) return published;
+  return previewSpecimenCertificate(SPECIMEN_KEY);
 }
 
 export async function generateMetadata({
@@ -110,6 +125,9 @@ export default async function QualityTopicPage({
   // does not get that section, rather than getting a generic diagram that would
   // imply more than this index knows.
   const hasFigures = topic.slug === 'hplc-purity';
+  // The certificate reader belongs to one topic. Everywhere else the section
+  // simply does not appear, rather than appearing empty.
+  const certificate = topic.slug === 'certificate-of-analysis' ? await loadSpecimen() : null;
 
   const contents = [
     { id: 'overview', label: 'In short' },
@@ -129,6 +147,13 @@ export default async function QualityTopicPage({
       empty: topic.gaps.length === 0,
     },
     ...(hasFigures ? [{ id: 'dimensions', label: 'Separate questions' }] : []),
+    ...(certificate
+      ? [
+          { id: 'specimen', label: 'A specimen document' },
+          { id: 'chain', label: 'Which batch was tested?' },
+          { id: 'transparency', label: 'What the document tells you' },
+        ]
+      : []),
     {
       id: 'related',
       label: 'Related topics',
@@ -310,6 +335,50 @@ export default async function QualityTopicPage({
           >
             <QualityDimensionsFigure />
           </Section>
+        ) : null}
+
+        {certificate ? (
+          <>
+            <Section
+              id="specimen"
+              title="A specimen document, annotated"
+              lede="A fictional certificate, built to be read rather than admired. Every field it omits is marked where the field would have been."
+            >
+              <AnnotatedCertificate certificate={certificate} simple={simple} />
+            </Section>
+
+            <Section
+              id="chain"
+              title="Which batch was actually tested?"
+              lede="The question worth asking of any certificate. It is answered by following identifiers, not by reading results."
+            >
+              <ChainOfCustodyFigure certificate={certificate} />
+              {certificate.whatItDemonstrates ? (
+                <div className="mt-5 grid gap-5 lg:grid-cols-2">
+                  <div className="rounded-md border border-l-[3px] border-rule border-l-tide-teal bg-warm-white px-5 py-4">
+                    <h3 className="text-sm font-medium text-ink">What this document shows</h3>
+                    <p className="mt-1.5 text-sm text-ink-soft">
+                      {certificate.whatItDemonstrates}
+                    </p>
+                  </div>
+                  <div className="rounded-md border border-l-[3px] border-[var(--color-caution-rule)] border-l-[var(--color-caution)] bg-[var(--color-caution-bg)] px-5 py-4">
+                    <h3 className="text-sm font-medium text-ink">What it does not show</h3>
+                    <p className="mt-1.5 text-sm text-ink-soft">
+                      {certificate.whatItDoesNotDemonstrate}
+                    </p>
+                  </div>
+                </div>
+              ) : null}
+            </Section>
+
+            <Section
+              id="transparency"
+              title="What the document tells you, by kind"
+              lede="Dimensions, not a score. Nothing here is added up, because a total would be read as a verdict on the material."
+            >
+              <TransparencyDimensions dimensions={transparencyDimensions(certificate)} />
+            </Section>
+          </>
         ) : null}
 
         <Section

@@ -1,0 +1,114 @@
+{
+  "note": "A fictional teaching document. Every value in it was invented for this index; no supplier, laboratory, batch or result here corresponds to anything real, and none was copied from a real certificate. It exists so that a reader can be shown where the useful questions sit on a page of this shape, and it is deliberately imperfect: the omissions are the lesson.",
+
+  "certificateKey": "specimen-third-party-report",
+  "certificateType": "third_party_test_report",
+  "documentTitle": "SPECIMEN — Analytical Test Report (fictional teaching document)",
+  "issuingEntity": "Example Analytical Services (fictional)",
+  "laboratoryName": "Example Analytical Services (fictional)",
+  "laboratoryAddress": "Unit 0, Example Industrial Estate, Exampleton (fictional address)",
+  "laboratoryContact": null,
+  "manufacturerName": null,
+  "manufacturerAddress": null,
+  "distributorName": "Example Peptide Supply Co. (fictional)",
+  "documentDate": "2026-04-14",
+  "reportNumber": "SPEC-TR-000000",
+  "provenanceNotes": "Constructed for this index as a teaching document. Not received from any supplier and not based on any real certificate.",
+
+  "statedMaterialName": "Example Peptide (fictional material)",
+  "statedGrade": null,
+  "statedStrength": null,
+  "batchNumber": "EXB-0000",
+  "manufacturerBatchNumber": null,
+  "sampleIdentifier": "LAB-SMP-0000",
+  "submittedSampleIdentifier": "Client reference: EXB-0000",
+  "expiryDate": null,
+  "retestDate": null,
+
+  "testedMaterialScope": "unknown",
+  "submittedBy": "Example Peptide Supply Co. (fictional)",
+  "chainOfCustodyKnown": false,
+  "batchLinkage": "stated_only",
+  "manufacturerIdentityEstablished": false,
+
+  "authorisedBy": "A. Analyst, Laboratory Manager (fictional)",
+
+  "whatItDemonstrates": "That a named laboratory reports having performed the listed tests on a sample it received, obtaining the results shown, on the stated dates.",
+  "whatItDoesNotDemonstrate": "Who manufactured the material; whether the sample the laboratory received was drawn from the batch named, or was representative of it; whether the material in any particular container is that batch; and whether any result is correct, since nothing here has been checked against anything but this document.",
+  "provenanceGaps": "The document names no original manufacturer, so the material's origin cannot be traced from it. The sample was submitted by the reseller rather than drawn under any custody arrangement described here, so the link between the batch named and the material tested rests entirely on the submitter's assertion.",
+  "missingFields": [
+    "Original manufacturer name and address",
+    "Manufacturer's own batch number",
+    "Whether the tested material was an API, bulk material or finished product",
+    "Acceptance criterion for the mass spectrometry result",
+    "Method reference for the water determination",
+    "How the sample was drawn and by whom"
+  ],
+  "unverifiedRelationships": "Batch EXB-0000 to the submitted sample; the reseller to any manufacturer; this report to any container a reader might hold.",
+
+  "authenticityState": "not_checked",
+  "authenticityNotes": null,
+
+  "tests": [
+    {
+      "testName": "Purity by reversed-phase HPLC",
+      "analyticalMethod": "Reversed-phase HPLC, UV detection at 214 nm",
+      "methodReference": "Laboratory in-house method (fictional)",
+      "referenceStandard": null,
+      "specificationText": "Not less than 98.0% (as stated by the submitter)",
+      "resultNumeric": "99.1",
+      "resultUnit": "% of total peak area",
+      "resultText": null,
+      "attachmentReference": "Chromatogram referenced as Annex 1 (not supplied with this specimen)",
+      "testDate": "2026-04-11",
+      "qualityKey": "hplc-purity",
+      "sortOrder": 10,
+      "teachingNote": "The figure most readers stop at. It describes how mixed the submitted sample was under one set of conditions — not what the material is, how much of it there is, or whether it came from the batch named. Note also that the acceptance criterion here was supplied by the party selling the material."
+    },
+    {
+      "testName": "Identity by LC-MS",
+      "analyticalMethod": "Liquid chromatography with mass spectrometric detection",
+      "methodReference": null,
+      "referenceStandard": null,
+      "specificationText": null,
+      "resultNumeric": null,
+      "resultUnit": null,
+      "resultText": "Observed mass consistent with the expected monoisotopic mass",
+      "attachmentReference": null,
+      "testDate": "2026-04-11",
+      "qualityKey": "mass-spectrometry",
+      "sortOrder": 20,
+      "teachingNote": "No acceptance criterion is stated, so 'consistent with' is the laboratory's judgement rather than a measurement against a limit. A mass result bears on identity; the purity figure above does not."
+    },
+    {
+      "testName": "Water content",
+      "analyticalMethod": "Karl Fischer titration",
+      "methodReference": null,
+      "referenceStandard": null,
+      "specificationText": null,
+      "resultNumeric": "6.4",
+      "resultUnit": "% w/w",
+      "resultText": null,
+      "attachmentReference": null,
+      "testDate": "2026-04-12",
+      "qualityKey": "water-content",
+      "sortOrder": 30,
+      "teachingNote": "A number with no stated limit. Whether 6.4% is acceptable depends on a specification this document does not carry, and this index holds no source stating one."
+    },
+    {
+      "testName": "Sterility",
+      "analyticalMethod": null,
+      "methodReference": null,
+      "referenceStandard": null,
+      "specificationText": null,
+      "resultNumeric": null,
+      "resultUnit": null,
+      "resultText": "Not tested",
+      "attachmentReference": null,
+      "testDate": null,
+      "qualityKey": "sterility",
+      "sortOrder": 40,
+      "teachingNote": "Listed precisely because it was not performed. A certificate covering purity and identity is silent about sterility, and silence is easy to read as reassurance."
+    }
+  ]
+}

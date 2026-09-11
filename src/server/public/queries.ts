@@ -19,8 +19,15 @@ import {
 } from './shapes';
 import { readProtocols } from './protocol-reader';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
+import { readSpecimenCertificate, type CertificateReading } from './certificate';
 
 export type { QualityTopicReading } from './quality-topic';
+export type {
+  CertificateReading,
+  CertificateTestReading,
+  DimensionState,
+  TransparencyDimension,
+} from './certificate';
 export type {
   Citation,
   EvidenceGap,
@@ -239,7 +246,7 @@ export const getPeptidePage = cache(
       const claimRows = rows<Record<string, unknown>>(
         await tx.execute(sql`
           select id, claim_key, claim_text, plain_language_text, claim_category,
-                 importance, interpretation_notes, uncertainty_text,
+                 importance, certificate_type_scope, interpretation_notes, uncertainty_text,
                  is_editorial_non_evidentiary, needs_update,
                  last_reviewed_at::text as last_reviewed_at
           from public_v_claims
@@ -301,6 +308,7 @@ export const getPeptidePage = cache(
         plainLanguageText: str(c.plain_language_text),
         claimCategory: str(c.claim_category),
         importance: String(c.importance),
+        certificateTypeScope: str(c.certificate_type_scope),
         interpretationNotes: str(c.interpretation_notes),
         uncertaintyText: str(c.uncertainty_text),
         isEditorialNonEvidentiary: Boolean(c.is_editorial_non_evidentiary),
@@ -490,6 +498,11 @@ export const listQualityTopics = cache(async (): Promise<QualityTopicSummary[]> 
  * edges say what kind of relationship each one is and what it rests on.
  */
 export type QualityTopicPage = QualityTopicReading;
+
+export const getSpecimenCertificate = cache(
+  async (certificateKey: string): Promise<CertificateReading | null> =>
+    asPublic((tx) => readSpecimenCertificate(tx, certificateKey)),
+);
 
 export const getQualityTopicPage = cache(
   async (slug: string): Promise<QualityTopicPage | null> =>

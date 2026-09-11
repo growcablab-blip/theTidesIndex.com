@@ -88,6 +88,54 @@
       "rationale": "Every result describes the material that was tested. Which batch that was, and whether it is the batch in hand, is a record-keeping question rather than an analytical one — and it governs how far any result on this page reaches.",
       "isEditorialNavigational": true,
       "sortOrder": 110
+    },
+    {
+      "from": "coa-literacy",
+      "to": "batch-traceability",
+      "relationshipType": "scoped_by",
+      "rationale": "A certificate describes a batch. Whether the batch it names is the material in hand is a record-keeping question, and it governs how far everything on the document reaches.",
+      "isEditorialNavigational": true,
+      "sortOrder": 10
+    },
+    {
+      "from": "coa-literacy",
+      "to": "hplc-purity",
+      "relationshipType": "complementary",
+      "rationale": "A purity figure is the entry most readers look at first. What it describes, and what it leaves open, is set out on its own page.",
+      "claimKey": "HPLC-002",
+      "sortOrder": 20
+    },
+    {
+      "from": "coa-literacy",
+      "to": "identity-testing",
+      "relationshipType": "other_attribute",
+      "rationale": "Identity is one of the attributes a certificate may report, with its own testing.",
+      "isEditorialNavigational": true,
+      "sortOrder": 30
+    },
+    {
+      "from": "coa-literacy",
+      "to": "peptide-content-assay",
+      "relationshipType": "other_attribute",
+      "rationale": "Content is one of the attributes a certificate may report, with its own testing.",
+      "isEditorialNavigational": true,
+      "sortOrder": 40
+    },
+    {
+      "from": "coa-literacy",
+      "to": "sterility",
+      "relationshipType": "not_addressed_by",
+      "rationale": "A certificate covering purity and identity is silent about sterility. This index holds no source on sterility testing, so it records the gap rather than asserting a conclusion.",
+      "gapKey": "hplc-purity-gap-01",
+      "sortOrder": 50
+    },
+    {
+      "from": "coa-literacy",
+      "to": "water-content",
+      "relationshipType": "other_attribute",
+      "rationale": "Water content is one of the attributes a certificate may report, with its own testing.",
+      "isEditorialNavigational": true,
+      "sortOrder": 60
     }
   ]
 }

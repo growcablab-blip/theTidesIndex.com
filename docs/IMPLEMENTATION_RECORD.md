@@ -821,3 +821,69 @@ Both are asserted by test.
   column rather than inside it.
 
 **196 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.5 — Certificates
+
+Full detail in `docs/PHASE_C5_REPORT.md`. What changed the architecture:
+
+### C.5.1 Sources were acquired, not assumed
+
+The ICH guidelines are published free by the issuing body, so Q7, Q2(R2) and Q14
+were retrieved directly from database.ich.org, their title pages read, and their
+file identity recorded. The USP general chapters are not free, and copies that
+circulate on document-sharing sites were refused: V-014 established what those
+are worth, and using one to unblock a topic would have discarded the whole lesson
+of C.1. They are registered with `access_status: subscription_required` and no
+file, so the absence is part of the record. A test asserts no claim rests on a
+source this index cannot open.
+
+### C.5.2 A requirement carries what it governs
+
+ICH Q7 §11.4 states what a certificate should contain for an active
+pharmaceutical ingredient. It says nothing about finished products, about a
+laboratory's report on a submitted sample, or about research-use material — which
+is most of what a reader actually holds. "Q7 says a certificate should show X"
+becoming "every certificate must show X" is one careless sentence, and it would
+lend this index's authority to a requirement that does not exist.
+
+So scope is enforced three deep: `claims_certificate_scope_declared` refuses a
+certificate-content claim without a document type; the scope renders above the
+requirement in both reading modes; and the gaps name the document types that are
+not covered.
+
+### C.5.3 Reported is not verified
+
+`certificate_tests.independently_verified` defaults false and cannot be set true
+without a note saying what was checked. Nothing in this index has ever checked a
+reported result against anything but the document reporting it, and the default
+makes that the resting state rather than something an editor must remember. The
+badge appears on every result row rather than once at the top, because a reader
+scanning a table does not carry a preamble down the page.
+
+### C.5.4 A real certificate cannot reach a reader
+
+`public_v_certificates` filters `is_specimen AND NOT is_demonstration`. Not
+unpublished-by-default — structurally impossible. A real certificate names a
+supplier, a batch and a laboratory that are not this index's to publish.
+
+`is_specimen` and `is_demonstration` are separate flags: the specimen is
+published teaching content, the demonstration flag marks the local fixture that
+the production guard refuses. Certificates now count toward that guard.
+
+### C.5.5 Dimensions, never a score
+
+The `TransparencyDimension` type has no numeric field, so there is nothing to
+sum. A well-documented certificate can describe poor material and a sparse one
+can carry a sound result; there is no honest way to add those up.
+
+### C.5.6 Two defects found by reading the rendered page
+
+- **"None of these are stated"** displayed against a document that stated a
+  method for three of its four tests, because a per-test dimension was marked
+  absent unless every test satisfied it. False, and the kind of false that
+  damages a supplier.
+- **The certificate scope reached the database and stopped there.** It was not in
+  the public view, so a requirement scoped in storage arrived at the reader
+  unscoped — the useless half of the work.
+
+**233 tests.** Lint, typecheck, tests and production build pass.

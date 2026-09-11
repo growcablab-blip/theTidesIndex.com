@@ -157,6 +157,22 @@ const packetClaimSchema = z.object({
   plainLanguageText: z.string().nullable().default(null),
   claimCategory: z.string().nullable().default(null),
   importance: z.enum(['low', 'medium', 'high', 'critical']).default('medium'),
+  /**
+   * Which kind of document a certificate-content requirement governs. Required
+   * by the database for any `certificate-content` claim: a requirement with no
+   * stated scope is how "Q7 says an API certificate should show X" becomes
+   * "every certificate must show X".
+   */
+  certificateTypeScope: z
+    .enum([
+      'manufacturer_coa',
+      'third_party_test_report',
+      'finished_product_release',
+      'supplier_repacker_certificate',
+      'other_unknown',
+    ])
+    .nullable()
+    .default(null),
   interpretationNotes: z.string().min(1),
   uncertaintyText: z.string().min(1),
   evidence: z.array(packetEvidenceSchema).min(1),
@@ -191,7 +207,10 @@ const evidencePacketSchema = z.object({
 export type EvidencePacket = z.infer<typeof evidencePacketSchema>;
 
 /** Packets are listed explicitly: adding one is an editorial decision. */
-const EVIDENCE_PACKET_FILES = ['evidence/hplc-purity.json'] as const;
+const EVIDENCE_PACKET_FILES = [
+  'evidence/hplc-purity.json',
+  'evidence/coa-literacy.json',
+] as const;
 
 /**
  * The quality map: typed edges between quality topics.
@@ -226,6 +245,87 @@ const qualityMapSchema = z.object({
 
 export type QualityEdge = z.infer<typeof qualityEdgeSchema>;
 
+/**
+ * The specimen certificate: a fictional teaching document.
+ *
+ * Loaded as ordinary content rather than as demonstration data, because it is
+ * meant to be published and read. What makes it safe is that it is fictional and
+ * declares itself so in its own title — a database constraint enforces the
+ * second part.
+ */
+const specimenTestSchema = z.object({
+  testName: z.string().min(1),
+  analyticalMethod: z.string().nullable().default(null),
+  methodReference: z.string().nullable().default(null),
+  referenceStandard: z.string().nullable().default(null),
+  specificationText: z.string().nullable().default(null),
+  resultNumeric: z.string().nullable().default(null),
+  resultUnit: z.string().nullable().default(null),
+  resultText: z.string().nullable().default(null),
+  attachmentReference: z.string().nullable().default(null),
+  testDate: z.string().nullable().default(null),
+  qualityKey: z.string().min(1),
+  sortOrder: z.number().int().default(0),
+  /** Why this entry is on the specimen. Shown beside it, never as a finding. */
+  teachingNote: z.string().min(1),
+});
+
+const specimenCertificateSchema = z.object({
+  note: z.string().min(1),
+  certificateKey: z.string().min(1),
+  certificateType: z.enum([
+    'manufacturer_coa',
+    'third_party_test_report',
+    'finished_product_release',
+    'supplier_repacker_certificate',
+    'other_unknown',
+  ]),
+  documentTitle: z.string().min(1),
+  issuingEntity: z.string().nullable().default(null),
+  laboratoryName: z.string().nullable().default(null),
+  laboratoryAddress: z.string().nullable().default(null),
+  laboratoryContact: z.string().nullable().default(null),
+  manufacturerName: z.string().nullable().default(null),
+  manufacturerAddress: z.string().nullable().default(null),
+  distributorName: z.string().nullable().default(null),
+  documentDate: z.string().nullable().default(null),
+  reportNumber: z.string().nullable().default(null),
+  provenanceNotes: z.string().nullable().default(null),
+  statedMaterialName: z.string().nullable().default(null),
+  statedGrade: z.string().nullable().default(null),
+  statedStrength: z.string().nullable().default(null),
+  batchNumber: z.string().nullable().default(null),
+  manufacturerBatchNumber: z.string().nullable().default(null),
+  sampleIdentifier: z.string().nullable().default(null),
+  submittedSampleIdentifier: z.string().nullable().default(null),
+  expiryDate: z.string().nullable().default(null),
+  retestDate: z.string().nullable().default(null),
+  testedMaterialScope: z.enum(['api', 'intermediate', 'bulk_material', 'finished_product', 'unknown']),
+  submittedBy: z.string().nullable().default(null),
+  chainOfCustodyKnown: z.boolean().nullable().default(null),
+  batchLinkage: z.enum(['established', 'stated_only', 'not_established', 'unknown']),
+  manufacturerIdentityEstablished: z.boolean().default(false),
+  authorisedBy: z.string().nullable().default(null),
+  whatItDemonstrates: z.string().min(1),
+  whatItDoesNotDemonstrate: z.string().min(1),
+  provenanceGaps: z.string().nullable().default(null),
+  missingFields: z.array(z.string()).default([]),
+  unverifiedRelationships: z.string().nullable().default(null),
+  authenticityState: z.enum([
+    'not_checked',
+    'issuer_verified',
+    'report_identifier_verified',
+    'laboratory_verified',
+    'retrieved_from_issuer',
+    'discrepancy_detected',
+    'unable_to_verify',
+  ]),
+  authenticityNotes: z.string().nullable().default(null),
+  tests: z.array(specimenTestSchema).min(1),
+});
+
+export type SpecimenCertificate = z.infer<typeof specimenCertificateSchema>;
+
 /** The source registry, as recorded in SOURCE_MANIFEST.json at the repo root. */
 const manifestSourceSchema = z.object({
   source_key: z.string().min(1),
@@ -251,6 +351,11 @@ const manifestSourceSchema = z.object({
   page_count: z.number().int().nullable().default(null),
   /** Printed page + offset = page of the held file. Null where they agree. */
   printed_page_offset: z.number().int().nullable().default(null),
+  /** Whether a copy is actually held, and why not where it is not. */
+  access_status: z
+    .enum(['held', 'subscription_required', 'public_not_yet_retrieved', 'unavailable', 'unknown'])
+    .default('unknown'),
+  access_notes: z.string().nullable().default(null),
   title_page_verified: z.boolean().default(false),
   bibliographic_verified: z.boolean().default(false),
   title_page_title: z.string().nullable().default(null),
@@ -292,6 +397,9 @@ export const seedData = {
     evidencePacketSchema.parse(loadJson(file)),
   ),
   qualityMap: qualityMapSchema.parse(loadJson('quality_map.json')),
+  specimenCertificate: specimenCertificateSchema.parse(
+    loadJson('certificates/specimen-coa.json'),
+  ),
   sourceManifest: manifestSchema.parse(
     JSON.parse(
       readFileSync(fileURLToPath(new URL('../../SOURCE_MANIFEST.json', import.meta.url)), 'utf8'),

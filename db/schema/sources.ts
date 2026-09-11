@@ -89,6 +89,17 @@ export const sources = pgTable(
      */
     printedPageOffset: integer(),
 
+    /**
+     * Whether this index actually holds a copy, and why not where it does not.
+     *
+     * A source the register names but cannot read is a different thing from one
+     * it has never heard of, and both are different from one it holds. The USP
+     * general chapters sit behind a subscription; recording that is what stops
+     * "we should get <71>" from quietly becoming "<71> says…".
+     */
+    accessStatus: text().notNull().default('unknown'),
+    accessNotes: text(),
+
     // --- Verification ----------------------------------------------------
     /** Someone opened the copy and read its title page. */
     titlePageVerified: boolean().notNull().default(false),

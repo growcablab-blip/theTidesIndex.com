@@ -110,6 +110,7 @@ export async function loadEvidencePacket(
     plainLanguageText: claim.plainLanguageText,
     claimCategory: claim.claimCategory,
     importance: claim.importance,
+    certificateTypeScope: claim.certificateTypeScope,
     interpretationNotes: claim.interpretationNotes,
     uncertaintyText: claim.uncertaintyText,
   }));
@@ -125,6 +126,7 @@ export async function loadEvidencePacket(
         plainLanguageText: sql`excluded.plain_language_text`,
         claimCategory: sql`excluded.claim_category`,
         importance: sql`excluded.importance`,
+        certificateTypeScope: sql`excluded.certificate_type_scope`,
         interpretationNotes: sql`excluded.interpretation_notes`,
         uncertaintyText: sql`excluded.uncertainty_text`,
       },

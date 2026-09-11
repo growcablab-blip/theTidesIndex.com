@@ -3,6 +3,7 @@ import type { PgDatabase, PgQueryResultHKT } from 'drizzle-orm/pg-core';
 import * as schema from '../schema';
 import { loadEvidencePackets } from './evidence-packets';
 import { loadQualityMap } from './quality-map';
+import { loadSpecimenCertificate } from './certificates';
 import { seedData } from './seed-data';
 
 /**
@@ -34,6 +35,7 @@ export interface SeedResult {
   claimEvidence: number;
   evidenceGaps: number;
   qualityRelationships: number;
+  specimenCertificateTests: number;
 }
 
 export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
@@ -48,6 +50,7 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     packets.reduce((sum, p) => sum + p[field], 0);
   // The map cites the claims and gaps the packets created, so it loads last.
   const qualityRelationships = await loadQualityMap(db);
+  const specimenCertificateTests = await loadSpecimenCertificate(db);
 
   return {
     sourceTypes: seedData.sourceTypes.length,
@@ -66,6 +69,7 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     claimEvidence: total('evidence'),
     evidenceGaps: total('gaps'),
     qualityRelationships,
+    specimenCertificateTests,
   };
 }
 
@@ -198,6 +202,8 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
       localFileBytes: source.local_file_bytes,
       pageCount: source.page_count,
       printedPageOffset: source.printed_page_offset,
+      accessStatus: source.access_status,
+      accessNotes: source.access_notes,
       titlePageVerified: source.title_page_verified,
       bibliographicVerified: source.bibliographic_verified,
       titlePageTitle: source.title_page_title,
@@ -233,6 +239,8 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
         localFileBytes: sql`excluded.local_file_bytes`,
         pageCount: sql`excluded.page_count`,
         printedPageOffset: sql`excluded.printed_page_offset`,
+        accessStatus: sql`excluded.access_status`,
+        accessNotes: sql`excluded.access_notes`,
         titlePageVerified: sql`excluded.title_page_verified`,
         bibliographicVerified: sql`excluded.bibliographic_verified`,
         titlePageTitle: sql`excluded.title_page_title`,

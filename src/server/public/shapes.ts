@@ -111,6 +111,12 @@ export interface PublicClaim {
   readonly plainLanguageText: string | null;
   readonly claimCategory: string | null;
   readonly importance: string;
+  /**
+   * The document type a certificate-content requirement governs. Rendered
+   * wherever the requirement is, because a requirement shown without its scope
+   * is read as universal — which is exactly what Q7's is not.
+   */
+  readonly certificateTypeScope: string | null;
   readonly interpretationNotes: string | null;
   readonly uncertaintyText: string | null;
   readonly isEditorialNonEvidentiary: boolean;

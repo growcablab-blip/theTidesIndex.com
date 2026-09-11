@@ -126,7 +126,7 @@ export async function readQualityTopic(
   const claimRows = rows<Record<string, unknown>>(
     await tx.execute(sql`
       select id, claim_key, claim_text, plain_language_text, claim_category,
-             importance, interpretation_notes, uncertainty_text,
+             importance, certificate_type_scope, interpretation_notes, uncertainty_text,
              is_editorial_non_evidentiary, needs_update,
              last_reviewed_at::text as last_reviewed_at
       from ${r.claims}
@@ -240,6 +240,7 @@ export async function readQualityTopic(
       plainLanguageText: str(c.plain_language_text),
       claimCategory: str(c.claim_category),
       importance: String(c.importance),
+      certificateTypeScope: str(c.certificate_type_scope),
       interpretationNotes: str(c.interpretation_notes),
       uncertaintyText: str(c.uncertainty_text),
       isEditorialNonEvidentiary: Boolean(c.is_editorial_non_evidentiary),

@@ -42,11 +42,19 @@ describe('source registry', () => {
     const inventory = await buildSourceInventory();
     const pending = inventory.entries.filter((e) => e.state === 'not_recorded');
 
-    // SRC-016 is an external source stream that has not been captured.
-    expect(pending.map((e) => e.sourceKey)).toEqual(['SRC-016']);
+    // SRC-016 is an external source stream that has not been captured. The USP
+    // general chapters joined it in C.5: registered, named, and behind a
+    // subscription this index does not hold.
+    expect(pending.map((e) => e.sourceKey)).toContain('SRC-016');
+
     for (const entry of pending) {
       const source = seedData.sourceManifest.sources.find((s) => s.source_key === entry.sourceKey);
-      expect(source?.qc_status).toBe('pending');
+      expect(source?.qc_status, entry.sourceKey).toBe('pending');
+      // A source with no copy must say why there is no copy. "We should get it"
+      // becoming "it says…" is the failure this closes, and an unexplained
+      // absence is where that starts.
+      expect(source?.access_status, entry.sourceKey).not.toBe('held');
+      expect(source?.access_notes, entry.sourceKey).not.toBeNull();
     }
   });
 

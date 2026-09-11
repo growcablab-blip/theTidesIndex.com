@@ -163,17 +163,87 @@
   },
   {
     "issueKey": "V-015",
-    "topic": "The quality section rests on a single analytical source",
-    "whyItMatters": "After the integrity audit, SRC-006 (Grant, Synthetic Peptides, 2nd ed., OUP 2002) is the only complete analytical reference held. It is authoritative on chromatographic principles, which have not changed, but it is twenty-plus years old and says nothing about current compendial method requirements or regulatory expectations. A quality section resting on one source of one age is fragile: if that source is ever downgraded, everything built on it is withdrawn at once.",
-    "currentSourceSignal": "SRC-011 and SRC-013, the other analytical and formulation references, are both unusable. No compendial or regulatory source is in the register at all.",
-    "neededVerification": "Add at least one current compendial or regulatory analytical source, and one modern analytical text, before the quality section is extended beyond chromatographic principles.",
+    "topic": "Source coverage for the quality section, by topic",
+    "whyItMatters": "After C.5 this is no longer one gap but a set of them, and they are in different states. Chromatography now has a modern regulatory frame around the Grant textbook; certificate content has a real source for one document type and none for the others; sterility, endotoxin, residual solvents and water have no source at all. Recording that as a single line invited the wrong conclusion in both directions — that everything was blocked, or that acquiring one document had unblocked everything.",
+    "currentSourceSignal": "HELD AND EXTRACTED: SRC-006 Grant (chromatographic principles, 2002); SRC-017 ICH Q7 s.11.4 and s.17 (API and intermediate certificate content and distributor traceability). HELD, NOT YET EXTRACTED: SRC-018 ICH Q2(R2) analytical validation; SRC-019 ICH Q14 analytical procedure development; SRC-020 PDG Stage 4 harmonised <621> text, scoped as harmonised text rather than the current USP-NF chapter. REGISTERED, NO COPY HELD: SRC-021 USP <621>, SRC-022 USP <71>, SRC-023 USP <85>, SRC-024 USP <467>, SRC-025 USP <921>, SRC-026 USP <1085> — all behind a USP-NF subscription. NO SOURCE AT ALL: finished-product certificate content; third-party laboratory report conventions; certificate content for research-use material.",
+    "neededVerification": "Per area. Chromatography: USP <621> to state method and system-suitability requirements (V-016). Sterility: USP <71> (V-017). Endotoxin: USP <85>, with <1085> as supporting guidance (V-018). Residual solvents: USP <467> (V-019). Water: USP <921> (V-020). Finished-product and third-party report documentation: a source of any kind, none currently identified (V-021). No area is closed until its source is registered, accessible, locator-verified and actually extracted from — holding a file is not the same as having read it.",
     "priority": "high",
     "relatedKeys": [
-      "quality_topic:hplc-purity",
-      "quality_topic:identity-testing",
+      "V-016",
+      "V-017",
+      "V-018",
+      "V-019",
+      "V-020",
+      "V-021"
+    ]
+  },
+  {
+    "issueKey": "V-016",
+    "topic": "Chromatography method requirements are not established",
+    "whyItMatters": "SRC-006 (Grant, 2002) supports what a chromatographic result describes and what it does not. It cannot state what a compendial method must satisfy, and this index therefore cannot say whether any particular chromatographic result was produced by an adequate method.",
+    "currentSourceSignal": "SRC-020 holds the PDG Stage 4 harmonised <621> text, which is genuine but is not the current USP-NF chapter and is scoped accordingly. The official chapter (SRC-021) is behind a subscription.",
+    "neededVerification": "Obtain USP <621> lawfully, audit it, and extract system-suitability and method requirements with exact locators. Until then the harmonised PDG text may be cited only as harmonised text.",
+    "priority": "high",
+    "relatedKeys": [
+      "quality_topic:hplc-purity"
+    ]
+  },
+  {
+    "issueKey": "V-017",
+    "topic": "Sterility cannot be written at all",
+    "whyItMatters": "The HPLC page records as an evidence gap that it cannot speak to sterility. That gap is honest but permanent until a source exists: no document in the register addresses sterility testing, so the sterility topic has nothing to say and the certificate reader cannot explain what a sterility entry on a certificate means.",
+    "currentSourceSignal": "SRC-022 (USP <71>) is registered with no copy held; USP-NF requires a subscription.",
+    "neededVerification": "Obtain USP <71> lawfully, audit it, extract with locators. Nothing about sterility may be published before then.",
+    "priority": "high",
+    "relatedKeys": [
       "quality_topic:sterility",
+      "quality_topic:coa-literacy"
+    ]
+  },
+  {
+    "issueKey": "V-018",
+    "topic": "Bacterial endotoxin cannot be written at all",
+    "whyItMatters": "As with sterility: recorded as a gap on the HPLC page and unanswerable until a source is held. Endotoxin is among the attributes a reader is most likely to assume a purity figure covers.",
+    "currentSourceSignal": "SRC-023 (USP <85>) and SRC-026 (USP <1085>) are registered with no copies held.",
+    "neededVerification": "Obtain USP <85> lawfully, with <1085> as supporting guidance; audit and extract with locators.",
+    "priority": "high",
+    "relatedKeys": [
       "quality_topic:bacterial-endotoxin",
-      "source:SRC-006"
+      "quality_topic:coa-literacy"
+    ]
+  },
+  {
+    "issueKey": "V-019",
+    "topic": "Residual solvents have no source",
+    "whyItMatters": "The quality map links HPLC to residual solvents as a structural edge only, because asserting anything about the relationship would need a source. The topic itself is an empty shell.",
+    "currentSourceSignal": "SRC-024 (USP <467>) is registered with no copy held.",
+    "neededVerification": "Obtain USP <467> lawfully, audit and extract with locators.",
+    "priority": "high",
+    "relatedKeys": [
+      "quality_topic:residual-solvents"
+    ]
+  },
+  {
+    "issueKey": "V-020",
+    "topic": "Water content has no source",
+    "whyItMatters": "Water content bears directly on how a purity figure relates to the mass of peptide in a vial, and the HPLC packet explicitly declined to assert that connection because nothing supports it. The specimen certificate reports a water result with no stated limit, and this index cannot say what a limit should be.",
+    "currentSourceSignal": "SRC-025 (USP <921>) is registered with no copy held.",
+    "neededVerification": "Obtain USP <921> lawfully, audit and extract with locators.",
+    "priority": "high",
+    "relatedKeys": [
+      "quality_topic:water-content",
+      "quality_topic:coa-literacy"
+    ]
+  },
+  {
+    "issueKey": "V-021",
+    "topic": "Certificate content is established for one document type only",
+    "whyItMatters": "ICH Q7 s.11.4 states what an API or intermediate certificate should contain, and the claims drawn from it are scoped to that document type in the database. Nothing in the register states what a finished-product release document, a third-party analytical test report, or a certificate for research-use material should contain — which is most of what a reader is actually handed.",
+    "currentSourceSignal": "SRC-017 (ICH Q7) held and extracted, scoped to manufacturer and repacker certificates for APIs and intermediates. No source identified for the other document types.",
+    "neededVerification": "Identify and obtain a source addressing finished-product release documentation, and one addressing analytical test report conventions such as an accreditation standard. Until then the certificate reader must continue to say that these requirements are not established.",
+    "priority": "high",
+    "relatedKeys": [
+      "quality_topic:coa-literacy"
     ]
   }
 ]

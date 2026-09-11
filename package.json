@@ -27,6 +27,7 @@
     "sources:coverage": "tsx scripts/sources/domain-coverage.ts",
     "sources:apply-audit": "tsx scripts/sources/apply-audit-findings.ts",
     "sources:read": "tsx scripts/sources/read-source.ts",
+    "sources:register-official": "tsx scripts/sources/register-official-sources.ts",
     "evidence:submit": "tsx scripts/evidence/submit-packet.ts",
     "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
   },

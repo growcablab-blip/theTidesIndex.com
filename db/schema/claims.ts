@@ -11,6 +11,7 @@ import {
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 import {
+  certificateType,
   claimImportance,
   evidenceRelationship,
   publicationState,
@@ -46,6 +47,23 @@ export const claims = pgTable(
 
     claimCategory: text(),
     importance: claimImportance().notNull().default('medium'),
+
+    /**
+     * The kind of document a certificate-content requirement applies to.
+     *
+     * ICH Q7 §11.4 states what a certificate of analysis should contain, and its
+     * scope is the manufacture of active pharmaceutical ingredients and
+     * intermediates. It says nothing about finished drug products, about a
+     * third-party laboratory's report on a posted sample, or about research-use
+     * material. "Q7 says a certificate should show X" becoming "every
+     * certificate must show X" is a single careless sentence away, and it would
+     * give this index's authority to a requirement that does not exist.
+     *
+     * So a claim in the `certificate-content` family must name the document type
+     * it governs, and the constraint below refuses it otherwise. Null for every
+     * claim that is not about certificate content.
+     */
+    certificateTypeScope: certificateType(),
 
     /** How the platform reads the evidence, distinct from what sources say. */
     interpretationNotes: text(),
@@ -103,6 +121,18 @@ export const claims = pgTable(
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    /**
+     * A requirement about what a certificate should contain is meaningless
+     * without the kind of certificate it applies to. Enforced here rather than
+     * in editorial habit, because the failure is silent and the sentence that
+     * causes it reads perfectly well.
+     */
+    check(
+      'claims_certificate_scope_declared',
+      sql`${t.claimCategory} is null
+          or ${t.claimCategory} not like 'certificate-content%'
+          or ${t.certificateTypeScope} is not null`,
+    ),
     check(
       'claims_subject_present',
       sql`${t.peptideId} is not null or ${t.qualityTopicId} is not null or ${t.isEditorialNonEvidentiary}`,

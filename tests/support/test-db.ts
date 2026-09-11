@@ -45,6 +45,7 @@ export async function closeTestDb(db: TestDb): Promise<void> {
 export async function truncateContent(db: TestDb): Promise<void> {
   await db.$client.exec(`
     truncate table
+      certificate_tests, certificates,
       quality_relationships, claim_evidence, claims, evidence_gaps,
       protocol_sources, protocols,
       peptide_routes, regulatory_statuses,

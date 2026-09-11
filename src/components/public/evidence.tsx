@@ -145,12 +145,41 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
  * claim is never simplified on the fly, because a paraphrase written at render
  * time has not been reviewed.
  */
+/**
+ * The document type a certificate requirement governs, shown above the
+ * requirement rather than buried in its notes.
+ *
+ * ICH Q7 §11.4 states what an API or intermediate certificate should contain. A
+ * reader who meets that requirement without its scope will apply it to whatever
+ * document they are holding, which is usually not one of those — and this index
+ * will have told them something that is not true. The scope is therefore part of
+ * the statement, not a qualification attached to it.
+ */
+const SCOPE_LABELS: Readonly<Record<string, string>> = {
+  manufacturer_coa: "Applies to a manufacturer's certificate for an active ingredient or intermediate",
+  supplier_repacker_certificate:
+    'Applies to a certificate reissued by a supplier, repacker or distributor of an active ingredient',
+  third_party_test_report: "Applies to a third-party laboratory's test report",
+  finished_product_release: 'Applies to a finished-product release document',
+  other_unknown: 'Scope of application not established',
+};
+
+function ScopeBadge({ scope }: { scope: string | null }) {
+  if (scope === null) return null;
+  return (
+    <p className="mb-2 inline-block rounded-sm border border-rule bg-mist px-2 py-0.5 text-xs text-slate">
+      {SCOPE_LABELS[scope] ?? scope}
+    </p>
+  );
+}
+
 export function ClaimCard({ claim, simple }: { claim: PublicClaim; simple: boolean }) {
   const text = simple ? (claim.plainLanguageText ?? claim.claimText) : claim.claimText;
   const hasPlainLanguage = claim.plainLanguageText !== null;
 
   return (
     <article className="avoid-break border-t border-rule pt-5 first:border-t-0 first:pt-0">
+      <ScopeBadge scope={claim.certificateTypeScope} />
       <p className="font-serif text-lg leading-snug text-ink">{text}</p>
 
       {simple && !hasPlainLanguage ? (

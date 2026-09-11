@@ -266,3 +266,61 @@ export const qualityRelationship = pgEnum('quality_relationship', [
   /** What the result is a statement about: which material, which batch, when. */
   'scoped_by',
 ]);
+
+/**
+ * What kind of document a certificate actually is.
+ *
+ * "COA" is not one document type, and treating it as one is the first mistake a
+ * reader makes. A manufacturer's certificate for an API, a laboratory's report on
+ * a sample somebody posted in, and a repacker's reissued certificate answer
+ * different questions and carry different authority. A PDF titled "COA" is not
+ * evidence of which of these it is.
+ */
+export const certificateType = pgEnum('certificate_type', [
+  'manufacturer_coa',
+  'third_party_test_report',
+  'finished_product_release',
+  'supplier_repacker_certificate',
+  'other_unknown',
+]);
+
+/** What the tested material was. An API result is not a finished-vial result. */
+export const testedMaterialScope = pgEnum('tested_material_scope', [
+  'api',
+  'intermediate',
+  'bulk_material',
+  'finished_product',
+  'unknown',
+]);
+
+/**
+ * How firmly the tested sample is tied to the batch in question.
+ *
+ * `stated_only` is the common and important case: the document asserts a lot
+ * number, which is a claim by its issuer rather than a demonstrated chain. The
+ * distinction between that and `established` is most of what this section exists
+ * to teach.
+ */
+export const chainLinkageState = pgEnum('chain_linkage_state', [
+  'established',
+  'stated_only',
+  'not_established',
+  'unknown',
+]);
+
+/**
+ * Whether the document itself has been checked, and how far.
+ *
+ * Defaults to `not_checked` and stays there until someone does the work. A
+ * professional-looking PDF is not evidence of authenticity, so there is no state
+ * meaning "looks genuine".
+ */
+export const certificateAuthenticityState = pgEnum('certificate_authenticity_state', [
+  'not_checked',
+  'issuer_verified',
+  'report_identifier_verified',
+  'laboratory_verified',
+  'retrieved_from_issuer',
+  'discrepancy_detected',
+  'unable_to_verify',
+]);

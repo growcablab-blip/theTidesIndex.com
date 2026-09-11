@@ -1,0 +1,199 @@
+{
+  "packetKey": "coa-literacy",
+  "qualityKey": "coa-literacy",
+  "note": "Extracted from SRC-017 (ICH Q7, Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients, Step 4, 10 November 2000), sections 11.4 and 17. Locators are the guideline's printed page numbers; the held file numbers from its cover and runs six pages ahead, recorded as the source's printed page offset, so every locator here can be reopened with `npm run sources:read -- SRC-017 --printed <page>`. SCOPE WARNING, which travels with every claim in this packet: Q7 governs the manufacture of active pharmaceutical ingredients and intermediates. It states nothing about finished drug products, about a third-party laboratory's report on a submitted sample, or about research-use material. Each claim carries the certificate type it applies to, and the database refuses a certificate-content claim that does not.",
+  "topic": {
+    "shortDescription": "What a certificate is, what it is a certificate of, and whether it describes the material in front of you.",
+    "simpleSummary": "A certificate of analysis is a document that reports the results of tests. The most useful question to ask about one is not whether the numbers look good. It is: does this document describe the material I actually have? A certificate names a batch, and a batch is a specific quantity of material made at a specific time. If the number on the document does not match the number on the container — or if there is no number on the container — then the document may be accurate and still tell you nothing about what you are holding. It is also worth knowing who wrote the document. A manufacturer's certificate, a laboratory's report on a sample somebody posted to it, and a reseller's reissued certificate are three different things, and a file named \"COA\" tells you which one it is only if you read it.",
+    "practitionerSummary": "Certificates differ by issuer, scope and authority, and the differences matter more than the reported figures. A manufacturer's certificate of analysis for an API is issued by a quality unit against a specification; a third-party analytical report describes a sample submitted to a laboratory, with the chain from batch to sample established by whoever submitted it rather than by the laboratory; a repacker's or distributor's reissued certificate stands or falls on the reference it carries to the original manufacturer and the original batch certificate. ICH Q7 §11.4 sets out what an API or intermediate certificate should contain, and §17.2 what a distributor should retain — both are cited here with their scope attached, and neither states a requirement for finished products or for research-use material. The practical questions are: which document type is this, what material scope was tested, is the tested sample tied to the batch in hand by anything more than an assertion, and which named party actually performed the analysis.",
+    "whatItProves": "A certificate records what was tested, by whom, against which acceptance criteria where any are stated, and what results were obtained. Where it is complete and its chain can be followed, it establishes that a named party reported specified results for an identified batch on a stated date. That is a real and useful thing, and it is the whole of what the document itself establishes.",
+    "whatItDoesNotProve": "A certificate is a report, not an independent verification: nothing in this index has checked any result on any certificate against anything other than the document reporting it. A lot number printed on a report is an assertion by its issuer, not a demonstrated chain of custody from batch to tested sample. A document being complete and well presented says nothing about the quality of the material, and a sparse document does not make an individual analytical result invalid. This index cannot say what a certificate is required to contain except where a source in the register states it, for the kind of document that source governs.",
+    "commonMisinterpretations": "The most common error is to read a certificate as a property of a product rather than a report about a sample. The second is to treat a matching lot number as proof of origin: it shows that a document claims a relationship, not that the tested material came from the container in hand. The third is to assume a document titled \"certificate of analysis\" is a manufacturer's release document — it may be a laboratory's report on material somebody sent in, which establishes nothing about who made it."
+  },
+  "locations": [
+    {
+      "key": "q7-11-4-p24",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 11.4, p. 24",
+      "pageStart": 24,
+      "chapter": "11. Laboratory Controls",
+      "section": "11.4 Certificates of Analysis"
+    },
+    {
+      "key": "q7-17-2-p32",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 17.2, p. 32",
+      "pageStart": 32,
+      "chapter": "17. Agents, Brokers, Traders, Distributors, Repackers, and Relabellers",
+      "section": "17.2 Traceability of Distributed APIs and Intermediates"
+    },
+    {
+      "key": "q7-17-6-p33",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 17.6, p. 33",
+      "pageStart": 33,
+      "chapter": "17. Agents, Brokers, Traders, Distributors, Repackers, and Relabellers",
+      "section": "17.6 Transfer of Information"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "COA-001",
+      "claimText": "For an active pharmaceutical ingredient or intermediate, a certificate of analysis should state the name of the material including its grade where appropriate, the batch number, and the date of release; where the material carries an expiry or retest date, that date should appear on the certificate.",
+      "plainLanguageText": "For an active ingredient, the certificate should name the material, its batch number, and the date it was released — and its expiry or retest date where it has one.",
+      "importance": "high",
+      "claimCategory": "certificate-content",
+      "certificateTypeScope": "manufacturer_coa",
+      "interpretationNotes": "Q7 §11.41, stated for intermediates and APIs. This is the source of the material-identity fields in this index's certificate model. It is a statement about what an API manufacturer's certificate should carry, and is recorded here with that scope attached; it is not a requirement for a finished product, a laboratory test report, or research-use material.",
+      "uncertaintyText": "Q7 is a guideline using 'should' rather than a binding specification, and its scope is API and intermediate manufacture. This index holds no source stating what a finished-product certificate or a third-party laboratory report should contain, so nothing here establishes requirements for those.",
+      "evidence": [
+        {
+          "locationKey": "q7-11-4-p24",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §11.41 states that information on the name of the intermediate or API including where appropriate its grade, the batch number, and the date of release should be provided on the certificate of analysis, and that an expiry or retest date should be indicated where applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "COA-002",
+      "claimText": "For an active pharmaceutical ingredient or intermediate, the certificate should list each test performed in accordance with compendial or customer requirements, including the acceptance limits, and the numerical results obtained where results are numerical.",
+      "plainLanguageText": "For an active ingredient, the certificate should list every test done, the limit each result had to meet, and the actual number obtained.",
+      "importance": "critical",
+      "claimCategory": "certificate-content",
+      "certificateTypeScope": "manufacturer_coa",
+      "interpretationNotes": "Q7 §11.42. Two things here are easy to lose. A result without its acceptance limit cannot be judged, and a limit without a numerical result hides where within it the batch fell — so the guideline asks for both. Note also that the limits are 'in accordance with compendial or customer requirements': Q7 does not itself set the acceptance limits, it says the certificate should carry whichever ones applied.",
+      "uncertaintyText": "Scoped to API and intermediate certificates. Q7 does not state the acceptance limits themselves, which come from a compendial monograph or a customer specification — and this index currently holds no compendial monograph, so it cannot say what any limit should be.",
+      "evidence": [
+        {
+          "locationKey": "q7-11-4-p24",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §11.42 states that the certificate should list each test performed in accordance with compendial or customer requirements, including the acceptance limits and the numerical results obtained if test results are numerical."
+        }
+      ]
+    },
+    {
+      "claimKey": "COA-003",
+      "claimText": "For an active pharmaceutical ingredient or intermediate, the certificate should be dated and signed by authorised personnel of the quality unit, and should show the name, address and telephone number of the original manufacturer.",
+      "plainLanguageText": "For an active ingredient, the certificate should be dated, signed by the manufacturer's quality staff, and carry the original manufacturer's name and contact details.",
+      "importance": "high",
+      "claimCategory": "certificate-content",
+      "certificateTypeScope": "manufacturer_coa",
+      "interpretationNotes": "Q7 §11.43. The requirement names the ORIGINAL manufacturer specifically, which is why this index keeps manufacturer identity as a separate field from issuer and from laboratory. A certificate that names a seller but not a manufacturer has omitted the party the guideline asks for.",
+      "uncertaintyText": "Scoped to API and intermediate certificates. Whether an equivalent expectation exists for other document types is not established by any source held here.",
+      "evidence": [
+        {
+          "locationKey": "q7-11-4-p24",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §11.43 states that certificates should be dated and signed by authorised personnel of the quality unit and should show the name, address and telephone number of the original manufacturer."
+        }
+      ]
+    },
+    {
+      "claimKey": "COA-004",
+      "claimText": "Where the analysis was carried out by a repacker or reprocessor, the certificate should show that party's name, address and telephone number together with a reference to the name of the original manufacturer.",
+      "plainLanguageText": "If a repackager did the testing, the certificate should name both the repackager and the original manufacturer.",
+      "importance": "high",
+      "claimCategory": "certificate-content",
+      "certificateTypeScope": "supplier_repacker_certificate",
+      "interpretationNotes": "Q7 §11.43, second half. This is the clearest statement in the register that the parties to a certificate are distinct and must stay distinct: the entity that tested and the entity that made the material can differ, and the document is expected to say so rather than present a single undifferentiated 'supplier'.",
+      "uncertaintyText": "Scoped to API and intermediate supply chains under Q7. It does not establish what a reseller of any other kind of material should provide.",
+      "evidence": [
+        {
+          "locationKey": "q7-11-4-p24",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §11.43 states that where the analysis has been carried out by a repacker or reprocessor, the certificate of analysis should show that party's name, address and telephone number and a reference to the name of the original manufacturer."
+        }
+      ]
+    },
+    {
+      "claimKey": "COA-005",
+      "claimText": "A certificate reissued by or on behalf of a repacker, reprocessor, agent or broker should show the name, address and telephone number of the laboratory that performed the analysis, and should reference the original manufacturer and the original batch certificate, a copy of which should be attached.",
+      "plainLanguageText": "A certificate reissued by a middleman should name the laboratory that actually did the testing, point back to the original manufacturer and the original certificate, and have that original attached.",
+      "importance": "critical",
+      "claimCategory": "certificate-content",
+      "certificateTypeScope": "supplier_repacker_certificate",
+      "interpretationNotes": "Q7 §11.44. The most directly useful requirement in the section for anyone holding a reseller's document: the original certificate should be attached, so a reissued certificate with nothing behind it is missing the thing that would let its chain be checked. It is also the source for keeping laboratory identity separate from issuer identity in this index's model.",
+      "uncertaintyText": "Scoped to API and intermediate supply chains under Q7. Q7 uses 'should' throughout; it is guidance to manufacturers and distributors of APIs, not a rule this index can apply to arbitrary suppliers of other materials.",
+      "evidence": [
+        {
+          "locationKey": "q7-11-4-p24",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §11.44 states that certificates issued by or on behalf of repackers, reprocessors, agents or brokers should show the name, address and telephone number of the laboratory that performed the analysis, and should contain a reference to the name and address of the original manufacturer and to the original batch certificate, a copy of which should be attached."
+        }
+      ]
+    },
+    {
+      "claimKey": "COA-006",
+      "claimText": "Agents, brokers, traders, distributors, repackers and relabellers of active pharmaceutical ingredients should maintain complete traceability, retaining among other records the identity and address of the original manufacturer, the manufacturer's batch number, transportation and distribution records, and all authentic certificates of analysis including those of the original manufacturer.",
+      "plainLanguageText": "Anyone reselling an active ingredient should be able to show an unbroken paper trail: who made it, which batch, how it travelled, and the original certificates.",
+      "importance": "critical",
+      "claimCategory": "traceability",
+      "certificateTypeScope": null,
+      "interpretationNotes": "Q7 §17.20. This is the source for treating the manufacturer's batch number as a field distinct from whatever batch number a reseller prints, and for asking whether the original manufacturer's own certificate exists at all rather than only a reissued one. It describes what a distributor should be able to produce; it says nothing about whether any particular distributor has done so.",
+      "uncertaintyText": "Scoped to APIs and intermediates under Q7. It is a statement of what distributors should retain, not evidence about any actual distributor, and this index holds no records of any supplier's compliance.",
+      "evidence": [
+        {
+          "locationKey": "q7-17-2-p32",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §17.20 states that agents, brokers, traders, distributors, repackers and relabellers should maintain complete traceability of the APIs and intermediates they distribute, and lists the documents to be retained and available, including the identity and address of the original manufacturer, the manufacturer's batch number, transportation and distribution records, and all authentic certificates of analysis including those of the original manufacturer."
+        }
+      ]
+    },
+    {
+      "claimKey": "COA-007",
+      "claimText": "A party supplying an active pharmaceutical ingredient or intermediate to a customer should provide the name of the original manufacturer and the batch numbers supplied, and the guidance for certificates of analysis in section 11.4 applies to them as well.",
+      "plainLanguageText": "A supplier should tell the customer who originally made the material and which batches they are getting, and the same certificate expectations apply to them.",
+      "importance": "high",
+      "claimCategory": "traceability",
+      "certificateTypeScope": null,
+      "interpretationNotes": "Q7 §17.61 and §17.63. Together these close the gap a reseller might otherwise sit in: the certificate expectations of §11.4 are not escaped by being a distributor rather than a manufacturer. The identity of the original manufacturer is stated as something the customer is entitled to, not an optional courtesy.",
+      "uncertaintyText": "Scoped to APIs and intermediates under Q7, and expressed as guidance. Nothing here establishes an equivalent entitlement for a buyer of research-use material.",
+      "evidence": [
+        {
+          "locationKey": "q7-17-6-p33",
+          "evidenceTypeKey": "regulatory_reference",
+          "relationship": "supports",
+          "interpretation": "Q7 §17.61 states that the party supplying the API or intermediate to the customer should provide the name of the original manufacturer and the batch number(s) supplied; §17.63 states that the specific guidance for certificates of analysis in section 11.4 should be met."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "What a certificate of analysis for a finished drug product should contain.",
+      "why": "ICH Q7 is explicitly a guide for active pharmaceutical ingredients and intermediates. Its certificate requirements are recorded here with that scope attached, and extending them to finished products would be inventing a requirement rather than citing one. No source establishing finished-product certificate content is held.",
+      "whatWouldResolveIt": "A regulatory or compendial source addressing finished drug product release documentation, acquired and put through the source audit.",
+      "verificationIssueKey": "V-021"
+    },
+    {
+      "statement": "What a third-party analytical laboratory's test report should contain.",
+      "why": "A laboratory reporting on a sample submitted to it is not operating under Q7's certificate-of-analysis guidance, which addresses manufacturers and distributors of APIs. This index holds no source describing the conventions or expectations for independent test reports.",
+      "whatWouldResolveIt": "An accreditation standard or equivalent authoritative source on analytical test report content.",
+      "verificationIssueKey": "V-021"
+    },
+    {
+      "statement": "What a certificate for research-use material should contain.",
+      "why": "Every certificate-content source held here governs pharmaceutical manufacture. Research-use material is outside that scope, and no source in the register addresses it. Applying Q7's requirements to it would give this index's authority to a requirement that does not exist.",
+      "whatWouldResolveIt": "An authoritative source addressing documentation for research-use or non-pharmaceutical material.",
+      "verificationIssueKey": "V-021"
+    },
+    {
+      "statement": "Whether any particular reported result on any certificate is correct.",
+      "why": "Nothing in this index has checked a reported result against anything other than the document reporting it. That would require the material, a laboratory, and a method — none of which this index has. Every certificate entry here is recorded as reported, never as verified.",
+      "whatWouldResolveIt": "Independent testing, which is outside what a reference index does.",
+      "verificationIssueKey": null
+    },
+    {
+      "statement": "That a matching lot number establishes that the tested sample came from the batch in hand.",
+      "why": "A lot number on a document is an assertion by whoever issued it. Establishing that the tested sample was drawn from a specific batch, was representative of it, and was not substituted requires chain-of-custody evidence that a certificate does not itself provide. No source held here supports treating a matching number as proof of origin.",
+      "whatWouldResolveIt": "A source addressing sampling and chain of custody, together with actual custody records for a specific consignment.",
+      "verificationIssueKey": "V-015"
+    }
+  ]
+}
