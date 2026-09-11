@@ -439,9 +439,29 @@ END
 $$;
 --> statement-breakpoint
 
--- Functions exposed to the public read path. Everything else stays internal.
-REVOKE ALL ON FUNCTION tides_current_staff_role() FROM PUBLIC, anon;
---> statement-breakpoint
-REVOKE ALL ON FUNCTION tides_has_approved_review(reviewable_entity_type, uuid, integer, review_type)
-  FROM PUBLIC, anon;
+-- ---------------------------------------------------------------------------
+-- Function privileges
+-- ---------------------------------------------------------------------------
+-- Postgres grants EXECUTE on new functions to PUBLIC by default. That is
+-- withdrawn here and re-granted deliberately.
+--
+-- `anon` needs none of these: the public views run with their owner's
+-- privileges and call nothing. Staff need all of them, because a publish-gate
+-- trigger executes as the user whose statement fired it, and its body calls the
+-- provenance and review helpers.
+DO $$
+DECLARE
+  fn record;
+BEGIN
+  FOR fn IN
+    SELECT p.oid::regprocedure AS signature
+    FROM pg_proc p
+    JOIN pg_namespace n ON n.oid = p.pronamespace
+    WHERE n.nspname = 'public' AND p.proname LIKE 'tides\_%'
+  LOOP
+    EXECUTE format('REVOKE ALL ON FUNCTION %s FROM PUBLIC, anon', fn.signature);
+    EXECUTE format('GRANT EXECUTE ON FUNCTION %s TO authenticated, service_role', fn.signature);
+  END LOOP;
+END
+$$;
 --> statement-breakpoint

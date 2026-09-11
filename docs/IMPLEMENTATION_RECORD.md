@@ -212,3 +212,102 @@ If the two diverge, one suite passes while the other fails.
 - **Blocked on credentials:** no Supabase project is provisioned. Everything
   runs against local Postgres; migrations are ready to push.
 - **Owner decisions outstanding:** see `docs/OWNER_DECISIONS.md`.
+
+---
+
+## Phase A (continued) — Authentication and the editorial workflow
+
+### A.10 Role-scoped database sessions
+
+`src/server/db/session.ts`
+
+The row-level security policies in migration 0003 are written against the
+`authenticated` and `anon` roles and against the acting user's id. Those
+policies do nothing unless a query actually arrives under that role — a direct
+Postgres connection authenticates as the connection's own role and would bypass
+every one of them.
+
+Each unit of work therefore runs inside a transaction that first drops to the
+right role and declares who is acting:
+
+```sql
+set local role authenticated;
+set local request.jwt.claim.sub = '<user id>';
+```
+
+`set local` unwinds on commit or rollback, so a pooled connection cannot leak
+one request's identity into the next. An editor's session is constrained by the
+same policies that would constrain them through any other client.
+
+**Bug found and fixed by this work:** migration 0003 revoked EXECUTE on two
+helper functions from `PUBLIC`, which silently removed the grant `authenticated`
+had inherited. Every policy calling `tides_current_staff_role()` then failed, as
+did every publish-gate trigger, because a trigger body executes as the user
+whose statement fired it. Function privileges are now revoked and re-granted
+deliberately, with `anon` holding none (the public views run as their owner and
+call nothing).
+
+### A.11 Authentication
+
+Supabase Auth provides identity only. Authorisation is settled in Postgres.
+
+- One-time email link, no passwords: there is no credential for the platform to
+  store, leak or rotate.
+- `shouldCreateUser: false`. Signing in never creates an account.
+- Receiving a link is not access. Authorisation comes from an active row in
+  `profiles`, which only an administrator can create. Someone who authenticates
+  without a staff profile holds no privileges on anything.
+- `getUser()` rather than `getSession()` in the session resolver: the former
+  revalidates the token with Supabase, the latter trusts a cookie.
+- The sign-in response is identical whether or not an address is registered.
+- `src/proxy.ts` refreshes the session and keeps unauthenticated visitors out of
+  `/admin`. It is a convenience gate, not the boundary — a request that reached
+  an admin route without a session would still carry no staff identity.
+
+### A.12 Editorial surfaces
+
+Sign-in, overview, review queue, sources (list / register / detail with
+locations), compounds (list / detail with summaries, aliases, claims,
+protocols), claims (create / edit / attach evidence / review / publish).
+
+Two decisions worth recording:
+
+**Postgres enforces RLS asymmetrically.** An INSERT that fails `WITH CHECK`
+raises; an UPDATE or DELETE whose `USING` clause excludes the row simply affects
+nothing and reports success. Treating "no error" as "it worked" would show an
+editor a confirmation for an action the database refused. Every update and
+delete in `src/server/editorial/mutations.ts` checks the affected row count, and
+the access-control tests assert the *effect* rather than the error for those
+cases.
+
+**The gate is explained before it is hit.** `src/server/editorial/gate-status.ts`
+reads a record's real state and runs it through the same pure functions the
+interface uses, so an editor sees a list of specific gaps rather than a
+constraint violation. The database still enforces; this is the explanation.
+
+### A.13 Gate parity
+
+`tests/integration/gate-parity.test.ts`
+
+The publish rules exist twice — as triggers, which enforce them, and as pure
+functions, which explain them. Two implementations of a safety rule drift unless
+something holds them together. For each of ten scenarios this suite asks the
+domain layer whether a record can publish, then asks the database to publish it,
+and requires the two answers to agree. A divergence in either direction is a
+defect: too permissive and an editor is told they may publish and then hits a
+raw error; too strict and the interface blocks work the rules allow.
+
+### A.14 Version control of review
+
+A material edit bumps the record's version, and approvals are recorded against a
+specific version. Rewriting a reviewed record therefore strands its approvals
+and it must pass the gates again. A reviewer approved the text they read, not
+the text that replaced it.
+
+### State at the end of Phase A
+
+101 tests. Lint, typecheck, tests and production build all pass.
+
+Remaining before Phase B: protocol editing surfaces (the schema, gates and
+public views are complete; only the admin forms are outstanding), quality-topic
+editing, and an administrator surface for creating staff profiles.

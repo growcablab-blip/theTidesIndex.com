@@ -74,3 +74,34 @@ export async function query<T = Record<string, unknown>>(
 export async function actAs(db: TestDb, userId: string): Promise<void> {
   await db.$client.query(`select set_config('app.current_user_id', $1, false)`, [userId]);
 }
+
+/**
+ * Collects the message of a rejection, including nested `cause` messages.
+ *
+ * drizzle wraps a driver error in a generic "Failed query" Error and keeps the
+ * database's own message on `cause`. Matching on the outer message alone would
+ * make an assertion pass for the wrong reason — any failure would satisfy it.
+ */
+export async function rejectionMessage(promise: Promise<unknown>): Promise<string> {
+  try {
+    await promise;
+  } catch (error: unknown) {
+    const parts: string[] = [];
+    let current: unknown = error;
+    while (current instanceof Error) {
+      parts.push(current.message);
+      current = current.cause;
+    }
+    return parts.join(' | ');
+  }
+  throw new Error('Expected the operation to be rejected, but it succeeded.');
+}
+
+/** Normalises a drizzle `execute` result to rows across driver shapes. */
+export function resultRows<T = Record<string, unknown>>(result: unknown): T[] {
+  if (Array.isArray(result)) return result as T[];
+  if (result && typeof result === 'object' && Array.isArray((result as { rows?: unknown }).rows)) {
+    return (result as { rows: T[] }).rows;
+  }
+  return [];
+}
