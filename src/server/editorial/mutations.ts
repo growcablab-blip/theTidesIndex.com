@@ -1,7 +1,5 @@
-import 'server-only';
 import { sql } from 'drizzle-orm';
 import { z } from 'zod';
-import { getStaffDb } from '../db/client';
 import { withStaffSession } from '../db/session';
 import type { Database } from '../db/types';
 import type { StaffSession } from '../auth/session';
@@ -14,6 +12,10 @@ import {
 
 /**
  * Editorial write operations.
+ *
+ * Each takes the database handle explicitly rather than reaching for a
+ * connection of its own, so the whole layer runs against the in-process Postgres
+ * used by tests as well as against Supabase.
  *
  * Every mutation runs inside `withStaffSession`, so it reaches the database as
  * the `authenticated` role under the acting user's identity and is subject to
@@ -98,11 +100,12 @@ function describeError(error: unknown): string {
 }
 
 async function run<T>(
+  db: Database,
   session: StaffSession,
   work: (tx: Database) => Promise<ActionResult<T>>,
 ): Promise<ActionResult<T>> {
   try {
-    return await withStaffSession(getStaffDb(), session.userId, work);
+    return await withStaffSession(db, session.userId, work);
   } catch (error: unknown) {
     return fail(describeError(error));
   }
@@ -232,10 +235,11 @@ export const reviewInput = z.object({
 // ---------------------------------------------------------------------------
 
 export async function createSource(
+  db: Database,
   session: StaffSession,
   input: z.infer<typeof sourceInput>,
 ): Promise<ActionResult<{ id: string }>> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       insert into sources (
         source_key, title, source_type_key, qc_status, authors, year, publisher,
@@ -255,11 +259,12 @@ export async function createSource(
 }
 
 export async function updateSourceQcStatus(
+  db: Database,
   session: StaffSession,
   sourceId: string,
   qcStatus: z.infer<typeof sourceInput>['qcStatus'],
 ): Promise<ActionResult> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       update sources set qc_status = ${qcStatus}::source_qc_status where id = ${sourceId}
     `);
@@ -268,10 +273,11 @@ export async function updateSourceQcStatus(
 }
 
 export async function createSourceLocation(
+  db: Database,
   session: StaffSession,
   input: z.infer<typeof sourceLocationInput>,
 ): Promise<ActionResult<{ id: string }>> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       insert into source_locations (
         source_id, locator_text, page_start, page_end, chapter, section, notes
@@ -291,10 +297,11 @@ export async function createSourceLocation(
 // ---------------------------------------------------------------------------
 
 export async function updatePeptideSummaries(
+  db: Database,
   session: StaffSession,
   input: z.infer<typeof peptideSummaryInput>,
 ): Promise<ActionResult> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       update peptides set
         short_description = ${input.shortDescription},
@@ -314,10 +321,11 @@ export async function updatePeptideSummaries(
 // ---------------------------------------------------------------------------
 
 export async function createClaim(
+  db: Database,
   session: StaffSession,
   input: z.infer<typeof claimInput>,
 ): Promise<ActionResult<{ id: string }>> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       insert into claims (
         claim_key, peptide_id, quality_topic_id, claim_text, plain_language_text,
@@ -336,11 +344,12 @@ export async function createClaim(
 }
 
 export async function updateClaim(
+  db: Database,
   session: StaffSession,
   claimId: string,
   input: Omit<z.infer<typeof claimInput>, 'claimKey'>,
 ): Promise<ActionResult> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       update claims set
         claim_text = ${input.claimText},
@@ -356,10 +365,11 @@ export async function updateClaim(
 }
 
 export async function attachClaimEvidence(
+  db: Database,
   session: StaffSession,
   input: z.infer<typeof claimEvidenceInput>,
 ): Promise<ActionResult<{ id: string }>> {
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       insert into claim_evidence (
         claim_id, source_id, source_location_id, evidence_type_key, relationship,
@@ -401,17 +411,20 @@ const ENTITY_TABLES: Readonly<Record<string, string>> = {
  * concurrent edit.
  */
 export async function recordReview(
+  db: Database,
   session: StaffSession,
   input: z.infer<typeof reviewInput>,
 ): Promise<ActionResult> {
   const table = ENTITY_TABLES[input.entityType];
   if (!table) return fail('That kind of record does not carry reviews.');
 
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
+    // No FOR UPDATE: row locking applies the UPDATE policy, and a reviewer
+    // deliberately holds no write access to the record under review. A
+    // concurrent edit would bump the version, and the review would then attach
+    // to a superseded version and correctly fail to count.
     const versionRows = rows<{ version: number }>(
-      await tx.execute(
-        sql`select version from ${sql.raw(table)} where id = ${input.entityId} for update`,
-      ),
+      await tx.execute(sql`select version from ${sql.raw(table)} where id = ${input.entityId}`),
     );
     const version = versionRows[0]?.version;
     if (version === undefined) return fail('That record no longer exists.');
@@ -429,11 +442,16 @@ export async function recordReview(
 
     // A rejection or a change request withdraws the record from the public site
     // immediately rather than waiting for someone to act on the comment.
+    //
+    // Reviewers hold no write access to content, so this runs through a
+    // SECURITY DEFINER function that first confirms the caller actually
+    // recorded such a review. The withdrawal is a consequence of the review,
+    // not an editorial edit.
     if (input.outcome !== 'approved') {
       await tx.execute(sql`
-        update ${sql.raw(table)}
-        set workflow_status = ${input.outcome === 'rejected' ? 'rejected' : 'needs_update'}::workflow_status
-        where id = ${input.entityId} and workflow_status = 'published'
+        select tides_withdraw_on_review(
+          ${input.entityType}::reviewable_entity_type, ${input.entityId}
+        )
       `);
     }
 
@@ -451,6 +469,7 @@ export type PublishableEntity = 'peptide' | 'claim' | 'protocol' | 'quality_topi
  * an explanation, not the guarantee.
  */
 export async function publishRecord(
+  db: Database,
   session: StaffSession,
   entityType: PublishableEntity,
   entityId: string,
@@ -458,7 +477,7 @@ export async function publishRecord(
   const table = ENTITY_TABLES[entityType];
   if (!table) return fail('That kind of record cannot be published directly.');
 
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const status = await gateStatusFor(tx, entityType, entityId);
     if (!status) return fail('That record no longer exists.');
 
@@ -479,6 +498,7 @@ export async function publishRecord(
 }
 
 export async function setWorkflowStatus(
+  db: Database,
   session: StaffSession,
   entityType: PublishableEntity,
   entityId: string,
@@ -487,7 +507,7 @@ export async function setWorkflowStatus(
   const table = ENTITY_TABLES[entityType];
   if (!table) return fail('That kind of record does not carry a workflow status.');
 
-  return run(session, async (tx) => {
+  return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
       update ${sql.raw(table)} set workflow_status = ${status}::workflow_status
       where id = ${entityId}
@@ -507,4 +527,216 @@ async function gateStatusFor(db: Database, entityType: PublishableEntity, entity
     case 'quality_topic':
       return getQualityTopicGateStatus(db, entityId);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Protocols
+// ---------------------------------------------------------------------------
+
+export const protocolInput = z.object({
+  protocolKey: z
+    .string()
+    .trim()
+    .regex(keyPattern, 'Use letters, digits, dot, dash or underscore.'),
+  peptideId: z.uuid().nullable(),
+  combinationName: optionalText,
+  objectiveContext: z.string().trim().min(5, 'State why the source reports this regimen.'),
+  populationModel: optionalText,
+  routeKey: optionalText,
+  formulation: optionalText,
+  regulatoryContext: optionalText,
+  evidenceTypeKey: z.string().trim().min(1, 'Choose an evidence type.'),
+  amountReported: optionalText,
+  amountUnit: optionalText,
+  frequencyText: optionalText,
+  timingText: optionalText,
+  durationText: optionalText,
+  cycleText: optionalText,
+  titrationText: optionalText,
+  monitoringText: optionalText,
+  contraindicationsText: optionalText,
+  safetyNotes: optionalText,
+  adverseEventsText: optionalText,
+  outcomeContext: optionalText,
+  patientVisibility: z.boolean().default(false),
+});
+
+export const protocolSourceInput = z.object({
+  protocolId: z.uuid(),
+  sourceId: z.uuid(),
+  sourceLocationId: z.uuid().nullable(),
+  sourceRole: z.enum(['original', 'secondary_reference', 'commentary']),
+  notes: optionalText,
+});
+
+export async function createProtocol(
+  db: Database,
+  session: StaffSession,
+  input: z.infer<typeof protocolInput>,
+): Promise<ActionResult<{ id: string }>> {
+  return run(db, session, async (tx) => {
+    const result = await tx.execute(sql`
+      insert into protocols (
+        protocol_key, peptide_id, combination_name, objective_context, population_model,
+        route_key, formulation, regulatory_context, evidence_type_key, amount_reported,
+        amount_unit, frequency_text, timing_text, duration_text, cycle_text, titration_text,
+        monitoring_text, contraindications_text, safety_notes, adverse_events_text,
+        outcome_context, patient_visibility
+      ) values (
+        ${input.protocolKey}, ${input.peptideId}, ${input.combinationName},
+        ${input.objectiveContext}, ${input.populationModel}, ${input.routeKey},
+        ${input.formulation}, ${input.regulatoryContext}, ${input.evidenceTypeKey},
+        ${input.amountReported}, ${input.amountUnit}, ${input.frequencyText},
+        ${input.timingText}, ${input.durationText}, ${input.cycleText}, ${input.titrationText},
+        ${input.monitoringText}, ${input.contraindicationsText}, ${input.safetyNotes},
+        ${input.adverseEventsText}, ${input.outcomeContext}, ${input.patientVisibility}
+      )
+      returning id
+    `);
+    const id = rows<{ id: string }>(result)[0]?.id;
+    return id ? ok({ id }) : fail('The protocol was not created.');
+  });
+}
+
+export async function updateProtocol(
+  db: Database,
+  session: StaffSession,
+  protocolId: string,
+  input: Omit<z.infer<typeof protocolInput>, 'protocolKey' | 'peptideId'>,
+): Promise<ActionResult> {
+  return run(db, session, async (tx) => {
+    const result = await tx.execute(sql`
+      update protocols set
+        combination_name = ${input.combinationName},
+        objective_context = ${input.objectiveContext},
+        population_model = ${input.populationModel},
+        route_key = ${input.routeKey},
+        formulation = ${input.formulation},
+        regulatory_context = ${input.regulatoryContext},
+        evidence_type_key = ${input.evidenceTypeKey},
+        amount_reported = ${input.amountReported},
+        amount_unit = ${input.amountUnit},
+        frequency_text = ${input.frequencyText},
+        timing_text = ${input.timingText},
+        duration_text = ${input.durationText},
+        cycle_text = ${input.cycleText},
+        titration_text = ${input.titrationText},
+        monitoring_text = ${input.monitoringText},
+        contraindications_text = ${input.contraindicationsText},
+        safety_notes = ${input.safetyNotes},
+        adverse_events_text = ${input.adverseEventsText},
+        outcome_context = ${input.outcomeContext},
+        patient_visibility = ${input.patientVisibility}
+      where id = ${protocolId}
+    `);
+    return affected(result) === 1 ? ok() : fail(REFUSED_BY_POLICY);
+  });
+}
+
+export async function attachProtocolSource(
+  db: Database,
+  session: StaffSession,
+  input: z.infer<typeof protocolSourceInput>,
+): Promise<ActionResult> {
+  return run(db, session, async (tx) => {
+    await tx.execute(sql`
+      insert into protocol_sources (protocol_id, source_id, source_location_id, source_role, notes)
+      values (
+        ${input.protocolId}, ${input.sourceId}, ${input.sourceLocationId},
+        ${input.sourceRole}::protocol_source_role, ${input.notes}
+      )
+    `);
+    return ok();
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Quality topics
+// ---------------------------------------------------------------------------
+
+export const qualityTopicInput = z.object({
+  qualityTopicId: z.uuid(),
+  shortDescription: optionalText,
+  simpleSummary: optionalText,
+  practitionerSummary: optionalText,
+  whatItProves: optionalText,
+  whatItDoesNotProve: optionalText,
+  commonMisinterpretations: optionalText,
+});
+
+export async function updateQualityTopic(
+  db: Database,
+  session: StaffSession,
+  input: z.infer<typeof qualityTopicInput>,
+): Promise<ActionResult> {
+  return run(db, session, async (tx) => {
+    const result = await tx.execute(sql`
+      update quality_topics set
+        short_description = ${input.shortDescription},
+        simple_summary = ${input.simpleSummary},
+        practitioner_summary = ${input.practitionerSummary},
+        what_it_proves = ${input.whatItProves},
+        what_it_does_not_prove = ${input.whatItDoesNotProve},
+        common_misinterpretations = ${input.commonMisinterpretations}
+      where id = ${input.qualityTopicId}
+    `);
+    return affected(result) === 1 ? ok() : fail(REFUSED_BY_POLICY);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Staff
+// ---------------------------------------------------------------------------
+
+export const staffProfileInput = z.object({
+  userId: z.uuid('Paste the Supabase Auth user id for this person.'),
+  displayName: z.string().trim().min(2, 'Enter the name to attribute reviews to.'),
+  email: optionalText,
+  role: z.enum([
+    'admin',
+    'editor',
+    'scientific_reviewer',
+    'clinical_reviewer',
+    'compliance_reviewer',
+  ]),
+});
+
+/**
+ * Grants editorial access.
+ *
+ * Deliberately a two-step process: an administrator invites the person in
+ * Supabase Auth, then records them here. Authentication alone confers nothing,
+ * so an account cannot acquire access by signing itself up.
+ */
+export async function createStaffProfile(
+  db: Database,
+  session: StaffSession,
+  input: z.infer<typeof staffProfileInput>,
+): Promise<ActionResult> {
+  return run(db, session, async (tx) => {
+    await tx.execute(sql`
+      insert into profiles (user_id, display_name, email, role)
+      values (${input.userId}, ${input.displayName}, ${input.email}, ${input.role}::staff_role)
+      on conflict (user_id) do update set
+        display_name = excluded.display_name,
+        email = excluded.email,
+        role = excluded.role,
+        is_active = true
+    `);
+    return ok();
+  });
+}
+
+export async function setStaffActive(
+  db: Database,
+  session: StaffSession,
+  userId: string,
+  isActive: boolean,
+): Promise<ActionResult> {
+  return run(db, session, async (tx) => {
+    const result = await tx.execute(sql`
+      update profiles set is_active = ${isActive} where user_id = ${userId}
+    `);
+    return affected(result) === 1 ? ok() : fail(REFUSED_BY_POLICY);
+  });
 }

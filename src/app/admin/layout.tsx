@@ -13,6 +13,8 @@ const NAV = [
   { href: '/admin/review', label: 'Review queue' },
   { href: '/admin/sources', label: 'Sources' },
   { href: '/admin/peptides', label: 'Compounds' },
+  { href: '/admin/protocols/new', label: 'New protocol' },
+  { href: '/admin/quality-topics', label: 'Quality' },
 ] as const;
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -49,6 +51,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <span className="text-slate">
               {session.displayName} · {ROLE_LABELS[session.role]}
             </span>
+            {session.role === 'admin' ? (
+              <Link href="/admin/staff" className="text-deep-tide underline">
+                Staff
+              </Link>
+            ) : null}
             <form action={signOutAction}>
               <button type="submit" className="text-deep-tide underline">
                 Sign out

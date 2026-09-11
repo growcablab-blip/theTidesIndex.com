@@ -649,3 +649,264 @@ export async function getReviewQueue(session: StaffSession): Promise<ReviewQueue
     }));
   });
 }
+
+// ---------------------------------------------------------------------------
+// Protocols
+// ---------------------------------------------------------------------------
+
+function str(value: unknown): string | null {
+  return typeof value === 'string' ? value : null;
+}
+
+export interface ProtocolDetail {
+  readonly id: string;
+  readonly protocolKey: string;
+  readonly peptideId: string | null;
+  readonly peptideName: string | null;
+  readonly combinationName: string | null;
+  readonly objectiveContext: string;
+  readonly populationModel: string | null;
+  readonly routeKey: string | null;
+  readonly formulation: string | null;
+  readonly regulatoryContext: string | null;
+  readonly evidenceTypeKey: string;
+  readonly amountReported: string | null;
+  readonly amountUnit: string | null;
+  readonly frequencyText: string | null;
+  readonly timingText: string | null;
+  readonly durationText: string | null;
+  readonly cycleText: string | null;
+  readonly titrationText: string | null;
+  readonly monitoringText: string | null;
+  readonly contraindicationsText: string | null;
+  readonly safetyNotes: string | null;
+  readonly adverseEventsText: string | null;
+  readonly outcomeContext: string | null;
+  readonly patientVisibility: boolean;
+  readonly workflowStatus: string;
+  readonly version: number;
+  readonly sources: readonly {
+    id: string;
+    sourceId: string;
+    sourceKey: string;
+    sourceTitle: string;
+    sourceIsCitable: boolean;
+    locatorText: string | null;
+    sourceRole: string;
+  }[];
+  /** Other protocols for the same compound. Displayed alongside, never merged. */
+  readonly siblings: readonly {
+    id: string;
+    protocolKey: string;
+    objectiveContext: string;
+    sourceKeys: string[];
+  }[];
+}
+
+export async function getProtocolDetail(
+  session: StaffSession,
+  protocolId: string,
+): Promise<ProtocolDetail | null> {
+  return asStaff(session, async (tx) => {
+    const protocolRows = rows<Record<string, unknown>>(
+      await tx.execute(sql`
+        select p.*, pe.canonical_name as peptide_name
+        from protocols p
+        left join peptides pe on pe.id = p.peptide_id
+        where p.id = ${protocolId}
+      `),
+    );
+    const protocol = protocolRows[0];
+    if (!protocol) return null;
+
+    const sources = rows<Record<string, unknown>>(
+      await tx.execute(sql`
+        select ps.id, ps.source_id, s.source_key, s.title as source_title, s.is_citable,
+               l.locator_text, ps.source_role
+        from protocol_sources ps
+        join sources s on s.id = ps.source_id
+        left join source_locations l on l.id = ps.source_location_id
+        where ps.protocol_id = ${protocolId}
+        order by ps.created_at
+      `),
+    ).map((s) => ({
+      id: String(s.id),
+      sourceId: String(s.source_id),
+      sourceKey: String(s.source_key),
+      sourceTitle: String(s.source_title),
+      sourceIsCitable: Boolean(s.is_citable),
+      locatorText: str(s.locator_text),
+      sourceRole: String(s.source_role),
+    }));
+
+    const peptideId = str(protocol.peptide_id);
+    const siblings = peptideId
+      ? rows<Record<string, unknown>>(
+          await tx.execute(sql`
+            select p.id, p.protocol_key, p.objective_context,
+                   coalesce((
+                     select array_agg(s.source_key order by s.source_key)
+                     from protocol_sources ps join sources s on s.id = ps.source_id
+                     where ps.protocol_id = p.id
+                   ), array[]::text[]) as source_keys
+            from protocols p
+            where p.peptide_id = ${peptideId} and p.id <> ${protocolId}
+            order by p.protocol_key
+          `),
+        ).map((s) => ({
+          id: String(s.id),
+          protocolKey: String(s.protocol_key),
+          objectiveContext: String(s.objective_context),
+          sourceKeys: Array.isArray(s.source_keys) ? (s.source_keys as string[]) : [],
+        }))
+      : [];
+
+    return {
+      id: String(protocol.id),
+      protocolKey: String(protocol.protocol_key),
+      peptideId,
+      peptideName: str(protocol.peptide_name),
+      combinationName: str(protocol.combination_name),
+      objectiveContext: String(protocol.objective_context),
+      populationModel: str(protocol.population_model),
+      routeKey: str(protocol.route_key),
+      formulation: str(protocol.formulation),
+      regulatoryContext: str(protocol.regulatory_context),
+      evidenceTypeKey: String(protocol.evidence_type_key),
+      amountReported: str(protocol.amount_reported),
+      amountUnit: str(protocol.amount_unit),
+      frequencyText: str(protocol.frequency_text),
+      timingText: str(protocol.timing_text),
+      durationText: str(protocol.duration_text),
+      cycleText: str(protocol.cycle_text),
+      titrationText: str(protocol.titration_text),
+      monitoringText: str(protocol.monitoring_text),
+      contraindicationsText: str(protocol.contraindications_text),
+      safetyNotes: str(protocol.safety_notes),
+      adverseEventsText: str(protocol.adverse_events_text),
+      outcomeContext: str(protocol.outcome_context),
+      patientVisibility: Boolean(protocol.patient_visibility),
+      workflowStatus: String(protocol.workflow_status),
+      version: Number(protocol.version),
+      sources,
+      siblings,
+    };
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Quality topics
+// ---------------------------------------------------------------------------
+
+export interface QualityTopicRow {
+  readonly id: string;
+  readonly qualityKey: string;
+  readonly name: string;
+  readonly slug: string;
+  readonly workflowStatus: string;
+  readonly hasBothHalves: boolean;
+}
+
+export async function listQualityTopics(session: StaffSession): Promise<QualityTopicRow[]> {
+  return asStaff(session, async (tx) => {
+    const result = await tx.execute(sql`
+      select id, quality_key, name, slug, workflow_status,
+             (what_it_proves is not null and what_it_does_not_prove is not null) as has_both_halves
+      from quality_topics order by sort_order, name
+    `);
+    return rows<Record<string, unknown>>(result).map((r) => ({
+      id: String(r.id),
+      qualityKey: String(r.quality_key),
+      name: String(r.name),
+      slug: String(r.slug),
+      workflowStatus: String(r.workflow_status),
+      hasBothHalves: Boolean(r.has_both_halves),
+    }));
+  });
+}
+
+export interface QualityTopicDetail extends QualityTopicRow {
+  readonly shortDescription: string | null;
+  readonly simpleSummary: string | null;
+  readonly practitionerSummary: string | null;
+  readonly whatItProves: string | null;
+  readonly whatItDoesNotProve: string | null;
+  readonly commonMisinterpretations: string | null;
+  readonly version: number;
+}
+
+export async function getQualityTopicDetail(
+  session: StaffSession,
+  topicId: string,
+): Promise<QualityTopicDetail | null> {
+  return asStaff(session, async (tx) => {
+    const topicRows = rows<Record<string, unknown>>(
+      await tx.execute(sql`select * from quality_topics where id = ${topicId}`),
+    );
+    const topic = topicRows[0];
+    if (!topic) return null;
+
+    return {
+      id: String(topic.id),
+      qualityKey: String(topic.quality_key),
+      name: String(topic.name),
+      slug: String(topic.slug),
+      workflowStatus: String(topic.workflow_status),
+      hasBothHalves:
+        typeof topic.what_it_proves === 'string' &&
+        typeof topic.what_it_does_not_prove === 'string',
+      shortDescription: str(topic.short_description),
+      simpleSummary: str(topic.simple_summary),
+      practitionerSummary: str(topic.practitioner_summary),
+      whatItProves: str(topic.what_it_proves),
+      whatItDoesNotProve: str(topic.what_it_does_not_prove),
+      commonMisinterpretations: str(topic.common_misinterpretations),
+      version: Number(topic.version),
+    };
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Staff
+// ---------------------------------------------------------------------------
+
+export interface StaffRow {
+  readonly userId: string;
+  readonly displayName: string;
+  readonly email: string | null;
+  readonly role: string;
+  readonly isActive: boolean;
+  readonly reviewCount: number;
+}
+
+export async function listStaff(session: StaffSession): Promise<StaffRow[]> {
+  return asStaff(session, async (tx) => {
+    const result = await tx.execute(sql`
+      select p.user_id, p.display_name, p.email, p.role, p.is_active,
+             (select count(*) from reviews r where r.reviewer_user_id = p.user_id)::int as review_count
+      from profiles p
+      order by p.display_name
+    `);
+    return rows<Record<string, unknown>>(result).map((r) => ({
+      userId: String(r.user_id),
+      displayName: String(r.display_name),
+      email: str(r.email),
+      role: String(r.role),
+      isActive: Boolean(r.is_active),
+      reviewCount: Number(r.review_count),
+    }));
+  });
+}
+
+/** Compounds available when creating a protocol. */
+export async function listPeptideOptions(session: StaffSession): Promise<Option[]> {
+  return asStaff(session, async (tx) => {
+    const result = await tx.execute(
+      sql`select id, canonical_name from peptides order by canonical_name`,
+    );
+    return rows<{ id: string; canonical_name: string }>(result).map((r) => ({
+      value: r.id,
+      label: r.canonical_name,
+    }));
+  });
+}

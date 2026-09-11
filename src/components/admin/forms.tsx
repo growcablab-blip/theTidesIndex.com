@@ -112,10 +112,10 @@ export function TextInput({
 }: {
   name: string;
   label: string;
-  hint?: string;
-  defaultValue?: string | null;
-  required?: boolean;
-  placeholder?: string;
+  hint?: string | undefined;
+  defaultValue?: string | null | undefined;
+  required?: boolean | undefined;
+  placeholder?: string | undefined;
 }) {
   return (
     <Field label={label} name={name} hint={hint} required={required}>
@@ -142,10 +142,10 @@ export function TextArea({
 }: {
   name: string;
   label: string;
-  hint?: string;
-  defaultValue?: string | null;
-  rows?: number;
-  required?: boolean;
+  hint?: string | undefined;
+  defaultValue?: string | null | undefined;
+  rows?: number | undefined;
+  required?: boolean | undefined;
 }) {
   return (
     <Field label={label} name={name} hint={hint} required={required}>
@@ -179,11 +179,11 @@ export function Select({
 }: {
   name: string;
   label: string;
-  hint?: string;
+  hint?: string | undefined;
   options: readonly SelectOption[];
-  defaultValue?: string | null;
-  required?: boolean;
-  includeBlank?: string;
+  defaultValue?: string | null | undefined;
+  required?: boolean | undefined;
+  includeBlank?: string | undefined;
 }) {
   const groups = [...new Set(options.map((option) => option.group).filter(Boolean))] as string[];
 
@@ -228,8 +228,8 @@ export function Checkbox({
 }: {
   name: string;
   label: string;
-  hint?: string;
-  defaultChecked?: boolean;
+  hint?: string | undefined;
+  defaultChecked?: boolean | undefined;
 }) {
   return (
     <div className="flex items-start gap-2">

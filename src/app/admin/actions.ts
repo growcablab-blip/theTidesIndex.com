@@ -3,24 +3,35 @@
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { requireStaff } from '@/server/auth/session';
+import { getStaffDb } from '@/server/db/client';
 import {
   attachClaimEvidence,
+  attachProtocolSource,
   claimEvidenceInput,
   claimInput,
   createClaim,
+  createProtocol,
   createSource,
   createSourceLocation,
+  createStaffProfile,
   fail,
   ok,
   peptideSummaryInput,
+  protocolInput,
+  protocolSourceInput,
   publishRecord,
+  qualityTopicInput,
   recordReview,
   reviewInput,
+  setStaffActive,
   setWorkflowStatus,
   sourceInput,
   sourceLocationInput,
+  staffProfileInput,
   updateClaim,
   updatePeptideSummaries,
+  updateProtocol,
+  updateQualityTopic,
   type ActionResult,
 } from '@/server/editorial/mutations';
 
@@ -86,7 +97,7 @@ export async function createSourceAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await createSource(session, parsed.data);
+  const result = await createSource(getStaffDb(), session, parsed.data);
   if (!result.ok) return result;
   revalidatePath('/admin/sources');
   return ok();
@@ -112,7 +123,7 @@ export async function createSourceLocationAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await createSourceLocation(session, parsed.data);
+  const result = await createSourceLocation(getStaffDb(), session, parsed.data);
   if (!result.ok) return result;
   revalidatePath(`/admin/sources/${parsed.data.sourceId}`);
   return ok();
@@ -142,7 +153,7 @@ export async function updatePeptideSummariesAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await updatePeptideSummaries(session, parsed.data);
+  const result = await updatePeptideSummaries(getStaffDb(), session, parsed.data);
   if (result.ok) revalidatePath(`/admin/peptides/${parsed.data.peptideId}`);
   return result;
 }
@@ -173,7 +184,7 @@ export async function createClaimAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await createClaim(session, parsed.data);
+  const result = await createClaim(getStaffDb(), session, parsed.data);
   if (!result.ok) return result;
   revalidatePath('/admin/claims');
   if (parsed.data.peptideId) revalidatePath(`/admin/peptides/${parsed.data.peptideId}`);
@@ -202,7 +213,7 @@ export async function updateClaimAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await updateClaim(session, claimId, parsed.data);
+  const result = await updateClaim(getStaffDb(), session, claimId, parsed.data);
   if (result.ok) revalidatePath(`/admin/claims/${claimId}`);
   return result;
 }
@@ -231,7 +242,7 @@ export async function attachClaimEvidenceAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await attachClaimEvidence(session, parsed.data);
+  const result = await attachClaimEvidence(getStaffDb(), session, parsed.data);
   if (!result.ok) return result;
   revalidatePath(`/admin/claims/${parsed.data.claimId}`);
   return ok();
@@ -259,7 +270,7 @@ export async function recordReviewAction(
     return fail('Check the highlighted fields.', flatten(parsed.error));
   }
 
-  const result = await recordReview(session, parsed.data);
+  const result = await recordReview(getStaffDb(), session, parsed.data);
   if (result.ok) {
     revalidatePath('/admin/review');
     revalidatePath(`/admin/${parsed.data.entityType}s/${parsed.data.entityId}`);
@@ -282,7 +293,7 @@ export async function publishAction(
     return fail('That record could not be identified.');
   }
 
-  const result = await publishRecord(session, entityType.data, entityId.data);
+  const result = await publishRecord(getStaffDb(), session, entityType.data, entityId.data);
   if (result.ok) {
     revalidatePath('/admin/review');
     revalidatePath('/admin');
@@ -312,10 +323,186 @@ export async function setWorkflowStatusAction(
     return fail('That change could not be identified.');
   }
 
-  const result = await setWorkflowStatus(session, entityType.data, entityId.data, status.data);
+  const result = await setWorkflowStatus(getStaffDb(), session, entityType.data, entityId.data, status.data);
   if (result.ok) {
     revalidatePath('/admin/review');
     revalidatePath('/admin');
   }
+  return result;
+}
+
+// ---------------------------------------------------------------------------
+// Protocols
+// ---------------------------------------------------------------------------
+
+export async function createProtocolAction(
+  _state: ActionResult | null,
+  formData: FormData,
+): Promise<ActionResult> {
+  const session = await requireStaff();
+
+  const parsed = protocolInput.safeParse({
+    protocolKey: text(formData, 'protocolKey'),
+    peptideId: optionalUuid(formData, 'peptideId'),
+    combinationName: text(formData, 'combinationName'),
+    objectiveContext: text(formData, 'objectiveContext'),
+    populationModel: text(formData, 'populationModel'),
+    routeKey: text(formData, 'routeKey'),
+    formulation: text(formData, 'formulation'),
+    regulatoryContext: text(formData, 'regulatoryContext'),
+    evidenceTypeKey: text(formData, 'evidenceTypeKey'),
+    amountReported: text(formData, 'amountReported'),
+    amountUnit: text(formData, 'amountUnit'),
+    frequencyText: text(formData, 'frequencyText'),
+    timingText: text(formData, 'timingText'),
+    durationText: text(formData, 'durationText'),
+    cycleText: text(formData, 'cycleText'),
+    titrationText: text(formData, 'titrationText'),
+    monitoringText: text(formData, 'monitoringText'),
+    contraindicationsText: text(formData, 'contraindicationsText'),
+    safetyNotes: text(formData, 'safetyNotes'),
+    adverseEventsText: text(formData, 'adverseEventsText'),
+    outcomeContext: text(formData, 'outcomeContext'),
+    patientVisibility: checkbox(formData, 'patientVisibility'),
+  });
+
+  if (!parsed.success) {
+    return fail('Check the highlighted fields.', flatten(parsed.error));
+  }
+
+  const result = await createProtocol(getStaffDb(), session, parsed.data);
+  if (!result.ok) return result;
+  if (parsed.data.peptideId) revalidatePath(`/admin/peptides/${parsed.data.peptideId}`);
+  return ok();
+}
+
+export async function updateProtocolAction(
+  _state: ActionResult | null,
+  formData: FormData,
+): Promise<ActionResult> {
+  const session = await requireStaff();
+  const protocolId = text(formData, 'protocolId');
+
+  const parsed = protocolInput.omit({ protocolKey: true, peptideId: true }).safeParse({
+    combinationName: text(formData, 'combinationName'),
+    objectiveContext: text(formData, 'objectiveContext'),
+    populationModel: text(formData, 'populationModel'),
+    routeKey: text(formData, 'routeKey'),
+    formulation: text(formData, 'formulation'),
+    regulatoryContext: text(formData, 'regulatoryContext'),
+    evidenceTypeKey: text(formData, 'evidenceTypeKey'),
+    amountReported: text(formData, 'amountReported'),
+    amountUnit: text(formData, 'amountUnit'),
+    frequencyText: text(formData, 'frequencyText'),
+    timingText: text(formData, 'timingText'),
+    durationText: text(formData, 'durationText'),
+    cycleText: text(formData, 'cycleText'),
+    titrationText: text(formData, 'titrationText'),
+    monitoringText: text(formData, 'monitoringText'),
+    contraindicationsText: text(formData, 'contraindicationsText'),
+    safetyNotes: text(formData, 'safetyNotes'),
+    adverseEventsText: text(formData, 'adverseEventsText'),
+    outcomeContext: text(formData, 'outcomeContext'),
+    patientVisibility: checkbox(formData, 'patientVisibility'),
+  });
+
+  if (!parsed.success) {
+    return fail('Check the highlighted fields.', flatten(parsed.error));
+  }
+
+  const result = await updateProtocol(getStaffDb(), session, protocolId, parsed.data);
+  if (result.ok) revalidatePath(`/admin/protocols/${protocolId}`);
+  return result;
+}
+
+export async function attachProtocolSourceAction(
+  _state: ActionResult | null,
+  formData: FormData,
+): Promise<ActionResult> {
+  const session = await requireStaff();
+
+  const parsed = protocolSourceInput.safeParse({
+    protocolId: text(formData, 'protocolId'),
+    sourceId: text(formData, 'sourceId'),
+    sourceLocationId: optionalUuid(formData, 'sourceLocationId'),
+    sourceRole: text(formData, 'sourceRole'),
+    notes: text(formData, 'notes'),
+  });
+
+  if (!parsed.success) {
+    return fail('Check the highlighted fields.', flatten(parsed.error));
+  }
+
+  const result = await attachProtocolSource(getStaffDb(), session, parsed.data);
+  if (result.ok) revalidatePath(`/admin/protocols/${parsed.data.protocolId}`);
+  return result;
+}
+
+// ---------------------------------------------------------------------------
+// Quality topics
+// ---------------------------------------------------------------------------
+
+export async function updateQualityTopicAction(
+  _state: ActionResult | null,
+  formData: FormData,
+): Promise<ActionResult> {
+  const session = await requireStaff();
+
+  const parsed = qualityTopicInput.safeParse({
+    qualityTopicId: text(formData, 'qualityTopicId'),
+    shortDescription: text(formData, 'shortDescription'),
+    simpleSummary: text(formData, 'simpleSummary'),
+    practitionerSummary: text(formData, 'practitionerSummary'),
+    whatItProves: text(formData, 'whatItProves'),
+    whatItDoesNotProve: text(formData, 'whatItDoesNotProve'),
+    commonMisinterpretations: text(formData, 'commonMisinterpretations'),
+  });
+
+  if (!parsed.success) {
+    return fail('Check the highlighted fields.', flatten(parsed.error));
+  }
+
+  const result = await updateQualityTopic(getStaffDb(), session, parsed.data);
+  if (result.ok) revalidatePath(`/admin/quality-topics/${parsed.data.qualityTopicId}`);
+  return result;
+}
+
+// ---------------------------------------------------------------------------
+// Staff
+// ---------------------------------------------------------------------------
+
+export async function createStaffProfileAction(
+  _state: ActionResult | null,
+  formData: FormData,
+): Promise<ActionResult> {
+  const session = await requireStaff();
+
+  const parsed = staffProfileInput.safeParse({
+    userId: text(formData, 'userId'),
+    displayName: text(formData, 'displayName'),
+    email: text(formData, 'email'),
+    role: text(formData, 'role'),
+  });
+
+  if (!parsed.success) {
+    return fail('Check the highlighted fields.', flatten(parsed.error));
+  }
+
+  const result = await createStaffProfile(getStaffDb(), session, parsed.data);
+  if (result.ok) revalidatePath('/admin/staff');
+  return result;
+}
+
+export async function setStaffActiveAction(
+  _state: ActionResult | null,
+  formData: FormData,
+): Promise<ActionResult> {
+  const session = await requireStaff();
+
+  const userId = z.uuid().safeParse(text(formData, 'userId'));
+  if (!userId.success) return fail('That staff member could not be identified.');
+
+  const result = await setStaffActive(getStaffDb(), session, userId.data, text(formData, 'isActive') === 'true');
+  if (result.ok) revalidatePath('/admin/staff');
   return result;
 }

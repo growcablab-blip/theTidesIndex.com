@@ -311,3 +311,72 @@ the text that replaced it.
 Remaining before Phase B: protocol editing surfaces (the schema, gates and
 public views are complete; only the admin forms are outstanding), quality-topic
 editing, and an administrator surface for creating staff profiles.
+
+### A.15 Remaining editorial surfaces
+
+Protocols (create / edit / attach source, with sibling regimens for the same
+compound shown alongside and never merged), quality topics, and staff
+administration.
+
+Two things the protocol surface does deliberately:
+
+- The dosing fields are grouped under "As reported", with the instruction not to
+  convert units, normalise ranges or tidy up phrasing. What the source said is
+  the record.
+- `patientVisibility` is labelled with what it does *not* do: patient mode still
+  receives no amount, frequency, timing, duration, cycle or titration, because
+  those columns do not exist in the patient-facing view.
+
+Staff administration is two deliberate steps — invite in Supabase Auth, then
+record the profile here. Authentication alone confers nothing.
+
+### A.16 Withdrawal on a non-approving review
+
+`db/migrations/0005_review_withdrawal.sql`
+
+A reviewer who rejects a record or asks for changes must take published content
+off the public site immediately. But reviewers hold no write access to content
+by design: they record decisions, they do not rewrite the record under review.
+Attempting the demotion as the reviewer silently affected zero rows.
+
+Resolved with a `SECURITY DEFINER` function that first confirms the caller
+actually recorded such a review, so it cannot be used as a general way to change
+a workflow status. The withdrawal is a consequence of the review, not an
+editorial edit — the same shape as the provenance cascade in migration 0002.
+
+Related fix: `recordReview` no longer uses `SELECT ... FOR UPDATE` to read the
+version. Row locking applies the UPDATE policy, which a reviewer does not
+satisfy, so the lookup returned nothing and every review failed. A plain read is
+also correct on the merits: if a concurrent edit bumps the version, the review
+attaches to a superseded version and correctly fails to count.
+
+### A.17 Dependency injection in the service layer
+
+Editorial services now take the database handle explicitly rather than reaching
+for a connection of their own, matching the rest of the codebase. The whole
+layer is therefore exercised against the in-process Postgres in
+`tests/integration/editorial-services.test.ts` — covering the SQL itself, the
+affected-row checks that stop a silently-refused update reporting success, and
+the translation of database errors into sentences an editor can act on.
+
+---
+
+## Phase A: complete
+
+109 tests across 10 files. Lint, typecheck, tests and production build all pass.
+
+| Acceptance criterion | State |
+|---|---|
+| A. Data and provenance | Covered by `publish-gates`, `gate-parity` and `editorial-services` |
+| B. Patient/practitioner modes | Structural guarantee tested in `public-surface`; the public *pages* are Phase B |
+| C. Search | Covered by `search` (canonical, alias, fuzzy, filters, withdrawal) |
+| D. Peptide page | Phase B |
+| E. Quality | Gate enforced and tested; explainer content awaits extraction |
+| F. Admin | Covered by `access-control` and `editorial-services` |
+| G. Engineering | Lint, typecheck, tests, build pass; no secrets; no source PDFs in public paths |
+| H. Launch | Phase F |
+
+**Next: Phase B — the public reference experience.** Layout and navigation,
+global search, the peptide page template, the simple/practitioner switch,
+evidence cards, route components, protocol source cards, the disagreements
+module, source metadata pages, and the methodology pages.

@@ -135,6 +135,14 @@ export default async function PeptideDetailPage({
           <Section
             title="Source-reported protocols"
             description="One record per source. Regimens from different sources are never merged, averaged or reconciled into a single schedule."
+            actions={
+              <Link
+                href={`/admin/protocols/new?peptideId=${peptide.id}`}
+                className="text-sm text-deep-tide underline"
+              >
+                New protocol
+              </Link>
+            }
           >
             {peptide.protocols.length === 0 ? (
               <Empty>No protocol records for this compound.</Empty>
@@ -143,7 +151,12 @@ export default async function PeptideDetailPage({
                 {peptide.protocols.map((protocol) => (
                   <Row key={protocol.id}>
                     <Cell className="font-mono text-xs whitespace-nowrap">
-                      {protocol.protocolKey}
+                      <Link
+                        href={`/admin/protocols/${protocol.id}`}
+                        className="text-deep-tide underline"
+                      >
+                        {protocol.protocolKey}
+                      </Link>
                     </Cell>
                     <Cell className="max-w-md">{protocol.objectiveContext}</Cell>
                     <Cell>{protocol.routeKey ?? '—'}</Cell>
