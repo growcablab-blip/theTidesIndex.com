@@ -1,12 +1,13 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { requireStaff } from '@/server/auth/session';
-import { getQualityTopicDetail } from '@/server/editorial/queries';
+import { getQualityTopicDetail, getQualityTopicReviewPacket } from '@/server/editorial/queries';
 import { getStaffDb } from '@/server/db/client';
 import { withStaffSession } from '@/server/db/session';
 import { getQualityTopicGateStatus } from '@/server/editorial/gate-status';
 import { PageHeader, Section, StatusBadge } from '@/components/admin/primitives';
 import { GatePanel } from '@/components/admin/gate-panel';
+import { ReviewPacketPanel } from '@/components/admin/review-packet';
 import { ReviewControls } from '../../review/review-controls';
 import { QualityTopicForm } from './quality-topic-form';
 
@@ -26,6 +27,7 @@ export default async function QualityTopicDetailPage({
   const gate = await withStaffSession(getStaffDb(), session.userId, (tx) =>
     getQualityTopicGateStatus(tx, id),
   );
+  const packet = await getQualityTopicReviewPacket(session, id);
 
   return (
     <>
@@ -39,6 +41,13 @@ export default async function QualityTopicDetailPage({
         <div>
           <Section title="Explainer">
             <QualityTopicForm topic={topic} />
+          </Section>
+
+          <Section
+            title="Review packet"
+            description="Every claim on this topic, the reading behind it, what it admits is uncertain, and the passage it rests on. A reviewer should not have to leave this page to disagree with any of it."
+          >
+            <ReviewPacketPanel packet={packet} />
           </Section>
         </div>
 

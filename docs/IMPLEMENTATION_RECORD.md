@@ -571,3 +571,120 @@ asserted.
 `npm run db:demo`, guarded by an opt-in and a localhost-only check.
 
 **127 tests.** Lint, typecheck, tests and production build pass.
+
+---
+
+## Phase C.1 — Source integrity
+
+Recorded in full in `docs/SOURCE_INTEGRITY_REPORT.md`. In summary: every held
+file was opened, hashed, page-counted, its front matter read, and its whole text
+scanned for the vocabulary its registered work would necessarily use. Five of
+sixteen registered sources are not the works they claim to be. Three of those had
+been recorded as "genuine content after promotional pages" — the description that
+would have permitted them to be cited.
+
+Nothing in the index was affected, because nothing had been published. The
+enforcement is automatic rather than editorial: `sources.is_citable` is generated
+from QC status, the publish gates read it, and downgrading a source withdraws
+anything resting on it.
+
+## Phase C.2 — The HPLC evidence packet
+
+The first real extracted content in the index: seven claims about chromatographic
+purity, taken from SRC-006 (Grant, *Synthetic Peptides: A User's Guide*, 2nd edn,
+OUP 2002), chapter 4.
+
+### C.2.1 A packet is a unit of work, not a page
+
+`data/seed/evidence/hplc-purity.json` holds the extraction: the topic's two
+halves, six source locations, seven discrete claims, and four statements the
+extraction could **not** support. It is JSON on disk for the same reason the
+vocabularies are — the material is editorial work, and it should be reviewable as
+a diff before it is reviewable as a record.
+
+Three things had to become representable before a packet could survive being
+re-loaded and still be handed to a reviewer honestly:
+
+- **`source_locations.location_key`.** Without a stable handle, re-running an
+  extraction either duplicates locators or orphans the evidence pointing at them.
+- **`claim_evidence (claim_id, source_location_id)` unique.** Re-extraction
+  revises a reading; it does not accumulate citations of the same passage.
+- **`sources.printed_page_offset`.** Locators are the work's own printed pages,
+  because that is what a reader with any copy can find. The held file numbers
+  from its cover and runs eleven pages ahead. Storing the offset is what makes a
+  locator re-checkable against the specific copy the register holds, rather than
+  re-derived by whoever opens it next.
+
+### C.2.2 What the packet could not support, recorded as firmly as what it could
+
+`evidence_gaps` is a new table, and deliberately neither a claim nor a
+verification issue. A claim asserts something and must resolve to a citable
+location; a gap asserts nothing, so it has no provenance to give. A verification
+issue is the work queue; a gap is the reader-facing consequence.
+
+"Purity says nothing about sterility" is true, is what everyone expects a page
+like this to say, and is supported by nothing in this register — SRC-006 is a
+synthetic chemistry text and does not address release testing of a finished
+injectable. It is held as an absence with a named reason (V-015) rather than
+printed as received wisdom. So is the endotoxin statement, the peak-area
+calculation, and any minimum purity threshold.
+
+Gaps carry no publication state of their own. They are visible exactly when their
+subject is, so there is no state in which a topic is live and its stated limits
+have been quietly stripped out.
+
+### C.2.3 Automation checked the sources; it cannot approve them
+
+Recording automated work honestly turned out to need two changes.
+
+A `reviews_automation_scope` check constraint: `performed_by = 'automated'`
+implies a review type of `source_check` or `primary_verification`. An automated
+scientific, clinical or compliance approval is now not merely disallowed by
+policy — it cannot be written down, including by the table owner.
+
+And `tides_record_automated_check()`, because the `reviews` insert policy
+requires `reviewer_user_id = tides_current_user_id()`, which an automated check
+cannot satisfy by construction. Without a route in, automated work would have had
+to be written by a superuser, which is how "an editor ran a tool" quietly becomes
+"nobody knows who ran it". The function requires an editor or admin caller, names
+the tool, and refuses any review type that constitutes an approval.
+
+The packet therefore reaches **ready for scientific review** and stops. Every
+locator was resolved against the registered file, which is a real source check;
+no person has read the claims, and nothing pretends otherwise. The publish gate
+refuses twice over — first because `tides_has_approved_review` counts human
+approvals only, so even the source check is unsatisfied, and then because a
+scientific approval is required.
+
+### C.2.4 The reviewer can actually read it
+
+A record sitting at `ready_for_scientific_review` is a promise that the packet is
+complete enough to be judged. `src/server/editorial/review-packet.ts` assembles
+it and the admin quality-topic page renders it: each claim, the platform's
+reading, what it admits is uncertain, every passage with a locator **and the page
+of the held file**, then the gaps — so an absence is something a reviewer is
+asked to confirm rather than something they have to notice is missing.
+
+The assembly takes a database handle and avoids `server-only`, following
+`src/server/public/shapes.ts`, so what a reviewer is shown is tested against a
+real database rather than asserted about in prose.
+
+### C.2.5 A correction the process caught
+
+Table 4-1 extracts as flat columns rather than rows, so which limitation belongs
+to which technique is partly reconstructed from order. An early draft attributed
+"not reliable for quantitation" to mass spectrometry; on re-reading, it more
+likely belongs to the sequence-analysis row above it. The claim now rests only on
+"not quantitative", which is the final entry and therefore unambiguous, and the
+uncertainty text says why. The packet note records both extraction caveats — that
+one, and that text extraction clips the first characters of many lines, which is
+why the packet paraphrases rather than quotes.
+
+### C.2.6 Reading a source is now a repeatable operation
+
+`npm run sources:read -- SRC-006 --printed 239` opens the printed page, resolving
+the offset from the registry and reporting both numbers. The scratch reader used
+during C.1 has been replaced by it. Extraction is only reproducible if the next
+person can open the same page.
+
+**152 tests.** Lint, typecheck, tests and production build pass.

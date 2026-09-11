@@ -77,6 +77,17 @@ export const sources = pgTable(
     localFileSha256: text(),
     localFileBytes: integer(),
     pageCount: integer(),
+    /**
+     * What to add to a printed page number to reach the page of this file.
+     *
+     * Locators are recorded as the work's own printed pages, because that is
+     * what a reader with any copy can find. A scanned or born-digital file
+     * usually numbers from its cover instead, so the two disagree by a fixed
+     * amount — SRC-006 by eleven. Storing the offset is what makes a locator
+     * re-checkable against the specific copy the register holds, rather than
+     * re-derived by whoever opens it next.
+     */
+    printedPageOffset: integer(),
 
     // --- Verification ----------------------------------------------------
     /** Someone opened the copy and read its title page. */
@@ -131,6 +142,14 @@ export const sourceLocations = pgTable(
     sourceId: uuid()
       .notNull()
       .references(() => sources.id, { onDelete: 'cascade' }),
+
+    /**
+     * Stable handle for a location captured by an extraction packet, so the
+     * packet can be re-loaded without duplicating the locator or orphaning the
+     * evidence rows that point at it. Null for locations created ad hoc by an
+     * editor, which have no life outside the record that cites them.
+     */
+    locationKey: text().unique(),
 
     pageStart: integer(),
     pageEnd: integer(),

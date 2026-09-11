@@ -1,0 +1,230 @@
+{
+  "packetKey": "hplc-purity",
+  "qualityKey": "hplc-purity",
+  "note": "Extracted from SRC-006 (Grant, Synthetic Peptides: A User's Guide, 2nd edn, Oxford University Press, 2002), chapter 4, 'Evaluation of the Synthetic Product', by Gregory A. Grant. Locators are the book's printed pages; the held file numbers from its cover and runs eleven ahead, which the registry records as the source's printed page offset so every locator here can be reopened with `npm run sources:read -- SRC-006 --printed <page>`. Two extraction caveats travel with this packet. Text extraction clips the first one or two characters of many lines, so statements are paraphrased and verbatim quotation is avoided except where a phrase is short enough to be unambiguous. And table 4-1 extracts as flat columns rather than rows, so which limitation belongs to which technique is partly reconstructed from order; where that reconstruction is not certain, the claim says only what the layout guarantees. Nothing was extracted from any source marked for replacement.",
+  "topic": {
+    "shortDescription": "What a chromatographic purity figure describes, and the four questions it leaves open.",
+    "simpleSummary": "High-performance liquid chromatography, usually shortened to HPLC, separates the contents of a sample. A small amount of material is pushed through a column; different substances travel through it at different speeds, so they come out at different times and a detector records each as a peak. The chart of those peaks is a chromatogram. A \"purity\" figure on a certificate of analysis is generally derived from the relative size of the peaks: how much of what was detected was the main peak rather than anything else. That is a useful measurement, and it is a measurement of one specific thing — how mixed the tested sample was. It does not say what the main peak is, how much peptide a vial contains, whether the contents are sterile, or whether bacterial toxins are present. Each of those is a separate question with its own test.",
+    "practitionerSummary": "Reversed-phase HPLC separates peptides by their differing interaction with the stationary phase; each species elutes at a characteristic concentration of organic modifier. It is normally the first analytical step applied to a synthetic peptide and the principal basis for a reported purity figure. Its contribution is to the assessment of homogeneity — how many species are present and in what relative proportion. It contributes nothing directly to covalent structure, which is why identity requires mass spectrometry or sequence analysis, and nothing to quantitation, which requires amino acid analysis. Two limits matter operationally: a single symmetrical peak under one set of conditions can contain more than one species, and a column past its useful life can allow closely related species to co-elute so that heterogeneity is not detected at all. Both make a purity figure a statement about a method as much as about a material.",
+    "whatItProves": "It describes the composition of the specific sample that was injected, at the time it was analysed, under the specific chromatographic conditions used: how many species were resolved, and the main peak's share of the total detector response. Used well it is the most efficient way to see that a preparation is more complex than intended, and it is the basis on which material is purified.",
+    "whatItDoesNotProve": "It does not establish identity: chromatography yields no direct information about covalent structure, so a peak of the expected size at the expected time is not evidence that the peak is the intended peptide. It does not establish how much peptide is present — quantitation is the job of amino acid analysis. It does not establish that a single peak means a single species: two peptides differing by one residue have been shown to co-elute as one symmetrical peak under one set of conditions and to separate when those conditions were changed. It says nothing at all about sterility or bacterial endotoxin, which are microbiological questions that chromatography does not address.",
+    "commonMisinterpretations": "The frequent error is to read one high number as a verdict on a product. A purity figure is one answer among several, describing the sample that reached the instrument — not the vial in a clinic, not its identity, not its contents by weight, and not its microbiological state. A second error is to treat the figure as independent of method: resolution depends on the column, its age and the conditions used, and a method that cannot separate two similar species will report the mixture as pure."
+  },
+  "locations": [
+    {
+      "key": "grant-ch4-222",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 222",
+      "pageStart": 222,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "General considerations"
+    },
+    {
+      "key": "grant-ch4-223",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 223, table 4-1",
+      "pageStart": 223,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "tableNumber": "4-1",
+      "section": "Advantages and limitations of analytical techniques"
+    },
+    {
+      "key": "grant-ch4-224",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 224",
+      "pageStart": 224,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "General considerations"
+    },
+    {
+      "key": "grant-ch4-239",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 239, figure 4-5",
+      "pageStart": 239,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "figure": "4-5",
+      "section": "Reverse-phase HPLC"
+    },
+    {
+      "key": "grant-ch4-241",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 241",
+      "pageStart": 241,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Columns"
+    },
+    {
+      "key": "grant-ch4-261",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 261",
+      "pageStart": 261,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Additional analytical methods for synthetic peptides"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "HPLC-001",
+      "claimText": "Evaluating a synthetic peptide has two distinct goals: establishing homogeneity, and establishing that the covalent structure is correct. No single analytical technique addresses both.",
+      "plainLanguageText": "Checking a synthetic peptide means answering two separate questions: is it one substance or a mixture, and is that substance the one intended? No single test answers both.",
+      "importance": "high",
+      "claimCategory": "analytical-principle",
+      "interpretationNotes": "Grant frames the whole evaluation chapter around these two properties, describing them as the goals that 'pervade any and all considerations of the state of the synthetic product'. Reading them as separate is the foundation for everything else on this page: the distinction between purity and identity is not a caveat, it is the structure of the subject.",
+      "uncertaintyText": "This is a statement about analytical practice in peptide chemistry as set out in a 2002 textbook. Instrumentation has advanced considerably since; the separation of the two goals has not changed, but which specific techniques are routine has.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-222",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant states that homogeneity and correct covalent structure are the two basic goals of the synthetic endeavour, and lists the analytical techniques used to assess them."
+        }
+      ]
+    },
+    {
+      "claimKey": "HPLC-002",
+      "claimText": "Reversed-phase HPLC assesses the level of heterogeneity in a sample and is useful for purification, but it does not yield structural information.",
+      "plainLanguageText": "HPLC shows how mixed a sample is, and is used to purify material. It does not show what the material is.",
+      "importance": "critical",
+      "claimCategory": "purity-vs-identity",
+      "interpretationNotes": "Stated directly in Grant's table 4-1, which sets out the advantages and limitations of each technique side by side, and again in the surrounding text: analytical HPLC reveals the relative number of species present but lacks direct information about covalent structure. This is the primary basis for the statement that a purity result is not an identity result.",
+      "uncertaintyText": "The limitation is inherent to separation by physical interaction rather than a limitation of any particular instrument, so it is not expected to have changed. Hyphenated techniques such as LC-MS combine separation with a structural measurement, but the structural information there comes from the mass spectrometer, not the chromatography.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-223",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-1 lists reverse-phase HPLC with the advantages 'assesses level of heterogeneity' and 'useful for purification', and the limitation 'does not yield structural information'."
+        },
+        {
+          "locationKey": "grant-ch4-224",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that analytical HPLC or capillary electrophoresis is usually the first level of assessment and reveals the relative number of different species present, but that these techniques lack direct information about covalent structure."
+        }
+      ]
+    },
+    {
+      "claimKey": "HPLC-003",
+      "claimText": "A single symmetrical chromatographic peak does not establish that only one species is present. Peptides differing by a single residue have been shown to elute as one peak under one set of conditions and to separate when the conditions were changed.",
+      "plainLanguageText": "One clean peak on the chart is not proof that there is only one substance in the sample. Two peptides differing by a single building block have been shown to come out together as one peak, and to separate only when the test conditions were changed.",
+      "importance": "critical",
+      "claimCategory": "method-dependence",
+      "interpretationNotes": "Grant's wording is direct — 'a single peak does not guarantee homogeneity' — and he illustrates it with a worked example: a single symmetrical peak under one set of HPLC conditions was shown to contain two peptides differing by one glutamic acid residue, which separated when the buffer pH was raised. This is the strongest available basis for saying a purity figure describes a method as much as a material.",
+      "uncertaintyText": "The example is one documented case, presented as illustrative rather than as a measured frequency. How often co-elution goes undetected in routine practice is not established by this source, and would depend on the method, the column and the impurities present.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-239",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant cautions that a single peak does not guarantee homogeneity and presents chromatograms (figure 4-5) of a sample that gave one symmetrical peak under one condition and resolved into two peptides, differing by a single glutamic acid residue, when the buffer pH was altered."
+        }
+      ]
+    },
+    {
+      "claimKey": "HPLC-004",
+      "claimText": "The condition of the chromatographic column affects whether heterogeneity is detected at all. A column that has lost resolving power can allow two similar peptides to co-elute, so that a mixture is reported as a single species.",
+      "plainLanguageText": "The equipment matters. A worn column can let two similar substances come out together, so a mixed sample looks like a pure one.",
+      "importance": "high",
+      "claimCategory": "method-suitability",
+      "interpretationNotes": "Grant notes that a column with high resolution when new may lose resolving power as it ages, that shoulders may no longer be evident and similar peptides may co-elute, and that heterogeneity may therefore go undetected. He recommends periodic assessment against a standard containing closely eluting peaks. The practical consequence for anyone reading a certificate is that a purity figure carries an implicit assumption about the method that produced it.",
+      "uncertaintyText": "Grant does not quantify how much resolution is typically lost, or over what period. Whether a specific result was produced on a suitable column is not usually stated on a certificate of analysis.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-241",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant describes the effect of column age on resolution, states that similar peptides may co-elute as a result and that heterogeneity may go undetected, and recommends periodic performance checks against a standard."
+        }
+      ]
+    },
+    {
+      "claimKey": "HPLC-005",
+      "claimText": "Quantifying how much peptide is present is a separate measurement from assessing purity. Amino acid analysis is the established method for peptide quantitation; chromatographic purity does not provide it.",
+      "plainLanguageText": "How much peptide is actually there is a different measurement from how pure it is. A different test — amino acid analysis — answers it.",
+      "importance": "critical",
+      "claimCategory": "purity-vs-content",
+      "interpretationNotes": "Grant states that amino acid analysis is still the best method for peptide quantitation, and table 4-1 lists 'accurately quantitates peptide levels' as its advantage while listing no quantitative capability for reversed-phase HPLC. The practical consequence is that a purity percentage says nothing about the mass of peptide in a vial: a highly pure preparation may still contain much less peptide than the label states, with the remainder being water, counter-ion or residual salts.",
+      "uncertaintyText": "That the remainder of a lyophilised preparation is commonly water and counter-ion is general formulation knowledge rather than something this source states, and it is not asserted here. What this source establishes is narrower: that quantitation is a separate measurement performed by a different technique.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-261",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that amino acid analysis is still the best method for peptide quantitation, listing it among techniques that remain useful for specific questions alongside mass spectrometry."
+        },
+        {
+          "locationKey": "grant-ch4-223",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-1 gives amino acid analysis the advantage 'accurately quantitates peptide levels' and gives reversed-phase HPLC no quantitative capability."
+        }
+      ]
+    },
+    {
+      "claimKey": "HPLC-006",
+      "claimText": "Mass spectrometry provides an accurate peptide mass, can indicate heterogeneity and can give sequence information, but it is not quantitative.",
+      "plainLanguageText": "Mass spectrometry is the test that tells you what the substance is. It is not a way to measure how much of it there is.",
+      "importance": "high",
+      "claimCategory": "complementary-techniques",
+      "interpretationNotes": "From table 4-1. Read together with the entries for HPLC and amino acid analysis, it sets out why three separate techniques are needed to answer what is often treated as one question: separation for homogeneity, mass spectrometry for structure, amino acid analysis for amount. Only the limitations that sit unambiguously in the mass spectrometry row are relied on here.",
+      "uncertaintyText": "Table 4-1 extracts as flat columns, so a limitation's row is inferred from its position. 'Not quantitative' is the final entry and therefore unambiguously mass spectrometry's; an adjacent entry reading 'not reliable for quantitation' may belong to sequence analysis instead, and is not relied on. Table 4-1 also records that mass spectrometry may destroy or reverse some adducts, so a clean mass result does not exclude every modification. Quantitative mass spectrometry has developed considerably since 2002; this source describes the position as of its publication.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-223",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-1 lists mass spectrometry with the advantages 'provides accurate peptide mass', 'can indicate heterogeneity' and 'can give sequence information'. Its limitations column ends with 'not quantitative', which is the entry this claim rests on."
+        }
+      ]
+    },
+    {
+      "claimKey": "HPLC-007",
+      "claimText": "The standard analytical techniques are used in a complementary fashion, each contributing information the others cannot. A judgement about a synthetic peptide rests on the set of results, not on any one of them.",
+      "plainLanguageText": "These tests are designed to be read together. No one of them is meant to answer everything, and a single result is not a verdict on a product.",
+      "importance": "high",
+      "claimCategory": "analytical-principle",
+      "interpretationNotes": "Grant states that each technique makes its own specialised contribution by providing unique information and that they are generally used in a complementary fashion, with the whole set being what allows a correct judgement about the state of the peptide. This is the direct source for reading a certificate of analysis as a set of separate answers rather than a single verdict.",
+      "uncertaintyText": "Which techniques constitute an adequate set for a given product is a regulatory and compendial question that this source does not address, and that this index cannot yet answer from the sources it holds.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-224",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that each technique makes its own specialised contribution and that they are generally used in a complementary fashion, the whole being sufficient to judge the state of the synthetic peptide."
+        },
+        {
+          "locationKey": "grant-ch4-223",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-1 presents the techniques side by side with their respective advantages and limitations, which is the form the complementarity takes."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "A chromatographic purity result says nothing about whether a preparation is sterile.",
+      "why": "This is almost certainly true and the register does not support it. SRC-006 is a synthetic chemistry text: it addresses the evaluation of a synthetic product, not the release testing of a finished injectable, and sterility appears nowhere in the chapters extracted. No compendial or regulatory source on sterility testing is held at all.",
+      "whatWouldResolveIt": "A current compendial sterility chapter or the equivalent regulatory guidance, acquired and put through the source audit.",
+      "verificationIssueKey": "V-015"
+    },
+    {
+      "statement": "A chromatographic purity result says nothing about bacterial endotoxin content.",
+      "why": "The same gap. Endotoxin is a microbiological attribute of a finished preparation, tested by a method this register holds no source for.",
+      "whatWouldResolveIt": "A current compendial bacterial endotoxins chapter, or the equivalent regulatory guidance.",
+      "verificationIssueKey": "V-015"
+    },
+    {
+      "statement": "A purity figure on a certificate of analysis is calculated as the main peak's area as a percentage of total integrated peak area.",
+      "why": "This is how such figures are generally derived, and it is not stated in the pages of SRC-006 that were read, nor in any other source held. Printing it would be repeating common knowledge as though it had been checked.",
+      "whatWouldResolveIt": "A compendial or regulatory description of the calculation, or a modern analytical text covering chromatographic data handling.",
+      "verificationIssueKey": "V-015"
+    },
+    {
+      "statement": "A specified minimum purity for a peptide intended for human administration.",
+      "why": "No number of this kind appears in any citable source held, and a threshold is a regulatory judgement rather than a chemical fact. Inventing or borrowing one would give a figure the authority of this index without the authority of a source.",
+      "whatWouldResolveIt": "A compendial monograph or regulatory specification stating the requirement, with the product class it applies to.",
+      "verificationIssueKey": "V-015"
+    }
+  ]
+}

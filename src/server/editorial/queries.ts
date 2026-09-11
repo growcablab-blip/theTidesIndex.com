@@ -4,6 +4,7 @@ import { getStaffDb } from '../db/client';
 import { withStaffSession } from '../db/session';
 import type { StaffSession } from '../auth/session';
 import type { Database } from '../db/types';
+import { readQualityTopicReviewPacket, type ReviewPacket } from './review-packet';
 
 /**
  * Read queries for the editorial surfaces.
@@ -20,6 +21,13 @@ function rows<T>(result: unknown): T[] {
   }
   return [];
 }
+
+export type {
+  ReviewPacket,
+  ReviewPacketClaim,
+  ReviewPacketEvidence,
+  ReviewPacketGap,
+} from './review-packet';
 
 export function asStaff<T>(
   session: StaffSession,
@@ -864,6 +872,18 @@ export async function getQualityTopicDetail(
       version: Number(topic.version),
     };
   });
+}
+
+/**
+ * Everything a scientific reviewer needs in front of them at once, under the
+ * acting user's session. The assembly itself lives in `review-packet.ts`, free
+ * of `server-only` so it can be tested against a real database.
+ */
+export async function getQualityTopicReviewPacket(
+  session: StaffSession,
+  topicId: string,
+): Promise<ReviewPacket> {
+  return asStaff(session, (tx) => readQualityTopicReviewPacket(tx, topicId));
 }
 
 // ---------------------------------------------------------------------------

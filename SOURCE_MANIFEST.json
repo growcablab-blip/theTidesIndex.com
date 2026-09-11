@@ -28,7 +28,8 @@
       "isbn": "9780578624358",
       "local_file_sha256": "433246e59ad12be57ee74b70066b30cf5339d22200b895709e3c0dfaf7cdd418",
       "local_file_bytes": 1499936,
-      "page_count": 322
+      "page_count": 322,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-002",
@@ -58,7 +59,8 @@
       "publisher": "Integrative Health Resources, LLC",
       "local_file_sha256": "8db8385e88ea832b64091362387415f9195e8929bebc98fa909e465e795e9ee2",
       "local_file_bytes": 99490395,
-      "page_count": 281
+      "page_count": 281,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-003",
@@ -84,7 +86,8 @@
       "title_page_authors": "Jay Campbell",
       "local_file_sha256": "63638aaf103635769602651b7b6f4abcb7533b6f0a2fed4b528f9aaa4006f605",
       "local_file_bytes": 3486844,
-      "page_count": 264
+      "page_count": 264,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-004",
@@ -110,7 +113,8 @@
       "title_page_authors": "Jay Campbell",
       "local_file_sha256": "40f1dc40ed3c7cf8ff18439e50ec12b2d60983f2750d42a1aef0dd8bc8831108",
       "local_file_bytes": 4254636,
-      "page_count": 10
+      "page_count": 10,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-005",
@@ -136,7 +140,8 @@
       "title_page_authors": "Hack Smith",
       "local_file_sha256": "2422b05b24e0adf0c59959fa33aec4ca7ae0264a37b3b71d71582377e650c989",
       "local_file_bytes": 38983223,
-      "page_count": 208
+      "page_count": 208,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-006",
@@ -166,7 +171,8 @@
       "edition": "2nd",
       "local_file_sha256": "4b561e057dbb0e4c5c627884260f27aec1648b1a9a1589b51ff4825e556964c6",
       "local_file_bytes": 8175950,
-      "page_count": 401
+      "page_count": 401,
+      "printed_page_offset": 11
     },
     {
       "source_key": "SRC-007",
@@ -195,7 +201,8 @@
       "isbn": "978-1-910419-02-1",
       "local_file_sha256": "a887f7e0e9c622dcba5580e71285d286bc577bf52170bbf9422688b9d8b65a66",
       "local_file_bytes": 14146782,
-      "page_count": 201
+      "page_count": 201,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-008",
@@ -221,7 +228,8 @@
       "limitations_notes": "Not the registered work. Cannot support any statement.",
       "local_file_sha256": "edfa2b62440a04b38676e3b07e9bd46d2aa396b547d8ca176bea40e0847fff6f",
       "local_file_bytes": 746864,
-      "page_count": 204
+      "page_count": 204,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-009",
@@ -248,7 +256,8 @@
       "isbn": "978-3-031-30022-6",
       "local_file_sha256": "d6a6814ae9dde5b2701b5cb332ad37433afb80a362d6dc399a65c8d781493e25",
       "local_file_bytes": 2968038,
-      "page_count": 201
+      "page_count": 201,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-010",
@@ -272,7 +281,8 @@
       "limitations_notes": "Not the registered work. Cannot support any statement.",
       "local_file_sha256": "c8df9d2508f0ae251f74379204a69aef0eb64a401df89cdea003bdcb4cbc824f",
       "local_file_bytes": 684020,
-      "page_count": 196
+      "page_count": 196,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-011",
@@ -302,7 +312,8 @@
       "isbn": "978-1-58829-550-7",
       "local_file_sha256": "a92d8f853ec64d3b2f01107f96024e04b85dcc97a3df6db111199a809d3554d4",
       "local_file_bytes": 908106,
-      "page_count": 96
+      "page_count": 96,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-012",
@@ -332,7 +343,8 @@
       "isbn": "0-306-46859-X",
       "local_file_sha256": "e5032978d65c55bccd8316b814d636aaf6bcbfed17cd66b946707658fc4cc063",
       "local_file_bytes": 2955342,
-      "page_count": 283
+      "page_count": 283,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-013",
@@ -359,7 +371,8 @@
       "title_page_authors": "Henry R. Costantino, Michael J. Pikal",
       "local_file_sha256": "c1f3ccaf7714036daecfd506d7ea839b9fc431b0c5aae7cb7a00f748867cc54f",
       "local_file_bytes": 131177,
-      "page_count": 2
+      "page_count": 2,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-014",
@@ -383,7 +396,8 @@
       "limitations_notes": "Not the registered work. Cannot support any statement.",
       "local_file_sha256": "fbb4a6f6fba88266f580b7fdd01d967ffe7b69c824fc18e49555eec73b68c806",
       "local_file_bytes": 497286,
-      "page_count": 157
+      "page_count": 157,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-015",
@@ -407,7 +421,8 @@
       "limitations_notes": "Not the registered work. Cannot support any statement.",
       "local_file_sha256": "a5a2c3a55b51507c5dc5529562b8d0216377b515f80a196a36620a8a7821d9ba",
       "local_file_bytes": 530900,
-      "page_count": 163
+      "page_count": 163,
+      "printed_page_offset": null
     },
     {
       "source_key": "SRC-016",
@@ -428,7 +443,8 @@
       "integrity_notes": "Not yet captured. No file held.",
       "verified_at": "2026-09-11",
       "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
-      "limitations_notes": "Expert commentary. Requires exact source, date and timestamp before any use."
+      "limitations_notes": "Expert commentary. Requires exact source, date and timestamp before any use.",
+      "printed_page_offset": null
     }
   ]
 }

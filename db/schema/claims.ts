@@ -5,6 +5,7 @@ import {
   pgTable,
   text,
   timestamp,
+  uniqueIndex,
   uuid,
   check,
 } from 'drizzle-orm/pg-core';
@@ -170,6 +171,11 @@ export const claimEvidence = pgTable(
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    // One claim cites one location once. Re-running an extraction packet updates
+    // the reading of a passage rather than accumulating duplicate citations of
+    // it. A passage that supports two different propositions belongs to two
+    // claims, not to two evidence rows on one.
+    uniqueIndex('claim_evidence_claim_location_uniq').on(t.claimId, t.sourceLocationId),
     index('claim_evidence_claim_idx').on(t.claimId),
     index('claim_evidence_source_idx').on(t.sourceId),
     index('claim_evidence_evidence_type_idx').on(t.evidenceTypeKey),

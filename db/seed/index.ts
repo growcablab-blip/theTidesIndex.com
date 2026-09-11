@@ -1,6 +1,7 @@
 import { sql } from 'drizzle-orm';
 import type { PgDatabase, PgQueryResultHKT } from 'drizzle-orm/pg-core';
 import * as schema from '../schema';
+import { loadEvidencePackets } from './evidence-packets';
 import { seedData } from './seed-data';
 
 /**
@@ -27,6 +28,10 @@ export interface SeedResult {
   peptides: number;
   aliases: number;
   verificationIssues: number;
+  sourceLocations: number;
+  claims: number;
+  claimEvidence: number;
+  evidenceGaps: number;
 }
 
 export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
@@ -34,6 +39,11 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
   const sources = await seedSourceRegistry(db);
   const { peptides, aliases } = await seedPeptideSkeletons(db);
   const verificationIssues = await seedVerificationIssues(db);
+  // Packets load last: they resolve against the source registry, and a packet
+  // resting on a source the audit disqualified is refused rather than stored.
+  const packets = await loadEvidencePackets(db);
+  const total = (field: 'locations' | 'claims' | 'evidence' | 'gaps'): number =>
+    packets.reduce((sum, p) => sum + p[field], 0);
 
   return {
     sourceTypes: seedData.sourceTypes.length,
@@ -47,6 +57,10 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     peptides,
     aliases,
     verificationIssues,
+    sourceLocations: total('locations'),
+    claims: total('claims'),
+    claimEvidence: total('evidence'),
+    evidenceGaps: total('gaps'),
   };
 }
 
@@ -178,6 +192,7 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
       localFileSha256: source.local_file_sha256,
       localFileBytes: source.local_file_bytes,
       pageCount: source.page_count,
+      printedPageOffset: source.printed_page_offset,
       titlePageVerified: source.title_page_verified,
       bibliographicVerified: source.bibliographic_verified,
       titlePageTitle: source.title_page_title,
@@ -212,6 +227,7 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
         localFileSha256: sql`excluded.local_file_sha256`,
         localFileBytes: sql`excluded.local_file_bytes`,
         pageCount: sql`excluded.page_count`,
+        printedPageOffset: sql`excluded.printed_page_offset`,
         titlePageVerified: sql`excluded.title_page_verified`,
         bibliographicVerified: sql`excluded.bibliographic_verified`,
         titlePageTitle: sql`excluded.title_page_title`,

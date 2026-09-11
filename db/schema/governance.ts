@@ -61,6 +61,16 @@ export const reviews = pgTable(
       sql`(performed_by = 'human' and reviewer_user_id is not null and automated_tool is null)
           or (performed_by = 'automated' and automated_tool is not null and reviewer_user_id is null)`,
     ),
+    // Automation performs checks; it does not approve medical content. A tool
+    // can confirm that a citation resolves to the passage it claims, and that
+    // is a real source check. A scientific, clinical or compliance approval is
+    // a judgement a named person is answerable for, so an automated one is not
+    // merely disallowed by policy — it cannot be written down.
+    check(
+      'reviews_automation_scope',
+      sql`performed_by = 'human'
+          or review_type in ('source_check', 'primary_verification')`,
+    ),
     index('reviews_entity_idx').on(t.entityType, t.entityId),
     index('reviews_entity_version_idx').on(t.entityType, t.entityId, t.entityVersion),
     index('reviews_reviewer_idx').on(t.reviewerUserId),
