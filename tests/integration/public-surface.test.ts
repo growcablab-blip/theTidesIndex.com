@@ -1,6 +1,12 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { seedDatabase } from '@db/seed';
-import { closeTestDb, createTestDb, query, type TestDb } from '../support/test-db';
+import {
+  closeTestDb,
+  createTestDb,
+  query,
+  truncateContent,
+  type TestDb,
+} from '../support/test-db';
 import {
   attachProtocolSource,
   createPeptide,
@@ -40,6 +46,10 @@ describe('public read surface', () => {
 
   beforeAll(async () => {
     db = await createTestDb();
+    // This suite asserts that nothing is public. Another suite publishing a
+    // record of its own would satisfy that assertion falsely, so it starts from
+    // an empty database rather than from whatever ran before it.
+    await truncateContent(db);
     await seedDatabase(db);
     staff = await createStaff(db);
 

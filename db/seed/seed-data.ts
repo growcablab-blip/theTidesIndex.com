@@ -229,6 +229,7 @@ export type EvidencePacket = z.infer<typeof evidencePacketSchema>;
 const EVIDENCE_PACKET_FILES = [
   'evidence/hplc-purity.json',
   'evidence/coa-literacy.json',
+  'evidence/identity-testing.json',
 ] as const;
 
 /**

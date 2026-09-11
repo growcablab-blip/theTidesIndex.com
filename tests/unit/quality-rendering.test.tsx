@@ -36,6 +36,7 @@ import { previewAllowed, previewRefusal } from '@/server/public/preview-gate';
 
 const GAP: EvidenceGap = {
   id: 'gap-1',
+  gapType: 'source_missing',
   statement: 'A chromatographic purity result says nothing about whether a preparation is sterile.',
   whyNotSupported: 'No compendial or regulatory source on sterility testing is held at all.',
   whatWouldResolveIt: 'A current compendial sterility chapter.',

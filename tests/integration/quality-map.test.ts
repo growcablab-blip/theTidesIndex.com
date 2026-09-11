@@ -169,15 +169,16 @@ describe('the quality map', () => {
   it('names the offending edge when the map file itself is wrong', async () => {
     // The constraint would catch these too, but a database-level error names a
     // table, not the line in the map file someone has to go and fix.
-    const original = seedData.qualityMap.edges;
-    const template = original[0]!;
-    const set = (edges: typeof original) => {
-      (seedData.qualityMap as { edges: typeof original }).edges = edges;
-    };
+    //
+    // The bad edges are passed in rather than written over `seedData`. Test
+    // files share a worker process, so mutating a module singleton — even with a
+    // `finally` to put it back — leaves every later suite one aborted test away
+    // from reading a corrupted map.
+    const template = seedData.qualityMap.edges[0]!;
 
-    try {
-      // An assertion about what a test does not establish, with nothing behind it.
-      set([
+    // An assertion about what a test does not establish, with nothing behind it.
+    const unsourced = await rejectionMessage(
+      loadQualityMap(db, [
         {
           ...template,
           to: 'sterility',
@@ -186,16 +187,16 @@ describe('the quality map', () => {
           gapKey: null,
           isEditorialNavigational: false,
         },
-      ]);
-      const unsourced = await rejectionMessage(loadQualityMap(db));
-      expect(unsourced).toMatch(/hplc-purity -> sterility \(not_addressed_by\)/);
-      expect(unsourced).toMatch(/must cite the claim or the recorded gap/);
+      ]),
+    );
+    expect(unsourced).toMatch(/hplc-purity -> sterility \(not_addressed_by\)/);
+    expect(unsourced).toMatch(/must cite the claim or the recorded gap/);
 
-      // The same assertion, cited but relabelled as mere navigation. Citing it
-      // is not enough: an edge of this type is never structural, because
-      // structural edges are exempt from scrutiny the reader does not know
-      // they are getting.
-      set([
+    // The same assertion, cited but relabelled as mere navigation. Citing it is
+    // not enough: an edge of this type is never structural, because structural
+    // edges are exempt from scrutiny the reader does not know they are getting.
+    const mislabelled = await rejectionMessage(
+      loadQualityMap(db, [
         {
           ...template,
           to: 'sterility',
@@ -204,12 +205,9 @@ describe('the quality map', () => {
           gapKey: 'hplc-purity-gap-01',
           isEditorialNavigational: true,
         },
-      ]);
-      const mislabelled = await rejectionMessage(loadQualityMap(db));
-      expect(mislabelled).toMatch(/never mere navigation/);
-    } finally {
-      set(original);
-    }
+      ]),
+    );
+    expect(mislabelled).toMatch(/never mere navigation/);
   });
 
   // --- What the public sees ----------------------------------------------

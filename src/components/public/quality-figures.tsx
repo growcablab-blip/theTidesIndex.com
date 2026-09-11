@@ -256,3 +256,92 @@ export function QualityDimensionsFigure({ id = 'fig-quality-dimensions' }: { id?
     </figure>
   );
 }
+
+/**
+ * What an identity result actually is: two numbers and the distance between
+ * them.
+ *
+ * The figure exists because "identity confirmed" on a document hides the
+ * structure of the thing. There is an expected value, which comes from the
+ * intended sequence; there is a measurement; and there is a comparison. A report
+ * giving an observed mass with nothing to compare it against has not completed
+ * the third step, and a reader who has seen this shape can notice that.
+ *
+ * No numbers, for the same reason as the chromatography figure: the worked
+ * example in the source is one peptide on one instrument, and putting its
+ * figures here would read as a tolerance. The source states none.
+ */
+export function IdentityComparisonFigure({ id = 'fig-identity' }: { id?: string }) {
+  const { titleId, descId } = useIds(id);
+
+  return (
+    <figure className="my-2">
+      <FigureScroller>
+        <svg
+          viewBox="0 28 720 152"
+          role="img"
+          aria-labelledby={`${titleId} ${descId}`}
+          className="h-auto w-full min-w-[520px] text-ink"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <title id={titleId}>How an identity result is formed</title>
+          <desc id={descId}>
+            Two paths meet in a comparison. On one side, the intended peptide has a sequence, and
+            from that sequence a mass can be calculated: this is the expected value. On the other,
+            the sample is measured on the instrument, producing an observed value. The result is
+            the comparison between the two. A report that gives an observed value without the
+            expected one it was compared against has not completed the comparison.
+          </desc>
+
+          <g fill="none" stroke="currentColor" strokeWidth="1.5">
+            <rect x="8" y="36" width="188" height="52" rx="4" className="text-rule" />
+            <rect x="8" y="120" width="188" height="52" rx="4" className="text-rule" />
+            <rect x="266" y="36" width="170" height="52" rx="4" className="text-rule" />
+            <rect x="266" y="120" width="170" height="52" rx="4" className="text-rule" />
+            <rect x="506" y="78" width="206" height="52" rx="4" className="text-tide-teal" strokeWidth="2" />
+          </g>
+
+          <g stroke="currentColor" strokeWidth="1.5" markerEnd="url(#tide-arrow)">
+            <line x1="196" y1="62" x2="258" y2="62" />
+            <line x1="196" y1="146" x2="258" y2="146" />
+            <line x1="436" y1="62" x2="470" y2="62" />
+            <line x1="470" y1="62" x2="470" y2="98" />
+            <line x1="436" y1="146" x2="470" y2="146" />
+            <line x1="470" y1="146" x2="470" y2="110" />
+            <line x1="470" y1="104" x2="498" y2="104" />
+          </g>
+
+          <g fill="currentColor" fontSize="13">
+            <text x="24" y="60">Intended peptide</text>
+            <text x="24" y="78" fontSize="11" opacity="0.75">
+              a known sequence
+            </text>
+            <text x="24" y="144">Sample</text>
+            <text x="24" y="162" fontSize="11" opacity="0.75">
+              the material in hand
+            </text>
+
+            <text x="282" y="60">Calculated mass</text>
+            <text x="282" y="78" fontSize="11" opacity="0.75">
+              expected
+            </text>
+            <text x="282" y="144">Measured mass</text>
+            <text x="282" y="162" fontSize="11" opacity="0.75">
+              observed
+            </text>
+
+            <text x="522" y="102">Comparison</text>
+            <text x="522" y="120" fontSize="11" opacity="0.75">
+              the identity result
+            </text>
+          </g>
+        </svg>
+      </FigureScroller>
+      <figcaption className="mt-3 max-w-[62ch] text-sm text-slate">
+        An identity result is a comparison, not a reading. An observed value reported without the
+        expected value it was compared against leaves the comparison incomplete. How close the two
+        must be is a specification — no source held here states one.
+      </figcaption>
+    </figure>
+  );
+}

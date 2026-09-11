@@ -69,16 +69,21 @@ describe('reading modes over the same record', () => {
 
     it('carries no dose value anywhere in the serialised payload', async () => {
       const protocols = await readProtocols(db, peptideId, 'simple');
-      const serialised = JSON.stringify(protocols);
 
-      // The demonstration protocols use these amounts. If either reaches the
-      // patient payload by any route — a stray column, a joined row, a nested
-      // object — this fails.
-      expect(serialised).not.toContain('250');
-      expect(serialised).not.toContain('500');
-      expect(serialised).not.toContain('mcg');
-      expect(serialised).not.toContain('twice daily');
-      expect(serialised).not.toContain('4 weeks');
+      // Identifiers are not content, and they are random: a generated UUID
+      // containing "4500" made this assertion fail roughly one run in six once
+      // the suite began shuffling. Stripping them keeps the strong property —
+      // that no dose reaches the payload by any route, including a stray column
+      // or a nested object — without the false positive.
+      const serialised = JSON.stringify(protocols).replaceAll(
+        /"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"/gi,
+        '"<id>"',
+      );
+
+      // The amounts the demonstration protocols actually use.
+      for (const dose of ['250', '500', 'mcg', 'twice daily', '4 weeks']) {
+        expect(serialised, `patient payload must not carry "${dose}"`).not.toContain(dose);
+      }
     });
 
     it('still attributes the record and states its context', async () => {

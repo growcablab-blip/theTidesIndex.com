@@ -76,7 +76,7 @@
       "resultText": "Observed mass consistent with the expected monoisotopic mass",
       "attachmentReference": null,
       "testDate": "2026-04-11",
-      "qualityKey": "mass-spectrometry",
+      "qualityKey": "identity-testing",
       "sortOrder": 20,
       "teachingNote": "No acceptance criterion is stated, so 'consistent with' is the laboratory's judgement rather than a measurement against a limit. A mass result bears on identity; the purity figure above does not."
     },

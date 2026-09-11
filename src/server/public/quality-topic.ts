@@ -182,7 +182,7 @@ export async function readQualityTopic(
 
   const gapRows = rows<Record<string, unknown>>(
     await tx.execute(sql`
-      select id, statement, why_not_supported, what_would_resolve_it,
+      select id, gap_type, statement, why_not_supported, what_would_resolve_it,
              verification_issue_key, sort_order
       from ${r.gaps}
       where quality_topic_id = ${topicId}
@@ -254,6 +254,7 @@ export async function readQualityTopic(
 
     gaps: gapRows.map((g) => ({
       id: String(g.id),
+      gapType: String(g.gap_type),
       statement: String(g.statement),
       whyNotSupported: String(g.why_not_supported),
       whatWouldResolveIt: str(g.what_would_resolve_it),

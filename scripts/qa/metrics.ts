@@ -129,7 +129,8 @@ try {
   console.log('\nCLAIMS');
   console.log(line({ label: 'resolve to an exact locator', value: c!.with_locator, of: c!.claims }));
   console.log(line({ label: 'primary source traced', value: c!.primary_verified, of: c!.claims,
-    note: 'Stage 8. Zero is expected while every source is a primary one.' }));
+    note:
+      'Stage 8. Traces attempted and not completed are tracked as their own gaps — see V-022.' }));
   console.log(line({ label: 'carry a recorded reading', value: c!.with_interpretation, of: c!.claims }));
   console.log(line({ label: 'high-impact stating uncertainty', value: c!.high_impact_with_uncertainty, of: c!.high_impact }));
   console.log(line({ label: 'ready for scientific review', value: c!.ready, of: c!.claims }));

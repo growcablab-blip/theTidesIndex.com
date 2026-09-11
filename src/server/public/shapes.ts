@@ -166,6 +166,11 @@ export interface PractitionerProtocol extends SimpleProtocol {
  */
 export interface EvidenceGap {
   readonly id: string;
+  /**
+   * What kind of gap this is. Carried to the reader because "no source is held"
+   * and "the sources disagree" are different things to be told.
+   */
+  readonly gapType: string;
   readonly statement: string;
   readonly whyNotSupported: string;
   readonly whatWouldResolveIt: string | null;

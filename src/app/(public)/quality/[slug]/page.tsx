@@ -20,6 +20,7 @@ import { ReferenceList } from '@/components/public/citation';
 import { PrintHeader } from '@/components/public/print-header';
 import {
   ChromatographyFlowFigure,
+  IdentityComparisonFigure,
   QualityDimensionsFigure,
 } from '@/components/public/quality-figures';
 import {
@@ -121,10 +122,19 @@ export default async function QualityTopicPage({
   // promise ten references and deliver one.
   const referenceCount = new Set(citations.map((c) => c.sourceKey)).size;
 
-  // Only the HPLC page has figures drawn for it. A topic without them simply
-  // does not get that section, rather than getting a generic diagram that would
-  // imply more than this index knows.
-  const hasFigures = topic.slug === 'hplc-purity';
+  // Figures are drawn for a specific topic or not at all. A topic without one
+  // simply does not get the section, rather than getting a generic diagram that
+  // would imply more than this index knows about it.
+  const methodFigure =
+    topic.slug === 'hplc-purity' ? (
+      <ChromatographyFlowFigure />
+    ) : topic.slug === 'identity-testing' ? (
+      <IdentityComparisonFigure />
+    ) : null;
+  // The dimensions figure belongs wherever a reader is being told that quality
+  // attributes are separate questions, which is both of these topics.
+  const showsDimensions = topic.slug === 'hplc-purity' || topic.slug === 'identity-testing';
+  const hasFigures = methodFigure !== null;
   // The certificate reader belongs to one topic. Everywhere else the section
   // simply does not appear, rather than appearing empty.
   const certificate = topic.slug === 'certificate-of-analysis' ? await loadSpecimen() : null;
@@ -146,7 +156,7 @@ export default async function QualityTopicPage({
       count: topic.gaps.length,
       empty: topic.gaps.length === 0,
     },
-    ...(hasFigures ? [{ id: 'dimensions', label: 'Separate questions' }] : []),
+    ...(showsDimensions ? [{ id: 'dimensions', label: 'Separate questions' }] : []),
     ...(certificate
       ? [
           { id: 'specimen', label: 'A specimen document' },
@@ -273,7 +283,7 @@ export default async function QualityTopicPage({
             title="How the test works"
             lede="The mechanism, without numbers. Nothing in this figure asserts anything the sources below do not."
           >
-            <ChromatographyFlowFigure />
+            {methodFigure}
           </Section>
         ) : null}
 
@@ -327,7 +337,7 @@ export default async function QualityTopicPage({
           )}
         </Section>
 
-        {hasFigures ? (
+        {showsDimensions ? (
           <Section
             id="dimensions"
             title="Separate questions, separate answers"

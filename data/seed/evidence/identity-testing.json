@@ -1,0 +1,221 @@
+{
+  "packetKey": "identity-testing",
+  "qualityKey": "identity-testing",
+  "note": "Extracted from SRC-006 (Grant, Synthetic Peptides: A User's Guide, 2nd edn, Oxford University Press, 2002), chapter 4, 'Evaluation of the Synthetic Product', section 'Detailed Characterization of Covalent Structure'. Locators are the book's printed pages; the held file runs eleven pages ahead, so any locator here reopens with `npm run sources:read -- SRC-006 --printed <page>`. Two cautions travel with this packet. First, extraction clips the opening characters of many lines, so every statement is paraphrase with an exact locator and the numerical values below were read from the page rather than from extracted text. Second, Grant writes for a chemist evaluating a synthesis whose intended sequence is known — which is a different situation from a clinic checking an unknown sample against a supplier's certificate, and the claims record that difference rather than eliding it.",
+  "topic": {
+    "shortDescription": "Whether the material is the substance it is supposed to be — a different question from how pure it is.",
+    "simpleSummary": "Purity asks how mixed something is. Identity asks what it actually is. They are different questions and they need different tests. A sample can separate into a single clean peak — the usual basis for a purity figure — and that result carries no information about what the peak is made of. Identity is usually approached by measuring the mass of the molecule, because a peptide of a known sequence has a known mass, and a measured mass that matches the expected one is real evidence that the intended material is present. How far that evidence goes depends on what is being ruled out: a mass measurement is good at catching a peptide that is the wrong length or that has picked up an unintended modification, and it is not by itself a reading of the sequence. Where a report gives an expected mass and an observed mass, those two numbers together are the useful part; an observed mass with nothing to compare it to is not.",
+    "practitionerSummary": "Identity is characterisation of covalent structure, and Grant separates it explicitly from the homogeneity assessment that chromatography provides: the separation methods, in his words, do not provide information on the covalent nature of the peptide. Mass spectrometry is the principal identity technique for synthetic peptides, and determination of the overall mass is described as the most practical and common use of mass analysis — usually sufficient to evaluate a synthetic peptide, particularly in conjunction with other analytical methods. Electrospray ionisation produces a series of multiply charged ions, so a homogeneous peptide yields multiple signals; the molecular mass is calculated from the observed m/z values and, because error grows when multiplying higher-charged peaks by their charge, only the lower-charged peaks are routinely used. MALDI generally gives a single, singly charged signal. Both electrospray and MALDI instruments can produce sequence information by fragmentation, which Grant describes as helpful in determining the identity or position of an anomaly — a capability distinct from mass measurement, and one a report may or may not have used. The operative question on a certificate is therefore not whether a mass was reported but what was compared with what, and by which method.",
+    "whatItProves": "It establishes what the material is, to the extent the method used can. A measured molecular mass compared against the mass calculated for the intended peptide is real evidence that the intended material is present: it is the most practical and common use of mass analysis, and the technique most likely to catch a peptide of the wrong length or one carrying an unintended modification — including modifications that other analytical procedures would not show at all. Where fragmentation has been used, the same instruments can additionally produce sequence information, which is what pinpoints where an anomaly sits.",
+    "whatItDoesNotProve": "It does not establish how much peptide is present, which is a separate measurement, and it says nothing about sterility or bacterial endotoxin. A reported mass is not by itself a reading of the sequence: mass determination and sequence determination are different measurements made on the same class of instrument, and a document saying \"LC-MS\" does not indicate which was performed. The sources held here also do not establish how far an observed mass may sit from a calculated one and still be acceptable, nor what a mass measurement can and cannot resolve between species of similar mass — both are recorded below as open rather than answered.",
+    "commonMisinterpretations": "The commonest error is to read a purity figure as an identity result; they answer different questions and the separation methods behind a purity figure carry no structural information. The second is to read several peaks in an electrospray spectrum as several substances — a single homogeneous peptide produces multiple signals because it picks up different numbers of charges. The third is to treat \"LC-MS\" as a single defined level of confirmation, when it may mean a mass measurement or a fragmentation experiment, and an observed mass reported with nothing to compare it against is not an identity result at all."
+  },
+  "locations": [
+    {
+      "key": "grant-ch4-243-covalent",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 243",
+      "pageStart": 243,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Detailed Characterization of Covalent Structure"
+    },
+    {
+      "key": "grant-ch4-244-mass",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 244",
+      "pageStart": 244,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Peptide-Mass Evaluation"
+    },
+    {
+      "key": "grant-ch4-249-esi",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 249",
+      "pageStart": 249,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Electrospray ionization"
+    },
+    {
+      "key": "grant-ch4-253-deconvolution",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 253, table 4-3",
+      "pageStart": 253,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "tableNumber": "4-3",
+      "section": "Manual deconvolution and MALDI"
+    },
+    {
+      "key": "grant-ch4-253-sequencing",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, pp. 253–254",
+      "pageStart": 253,
+      "pageEnd": 254,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Sequencing Peptides with Mass Spectrometry"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "ID-001",
+      "claimText": "Assessing how homogeneous a preparation is and establishing that its covalent structure is correct are separate undertakings. The separation methods used to assess homogeneity provide no information about covalent structure.",
+      "plainLanguageText": "Checking how mixed a sample is and checking what it actually is are two different jobs. The tests that show how mixed it is say nothing about what it is.",
+      "importance": "critical",
+      "claimCategory": "identity-vs-purity",
+      "interpretationNotes": "Grant opens the covalent-structure section by drawing exactly this line: the preceding sections dealt with homogeneity and purification, and those methods do not provide any information on the covalent nature of the peptide. This is the same boundary the purity topic states from the other side, and it is recorded independently here because a reader arriving at identity should not have to have read the purity page first. Grant adds that determining the covalent structure is no less important than obtaining a peptide free of by-products.",
+      "uncertaintyText": "A statement about the techniques Grant is describing — chromatographic and electrophoretic separation — rather than about every conceivable analytical method. Hyphenated techniques such as LC-MS combine separation with a structural measurement, but the structural information there comes from the mass spectrometer rather than from the separation.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-243-covalent",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant states that the previous sections dealt mainly with the assessment of peptide homogeneity and purification, that these methods do not provide any information on the covalent nature of the peptide, and that determining the covalent structure is correct is no less important than obtaining a peptide free of by-products."
+        }
+      ]
+    },
+    {
+      "claimKey": "ID-002",
+      "claimText": "Determination of the overall mass of a synthetic peptide is the most practical and common use of mass analysis, and is described as usually sufficient to evaluate a synthetic peptide effectively and accurately, particularly when used in conjunction with other analytical methods.",
+      "plainLanguageText": "Measuring the mass of the molecule is the usual way to check identity, and it generally does the job — especially alongside other tests.",
+      "importance": "critical",
+      "claimCategory": "identity-method",
+      "interpretationNotes": "Grant's own framing, and the qualifier is part of it: sufficient 'particularly when used in conjunction with other analytical methods'. Note carefully what situation he is describing. He writes for a chemist evaluating a synthesis whose intended sequence is known and whose starting material is their own — where a mass matching the calculated value is strong evidence the synthesis produced what was designed. A clinic comparing an unfamiliar sample against a supplier's stated mass is in a weaker position, because the expected value itself comes from the party supplying the material. This index records the claim in Grant's scope and does not extend it to that case.",
+      "uncertaintyText": "Grant states at this point that a correct mass 'proves in one step that the synthesis was successful'. That wording is stronger than this index is willing to carry forward, and it is scoped to a known synthesis by the person who performed it. What is recorded here is the narrower and better-supported form: mass determination is the common and usually sufficient method, used with others. The 2002 date also matters — instrumentation and the expectations around it have moved on, and this source does not describe current practice.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-244-mass",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that determination of the overall mass of a synthetic peptide is the most practical and common utilisation of mass analysis and is usually sufficient to evaluate a synthetic peptide effectively and accurately, and that evaluation of the mass of the molecular ion is usually sufficient particularly when used in conjunction with other analytical methods."
+        }
+      ]
+    },
+    {
+      "claimKey": "ID-003",
+      "claimText": "Mass measurement can reveal modifications that are unstable or invisible to other analytical procedures.",
+      "plainLanguageText": "A mass measurement can catch unintended changes to the molecule that other tests would miss entirely.",
+      "importance": "high",
+      "claimCategory": "identity-method",
+      "interpretationNotes": "Grant states this as part of the case for routine mass analysis, and accompanies it with table 4-2, a list of mass differences corresponding to specific modifications and protecting groups. The practical consequence is that a mass differing from the expected value by a characteristic amount is informative rather than merely wrong: the size of the discrepancy can indicate what happened.",
+      "uncertaintyText": "Which modifications are detectable this way depends on whether they change the mass and by how much. Grant's table is a list of differences that may be encountered, not an exhaustive catalogue, and this index has not reproduced it.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-244-mass",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that mass determination may be the only way to determine the presence of modifications that are unstable or invisible to other analytical procedures, and refers to table 4-2 for a list of mass differences that may be encountered."
+        }
+      ]
+    },
+    {
+      "claimKey": "ID-004",
+      "claimText": "Electrospray ionisation produces a series of multiply charged ions, so a single homogeneous peptide gives multiple signals. Each observed signal is the mass-to-charge ratio, and the molecular mass is calculated from those observations rather than read directly.",
+      "plainLanguageText": "One common method produces several peaks for a single substance, because the molecule picks up different numbers of charges. The actual mass is worked out from those peaks rather than read straight off.",
+      "importance": "high",
+      "claimCategory": "reading-a-result",
+      "interpretationNotes": "The most directly useful thing on this page for anyone looking at a spectrum: multiple peaks are not evidence of multiple substances. Grant states it explicitly — multiple charging produces multiple signals despite the fact that this is a homogeneous peptide — and gives the relationship between observed mass, true mass and charge. A reader who takes several peaks in an electrospray spectrum as several components has read it backwards.",
+      "uncertaintyText": "Specific to electrospray. MALDI generally produces a single, singly charged signal, so the same observation about a MALDI spectrum would mean something different.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-249-esi",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant describes electrospray ionisation as producing a series of ions differing by a single charge, notes that multiple charging produces multiple signals despite the peptide being homogeneous, and gives the relationship between the observed mass, the peptide mass, the number of charges and the mass of the charging species."
+        }
+      ]
+    },
+    {
+      "claimKey": "ID-005",
+      "claimText": "A mass result is a measured value compared against a calculated one, and the comparison carries a margin. In the worked example, observed masses of 4005.3 and 4006.5 are reported against a calculated mass of 4005.7 for a 33-residue peptide, and a MALDI measurement of the same peptide gives 4005.6.",
+      "plainLanguageText": "A mass result is a measurement compared with an expected figure, and the two are close rather than identical. In the book's example the expected figure is 4005.7 and the measurements come out at 4005.3, 4005.6 and 4006.5.",
+      "importance": "high",
+      "claimCategory": "reading-a-result",
+      "interpretationNotes": "Recorded because it makes concrete what an identity result actually is: two numbers and the distance between them. Grant describes the agreement as excellent. The figures are reported here exactly as the source gives them, without rounding or conversion, and the expected value is a calculated mass for a specified 33-residue peptide — not a general figure and not applicable to any other material. Grant also notes that error grows when higher-charged peaks are multiplied by their charge, so only the lower-charged peaks (+3, +4 and +5 in his table) are routinely used.",
+      "uncertaintyText": "These are one worked example on one instrument in one laboratory, presented to illustrate the method. They are not an acceptance criterion, a tolerance, or a figure that applies to any other peptide. Grant states no general limit for how far an observed mass may sit from a calculated one, and this index holds no source that does.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-253-deconvolution",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-3 and the surrounding text give a manual deconvolution of the electrospray spectrum, averaging to 4005.3 and 4006.5, described as in excellent agreement with the calculated mass of 4005.7 for the 33-residue peptide; the MALDI spectrum of the same peptide shows an (M+H)+ mass of 4006.6, giving a measured mass of 4005.6. Grant adds that greater error is introduced when multiplying higher-charged peaks by their charge, so only the lower-charged peaks are routinely used."
+        }
+      ]
+    },
+    {
+      "claimKey": "ID-006",
+      "claimText": "Both electrospray and MALDI instruments are capable of producing sequence information by fragmenting a selected ion, which Grant describes as helpful in determining the identity or position of an anomaly. This is a different measurement from determining the overall mass.",
+      "plainLanguageText": "The same instruments can also break the molecule into pieces to get information about the order of its building blocks. That is a different and more detailed measurement than weighing the whole molecule, and a report may or may not have done it.",
+      "importance": "critical",
+      "claimCategory": "method-capability",
+      "interpretationNotes": "The distinction a reader most needs when a document says 'LC-MS'. Measuring the overall mass and obtaining sequence information are two different things done on the same class of instrument, and Grant treats them in separate sections — the first as routine, the second as an additional capability used when something needs pinpointing. A report stating a mass has not thereby confirmed a sequence, and nothing in the phrase 'LC-MS' indicates which was done.",
+      "uncertaintyText": "Grant describes the capability and the fragmentation nomenclature, and cites others for the detail. How completely a sequence can be determined in a given case depends on the instrument, the fragmentation method and the peptide, and this index holds no source establishing what any particular method can or cannot resolve.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-253-sequencing",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that both electrospray and MALDI instruments are capable of producing sequence information for synthetic peptides which can be very helpful in determining the identity or position of an anomaly, and describes collision-induced decomposition of a selected ion in an ion trap as the usual means."
+        },
+        {
+          "locationKey": "grant-ch4-244-mass",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant notes separately that although the technology exists to produce useful information on the actual sequence of a peptide, in practice evaluation of the mass of the molecular ion is usually sufficient — treating the two as distinct measurements with different roles."
+        }
+      ]
+    },
+    {
+      "claimKey": "ID-007",
+      "claimText": "The analytical techniques used to evaluate a synthetic peptide are complementary, each contributing information the others cannot, and a judgement about the material rests on the set of results rather than on any single one.",
+      "plainLanguageText": "These tests are meant to be read together. No single one answers everything.",
+      "importance": "high",
+      "claimCategory": "complementary-techniques",
+      "interpretationNotes": "Recorded here as well as on the purity topic because it is the sentence that keeps identity in proportion: a mass result is one answer among several, and Grant's own recommendation for mass evaluation is qualified by 'in conjunction with other analytical methods'. Identity, purity and content are separate questions and this is the source's own statement that they are read as a set.",
+      "uncertaintyText": "Which set of techniques is adequate for a given product is a regulatory and compendial question that this source does not address and that this index cannot answer from the sources it holds.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-244-mass",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant qualifies the sufficiency of molecular-ion mass evaluation with 'particularly when used in conjunction with other analytical methods', treating mass analysis as one contribution among several rather than as a standalone verdict."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "That a matching molecular mass establishes the amino acid sequence.",
+      "why": "Grant treats mass determination and sequence determination as separate measurements, and says the technology exists to obtain sequence information when the location of an anomaly needs pinpointing. He does not state what a mass measurement alone can and cannot resolve about sequence, and no source held here does. The point is left open rather than answered from intuition.",
+      "gapType": "no_current_reviewed_evidence",
+      "whatWouldResolveIt": "A current analytical reference or compendial identity chapter addressing the specificity of mass measurement.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "That mass spectrometry cannot distinguish between species of equal mass, such as positional isomers or stereoisomers.",
+      "why": "Widely understood in analytical chemistry, and not stated in the pages of SRC-006 that were read. Whether a given method resolves such species depends on the instrument, the fragmentation applied and the compound, so stating it flatly would be a generalisation this index cannot support. Recorded as a gap rather than asserted.",
+      "gapType": "no_current_reviewed_evidence",
+      "whatWouldResolveIt": "A modern analytical source addressing the specificity limits of mass spectrometric identity testing.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "How far an observed mass may differ from a calculated mass and still be acceptable.",
+      "why": "Grant gives one worked example and calls the agreement excellent, but states no general tolerance. An acceptance criterion is a specification, and this index holds no compendial monograph or regulatory specification that sets one.",
+      "gapType": "numerical_threshold_not_established",
+      "whatWouldResolveIt": "A compendial monograph or regulatory specification stating an identity acceptance criterion, with the product class it applies to.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "What the primary literature on mass spectrometric peptide sequencing actually demonstrates.",
+      "why": "Grant cites Hunt and colleagues (1988) and Griffin and colleagues (1990) for the sequencing capability. Both are chapters in out-of-print edited volumes with no lawful free full text, so neither could be obtained and neither has been read. The citations are recorded and the claims resting on them remain attributed to Grant as a secondary source, not marked primary-verified.",
+      "gapType": "primary_source_missing",
+      "whatWouldResolveIt": "Lawful access to the two cited chapters, or a modern review that can be traced to its own primary literature.",
+      "verificationIssueKey": "V-022"
+    },
+    {
+      "statement": "That an identity result says anything about how much peptide is present, or about sterility or endotoxin.",
+      "why": "Identity, content and microbiological attributes are separate questions with separate tests. Content is addressed by amino acid analysis in this register; sterility and endotoxin are addressed by nothing held here at all.",
+      "gapType": "source_missing",
+      "whatWouldResolveIt": "For content, the existing amino acid analysis material already supports the distinction. For sterility and endotoxin, the compendial chapters recorded as awaiting a USP-NF subscription.",
+      "verificationIssueKey": "V-017"
+    }
+  ]
+}

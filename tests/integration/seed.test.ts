@@ -1,13 +1,24 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { seedDatabase } from '@db/seed';
 import { seedData } from '@db/seed/seed-data';
-import { closeTestDb, createTestDb, query, type TestDb } from '../support/test-db';
+import {
+  closeTestDb,
+  createTestDb,
+  query,
+  truncateContent,
+  type TestDb,
+} from '../support/test-db';
 
 describe('seeding', () => {
   let db: TestDb;
 
   beforeAll(async () => {
     db = await createTestDb();
+    // Truncate first. This suite asserts exact row counts against the seed
+    // files, so it has to start from an empty database rather than from
+    // whatever another suite happened to leave — which is what it was
+    // implicitly relying on when every file had its own instance.
+    await truncateContent(db);
     await seedDatabase(db);
   });
 

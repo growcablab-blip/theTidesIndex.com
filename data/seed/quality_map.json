@@ -136,6 +136,46 @@
       "rationale": "Water content is one of the attributes a certificate may report, with its own testing.",
       "isEditorialNavigational": true,
       "sortOrder": 60
+    },
+    {
+      "from": "identity-testing",
+      "to": "hplc-purity",
+      "relationshipType": "commonly_conflated",
+      "rationale": "A purity figure is routinely read as confirmation of what the material is. It is not: the separation methods that produce it give no information about covalent structure, which is why identity is a separate question with its own test.",
+      "claimKey": "ID-001",
+      "sortOrder": 10
+    },
+    {
+      "from": "identity-testing",
+      "to": "mass-spectrometry",
+      "relationshipType": "same_process",
+      "rationale": "Mass spectrometry is the principal technique by which identity is approached for a synthetic peptide. The topic and the method are treated separately because a report may use the instrument for either of two different measurements.",
+      "claimKey": "ID-002",
+      "sortOrder": 20
+    },
+    {
+      "from": "identity-testing",
+      "to": "peptide-content-assay",
+      "relationshipType": "commonly_conflated",
+      "rationale": "Confirming what a material is does not establish how much of it is present. Those are different measurements answered by different techniques.",
+      "claimKey": "ID-007",
+      "sortOrder": 30
+    },
+    {
+      "from": "identity-testing",
+      "to": "sterility",
+      "relationshipType": "not_addressed_by",
+      "rationale": "Sterility is a microbiological question. This index holds no source on sterility testing, so it records the gap rather than asserting the conclusion.",
+      "gapKey": "identity-testing-gap-05",
+      "sortOrder": 40
+    },
+    {
+      "from": "identity-testing",
+      "to": "coa-literacy",
+      "relationshipType": "scoped_by",
+      "rationale": "An identity result reaches a reader on a document. What that document is, and whether it describes the material in hand, governs how far the result reaches.",
+      "isEditorialNavigational": true,
+      "sortOrder": 50
     }
   ]
 }

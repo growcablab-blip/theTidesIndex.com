@@ -130,9 +130,11 @@ describe('certificates', () => {
     const identity = certificate?.tests.find((t) => /identity/i.test(t.testName));
 
     // Two separate entries, pointing at two separate topics. A purity result
-    // never stands in for the identity question.
+    // never stands in for the identity question. The identity entry leads to the
+    // identity topic rather than to the instrument that produced it: the reader's
+    // question is what the result establishes, not which machine was used.
     expect(hplc?.qualityTopicSlug).toBe('hplc-purity');
-    expect(identity?.qualityTopicSlug).toBe('mass-spectrometry');
+    expect(identity?.qualityTopicSlug).toBe('identity-testing');
     expect(hplc?.qualityTopicSlug).not.toBe(identity?.qualityTopicSlug);
   });
 

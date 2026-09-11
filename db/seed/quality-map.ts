@@ -1,7 +1,7 @@
 import { eq, sql } from 'drizzle-orm';
 import * as schema from '../schema';
 import type { SeedDb } from './index';
-import { seedData } from './seed-data';
+import { seedData, type QualityEdge } from './seed-data';
 
 /**
  * Loads the quality map.
@@ -15,8 +15,10 @@ import { seedData } from './seed-data';
  *
  * Runs after the packets, because the claims and gaps it cites are theirs.
  */
-export async function loadQualityMap(db: SeedDb): Promise<number> {
-  const { edges } = seedData.qualityMap;
+export async function loadQualityMap(
+  db: SeedDb,
+  edges: readonly QualityEdge[] = seedData.qualityMap.edges,
+): Promise<number> {
 
   const topics = await db
     .select({ id: schema.qualityTopics.id, qualityKey: schema.qualityTopics.qualityKey })

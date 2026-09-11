@@ -12,27 +12,66 @@ import * as schema from '@db/schema';
  * The versioned migrations under db/migrations are applied verbatim, so the
  * publish gates, triggers, views and constraints under test are the same SQL
  * that will run in production — not a re-implementation of them.
+ *
+ * **One instance serves the whole run.** Each PGlite database is a real Postgres
+ * image compiled to WebAssembly, and the cost of that is the dominant constraint
+ * on this suite. Twenty-one of them, one per file, crashed a worker either way:
+ * with `isolate: true` the repeated fork teardown aborted (0xC0000003), and with
+ * `isolate: false` the accumulated WASM heaps did (SIGABRT, exit 134). Neither
+ * was a test failure, and swapping one for the other was not a fix.
+ *
+ * Sharing removes the cause rather than the symptom. No suite performs DDL — the
+ * only thing any of them needs is "migrations applied", which one instance
+ * provides — and every suite already truncates and re-seeds in `beforeEach`, so
+ * a shared database is as clean at the start of a test as a fresh one.
+ *
+ * `tests/integration/test-isolation.test.ts` is the standing proof, and the run
+ * is shuffled so that a suite which quietly starts depending on another's rows
+ * fails within a run or two.
  */
 export type TestDb = PgliteDatabase<typeof schema> & { $client: PGlite };
 
 const migrationsFolder = fileURLToPath(new URL('../../db/migrations', import.meta.url));
 
-export async function createTestDb(): Promise<TestDb> {
+let shared: Promise<TestDb> | null = null;
+
+async function build(): Promise<TestDb> {
   const client = await PGlite.create({
     extensions: { pg_trgm, pgcrypto },
   });
-
   const db = drizzle(client, { schema, casing: 'snake_case' });
   await migrate(db, { migrationsFolder });
   return db;
 }
 
 /**
- * Releases the WebAssembly heap backing an instance. Each database holds a real
- * Postgres image in memory, so a suite that creates one per test exhausts the
- * worker without this.
+ * The database for this run. Built once, migrated once, shared by every suite.
+ *
+ * Memoised on the promise rather than the value so that concurrent `beforeAll`
+ * hooks cannot each start their own migration.
+ */
+export function createTestDb(): Promise<TestDb> {
+  shared ??= build();
+  return shared;
+}
+
+/**
+ * A private database, for a suite that genuinely cannot share one.
+ *
+ * Nothing needs this today. It exists so that a future suite doing DDL has an
+ * honest way to ask for isolation instead of quietly breaking everyone else's.
+ */
+export async function createIsolatedTestDb(): Promise<TestDb> {
+  return build();
+}
+
+/**
+ * Releases a private instance. A no-op for the shared one, which lives until the
+ * process exits — closing it in one suite's `afterAll` would take the database
+ * out from under every suite scheduled after it.
  */
 export async function closeTestDb(db: TestDb): Promise<void> {
+  if (shared !== null && (await shared) === db) return;
   await db.$client.close();
 }
 

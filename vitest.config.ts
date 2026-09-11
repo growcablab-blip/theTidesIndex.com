@@ -22,6 +22,20 @@ export default defineConfig({
     // process removes the repeated WASM teardown, and each suite still closes its
     // own database in `afterAll`, so nothing accumulates.
     isolate: false,
+    /**
+     * Shuffled order, seeded per run.
+     *
+     * Sharing a worker is only safe if no suite depends on what another left
+     * behind, and the cheapest proof of that is to stop running them in the same
+     * order every time. A suite that quietly relied on a predecessor now fails
+     * within a run or two rather than on the day somebody adds a file.
+     *
+     * Hooks are deliberately not shuffled: `beforeAll` must still build the
+     * database before `beforeEach` truncates it.
+     */
+    sequence: {
+      shuffle: { files: true, tests: true },
+    },
   },
   resolve: {
     alias: {

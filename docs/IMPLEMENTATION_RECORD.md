@@ -940,3 +940,64 @@ index does not hold.
   defects only by reading the rendered page.
 
 **245 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.7 — Identity testing
+
+Full detail in `docs/PHASE_C7_REPORT.md` and
+`docs/IDENTITY_TESTING_EVIDENCE_PACKET.md`. The HPLC page taught that purity is
+not identity and linked to an empty room; that path is now closed and reciprocal.
+
+### C.7.0 The test-isolation check, done first
+
+`isolate: false` turned out not to be sufficient on its own. With 22 suites it had
+traded the fork-teardown crash (0xC0000003, ~1 run in 20) for a memory crash
+(SIGABRT 134, ~1 run in 6). One failure mode for another is not a fix.
+
+The cause was building 22 Postgres images. One is now built per run and shared —
+no suite performs DDL, and every suite already truncates and re-seeds, so a shared
+database is as clean at the start of a test as a fresh one. No crash in fifteen
+consecutive runs, and the suite went from 125s to 25s.
+
+Determinism is proved rather than assumed: shuffled order, a standing isolation
+suite, and the one test that mutated a shared singleton rewritten to pass its data
+in. Shuffling immediately found three latent test defects — including a
+patient-safety assertion that searched random UUIDs for '500' and failed about one
+run in six — and one application defect, citations that could reorder between
+renders. Recorded in `docs/ENGINEERING_NOTES.md`.
+
+### C.7.1 Declining the source's own confidence
+
+Grant writes that a correct mass "proves in one step that the synthesis was
+successful". He is describing a chemist checking their own synthesis of a known
+sequence; a clinic comparing an unfamiliar sample against a supplier's stated mass
+is in a weaker position, because the expected value comes from the party supplying
+the material. ID-002 records the narrower form and says in its uncertainty text
+that the source's wording is stronger and why it was not adopted.
+
+### C.7.2 The first primary-source trace, attempted and honestly incomplete
+
+Grant cites Hunt et al. (1988) and Griffin et al. (1990) for the sequencing
+capability. Both are chapters in out-of-print edited volumes with no lawful free
+text. Neither was obtained, so neither has been read: the claim stays attributed
+to Grant, `primarySourceVerified` stays false, and the failure is recorded as
+V-022 rather than as silence.
+
+The trace produced a real finding anyway — Grant gives the 1988 editor as
+"C. McNeil"; the volume is edited by C. J. McNeal. The first correction this
+project has made to a source rather than to its own record of one.
+
+### C.7.3 A limitation left open on purpose
+
+"Mass spectrometry cannot distinguish positional isomers" is widely understood and
+would have been easy to write. It is not in the pages read, and whether a method
+resolves such species depends on the instrument, the fragmentation and the
+compound. Recorded as a gap; a test asserts no claim contains "cannot
+distinguish".
+
+### C.7.4 A defect the tests found and reading would not have
+
+`gap_type` reached the database and the public view and stopped there — never
+carried into the reader. Exactly the "scope reached the database and stopped"
+failure recorded in C.5, repeated on a different field.
+
+**271 tests.** Lint, typecheck, tests and production build pass.

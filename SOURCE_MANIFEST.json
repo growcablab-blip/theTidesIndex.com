@@ -169,7 +169,7 @@
       "public_fulltext_allowed": false,
       "title_page_verified": true,
       "bibliographic_verified": true,
-      "integrity_notes": "Complete and clean. 401 pages, 93% carrying domain vocabulary. Title page confirms Gregory A. Grant (ed.), Oxford University Press, 2002, ISBN 0-19-513261-0. Embedded PDF metadata agrees. The strongest analytical source currently held.",
+      "integrity_notes": "Complete and clean. 401 pages, 93% carrying domain vocabulary. Title page confirms Gregory A. Grant (ed.), Oxford University Press, 2002, ISBN 0-19-513261-0. Embedded PDF metadata agrees. The strongest analytical source currently held. CORRECTION FOUND DURING C.7 PRIMARY-SOURCE TRACE: Grant's chapter 4 reference list gives the editor of the 1988 Hunt et al. volume as 'C. McNeil'. The volume is edited by C. J. McNeal (proceedings of the Fourth Texas Symposium on Mass Spectrometry, Wiley, 1988). A small error in the source, recorded rather than propagated; it does not affect the claims resting on Grant.",
       "verified_at": "2026-09-11",
       "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
       "limitations_notes": "Published 2002. Authoritative for chromatographic and analytical principles, which have not changed; not current on instrumentation, regulatory expectations or compendial method requirements.",
