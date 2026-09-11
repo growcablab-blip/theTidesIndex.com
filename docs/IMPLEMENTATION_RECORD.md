@@ -486,3 +486,88 @@ Production remains Supabase. No cloud infrastructure was provisioned.
   about scope.
 
 **118 tests.** Lint, typecheck, tests and production build pass.
+
+---
+
+## Phase B — The public reference experience
+
+Full account in `docs/PHASE_B_REPORT.md`. Recorded here: the decisions that
+changed the architecture.
+
+### B.1 Reading mode is a data-access decision
+
+The mode switch is a server action, not client state. The choice decides which
+relation the next render reads from, so doing it on the client would mean the
+practitioner payload — doses included — had already been sent to a reader in
+patient mode.
+
+`src/server/public/protocol-reader.ts` branches on the mode and selects from
+different relations. Patient mode reads `public_v_protocol_simple`, which has no
+dosing columns, so the values never enter the process.
+
+Two modules exist to keep this testable outside a browser: `shapes.ts` (types and
+row helpers, free of `server-only`) and `protocol-reader.ts` (taking a database
+handle). `tests/integration/reading-mode.test.ts` serialises the patient payload
+and requires that no dose value appears anywhere in it.
+
+### B.2 The register: a page for a compound that has none
+
+Migration 0006. A registered-but-unpublished compound previously 404'd, which
+hid the most useful thing an early reference can say — what it is working on.
+`public_v_peptide_register` exposes name, alternative names and how far the work
+has got, and carries no summary, no claim and no medical content.
+
+The distinction it enables is the honest one: "no reviewed human evidence is
+recorded here" is a statement about this index; "this compound is not in the
+index" is a different statement; a reader deserves to tell them apart.
+
+### B.3 Public reads run as `anon`
+
+Every query in `src/server/public/queries.ts` runs inside `withPublicSession`,
+which drops the connection to the `anon` role. That role holds privileges on the
+`public_v_*` views and nothing else, so a mistake in a query cannot reach a draft
+record, a private column, or a dose. The boundary is the database's.
+
+### B.4 Public pages render on demand
+
+`force-dynamic` on every data-reading page. Content changes when an editor
+publishes, not when the application deploys, so a build-time snapshot would serve
+stale evidence until the next deploy. It also means a build does not need
+database access, which decouples deployment from database availability.
+
+### B.5 Defects found by building and looking
+
+Beyond the schema-level fixes recorded above:
+
+- **Trigger firing order.** Postgres fires BEFORE triggers alphabetically by
+  name; `claims_touch` sorted after `claims_a_coherence`, so coherence saw
+  pre-version-bump values. Names now encode the sequence.
+- **Gates blocked editing published content.** An edit strands approvals, so the
+  gate refused the write — meaning published content could never be corrected
+  without first being pulled, which encourages leaving errors in place. Gates now
+  separate entering publication (refuse) from editing live content (withdraw with
+  the reason recorded).
+- **Contrast.** Two tones measured below 4.5:1; found by auditing rather than
+  assuming. `slate` darkened from the brief's `#66747b`, and the lightest tone
+  reserved for placeholders.
+- **Dev database served one connection.** `PGLiteSocketServer` defaults to
+  `maxConnections: 1`.
+- **Connection leak under hot reload.** Clients now cached on `globalThis` in
+  development.
+
+### B.6 The demonstration dataset, and why BPC-157 is not it
+
+The instruction was to build one complete vertical around BPC-157 using only the
+reviewed data available, to prove the system rather than publish clinical
+content. Those pull apart: there is no reviewed data for BPC-157, so exercising
+the vertical there would have required writing content for it.
+
+The vertical is therefore built on a **Demonstration Compound** whose name,
+sources and every field announce it as a demonstration. It runs through the real
+publish gates — the seeder creates four staff members because no single account
+can sign every gate. BPC-157 stays honest: registered, in preparation, nothing
+asserted.
+
+`npm run db:demo`, guarded by an opt-in and a localhost-only check.
+
+**127 tests.** Lint, typecheck, tests and production build pass.
