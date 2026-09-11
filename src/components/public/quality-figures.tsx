@@ -345,3 +345,118 @@ export function IdentityComparisonFigure({ id = 'fig-identity' }: { id?: string 
     </figure>
   );
 }
+
+/**
+ * The three analytical questions, and the fact that they are three.
+ *
+ * Reusable across purity, identity, content and certificate education, because
+ * the same confusion produces the same harm on each: a result for one read as an
+ * answer about another. `highlight` marks which question the reader is currently
+ * on, so the figure orients rather than repeats.
+ *
+ * The wording of each question is taken from what the packets actually support —
+ * purity as proportions among what was detected, identity as what the material
+ * is, content as how much is present. There are no ticks, no ordering and no
+ * implication that any product must answer all three: what a product is required
+ * to be tested for is a regulatory question, and this index holds no regulatory
+ * source.
+ */
+const ANALYTICAL_QUESTIONS: readonly {
+  key: string;
+  label: string;
+  question: string;
+  method: string;
+}[] = [
+  {
+    key: 'hplc-purity',
+    label: 'Purity',
+    question: 'How mixed is it?',
+    method: 'Separation',
+  },
+  {
+    key: 'identity-testing',
+    label: 'Identity',
+    question: 'What is it?',
+    method: 'Mass measurement',
+  },
+  {
+    key: 'peptide-content-assay',
+    label: 'Content',
+    question: 'How much is present?',
+    method: 'Quantitation',
+  },
+];
+
+export function AnalyticalQuestionsFigure({
+  id = 'fig-three-questions',
+  highlight,
+}: {
+  id?: string;
+  highlight?: string;
+}) {
+  const { titleId, descId } = useIds(id);
+  const boxWidth = 214;
+  const gap = 29;
+
+  return (
+    <figure className="my-2">
+      <FigureScroller>
+        <svg
+          viewBox="0 0 720 132"
+          role="img"
+          aria-labelledby={`${titleId} ${descId}`}
+          className="h-auto w-full min-w-[520px] text-ink"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <title id={titleId}>Purity, identity and content are three separate questions</title>
+          <desc id={descId}>
+            Three questions side by side, none answering another. Purity asks how mixed the
+            material is and is approached by separation. Identity asks what the material is and is
+            approached by mass measurement. Content asks how much is present and is approached by
+            quantitation. A result for one is not an answer to another, and this is not a statement
+            that any particular product must be tested for all three.
+          </desc>
+
+          {ANALYTICAL_QUESTIONS.map((item, i) => {
+            const x = 8 + i * (boxWidth + gap);
+            const current = item.key === highlight;
+            return (
+              <g key={item.key}>
+                <rect
+                  x={x}
+                  y={26}
+                  width={boxWidth}
+                  height={84}
+                  rx="4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={current ? 2 : 1.25}
+                  className={current ? 'text-tide-teal' : 'text-rule'}
+                />
+                <text x={x + 16} y={52} fill="currentColor" fontSize="15">
+                  {item.label}
+                  {current ? ' — this page' : ''}
+                </text>
+                <text x={x + 16} y={74} fill="currentColor" fontSize="12.5" opacity="0.85">
+                  {item.question}
+                </text>
+                <text x={x + 16} y={96} fill="currentColor" fontSize="11" opacity="0.7">
+                  {item.method}
+                </text>
+              </g>
+            );
+          })}
+
+          <text x="8" y="16" fill="currentColor" fontSize="12" opacity="0.75">
+            Three questions, three answers — a result for one is not an answer to another
+          </text>
+        </svg>
+      </FigureScroller>
+      <figcaption className="mt-3 max-w-[62ch] text-sm text-slate">
+        Each is a different question with its own measurement. This is not a statement that any
+        particular product is required to be tested for all three — that is a regulatory question,
+        and this index holds no regulatory source.
+      </figcaption>
+    </figure>
+  );
+}

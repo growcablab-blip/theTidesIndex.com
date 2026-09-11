@@ -188,10 +188,12 @@ describe('certificates', () => {
     const dimensions = transparencyDimensions(certificate!);
     const method = dimensions.find((d) => d.key === 'method-information');
 
-    // Three of the specimen's four tests state a method. Reporting that as
+    // Three of the specimen's five tests state a method. Reporting that as
     // "none stated" was a real defect, found by reading the rendered page.
+    // The content entry states none — recorded as null, because a field the
+    // document does not carry is absent rather than a string saying so.
     expect(method?.state).toBe('partial');
-    expect([...method!.present, ...method!.absent].join(' ')).toMatch(/3 of 4/);
+    expect([...method!.present, ...method!.absent].join(' ')).toMatch(/3 of 5/);
   });
 
   // --- What can reach the public ------------------------------------------

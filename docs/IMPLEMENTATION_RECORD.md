@@ -1001,3 +1001,49 @@ carried into the reader. Exactly the "scope reached the database and stopped"
 failure recorded in C.5, repeated on a different field.
 
 **271 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.8 — Peptide content / assay
+
+Full detail in `docs/PHASE_C8_REPORT.md` and
+`docs/PEPTIDE_CONTENT_ASSAY_EVIDENCE_PACKET.md`. The third corner: purity and
+identity each pointed at content, and content pointed back at nothing. The
+triangle is closed and every edge inside it rests on a claim.
+
+### C.8.1 The calculation that is not published
+
+"Gross mass × HPLC purity = peptide content" is obvious-looking, widely
+circulated, and supported by nothing this index holds. Grant assigns quantitation
+to a separate measurement and describes no such arithmetic. It is recorded as a
+gap, and a test asserts no formula of that shape appears anywhere in the topic —
+in any of the forms it would take.
+
+### C.8.2 Quantitation is indirect, and that is the point
+
+Amino acid analysis does not weigh the peptide. It hydrolyses it, measures the
+fragments, and works back. Every limitation that follows — tryptophan destroyed,
+cysteine and methionine requiring oxidation, Glu and Asp reporting Glu+Gln and
+Asp+Asn — is a consequence of that mechanism rather than a list of caveats.
+
+### C.8.3 Terminology held apart
+
+"Net peptide content" appears nowhere in any held source and was not adopted;
+the term itself is recorded as a `terminology_unresolved` gap. Potency is not
+used at all, because nothing held relates chemical amount to biological activity.
+A label claim is a statement by whoever wrote the label, and the specimen
+certificate now says so in the field itself.
+
+### C.8.4 A defect found while building the fixture
+
+The specimen's content entry was first written with `analyticalMethod: "Not
+stated"` — a string *saying* not stated — which the transparency dimension
+counted as stated. A field the document does not carry is null. Same class as the
+C.5 "partial coverage reads as absence" defect, inverted.
+
+### C.8.5 A measurement that was not a measurement
+
+Visual QA initially reported horizontal overflow on every width. The Browser pane
+was hidden, so `clientWidth` was 0 and the comparison was meaningless. Retaken
+with explicit viewport sizes. A zero-width measurement is not a passing
+measurement, and a check that did not notice would have reported overflow forever.
+
+**287 tests.** Lint, typecheck, tests and production build pass.

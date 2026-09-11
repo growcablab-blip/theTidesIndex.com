@@ -176,6 +176,38 @@
       "rationale": "An identity result reaches a reader on a document. What that document is, and whether it describes the material in hand, governs how far the result reaches.",
       "isEditorialNavigational": true,
       "sortOrder": 50
+    },
+    {
+      "from": "peptide-content-assay",
+      "to": "hplc-purity",
+      "relationshipType": "commonly_conflated",
+      "rationale": "A purity figure describes proportions among the things detected; an amount is a quantity. The technique table assigns quantitation to a different method and credits chromatographic purity with none.",
+      "claimKey": "CON-001",
+      "sortOrder": 10
+    },
+    {
+      "from": "peptide-content-assay",
+      "to": "identity-testing",
+      "relationshipType": "commonly_conflated",
+      "rationale": "Knowing how much material is present does not establish what it is, and confirming what it is does not establish how much there is. They are separate measurements.",
+      "claimKey": "CON-001",
+      "sortOrder": 20
+    },
+    {
+      "from": "peptide-content-assay",
+      "to": "water-content",
+      "relationshipType": "other_attribute",
+      "rationale": "Water content is a separate attribute with its own testing. This index holds no source on it yet, so the topic is registered rather than written.",
+      "isEditorialNavigational": true,
+      "sortOrder": 30
+    },
+    {
+      "from": "peptide-content-assay",
+      "to": "coa-literacy",
+      "relationshipType": "scoped_by",
+      "rationale": "An amount reaches a reader on a document, alongside a label that states another. What the document is, and whether it describes the material in hand, governs how far either figure reaches.",
+      "isEditorialNavigational": true,
+      "sortOrder": 40
     }
   ]
 }

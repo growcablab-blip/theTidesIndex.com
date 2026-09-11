@@ -248,15 +248,16 @@
   },
   {
     "issueKey": "V-022",
-    "topic": "The primary literature behind mass spectrometric peptide sequencing has not been read",
+    "topic": "Primary-source trace attempted; full text not obtainable (owner decision: do not pursue further now)",
     "whyItMatters": "Identity claims in this index rest on Grant's account of what mass spectrometry can do. Grant is a secondary source for the sequencing capability specifically, and cites two primary works for it. Neither has been obtained, so the index is relying on one author's characterisation of work it has not seen. That is an ordinary and acceptable position for a reference to be in — provided it is recorded rather than silently treated as verified.",
     "currentSourceSignal": "Grant cites Hunt, D. F., Shabanowitz, J., Yates, J. R., Griffin, P. R., and Zhu, N. Z. (1988), in Analysis of Peptides and Proteins, and Griffin, P. R., Martino, P. A., McCormack, A. L., Shabanowitz, J., and Hunt, D. F. (1990), 'Protein and oligopeptide sequence analysis on the TSQ-70 triple quadrupole mass spectrometer'. Both are chapters in edited volumes rather than journal articles. Searched 11 September 2026: no lawful free full text located for either. NOTE: Grant gives the 1988 editor as 'C. McNeil'; the volume is edited by C. J. McNeal, being the proceedings of the Fourth Texas Symposium on Mass Spectrometry (Wiley, 1988). The correction is recorded against SRC-006.",
-    "neededVerification": "Obtain both chapters lawfully — library access or purchase — and check whether Grant's characterisation matches what they demonstrate. Until then, claim ID-006 stays attributed to Grant as an academic secondary source and primary_source_verified remains false. Alternatively, a modern review of mass spectrometric sequencing that can itself be traced to primary literature would serve.",
-    "priority": "medium",
+    "neededVerification": "OWNER DECISION, 11 September 2026: do not spend further project time pursuing these chapters now. The trace stands recorded as: PRIMARY SOURCE TRACE ATTEMPTED / SOURCE IDENTIFIED / FULL TEXT NOT LAWFULLY OR RELIABLY OBTAINABLE / PRIMARY VERIFICATION NOT COMPLETED. Grant (SRC-006) remains the citable secondary academic source for the statements concerned, and the underlying claims must not be marked primary-source verified. Reopen only if library or institutional access becomes available; the bibliographic detail below is retained for exactly that purpose.",
+    "priority": "low",
     "relatedKeys": [
       "quality_topic:identity-testing",
       "claim:ID-006",
       "source:SRC-006"
-    ]
+    ],
+    "status": "open"
   }
 ]

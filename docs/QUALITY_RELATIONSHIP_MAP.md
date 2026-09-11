@@ -49,7 +49,18 @@ caught once in review at the end of C.3 and is now asserted by test.
 
 ## 3. Current edges
 
-**22 edges across three written topics.** Every other topic is a target only.
+**26 edges across four written topics.** Every other topic is a target only.
+
+The three analytical topics form a closed triangle, and **every edge among them
+rests on a claim** — these are the conflations the section exists to prevent, so
+none may be asserted as navigation:
+
+```
+        PURITY  ←──────────→  IDENTITY
+          ↖                      ↗
+            ↘                  ↙
+              CONTENT / ASSAY
+```
 
 ### From HPLC / chromatographic purity (11)
 
@@ -75,6 +86,15 @@ caught once in review at the end of C.3 and is now asserted by test.
 | Mass spectrometry | `same_process` | ID-002 |
 | Peptide content / assay | `commonly_conflated` | ID-007 |
 | Sterility | `not_addressed_by` | identity gap 05 |
+| Reading a certificate | `scoped_by` | structural |
+
+### From Peptide content / assay (4)
+
+| To | Type | Basis |
+|---|---|---|
+| HPLC / chromatographic purity | `commonly_conflated` | CON-001 |
+| Identity testing | `commonly_conflated` | CON-001 |
+| Water content | `other_attribute` | structural |
 | Reading a certificate | `scoped_by` | structural |
 
 ### From Reading a certificate of analysis (6)

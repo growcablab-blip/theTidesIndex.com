@@ -225,11 +225,32 @@ const evidencePacketSchema = z.object({
 
 export type EvidencePacket = z.infer<typeof evidencePacketSchema>;
 
+/**
+ * Parses a packet, naming the file and the field when it is malformed.
+ *
+ * A raw validation dump says `path: ["topic","whatItProves"]` against an
+ * unnamed object, which tells an editor nothing about which of several packet
+ * files to open. The same principle as the quality-map loader: an error should
+ * name the line somebody has to go and fix.
+ */
+const NEWLINE = String.fromCharCode(10);
+
+function parsePacket(file: string): EvidencePacket {
+  const result = evidencePacketSchema.safeParse(loadJson(file));
+  if (result.success) return result.data;
+
+  const problems = result.error.issues
+    .map((issue) => `  data/seed/${file} → ${issue.path.join('.')}: ${issue.message}`)
+    .join(NEWLINE);
+  throw new Error(`Evidence packet is incomplete.${NEWLINE}${problems}`);
+}
+
 /** Packets are listed explicitly: adding one is an editorial decision. */
 const EVIDENCE_PACKET_FILES = [
   'evidence/hplc-purity.json',
   'evidence/coa-literacy.json',
   'evidence/identity-testing.json',
+  'evidence/peptide-content-assay.json',
 ] as const;
 
 /**
@@ -415,9 +436,7 @@ export const seedData = {
     .array(verificationIssueSchema)
     .parse(loadJson('verification_issues.json')),
   evidenceTaxonomy: evidenceTaxonomySchema.parse(loadJson('evidence_taxonomy.json')),
-  evidencePackets: EVIDENCE_PACKET_FILES.map((file) =>
-    evidencePacketSchema.parse(loadJson(file)),
-  ),
+  evidencePackets: EVIDENCE_PACKET_FILES.map((file) => parsePacket(file)),
   qualityMap: qualityMapSchema.parse(loadJson('quality_map.json')),
   specimenCertificate: specimenCertificateSchema.parse(
     loadJson('certificates/specimen-coa.json'),

@@ -1,0 +1,242 @@
+{
+  "packetKey": "peptide-content-assay",
+  "qualityKey": "peptide-content-assay",
+  "note": "Extracted from SRC-006 (Grant, Synthetic Peptides: A User's Guide, 2nd edn, Oxford University Press, 2002), chapter 4. Pages 224, 261, 262, 263 and 266 were reopened and read for this packet rather than carried over from the C.2 extraction. Locators are the book's printed pages; the held file runs eleven pages ahead. Terminology note: Grant writes about 'quantitation' and 'the amount of peptide'. He does not use the phrase 'net peptide content', which appears nowhere in the work, so this index does not adopt it. Scope note: Grant describes analytical practice for evaluating a synthesis. He states no acceptance limit, no label-claim tolerance, and no calculation relating a purity percentage to an amount — and those absences are recorded as gaps rather than filled.",
+  "topic": {
+    "shortDescription": "How much of the intended peptide is actually present — a different measurement from how pure it is, and from what it is.",
+    "simpleSummary": "A purity figure describes proportions: of everything the instrument detected, how much was the main component. It is a ratio, and a ratio says nothing about a quantity. How much peptide a container actually holds is a separate measurement made by a different method. This matters because the two are easy to confuse: a preparation can be highly pure and still contain less peptide than expected, since purity describes the relationship between the things detected rather than the mass of anything. A label stating an amount is a claim by whoever wrote the label. A test result stating an amount is a measurement, made on a sample, by a named method — and the two are not the same kind of statement even when they show the same number.",
+    "practitionerSummary": "Content and purity answer different analytical questions and Grant's technique table separates them explicitly: reversed-phase HPLC assesses heterogeneity and carries no quantitative capability, while amino acid analysis accurately quantitates peptide levels. Quantitation by amino acid analysis is indirect: the polypeptide is first hydrolysed into its constituent amino acids, each is quantitated, and the average amount of the amino acids is converted into an amount of peptide. That mechanism carries its own limits. Several residues do not survive standard acid hydrolysis intact — tryptophan is destroyed, cysteine and methionine require oxidation to be determined, and glutamine and asparagine are deamidated so that the reported Glu and Asp values represent Glu+Gln and Asp+Asn. Post-column ninhydrin detection does not quantitate accurately below roughly 100 pmol, and Grant records that compositional accuracy decreases as a peptide gets larger. None of this makes the method unsound; it makes the basis of a reported amount something worth knowing.",
+    "whatItProves": "A content or assay determination establishes how much of the target peptide a tested sample contained, by a named method, on a stated date. Where that method is amino acid analysis, the source describes it as the best method among those it surveys for determining the amount of peptide, and the same analysis additionally yields the mole ratio of the constituent amino acids for comparison against the ratio predicted from the intended sequence.",
+    "whatItDoesNotProve": "It does not establish what the material is, and it does not describe how mixed the sample was — those are the identity and purity questions, answered by different measurements. A quantitation by amino acid analysis is indirect: the peptide is destroyed by hydrolysis and the amount is worked back from its fragments, so residues that do not survive the process constrain what is reported. It says nothing about biological potency, and nothing about sterility or endotoxin. The sources held here also do not establish any acceptable tolerance between a stated label amount and a measured one, nor any calculation deriving an amount from a purity percentage — both are recorded below as open.",
+    "commonMisinterpretations": "The commonest error is to read a high purity percentage as an assurance about quantity. Purity is a ratio among the things detected; an amount is a measurement of how much is there, and a preparation can be highly pure while containing less peptide than expected. The second is to treat the number printed on a label as analytical evidence — a label states a claim, a report states a measurement, and a document can carry both while having tested neither. The third is to read an amount as potency; chemical quantity and biological activity are different attributes and nothing held here relates them."
+  },
+  "locations": [
+    {
+      "key": "grant-ch4-224-quantitation",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 224",
+      "pageStart": 224,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "General considerations"
+    },
+    {
+      "key": "grant-ch4-261-quantitation",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 261",
+      "pageStart": 261,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Additional Analytical Methods for Synthetic Peptides"
+    },
+    {
+      "key": "grant-ch4-262-aaa",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 262",
+      "pageStart": 262,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Amino Acid Compositional Analysis"
+    },
+    {
+      "key": "grant-ch4-263-hydrolysis",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 263",
+      "pageStart": 263,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Amino Acid Compositional Analysis — detection and hydrolysis"
+    },
+    {
+      "key": "grant-ch4-266-losses",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 266",
+      "pageStart": 266,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Amino Acid Compositional Analysis — residue-specific limitations"
+    },
+    {
+      "key": "grant-ch4-223-table",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 223, table 4-1",
+      "pageStart": 223,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "tableNumber": "4-1",
+      "section": "Advantages and limitations of analytical techniques"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "CON-001",
+      "claimText": "Determining how much peptide is present is a different analytical question from assessing how heterogeneous a preparation is. Reversed-phase HPLC assesses the level of heterogeneity and is not credited with quantitating peptide levels; amino acid analysis is.",
+      "plainLanguageText": "How much peptide there is and how mixed it is are two different measurements, made by two different methods.",
+      "importance": "critical",
+      "claimCategory": "content-vs-purity",
+      "interpretationNotes": "Table 4-1 sets the techniques side by side and assigns 'accurately quantitates peptide levels' to amino acid analysis while listing no quantitative capability for reversed-phase HPLC, and the surrounding text on p. 224 states directly that amino acid analysis quantitates the amount of the peptide. This is the same boundary the purity topic states from the other side, recorded here independently so a reader arriving at content is not relying on having read that page.",
+      "uncertaintyText": "A statement about what these two techniques contribute as Grant describes them in 2002. It is not a statement that amino acid analysis is the only valid way to determine an amount, and Grant does not say that; other quantitative methods exist and this index holds no source describing them.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-223-table",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-1 gives amino acid analysis the advantages 'accurately quantitates peptide levels' and 'provides mol ratio of amino acids', and gives reversed-phase HPLC the advantages 'assesses level of heterogeneity' and 'useful for purification' with no quantitative capability listed."
+        },
+        {
+          "locationKey": "grant-ch4-224-quantitation",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that amino acid analysis quantitates the amount of the peptide and informs whether the requisite amino acids are present at reasonable ratios, in a passage contrasting it with the separation techniques that reveal only the relative number of species present."
+        }
+      ]
+    },
+    {
+      "claimKey": "CON-002",
+      "claimText": "Grant describes amino acid analysis as the best method for determining the amount of peptide, and as still the best method for peptide quantitation among the techniques he surveys.",
+      "plainLanguageText": "In this source, amino acid analysis is the method named for measuring how much peptide is present.",
+      "importance": "high",
+      "claimCategory": "content-method",
+      "interpretationNotes": "Stated twice: on p. 261 among the techniques that remain useful alongside mass spectrometry, and on p. 262 at the head of the compositional analysis section. Grant is describing the methods he surveys in a 2002 chapter on evaluating a synthesis. He does not say it is the only valid assay, and this index does not extend it to that — a method being described as best among those discussed is not a statement that others are invalid or that any product must use it.",
+      "uncertaintyText": "Published 2002 and scoped to the evaluation of synthetic peptides by the chemist who made them. It establishes nothing about what method any product is required to use, which is a regulatory and compendial question no source held here addresses.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-261-quantitation",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes, listing techniques that remain useful in particular situations alongside mass spectrometry, that amino acid analysis is still the best method for peptide quantitation."
+        },
+        {
+          "locationKey": "grant-ch4-262-aaa",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that amino acid analysis reveals the content of amino acids in a peptide and quantitates the amount of each, and that more importantly this is the best method for determining the amount of peptide."
+        }
+      ]
+    },
+    {
+      "claimKey": "CON-003",
+      "claimText": "Quantitation by amino acid analysis is indirect. The peptide is first broken into its constituent amino acids by hydrolysis, each is quantitated, and the average amount of the amino acids is converted into an amount of peptide.",
+      "plainLanguageText": "The method does not weigh the peptide. It breaks the peptide apart, measures the pieces, and works back to how much peptide there must have been.",
+      "importance": "critical",
+      "claimCategory": "content-method",
+      "interpretationNotes": "The mechanism matters because every limitation below follows from it. Grant states that all amino acid analysis techniques analyse free amino acids, so any polypeptide must first be broken down by hydrolysis of the peptide bonds — commonly with 6N hydrochloric acid — and that, with the exception of a few amino acids which do not yield quantitatively, the average amount of the amino acids can be directly converted into an accurate quantitation of the peptide. A measurement made on the fragments of a destroyed sample is a different kind of evidence from one made on the intact material, and a reader looking at a reported amount is entitled to know which they have.",
+      "uncertaintyText": "Grant describes this for the amino acid analysis techniques he surveys. Whether other quantitative methods are direct or indirect is not addressed by any source held here.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-262-aaa",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that amino acid analysis quantitates the amount of each amino acid and that, with the exception of a few amino acids which do not yield quantitatively, the average amount of the amino acids can be directly converted into an accurate quantitation of the peptide."
+        },
+        {
+          "locationKey": "grant-ch4-263-hydrolysis",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that since all amino acid analysis techniques analyse the free amino acids, any polypeptide including synthetic peptides must first be broken down into its individual amino acids by hydrolysis of the peptide bonds, commonly by subjecting the peptide to 6N hydrochloric acid."
+        }
+      ]
+    },
+    {
+      "claimKey": "CON-004",
+      "claimText": "Several amino acids do not survive standard acid hydrolysis intact, which constrains what a compositional analysis reports. Tryptophan is destroyed; cysteine and methionine are determined after oxidation as cysteic acid and methionine sulfone; and glutamine and asparagine are completely converted to glutamic acid and aspartic acid, so the reported Glu and Asp values represent Glu plus Gln and Asp plus Asn.",
+      "plainLanguageText": "Some of the building blocks do not survive the process, and two pairs become indistinguishable, so the reported figures for those are combined rather than separate.",
+      "importance": "high",
+      "claimCategory": "method-limitations",
+      "interpretationNotes": "These are the specific consequences of the indirect mechanism in CON-003, and they are the reason Grant qualifies the conversion with 'with the exception of a few amino acids which do not yield quantitatively'. Grant notes that several alternative hydrolysis chemistries have been reported to preserve tryptophan but that in practice the results have been found to be variable, and that alkaline hydrolysis preserves tryptophan while destroying other amino acids and is seldom done routinely.",
+      "uncertaintyText": "Specific to the acid-hydrolysis techniques Grant describes. How much any of these affects a reported total depends on the sequence of the peptide concerned, and Grant gives no general figure for that.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-266-losses",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant states that cysteine and methionine are generally determined after performic acid oxidation as cysteic acid and methionine sulfone, that reported alternatives for preserving tryptophan have been found variable in practice while alkaline hydrolysis preserves it but destroys other amino acids, and that glutamine and asparagine are completely converted to glutamic and aspartic acid so that the Glu and Asp values represent Glu plus Gln and Asp plus Asn content."
+        },
+        {
+          "locationKey": "grant-ch4-224-quantitation",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that amino acid analysis is less reliable for certain unstable amino acids such as cysteine, methionine and tryptophan, and that compositional accuracy decreases as the peptide gets larger."
+        }
+      ]
+    },
+    {
+      "claimKey": "CON-005",
+      "claimText": "The detection chemistry used sets a lower limit on what can be quantitated. With post-column ninhydrin detection, levels below approximately 100 pmol do not quantitate accurately.",
+      "plainLanguageText": "Below a certain small quantity the measurement stops being reliable, and where that threshold sits depends on the detection method used.",
+      "importance": "medium",
+      "claimCategory": "method-limitations",
+      "interpretationNotes": "Recorded with its method attached, because the figure belongs to post-column ninhydrin detection specifically rather than to amino acid analysis generally: Grant goes on to describe o-phthalaldehyde detection reaching the low picomole range and several more sensitive precolumn derivatisation procedures. The value is reported exactly as the source gives it, with its unit and its basis.",
+      "uncertaintyText": "Approximately 100 pmol, for one detection chemistry, as of 2002. It is not a general sensitivity limit for quantitation, not an acceptance criterion, and not applicable to any other method.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-263-hydrolysis",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that a limitation of post-column ninhydrin detection is its limited sensitivity, and that even on modern ninhydrin-based instruments levels below approximately 100 pmol do not quantitate accurately."
+        }
+      ]
+    },
+    {
+      "claimKey": "CON-006",
+      "claimText": "Amino acid analysis also yields the mole ratio of the amino acids, which can be compared with the ratio predicted from the intended sequence. That comparison bears on composition rather than on how much material is present.",
+      "plainLanguageText": "The same test also shows the proportions of the building blocks, which can be checked against what the intended peptide should contain. That is a different thing from how much is there.",
+      "importance": "medium",
+      "claimCategory": "content-method",
+      "interpretationNotes": "Worth separating because a single analysis produces two different kinds of information, and a report may give either. The mole ratio is a compositional check against an expectation; the amount is a quantity. Grant also records in table 4-1 that amino acid analysis does not distinguish heterogeneous species, so the compositional check is not a purity assessment either.",
+      "uncertaintyText": "The comparison is against the ratio predicted from an intended sequence, so it depends on that sequence being known and correct. Grant does not state how far a measured ratio may diverge before it signals a problem.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-262-aaa",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Grant writes that a mole ratio of the amino acids can be calculated from the analysis and compared to the predicted mole ratio based on the intended sequence of the peptide."
+        },
+        {
+          "locationKey": "grant-ch4-223-table",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "Table 4-1 lists 'provides mol ratio of amino acids' among the advantages of amino acid analysis and 'does not distinguish heterogeneous species' among its limitations."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "That an amount of peptide can be calculated from a gross mass and a chromatographic purity percentage.",
+      "why": "No source held here establishes any such calculation. Grant assigns quantitation to a separate measurement and describes no arithmetic relating a purity figure to an amount; the phrase 'net peptide content' appears nowhere in the work. A calculation of this kind would depend on the analytical framework, on what else the material contains, and on the basis of the purity figure itself — none of which this index can currently source. Publishing a formula would give this index's authority to arithmetic nobody has checked.",
+      "gapType": "no_current_reviewed_evidence",
+      "whatWouldResolveIt": "A compendial or regulatory analytical source that states the calculation, its required corrections and the conditions under which it applies.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "What proportion of a lyophilised preparation is water, counterion or residual salt, and how that bears on a stated amount.",
+      "why": "Widely discussed in formulation practice and not addressed anywhere in the analytical chapter read for this packet. This index holds no source on water determination or on residual counterions, so the point is left open rather than reasoned from general knowledge — the same restraint recorded on the purity topic.",
+      "gapType": "source_missing",
+      "whatWouldResolveIt": "A compendial water-determination chapter and a source addressing counterion content, acquired and audited.",
+      "verificationIssueKey": "V-020"
+    },
+    {
+      "statement": "An acceptable tolerance between a stated label amount and a measured amount.",
+      "why": "A label-claim tolerance is a specification, and this index holds no compendial monograph or regulatory specification that sets one. Grant states none, and states no acceptance limit of any kind for quantitation.",
+      "gapType": "numerical_threshold_not_established",
+      "whatWouldResolveIt": "A compendial monograph or regulatory specification stating a content or assay requirement, with the product class it applies to.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "What method any particular product is required to use to determine its content.",
+      "why": "Grant describes what works well among the techniques he surveys for evaluating a synthesis. What a product must be tested with is a regulatory and compendial question, and no source held here addresses it. Reading a method described as best among those discussed as a requirement would convert a chemist's judgement into a rule.",
+      "gapType": "scope_not_established",
+      "whatWouldResolveIt": "A compendial monograph or regulatory specification naming the required assay for a product class.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "That a measured amount of peptide indicates biological potency.",
+      "why": "Chemical quantity and biological activity are different attributes measured in different ways. Nothing in the sources held here addresses potency, bioassay, or the relationship between the two, so the index does not treat an assay result as a potency statement.",
+      "gapType": "no_current_reviewed_evidence",
+      "whatWouldResolveIt": "A source addressing biological potency determination and its relationship to chemical content.",
+      "verificationIssueKey": "V-016"
+    },
+    {
+      "statement": "A definition of 'net peptide content' as a standard term.",
+      "why": "The phrase is common in commercial peptide testing and appears nowhere in any source this index holds. Adopting it as a platform term would mean defining it from general usage rather than from a source, and different laboratories may calculate it differently. This index uses the neutral 'peptide content / assay' until a source defines the term, its method and its calculation basis.",
+      "gapType": "terminology_unresolved",
+      "whatWouldResolveIt": "A laboratory method or compendial source defining the term, the method behind it and its calculation basis.",
+      "verificationIssueKey": "V-016"
+    }
+  ]
+}

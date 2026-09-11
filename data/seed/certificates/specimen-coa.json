@@ -1,6 +1,5 @@
 {
   "note": "A fictional teaching document. Every value in it was invented for this index; no supplier, laboratory, batch or result here corresponds to anything real, and none was copied from a real certificate. It exists so that a reader can be shown where the useful questions sit on a page of this shape, and it is deliberately imperfect: the omissions are the lesson.",
-
   "certificateKey": "specimen-third-party-report",
   "certificateType": "third_party_test_report",
   "documentTitle": "SPECIMEN — Analytical Test Report (fictional teaching document)",
@@ -14,41 +13,36 @@
   "documentDate": "2026-04-14",
   "reportNumber": "SPEC-TR-000000",
   "provenanceNotes": "Constructed for this index as a teaching document. Not received from any supplier and not based on any real certificate.",
-
   "statedMaterialName": "Example Peptide (fictional material)",
   "statedGrade": null,
-  "statedStrength": null,
+  "statedStrength": "Labelled 10 mg per vial (label claim, not a measured result)",
   "batchNumber": "EXB-0000",
   "manufacturerBatchNumber": null,
   "sampleIdentifier": "LAB-SMP-0000",
   "submittedSampleIdentifier": "Client reference: EXB-0000",
   "expiryDate": null,
   "retestDate": null,
-
   "testedMaterialScope": "unknown",
   "submittedBy": "Example Peptide Supply Co. (fictional)",
   "chainOfCustodyKnown": false,
   "batchLinkage": "stated_only",
   "manufacturerIdentityEstablished": false,
-
   "authorisedBy": "A. Analyst, Laboratory Manager (fictional)",
-
   "whatItDemonstrates": "That a named laboratory reports having performed the listed tests on a sample it received, obtaining the results shown, on the stated dates.",
-  "whatItDoesNotDemonstrate": "Who manufactured the material; whether the sample the laboratory received was drawn from the batch named, or was representative of it; whether the material in any particular container is that batch; and whether any result is correct, since nothing here has been checked against anything but this document.",
+  "whatItDoesNotDemonstrate": "Who manufactured the material; whether the sample the laboratory received was drawn from the batch named, or was representative of it; whether the material in any particular container is that batch; and whether any result is correct, since nothing here has been checked against anything but this document; and how much peptide the vial contains, which no test on this report measures despite the label stating an amount.",
   "provenanceGaps": "The document names no original manufacturer, so the material's origin cannot be traced from it. The sample was submitted by the reseller rather than drawn under any custody arrangement described here, so the link between the batch named and the material tested rests entirely on the submitter's assertion.",
   "missingFields": [
     "Original manufacturer name and address",
     "Manufacturer's own batch number",
     "Whether the tested material was an API, bulk material or finished product",
-    "Acceptance criterion for the mass spectrometry result",
     "Method reference for the water determination",
-    "How the sample was drawn and by whom"
+    "How the sample was drawn and by whom",
+    "Any determination of peptide content, against a stated label claim of 10 mg",
+    "Acceptance criterion for the identity result"
   ],
   "unverifiedRelationships": "Batch EXB-0000 to the submitted sample; the reseller to any manufacturer; this report to any container a reader might hold.",
-
   "authenticityState": "not_checked",
   "authenticityNotes": null,
-
   "tests": [
     {
       "testName": "Purity by reversed-phase HPLC",
@@ -79,6 +73,21 @@
       "qualityKey": "identity-testing",
       "sortOrder": 20,
       "teachingNote": "No acceptance criterion is stated, so 'consistent with' is the laboratory's judgement rather than a measurement against a limit. A mass result bears on identity; the purity figure above does not."
+    },
+    {
+      "testName": "Peptide content",
+      "analyticalMethod": null,
+      "methodReference": null,
+      "referenceStandard": null,
+      "specificationText": null,
+      "resultNumeric": null,
+      "resultUnit": null,
+      "resultText": "Not determined",
+      "attachmentReference": null,
+      "testDate": null,
+      "qualityKey": "peptide-content-assay",
+      "sortOrder": 25,
+      "teachingNote": "The vial is labelled 10 mg and this report does not measure how much peptide is present. A label is a claim by whoever wrote it; a content result would be a measurement made on a sample by a named method. The purity figure above does not supply the missing number — it describes proportions among what was detected, not a quantity."
     },
     {
       "testName": "Water content",

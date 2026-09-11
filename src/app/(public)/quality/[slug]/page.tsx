@@ -19,6 +19,7 @@ import { ClaimCard } from '@/components/public/evidence';
 import { ReferenceList } from '@/components/public/citation';
 import { PrintHeader } from '@/components/public/print-header';
 import {
+  AnalyticalQuestionsFigure,
   ChromatographyFlowFigure,
   IdentityComparisonFigure,
   QualityDimensionsFigure,
@@ -133,8 +134,10 @@ export default async function QualityTopicPage({
     ) : null;
   // The dimensions figure belongs wherever a reader is being told that quality
   // attributes are separate questions, which is both of these topics.
-  const showsDimensions = topic.slug === 'hplc-purity' || topic.slug === 'identity-testing';
-  const hasFigures = methodFigure !== null;
+  // The three-question figure belongs on each of the three topics it is about,
+  // marking whichever one the reader is currently on.
+  const ANALYTICAL_TRIO = ['hplc-purity', 'identity-testing', 'peptide-content-assay'];
+  const showsDimensions = ANALYTICAL_TRIO.includes(topic.slug);
   // The certificate reader belongs to one topic. Everywhere else the section
   // simply does not appear, rather than appearing empty.
   const certificate = topic.slug === 'certificate-of-analysis' ? await loadSpecimen() : null;
@@ -143,7 +146,7 @@ export default async function QualityTopicPage({
     { id: 'overview', label: 'In short' },
     { id: 'establishes', label: 'What it establishes' },
     { id: 'limits', label: 'What it does not establish' },
-    ...(hasFigures ? [{ id: 'how-it-works', label: 'How the test works' }] : []),
+    ...(methodFigure !== null ? [{ id: 'how-it-works', label: 'How the test works' }] : []),
     {
       id: 'evidence',
       label: 'Source-linked detail',
@@ -277,7 +280,7 @@ export default async function QualityTopicPage({
           </Section>
         ) : null}
 
-        {hasFigures ? (
+        {methodFigure !== null ? (
           <Section
             id="how-it-works"
             title="How the test works"
@@ -343,7 +346,8 @@ export default async function QualityTopicPage({
             title="Separate questions, separate answers"
             lede="A result for one quality attribute is not an answer about another."
           >
-            <QualityDimensionsFigure />
+            <AnalyticalQuestionsFigure highlight={topic.slug} />
+            {topic.slug === 'hplc-purity' ? <QualityDimensionsFigure /> : null}
           </Section>
         ) : null}
 
