@@ -1,0 +1,157 @@
+[
+  {
+    "key": "approved_label_evidence",
+    "publicLabel": "Approved product labelling",
+    "description": "Information carried in labelling authorised by a medicines regulator, for a stated jurisdiction and indication.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 10
+  },
+  {
+    "key": "human_rct",
+    "publicLabel": "Randomised human trial",
+    "description": "A randomised controlled trial in human participants.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 20
+  },
+  {
+    "key": "human_controlled_nonrandomized",
+    "publicLabel": "Controlled human study, not randomised",
+    "description": "A human study with a comparison group but without randomisation.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 30
+  },
+  {
+    "key": "human_prospective_uncontrolled",
+    "publicLabel": "Uncontrolled human study",
+    "description": "A prospective human study without a comparison group.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 40
+  },
+  {
+    "key": "human_observational",
+    "publicLabel": "Human observational study",
+    "description": "A cohort, case-control or cross-sectional study in humans.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 50
+  },
+  {
+    "key": "human_case_series",
+    "publicLabel": "Human case series",
+    "description": "A described series of patients without a comparison group.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 60
+  },
+  {
+    "key": "human_case_report",
+    "publicLabel": "Human case report",
+    "description": "A single described patient.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 70
+  },
+  {
+    "key": "human_pk_pd",
+    "publicLabel": "Human pharmacokinetic study",
+    "description": "A study of absorption, distribution, metabolism, excretion or pharmacodynamics in humans.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 80
+  },
+  {
+    "key": "human_safety_only",
+    "publicLabel": "Human safety data",
+    "description": "Human data reporting safety or tolerability without efficacy endpoints.",
+    "evidenceClass": "human",
+    "isHumanEvidence": true,
+    "isInterpretive": false,
+    "sortOrder": 90
+  },
+
+  {
+    "key": "animal_in_vivo",
+    "publicLabel": "Animal study",
+    "description": "A study performed in living animals. Results are not human findings, and the regimen used is not a human instruction.",
+    "evidenceClass": "preclinical",
+    "isHumanEvidence": false,
+    "isInterpretive": false,
+    "sortOrder": 100
+  },
+  {
+    "key": "ex_vivo",
+    "publicLabel": "Ex vivo study",
+    "description": "A study in tissue removed from a living organism.",
+    "evidenceClass": "preclinical",
+    "isHumanEvidence": false,
+    "isInterpretive": false,
+    "sortOrder": 110
+  },
+  {
+    "key": "in_vitro",
+    "publicLabel": "Laboratory (in vitro) study",
+    "description": "A study in cells or isolated systems outside a living organism.",
+    "evidenceClass": "preclinical",
+    "isHumanEvidence": false,
+    "isInterpretive": false,
+    "sortOrder": 120
+  },
+  {
+    "key": "mechanistic_computational",
+    "publicLabel": "Computational or mechanistic modelling",
+    "description": "A modelled or simulated result rather than a measured biological outcome.",
+    "evidenceClass": "preclinical",
+    "isHumanEvidence": false,
+    "isInterpretive": false,
+    "sortOrder": 130
+  },
+
+  {
+    "key": "academic_reference",
+    "publicLabel": "Academic reference",
+    "description": "A textbook or review describing established understanding. Reports evidence rather than generating it.",
+    "evidenceClass": "reference_opinion",
+    "isHumanEvidence": false,
+    "isInterpretive": true,
+    "sortOrder": 140
+  },
+  {
+    "key": "practitioner_reference",
+    "publicLabel": "Practitioner reference",
+    "description": "A named clinician's described practice. Attributed by name, never presented as clinical consensus.",
+    "evidenceClass": "reference_opinion",
+    "isHumanEvidence": false,
+    "isInterpretive": true,
+    "sortOrder": 150
+  },
+  {
+    "key": "expert_commentary",
+    "publicLabel": "Expert commentary",
+    "description": "A named individual's opinion, identified by speaker, source and date.",
+    "evidenceClass": "reference_opinion",
+    "isHumanEvidence": false,
+    "isInterpretive": true,
+    "sortOrder": 160
+  },
+  {
+    "key": "experiential_anecdotal",
+    "publicLabel": "Experiential report",
+    "description": "Self-reported experience. Not used to support efficacy or safety claims.",
+    "evidenceClass": "reference_opinion",
+    "isHumanEvidence": false,
+    "isInterpretive": true,
+    "sortOrder": 170
+  }
+]

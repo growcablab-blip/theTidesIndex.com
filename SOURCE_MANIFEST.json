@@ -13,7 +13,7 @@
       "priority": "core",
       "qc_status": "usable",
       "canonical_filename": "Seeds_Peptide_Protocols_Vol_1.pdf",
-      "known_local_filename": "Peptide Protocol Dr. Seeds(1).pdf",
+      "known_local_filename": "Peptide Protocol Dr. Seeds.pdf",
       "primary_role": "mechanisms, cellular systems, practitioner protocol examples",
       "public_fulltext_allowed": false
     },
@@ -31,7 +31,7 @@
       "priority": "core",
       "qc_status": "usable",
       "canonical_filename": "LaValle_Peptide_Handbook_2022.pdf",
-      "known_local_filename": "904653287-James-B-LaValle-Gordon-Crozier-Joseph-P-Cleaver-Andrew-Heym-Peptide-Handbook-a-Professional-s-Guide-to-Peptide-Therapeutics-2022-Interactive.pdf",
+      "known_local_filename": "Handbook-a-Professional-s-Guide-to-Peptide-Therapeutics-2022-Interactive.pdf",
       "primary_role": "monographs, routes, cautions, condition-based protocols",
       "public_fulltext_allowed": false
     },
@@ -46,7 +46,7 @@
       "priority": "supporting",
       "qc_status": "usable",
       "canonical_filename": "Campbell_Optimize_Your_Health_with_Therapeutic_Peptides.pdf",
-      "known_local_filename": "Peptide book(1).pdf",
+      "known_local_filename": "Peptide book.pdf",
       "primary_role": "practitioner framing and practical organization",
       "public_fulltext_allowed": false
     },
@@ -61,7 +61,7 @@
       "priority": "supporting",
       "qc_status": "usable",
       "canonical_filename": "Campbell_Peptide_Cheat_Sheet.pdf",
-      "known_local_filename": "Peptide cheat sheet 1(1).pdf",
+      "known_local_filename": "Peptide cheat sheet 1.pdf",
       "primary_role": "quick-reference UX inspiration; protocol records require verification",
       "public_fulltext_allowed": false
     },
@@ -76,7 +76,7 @@
       "priority": "supporting",
       "qc_status": "usable",
       "canonical_filename": "Hack_Smith_Complete_Guide_to_Peptides.pdf",
-      "known_local_filename": "Peptide book 3(1).pdf",
+      "known_local_filename": "Peptide book 3.pdf",
       "primary_role": "broad compound catalog, routes, storage, practical topics",
       "public_fulltext_allowed": false
     },
@@ -124,7 +124,7 @@
       "priority": "supporting",
       "qc_status": "incomplete",
       "canonical_filename": "Jensen_Peptide_Synthesis_and_Applications_2e.pdf",
-      "known_local_filename": "1074265399-Read-Peptide-Synthesis-and-Applications-...pdf",
+      "known_local_filename": "1074265399-Read-Peptide-Synthesis-and-Applications-by-Knud-J-Jensen-Pernille-Tofteng-Shelton-Søren-L-Pedersen-1627035439-9781627035439-full-ebook-today.pdf",
       "primary_role": "synthesis methods and troubleshooting",
       "public_fulltext_allowed": false
     },
@@ -156,7 +156,7 @@
       "priority": "supporting",
       "qc_status": "incomplete",
       "canonical_filename": "Srivastava_Peptide_Based_Drug_Discovery_2017.pdf",
-      "known_local_filename": "1042230279-Peptide-based-Drug-Discovery-...pdf",
+      "known_local_filename": "1042230279-Peptide-based-Drug-Discovery-Challenges-and-New-Therapeutics-ISSN-Book-59-1st-Edition-available-instanly.pdf",
       "primary_role": "drug design, ADME, delivery, translation",
       "public_fulltext_allowed": false
     },
@@ -169,11 +169,12 @@
       "year": 2007,
       "source_type": "academic_methods_reference",
       "priority": "core",
-      "qc_status": "incomplete",
+      "qc_status": "pending",
       "canonical_filename": "Fields_Peptide_Characterization_and_Application_Protocols_2007.pdf",
-      "known_local_filename": "1010686727-Peptide-Characterization-and-Application-Protoc...pdf",
+      "known_local_filename": "1010686727-Peptide-Characterization-and-Application-Protocols-1st-Edition-Colin-T-Mant-ebook-testbank-solutions-full-reading-access.pdf",
       "primary_role": "HPLC, mass spectrometry, characterization",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "authority_notes": "Attribution conflict: this manifest records Gregg B. Fields (ed.), Humana Press 2007, but the filename of the held copy names Colin T. Mant, who is associated with HPLC of Peptides and Proteins. The identity of the held copy is unresolved. Logged as verification issue V-013; not citable until resolved."
     },
     {
       "source_key": "SRC-012",
@@ -219,7 +220,7 @@
       "priority": "supporting",
       "qc_status": "replace",
       "canonical_filename": "Banga_Therapeutic_Peptides_and_Proteins_3e.pdf",
-      "known_local_filename": "1047650095-Download-Ebook-Therapeutic-Peptides-and-Prote...pdf",
+      "known_local_filename": "1047650095-Download-Ebook-Therapeutic-Peptides-and-Proteins-Formulation-Processing-and-Delivery-Systems-3rd-Edition-146656606X.pdf",
       "primary_role": "formulation, processing, delivery; current copy corrupted",
       "public_fulltext_allowed": false
     },

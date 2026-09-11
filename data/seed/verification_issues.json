@@ -1,0 +1,119 @@
+[
+  {
+    "issueKey": "V-001",
+    "topic": "TB-500 versus full-length Thymosin beta-4 nomenclature",
+    "whyItMatters": "Protocol identity can be wrong if the names are treated as interchangeable.",
+    "currentSourceSignal": "Practitioner sources use overlapping terminology without distinguishing the molecules.",
+    "neededVerification": "Primary chemistry, sequence and product-definition sources.",
+    "priority": "critical",
+    "relatedKeys": ["peptide:thymosin-beta-4"]
+  },
+  {
+    "issueKey": "V-002",
+    "topic": "BPC-157 administration routes",
+    "whyItMatters": "Practitioner sources differ on oral, subcutaneous, and local versus systemic approaches.",
+    "currentSourceSignal": "LaValle, Hack Smith and Seeds describe different practical approaches.",
+    "neededVerification": "Human evidence first; preclinical routes recorded separately; formulation-specific evidence required.",
+    "priority": "critical",
+    "relatedKeys": ["peptide:bpc-157"]
+  },
+  {
+    "issueKey": "V-003",
+    "topic": "Retatrutide protocol claims",
+    "whyItMatters": "Investigational trial regimens must not be replaced by community schedules.",
+    "currentSourceSignal": "Practitioner and quick-reference materials contain practical protocol framing.",
+    "neededVerification": "Clinical trial publications and registry records.",
+    "priority": "critical",
+    "relatedKeys": ["peptide:retatrutide"]
+  },
+  {
+    "issueKey": "V-004",
+    "topic": "Tirzepatide and semaglutide practical protocols",
+    "whyItMatters": "Approved labelling and trial evidence must outrank quick-reference schedules.",
+    "currentSourceSignal": "Practitioner sources provide simplified schedules.",
+    "neededVerification": "Current approved labels and pivotal trial publications.",
+    "priority": "critical",
+    "relatedKeys": []
+  },
+  {
+    "issueKey": "V-005",
+    "topic": "Intranasal and oral peptide generalisations",
+    "whyItMatters": "Bioavailability is molecule- and formulation-specific; route-level generalisations are misleading.",
+    "currentSourceSignal": "Broad route classes are discussed without molecule-specific qualification.",
+    "neededVerification": "Peptide-specific pharmacokinetic and delivery literature.",
+    "priority": "high",
+    "relatedKeys": ["route:intranasal", "route:oral"]
+  },
+  {
+    "issueKey": "V-006",
+    "topic": "Storage after reconstitution",
+    "whyItMatters": "Temperature and stability claims are frequently repeated without formulation-specific data.",
+    "currentSourceSignal": "Practitioner material contains storage guidance of unclear origin.",
+    "neededVerification": "Product- and formulation-specific stability studies and official labelling where available.",
+    "priority": "high",
+    "relatedKeys": ["quality_topic:storage-stability"]
+  },
+  {
+    "issueKey": "V-007",
+    "topic": "Heat exposure during transport",
+    "whyItMatters": "Needed for credible shipping and receiving guidance.",
+    "currentSourceSignal": "The current library has limited direct transport qualification evidence.",
+    "neededVerification": "ICH stability guidance, good distribution practice, and formulation-specific excursion data.",
+    "priority": "high",
+    "relatedKeys": ["quality_topic:transport-excursions"]
+  },
+  {
+    "issueKey": "V-008",
+    "topic": "Purity versus identity versus content",
+    "whyItMatters": "A high HPLC purity number is frequently mistaken for complete quality proof.",
+    "currentSourceSignal": "Grant separates the roles of HPLC and mass spectrometry clearly.",
+    "neededVerification": "Modern analytical and compendial sources; content assay sources.",
+    "priority": "critical",
+    "relatedKeys": ["quality_topic:hplc-purity", "quality_topic:identity-testing", "quality_topic:peptide-content-assay"]
+  },
+  {
+    "issueKey": "V-009",
+    "topic": "Sterility and endotoxin versus chemical purity",
+    "whyItMatters": "A chemically pure sample is not automatically sterile or low in endotoxin.",
+    "currentSourceSignal": "Current academic chemistry sources do not cover finished injectable release fully.",
+    "neededVerification": "Compendial methods and regulatory guidance.",
+    "priority": "critical",
+    "relatedKeys": ["quality_topic:sterility", "quality_topic:bacterial-endotoxin"]
+  },
+  {
+    "issueKey": "V-010",
+    "topic": "Manufacturing geography claims",
+    "whyItMatters": "Requires a factual, non-nationalistic explanation of global pharmaceutical supply chains.",
+    "currentSourceSignal": "Current practitioner sources are not sufficient.",
+    "neededVerification": "Current regulator and industry manufacturing disclosures.",
+    "priority": "high",
+    "relatedKeys": ["quality_topic:global-manufacturing"]
+  },
+  {
+    "issueKey": "V-011",
+    "topic": "GMP and cGMP terminology",
+    "whyItMatters": "Requires a precise explanation of what a GMP system does and does not establish.",
+    "currentSourceSignal": "Broader pharmaceutical texts in the library are partial copies.",
+    "neededVerification": "Primary regulatory guidance.",
+    "priority": "high",
+    "relatedKeys": ["quality_topic:gmp-cgmp"]
+  },
+  {
+    "issueKey": "V-012",
+    "topic": "Strong anecdotal clinical claims in practitioner sources",
+    "whyItMatters": "Case reports or author experience must not be presented as established outcomes.",
+    "currentSourceSignal": "Several practitioner sources contain strongly worded clinical claims.",
+    "neededVerification": "Trace the cited studies and separate anecdote from clinical evidence.",
+    "priority": "high",
+    "relatedKeys": []
+  },
+  {
+    "issueKey": "V-013",
+    "topic": "SRC-011 attribution conflict: Fields versus Mant",
+    "whyItMatters": "The held copy may not be the work the source registry describes. Citing a misidentified source would corrupt provenance for the analytical chemistry material that the quality section depends on.",
+    "currentSourceSignal": "SOURCE_MANIFEST.json records Gregg B. Fields (ed.), Peptide Characterization and Application Protocols, Humana Press 2007. The filename of the held copy names Colin T. Mant, who is associated with HPLC of Peptides and Proteins.",
+    "neededVerification": "Open the held copy and confirm title page, editor, publisher and year. Correct the registry, or replace the copy.",
+    "priority": "critical",
+    "relatedKeys": ["source:SRC-011"]
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "key": "peptide",
+    "label": "Peptide",
+    "description": "A chain of amino acids.",
+    "isPeptide": true,
+    "sortOrder": 10
+  },
+  {
+    "key": "peptide_fragment",
+    "label": "Peptide fragment",
+    "description": "A portion of a larger naturally occurring peptide or protein.",
+    "isPeptide": true,
+    "sortOrder": 20
+  },
+  {
+    "key": "peptide_analog",
+    "label": "Peptide analogue",
+    "description": "A modified peptide designed to alter stability, potency or duration relative to a natural sequence.",
+    "isPeptide": true,
+    "sortOrder": 30
+  },
+  {
+    "key": "peptide_secretagogue",
+    "label": "Peptide secretagogue",
+    "description": "A peptide that stimulates release of an endogenous hormone.",
+    "isPeptide": true,
+    "sortOrder": 40
+  },
+  {
+    "key": "peptide_mixture",
+    "label": "Peptide mixture",
+    "description": "A preparation containing multiple peptides rather than a single defined molecule.",
+    "isPeptide": true,
+    "sortOrder": 50
+  },
+  {
+    "key": "peptide_derived_compound",
+    "label": "Peptide-derived compound",
+    "description": "A compound derived from a peptide structure but substantially modified.",
+    "isPeptide": true,
+    "sortOrder": 60
+  },
+  {
+    "key": "protein",
+    "label": "Protein",
+    "description": "A large folded polypeptide.",
+    "isPeptide": false,
+    "sortOrder": 70
+  },
+  {
+    "key": "small_molecule",
+    "label": "Small molecule",
+    "description": "Not a peptide. Grouped with peptides in some references because of shared clinical context, but chemically and pharmacologically distinct.",
+    "isPeptide": false,
+    "sortOrder": 80
+  },
+  {
+    "key": "unclassified",
+    "label": "Not yet classified",
+    "description": "Compound class has not been established from a source.",
+    "isPeptide": false,
+    "sortOrder": 999
+  }
+]

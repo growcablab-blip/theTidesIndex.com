@@ -2,7 +2,7 @@
   "name": "thetidesindex",
   "version": "0.1.0",
   "private": true,
-  "description": "The Tides Index — independent peptide science & clinical reference.",
+  "description": "The Tides Index \u2014 independent peptide science & clinical reference.",
   "type": "module",
   "engines": {
     "node": ">=22.0.0"
@@ -20,7 +20,8 @@
     "db:migrate": "tsx scripts/db/migrate.ts",
     "db:seed": "tsx scripts/db/seed.ts",
     "db:check": "drizzle-kit check",
-    "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "sources:verify": "tsx scripts/sources/verify-sources.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
@@ -30,6 +31,7 @@
     "postgres": "^3.4.7",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "server-only": "^0.0.1",
     "zod": "^4.6.2"
   },
   "devDependencies": {

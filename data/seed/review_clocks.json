@@ -1,0 +1,37 @@
+[
+  {
+    "contentClass": "foundational_chemistry",
+    "label": "Foundational chemistry",
+    "minMonths": 24,
+    "maxMonths": 36,
+    "notes": "Editorial review cadence only. Not a statement about clinical practice."
+  },
+  {
+    "contentClass": "general_quality_science",
+    "label": "General quality science",
+    "minMonths": 12,
+    "maxMonths": 24,
+    "notes": "Editorial review cadence only."
+  },
+  {
+    "contentClass": "peptide_evidence",
+    "label": "Individual peptide evidence",
+    "minMonths": 6,
+    "maxMonths": 12,
+    "notes": "Editorial review cadence only."
+  },
+  {
+    "contentClass": "investigational_program",
+    "label": "Investigational clinical programme",
+    "minMonths": 3,
+    "maxMonths": 6,
+    "notes": "Editorial review cadence only. Development status changes frequently."
+  },
+  {
+    "contentClass": "regulatory_status",
+    "label": "Regulatory or approval status",
+    "minMonths": 1,
+    "maxMonths": 3,
+    "notes": "Editorial review cadence only. Also re-checked on a relevant regulatory event."
+  }
+]

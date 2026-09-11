@@ -1,0 +1,4467 @@
+{
+  "id": "b7853c7b-6fa0-4620-b6b2-ef574d8859e6",
+  "prevId": "128396fc-f7fa-4554-a3a2-340c585d49f6",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.compound_categories": {
+      "name": "compound_categories",
+      "schema": "",
+      "columns": {
+        "key": {
+          "name": "key",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.compound_types": {
+      "name": "compound_types",
+      "schema": "",
+      "columns": {
+        "key": {
+          "name": "key",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_peptide": {
+          "name": "is_peptide",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.evidence_types": {
+      "name": "evidence_types",
+      "schema": "",
+      "columns": {
+        "key": {
+          "name": "key",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "public_label": {
+          "name": "public_label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_class": {
+          "name": "evidence_class",
+          "type": "evidence_class",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_human_evidence": {
+          "name": "is_human_evidence",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_interpretive": {
+          "name": "is_interpretive",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        }
+      },
+      "indexes": {
+        "evidence_types_public_label_key": {
+          "name": "evidence_types_public_label_key",
+          "columns": [
+            {
+              "expression": "public_label",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.routes": {
+      "name": "routes",
+      "schema": "",
+      "columns": {
+        "key": {
+          "name": "key",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description_simple": {
+          "name": "description_simple",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_practitioner": {
+          "name": "description_practitioner",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "general_limitations": {
+          "name": "general_limitations",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "routes_slug_unique": {
+          "name": "routes_slug_unique",
+          "columns": [
+            "slug"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.source_types": {
+      "name": "source_types",
+      "schema": "",
+      "columns": {
+        "key": {
+          "name": "key",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "public_label": {
+          "name": "public_label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "typical_evidence_class": {
+          "name": "typical_evidence_class",
+          "type": "evidence_class",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.profiles": {
+      "name": "profiles",
+      "schema": "",
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "display_name": {
+          "name": "display_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "role": {
+          "name": "role",
+          "type": "staff_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.source_locations": {
+      "name": "source_locations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "page_start": {
+          "name": "page_start",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "page_end": {
+          "name": "page_end",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "chapter": {
+          "name": "chapter",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "section": {
+          "name": "section",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "figure": {
+          "name": "figure",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "table_number": {
+          "name": "table_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp_start_seconds": {
+          "name": "timestamp_start_seconds",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp_end_seconds": {
+          "name": "timestamp_end_seconds",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "url_fragment": {
+          "name": "url_fragment",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "locator_text": {
+          "name": "locator_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "source_locations_source_idx": {
+          "name": "source_locations_source_idx",
+          "columns": [
+            {
+              "expression": "source_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "source_locations_source_id_sources_id_fk": {
+          "name": "source_locations_source_id_sources_id_fk",
+          "tableFrom": "source_locations",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "tableTo": "sources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sources": {
+      "name": "sources",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "source_key": {
+          "name": "source_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_type_key": {
+          "name": "source_type_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authors": {
+          "name": "authors",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
+        },
+        "publisher": {
+          "name": "publisher",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "publication_name": {
+          "name": "publication_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "publication_date": {
+          "name": "publication_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "year": {
+          "name": "year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "edition": {
+          "name": "edition",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "doi": {
+          "name": "doi",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pmid": {
+          "name": "pmid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "trial_registry_id": {
+          "name": "trial_registry_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "isbn": {
+          "name": "isbn",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "canonical_url": {
+          "name": "canonical_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "qc_status": {
+          "name": "qc_status",
+          "type": "source_qc_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'pending'"
+        },
+        "is_citable": {
+          "name": "is_citable",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "generated": {
+            "type": "stored",
+            "as": "qc_status not in ('replace', 'exclude')"
+          }
+        },
+        "local_private_filename": {
+          "name": "local_private_filename",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "local_file_sha256": {
+          "name": "local_file_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "primary_role": {
+          "name": "primary_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "coverage_notes": {
+          "name": "coverage_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "authority_notes": {
+          "name": "authority_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "limitations_notes": {
+          "name": "limitations_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "copyright_access_notes": {
+          "name": "copyright_access_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "public_fulltext_allowed": {
+          "name": "public_fulltext_allowed",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "source_summary": {
+          "name": "source_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "sources_source_type_idx": {
+          "name": "sources_source_type_idx",
+          "columns": [
+            {
+              "expression": "source_type_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "sources_qc_status_idx": {
+          "name": "sources_qc_status_idx",
+          "columns": [
+            {
+              "expression": "qc_status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "sources_title_trgm_idx": {
+          "name": "sources_title_trgm_idx",
+          "columns": [
+            {
+              "expression": "\"title\" gin_trgm_ops",
+              "isExpression": true,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "gin",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "sources_source_type_key_source_types_key_fk": {
+          "name": "sources_source_type_key_source_types_key_fk",
+          "tableFrom": "sources",
+          "columnsFrom": [
+            "source_type_key"
+          ],
+          "tableTo": "source_types",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "sources_sourceKey_unique": {
+          "name": "sources_sourceKey_unique",
+          "columns": [
+            "source_key"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.peptide_aliases": {
+      "name": "peptide_aliases",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "alias": {
+          "name": "alias",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "alias_type": {
+          "name": "alias_type",
+          "type": "alias_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'synonym'"
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "peptide_aliases_alias_trgm_idx": {
+          "name": "peptide_aliases_alias_trgm_idx",
+          "columns": [
+            {
+              "expression": "\"alias\" gin_trgm_ops",
+              "isExpression": true,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "gin",
+          "concurrently": false
+        },
+        "peptide_aliases_type_idx": {
+          "name": "peptide_aliases_type_idx",
+          "columns": [
+            {
+              "expression": "alias_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "peptide_aliases_peptide_id_peptides_id_fk": {
+          "name": "peptide_aliases_peptide_id_peptides_id_fk",
+          "tableFrom": "peptide_aliases",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "peptide_aliases_peptide_alias_key": {
+          "name": "peptide_aliases_peptide_alias_key",
+          "columns": [
+            "peptide_id",
+            "alias"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.peptides": {
+      "name": "peptides",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "peptide_key": {
+          "name": "peptide_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "canonical_name": {
+          "name": "canonical_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "compound_type_key": {
+          "name": "compound_type_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "primary_category_key": {
+          "name": "primary_category_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "natural_or_synthetic": {
+          "name": "natural_or_synthetic",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "molecular_description": {
+          "name": "molecular_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sequence": {
+          "name": "sequence",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "short_description": {
+          "name": "short_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "simple_summary": {
+          "name": "simple_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "practitioner_summary": {
+          "name": "practitioner_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unknowns_summary": {
+          "name": "unknowns_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_cutoff_at": {
+          "name": "evidence_cutoff_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "peptides_workflow_status_idx": {
+          "name": "peptides_workflow_status_idx",
+          "columns": [
+            {
+              "expression": "workflow_status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "peptides_category_idx": {
+          "name": "peptides_category_idx",
+          "columns": [
+            {
+              "expression": "primary_category_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "peptides_name_trgm_idx": {
+          "name": "peptides_name_trgm_idx",
+          "columns": [
+            {
+              "expression": "\"canonical_name\" gin_trgm_ops",
+              "isExpression": true,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "gin",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "peptides_compound_type_key_compound_types_key_fk": {
+          "name": "peptides_compound_type_key_compound_types_key_fk",
+          "tableFrom": "peptides",
+          "columnsFrom": [
+            "compound_type_key"
+          ],
+          "tableTo": "compound_types",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        },
+        "peptides_primary_category_key_compound_categories_key_fk": {
+          "name": "peptides_primary_category_key_compound_categories_key_fk",
+          "tableFrom": "peptides",
+          "columnsFrom": [
+            "primary_category_key"
+          ],
+          "tableTo": "compound_categories",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "peptides_peptideKey_unique": {
+          "name": "peptides_peptideKey_unique",
+          "columns": [
+            "peptide_key"
+          ],
+          "nullsNotDistinct": false
+        },
+        "peptides_slug_unique": {
+          "name": "peptides_slug_unique",
+          "columns": [
+            "slug"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.quality_topics": {
+      "name": "quality_topics",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "quality_key": {
+          "name": "quality_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "short_description": {
+          "name": "short_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "simple_summary": {
+          "name": "simple_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "practitioner_summary": {
+          "name": "practitioner_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "what_it_proves": {
+          "name": "what_it_proves",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "what_it_does_not_prove": {
+          "name": "what_it_does_not_prove",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "common_misinterpretations": {
+          "name": "common_misinterpretations",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "quality_topics_workflow_status_idx": {
+          "name": "quality_topics_workflow_status_idx",
+          "columns": [
+            {
+              "expression": "workflow_status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "quality_topics_qualityKey_unique": {
+          "name": "quality_topics_qualityKey_unique",
+          "columns": [
+            "quality_key"
+          ],
+          "nullsNotDistinct": false
+        },
+        "quality_topics_slug_unique": {
+          "name": "quality_topics_slug_unique",
+          "columns": [
+            "slug"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.claim_evidence": {
+      "name": "claim_evidence",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "claim_id": {
+          "name": "claim_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_location_id": {
+          "name": "source_location_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_type_key": {
+          "name": "evidence_type_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "relationship": {
+          "name": "relationship",
+          "type": "evidence_relationship",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'supports'"
+        },
+        "population_model": {
+          "name": "population_model",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "route_key": {
+          "name": "route_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "formulation": {
+          "name": "formulation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "extracted_text_private": {
+          "name": "extracted_text_private",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "interpretation": {
+          "name": "interpretation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "primary_source_verified": {
+          "name": "primary_source_verified",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "interpretation_concerns": {
+          "name": "interpretation_concerns",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviewer_notes": {
+          "name": "reviewer_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "claim_evidence_claim_idx": {
+          "name": "claim_evidence_claim_idx",
+          "columns": [
+            {
+              "expression": "claim_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "claim_evidence_source_idx": {
+          "name": "claim_evidence_source_idx",
+          "columns": [
+            {
+              "expression": "source_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "claim_evidence_evidence_type_idx": {
+          "name": "claim_evidence_evidence_type_idx",
+          "columns": [
+            {
+              "expression": "evidence_type_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "claim_evidence_relationship_idx": {
+          "name": "claim_evidence_relationship_idx",
+          "columns": [
+            {
+              "expression": "relationship",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "claim_evidence_claim_id_claims_id_fk": {
+          "name": "claim_evidence_claim_id_claims_id_fk",
+          "tableFrom": "claim_evidence",
+          "columnsFrom": [
+            "claim_id"
+          ],
+          "tableTo": "claims",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "claim_evidence_source_id_sources_id_fk": {
+          "name": "claim_evidence_source_id_sources_id_fk",
+          "tableFrom": "claim_evidence",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "tableTo": "sources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "claim_evidence_source_location_id_source_locations_id_fk": {
+          "name": "claim_evidence_source_location_id_source_locations_id_fk",
+          "tableFrom": "claim_evidence",
+          "columnsFrom": [
+            "source_location_id"
+          ],
+          "tableTo": "source_locations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "claim_evidence_evidence_type_key_evidence_types_key_fk": {
+          "name": "claim_evidence_evidence_type_key_evidence_types_key_fk",
+          "tableFrom": "claim_evidence",
+          "columnsFrom": [
+            "evidence_type_key"
+          ],
+          "tableTo": "evidence_types",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        },
+        "claim_evidence_route_key_routes_key_fk": {
+          "name": "claim_evidence_route_key_routes_key_fk",
+          "tableFrom": "claim_evidence",
+          "columnsFrom": [
+            "route_key"
+          ],
+          "tableTo": "routes",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.claims": {
+      "name": "claims",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "claim_key": {
+          "name": "claim_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quality_topic_id": {
+          "name": "quality_topic_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "claim_text": {
+          "name": "claim_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "plain_language_text": {
+          "name": "plain_language_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "claim_category": {
+          "name": "claim_category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "importance": {
+          "name": "importance",
+          "type": "claim_importance",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'medium'"
+        },
+        "interpretation_notes": {
+          "name": "interpretation_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "uncertainty_text": {
+          "name": "uncertainty_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_editorial_non_evidentiary": {
+          "name": "is_editorial_non_evidentiary",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "claims_peptide_idx": {
+          "name": "claims_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "claims_quality_topic_idx": {
+          "name": "claims_quality_topic_idx",
+          "columns": [
+            {
+              "expression": "quality_topic_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "claims_workflow_status_idx": {
+          "name": "claims_workflow_status_idx",
+          "columns": [
+            {
+              "expression": "workflow_status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "claims_importance_idx": {
+          "name": "claims_importance_idx",
+          "columns": [
+            {
+              "expression": "importance",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "claims_peptide_id_peptides_id_fk": {
+          "name": "claims_peptide_id_peptides_id_fk",
+          "tableFrom": "claims",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "claims_quality_topic_id_quality_topics_id_fk": {
+          "name": "claims_quality_topic_id_quality_topics_id_fk",
+          "tableFrom": "claims",
+          "columnsFrom": [
+            "quality_topic_id"
+          ],
+          "tableTo": "quality_topics",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "claims_claimKey_unique": {
+          "name": "claims_claimKey_unique",
+          "columns": [
+            "claim_key"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "claims_subject_present": {
+          "name": "claims_subject_present",
+          "value": "\"claims\".\"peptide_id\" is not null or \"claims\".\"quality_topic_id\" is not null or \"claims\".\"is_editorial_non_evidentiary\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.protocol_sources": {
+      "name": "protocol_sources",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "protocol_id": {
+          "name": "protocol_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_location_id": {
+          "name": "source_location_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_role": {
+          "name": "source_role",
+          "type": "protocol_source_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'original'"
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "protocol_sources_protocol_idx": {
+          "name": "protocol_sources_protocol_idx",
+          "columns": [
+            {
+              "expression": "protocol_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "protocol_sources_source_idx": {
+          "name": "protocol_sources_source_idx",
+          "columns": [
+            {
+              "expression": "source_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "protocol_sources_protocol_id_protocols_id_fk": {
+          "name": "protocol_sources_protocol_id_protocols_id_fk",
+          "tableFrom": "protocol_sources",
+          "columnsFrom": [
+            "protocol_id"
+          ],
+          "tableTo": "protocols",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "protocol_sources_source_id_sources_id_fk": {
+          "name": "protocol_sources_source_id_sources_id_fk",
+          "tableFrom": "protocol_sources",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "tableTo": "sources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "protocol_sources_source_location_id_source_locations_id_fk": {
+          "name": "protocol_sources_source_location_id_source_locations_id_fk",
+          "tableFrom": "protocol_sources",
+          "columnsFrom": [
+            "source_location_id"
+          ],
+          "tableTo": "source_locations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.protocols": {
+      "name": "protocols",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "protocol_key": {
+          "name": "protocol_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "combination_name": {
+          "name": "combination_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "objective_context": {
+          "name": "objective_context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "population_model": {
+          "name": "population_model",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "route_key": {
+          "name": "route_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "formulation": {
+          "name": "formulation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amount_reported": {
+          "name": "amount_reported",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amount_unit": {
+          "name": "amount_unit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "frequency_text": {
+          "name": "frequency_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timing_text": {
+          "name": "timing_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "duration_text": {
+          "name": "duration_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cycle_text": {
+          "name": "cycle_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "titration_text": {
+          "name": "titration_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amount_min_numeric": {
+          "name": "amount_min_numeric",
+          "type": "numeric(14, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "amount_max_numeric": {
+          "name": "amount_max_numeric",
+          "type": "numeric(14, 4)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "combinations_text": {
+          "name": "combinations_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "monitoring_text": {
+          "name": "monitoring_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "contraindications_text": {
+          "name": "contraindications_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "safety_notes": {
+          "name": "safety_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "adverse_events_text": {
+          "name": "adverse_events_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "outcome_context": {
+          "name": "outcome_context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "regulatory_context": {
+          "name": "regulatory_context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_type_key": {
+          "name": "evidence_type_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "patient_visibility": {
+          "name": "patient_visibility",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviewer_notes": {
+          "name": "reviewer_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "protocols_peptide_idx": {
+          "name": "protocols_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "protocols_route_idx": {
+          "name": "protocols_route_idx",
+          "columns": [
+            {
+              "expression": "route_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "protocols_workflow_status_idx": {
+          "name": "protocols_workflow_status_idx",
+          "columns": [
+            {
+              "expression": "workflow_status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "protocols_evidence_type_idx": {
+          "name": "protocols_evidence_type_idx",
+          "columns": [
+            {
+              "expression": "evidence_type_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "protocols_peptide_id_peptides_id_fk": {
+          "name": "protocols_peptide_id_peptides_id_fk",
+          "tableFrom": "protocols",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "protocols_route_key_routes_key_fk": {
+          "name": "protocols_route_key_routes_key_fk",
+          "tableFrom": "protocols",
+          "columnsFrom": [
+            "route_key"
+          ],
+          "tableTo": "routes",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        },
+        "protocols_evidence_type_key_evidence_types_key_fk": {
+          "name": "protocols_evidence_type_key_evidence_types_key_fk",
+          "tableFrom": "protocols",
+          "columnsFrom": [
+            "evidence_type_key"
+          ],
+          "tableTo": "evidence_types",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "protocols_protocolKey_unique": {
+          "name": "protocols_protocolKey_unique",
+          "columns": [
+            "protocol_key"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "protocols_subject_present": {
+          "name": "protocols_subject_present",
+          "value": "\"protocols\".\"peptide_id\" is not null or \"protocols\".\"combination_name\" is not null"
+        },
+        "protocols_amount_range_ordered": {
+          "name": "protocols_amount_range_ordered",
+          "value": "\"protocols\".\"amount_min_numeric\" is null or \"protocols\".\"amount_max_numeric\" is null or \"protocols\".\"amount_min_numeric\" <= \"protocols\".\"amount_max_numeric\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.disagreement_positions": {
+      "name": "disagreement_positions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "disagreement_id": {
+          "name": "disagreement_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_location_id": {
+          "name": "source_location_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_type_key": {
+          "name": "evidence_type_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "position_text": {
+          "name": "position_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "disagreement_positions_disagreement_idx": {
+          "name": "disagreement_positions_disagreement_idx",
+          "columns": [
+            {
+              "expression": "disagreement_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "disagreement_positions_disagreement_id_disagreements_id_fk": {
+          "name": "disagreement_positions_disagreement_id_disagreements_id_fk",
+          "tableFrom": "disagreement_positions",
+          "columnsFrom": [
+            "disagreement_id"
+          ],
+          "tableTo": "disagreements",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "disagreement_positions_source_id_sources_id_fk": {
+          "name": "disagreement_positions_source_id_sources_id_fk",
+          "tableFrom": "disagreement_positions",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "tableTo": "sources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "disagreement_positions_source_location_id_source_locations_id_fk": {
+          "name": "disagreement_positions_source_location_id_source_locations_id_fk",
+          "tableFrom": "disagreement_positions",
+          "columnsFrom": [
+            "source_location_id"
+          ],
+          "tableTo": "source_locations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "disagreement_positions_evidence_type_key_evidence_types_key_fk": {
+          "name": "disagreement_positions_evidence_type_key_evidence_types_key_fk",
+          "tableFrom": "disagreement_positions",
+          "columnsFrom": [
+            "evidence_type_key"
+          ],
+          "tableTo": "evidence_types",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "disagreement_positions_unique": {
+          "name": "disagreement_positions_unique",
+          "columns": [
+            "disagreement_id",
+            "source_id",
+            "position_text"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.disagreements": {
+      "name": "disagreements",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "disagreement_key": {
+          "name": "disagreement_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quality_topic_id": {
+          "name": "quality_topic_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "topic": {
+          "name": "topic",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "plain_language_text": {
+          "name": "plain_language_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "candidate_explanation": {
+          "name": "candidate_explanation",
+          "type": "disagreement_explanation",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unresolved'"
+        },
+        "explanation_notes": {
+          "name": "explanation_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resolution_requirement": {
+          "name": "resolution_requirement",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "disagreements_peptide_idx": {
+          "name": "disagreements_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "disagreements_quality_topic_idx": {
+          "name": "disagreements_quality_topic_idx",
+          "columns": [
+            {
+              "expression": "quality_topic_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "disagreements_peptide_id_peptides_id_fk": {
+          "name": "disagreements_peptide_id_peptides_id_fk",
+          "tableFrom": "disagreements",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "disagreements_quality_topic_id_quality_topics_id_fk": {
+          "name": "disagreements_quality_topic_id_quality_topics_id_fk",
+          "tableFrom": "disagreements",
+          "columnsFrom": [
+            "quality_topic_id"
+          ],
+          "tableTo": "quality_topics",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "disagreements_disagreementKey_unique": {
+          "name": "disagreements_disagreementKey_unique",
+          "columns": [
+            "disagreement_key"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.peptide_routes": {
+      "name": "peptide_routes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "route_key": {
+          "name": "route_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "evidence_type_key": {
+          "name": "evidence_type_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_location_id": {
+          "name": "source_location_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "population_model": {
+          "name": "population_model",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "formulation": {
+          "name": "formulation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pk_notes": {
+          "name": "pk_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bioavailability_notes": {
+          "name": "bioavailability_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "limitations_notes": {
+          "name": "limitations_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "peptide_routes_peptide_idx": {
+          "name": "peptide_routes_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "peptide_routes_route_idx": {
+          "name": "peptide_routes_route_idx",
+          "columns": [
+            {
+              "expression": "route_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "peptide_routes_evidence_type_idx": {
+          "name": "peptide_routes_evidence_type_idx",
+          "columns": [
+            {
+              "expression": "evidence_type_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "peptide_routes_peptide_id_peptides_id_fk": {
+          "name": "peptide_routes_peptide_id_peptides_id_fk",
+          "tableFrom": "peptide_routes",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "peptide_routes_route_key_routes_key_fk": {
+          "name": "peptide_routes_route_key_routes_key_fk",
+          "tableFrom": "peptide_routes",
+          "columnsFrom": [
+            "route_key"
+          ],
+          "tableTo": "routes",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        },
+        "peptide_routes_evidence_type_key_evidence_types_key_fk": {
+          "name": "peptide_routes_evidence_type_key_evidence_types_key_fk",
+          "tableFrom": "peptide_routes",
+          "columnsFrom": [
+            "evidence_type_key"
+          ],
+          "tableTo": "evidence_types",
+          "columnsTo": [
+            "key"
+          ],
+          "onUpdate": "cascade",
+          "onDelete": "no action"
+        },
+        "peptide_routes_source_id_sources_id_fk": {
+          "name": "peptide_routes_source_id_sources_id_fk",
+          "tableFrom": "peptide_routes",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "tableTo": "sources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "peptide_routes_source_location_id_source_locations_id_fk": {
+          "name": "peptide_routes_source_location_id_source_locations_id_fk",
+          "tableFrom": "peptide_routes",
+          "columnsFrom": [
+            "source_location_id"
+          ],
+          "tableTo": "source_locations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.regulatory_statuses": {
+      "name": "regulatory_statuses",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jurisdiction": {
+          "name": "jurisdiction",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "indication_context": {
+          "name": "indication_context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "regulatory_status_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authority": {
+          "name": "authority",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_location_id": {
+          "name": "source_location_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "checked_at": {
+          "name": "checked_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "recheck_due_at": {
+          "name": "recheck_due_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "workflow_status": {
+          "name": "workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unreviewed'"
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "regulatory_statuses_peptide_idx": {
+          "name": "regulatory_statuses_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "regulatory_statuses_jurisdiction_idx": {
+          "name": "regulatory_statuses_jurisdiction_idx",
+          "columns": [
+            {
+              "expression": "jurisdiction",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "regulatory_statuses_checked_idx": {
+          "name": "regulatory_statuses_checked_idx",
+          "columns": [
+            {
+              "expression": "checked_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "regulatory_statuses_peptide_id_peptides_id_fk": {
+          "name": "regulatory_statuses_peptide_id_peptides_id_fk",
+          "tableFrom": "regulatory_statuses",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "regulatory_statuses_source_id_sources_id_fk": {
+          "name": "regulatory_statuses_source_id_sources_id_fk",
+          "tableFrom": "regulatory_statuses",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "tableTo": "sources",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "regulatory_statuses_source_location_id_source_locations_id_fk": {
+          "name": "regulatory_statuses_source_location_id_source_locations_id_fk",
+          "tableFrom": "regulatory_statuses",
+          "columnsFrom": [
+            "source_location_id"
+          ],
+          "tableTo": "source_locations",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.publication_claims": {
+      "name": "publication_claims",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "publication_id": {
+          "name": "publication_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "claim_id": {
+          "name": "claim_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "publication_section_id": {
+          "name": "publication_section_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "publication_claims_claim_idx": {
+          "name": "publication_claims_claim_idx",
+          "columns": [
+            {
+              "expression": "claim_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "publication_claims_publication_id_publications_id_fk": {
+          "name": "publication_claims_publication_id_publications_id_fk",
+          "tableFrom": "publication_claims",
+          "columnsFrom": [
+            "publication_id"
+          ],
+          "tableTo": "publications",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        },
+        "publication_claims_claim_id_claims_id_fk": {
+          "name": "publication_claims_claim_id_claims_id_fk",
+          "tableFrom": "publication_claims",
+          "columnsFrom": [
+            "claim_id"
+          ],
+          "tableTo": "claims",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "publication_claims_publication_section_id_publication_sections_id_fk": {
+          "name": "publication_claims_publication_section_id_publication_sections_id_fk",
+          "tableFrom": "publication_claims",
+          "columnsFrom": [
+            "publication_section_id"
+          ],
+          "tableTo": "publication_sections",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "set null"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "publication_claims_unique": {
+          "name": "publication_claims_unique",
+          "columns": [
+            "publication_id",
+            "claim_id"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.publication_sections": {
+      "name": "publication_sections",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "publication_id": {
+          "name": "publication_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "heading": {
+          "name": "heading",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "body_structured": {
+          "name": "body_structured",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::jsonb"
+        },
+        "audience": {
+          "name": "audience",
+          "type": "audience",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generated_from_claims": {
+          "name": "generated_from_claims",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "publication_sections_publication_id_publications_id_fk": {
+          "name": "publication_sections_publication_id_publications_id_fk",
+          "tableFrom": "publication_sections",
+          "columnsFrom": [
+            "publication_id"
+          ],
+          "tableTo": "publications",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "publication_sections_order_key": {
+          "name": "publication_sections_order_key",
+          "columns": [
+            "publication_id",
+            "sort_order"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.publications": {
+      "name": "publications",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "publication_key": {
+          "name": "publication_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "publication_type": {
+          "name": "publication_type",
+          "type": "publication_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subtitle": {
+          "name": "subtitle",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "audience": {
+          "name": "audience",
+          "type": "audience",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'both'"
+        },
+        "reading_mode": {
+          "name": "reading_mode",
+          "type": "reading_mode",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quality_topic_id": {
+          "name": "quality_topic_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "status": {
+          "name": "status",
+          "type": "publication_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'draft'"
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_reviewed_at": {
+          "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_cutoff_at": {
+          "name": "evidence_cutoff_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_by_publication_id": {
+          "name": "superseded_by_publication_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "publications_status_idx": {
+          "name": "publications_status_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "publications_type_idx": {
+          "name": "publications_type_idx",
+          "columns": [
+            {
+              "expression": "publication_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "publications_peptide_idx": {
+          "name": "publications_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "publications_peptide_id_peptides_id_fk": {
+          "name": "publications_peptide_id_peptides_id_fk",
+          "tableFrom": "publications",
+          "columnsFrom": [
+            "peptide_id"
+          ],
+          "tableTo": "peptides",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        },
+        "publications_quality_topic_id_quality_topics_id_fk": {
+          "name": "publications_quality_topic_id_quality_topics_id_fk",
+          "tableFrom": "publications",
+          "columnsFrom": [
+            "quality_topic_id"
+          ],
+          "tableTo": "quality_topics",
+          "columnsTo": [
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "restrict"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "publications_publicationKey_unique": {
+          "name": "publications_publicationKey_unique",
+          "columns": [
+            "publication_key"
+          ],
+          "nullsNotDistinct": false
+        },
+        "publications_slug_unique": {
+          "name": "publications_slug_unique",
+          "columns": [
+            "slug"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.corrections": {
+      "name": "corrections",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "correction_key": {
+          "name": "correction_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_type": {
+          "name": "entity_type",
+          "type": "reviewable_entity_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "severity": {
+          "name": "severity",
+          "type": "correction_severity",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "what_changed": {
+          "name": "what_changed",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason": {
+          "name": "reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_public": {
+          "name": "is_public",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "reported_by": {
+          "name": "reported_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "corrected_by_user_id": {
+          "name": "corrected_by_user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identified_at": {
+          "name": "identified_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "corrected_at": {
+          "name": "corrected_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "corrections_entity_idx": {
+          "name": "corrections_entity_idx",
+          "columns": [
+            {
+              "expression": "entity_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "corrections_public_idx": {
+          "name": "corrections_public_idx",
+          "columns": [
+            {
+              "expression": "is_public",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "corrected_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "corrections_corrected_by_user_id_profiles_user_id_fk": {
+          "name": "corrections_corrected_by_user_id_profiles_user_id_fk",
+          "tableFrom": "corrections",
+          "columnsFrom": [
+            "corrected_by_user_id"
+          ],
+          "tableTo": "profiles",
+          "columnsTo": [
+            "user_id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "set null"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "corrections_correctionKey_unique": {
+          "name": "corrections_correctionKey_unique",
+          "columns": [
+            "correction_key"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.review_clocks": {
+      "name": "review_clocks",
+      "schema": "",
+      "columns": {
+        "content_class": {
+          "name": "content_class",
+          "type": "review_clock_class",
+          "typeSchema": "public",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "min_months": {
+          "name": "min_months",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "max_months": {
+          "name": "max_months",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.reviews": {
+      "name": "reviews",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "entity_type": {
+          "name": "entity_type",
+          "type": "reviewable_entity_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_version": {
+          "name": "entity_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
+        },
+        "review_type": {
+          "name": "review_type",
+          "type": "review_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reviewer_user_id": {
+          "name": "reviewer_user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "outcome": {
+          "name": "outcome",
+          "type": "review_outcome",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "comments": {
+          "name": "comments",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviewed_at": {
+          "name": "reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "reviews_entity_idx": {
+          "name": "reviews_entity_idx",
+          "columns": [
+            {
+              "expression": "entity_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "reviews_entity_version_idx": {
+          "name": "reviews_entity_version_idx",
+          "columns": [
+            {
+              "expression": "entity_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity_version",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "reviews_reviewer_idx": {
+          "name": "reviews_reviewer_idx",
+          "columns": [
+            {
+              "expression": "reviewer_user_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "reviews_reviewer_user_id_profiles_user_id_fk": {
+          "name": "reviews_reviewer_user_id_profiles_user_id_fk",
+          "tableFrom": "reviews",
+          "columnsFrom": [
+            "reviewer_user_id"
+          ],
+          "tableTo": "profiles",
+          "columnsTo": [
+            "user_id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "set null"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.revisions": {
+      "name": "revisions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "entity_type": {
+          "name": "entity_type",
+          "type": "reviewable_entity_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "diff_summary": {
+          "name": "diff_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "snapshot": {
+          "name": "snapshot",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "previous_workflow_status": {
+          "name": "previous_workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "new_workflow_status": {
+          "name": "new_workflow_status",
+          "type": "workflow_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "changed_by": {
+          "name": "changed_by",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "changed_at": {
+          "name": "changed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "revisions_entity_idx": {
+          "name": "revisions_entity_idx",
+          "columns": [
+            {
+              "expression": "entity_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "revisions_entity_version_idx": {
+          "name": "revisions_entity_version_idx",
+          "columns": [
+            {
+              "expression": "entity_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "entity_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "version",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "revisions_changed_at_idx": {
+          "name": "revisions_changed_at_idx",
+          "columns": [
+            {
+              "expression": "changed_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "revisions_changed_by_profiles_user_id_fk": {
+          "name": "revisions_changed_by_profiles_user_id_fk",
+          "tableFrom": "revisions",
+          "columnsFrom": [
+            "changed_by"
+          ],
+          "tableTo": "profiles",
+          "columnsTo": [
+            "user_id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "set null"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.verification_issues": {
+      "name": "verification_issues",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "issue_key": {
+          "name": "issue_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "topic": {
+          "name": "topic",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "why_it_matters": {
+          "name": "why_it_matters",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "current_source_signal": {
+          "name": "current_source_signal",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "needed_verification": {
+          "name": "needed_verification",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "priority": {
+          "name": "priority",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'high'"
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'open'"
+        },
+        "related_entity_type": {
+          "name": "related_entity_type",
+          "type": "reviewable_entity_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "related_entity_id": {
+          "name": "related_entity_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "related_keys": {
+          "name": "related_keys",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
+        },
+        "opened_at": {
+          "name": "opened_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "resolved_at": {
+          "name": "resolved_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resolution_notes": {
+          "name": "resolution_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "verification_issues_status_idx": {
+          "name": "verification_issues_status_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "priority",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "verification_issues_issueKey_unique": {
+          "name": "verification_issues_issueKey_unique",
+          "columns": [
+            "issue_key"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.search_documents": {
+      "name": "search_documents",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "entity_type": {
+          "name": "entity_type",
+          "type": "search_entity_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "subtitle": {
+          "name": "subtitle",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alias_text": {
+          "name": "alias_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "body_text": {
+          "name": "body_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "peptide_id": {
+          "name": "peptide_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "peptide_slug": {
+          "name": "peptide_slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidence_classes": {
+          "name": "evidence_classes",
+          "type": "evidence_class[]",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "route_keys": {
+          "name": "route_keys",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_type_keys": {
+          "name": "source_type_keys",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category_key": {
+          "name": "category_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_human_evidence": {
+          "name": "is_human_evidence",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "search_vector": {
+          "name": "search_vector",
+          "type": "tsvector",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "type": "stored",
+            "as": "setweight(to_tsvector('english', coalesce(title, '')), 'A')\n        || setweight(to_tsvector('english', coalesce(alias_text, '')), 'A')\n        || setweight(to_tsvector('english', coalesce(subtitle, '')), 'B')\n        || setweight(to_tsvector('english', coalesce(body_text, '')), 'C')"
+          }
+        },
+        "indexed_at": {
+          "name": "indexed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "search_documents_vector_idx": {
+          "name": "search_documents_vector_idx",
+          "columns": [
+            {
+              "expression": "search_vector",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "gin",
+          "concurrently": false
+        },
+        "search_documents_title_trgm_idx": {
+          "name": "search_documents_title_trgm_idx",
+          "columns": [
+            {
+              "expression": "\"title\" gin_trgm_ops",
+              "isExpression": true,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "gin",
+          "concurrently": false
+        },
+        "search_documents_alias_trgm_idx": {
+          "name": "search_documents_alias_trgm_idx",
+          "columns": [
+            {
+              "expression": "\"alias_text\" gin_trgm_ops",
+              "isExpression": true,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "gin",
+          "concurrently": false
+        },
+        "search_documents_entity_type_idx": {
+          "name": "search_documents_entity_type_idx",
+          "columns": [
+            {
+              "expression": "entity_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        },
+        "search_documents_peptide_idx": {
+          "name": "search_documents_peptide_idx",
+          "columns": [
+            {
+              "expression": "peptide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "search_documents_entity_key": {
+          "name": "search_documents_entity_key",
+          "columns": [
+            "entity_type",
+            "entity_id"
+          ],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.alias_type": {
+      "name": "alias_type",
+      "schema": "public",
+      "values": [
+        "synonym",
+        "abbreviation",
+        "brand_name",
+        "research_code",
+        "chemical_name",
+        "common_misnomer",
+        "related_but_distinct"
+      ]
+    },
+    "public.audience": {
+      "name": "audience",
+      "schema": "public",
+      "values": [
+        "patient",
+        "practitioner",
+        "both"
+      ]
+    },
+    "public.claim_importance": {
+      "name": "claim_importance",
+      "schema": "public",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "public.correction_severity": {
+      "name": "correction_severity",
+      "schema": "public",
+      "values": [
+        "typographical",
+        "clarification",
+        "substantive",
+        "material_medical"
+      ]
+    },
+    "public.disagreement_explanation": {
+      "name": "disagreement_explanation",
+      "schema": "public",
+      "values": [
+        "route",
+        "formulation",
+        "population",
+        "dose",
+        "study_design",
+        "terminology",
+        "date",
+        "unresolved"
+      ]
+    },
+    "public.evidence_class": {
+      "name": "evidence_class",
+      "schema": "public",
+      "values": [
+        "human",
+        "preclinical",
+        "reference_opinion"
+      ]
+    },
+    "public.evidence_relationship": {
+      "name": "evidence_relationship",
+      "schema": "public",
+      "values": [
+        "supports",
+        "contradicts",
+        "contextualizes",
+        "cites"
+      ]
+    },
+    "public.protocol_source_role": {
+      "name": "protocol_source_role",
+      "schema": "public",
+      "values": [
+        "original",
+        "secondary_reference",
+        "commentary"
+      ]
+    },
+    "public.publication_status": {
+      "name": "publication_status",
+      "schema": "public",
+      "values": [
+        "draft",
+        "in_review",
+        "published",
+        "needs_update",
+        "superseded",
+        "archived"
+      ]
+    },
+    "public.publication_type": {
+      "name": "publication_type",
+      "schema": "public",
+      "values": [
+        "book",
+        "book_chapter",
+        "article",
+        "peptide_reference",
+        "quality_topic",
+        "patient_handout",
+        "practitioner_guide",
+        "methodology",
+        "policy"
+      ]
+    },
+    "public.reading_mode": {
+      "name": "reading_mode",
+      "schema": "public",
+      "values": [
+        "simple",
+        "practitioner"
+      ]
+    },
+    "public.regulatory_status_value": {
+      "name": "regulatory_status_value",
+      "schema": "public",
+      "values": [
+        "approved",
+        "authorized_limited",
+        "investigational_clinical",
+        "preclinical",
+        "discontinued",
+        "withdrawn",
+        "not_approved",
+        "unknown"
+      ]
+    },
+    "public.review_clock_class": {
+      "name": "review_clock_class",
+      "schema": "public",
+      "values": [
+        "foundational_chemistry",
+        "general_quality_science",
+        "peptide_evidence",
+        "investigational_program",
+        "regulatory_status"
+      ]
+    },
+    "public.review_outcome": {
+      "name": "review_outcome",
+      "schema": "public",
+      "values": [
+        "approved",
+        "changes_requested",
+        "rejected"
+      ]
+    },
+    "public.review_type": {
+      "name": "review_type",
+      "schema": "public",
+      "values": [
+        "source_check",
+        "primary_verification",
+        "scientific",
+        "clinical",
+        "compliance"
+      ]
+    },
+    "public.reviewable_entity_type": {
+      "name": "reviewable_entity_type",
+      "schema": "public",
+      "values": [
+        "source",
+        "peptide",
+        "claim",
+        "protocol",
+        "peptide_route",
+        "quality_topic",
+        "regulatory_status",
+        "disagreement",
+        "publication",
+        "publication_section"
+      ]
+    },
+    "public.search_entity_type": {
+      "name": "search_entity_type",
+      "schema": "public",
+      "values": [
+        "peptide",
+        "claim",
+        "protocol",
+        "quality_topic",
+        "source",
+        "publication"
+      ]
+    },
+    "public.source_qc_status": {
+      "name": "source_qc_status",
+      "schema": "public",
+      "values": [
+        "usable",
+        "incomplete",
+        "replace",
+        "pending",
+        "exclude"
+      ]
+    },
+    "public.staff_role": {
+      "name": "staff_role",
+      "schema": "public",
+      "values": [
+        "admin",
+        "editor",
+        "scientific_reviewer",
+        "clinical_reviewer",
+        "compliance_reviewer"
+      ]
+    },
+    "public.workflow_status": {
+      "name": "workflow_status",
+      "schema": "public",
+      "values": [
+        "unreviewed",
+        "captured",
+        "source_checked",
+        "primary_source_checked",
+        "scientific_reviewed",
+        "clinical_reviewed",
+        "compliance_reviewed",
+        "published",
+        "needs_update",
+        "superseded",
+        "rejected"
+      ]
+    }
+  },
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "key": "regulatory_label",
+    "publicLabel": "Regulatory label",
+    "description": "Approved product labelling issued or accepted by a medicines regulator.",
+    "typicalEvidenceClass": "human",
+    "sortOrder": 10
+  },
+  {
+    "key": "regulatory_guidance",
+    "publicLabel": "Regulatory guidance",
+    "description": "Guidance, standards or position documents issued by a regulator.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 20
+  },
+  {
+    "key": "compendial_standard",
+    "publicLabel": "Compendial standard",
+    "description": "Pharmacopoeial monograph or official test method.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 30
+  },
+  {
+    "key": "primary_journal_article",
+    "publicLabel": "Primary research article",
+    "description": "A peer-reviewed report of original research.",
+    "typicalEvidenceClass": "human",
+    "sortOrder": 40
+  },
+  {
+    "key": "systematic_review_meta_analysis",
+    "publicLabel": "Systematic review or meta-analysis",
+    "description": "A structured synthesis of primary studies.",
+    "typicalEvidenceClass": "human",
+    "sortOrder": 50
+  },
+  {
+    "key": "clinical_trial_registry",
+    "publicLabel": "Clinical trial registry record",
+    "description": "A registered trial protocol or results posting.",
+    "typicalEvidenceClass": "human",
+    "sortOrder": 60
+  },
+  {
+    "key": "academic_textbook",
+    "publicLabel": "Academic textbook",
+    "description": "An edited or authored scholarly volume.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 70
+  },
+  {
+    "key": "academic_methods_reference",
+    "publicLabel": "Methods reference",
+    "description": "A laboratory methods or protocols volume.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 80
+  },
+  {
+    "key": "practitioner_handbook",
+    "publicLabel": "Practitioner handbook",
+    "description": "A clinician-authored reference describing practice. Not a clinical trial.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 90
+  },
+  {
+    "key": "expert_interview",
+    "publicLabel": "Expert interview or commentary",
+    "description": "A recorded or transcribed statement by a named individual.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 100
+  },
+  {
+    "key": "conference_presentation",
+    "publicLabel": "Conference presentation",
+    "description": "Material presented at a scientific meeting, often not peer reviewed in full.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 110
+  },
+  {
+    "key": "manufacturer_quality_document",
+    "publicLabel": "Manufacturer or quality document",
+    "description": "A certificate of analysis, specification or manufacturing document.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 120
+  },
+  {
+    "key": "community_experiential",
+    "publicLabel": "Community or experiential report",
+    "description": "Self-reported experience. Indexed as an observation or research question, never as support for efficacy or safety.",
+    "typicalEvidenceClass": "reference_opinion",
+    "sortOrder": 130
+  },
+  {
+    "key": "other",
+    "publicLabel": "Other",
+    "description": "A source that does not fit the categories above.",
+    "typicalEvidenceClass": null,
+    "sortOrder": 999
+  }
+]

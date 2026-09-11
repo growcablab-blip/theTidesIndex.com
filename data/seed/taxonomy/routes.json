@@ -1,0 +1,92 @@
+[
+  {
+    "key": "subcutaneous",
+    "name": "Subcutaneous",
+    "slug": "subcutaneous",
+    "descriptionSimple": "An injection into the layer of fat just under the skin.",
+    "descriptionPractitioner": "Injection into subcutaneous tissue. Absorption is generally slower than intravenous and varies with site, depth, formulation and injected volume.",
+    "generalLimitations": "Statements about this route describe the route itself. Whether any specific compound has been studied or reported by this route is recorded per compound, with its own source.",
+    "sortOrder": 10
+  },
+  {
+    "key": "intramuscular",
+    "name": "Intramuscular",
+    "slug": "intramuscular",
+    "descriptionSimple": "An injection into a muscle.",
+    "descriptionPractitioner": "Injection into skeletal muscle. Absorption varies with site, muscle perfusion and formulation.",
+    "generalLimitations": "Route-level description only. Compound-specific evidence is recorded separately.",
+    "sortOrder": 20
+  },
+  {
+    "key": "intravenous",
+    "name": "Intravenous",
+    "slug": "intravenous",
+    "descriptionSimple": "Delivery directly into a vein.",
+    "descriptionPractitioner": "Direct delivery into the circulation, bypassing absorption. Used in controlled clinical settings.",
+    "generalLimitations": "Route-level description only. Compound-specific evidence is recorded separately.",
+    "sortOrder": 30
+  },
+  {
+    "key": "intranasal",
+    "name": "Intranasal",
+    "slug": "intranasal",
+    "descriptionSimple": "Delivery into the nose, usually as a spray or drops.",
+    "descriptionPractitioner": "Delivery across the nasal mucosa. Bioavailability is highly molecule- and formulation-specific and cannot be generalised across peptides.",
+    "generalLimitations": "Nasal absorption of one peptide says nothing about another. Every intranasal record on this site names its compound, formulation, population and source.",
+    "sortOrder": 40
+  },
+  {
+    "key": "oral",
+    "name": "Oral",
+    "slug": "oral",
+    "descriptionSimple": "Taken by mouth and swallowed.",
+    "descriptionPractitioner": "Gastrointestinal delivery. Most peptides are subject to enzymatic degradation and poor permeability; oral viability depends on the specific molecule and formulation technology used.",
+    "generalLimitations": "There is no general statement that peptides can be taken orally. Oral evidence is recorded per compound and per formulation.",
+    "sortOrder": 50
+  },
+  {
+    "key": "sublingual-buccal",
+    "name": "Sublingual / Buccal",
+    "slug": "sublingual-buccal",
+    "descriptionSimple": "Held under the tongue or against the inside of the cheek.",
+    "descriptionPractitioner": "Delivery across oral mucosa. Absorption depends on molecular size, lipophilicity, formulation and contact time.",
+    "generalLimitations": "Route-level description only. Compound-specific evidence is recorded separately.",
+    "sortOrder": 60
+  },
+  {
+    "key": "topical",
+    "name": "Topical",
+    "slug": "topical",
+    "descriptionSimple": "Applied to the skin.",
+    "descriptionPractitioner": "Application to skin or mucosa. A topical effect at the application site is a different claim from systemic absorption.",
+    "generalLimitations": "Local activity does not establish systemic exposure, and systemic exposure does not follow from topical application.",
+    "sortOrder": 70
+  },
+  {
+    "key": "intradermal",
+    "name": "Intradermal",
+    "slug": "intradermal",
+    "descriptionSimple": "An injection into the skin itself rather than beneath it.",
+    "descriptionPractitioner": "Injection into the dermis.",
+    "generalLimitations": "Route-level description only. Compound-specific evidence is recorded separately.",
+    "sortOrder": 80
+  },
+  {
+    "key": "intra-articular",
+    "name": "Intra-articular",
+    "slug": "intra-articular",
+    "descriptionSimple": "An injection into a joint space.",
+    "descriptionPractitioner": "Injection into a joint cavity, performed in a clinical setting.",
+    "generalLimitations": "Route-level description only. Compound-specific evidence is recorded separately.",
+    "sortOrder": 90
+  },
+  {
+    "key": "other",
+    "name": "Other / Specialised",
+    "slug": "other-specialised",
+    "descriptionSimple": "A route that does not fit the common categories.",
+    "descriptionPractitioner": "Specialised or investigational delivery routes. The specific route is described on the record itself.",
+    "generalLimitations": "Always read the compound-specific record; this category groups routes that differ materially from one another.",
+    "sortOrder": 999
+  }
+]

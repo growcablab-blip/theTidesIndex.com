@@ -1,83 +1,106 @@
 [
   {
-    "peptide_key": "bpc-157",
-    "canonical_name": "BPC-157",
+    "peptideKey": "bpc-157",
+    "canonicalName": "BPC-157",
+    "slug": "bpc-157",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "repair-recovery",
     "aliases": [
-      "Body Protection Compound 157"
+      { "alias": "Body Protection Compound 157", "aliasType": "chemical_name" },
+      { "alias": "BPC157", "aliasType": "abbreviation" },
+      { "alias": "PL 14736", "aliasType": "research_code" }
     ],
-    "primary_category": "repair-recovery",
-    "status": "seeded"
+    "notes": "Route evidence is contested across practitioner sources; see verification issue V-002."
   },
   {
-    "peptide_key": "thymosin-beta-4",
-    "canonical_name": "Thymosin beta-4",
+    "peptideKey": "thymosin-beta-4",
+    "canonicalName": "Thymosin beta-4",
+    "slug": "thymosin-beta-4",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "repair-immune",
     "aliases": [
-      "TB-4",
-      "TB4"
+      { "alias": "TB-4", "aliasType": "abbreviation" },
+      { "alias": "TB4", "aliasType": "abbreviation" },
+      {
+        "alias": "TB-500",
+        "aliasType": "related_but_distinct",
+        "notes": "Practitioner sources frequently use TB-500 and full-length Thymosin beta-4 interchangeably. The relationship has not been verified against primary chemistry or product-definition sources and must not be presented as identity. Verification issue V-001."
+      }
     ],
-    "primary_category": "repair-immune",
-    "status": "nomenclature_review_required",
-    "notes": "Do not treat TB-500 as automatically identical; resolve nomenclature in evidence records."
+    "notes": "Nomenclature review required before publication."
   },
   {
-    "peptide_key": "ghk-cu",
-    "canonical_name": "GHK-Cu",
+    "peptideKey": "ghk-cu",
+    "canonicalName": "GHK-Cu",
+    "slug": "ghk-cu",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "skin-repair",
     "aliases": [
-      "Copper tripeptide GHK-Cu"
-    ],
-    "primary_category": "skin-repair",
-    "status": "seeded"
+      { "alias": "Copper tripeptide-1", "aliasType": "chemical_name" },
+      { "alias": "GHK copper peptide", "aliasType": "synonym" }
+    ]
   },
   {
-    "peptide_key": "cjc-1295",
-    "canonical_name": "CJC-1295",
-    "aliases": [],
-    "primary_category": "gh-endocrine",
-    "status": "seeded"
-  },
-  {
-    "peptide_key": "ipamorelin",
-    "canonical_name": "Ipamorelin",
-    "aliases": [],
-    "primary_category": "gh-endocrine",
-    "status": "seeded"
-  },
-  {
-    "peptide_key": "tesamorelin",
-    "canonical_name": "Tesamorelin",
-    "aliases": [],
-    "primary_category": "gh-endocrine-metabolic",
-    "status": "seeded"
-  },
-  {
-    "peptide_key": "mots-c",
-    "canonical_name": "MOTS-c",
+    "peptideKey": "cjc-1295",
+    "canonicalName": "CJC-1295",
+    "slug": "cjc-1295",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "gh-endocrine",
     "aliases": [
-      "MOTS-C"
-    ],
-    "primary_category": "mitochondrial-metabolic",
-    "status": "seeded"
+      {
+        "alias": "CJC-1295 with DAC",
+        "aliasType": "related_but_distinct",
+        "notes": "Formulations with and without a drug affinity complex differ materially in duration. Sources are not always explicit about which is meant."
+      }
+    ]
   },
   {
-    "peptide_key": "semax",
-    "canonical_name": "Semax",
-    "aliases": [],
-    "primary_category": "neuro-cognitive",
-    "status": "seeded"
+    "peptideKey": "ipamorelin",
+    "canonicalName": "Ipamorelin",
+    "slug": "ipamorelin",
+    "compoundTypeKey": "peptide_secretagogue",
+    "primaryCategoryKey": "gh-endocrine",
+    "aliases": []
   },
   {
-    "peptide_key": "selank",
-    "canonical_name": "Selank",
-    "aliases": [],
-    "primary_category": "neuro-cognitive",
-    "status": "seeded"
+    "peptideKey": "tesamorelin",
+    "canonicalName": "Tesamorelin",
+    "slug": "tesamorelin",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "gh-endocrine-metabolic",
+    "aliases": [{ "alias": "TH9507", "aliasType": "research_code" }]
   },
   {
-    "peptide_key": "retatrutide",
-    "canonical_name": "Retatrutide",
-    "aliases": [],
-    "primary_category": "metabolic",
-    "status": "seeded",
-    "notes": "Investigational status is time-sensitive; verify before publication."
+    "peptideKey": "mots-c",
+    "canonicalName": "MOTS-c",
+    "slug": "mots-c",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "mitochondrial-metabolic",
+    "aliases": [{ "alias": "MOTS-C", "aliasType": "synonym" }]
+  },
+  {
+    "peptideKey": "semax",
+    "canonicalName": "Semax",
+    "slug": "semax",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "neuro-cognitive",
+    "aliases": []
+  },
+  {
+    "peptideKey": "selank",
+    "canonicalName": "Selank",
+    "slug": "selank",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "neuro-cognitive",
+    "aliases": []
+  },
+  {
+    "peptideKey": "retatrutide",
+    "canonicalName": "Retatrutide",
+    "slug": "retatrutide",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "metabolic",
+    "aliases": [{ "alias": "LY3437943", "aliasType": "research_code" }],
+    "notes": "Investigational. Development status is time-sensitive and must be re-checked before any publication. Verification issue V-003."
   }
 ]

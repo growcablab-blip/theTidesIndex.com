@@ -8,6 +8,11 @@ export default defineConfig({
     globals: false,
     testTimeout: 60_000,
     hookTimeout: 120_000,
+    // Each integration suite runs a real Postgres image in WebAssembly. Running
+    // several files in parallel exhausts the worker heap, so suites run one at
+    // a time; the wall-clock cost is small and the alternative is flakiness.
+    fileParallelism: false,
+    maxWorkers: 1,
   },
   resolve: {
     alias: {

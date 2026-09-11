@@ -1,0 +1,86 @@
+[
+  {
+    "key": "repair-recovery",
+    "label": "Repair and recovery",
+    "description": "Compounds discussed in the context of tissue repair and recovery.",
+    "sortOrder": 10
+  },
+  {
+    "key": "repair-immune",
+    "label": "Repair and immune",
+    "description": "Compounds discussed across both repair and immune contexts.",
+    "sortOrder": 20
+  },
+  {
+    "key": "skin-repair",
+    "label": "Skin and dermal",
+    "description": "Compounds discussed in dermal and cosmetic contexts.",
+    "sortOrder": 30
+  },
+  {
+    "key": "gh-endocrine",
+    "label": "Growth hormone and endocrine",
+    "description": "Compounds discussed in relation to growth hormone and endocrine signalling.",
+    "sortOrder": 40
+  },
+  {
+    "key": "gh-endocrine-metabolic",
+    "label": "Growth hormone, endocrine and metabolic",
+    "description": "Compounds spanning endocrine and metabolic contexts.",
+    "sortOrder": 50
+  },
+  {
+    "key": "metabolic",
+    "label": "Metabolic",
+    "description": "Compounds discussed in metabolic contexts.",
+    "sortOrder": 60
+  },
+  {
+    "key": "mitochondrial-metabolic",
+    "label": "Mitochondrial and metabolic",
+    "description": "Compounds discussed in relation to mitochondrial function.",
+    "sortOrder": 70
+  },
+  {
+    "key": "neuro-cognitive",
+    "label": "Neurological and cognitive",
+    "description": "Compounds discussed in neurological and cognitive contexts.",
+    "sortOrder": 80
+  },
+  {
+    "key": "immune",
+    "label": "Immune",
+    "description": "Compounds discussed in immune contexts.",
+    "sortOrder": 90
+  },
+  {
+    "key": "gastrointestinal",
+    "label": "Gastrointestinal",
+    "description": "Compounds discussed in gastrointestinal contexts.",
+    "sortOrder": 100
+  },
+  {
+    "key": "longevity-neuroendocrine",
+    "label": "Longevity and neuroendocrine",
+    "description": "Compounds discussed in longevity and neuroendocrine research contexts.",
+    "sortOrder": 110
+  },
+  {
+    "key": "sleep-neuro",
+    "label": "Sleep and neurological",
+    "description": "Compounds discussed in relation to sleep.",
+    "sortOrder": 120
+  },
+  {
+    "key": "reproductive-endocrine",
+    "label": "Reproductive and endocrine",
+    "description": "Compounds discussed in reproductive endocrine contexts.",
+    "sortOrder": 130
+  },
+  {
+    "key": "uncategorised",
+    "label": "Not yet categorised",
+    "description": "No category has been assigned from a source.",
+    "sortOrder": 999
+  }
+]

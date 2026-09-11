@@ -1,66 +1,21 @@
 [
-  {
-    "name": "Peptide synthesis / SPPS",
-    "status": "seeded"
-  },
-  {
-    "name": "Purification",
-    "status": "seeded"
-  },
-  {
-    "name": "Identity testing",
-    "status": "seeded"
-  },
-  {
-    "name": "HPLC / chromatographic purity",
-    "status": "seeded"
-  },
-  {
-    "name": "Mass spectrometry",
-    "status": "seeded"
-  },
-  {
-    "name": "Peptide content / assay",
-    "status": "seeded"
-  },
-  {
-    "name": "Sterility",
-    "status": "seeded"
-  },
-  {
-    "name": "Bacterial endotoxin",
-    "status": "seeded"
-  },
-  {
-    "name": "GMP / cGMP",
-    "status": "seeded"
-  },
-  {
-    "name": "Lyophilization",
-    "status": "seeded"
-  },
-  {
-    "name": "Formulation / excipients",
-    "status": "seeded"
-  },
-  {
-    "name": "Administration / delivery",
-    "status": "seeded"
-  },
-  {
-    "name": "Storage / stability",
-    "status": "seeded"
-  },
-  {
-    "name": "Transportation / excursions",
-    "status": "seeded"
-  },
-  {
-    "name": "Lot / batch traceability",
-    "status": "seeded"
-  },
-  {
-    "name": "Global manufacturing / supplier qualification",
-    "status": "seeded"
-  }
+  { "qualityKey": "peptide-synthesis-spps", "name": "Peptide synthesis / SPPS", "slug": "peptide-synthesis-spps", "sortOrder": 10 },
+  { "qualityKey": "purification", "name": "Purification", "slug": "purification", "sortOrder": 20 },
+  { "qualityKey": "identity-testing", "name": "Identity testing", "slug": "identity-testing", "sortOrder": 30 },
+  { "qualityKey": "hplc-purity", "name": "HPLC / chromatographic purity", "slug": "hplc-purity", "sortOrder": 40 },
+  { "qualityKey": "mass-spectrometry", "name": "Mass spectrometry", "slug": "mass-spectrometry", "sortOrder": 50 },
+  { "qualityKey": "peptide-content-assay", "name": "Peptide content / assay", "slug": "peptide-content-assay", "sortOrder": 60 },
+  { "qualityKey": "sterility", "name": "Sterility", "slug": "sterility", "sortOrder": 70 },
+  { "qualityKey": "bacterial-endotoxin", "name": "Bacterial endotoxin", "slug": "bacterial-endotoxin", "sortOrder": 80 },
+  { "qualityKey": "residual-solvents", "name": "Residual solvents", "slug": "residual-solvents", "sortOrder": 90 },
+  { "qualityKey": "water-content", "name": "Water content / moisture", "slug": "water-content", "sortOrder": 100 },
+  { "qualityKey": "gmp-cgmp", "name": "GMP / cGMP", "slug": "gmp-cgmp", "sortOrder": 110 },
+  { "qualityKey": "lyophilization", "name": "Lyophilisation", "slug": "lyophilisation", "sortOrder": 120 },
+  { "qualityKey": "formulation-excipients", "name": "Formulation / excipients", "slug": "formulation-excipients", "sortOrder": 130 },
+  { "qualityKey": "administration-delivery", "name": "Administration / delivery", "slug": "administration-delivery", "sortOrder": 140 },
+  { "qualityKey": "storage-stability", "name": "Storage / stability", "slug": "storage-stability", "sortOrder": 150 },
+  { "qualityKey": "transport-excursions", "name": "Transportation / temperature excursions", "slug": "transport-excursions", "sortOrder": 160 },
+  { "qualityKey": "batch-traceability", "name": "Lot / batch traceability", "slug": "batch-traceability", "sortOrder": 170 },
+  { "qualityKey": "global-manufacturing", "name": "Global manufacturing / supplier qualification", "slug": "global-manufacturing", "sortOrder": 180 },
+  { "qualityKey": "coa-literacy", "name": "Reading a certificate of analysis", "slug": "certificate-of-analysis", "sortOrder": 190 }
 ]
