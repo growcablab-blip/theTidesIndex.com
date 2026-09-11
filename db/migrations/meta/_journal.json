@@ -85,6 +85,13 @@
       "when": 1789143354208,
       "tag": "0011_quality_map",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1789144971400,
+      "tag": "0012_public_quality_page",
+      "breakpoints": true
     }
   ]
 }

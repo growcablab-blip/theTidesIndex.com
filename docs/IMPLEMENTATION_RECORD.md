@@ -758,3 +758,66 @@ that output rather than trusting the JSON caught both:
   one door the rule leaves open. Rewritten to assert nothing.
 
 **162 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.4 — The public quality topic
+
+Full detail in `docs/PHASE_C4_REPORT.md`. The parts that changed the
+architecture rather than the presentation:
+
+### C.4.1 Rendering an unpublished record without weakening the gate
+
+The HPLC topic is at `ready_for_scientific_review` and unpublished, which is
+correct and was not touched. But a reviewer cannot approve a page they have never
+seen rendered. The public route now falls through to a development preview closed
+by two independent conditions — not a production build, and
+`TIDES_PREVIEW_UNPUBLISHED=1` — either of which alone refuses. The route 404s when
+refused, so a probe cannot tell "refused" from "no such topic".
+
+One assembly serves both surfaces, switching only the relation names: `public_v_*`
+views as `anon` for the public, base tables for the preview. Every column is
+named, so `extracted_text_private` cannot arrive by accident on the path that
+reads base tables — the path most likely to leak it, and now the one tested for
+it.
+
+### C.4.2 Four evidence treatments, and colour carries none of them
+
+`evidenceStatus` is computed on the server from each edge's own basis, so a
+surface cannot give a structural link the styling of a sourced statement. Each of
+the four combines a worded label, a glyph and a border style: the distinctions
+survive greyscale print, forced-colours mode, and a reader who cannot separate
+the hues.
+
+The wording rule is the substance of it. A gap says *"the sources this index
+currently holds do not settle the point"*, never *"HPLC cannot tell you this"* —
+a test asserts the second phrasing never appears.
+
+### C.4.3 Two page numbers, kept apart
+
+A locator already names the page of the work. What it cannot give is where that
+page sits in the copy this index holds, so that is what a citation adds —
+labelled, and only when the two differ. Where no offset is recorded the held-copy
+page is null rather than guessed: an unknown offset means an unknown page, not an
+equal one.
+
+### C.4.4 What the figures refuse to say
+
+No numbers in the chromatography figure: an axis scale would imply a precision no
+source here supports. The quality-dimensions figure has no ticks, no ordering and
+no totals, and states that it is not a claim that any product must be tested for
+all of them — that is regulatory, and this register holds no regulatory source.
+Both are asserted by test.
+
+### C.4.5 Defects found by measuring
+
+- **Header overflowed by 24px at exactly 768px.** The primary nav appears at `md`
+  while the brand is `shrink-0`. Pre-existing from Phase B; found by measuring
+  `scrollWidth` rather than by looking, because 24px reads as a stray scrollbar.
+- **"Population or model" printed against every analytical citation**, implying a
+  missing fact rather than an inapplicable question. Now omitted for reference
+  sources.
+- **The contents rail promised ten references and the page had one** — it counted
+  citations, not the deduplicated sources.
+- **Dead space in both figure viewBoxes**, and separation bands drawn below the
+  column rather than inside it.
+
+**196 tests.** Lint, typecheck, tests and production build pass.

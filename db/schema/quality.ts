@@ -1,5 +1,14 @@
 import { sql } from 'drizzle-orm';
-import { boolean, index, integer, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  date,
+  index,
+  integer,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
 import { publicationState, reviewState } from './enums';
 
 /**
@@ -28,6 +37,17 @@ export const qualityTopics = pgTable(
     whatItDoesNotProve: text(),
     /** Misreadings seen in practice, stated plainly. */
     commonMisinterpretations: text(),
+
+    /**
+     * The date up to which sources were surveyed for this topic.
+     *
+     * Distinct from `lastReviewedAt`, which records when a person last looked at
+     * the record. A reader needs to know how current the evidence behind a topic
+     * is, and that is not answered by when someone last approved the wording.
+     * Null until a survey has actually been done — the page says so rather than
+     * substituting a source's publication year for a cutoff it did not perform.
+     */
+    evidenceCutoffAt: date(),
 
     reviewState: reviewState().notNull().default('unreviewed'),
     publicationState: publicationState().notNull().default('unpublished'),

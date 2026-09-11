@@ -100,9 +100,18 @@ export function EvidenceCard({ evidence }: { evidence: EvidenceRecord }) {
       </div>
 
       <dl className="mt-2.5 grid gap-x-6 gap-y-1.5 text-sm sm:grid-cols-2">
-        <Field label="Population or model">
-          {evidence.populationModel ?? <NotRecorded what="the source does not state it" />}
-        </Field>
+        {/*
+          Only where the question means something. "Population or model" asks
+          what was studied, which is the right question of a trial or an animal
+          experiment and a category error of a chemistry textbook. Printing
+          "not recorded" against every analytical citation implies a missing
+          fact rather than an inapplicable one.
+        */}
+        {evidence.populationModel !== null || evidence.evidenceClass !== 'reference_opinion' ? (
+          <Field label="Population or model">
+            {evidence.populationModel ?? <NotRecorded what="the source does not state it" />}
+          </Field>
+        ) : null}
         {evidence.routeName ? <Field label="Route">{evidence.routeName}</Field> : null}
         {evidence.formulation ? <Field label="Formulation">{evidence.formulation}</Field> : null}
       </dl>

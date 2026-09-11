@@ -72,10 +72,9 @@ export function CitationBlock({ citation }: { citation: Citation }) {
         <span>{citation.sourceTypeLabel}</span>
         <span aria-hidden="true">·</span>
         <span>
-          {citation.locatorText ?? (
-            <span className="italic">Exact location not recorded</span>
-          )}
+          {citation.locatorText ?? <span className="italic">Exact location not recorded</span>}
         </span>
+        <LocatorPages citation={citation} />
         {citation.doi ? (
           <>
             <span aria-hidden="true">·</span>
@@ -98,6 +97,38 @@ export function CitationBlock({ citation }: { citation: Citation }) {
         </p>
       ) : null}
     </div>
+  );
+}
+
+/**
+ * The two page numbers, kept apart.
+ *
+ * A locator is recorded as the page printed in the work, because that is what a
+ * reader with any copy can find. The copy this index holds may number from its
+ * cover and run ahead by a fixed amount, so the page someone would turn to in
+ * the held file is a different number. Both are useful and they answer different
+ * questions, so neither is shown without saying which it is.
+ */
+function LocatorPages({ citation }: { citation: Citation }) {
+  // The locator already names the page of the work — repeating it as "printed
+  // page N" beside "p. N" reads as two different facts. What it cannot say is
+  // where that page sits in the copy this index holds, so that is what is added,
+  // labelled, and only when the two actually differ.
+  if (citation.filePage === null || citation.filePage === citation.printedPage) {
+    if (citation.locatorText !== null || citation.printedPage === null) return null;
+    return (
+      <>
+        <span aria-hidden="true">·</span>
+        <span>Printed page {citation.printedPage}</span>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <span aria-hidden="true">·</span>
+      <span className="text-slate">p. {citation.filePage} in the copy held here</span>
+    </>
   );
 }
 

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getQualityTopicPage, type Citation } from '@/server/public/queries';
+import { previewQualityTopic } from '@/server/public/preview';
+import type { QualityTopicReading } from '@/server/public/quality-topic';
 import { getReadingMode } from '@/server/public/reading-mode';
 import {
   Container,
@@ -15,6 +17,20 @@ import { ModeExplainer, ModeSwitch } from '@/components/public/mode-switch';
 import { ClaimCard } from '@/components/public/evidence';
 import { ReferenceList } from '@/components/public/citation';
 import { PrintHeader } from '@/components/public/print-header';
+import {
+  ChromatographyFlowFigure,
+  QualityDimensionsFigure,
+} from '@/components/public/quality-figures';
+import {
+  EvidenceGapList,
+  EvidenceLegend,
+  RelatedTopicMap,
+} from '@/components/public/quality-evidence';
+import {
+  EvidenceCutoff,
+  PreviewBanner,
+  ReviewStatusPanel,
+} from '@/components/public/record-status';
 
 /**
  * A quality topic.
@@ -24,6 +40,10 @@ import { PrintHeader } from '@/components/public/print-header';
  * other, given equal weight. Putting the limits in a footnote would let a reader
  * take away only the reassuring half, which is precisely how a purity figure
  * ends up being read as proof of sterility.
+ *
+ * Three things are stated before any of the content, because each one changes
+ * how the rest should be read: how far the record has been checked, that the
+ * limits section exists, and what the four evidence treatments mean.
  */
 
 /**
@@ -36,18 +56,34 @@ import { PrintHeader } from '@/components/public/print-header';
  */
 export const dynamic = 'force-dynamic';
 
+/**
+ * Published first, then — locally only — the unpublished record.
+ *
+ * `previewQualityTopic` returns null unless this is a non-production build with
+ * the preview explicitly enabled, so in production this is exactly the published
+ * lookup it was before.
+ */
+async function loadTopic(slug: string): Promise<QualityTopicReading | null> {
+  const published = await getQualityTopicPage(slug);
+  if (published) return published;
+  return previewQualityTopic(slug);
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const topic = await getQualityTopicPage(slug);
+  const topic = await loadTopic(slug);
   if (!topic) return { title: 'Topic not found' };
 
   return {
     title: topic.name,
     description: topic.shortDescription ?? `What ${topic.name} establishes, and what it does not.`,
+    // An unpublished preview must never be indexed even if the site's global
+    // noindex is one day lifted.
+    ...(topic.isPreview ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -58,7 +94,7 @@ export default async function QualityTopicPage({
 }) {
   const { slug } = await params;
   const mode = await getReadingMode();
-  const topic = await getQualityTopicPage(slug);
+  const topic = await loadTopic(slug);
 
   if (!topic) notFound();
 
@@ -66,19 +102,45 @@ export default async function QualityTopicPage({
   const citations: Citation[] = topic.claims.flatMap((claim) =>
     claim.evidence.map((e) => e.citation),
   );
+  // The reference list is deduplicated by source, so counting citations would
+  // promise ten references and deliver one.
+  const referenceCount = new Set(citations.map((c) => c.sourceKey)).size;
+
+  // Only the HPLC page has figures drawn for it. A topic without them simply
+  // does not get that section, rather than getting a generic diagram that would
+  // imply more than this index knows.
+  const hasFigures = topic.slug === 'hplc-purity';
 
   const contents = [
     { id: 'overview', label: 'In short' },
     { id: 'establishes', label: 'What it establishes' },
     { id: 'limits', label: 'What it does not establish' },
+    ...(hasFigures ? [{ id: 'how-it-works', label: 'How the test works' }] : []),
     {
       id: 'evidence',
       label: 'Source-linked detail',
       count: topic.claims.length,
       empty: topic.claims.length === 0,
     },
-    { id: 'related', label: 'Related topics' },
-    { id: 'references', label: 'References', count: citations.length, empty: citations.length === 0 },
+    {
+      id: 'not-established',
+      label: 'Not established here',
+      count: topic.gaps.length,
+      empty: topic.gaps.length === 0,
+    },
+    ...(hasFigures ? [{ id: 'dimensions', label: 'Separate questions' }] : []),
+    {
+      id: 'related',
+      label: 'Related topics',
+      count: topic.relationships.length,
+      empty: topic.relationships.length === 0,
+    },
+    {
+      id: 'references',
+      label: 'References',
+      count: referenceCount,
+      empty: referenceCount === 0,
+    },
     { id: 'record', label: 'About this record' },
   ];
 
@@ -102,6 +164,8 @@ export default async function QualityTopicPage({
         <span className="text-ink-soft">{topic.name}</span>
       </nav>
 
+      <PreviewBanner state={topic} />
+
       <header className="mb-8">
         <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
           <div className="min-w-0">
@@ -112,7 +176,9 @@ export default async function QualityTopicPage({
           </div>
           <ModeSwitch mode={mode} path={`/quality/${topic.slug}`} />
         </div>
-        <div className="mt-5 max-w-[64ch]">
+
+        <div className="mt-5 max-w-[68ch] space-y-4">
+          <ReviewStatusPanel state={topic} />
           <ModeExplainer mode={mode} />
         </div>
       </header>
@@ -146,7 +212,7 @@ export default async function QualityTopicPage({
         <div className="grid gap-5 lg:grid-cols-2">
           <Section id="establishes" title="What it establishes">
             {topic.whatItProves ? (
-              <div className="rounded-md border border-rule bg-warm-white px-5 py-4">
+              <div className="h-full rounded-md border border-l-[3px] border-rule border-l-tide-teal bg-warm-white px-5 py-4">
                 <p className="text-ink-soft">{topic.whatItProves}</p>
               </div>
             ) : (
@@ -156,7 +222,7 @@ export default async function QualityTopicPage({
 
           <Section id="limits" title="What it does not establish">
             {topic.whatItDoesNotProve ? (
-              <div className="rounded-md border border-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] px-5 py-4">
+              <div className="h-full rounded-md border border-l-[3px] border-[var(--color-caution-rule)] border-l-[var(--color-caution)] bg-[var(--color-caution-bg)] px-5 py-4">
                 <p className="text-ink-soft">{topic.whatItDoesNotProve}</p>
               </div>
             ) : (
@@ -176,6 +242,16 @@ export default async function QualityTopicPage({
           </Section>
         ) : null}
 
+        {hasFigures ? (
+          <Section
+            id="how-it-works"
+            title="How the test works"
+            lede="The mechanism, without numbers. Nothing in this figure asserts anything the sources below do not."
+          >
+            <ChromatographyFlowFigure />
+          </Section>
+        ) : null}
+
         <hr className="tide-rule border-0" aria-hidden="true" />
 
         <Section
@@ -183,6 +259,10 @@ export default async function QualityTopicPage({
           title="Source-linked detail"
           lede="Each statement here resolves to an exact location in a named analytical source."
         >
+          <div className="mb-5 no-print">
+            <EvidenceLegend />
+          </div>
+
           {topic.claims.length === 0 ? (
             <EmptyState
               headline="No source-linked statements have been reviewed for this topic yet."
@@ -205,26 +285,43 @@ export default async function QualityTopicPage({
           )}
         </Section>
 
+        {/*
+          The section that keeps an absence of evidence from reading as evidence
+          of absence. Worded throughout as a statement about this library rather
+          than about the world.
+        */}
+        <Section
+          id="not-established"
+          title="Not established by the sources held here"
+          lede="These are points a reader would reasonably expect this page to settle. The sources currently in this index do not settle them, so the index does not claim to."
+        >
+          {topic.gaps.length === 0 ? (
+            <EmptyState headline="No gaps have been recorded for this topic." />
+          ) : (
+            <EvidenceGapList gaps={topic.gaps} />
+          )}
+        </Section>
+
+        {hasFigures ? (
+          <Section
+            id="dimensions"
+            title="Separate questions, separate answers"
+            lede="A result for one quality attribute is not an answer about another."
+          >
+            <QualityDimensionsFigure />
+          </Section>
+        ) : null}
+
         <Section
           id="related"
-          title="Related topics"
-          lede="These answer different questions. A result from one does not substitute for another."
+          title="Related quality topics"
+          lede="What else this relates to, what it is routinely confused with, and what it does not answer. Each link says which of those it is."
         >
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {topic.relatedTopics.map((related) => (
-              <li key={related.id}>
-                <Link
-                  href={`/quality/${related.slug}`}
-                  className="block rounded-md border border-rule px-4 py-3 text-sm transition-colors hover:border-tide-teal"
-                >
-                  <span className="font-medium text-deep-tide">{related.name}</span>
-                  {related.shortDescription ? (
-                    <span className="mt-0.5 block text-slate">{related.shortDescription}</span>
-                  ) : null}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {topic.relationships.length === 0 ? (
+            <EmptyState headline="No relationships have been recorded for this topic yet." />
+          ) : (
+            <RelatedTopicMap relationships={topic.relationships} />
+          )}
         </Section>
 
         <Section id="references" title="References">
@@ -237,14 +334,36 @@ export default async function QualityTopicPage({
 
         <Section id="record" title="About this record">
           <div className="rounded-md border border-rule bg-mist px-5 py-5">
-            <dl className="grid gap-5 sm:grid-cols-3">
+            <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               <MetaItem label="Version">{topic.version}</MetaItem>
+              <MetaItem label="Review state">{reviewStateLabel(topic.reviewState)}</MetaItem>
+              <MetaItem label="Publication">
+                {topic.publicationState === 'published' ? 'Published' : 'Not published'}
+              </MetaItem>
               <MetaItem label="First published">{formatDate(topic.publishedAt)}</MetaItem>
               <MetaItem label="Last reviewed">{formatDate(topic.lastReviewedAt)}</MetaItem>
+              <MetaItem label="Evidence cutoff">
+                <EvidenceCutoff value={topic.evidenceCutoffAt} />
+              </MetaItem>
             </dl>
+            <p className="mt-5 border-t border-rule pt-4 text-sm text-slate">
+              Found something wrong?{' '}
+              <Link
+                href="/corrections"
+                className="underline decoration-rule underline-offset-2 hover:text-deep-tide"
+              >
+                How corrections work
+              </Link>
+              .
+            </p>
           </div>
         </Section>
       </ReferenceLayout>
     </Container>
   );
+}
+
+/** The rung, spelled out. Never abbreviated into something that reads stronger. */
+function reviewStateLabel(state: string): string {
+  return state.replaceAll('_', ' ').replace(/^./, (c) => c.toUpperCase());
 }

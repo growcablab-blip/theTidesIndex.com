@@ -57,7 +57,14 @@ export function SiteHeader() {
           <div className="flex h-16 items-center justify-between gap-6">
             <Link href="/" className="group flex shrink-0 items-baseline gap-2.5">
               <span className="font-serif text-lg tracking-tight text-ink">The Tides Index</span>
-              <span className="hidden text-2xs tracking-[0.14em] text-slate uppercase sm:inline">
+              {/*
+                Held back until there is room for it. At the tablet breakpoint the
+                primary nav appears while the brand is still shrink-0, and the
+                descriptor pushed the search control past the viewport edge —
+                found by measuring at 768px rather than by looking, because 24px
+                of overflow reads as a scrollbar and nothing else.
+              */}
+              <span className="hidden text-2xs tracking-[0.14em] text-slate uppercase lg:inline">
                 Peptide reference
               </span>
             </Link>

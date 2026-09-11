@@ -18,10 +18,15 @@ import {
   type SimpleProtocol,
 } from './shapes';
 import { readProtocols } from './protocol-reader';
+import { readQualityTopic, type QualityTopicReading } from './quality-topic';
 
+export type { QualityTopicReading } from './quality-topic';
 export type {
   Citation,
+  EvidenceGap,
   EvidenceRecord,
+  RelationshipEvidenceStatus,
+  TopicRelationship,
   PractitionerProtocol,
   PublicClaim,
   SimpleProtocol,
@@ -477,135 +482,19 @@ export const listQualityTopics = cache(async (): Promise<QualityTopicSummary[]> 
   }),
 );
 
-export interface QualityTopicPage extends QualityTopicSummary {
-  readonly simpleSummary: string | null;
-  readonly practitionerSummary: string | null;
-  readonly whatItProves: string | null;
-  readonly whatItDoesNotProve: string | null;
-  readonly commonMisinterpretations: string | null;
-  readonly version: number;
-  readonly publishedAt: string | null;
-  readonly lastReviewedAt: string | null;
-  readonly claims: readonly PublicClaim[];
-  readonly relatedTopics: readonly QualityTopicSummary[];
-}
+/**
+ * A quality topic as a reader sees it.
+ *
+ * `relatedTopics` was a list of every other published topic — useful navigation,
+ * and silent about why any two related. It is replaced by the quality map, whose
+ * edges say what kind of relationship each one is and what it rests on.
+ */
+export type QualityTopicPage = QualityTopicReading;
 
 export const getQualityTopicPage = cache(
   async (slug: string): Promise<QualityTopicPage | null> =>
-    asPublic(async (tx) => {
-      const topicRows = rows<Record<string, unknown>>(
-        await tx.execute(sql`select * from public_v_quality_topics where slug = ${slug}`),
-      );
-      const topic = topicRows[0];
-      if (!topic) return null;
-
-      const topicId = String(topic.id);
-
-      const claimRows = rows<Record<string, unknown>>(
-        await tx.execute(sql`
-          select id, claim_key, claim_text, plain_language_text, claim_category,
-                 importance, interpretation_notes, uncertainty_text,
-                 is_editorial_non_evidentiary, needs_update,
-                 last_reviewed_at::text as last_reviewed_at
-          from public_v_claims where quality_topic_id = ${topicId}
-          order by claim_key
-        `),
-      );
-
-      const evidenceRows = rows<CitationRow & Record<string, unknown>>(
-        await tx.execute(sql`
-          select ce.id, ce.claim_id, ce.evidence_type_key, ce.relationship,
-                 ce.population_model, ce.route_key, null::text as route_name,
-                 ce.formulation, ce.interpretation, ce.primary_source_verified,
-                 et.public_label as evidence_type_label, et.evidence_class,
-                 et.is_human_evidence, et.is_interpretive,
-                 ${CITATION_SELECT}
-          from public_v_claim_evidence ce
-          join public_v_claims c on c.id = ce.claim_id
-          join public_v_evidence_types et on et.key = ce.evidence_type_key
-          join public_v_sources s on s.id = ce.source_id
-          join public_v_source_types st on st.key = s.source_type_key
-          left join public_v_source_locations l on l.id = ce.source_location_id
-          where c.quality_topic_id = ${topicId}
-          order by et.sort_order, s.source_key
-        `),
-      );
-
-      const evidenceByClaim = new Map<string, EvidenceRecord[]>();
-      for (const row of evidenceRows) {
-        const claimId = String(row.claim_id);
-        const list = evidenceByClaim.get(claimId) ?? [];
-        list.push({
-          id: String(row.id),
-          evidenceTypeKey: String(row.evidence_type_key),
-          evidenceTypeLabel: String(row.evidence_type_label),
-          evidenceClass: row.evidence_class as EvidenceClass,
-          isHumanEvidence: Boolean(row.is_human_evidence),
-          isInterpretive: Boolean(row.is_interpretive),
-          relationship: String(row.relationship),
-          populationModel: str(row.population_model),
-          routeKey: str(row.route_key),
-          routeName: null,
-          formulation: str(row.formulation),
-          interpretation: str(row.interpretation),
-          primarySourceVerified: Boolean(row.primary_source_verified),
-          citation: toCitation(row),
-        });
-        evidenceByClaim.set(claimId, list);
-      }
-
-      const related = rows<Record<string, unknown>>(
-        await tx.execute(sql`
-          select id, slug, name, short_description, needs_update
-          from public_v_quality_topics
-          where id <> ${topicId}
-          order by sort_order, name
-          limit 6
-        `),
-      ).map((r) => ({
-        id: String(r.id),
-        slug: String(r.slug),
-        name: String(r.name),
-        shortDescription: str(r.short_description),
-        needsUpdate: Boolean(r.needs_update),
-      }));
-
-      return {
-        id: topicId,
-        slug: String(topic.slug),
-        name: String(topic.name),
-        shortDescription: str(topic.short_description),
-        simpleSummary: str(topic.simple_summary),
-        practitionerSummary: str(topic.practitioner_summary),
-        whatItProves: str(topic.what_it_proves),
-        whatItDoesNotProve: str(topic.what_it_does_not_prove),
-        commonMisinterpretations: str(topic.common_misinterpretations),
-        version: Number(topic.version),
-        publishedAt: str(topic.published_at),
-        lastReviewedAt: str(topic.last_reviewed_at),
-        needsUpdate: Boolean(topic.needs_update),
-        claims: claimRows.map((c) => ({
-          id: String(c.id),
-          claimKey: String(c.claim_key),
-          claimText: String(c.claim_text),
-          plainLanguageText: str(c.plain_language_text),
-          claimCategory: str(c.claim_category),
-          importance: String(c.importance),
-          interpretationNotes: str(c.interpretation_notes),
-          uncertaintyText: str(c.uncertainty_text),
-          isEditorialNonEvidentiary: Boolean(c.is_editorial_non_evidentiary),
-          needsUpdate: Boolean(c.needs_update),
-          lastReviewedAt: str(c.last_reviewed_at),
-          evidence: evidenceByClaim.get(String(c.id)) ?? [],
-        })),
-        relatedTopics: related,
-      };
-    }),
+    asPublic((tx) => readQualityTopic(tx, slug)),
 );
-
-// ---------------------------------------------------------------------------
-// Sources
-// ---------------------------------------------------------------------------
 
 export interface PublicSource {
   readonly id: string;

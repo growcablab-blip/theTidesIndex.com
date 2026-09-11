@@ -30,6 +30,16 @@ export interface Citation {
   readonly authors: readonly string[];
   readonly year: number | null;
   readonly locatorText: string | null;
+  /**
+   * The page of the work, as printed in it. What a reader with any copy can find.
+   */
+  readonly printedPage: number | null;
+  /**
+   * The same page in the copy this index holds, where the two differ. Kept
+   * separate rather than folded into one number: they answer different
+   * questions, and a reader who conflates them will look in the wrong place.
+   */
+  readonly filePage: number | null;
   readonly doi: string | null;
   readonly canonicalUrl: string | null;
   /** False for a source whose held copy is partial or awaiting replacement. */
@@ -39,7 +49,7 @@ export interface Citation {
 export const CITATION_SELECT = sql`
   s.id as source_id, s.source_key, s.title as source_title,
   st.public_label as source_type_label, s.authors, s.year, s.doi,
-  s.canonical_url, s.is_citable, l.locator_text
+  s.canonical_url, s.is_citable, l.locator_text, l.page_start, s.printed_page_offset
 `;
 
 export interface CitationRow {
@@ -53,6 +63,8 @@ export interface CitationRow {
   canonical_url: string | null;
   is_citable: boolean;
   locator_text: string | null;
+  page_start: number | null;
+  printed_page_offset: number | null;
 }
 
 export function toCitation(row: CitationRow): Citation {
@@ -64,6 +76,11 @@ export function toCitation(row: CitationRow): Citation {
     authors: Array.isArray(row.authors) ? (row.authors as string[]) : [],
     year: row.year,
     locatorText: row.locator_text,
+    printedPage: row.page_start,
+    filePage:
+      row.page_start === null || row.printed_page_offset === null
+        ? null
+        : row.page_start + row.printed_page_offset,
     doi: row.doi,
     canonicalUrl: row.canonical_url,
     isCitable: row.is_citable,
@@ -131,4 +148,56 @@ export interface PractitionerProtocol extends SimpleProtocol {
   readonly safetyNotes: string | null;
   readonly adverseEventsText: string | null;
   readonly outcomeContext: string | null;
+}
+
+/**
+ * A statement the index does not make, and why.
+ *
+ * Rendered as an absence. The distinction that must survive into the UI is
+ * between "a reviewed source establishes that X does not bear on Y" and "the
+ * evidence this index holds does not establish whether X bears on Y". The
+ * second is what a gap records, and it must never be presented as the first.
+ */
+export interface EvidenceGap {
+  readonly id: string;
+  readonly statement: string;
+  readonly whyNotSupported: string;
+  readonly whatWouldResolveIt: string | null;
+  readonly verificationIssueKey: string | null;
+}
+
+/**
+ * How much evidentiary weight a related-topic link carries.
+ *
+ * Computed once, on the server, from the edge's own basis — so a surface cannot
+ * accidentally give a structural link the styling of a sourced statement, and a
+ * test can assert that a gap-backed edge never arrives as evidence-backed.
+ */
+export type RelationshipEvidenceStatus =
+  | 'evidence_backed'
+  | 'evidence_gap'
+  | 'complementary'
+  | 'structural';
+
+export interface TopicRelationship {
+  readonly id: string;
+  readonly relationshipType: string;
+  readonly rationale: string;
+  readonly evidenceStatus: RelationshipEvidenceStatus;
+  readonly claimKey: string | null;
+  readonly gapKey: string | null;
+  readonly toName: string;
+  readonly toSlug: string;
+  readonly toIsPublished: boolean;
+}
+
+export function relationshipEvidenceStatus(row: {
+  relationship_type: unknown;
+  claim_key: unknown;
+  gap_key: unknown;
+}): RelationshipEvidenceStatus {
+  if (typeof row.gap_key === 'string') return 'evidence_gap';
+  if (row.relationship_type === 'complementary') return 'complementary';
+  if (typeof row.claim_key === 'string') return 'evidence_backed';
+  return 'structural';
 }
