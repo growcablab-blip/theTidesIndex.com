@@ -182,7 +182,7 @@
     "topic": "Chromatography method requirements are not established",
     "whyItMatters": "SRC-006 (Grant, 2002) supports what a chromatographic result describes and what it does not. It cannot state what a compendial method must satisfy, and this index therefore cannot say whether any particular chromatographic result was produced by an adequate method.",
     "currentSourceSignal": "SRC-020 holds the PDG Stage 4 harmonised <621> text, which is genuine but is not the current USP-NF chapter and is scoped accordingly. The official chapter (SRC-021) is behind a subscription.",
-    "neededVerification": "Obtain USP <621> lawfully, audit it, and extract system-suitability and method requirements with exact locators. Until then the harmonised PDG text may be cited only as harmonised text.",
+    "neededVerification": "Obtain USP <621> lawfully, audit it, and extract system-suitability and method requirements with exact locators. Until then the harmonised PDG text may be cited only as harmonised text. OWNER DECISION, 11 September 2026: a legitimate single-user USP-NF Online subscription will be obtained. Until that access exists, unauthorised copies are refused and publicly visible previews and harmonisation snippets are not treated as possession of the current chapter; the point stays an open evidence gap. On access, the chapter is ingested through the same source-integrity and locator-verification process as every other source.",
     "priority": "high",
     "relatedKeys": [
       "quality_topic:hplc-purity"
@@ -193,7 +193,7 @@
     "topic": "Sterility cannot be written at all",
     "whyItMatters": "The HPLC page records as an evidence gap that it cannot speak to sterility. That gap is honest but permanent until a source exists: no document in the register addresses sterility testing, so the sterility topic has nothing to say and the certificate reader cannot explain what a sterility entry on a certificate means.",
     "currentSourceSignal": "SRC-022 (USP <71>) is registered with no copy held; USP-NF requires a subscription.",
-    "neededVerification": "Obtain USP <71> lawfully, audit it, extract with locators. Nothing about sterility may be published before then.",
+    "neededVerification": "Obtain USP <71> lawfully, audit it, extract with locators. Nothing about sterility may be published before then. OWNER DECISION, 11 September 2026: a legitimate single-user USP-NF Online subscription will be obtained. Until that access exists, unauthorised copies are refused and publicly visible previews and harmonisation snippets are not treated as possession of the current chapter; the point stays an open evidence gap. On access, the chapter is ingested through the same source-integrity and locator-verification process as every other source.",
     "priority": "high",
     "relatedKeys": [
       "quality_topic:sterility",
@@ -205,7 +205,7 @@
     "topic": "Bacterial endotoxin cannot be written at all",
     "whyItMatters": "As with sterility: recorded as a gap on the HPLC page and unanswerable until a source is held. Endotoxin is among the attributes a reader is most likely to assume a purity figure covers.",
     "currentSourceSignal": "SRC-023 (USP <85>) and SRC-026 (USP <1085>) are registered with no copies held.",
-    "neededVerification": "Obtain USP <85> lawfully, with <1085> as supporting guidance; audit and extract with locators.",
+    "neededVerification": "Obtain USP <85> lawfully, with <1085> as supporting guidance; audit and extract with locators. OWNER DECISION, 11 September 2026: a legitimate single-user USP-NF Online subscription will be obtained. Until that access exists, unauthorised copies are refused and publicly visible previews and harmonisation snippets are not treated as possession of the current chapter; the point stays an open evidence gap. On access, the chapter is ingested through the same source-integrity and locator-verification process as every other source.",
     "priority": "high",
     "relatedKeys": [
       "quality_topic:bacterial-endotoxin",
@@ -217,7 +217,7 @@
     "topic": "Residual solvents have no source",
     "whyItMatters": "The quality map links HPLC to residual solvents as a structural edge only, because asserting anything about the relationship would need a source. The topic itself is an empty shell.",
     "currentSourceSignal": "SRC-024 (USP <467>) is registered with no copy held.",
-    "neededVerification": "Obtain USP <467> lawfully, audit and extract with locators.",
+    "neededVerification": "Obtain USP <467> lawfully, audit and extract with locators. OWNER DECISION, 11 September 2026: a legitimate single-user USP-NF Online subscription will be obtained. Until that access exists, unauthorised copies are refused and publicly visible previews and harmonisation snippets are not treated as possession of the current chapter; the point stays an open evidence gap. On access, the chapter is ingested through the same source-integrity and locator-verification process as every other source.",
     "priority": "high",
     "relatedKeys": [
       "quality_topic:residual-solvents"
@@ -228,7 +228,7 @@
     "topic": "Water content has no source",
     "whyItMatters": "Water content bears directly on how a purity figure relates to the mass of peptide in a vial, and the HPLC packet explicitly declined to assert that connection because nothing supports it. The specimen certificate reports a water result with no stated limit, and this index cannot say what a limit should be.",
     "currentSourceSignal": "SRC-025 (USP <921>) is registered with no copy held.",
-    "neededVerification": "Obtain USP <921> lawfully, audit and extract with locators.",
+    "neededVerification": "Obtain USP <921> lawfully, audit and extract with locators. OWNER DECISION, 11 September 2026: a legitimate single-user USP-NF Online subscription will be obtained. Until that access exists, unauthorised copies are refused and publicly visible previews and harmonisation snippets are not treated as possession of the current chapter; the point stays an open evidence gap. On access, the chapter is ingested through the same source-integrity and locator-verification process as every other source.",
     "priority": "high",
     "relatedKeys": [
       "quality_topic:water-content",

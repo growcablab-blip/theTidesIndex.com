@@ -150,7 +150,10 @@ export async function readQualityTopic(
       join ${r.sourceTypes} st on st.key = s.source_type_key
       left join ${r.locations} l on l.id = ce.source_location_id
       where c.quality_topic_id = ${topicId}
-      order by et.sort_order, s.source_key
+      -- Deterministic to the last column. Evidence type and source alone leave
+      -- two passages from the same source in arbitrary order, so a reader could
+      -- see the citations under a claim reorder between one render and the next.
+      order by et.sort_order, s.source_key, l.page_start nulls last, ce.id
     `),
   );
 

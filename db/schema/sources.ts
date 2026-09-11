@@ -112,6 +112,17 @@ export const sources = pgTable(
     /** Who or what performed the verification. A tool name, or a person. */
     verifiedBy: text(),
 
+    /**
+     * The source key this copy replaces, where it was acquired to supersede a
+     * bad one.
+     *
+     * A replacement is a different artefact, not a corrected version of the same
+     * one: its pagination, edition and contents may all differ. Recording the
+     * relationship is what makes "re-resolve every dependent locator" a task
+     * somebody can be handed rather than something they must remember.
+     */
+    replacesSourceKey: text(),
+
     /** Wrapper pages, contaminated ranges, truncation — what is wrong with it. */
     integrityNotes: text(),
 

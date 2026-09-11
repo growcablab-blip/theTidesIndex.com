@@ -169,31 +169,36 @@
       "statement": "What a certificate of analysis for a finished drug product should contain.",
       "why": "ICH Q7 is explicitly a guide for active pharmaceutical ingredients and intermediates. Its certificate requirements are recorded here with that scope attached, and extending them to finished products would be inventing a requirement rather than citing one. No source establishing finished-product certificate content is held.",
       "whatWouldResolveIt": "A regulatory or compendial source addressing finished drug product release documentation, acquired and put through the source audit.",
-      "verificationIssueKey": "V-021"
+      "verificationIssueKey": "V-021",
+      "gapType": "scope_not_established"
     },
     {
       "statement": "What a third-party analytical laboratory's test report should contain.",
       "why": "A laboratory reporting on a sample submitted to it is not operating under Q7's certificate-of-analysis guidance, which addresses manufacturers and distributors of APIs. This index holds no source describing the conventions or expectations for independent test reports.",
       "whatWouldResolveIt": "An accreditation standard or equivalent authoritative source on analytical test report content.",
-      "verificationIssueKey": "V-021"
+      "verificationIssueKey": "V-021",
+      "gapType": "scope_not_established"
     },
     {
       "statement": "What a certificate for research-use material should contain.",
       "why": "Every certificate-content source held here governs pharmaceutical manufacture. Research-use material is outside that scope, and no source in the register addresses it. Applying Q7's requirements to it would give this index's authority to a requirement that does not exist.",
       "whatWouldResolveIt": "An authoritative source addressing documentation for research-use or non-pharmaceutical material.",
-      "verificationIssueKey": "V-021"
+      "verificationIssueKey": "V-021",
+      "gapType": "scope_not_established"
     },
     {
       "statement": "Whether any particular reported result on any certificate is correct.",
       "why": "Nothing in this index has checked a reported result against anything other than the document reporting it. That would require the material, a laboratory, and a method — none of which this index has. Every certificate entry here is recorded as reported, never as verified.",
       "whatWouldResolveIt": "Independent testing, which is outside what a reference index does.",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "gapType": "no_current_reviewed_evidence"
     },
     {
       "statement": "That a matching lot number establishes that the tested sample came from the batch in hand.",
       "why": "A lot number on a document is an assertion by whoever issued it. Establishing that the tested sample was drawn from a specific batch, was representative of it, and was not substituted requires chain-of-custody evidence that a certificate does not itself provide. No source held here supports treating a matching number as proof of origin.",
       "whatWouldResolveIt": "A source addressing sampling and chain of custody, together with actual custody records for a specific consignment.",
-      "verificationIssueKey": "V-015"
+      "verificationIssueKey": "V-015",
+      "gapType": "chain_of_custody_unknown"
     }
   ]
 }

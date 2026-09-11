@@ -887,3 +887,56 @@ can carry a sound result; there is no honest way to add those up.
   unscoped — the useless half of the work.
 
 **233 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.6 — The evidence extraction workflow
+
+Full detail in `docs/PHASE_C6_REPORT.md`. Six documents created; three places
+where the procedure was *only* a procedure became code.
+
+### C.6.1 A replacement file invalidates its locators
+
+`tides_source_file_replaced` fires when a source's file hash changes on a source
+that already had a file, flagging every dependent claim and protocol
+`needs_update` with a reason naming the source and the date.
+
+Seven sources need replacing. Each replacement will be a different artefact with
+its own pagination, and until now the only thing between that and silently wrong
+citations was an editor's memory — which is the thing that failed repeatedly in
+C.1 to C.5. It flags rather than withdraws: the statements are probably still
+right, and what is certain is only that nobody has checked them.
+
+### C.6.2 Gaps became queryable
+
+`evidence_gaps.gap_type`. Gaps were prose-only through C.2 to C.5, which is why
+V-015 had to be broken apart by hand at the end of C.5 — "blocked on a document
+we cannot obtain" and "nobody has looked yet" were indistinguishable without
+reading every row.
+
+### C.6.3 Two tools
+
+`npm run evidence:locators` re-resolves every locator against the held file and
+checks that recorded table and figure markers appear on the resolved page — the
+check that would have caught the C.2 table misattribution. It is explicit that a
+resolved locator means the page exists, not that the statement is correct.
+
+`npm run qa:metrics` is the internal dashboard, and says in its own header that
+it is never a public figure. The numbers are meant to be uncomfortable: 54% of
+sources identity-verified is the honest consequence of registering sources this
+index does not hold.
+
+### C.6.4 Defects found by writing it down
+
+- **Evidence ordering was non-deterministic.** Two passages on one claim, no
+  tiebreaker in the `ORDER BY`, so citations could reorder between renders.
+- **The test suite was crashing a worker roughly once per run** — exit code
+  0xC0000003, a different file each time, which is what distinguished it from a
+  test failure. Twenty suites each building a Postgres image in WebAssembly, with
+  a fork spawned and torn down around every one. `isolate: false` fixed it; three
+  consecutive clean runs and the suite got 34% faster.
+- **Scope is a general problem, not a certificate problem.** Q7 forced
+  `certificate_type_scope`; the general rule is now stated — when a claim family
+  has a scope that could be dropped, the constraint goes in the database.
+- **Stage 12a, rendering review, had no home.** Both C.4 and C.5 found real
+  defects only by reading the rendered page.
+
+**245 tests.** Lint, typecheck, tests and production build pass.

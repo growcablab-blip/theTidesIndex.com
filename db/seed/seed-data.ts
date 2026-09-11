@@ -179,6 +179,25 @@ const packetClaimSchema = z.object({
 });
 
 const packetGapSchema = z.object({
+  gapType: z
+    .enum([
+      'source_missing',
+      'source_inaccessible',
+      'source_corrupted',
+      'primary_source_missing',
+      'no_current_reviewed_evidence',
+      'scope_not_established',
+      'numerical_threshold_not_established',
+      'human_evidence_not_established',
+      'route_not_established',
+      'safety_not_established',
+      'regulatory_status_unverified',
+      'terminology_unresolved',
+      'conflicting_sources',
+      'formulation_unspecified',
+      'chain_of_custody_unknown',
+    ])
+    .default('no_current_reviewed_evidence'),
   statement: z.string().min(1),
   why: z.string().min(1),
   whatWouldResolveIt: z.string().nullable().default(null),
@@ -356,6 +375,8 @@ const manifestSourceSchema = z.object({
     .enum(['held', 'subscription_required', 'public_not_yet_retrieved', 'unavailable', 'unknown'])
     .default('unknown'),
   access_notes: z.string().nullable().default(null),
+  /** The source this copy was acquired to supersede, where it replaces one. */
+  replaces_source_key: z.string().nullable().default(null),
   title_page_verified: z.boolean().default(false),
   bibliographic_verified: z.boolean().default(false),
   title_page_title: z.string().nullable().default(null),

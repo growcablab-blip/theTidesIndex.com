@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm';
 import { check, index, integer, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { evidenceGapType } from './enums';
 import { peptides } from './peptides';
 import { qualityTopics } from './quality';
 import { verificationIssues } from './governance';
@@ -32,6 +33,13 @@ export const evidenceGaps = pgTable(
 
     qualityTopicId: uuid().references(() => qualityTopics.id, { onDelete: 'cascade' }),
     peptideId: uuid().references(() => peptides.id, { onDelete: 'cascade' }),
+
+    /**
+     * What kind of gap this is, so gaps can be worked rather than only read.
+     * "Blocked on a source we cannot obtain" and "nobody has looked yet" need
+     * different work from different people.
+     */
+    gapType: evidenceGapType().notNull().default('no_current_reviewed_evidence'),
 
     /** The statement that is not being made. Phrased as the claim it would be. */
     statement: text().notNull(),

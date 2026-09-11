@@ -180,6 +180,7 @@ export async function loadEvidencePacket(
   const gapRows = packet.notYetSupported.map((gap, i) => ({
     gapKey: `${packet.packetKey}-gap-${String(i + 1).padStart(2, '0')}`,
     qualityTopicId: topic.id,
+    gapType: gap.gapType,
     statement: gap.statement,
     whyNotSupported: gap.why,
     whatWouldResolveIt: gap.whatWouldResolveIt,
@@ -194,6 +195,7 @@ export async function loadEvidencePacket(
       .onConflictDoUpdate({
         target: schema.evidenceGaps.gapKey,
         set: {
+          gapType: sql`excluded.gap_type`,
           statement: sql`excluded.statement`,
           whyNotSupported: sql`excluded.why_not_supported`,
           whatWouldResolveIt: sql`excluded.what_would_resolve_it`,

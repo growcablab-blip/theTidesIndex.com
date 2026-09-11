@@ -13,6 +13,15 @@ export default defineConfig({
     // a time; the wall-clock cost is small and the alternative is flakiness.
     fileParallelism: false,
     maxWorkers: 1,
+    // One worker process for the whole run, rather than a fresh fork per file.
+    //
+    // Each suite builds a real Postgres image in WebAssembly. Spawning and
+    // tearing down a fork around each one crashed a worker outright roughly once
+    // per full run on Windows — exit code 0xC0000003, in a different file each
+    // time, which is what distinguished it from a test failure. Reusing a single
+    // process removes the repeated WASM teardown, and each suite still closes its
+    // own database in `afterAll`, so nothing accumulates.
+    isolate: false,
   },
   resolve: {
     alias: {

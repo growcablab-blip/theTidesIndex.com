@@ -324,3 +324,34 @@ export const certificateAuthenticityState = pgEnum('certificate_authenticity_sta
   'discrepancy_detected',
   'unable_to_verify',
 ]);
+
+/**
+ * Why the index cannot make a statement.
+ *
+ * Gaps were prose-only through C.2–C.5, which made them unqueryable: there was
+ * no way to ask "what is blocked on a source we cannot obtain" as distinct from
+ * "what has nobody looked at yet". Those need different work from different
+ * people, and the umbrella V-015 had to be broken apart by hand at the end of
+ * C.5 precisely because the shape was not in the data.
+ *
+ * The distinction that matters most is between `no_current_reviewed_evidence` —
+ * an absence in this library — and any claim that something is absent from the
+ * world. The first is checkable. The second needs a source.
+ */
+export const evidenceGapType = pgEnum('evidence_gap_type', [
+  'source_missing',
+  'source_inaccessible',
+  'source_corrupted',
+  'primary_source_missing',
+  'no_current_reviewed_evidence',
+  'scope_not_established',
+  'numerical_threshold_not_established',
+  'human_evidence_not_established',
+  'route_not_established',
+  'safety_not_established',
+  'regulatory_status_unverified',
+  'terminology_unresolved',
+  'conflicting_sources',
+  'formulation_unspecified',
+  'chain_of_custody_unknown',
+]);
