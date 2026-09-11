@@ -10,7 +10,7 @@ import {
   createStaffProfile,
   publishRecord,
   recordReview,
-  setWorkflowStatus,
+  setPublicationState,
   updatePeptideSummaries,
   updateQualityTopic,
 } from '@/server/editorial/mutations';
@@ -140,12 +140,12 @@ describe('editorial services', () => {
     const published = await publishRecord(db, editor, 'claim', claim.data.id);
     expect(published.ok).toBe(true);
 
-    const [row] = await query<{ workflow_status: string }>(
+    const [row] = await query<{ publication_state: string }>(
       db,
-      `select workflow_status from claims where id = $1`,
+      `select publication_state from claims where id = $1`,
       [claim.data.id],
     );
-    expect(row?.workflow_status).toBe('published');
+    expect(row?.publication_state).toBe('published');
 
     // The private extract never reaches the public relation.
     const [publicRow] = await query<Record<string, unknown>>(
@@ -362,12 +362,15 @@ describe('editorial services', () => {
       comments: 'The scope of the method needs stating.',
     });
 
-    const [row] = await query<{ workflow_status: string }>(
+    const [row] = await query<{ editorial_state: string; needs_update: boolean }>(
       db,
-      `select workflow_status from quality_topics where id = $1`,
+      `select editorial_state, needs_update from quality_topics where id = $1`,
       [topic!.id],
     );
-    expect(row?.workflow_status).toBe('needs_update');
+    // Withdrawn from the public site and flagged, but the scientific review
+    // that was already given is not undone by a request for changes.
+    expect(row?.editorial_state).toBe('withdrawn');
+    expect(row?.needs_update).toBe(true);
   });
 
   it('lets an administrator grant access and refuses everyone else', async () => {
@@ -402,12 +405,12 @@ describe('editorial services', () => {
       `select id from peptides where slug = 'selank'`,
     );
 
-    const result = await setWorkflowStatus(
+    const result = await setPublicationState(
       db,
       sessionFor(staff.compliance, 'compliance_reviewer'),
       'peptide',
       peptide!.id,
-      'needs_update',
+      'withdrawn',
     );
     expect(result.ok).toBe(false);
   });

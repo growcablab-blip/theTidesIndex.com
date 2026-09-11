@@ -2,7 +2,12 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { seedDatabase } from '@db/seed';
 import { configureFuzzyMatching, search } from '@/server/search/search-service';
 import { closeTestDb, createTestDb, query, type TestDb } from '../support/test-db';
-import { approve, createStaff, setWorkflowStatus, type Staff } from '../support/fixtures';
+import {
+  approve,
+  createStaff,
+  setPublicationState,
+  type Staff,
+} from '../support/fixtures';
 
 /**
  * ACCEPTANCE_TESTS.md section C — search.
@@ -47,7 +52,7 @@ describe('search', () => {
         });
 
       }
-      await setWorkflowStatus(db, 'peptides', id, 'published');
+      await setPublicationState(db, 'peptides', id, 'published');
     }
 
     // Publish one quality topic.
@@ -70,7 +75,7 @@ describe('search', () => {
       reviewerId: staff.scientific,
       table: 'quality_topics',
     });
-    await setWorkflowStatus(db, 'quality_topics', topic!.id, 'published');
+    await setPublicationState(db, 'quality_topics', topic!.id, 'published');
   });
 
   afterAll(async () => {
@@ -158,10 +163,10 @@ describe('search', () => {
         table: 'peptides',
       });
     }
-    await setWorkflowStatus(db, 'peptides', row!.id, 'published');
+    await setPublicationState(db, 'peptides', row!.id, 'published');
     expect((await search(db, 'Semax')).some((r) => r.entityType === 'peptide')).toBe(true);
 
-    await setWorkflowStatus(db, 'peptides', row!.id, 'needs_update');
+    await setPublicationState(db, 'peptides', row!.id, 'withdrawn');
     expect((await search(db, 'Semax')).some((r) => r.entityType === 'peptide')).toBe(false);
   });
 

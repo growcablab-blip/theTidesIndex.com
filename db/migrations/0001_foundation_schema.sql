@@ -3,21 +3,22 @@ CREATE TYPE "public"."audience" AS ENUM('patient', 'practitioner', 'both');--> s
 CREATE TYPE "public"."claim_importance" AS ENUM('low', 'medium', 'high', 'critical');--> statement-breakpoint
 CREATE TYPE "public"."correction_severity" AS ENUM('typographical', 'clarification', 'substantive', 'material_medical');--> statement-breakpoint
 CREATE TYPE "public"."disagreement_explanation" AS ENUM('route', 'formulation', 'population', 'dose', 'study_design', 'terminology', 'date', 'unresolved');--> statement-breakpoint
+CREATE TYPE "public"."document_status" AS ENUM('draft', 'in_review', 'published', 'needs_update', 'superseded', 'archived');--> statement-breakpoint
 CREATE TYPE "public"."evidence_class" AS ENUM('human', 'preclinical', 'reference_opinion');--> statement-breakpoint
 CREATE TYPE "public"."evidence_relationship" AS ENUM('supports', 'contradicts', 'contextualizes', 'cites');--> statement-breakpoint
 CREATE TYPE "public"."protocol_source_role" AS ENUM('original', 'secondary_reference', 'commentary');--> statement-breakpoint
-CREATE TYPE "public"."publication_status" AS ENUM('draft', 'in_review', 'published', 'needs_update', 'superseded', 'archived');--> statement-breakpoint
+CREATE TYPE "public"."publication_state_value" AS ENUM('unpublished', 'published', 'withdrawn', 'superseded');--> statement-breakpoint
 CREATE TYPE "public"."publication_type" AS ENUM('book', 'book_chapter', 'article', 'peptide_reference', 'quality_topic', 'patient_handout', 'practitioner_guide', 'methodology', 'policy');--> statement-breakpoint
 CREATE TYPE "public"."reading_mode" AS ENUM('simple', 'practitioner');--> statement-breakpoint
 CREATE TYPE "public"."regulatory_status_value" AS ENUM('approved', 'authorized_limited', 'investigational_clinical', 'preclinical', 'discontinued', 'withdrawn', 'not_approved', 'unknown');--> statement-breakpoint
 CREATE TYPE "public"."review_clock_class" AS ENUM('foundational_chemistry', 'general_quality_science', 'peptide_evidence', 'investigational_program', 'regulatory_status');--> statement-breakpoint
 CREATE TYPE "public"."review_outcome" AS ENUM('approved', 'changes_requested', 'rejected');--> statement-breakpoint
+CREATE TYPE "public"."review_state" AS ENUM('unreviewed', 'captured', 'source_checked', 'primary_source_checked', 'scientific_reviewed', 'clinical_reviewed', 'compliance_reviewed', 'rejected');--> statement-breakpoint
 CREATE TYPE "public"."review_type" AS ENUM('source_check', 'primary_verification', 'scientific', 'clinical', 'compliance');--> statement-breakpoint
 CREATE TYPE "public"."reviewable_entity_type" AS ENUM('source', 'peptide', 'claim', 'protocol', 'peptide_route', 'quality_topic', 'regulatory_status', 'disagreement', 'publication', 'publication_section');--> statement-breakpoint
 CREATE TYPE "public"."search_entity_type" AS ENUM('peptide', 'claim', 'protocol', 'quality_topic', 'source', 'publication');--> statement-breakpoint
 CREATE TYPE "public"."source_qc_status" AS ENUM('usable', 'incomplete', 'replace', 'pending', 'exclude');--> statement-breakpoint
 CREATE TYPE "public"."staff_role" AS ENUM('admin', 'editor', 'scientific_reviewer', 'clinical_reviewer', 'compliance_reviewer');--> statement-breakpoint
-CREATE TYPE "public"."workflow_status" AS ENUM('unreviewed', 'captured', 'source_checked', 'primary_source_checked', 'scientific_reviewed', 'clinical_reviewed', 'compliance_reviewed', 'published', 'needs_update', 'superseded', 'rejected');--> statement-breakpoint
 CREATE TABLE "compound_categories" (
 	"key" text PRIMARY KEY NOT NULL,
 	"label" text NOT NULL,
@@ -148,7 +149,27 @@ CREATE TABLE "peptides" (
 	"simple_summary" text,
 	"practitioner_summary" text,
 	"unknowns_summary" text,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -170,7 +191,27 @@ CREATE TABLE "quality_topics" (
 	"what_it_proves" text,
 	"what_it_does_not_prove" text,
 	"common_misinterpretations" text,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -212,7 +253,27 @@ CREATE TABLE "claims" (
 	"interpretation_notes" text,
 	"uncertainty_text" text,
 	"is_editorial_non_evidentiary" boolean DEFAULT false NOT NULL,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -259,7 +320,27 @@ CREATE TABLE "protocols" (
 	"regulatory_context" text,
 	"evidence_type_key" text NOT NULL,
 	"patient_visibility" boolean DEFAULT false NOT NULL,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -293,7 +374,27 @@ CREATE TABLE "disagreements" (
 	"candidate_explanation" "disagreement_explanation" DEFAULT 'unresolved' NOT NULL,
 	"explanation_notes" text,
 	"resolution_requirement" text,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -314,7 +415,27 @@ CREATE TABLE "peptide_routes" (
 	"pk_notes" text,
 	"bioavailability_notes" text,
 	"limitations_notes" text,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -334,7 +455,27 @@ CREATE TABLE "regulatory_statuses" (
 	"checked_at" date NOT NULL,
 	"recheck_due_at" date,
 	"notes" text,
-	"workflow_status" "workflow_status" DEFAULT 'unreviewed' NOT NULL,
+	"review_state" "review_state" DEFAULT 'unreviewed' NOT NULL,
+	"publication_state" "publication_state_value" DEFAULT 'unpublished' NOT NULL,
+	"needs_update" boolean DEFAULT false NOT NULL,
+	"needs_update_reason" text,
+	"editorial_state" text GENERATED ALWAYS AS (case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end) STORED,
+	"withdrawn_at" timestamp with time zone,
+	"superseded_at" timestamp with time zone,
 	"version" integer DEFAULT 1 NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
@@ -377,7 +518,7 @@ CREATE TABLE "publications" (
 	"peptide_id" uuid,
 	"quality_topic_id" uuid,
 	"version" integer DEFAULT 1 NOT NULL,
-	"status" "publication_status" DEFAULT 'draft' NOT NULL,
+	"status" "document_status" DEFAULT 'draft' NOT NULL,
 	"published_at" timestamp with time zone,
 	"last_reviewed_at" timestamp with time zone,
 	"evidence_cutoff_at" date,
@@ -432,8 +573,8 @@ CREATE TABLE "revisions" (
 	"version" integer NOT NULL,
 	"diff_summary" text,
 	"snapshot" jsonb,
-	"previous_workflow_status" "workflow_status",
-	"new_workflow_status" "workflow_status",
+	"previous_editorial_state" text,
+	"new_editorial_state" text,
 	"changed_by" uuid,
 	"changed_at" timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -530,23 +671,27 @@ CREATE INDEX "sources_qc_status_idx" ON "sources" USING btree ("qc_status");--> 
 CREATE INDEX "sources_title_trgm_idx" ON "sources" USING gin ("title" gin_trgm_ops);--> statement-breakpoint
 CREATE INDEX "peptide_aliases_alias_trgm_idx" ON "peptide_aliases" USING gin ("alias" gin_trgm_ops);--> statement-breakpoint
 CREATE INDEX "peptide_aliases_type_idx" ON "peptide_aliases" USING btree ("alias_type");--> statement-breakpoint
-CREATE INDEX "peptides_workflow_status_idx" ON "peptides" USING btree ("workflow_status");--> statement-breakpoint
+CREATE INDEX "peptides_review_state_idx" ON "peptides" USING btree ("review_state");--> statement-breakpoint
+CREATE INDEX "peptides_publication_state_idx" ON "peptides" USING btree ("publication_state");--> statement-breakpoint
 CREATE INDEX "peptides_category_idx" ON "peptides" USING btree ("primary_category_key");--> statement-breakpoint
 CREATE INDEX "peptides_name_trgm_idx" ON "peptides" USING gin ("canonical_name" gin_trgm_ops);--> statement-breakpoint
-CREATE INDEX "quality_topics_workflow_status_idx" ON "quality_topics" USING btree ("workflow_status");--> statement-breakpoint
+CREATE INDEX "quality_topics_review_state_idx" ON "quality_topics" USING btree ("review_state");--> statement-breakpoint
+CREATE INDEX "quality_topics_publication_state_idx" ON "quality_topics" USING btree ("publication_state");--> statement-breakpoint
 CREATE INDEX "claim_evidence_claim_idx" ON "claim_evidence" USING btree ("claim_id");--> statement-breakpoint
 CREATE INDEX "claim_evidence_source_idx" ON "claim_evidence" USING btree ("source_id");--> statement-breakpoint
 CREATE INDEX "claim_evidence_evidence_type_idx" ON "claim_evidence" USING btree ("evidence_type_key");--> statement-breakpoint
 CREATE INDEX "claim_evidence_relationship_idx" ON "claim_evidence" USING btree ("relationship");--> statement-breakpoint
 CREATE INDEX "claims_peptide_idx" ON "claims" USING btree ("peptide_id");--> statement-breakpoint
 CREATE INDEX "claims_quality_topic_idx" ON "claims" USING btree ("quality_topic_id");--> statement-breakpoint
-CREATE INDEX "claims_workflow_status_idx" ON "claims" USING btree ("workflow_status");--> statement-breakpoint
+CREATE INDEX "claims_review_state_idx" ON "claims" USING btree ("review_state");--> statement-breakpoint
+CREATE INDEX "claims_publication_state_idx" ON "claims" USING btree ("publication_state");--> statement-breakpoint
 CREATE INDEX "claims_importance_idx" ON "claims" USING btree ("importance");--> statement-breakpoint
 CREATE INDEX "protocol_sources_protocol_idx" ON "protocol_sources" USING btree ("protocol_id");--> statement-breakpoint
 CREATE INDEX "protocol_sources_source_idx" ON "protocol_sources" USING btree ("source_id");--> statement-breakpoint
 CREATE INDEX "protocols_peptide_idx" ON "protocols" USING btree ("peptide_id");--> statement-breakpoint
 CREATE INDEX "protocols_route_idx" ON "protocols" USING btree ("route_key");--> statement-breakpoint
-CREATE INDEX "protocols_workflow_status_idx" ON "protocols" USING btree ("workflow_status");--> statement-breakpoint
+CREATE INDEX "protocols_review_state_idx" ON "protocols" USING btree ("review_state");--> statement-breakpoint
+CREATE INDEX "protocols_publication_state_idx" ON "protocols" USING btree ("publication_state");--> statement-breakpoint
 CREATE INDEX "protocols_evidence_type_idx" ON "protocols" USING btree ("evidence_type_key");--> statement-breakpoint
 CREATE INDEX "disagreement_positions_disagreement_idx" ON "disagreement_positions" USING btree ("disagreement_id");--> statement-breakpoint
 CREATE INDEX "disagreements_peptide_idx" ON "disagreements" USING btree ("peptide_id");--> statement-breakpoint

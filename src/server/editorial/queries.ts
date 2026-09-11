@@ -54,18 +54,18 @@ export async function getDashboardCounts(session: StaffSession): Promise<Dashboa
         (select count(*) from sources)::int as sources,
         (select count(*) from sources where is_citable)::int as citable_sources,
         (select count(*) from peptides)::int as peptides,
-        (select count(*) from peptides where workflow_status = 'published')::int as published_peptides,
+        (select count(*) from peptides where publication_state = 'published')::int as published_peptides,
         (select count(*) from claims)::int as claims,
-        (select count(*) from claims where workflow_status = 'published')::int as published_claims,
+        (select count(*) from claims where publication_state = 'published')::int as published_claims,
         (select count(*) from protocols)::int as protocols,
-        (select count(*) from protocols where workflow_status = 'published')::int as published_protocols,
+        (select count(*) from protocols where publication_state = 'published')::int as published_protocols,
         (select count(*) from quality_topics)::int as quality_topics,
-        (select count(*) from quality_topics where workflow_status = 'published')::int as published_quality_topics,
+        (select count(*) from quality_topics where publication_state = 'published')::int as published_quality_topics,
         (select count(*) from verification_issues where status = 'open')::int as open_verification_issues,
         (
-          (select count(*) from claims where workflow_status = 'needs_update')
-          + (select count(*) from protocols where workflow_status = 'needs_update')
-          + (select count(*) from peptides where workflow_status = 'needs_update')
+          (select count(*) from claims where needs_update)
+          + (select count(*) from protocols where needs_update)
+          + (select count(*) from peptides where needs_update)
         )::int as needs_update
     `);
 
@@ -261,7 +261,7 @@ export interface PeptideRow {
   readonly peptideKey: string;
   readonly canonicalName: string;
   readonly slug: string;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
   readonly version: number;
   readonly claimCount: number;
   readonly protocolCount: number;
@@ -272,7 +272,7 @@ export interface PeptideRow {
 export async function listPeptides(session: StaffSession): Promise<PeptideRow[]> {
   return asStaff(session, async (tx) => {
     const result = await tx.execute(sql`
-      select p.id, p.peptide_key, p.canonical_name, p.slug, p.workflow_status, p.version,
+      select p.id, p.peptide_key, p.canonical_name, p.slug, p.editorial_state, p.version,
              (select count(*) from claims c where c.peptide_id = p.id)::int as claim_count,
              (select count(*) from protocols pr where pr.peptide_id = p.id)::int as protocol_count,
              (select count(*) from peptide_aliases a where a.peptide_id = p.id)::int as alias_count,
@@ -285,7 +285,7 @@ export async function listPeptides(session: StaffSession): Promise<PeptideRow[]>
       peptideKey: String(r.peptide_key),
       canonicalName: String(r.canonical_name),
       slug: String(r.slug),
-      workflowStatus: String(r.workflow_status),
+      editorialState: String(r.editorial_state),
       version: Number(r.version),
       claimCount: Number(r.claim_count),
       protocolCount: Number(r.protocol_count),
@@ -300,7 +300,7 @@ export interface PeptideDetail {
   readonly peptideKey: string;
   readonly canonicalName: string;
   readonly slug: string;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
   readonly version: number;
   readonly shortDescription: string | null;
   readonly simpleSummary: string | null;
@@ -316,7 +316,7 @@ export interface PeptideDetail {
     claimKey: string;
     claimText: string;
     importance: string;
-    workflowStatus: string;
+    editorialState: string;
     evidenceCount: number;
   }[];
   readonly protocols: readonly {
@@ -324,7 +324,7 @@ export interface PeptideDetail {
     protocolKey: string;
     objectiveContext: string;
     routeKey: string | null;
-    workflowStatus: string;
+    editorialState: string;
     sourceCount: number;
   }[];
 }
@@ -359,7 +359,7 @@ export async function getPeptideDetail(
 
     const claims = rows<Record<string, unknown>>(
       await tx.execute(sql`
-        select c.id, c.claim_key, c.claim_text, c.importance, c.workflow_status,
+        select c.id, c.claim_key, c.claim_text, c.importance, c.editorial_state,
                (select count(*) from claim_evidence ce where ce.claim_id = c.id)::int as evidence_count
         from claims c where c.peptide_id = ${peptideId}
         order by c.claim_key
@@ -369,13 +369,13 @@ export async function getPeptideDetail(
       claimKey: String(c.claim_key),
       claimText: String(c.claim_text),
       importance: String(c.importance),
-      workflowStatus: String(c.workflow_status),
+      editorialState: String(c.editorial_state),
       evidenceCount: Number(c.evidence_count),
     }));
 
     const protocols = rows<Record<string, unknown>>(
       await tx.execute(sql`
-        select pr.id, pr.protocol_key, pr.objective_context, pr.route_key, pr.workflow_status,
+        select pr.id, pr.protocol_key, pr.objective_context, pr.route_key, pr.editorial_state,
                (select count(*) from protocol_sources ps where ps.protocol_id = pr.id)::int as source_count
         from protocols pr where pr.peptide_id = ${peptideId}
         order by pr.protocol_key
@@ -385,7 +385,7 @@ export async function getPeptideDetail(
       protocolKey: String(p.protocol_key),
       objectiveContext: String(p.objective_context),
       routeKey: (p.route_key as string | null) ?? null,
-      workflowStatus: String(p.workflow_status),
+      editorialState: String(p.editorial_state),
       sourceCount: Number(p.source_count),
     }));
 
@@ -394,7 +394,7 @@ export async function getPeptideDetail(
       peptideKey: String(peptide.peptide_key),
       canonicalName: String(peptide.canonical_name),
       slug: String(peptide.slug),
-      workflowStatus: String(peptide.workflow_status),
+      editorialState: String(peptide.editorial_state),
       version: Number(peptide.version),
       shortDescription: (peptide.short_description as string | null) ?? null,
       simpleSummary: (peptide.simple_summary as string | null) ?? null,
@@ -424,7 +424,7 @@ export interface ClaimDetail {
   readonly interpretationNotes: string | null;
   readonly uncertaintyText: string | null;
   readonly isEditorialNonEvidentiary: boolean;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
   readonly version: number;
   readonly peptideId: string | null;
   readonly peptideName: string | null;
@@ -529,7 +529,7 @@ export async function getClaimDetail(
       interpretationNotes: (claim.interpretation_notes as string | null) ?? null,
       uncertaintyText: (claim.uncertainty_text as string | null) ?? null,
       isEditorialNonEvidentiary: Boolean(claim.is_editorial_non_evidentiary),
-      workflowStatus: String(claim.workflow_status),
+      editorialState: String(claim.editorial_state),
       version: Number(claim.version),
       peptideId: (claim.peptide_id as string | null) ?? null,
       peptideName: (claim.peptide_name as string | null) ?? null,
@@ -594,7 +594,7 @@ export interface ReviewQueueItem {
   readonly entityId: string;
   readonly label: string;
   readonly detail: string;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
   readonly version: number;
   readonly approvedReviews: readonly string[];
 }
@@ -608,20 +608,20 @@ export async function getReviewQueue(session: StaffSession): Promise<ReviewQueue
     const result = await tx.execute(sql`
       with candidates as (
         select 'claim'::text as entity_type, c.id, c.claim_key as label,
-               c.claim_text as detail, c.workflow_status::text, c.version
-        from claims c where c.workflow_status <> 'published'
+               c.claim_text as detail, c.editorial_state, c.needs_update, c.version
+        from claims c where c.publication_state <> 'published' or c.needs_update
         union all
         select 'protocol', p.id, p.protocol_key, p.objective_context,
-               p.workflow_status::text, p.version
-        from protocols p where p.workflow_status <> 'published'
+               p.editorial_state, p.needs_update, p.version
+        from protocols p where p.publication_state <> 'published' or p.needs_update
         union all
         select 'peptide', pe.id, pe.canonical_name, coalesce(pe.short_description, ''),
-               pe.workflow_status::text, pe.version
-        from peptides pe where pe.workflow_status <> 'published'
+               pe.editorial_state, pe.needs_update, pe.version
+        from peptides pe where pe.publication_state <> 'published' or pe.needs_update
         union all
         select 'quality_topic', q.id, q.name, coalesce(q.short_description, ''),
-               q.workflow_status::text, q.version
-        from quality_topics q where q.workflow_status <> 'published'
+               q.editorial_state, q.needs_update, q.version
+        from quality_topics q where q.publication_state <> 'published' or q.needs_update
       )
       select c.*, coalesce((
         select array_agg(distinct r.review_type::text)
@@ -633,7 +633,7 @@ export async function getReviewQueue(session: StaffSession): Promise<ReviewQueue
       ), array[]::text[]) as approved_reviews
       from candidates c
       order by
-        case c.workflow_status when 'needs_update' then 0 when 'rejected' then 2 else 1 end,
+        case when c.needs_update then 0 when c.editorial_state = 'rejected' then 2 else 1 end,
         c.entity_type, c.label
       limit 200
     `);
@@ -643,7 +643,7 @@ export async function getReviewQueue(session: StaffSession): Promise<ReviewQueue
       entityId: String(r.id),
       label: String(r.label),
       detail: typeof r.detail === 'string' ? r.detail : '',
-      workflowStatus: String(r.workflow_status),
+      editorialState: String(r.editorial_state),
       version: Number(r.version),
       approvedReviews: Array.isArray(r.approved_reviews) ? (r.approved_reviews as string[]) : [],
     }));
@@ -683,7 +683,7 @@ export interface ProtocolDetail {
   readonly adverseEventsText: string | null;
   readonly outcomeContext: string | null;
   readonly patientVisibility: boolean;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
   readonly version: number;
   readonly sources: readonly {
     id: string;
@@ -786,7 +786,7 @@ export async function getProtocolDetail(
       adverseEventsText: str(protocol.adverse_events_text),
       outcomeContext: str(protocol.outcome_context),
       patientVisibility: Boolean(protocol.patient_visibility),
-      workflowStatus: String(protocol.workflow_status),
+      editorialState: String(protocol.editorial_state),
       version: Number(protocol.version),
       sources,
       siblings,
@@ -803,14 +803,14 @@ export interface QualityTopicRow {
   readonly qualityKey: string;
   readonly name: string;
   readonly slug: string;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
   readonly hasBothHalves: boolean;
 }
 
 export async function listQualityTopics(session: StaffSession): Promise<QualityTopicRow[]> {
   return asStaff(session, async (tx) => {
     const result = await tx.execute(sql`
-      select id, quality_key, name, slug, workflow_status,
+      select id, quality_key, name, slug, editorial_state,
              (what_it_proves is not null and what_it_does_not_prove is not null) as has_both_halves
       from quality_topics order by sort_order, name
     `);
@@ -819,7 +819,7 @@ export async function listQualityTopics(session: StaffSession): Promise<QualityT
       qualityKey: String(r.quality_key),
       name: String(r.name),
       slug: String(r.slug),
-      workflowStatus: String(r.workflow_status),
+      editorialState: String(r.editorial_state),
       hasBothHalves: Boolean(r.has_both_halves),
     }));
   });
@@ -851,7 +851,7 @@ export async function getQualityTopicDetail(
       qualityKey: String(topic.quality_key),
       name: String(topic.name),
       slug: String(topic.slug),
-      workflowStatus: String(topic.workflow_status),
+      editorialState: String(topic.editorial_state),
       hasBothHalves:
         typeof topic.what_it_proves === 'string' &&
         typeof topic.what_it_does_not_prove === 'string',

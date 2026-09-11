@@ -61,10 +61,10 @@ describe('seeding', () => {
       peptide_key: string;
       simple_summary: string | null;
       practitioner_summary: string | null;
-      workflow_status: string;
+      editorial_state: string;
     }>(
       db,
-      `select peptide_key, simple_summary, practitioner_summary, workflow_status
+      `select peptide_key, simple_summary, practitioner_summary, editorial_state
        from peptides order by peptide_key`,
     );
 
@@ -72,7 +72,7 @@ describe('seeding', () => {
     for (const row of rows) {
       expect(row.simple_summary, row.peptide_key).toBeNull();
       expect(row.practitioner_summary, row.peptide_key).toBeNull();
-      expect(row.workflow_status, row.peptide_key).toBe('unreviewed');
+      expect(row.editorial_state, row.peptide_key).toBe('unreviewed');
     }
   });
 

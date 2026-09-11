@@ -19,7 +19,7 @@ import {
   createStaff,
   publishClaim,
   publishProtocol,
-  setWorkflowStatus,
+  setPublicationState,
   type Staff,
 } from '../support/fixtures';
 
@@ -157,7 +157,7 @@ describe('publish gates', () => {
         table: 'claims',
       });
 
-      await expect(setWorkflowStatus(db, 'claims', claimId, 'published')).rejects.toThrow(
+      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
         /scientific review/i,
       );
     });
@@ -179,12 +179,12 @@ describe('publish gates', () => {
 
       await publishClaim(db, claimId, staff);
 
-      const [row] = await query<{ workflow_status: string; published_at: string | null }>(
+      const [row] = await query<{ editorial_state: string; published_at: string | null }>(
         db,
-        `select workflow_status, published_at from claims where id = $1`,
+        `select editorial_state, published_at from claims where id = $1`,
         [claimId],
       );
-      expect(row?.workflow_status).toBe('published');
+      expect(row?.editorial_state).toBe('published');
       expect(row?.published_at).not.toBeNull();
     });
 
@@ -196,8 +196,8 @@ describe('publish gates', () => {
       );
       const claimId = row!.id;
 
-      await expect(setWorkflowStatus(db, 'claims', claimId, 'published')).rejects.toThrow(
-        /scientific review/i,
+      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
+        /review/i,
       );
 
       await approve(db, {
@@ -207,14 +207,14 @@ describe('publish gates', () => {
         reviewerId: staff.scientific,
         table: 'claims',
       });
-      await setWorkflowStatus(db, 'claims', claimId, 'published');
+      await setPublicationState(db, 'claims', claimId, 'published');
 
-      const [published] = await query<{ workflow_status: string }>(
+      const [published] = await query<{ editorial_state: string }>(
         db,
-        `select workflow_status from claims where id = $1`,
+        `select editorial_state from claims where id = $1`,
         [claimId],
       );
-      expect(published?.workflow_status).toBe('published');
+      expect(published?.editorial_state).toBe('published');
     });
 
     it('invalidates approvals when the claim is rewritten after review', async () => {
@@ -231,14 +231,29 @@ describe('publish gates', () => {
       });
       await publishClaim(db, claimId, staff);
 
-      // Rewriting the text bumps the version, which strands the approvals.
+      // Rewriting the text bumps the version, which strands the approvals. The
+      // record fails its own gate on the next write and is withdrawn with the
+      // reason recorded — content nobody has reviewed in its current wording
+      // does not stay public, however small the edit looked.
       await query(db, `update claims set claim_text = 'Materially different wording.' where id = $1`, [
         claimId,
       ]);
-      await setWorkflowStatus(db, 'claims', claimId, 'needs_update');
 
-      await expect(setWorkflowStatus(db, 'claims', claimId, 'published')).rejects.toThrow(
-        /source check|scientific review/i,
+      const [edited] = await query<{
+        editorial_state: string;
+        review_state: string;
+        needs_update_reason: string | null;
+      }>(
+        db,
+        `select editorial_state, review_state, needs_update_reason from claims where id = $1`,
+        [claimId],
+      );
+      expect(edited?.editorial_state).toBe('withdrawn');
+      expect(edited?.review_state).toBe('captured');
+      expect(edited?.needs_update_reason).toMatch(/source check is required at version 2/i);
+
+      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
+        /verification state is captured|source check|scientific review/i,
       );
     });
   });
@@ -311,7 +326,7 @@ describe('publish gates', () => {
         });
       }
 
-      await expect(setWorkflowStatus(db, 'protocols', protocolId, 'published')).rejects.toThrow(
+      await expect(setPublicationState(db, 'protocols', protocolId, 'published')).rejects.toThrow(
         /clinical review/i,
       );
     });
@@ -383,12 +398,13 @@ describe('publish gates', () => {
 
       await query(db, `delete from claim_evidence where id = $1`, [evidenceId]);
 
-      const [row] = await query<{ workflow_status: string }>(
+      const [row] = await query<{ editorial_state: string; needs_update_reason: string | null }>(
         db,
-        `select workflow_status from claims where id = $1`,
+        `select editorial_state, needs_update_reason from claims where id = $1`,
         [claimId],
       );
-      expect(row?.workflow_status).toBe('needs_update');
+      expect(row?.editorial_state).toBe('withdrawn');
+      expect(row?.needs_update_reason).toMatch(/no evidence link/i);
     });
 
     it('withdraws published content when its source stops being citable', async () => {
@@ -407,15 +423,127 @@ describe('publish gates', () => {
 
       await query(db, `update sources set qc_status = 'replace' where id = $1`, [usableSourceId]);
 
-      const [row] = await query<{ workflow_status: string }>(
+      const [row] = await query<{ editorial_state: string; needs_update_reason: string | null }>(
         db,
-        `select workflow_status from claims where id = $1`,
+        `select editorial_state, needs_update_reason from claims where id = $1`,
         [claimId],
       );
-      expect(row?.workflow_status).toBe('needs_update');
+      expect(row?.editorial_state).toBe('withdrawn');
+      expect(row?.needs_update_reason).toMatch(/no longer citable/i);
 
       const visible = await query(db, `select id from public_v_claims where id = $1`, [claimId]);
       expect(visible).toHaveLength(0);
+    });
+  });
+
+  describe('state dimensions', () => {
+    it('keeps a stale page live while flagging it', async () => {
+      // The owner's "published but needs update" case. A page overdue for
+      // review is usually still the best information available, and saying so
+      // serves a clinician better than removing it.
+      const claimId = await createClaim(db, {
+        key: 'C-STALE',
+        peptideId,
+        text: 'Published and later flagged as due for review.',
+      });
+      await attachClaimEvidence(db, {
+        claimId,
+        sourceId: usableSourceId,
+        sourceLocationId: usableLocationId,
+        evidenceType: 'human_rct',
+      });
+      await publishClaim(db, claimId, staff);
+
+      await query(
+        db,
+        `update claims set needs_update = true, needs_update_reason = 'Review clock elapsed.'
+         where id = $1`,
+        [claimId],
+      );
+
+      const [row] = await query<{ editorial_state: string; publication_state: string }>(
+        db,
+        `select editorial_state, publication_state from claims where id = $1`,
+        [claimId],
+      );
+      expect(row?.publication_state).toBe('published');
+      expect(row?.editorial_state).toBe('published_needs_update');
+
+      // Still public, and the flag travels to the reader rather than being hidden.
+      const [publicRow] = await query<{ needs_update: boolean }>(
+        db,
+        `select needs_update from public_v_claims where id = $1`,
+        [claimId],
+      );
+      expect(publicRow?.needs_update).toBe(true);
+    });
+
+    it('represents reviewed-but-unpublished without inventing a publication', async () => {
+      const claimId = await createClaim(db, {
+        key: 'C-REVIEWED-UNPUBLISHED',
+        peptideId,
+        text: 'Checked, but not yet released.',
+      });
+      await attachClaimEvidence(db, {
+        claimId,
+        sourceId: usableSourceId,
+        sourceLocationId: usableLocationId,
+        evidenceType: 'human_rct',
+      });
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'scientific',
+        reviewerId: staff.scientific,
+        table: 'claims',
+      });
+
+      const [row] = await query<{
+        review_state: string;
+        publication_state: string;
+        editorial_state: string;
+      }>(
+        db,
+        `select review_state, publication_state, editorial_state from claims where id = $1`,
+        [claimId],
+      );
+      expect(row?.review_state).toBe('scientific_reviewed');
+      expect(row?.publication_state).toBe('unpublished');
+      expect(row?.editorial_state).toBe('scientific_reviewed');
+
+      expect(await query(db, `select id from public_v_claims where id = $1`, [claimId])).toHaveLength(
+        0,
+      );
+    });
+
+    it('keeps a superseded record distinguishable from one never published', async () => {
+      const claimId = await createClaim(db, {
+        key: 'C-SUPERSEDED',
+        peptideId,
+        text: 'Replaced by a later record.',
+      });
+      await attachClaimEvidence(db, {
+        claimId,
+        sourceId: usableSourceId,
+        sourceLocationId: usableLocationId,
+        evidenceType: 'human_rct',
+      });
+      await publishClaim(db, claimId, staff);
+      await setPublicationState(db, 'claims', claimId, 'superseded');
+
+      const [row] = await query<{
+        editorial_state: string;
+        published_at: string | null;
+        superseded_at: string | null;
+      }>(
+        db,
+        `select editorial_state, published_at, superseded_at from claims where id = $1`,
+        [claimId],
+      );
+      expect(row?.editorial_state).toBe('superseded');
+      // The publication history survives: this was public once.
+      expect(row?.published_at).not.toBeNull();
+      expect(row?.superseded_at).not.toBeNull();
     });
   });
 

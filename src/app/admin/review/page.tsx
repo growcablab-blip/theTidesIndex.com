@@ -61,7 +61,7 @@ export default async function ReviewQueuePage() {
                 {item.detail ? <p className="text-xs text-slate">{item.detail}</p> : null}
               </Cell>
               <Cell>
-                <StatusBadge status={item.workflowStatus} />
+                <StatusBadge status={item.editorialState} />
               </Cell>
               <Cell>v{item.version}</Cell>
               <Cell className="text-sm">

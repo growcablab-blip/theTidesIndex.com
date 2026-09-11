@@ -6,7 +6,9 @@
     "currentSourceSignal": "Practitioner sources use overlapping terminology without distinguishing the molecules.",
     "neededVerification": "Primary chemistry, sequence and product-definition sources.",
     "priority": "critical",
-    "relatedKeys": ["peptide:thymosin-beta-4"]
+    "relatedKeys": [
+      "peptide:thymosin-beta-4"
+    ]
   },
   {
     "issueKey": "V-002",
@@ -15,7 +17,9 @@
     "currentSourceSignal": "LaValle, Hack Smith and Seeds describe different practical approaches.",
     "neededVerification": "Human evidence first; preclinical routes recorded separately; formulation-specific evidence required.",
     "priority": "critical",
-    "relatedKeys": ["peptide:bpc-157"]
+    "relatedKeys": [
+      "peptide:bpc-157"
+    ]
   },
   {
     "issueKey": "V-003",
@@ -24,7 +28,9 @@
     "currentSourceSignal": "Practitioner and quick-reference materials contain practical protocol framing.",
     "neededVerification": "Clinical trial publications and registry records.",
     "priority": "critical",
-    "relatedKeys": ["peptide:retatrutide"]
+    "relatedKeys": [
+      "peptide:retatrutide"
+    ]
   },
   {
     "issueKey": "V-004",
@@ -42,7 +48,10 @@
     "currentSourceSignal": "Broad route classes are discussed without molecule-specific qualification.",
     "neededVerification": "Peptide-specific pharmacokinetic and delivery literature.",
     "priority": "high",
-    "relatedKeys": ["route:intranasal", "route:oral"]
+    "relatedKeys": [
+      "route:intranasal",
+      "route:oral"
+    ]
   },
   {
     "issueKey": "V-006",
@@ -51,7 +60,9 @@
     "currentSourceSignal": "Practitioner material contains storage guidance of unclear origin.",
     "neededVerification": "Product- and formulation-specific stability studies and official labelling where available.",
     "priority": "high",
-    "relatedKeys": ["quality_topic:storage-stability"]
+    "relatedKeys": [
+      "quality_topic:storage-stability"
+    ]
   },
   {
     "issueKey": "V-007",
@@ -60,7 +71,9 @@
     "currentSourceSignal": "The current library has limited direct transport qualification evidence.",
     "neededVerification": "ICH stability guidance, good distribution practice, and formulation-specific excursion data.",
     "priority": "high",
-    "relatedKeys": ["quality_topic:transport-excursions"]
+    "relatedKeys": [
+      "quality_topic:transport-excursions"
+    ]
   },
   {
     "issueKey": "V-008",
@@ -69,7 +82,11 @@
     "currentSourceSignal": "Grant separates the roles of HPLC and mass spectrometry clearly.",
     "neededVerification": "Modern analytical and compendial sources; content assay sources.",
     "priority": "critical",
-    "relatedKeys": ["quality_topic:hplc-purity", "quality_topic:identity-testing", "quality_topic:peptide-content-assay"]
+    "relatedKeys": [
+      "quality_topic:hplc-purity",
+      "quality_topic:identity-testing",
+      "quality_topic:peptide-content-assay"
+    ]
   },
   {
     "issueKey": "V-009",
@@ -78,7 +95,10 @@
     "currentSourceSignal": "Current academic chemistry sources do not cover finished injectable release fully.",
     "neededVerification": "Compendial methods and regulatory guidance.",
     "priority": "critical",
-    "relatedKeys": ["quality_topic:sterility", "quality_topic:bacterial-endotoxin"]
+    "relatedKeys": [
+      "quality_topic:sterility",
+      "quality_topic:bacterial-endotoxin"
+    ]
   },
   {
     "issueKey": "V-010",
@@ -87,7 +107,9 @@
     "currentSourceSignal": "Current practitioner sources are not sufficient.",
     "neededVerification": "Current regulator and industry manufacturing disclosures.",
     "priority": "high",
-    "relatedKeys": ["quality_topic:global-manufacturing"]
+    "relatedKeys": [
+      "quality_topic:global-manufacturing"
+    ]
   },
   {
     "issueKey": "V-011",
@@ -96,7 +118,9 @@
     "currentSourceSignal": "Broader pharmaceutical texts in the library are partial copies.",
     "neededVerification": "Primary regulatory guidance.",
     "priority": "high",
-    "relatedKeys": ["quality_topic:gmp-cgmp"]
+    "relatedKeys": [
+      "quality_topic:gmp-cgmp"
+    ]
   },
   {
     "issueKey": "V-012",
@@ -109,11 +133,33 @@
   },
   {
     "issueKey": "V-013",
-    "topic": "SRC-011 attribution conflict: Fields versus Mant",
-    "whyItMatters": "The held copy may not be the work the source registry describes. Citing a misidentified source would corrupt provenance for the analytical chemistry material that the quality section depends on.",
-    "currentSourceSignal": "SOURCE_MANIFEST.json records Gregg B. Fields (ed.), Peptide Characterization and Application Protocols, Humana Press 2007. The filename of the held copy names Colin T. Mant, who is associated with HPLC of Peptides and Proteins.",
-    "neededVerification": "Open the held copy and confirm title page, editor, publisher and year. Correct the registry, or replace the copy.",
-    "priority": "critical",
-    "relatedKeys": ["source:SRC-011"]
+    "topic": "SRC-011 replacement: Fields, Peptide Characterization and Application Protocols",
+    "whyItMatters": "SRC-011 is a core source for the analytical chemistry the quality section rests on. The attribution question is resolved; the held copy is still unusable.",
+    "currentSourceSignal": "Owner inspection on 2026-09-11 confirmed the work as Gregg B. Fields (ed.), Methods in Molecular Biology vol. 386, Humana Press, 2007. Colin T. Mant, named in the third-party filename, is the lead author of Chapter 1, not the editor. Authentic front matter and the start of Chapter 1 are present; unrelated material follows.",
+    "neededVerification": "Obtain a complete, verified copy. Until then the source is marked replace and cannot support published content.",
+    "priority": "high",
+    "relatedKeys": [
+      "source:SRC-011",
+      "quality_topic:hplc-purity",
+      "quality_topic:identity-testing"
+    ]
+  },
+  {
+    "issueKey": "V-014",
+    "topic": "Third-party filename metadata is not bibliographic authority",
+    "whyItMatters": "SRC-011 was very nearly registered under the wrong editor because a download aggregator's filename named a chapter author. Every source acquired through a third-party wrapper carries the same risk, and a misattributed source corrupts provenance for everything citing it.",
+    "currentSourceSignal": "Eight of the sixteen registered sources have aggregator-generated filenames.",
+    "neededVerification": "For each source, open the held copy and confirm title page, editor or author, publisher, edition and year against the registry before it is used as provenance.",
+    "priority": "high",
+    "relatedKeys": [
+      "source:SRC-006",
+      "source:SRC-007",
+      "source:SRC-008",
+      "source:SRC-009",
+      "source:SRC-010",
+      "source:SRC-011",
+      "source:SRC-012",
+      "source:SRC-015"
+    ]
   }
 ]

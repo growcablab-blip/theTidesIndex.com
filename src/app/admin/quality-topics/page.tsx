@@ -33,7 +33,7 @@ export default async function QualityTopicsPage() {
                 <p className="font-mono text-xs text-slate">{topic.qualityKey}</p>
               </Cell>
               <Cell>
-                <StatusBadge status={topic.workflowStatus} />
+                <StatusBadge status={topic.editorialState} />
               </Cell>
               <Cell className="text-sm">
                 {topic.hasBothHalves ? (

@@ -490,26 +490,71 @@ export async function publishRecord(
       );
     }
 
+    // Publishing clears the update flag: the record has just been re-approved
+    // at its current version, so whatever prompted the flag has been addressed.
     const result = await tx.execute(sql`
-      update ${sql.raw(table)} set workflow_status = 'published' where id = ${entityId}
+      update ${sql.raw(table)}
+      set publication_state = 'published', needs_update = false
+      where id = ${entityId}
     `);
     return affected(result) === 1 ? ok() : fail(REFUSED_BY_POLICY);
   });
 }
 
-export async function setWorkflowStatus(
+/**
+ * Changes a record's publication state without touching its verification state.
+ *
+ * Withdrawing content does not un-review it. An editor pulling a page while a
+ * correction is prepared should not have to send it back through scientific
+ * review afterwards — the checks that were done are still done.
+ */
+export async function setPublicationState(
   db: Database,
   session: StaffSession,
   entityType: PublishableEntity,
   entityId: string,
-  status: 'unreviewed' | 'captured' | 'needs_update' | 'superseded' | 'rejected',
+  state: 'unpublished' | 'withdrawn' | 'superseded',
+  reason?: string,
 ): Promise<ActionResult> {
   const table = ENTITY_TABLES[entityType];
-  if (!table) return fail('That kind of record does not carry a workflow status.');
+  if (!table) return fail('That kind of record does not carry a publication state.');
 
   return run(db, session, async (tx) => {
     const result = await tx.execute(sql`
-      update ${sql.raw(table)} set workflow_status = ${status}::workflow_status
+      update ${sql.raw(table)}
+      set publication_state = ${state}::publication_state_value,
+          needs_update = ${state === 'withdrawn'},
+          needs_update_reason = ${state === 'withdrawn' ? (reason ?? 'Withdrawn by an editor.') : null}
+      where id = ${entityId}
+    `);
+    return affected(result) === 1 ? ok() : fail(REFUSED_BY_POLICY);
+  });
+}
+
+/**
+ * Flags a record for attention without changing whether it is public.
+ *
+ * This is the "published but needs update" case: a page whose review clock has
+ * run out, or that a correction elsewhere has implicated, is usually still the
+ * best information available. Pulling it would serve the reader worse than
+ * showing it with the flag attached.
+ */
+export async function setUpdateFlag(
+  db: Database,
+  session: StaffSession,
+  entityType: PublishableEntity,
+  entityId: string,
+  needsUpdate: boolean,
+  reason?: string,
+): Promise<ActionResult> {
+  const table = ENTITY_TABLES[entityType];
+  if (!table) return fail('That kind of record does not carry an update flag.');
+
+  return run(db, session, async (tx) => {
+    const result = await tx.execute(sql`
+      update ${sql.raw(table)}
+      set needs_update = ${needsUpdate},
+          needs_update_reason = ${needsUpdate ? (reason ?? 'Flagged for update by an editor.') : null}
       where id = ${entityId}
     `);
     return affected(result) === 1 ? ok() : fail(REFUSED_BY_POLICY);

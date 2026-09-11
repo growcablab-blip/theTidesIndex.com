@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm';
 import {
+  boolean,
   date,
   index,
   integer,
@@ -9,7 +10,7 @@ import {
   unique,
   uuid,
 } from 'drizzle-orm/pg-core';
-import { aliasType, workflowStatus } from './enums';
+import { aliasType, publicationState, reviewState } from './enums';
 import { compoundCategories, compoundTypes } from './taxonomy';
 
 /**
@@ -45,7 +46,38 @@ export const peptides = pgTable(
      */
     unknownsSummary: text(),
 
-    workflowStatus: workflowStatus().notNull().default('unreviewed'),
+    reviewState: reviewState().notNull().default('unreviewed'),
+    publicationState: publicationState().notNull().default('unpublished'),
+    /** Flagged for attention. Orthogonal to visibility: a published record can
+     *  be flagged and stay live, or be withdrawn and flagged. */
+    needsUpdate: boolean().notNull().default(false),
+    needsUpdateReason: text(),
+    /**
+     * Canonical editorial state, derived — never written.
+     *
+     * A single label for listing and sorting, without becoming a second source
+     * of truth: it is computed from review state, publication state and the
+     * update flag, so it cannot disagree with them.
+     */
+    editorialState: text().generatedAlwaysAs(
+      sql`case
+        when review_state = 'rejected' then 'rejected'
+        when publication_state = 'superseded' then 'superseded'
+        when publication_state = 'withdrawn' then 'withdrawn'
+        when publication_state = 'published' and needs_update then 'published_needs_update'
+        when publication_state = 'published' then 'published'
+        when needs_update then 'needs_update'
+        when review_state = 'compliance_reviewed' then 'compliance_reviewed'
+        when review_state = 'clinical_reviewed' then 'clinical_reviewed'
+        when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'primary_source_checked' then 'primary_source_checked'
+        when review_state = 'source_checked' then 'source_checked'
+        when review_state = 'captured' then 'captured'
+        else 'unreviewed'
+      end`,
+    ),
+    withdrawnAt: timestamp({ withTimezone: true }),
+    supersededAt: timestamp({ withTimezone: true }),
     version: integer().notNull().default(1),
     publishedAt: timestamp({ withTimezone: true }),
     lastReviewedAt: timestamp({ withTimezone: true }),
@@ -56,7 +88,8 @@ export const peptides = pgTable(
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
-    index('peptides_workflow_status_idx').on(t.workflowStatus),
+    index('peptides_review_state_idx').on(t.reviewState),
+    index('peptides_publication_state_idx').on(t.publicationState),
     index('peptides_category_idx').on(t.primaryCategoryKey),
     index('peptides_name_trgm_idx').using('gin', sql`${t.canonicalName} gin_trgm_ops`),
   ],

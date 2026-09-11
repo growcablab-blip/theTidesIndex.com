@@ -2,7 +2,7 @@
 
 import { useActionState } from 'react';
 import { reviewTypesForRole, type StaffRole } from '@/server/auth/roles';
-import { publishAction, recordReviewAction, setWorkflowStatusAction } from '../actions';
+import { publishAction, recordReviewAction, setPublicationStateAction } from '../actions';
 
 /**
  * Review and publication controls.
@@ -17,20 +17,21 @@ export function ReviewControls({
   entityId,
   role,
   canPublish,
-  workflowStatus,
+  editorialState,
 }: {
   entityType: 'peptide' | 'claim' | 'protocol' | 'quality_topic';
   entityId: string;
   role: StaffRole;
   canPublish: boolean;
-  workflowStatus: string;
+  editorialState: string;
 }) {
   const [reviewState, reviewFormAction] = useActionState(recordReviewAction, null);
   const [publishState, publishFormAction] = useActionState(publishAction, null);
-  const [statusState, statusFormAction] = useActionState(setWorkflowStatusAction, null);
+  const [statusState, statusFormAction] = useActionState(setPublicationStateAction, null);
 
   const availableReviews = reviewTypesForRole(role);
-  const isPublished = workflowStatus === 'published';
+  const isPublished = editorialState.startsWith('published');
+  const needsUpdate = editorialState === 'published_needs_update';
 
   return (
     <div className="space-y-6">
@@ -105,8 +106,10 @@ export function ReviewControls({
           <form action={statusFormAction} className="mt-3 space-y-3">
             <input type="hidden" name="entityType" value={entityType} />
             <input type="hidden" name="entityId" value={entityId} />
-            <input type="hidden" name="status" value="needs_update" />
-            <p className="text-sm text-ink">This record is public.</p>
+            <input type="hidden" name="state" value="withdrawn" />
+            <p className="text-sm text-ink">
+              This record is public{needsUpdate ? ' and flagged for update' : ''}.
+            </p>
             <button
               type="submit"
               className="rounded border border-amber-700 px-3 py-1.5 text-sm text-amber-900"

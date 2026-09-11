@@ -164,10 +164,13 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
       sourceTypeKey: source.source_type,
       authors: source.authors,
       year: source.year,
+      publisher: source.publisher,
+      publicationName: source.publication_name,
       qcStatus: source.qc_status,
       localPrivateFilename: source.known_local_filename,
       primaryRole: source.primary_role,
       authorityNotes: source.authority_notes,
+      limitationsNotes: source.limitations_notes,
       publicFulltextAllowed: source.public_fulltext_allowed,
     }));
 
@@ -183,10 +186,13 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
         sourceTypeKey: sql`excluded.source_type_key`,
         authors: sql`excluded.authors`,
         year: sql`excluded.year`,
+        publisher: sql`excluded.publisher`,
+        publicationName: sql`excluded.publication_name`,
         qcStatus: sql`excluded.qc_status`,
         localPrivateFilename: sql`excluded.local_private_filename`,
         primaryRole: sql`excluded.primary_role`,
         authorityNotes: sql`excluded.authority_notes`,
+        limitationsNotes: sql`excluded.limitations_notes`,
       },
     });
 

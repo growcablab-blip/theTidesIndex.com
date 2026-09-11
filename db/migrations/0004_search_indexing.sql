@@ -28,7 +28,7 @@ DECLARE
 BEGIN
   SELECT * INTO v_peptide FROM peptides WHERE id = p_peptide_id;
 
-  IF NOT FOUND OR v_peptide.workflow_status <> 'published' THEN
+  IF NOT FOUND OR v_peptide.publication_state <> 'published' THEN
     DELETE FROM search_documents WHERE entity_type = 'peptide' AND entity_id = p_peptide_id;
     RETURN;
   END IF;
@@ -64,19 +64,19 @@ BEGIN
       FROM claims c
       JOIN claim_evidence ce ON ce.claim_id = c.id
       JOIN evidence_types et ON et.key = ce.evidence_type_key
-      WHERE c.peptide_id = v_peptide.id AND c.workflow_status = 'published'
+      WHERE c.peptide_id = v_peptide.id AND c.publication_state = 'published'
     ),
     (
       SELECT array_agg(DISTINCT pr.route_key)
       FROM peptide_routes pr
-      WHERE pr.peptide_id = v_peptide.id AND pr.workflow_status = 'published'
+      WHERE pr.peptide_id = v_peptide.id AND pr.publication_state = 'published'
     ),
     (
       SELECT array_agg(DISTINCT s.source_type_key)
       FROM claims c
       JOIN claim_evidence ce ON ce.claim_id = c.id
       JOIN sources s ON s.id = ce.source_id
-      WHERE c.peptide_id = v_peptide.id AND c.workflow_status = 'published'
+      WHERE c.peptide_id = v_peptide.id AND c.publication_state = 'published'
     ),
     v_peptide.primary_category_key,
     coalesce((
@@ -84,7 +84,7 @@ BEGIN
       FROM claims c
       JOIN claim_evidence ce ON ce.claim_id = c.id
       JOIN evidence_types et ON et.key = ce.evidence_type_key
-      WHERE c.peptide_id = v_peptide.id AND c.workflow_status = 'published'
+      WHERE c.peptide_id = v_peptide.id AND c.publication_state = 'published'
     ), false),
     now()
   ON CONFLICT (entity_type, entity_id) DO UPDATE SET
@@ -116,7 +116,7 @@ DECLARE
 BEGIN
   SELECT * INTO v_topic FROM quality_topics WHERE id = p_topic_id;
 
-  IF NOT FOUND OR v_topic.workflow_status <> 'published' THEN
+  IF NOT FOUND OR v_topic.publication_state <> 'published' THEN
     DELETE FROM search_documents WHERE entity_type = 'quality_topic' AND entity_id = p_topic_id;
     RETURN;
   END IF;

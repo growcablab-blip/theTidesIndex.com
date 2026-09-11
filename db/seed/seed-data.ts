@@ -124,6 +124,8 @@ const manifestSourceSchema = z.object({
   authors: z.array(z.string()).default([]),
   year: z.number().int().nullable().default(null),
   source_type: z.string().min(1),
+  publisher: z.string().nullable().default(null),
+  publication_name: z.string().nullable().default(null),
   priority: z.string().optional(),
   qc_status: z.enum(['usable', 'incomplete', 'replace', 'pending', 'exclude']),
   canonical_filename: z.string().nullable().default(null),
@@ -131,6 +133,7 @@ const manifestSourceSchema = z.object({
   primary_role: z.string().nullable().default(null),
   public_fulltext_allowed: z.boolean(),
   authority_notes: z.string().nullable().default(null),
+  limitations_notes: z.string().nullable().default(null),
 });
 
 const manifestSchema = z.object({

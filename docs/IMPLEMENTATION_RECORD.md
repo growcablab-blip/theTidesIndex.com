@@ -380,3 +380,109 @@ the translation of database errors into sentences an editor can act on.
 global search, the peptide page template, the simple/practitioner switch,
 evidence cards, route components, protocol source cards, the disagreements
 module, source metadata pages, and the methodology pages.
+
+---
+
+## Owner decisions applied (2026-09-11)
+
+### SRC-011 resolved; the wider lesson recorded
+
+Owner inspection settled the attribution: **Gregg B. Fields (ed.), *Peptide
+Characterization and Application Protocols*, Methods in Molecular Biology vol.
+386, Humana Press, 2007.** Colin T. Mant, named in the third-party filename, is
+lead author of Chapter 1 ("HPLC Analysis and Purification of Peptides"), not the
+editor.
+
+The registry now carries the correct identity. The held copy remains corrupted —
+authentic front matter and the start of Chapter 1, then unrelated material — so
+QC status is `replace` and the source is not citable. V-013 continues as the
+replacement task.
+
+Added **V-014**: third-party filename metadata is not bibliographic authority.
+Eight of sixteen registered sources came through download aggregators and carry
+the same risk. Each needs its title page checked before it is used as provenance.
+
+This is the source QC system working as designed: a misattribution was caught
+before anything cited it.
+
+### Workflow state split into independent dimensions
+
+`workflow_status` collapsed verification state and publication state into one
+ladder, which cannot express the combinations that matter. Now:
+
+| Column | Meaning |
+|---|---|
+| `review_state` | how far editorial has checked it |
+| `publication_state` | whether it is currently public |
+| `needs_update` (+ reason) | flagged for attention; orthogonal to both |
+| `editorial_state` | **generated** canonical label, derived from the three |
+
+All four of the owner's examples are now representable:
+
+- *scientifically reviewed + unpublished* — `scientific_reviewed` / `unpublished`
+- *published + needs update* — `published` / `needs_update = true`; the page
+  stays live and the flag travels to the reader through `public_v_*`
+- *source checked + awaiting clinical review* — `source_checked`, with the
+  outstanding gates visible in the reviews table
+- *previously published + superseded* — `superseded`, with `published_at` and
+  `superseded_at` both retained
+
+`editorial_state` is a generated column, so the canonical label can never
+contradict the dimensions it summarises. Every branch yields a literal because
+casting an enum to text is only STABLE and a generated column requires an
+immutable expression.
+
+Regulatory state (`regulatory_statuses.status`) and source QC state
+(`sources.qc_status`) were already separate and are unchanged.
+
+**`review_state` is maintained by trigger, not by hand.** Recording an approved
+review at the record's current version advances it; a material edit resets it to
+`captured`. Deriving it from the reviews that actually exist is what stops the
+displayed verification state drifting from the evidence for it — and it closed a
+parity gap, because a hand-maintained column would have been a publish
+precondition the domain layer did not model.
+
+**Gates now distinguish entering publication from editing live content.**
+Entering with an unmet requirement is refused. Editing content that is already
+live withdraws it and records why, rather than refusing the write — refusing
+would mean published content could never be corrected without first being
+pulled, which pushes editors toward leaving errors in place. The invariant that
+published content satisfies its gate holds either way.
+
+### Drizzle: approved with the parity condition enforced
+
+The owner's condition was that versioned SQL remains the authoritative contract
+and that ORM-generated structure must not silently diverge from it.
+
+`tests/integration/schema-parity.test.ts` enforces this. It applies the
+migrations as shipped, introspects the result, and requires the Drizzle schema
+to match table-for-table and column-for-column including nullability and
+generated status. A skipped `db:generate` fails the suite.
+
+Migrations were re-cut once, before any deployment, so the chain reads cleanly
+rather than carrying a rename migration for a schema that had never run
+anywhere. **From the first deployment they are append-only.**
+
+### Local development database
+
+`npm run db:dev` starts PGlite — real Postgres compiled to WebAssembly — behind
+a TCP socket speaking the Postgres wire protocol, applies the migrations, seeds,
+and prints a connection string. Nothing to install, and the application cannot
+tell it from a server someone set up: development, tests and production all run
+the same migrations against the same engine.
+
+Production remains Supabase. No cloud infrastructure was provisioned.
+
+### Patient visibility, analytics, non-peptide compounds
+
+- Patient/simple views keep excluding dose, units, frequency, timing, duration,
+  cycle, titration and the number-heavy clinical prose that could reconstruct a
+  regimen. The exclusion is structural, in the view definition.
+- No analytics added. An abstraction will be introduced only if it earns its
+  place architecturally.
+- MVP public scope stays peptides and peptide therapeutics.
+  `compound_types.is_peptide` already distinguishes them, so supporting
+  peptide-adjacent compounds later needs no schema rewrite — only a decision
+  about scope.
+
+**118 tests.** Lint, typecheck, tests and production build pass.

@@ -11,7 +11,7 @@ import {
   unique,
   uuid,
 } from 'drizzle-orm/pg-core';
-import { audience, publicationStatus, publicationType, readingMode } from './enums';
+import { audience, documentStatus, publicationType, readingMode } from './enums';
 import { claims } from './claims';
 import { peptides } from './peptides';
 import { qualityTopics } from './quality';
@@ -43,7 +43,7 @@ export const publications = pgTable(
     qualityTopicId: uuid().references(() => qualityTopics.id, { onDelete: 'restrict' }),
 
     version: integer().notNull().default(1),
-    status: publicationStatus().notNull().default('draft'),
+    status: documentStatus().notNull().default('draft'),
     publishedAt: timestamp({ withTimezone: true }),
     lastReviewedAt: timestamp({ withTimezone: true }),
     evidenceCutoffAt: date(),

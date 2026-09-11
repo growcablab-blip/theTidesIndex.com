@@ -49,7 +49,9 @@ async function approvedReviews(
 
 export interface ClaimGateStatus extends GateResult {
   readonly version: number;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
+  readonly isPublished: boolean;
+  readonly needsUpdate: boolean;
   readonly approvedReviews: readonly ReviewType[];
 }
 
@@ -59,14 +61,16 @@ export async function getClaimGateStatus(
 ): Promise<ClaimGateStatus | null> {
   const claimRows = rows<{
     version: number;
-    workflow_status: string;
+    editorial_state: string;
+    publication_state: string;
+    needs_update: boolean;
     importance: 'low' | 'medium' | 'high' | 'critical';
     is_editorial_non_evidentiary: boolean;
     interpretation_notes: string | null;
     uncertainty_text: string | null;
   }>(
     await db.execute(sql`
-      select version, workflow_status, importance, is_editorial_non_evidentiary,
+      select version, editorial_state, publication_state, needs_update, importance, is_editorial_non_evidentiary,
              interpretation_notes, uncertainty_text
       from claims where id = ${claimId}
     `),
@@ -102,14 +106,18 @@ export async function getClaimGateStatus(
   return {
     ...result,
     version: claim.version,
-    workflowStatus: claim.workflow_status,
+    editorialState: claim.editorial_state,
+    isPublished: claim.publication_state === 'published',
+    needsUpdate: claim.needs_update,
     approvedReviews: reviews,
   };
 }
 
 export interface ProtocolGateStatus extends GateResult {
   readonly version: number;
-  readonly workflowStatus: string;
+  readonly editorialState: string;
+  readonly isPublished: boolean;
+  readonly needsUpdate: boolean;
   readonly approvedReviews: readonly ReviewType[];
 }
 
@@ -119,13 +127,15 @@ export async function getProtocolGateStatus(
 ): Promise<ProtocolGateStatus | null> {
   const protocolRows = rows<{
     version: number;
-    workflow_status: string;
+    editorial_state: string;
+    publication_state: string;
+    needs_update: boolean;
     population_model: string | null;
     route_key: string | null;
     regulatory_context: string | null;
   }>(
     await db.execute(sql`
-      select version, workflow_status, population_model, route_key, regulatory_context
+      select version, editorial_state, publication_state, needs_update, population_model, route_key, regulatory_context
       from protocols where id = ${protocolId}
     `),
   );
@@ -159,7 +169,9 @@ export async function getProtocolGateStatus(
   return {
     ...result,
     version: protocol.version,
-    workflowStatus: protocol.workflow_status,
+    editorialState: protocol.editorial_state,
+    isPublished: protocol.publication_state === 'published',
+    needsUpdate: protocol.needs_update,
     approvedReviews: reviews,
   };
 }
@@ -167,15 +179,18 @@ export async function getProtocolGateStatus(
 export async function getPeptideGateStatus(
   db: Database,
   peptideId: string,
-): Promise<(GateResult & { version: number; workflowStatus: string }) | null> {
+): Promise<(GateResult & { version: number; editorialState: string; isPublished: boolean; needsUpdate: boolean }) | null> {
   const peptideRows = rows<{
     version: number;
-    workflow_status: string;
+    editorial_state: string;
+    publication_state: string;
+    needs_update: boolean;
     simple_summary: string | null;
     unknowns_summary: string | null;
   }>(
     await db.execute(sql`
-      select version, workflow_status, simple_summary, unknowns_summary
+      select version, editorial_state, publication_state, needs_update,
+             simple_summary, unknowns_summary
       from peptides where id = ${peptideId}
     `),
   );
@@ -192,22 +207,27 @@ export async function getPeptideGateStatus(
       approvedReviews: reviews,
     }),
     version: peptide.version,
-    workflowStatus: peptide.workflow_status,
+    editorialState: peptide.editorial_state,
+    isPublished: peptide.publication_state === 'published',
+    needsUpdate: peptide.needs_update,
   };
 }
 
 export async function getQualityTopicGateStatus(
   db: Database,
   topicId: string,
-): Promise<(GateResult & { version: number; workflowStatus: string }) | null> {
+): Promise<(GateResult & { version: number; editorialState: string; isPublished: boolean; needsUpdate: boolean }) | null> {
   const topicRows = rows<{
     version: number;
-    workflow_status: string;
+    editorial_state: string;
+    publication_state: string;
+    needs_update: boolean;
     what_it_proves: string | null;
     what_it_does_not_prove: string | null;
   }>(
     await db.execute(sql`
-      select version, workflow_status, what_it_proves, what_it_does_not_prove
+      select version, editorial_state, publication_state, needs_update,
+             what_it_proves, what_it_does_not_prove
       from quality_topics where id = ${topicId}
     `),
   );
@@ -224,6 +244,8 @@ export async function getQualityTopicGateStatus(
       approvedReviews: reviews,
     }),
     version: topic.version,
-    workflowStatus: topic.workflow_status,
+    editorialState: topic.editorial_state,
+    isPublished: topic.publication_state === 'published',
+    needsUpdate: topic.needs_update,
   };
 }

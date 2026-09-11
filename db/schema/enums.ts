@@ -7,7 +7,8 @@ import { pgEnum } from 'drizzle-orm/pg-core';
  * are represented separately:
  *   - what kind of source is it        -> source_types  (reference table)
  *   - what kind of evidence is it      -> evidence_types (reference table)
- *   - how far has editorial checked it -> workflowStatus (this file)
+ *   - how far has editorial checked it -> reviewState (this file)
+ *   - is it currently public            -> publicationState (this file)
  *   - what is its regulatory standing  -> regulatoryStatusValue (this file)
  *
  * Source and evidence types are reference tables rather than enums because the
@@ -25,17 +26,13 @@ export const sourceQcStatus = pgEnum('source_qc_status', [
 ]);
 
 /**
- * The single editorial ladder for evidence-bearing records.
+ * Verification state: how far editorial has checked a record.
  *
- * Deviation from CONTENT_SCHEMA.md, which specifies both `verification_status`
- * and `publication_status` on claims and protocols. Two independently-writable
- * status columns can disagree (publication_status='published' while
- * verification_status='rejected'), which is an unacceptable failure mode for a
- * provenance system. Public visibility is derived from this ladder.
- * `publicationStatus` below is retained for Publication documents only, where a
- * document lifecycle genuinely is an independent dimension.
+ * This is one of four dimensions the platform must never collapse
+ * (MASTER_BUILD_SPEC.md §10). It says nothing about whether the record is
+ * public — that is `publicationState` below.
  */
-export const workflowStatus = pgEnum('workflow_status', [
+export const reviewState = pgEnum('review_state', [
   'unreviewed',
   'captured',
   'source_checked',
@@ -43,14 +40,35 @@ export const workflowStatus = pgEnum('workflow_status', [
   'scientific_reviewed',
   'clinical_reviewed',
   'compliance_reviewed',
-  'published',
-  'needs_update',
-  'superseded',
   'rejected',
 ]);
 
-/** Document lifecycle for assembled publications only. */
-export const publicationStatus = pgEnum('publication_status', [
+/**
+ * Publication state: whether the record is currently public.
+ *
+ * Independent of verification state, because the combinations matter:
+ * scientifically reviewed but unpublished; published but flagged for update;
+ * previously published and now superseded. A single ladder cannot express
+ * those, and flattening them loses information an editor needs.
+ *
+ * Coherence is enforced in the database rather than by convention: a record
+ * cannot reach `published` without a verification state that permits it and
+ * without passing its publish gate, and a rejected record cannot stay public.
+ */
+export const publicationState = pgEnum('publication_state_value', [
+  'unpublished',
+  'published',
+  'withdrawn',
+  'superseded',
+]);
+
+/**
+ * Document lifecycle for assembled publications (books, handouts, guides).
+ *
+ * A document has an editing lifecycle of its own, distinct from the review and
+ * publication state of the evidence records it draws on.
+ */
+export const documentStatus = pgEnum('document_status', [
   'draft',
   'in_review',
   'published',

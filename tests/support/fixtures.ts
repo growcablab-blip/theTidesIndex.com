@@ -220,16 +220,40 @@ export async function approve(
   );
 }
 
-export async function setWorkflowStatus(
+/** Publishes directly, exercising the coherence trigger and the publish gate. */
+export async function setPublicationState(
   db: TestDb,
   table: string,
   id: string,
-  status: string,
+  state: 'unpublished' | 'published' | 'withdrawn' | 'superseded',
 ): Promise<void> {
-  await query(db, `update ${table} set workflow_status = $1::workflow_status where id = $2`, [
-    status,
-    id,
-  ]);
+  await query(
+    db,
+    `update ${table} set publication_state = $1::publication_state_value where id = $2`,
+    [state, id],
+  );
+}
+
+export async function setReviewState(
+  db: TestDb,
+  table: string,
+  id: string,
+  state: string,
+): Promise<void> {
+  await query(db, `update ${table} set review_state = $1::review_state where id = $2`, [state, id]);
+}
+
+/**
+ * Reads the verification state, which is maintained by trigger from the reviews
+ * that exist rather than written by hand.
+ */
+export async function getReviewState(db: TestDb, table: string, id: string): Promise<string> {
+  const [row] = await query<{ review_state: string }>(
+    db,
+    `select review_state from ${table} where id = $1`,
+    [id],
+  );
+  return row?.review_state ?? 'unknown';
 }
 
 /** Approves every review type a claim needs, then publishes it. */
@@ -255,7 +279,7 @@ export async function publishClaim(db: TestDb, claimId: string, staff: Staff): P
     reviewerId: staff.compliance,
     table: 'claims',
   });
-  await setWorkflowStatus(db, 'claims', claimId, 'published');
+  await setPublicationState(db, 'claims', claimId, 'published');
 }
 
 /** Approves every review type a protocol needs, then publishes it. */
@@ -278,5 +302,5 @@ export async function publishProtocol(
       table: 'protocols',
     });
   }
-  await setWorkflowStatus(db, 'protocols', protocolId, 'published');
+  await setPublicationState(db, 'protocols', protocolId, 'published');
 }

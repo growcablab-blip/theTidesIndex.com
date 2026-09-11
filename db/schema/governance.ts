@@ -16,7 +16,6 @@ import {
   reviewOutcome,
   reviewType,
   reviewableEntityType,
-  workflowStatus,
 } from './enums';
 import { profiles } from './identity';
 
@@ -66,8 +65,9 @@ export const revisions = pgTable(
     diffSummary: text(),
     /** Full prior row, so any published state can be reconstructed. */
     snapshot: jsonb(),
-    previousWorkflowStatus: workflowStatus(),
-    newWorkflowStatus: workflowStatus(),
+    /** Canonical editorial state before and after, as rendered for display. */
+    previousEditorialState: text(),
+    newEditorialState: text(),
     changedBy: uuid().references(() => profiles.userId, { onDelete: 'set null' }),
     changedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },

@@ -61,7 +61,7 @@ export default async function ProtocolDetailPage({
             ? `Source-reported regimen for ${protocol.peptideName}`
             : (protocol.combinationName ?? 'Source-reported regimen')
         }
-        actions={<StatusBadge status={protocol.workflowStatus} />}
+        actions={<StatusBadge status={protocol.editorialState} />}
       />
 
       <div className="grid gap-8 lg:grid-cols-[1fr_20rem]">
@@ -166,7 +166,7 @@ export default async function ProtocolDetailPage({
             entityId={protocol.id}
             role={session.role}
             canPublish={gate?.canPublish ?? false}
-            workflowStatus={protocol.workflowStatus}
+            editorialState={protocol.editorialState}
           />
         </aside>
       </div>

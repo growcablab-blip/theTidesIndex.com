@@ -169,12 +169,15 @@
       "year": 2007,
       "source_type": "academic_methods_reference",
       "priority": "core",
-      "qc_status": "pending",
+      "qc_status": "replace",
       "canonical_filename": "Fields_Peptide_Characterization_and_Application_Protocols_2007.pdf",
       "known_local_filename": "1010686727-Peptide-Characterization-and-Application-Protocols-1st-Edition-Colin-T-Mant-ebook-testbank-solutions-full-reading-access.pdf",
       "primary_role": "HPLC, mass spectrometry, characterization",
       "public_fulltext_allowed": false,
-      "authority_notes": "Attribution conflict: this manifest records Gregg B. Fields (ed.), Humana Press 2007, but the filename of the held copy names Colin T. Mant, who is associated with HPLC of Peptides and Proteins. The identity of the held copy is unresolved. Logged as verification issue V-013; not citable until resolved."
+      "authority_notes": "Bibliographic identity confirmed by owner inspection on 2026-09-11: Gregg B. Fields (ed.), Methods in Molecular Biology vol. 386, Humana Press, 2007. Colin T. Mant, who appears in the third-party filename, is the lead author of Chapter 1 ('HPLC Analysis and Purification of Peptides') and is not the editor. Filename and wrapper metadata from download aggregators is not bibliographic authority and must never be treated as such. The held copy is corrupted: authentic front matter and the beginning of Chapter 1 were observed, after which unrelated material appears. Not citable. A clean replacement copy is required before this source can support published content.",
+      "publication_name": "Methods in Molecular Biology, Volume 386",
+      "publisher": "Humana Press",
+      "limitations_notes": "Held copy is partial and contaminated beyond the start of Chapter 1. Do not cite any section, including the authentic front matter, until a complete copy is obtained and verified."
     },
     {
       "source_key": "SRC-012",

@@ -251,14 +251,17 @@ CREATE VIEW public_v_source_locations WITH (security_barrier = true) AS
 --> statement-breakpoint
 
 -- --- Compounds ------------------------------------------------------------
+-- `needs_update` travels with the record on purpose. A page that is live but
+-- flagged for re-review should say so to the reader; concealing it would be the
+-- opposite of the transparency this platform is for.
 CREATE VIEW public_v_peptides WITH (security_barrier = true) AS
   SELECT id, peptide_key, canonical_name, slug, compound_type_key,
          primary_category_key, natural_or_synthetic, molecular_description,
          sequence, short_description, simple_summary, practitioner_summary,
          unknowns_summary, version, published_at, last_reviewed_at,
-         evidence_cutoff_at
+         evidence_cutoff_at, needs_update
   FROM peptides
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 -- alias_type travels with the alias so the interface can distinguish a true
@@ -269,7 +272,7 @@ CREATE VIEW public_v_peptide_aliases WITH (security_barrier = true) AS
   SELECT a.id, a.peptide_id, a.alias, a.alias_type, a.notes
   FROM peptide_aliases a
   JOIN peptides p ON p.id = a.peptide_id
-  WHERE p.workflow_status = 'published';
+  WHERE p.publication_state = 'published';
 --> statement-breakpoint
 
 -- --- Claims and their provenance -----------------------------------------
@@ -277,9 +280,9 @@ CREATE VIEW public_v_claims WITH (security_barrier = true) AS
   SELECT id, claim_key, peptide_id, quality_topic_id, claim_text,
          plain_language_text, claim_category, importance, interpretation_notes,
          uncertainty_text, is_editorial_non_evidentiary, version, published_at,
-         last_reviewed_at
+         last_reviewed_at, needs_update
   FROM claims
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 -- extracted_text_private, reviewer_notes and interpretation_concerns are
@@ -292,7 +295,7 @@ CREATE VIEW public_v_claim_evidence WITH (security_barrier = true) AS
   FROM claim_evidence ce
   JOIN claims c ON c.id = ce.claim_id
   JOIN sources s ON s.id = ce.source_id
-  WHERE c.workflow_status = 'published'
+  WHERE c.publication_state = 'published'
     AND s.qc_status <> 'exclude';
 --> statement-breakpoint
 
@@ -306,7 +309,7 @@ CREATE VIEW public_v_protocol_practitioner WITH (security_barrier = true) AS
          safety_notes, adverse_events_text, outcome_context, regulatory_context,
          evidence_type_key, version, published_at, last_reviewed_at
   FROM protocols
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 -- Patient surface.
@@ -336,7 +339,7 @@ CREATE VIEW public_v_protocol_simple WITH (security_barrier = true) AS
          (p.contraindications_text IS NOT NULL OR p.safety_notes IS NOT NULL)
            AS has_safety_guidance
   FROM protocols p
-  WHERE p.workflow_status = 'published'
+  WHERE p.publication_state = 'published'
     AND p.patient_visibility;
 --> statement-breakpoint
 
@@ -345,7 +348,7 @@ CREATE VIEW public_v_protocol_sources WITH (security_barrier = true) AS
          ps.source_role
   FROM protocol_sources ps
   JOIN protocols p ON p.id = ps.protocol_id
-  WHERE p.workflow_status = 'published';
+  WHERE p.publication_state = 'published';
 --> statement-breakpoint
 
 -- --- Route, regulatory, quality, disagreement -----------------------------
@@ -354,23 +357,23 @@ CREATE VIEW public_v_peptide_routes WITH (security_barrier = true) AS
          source_location_id, population_model, formulation, pk_notes,
          bioavailability_notes, limitations_notes, published_at
   FROM peptide_routes
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 CREATE VIEW public_v_regulatory_statuses WITH (security_barrier = true) AS
   SELECT id, peptide_id, jurisdiction, indication_context, status, authority,
          source_id, source_location_id, checked_at, notes, published_at
   FROM regulatory_statuses
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 CREATE VIEW public_v_quality_topics WITH (security_barrier = true) AS
   SELECT id, quality_key, name, slug, short_description, simple_summary,
          practitioner_summary, what_it_proves, what_it_does_not_prove,
          common_misinterpretations, version, published_at, last_reviewed_at,
-         sort_order
+         needs_update, sort_order
   FROM quality_topics
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 CREATE VIEW public_v_disagreements WITH (security_barrier = true) AS
@@ -378,7 +381,7 @@ CREATE VIEW public_v_disagreements WITH (security_barrier = true) AS
          plain_language_text, candidate_explanation, explanation_notes,
          resolution_requirement, published_at
   FROM disagreements
-  WHERE workflow_status = 'published';
+  WHERE publication_state = 'published';
 --> statement-breakpoint
 
 CREATE VIEW public_v_disagreement_positions WITH (security_barrier = true) AS
@@ -386,7 +389,7 @@ CREATE VIEW public_v_disagreement_positions WITH (security_barrier = true) AS
          dp.evidence_type_key, dp.position_text, dp.sort_order
   FROM disagreement_positions dp
   JOIN disagreements d ON d.id = dp.disagreement_id
-  WHERE d.workflow_status = 'published';
+  WHERE d.publication_state = 'published';
 --> statement-breakpoint
 
 -- --- Publications, corrections, search ------------------------------------

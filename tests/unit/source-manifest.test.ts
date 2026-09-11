@@ -59,15 +59,23 @@ describe('source registry', () => {
     }
   });
 
-  it('keeps the source with an unresolved attribution out of the citable set', () => {
-    // SRC-011 is recorded as Fields (ed.) but the held copy names Mant.
-    // Verification issue V-013: the identity of the copy is unresolved, so it
-    // is not treated as an authority until someone opens it and confirms.
+  it('records SRC-011 under the editor confirmed by inspection, not the filename', () => {
+    // The held copy's filename names Colin T. Mant, who wrote Chapter 1. Owner
+    // inspection confirmed the work is edited by Gregg B. Fields. Aggregator
+    // filenames are not bibliographic authority.
     const source = seedData.sourceManifest.sources.find((s) => s.source_key === 'SRC-011');
-    expect(source?.qc_status).toBe('pending');
-    expect(source?.authority_notes).toMatch(/V-013/);
+    expect(source?.authors).toEqual(['Gregg B. Fields (ed.)']);
+    expect(source?.year).toBe(2007);
+    expect(source?.publisher).toBe('Humana Press');
+    expect(source?.authority_notes).toMatch(/Mant/);
 
-    const issue = seedData.verificationIssues.find((i) => i.issueKey === 'V-013');
-    expect(issue?.priority).toBe('critical');
+    // The copy itself is still corrupted, so it cannot support published content.
+    expect(source?.qc_status).toBe('replace');
+
+    // The replacement remains an open task, and the general lesson is recorded.
+    expect(seedData.verificationIssues.find((i) => i.issueKey === 'V-013')).toBeDefined();
+    expect(seedData.verificationIssues.find((i) => i.issueKey === 'V-014')?.topic).toMatch(
+      /filename metadata/i,
+    );
   });
 });

@@ -1,6 +1,6 @@
 {
-  "id": "d525658c-b865-47a9-8512-f1d13df42585",
-  "prevId": "213290a4-442b-4df6-b093-81d3cbe020be",
+  "id": "f550f609-10ae-4a48-b6c5-cb51d8158d97",
+  "prevId": "44132fcf-d866-4e58-b181-ec4bcaa9c482",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -928,13 +928,56 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -977,11 +1020,26 @@
         }
       },
       "indexes": {
-        "peptides_workflow_status_idx": {
-          "name": "peptides_workflow_status_idx",
+        "peptides_review_state_idx": {
+          "name": "peptides_review_state_idx",
           "columns": [
             {
-              "expression": "workflow_status",
+              "expression": "review_state",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "peptides_publication_state_idx": {
+          "name": "peptides_publication_state_idx",
+          "columns": [
+            {
+              "expression": "publication_state",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -1137,13 +1195,56 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -1187,11 +1288,26 @@
         }
       },
       "indexes": {
-        "quality_topics_workflow_status_idx": {
-          "name": "quality_topics_workflow_status_idx",
+        "quality_topics_review_state_idx": {
+          "name": "quality_topics_review_state_idx",
           "columns": [
             {
-              "expression": "workflow_status",
+              "expression": "review_state",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "quality_topics_publication_state_idx": {
+          "name": "quality_topics_publication_state_idx",
+          "columns": [
+            {
+              "expression": "publication_state",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -1541,13 +1657,56 @@
           "notNull": true,
           "default": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -1614,11 +1773,26 @@
           "method": "btree",
           "with": {}
         },
-        "claims_workflow_status_idx": {
-          "name": "claims_workflow_status_idx",
+        "claims_review_state_idx": {
+          "name": "claims_review_state_idx",
           "columns": [
             {
-              "expression": "workflow_status",
+              "expression": "review_state",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "claims_publication_state_idx": {
+          "name": "claims_publication_state_idx",
+          "columns": [
+            {
+              "expression": "publication_state",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -1984,13 +2158,56 @@
           "notNull": true,
           "default": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -2063,11 +2280,26 @@
           "method": "btree",
           "with": {}
         },
-        "protocols_workflow_status_idx": {
-          "name": "protocols_workflow_status_idx",
+        "protocols_review_state_idx": {
+          "name": "protocols_review_state_idx",
           "columns": [
             {
-              "expression": "workflow_status",
+              "expression": "review_state",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "protocols_publication_state_idx": {
+          "name": "protocols_publication_state_idx",
+          "columns": [
+            {
+              "expression": "publication_state",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -2362,13 +2594,56 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -2549,13 +2824,56 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -2783,13 +3101,56 @@
           "primaryKey": false,
           "notNull": false
         },
-        "workflow_status": {
-          "name": "workflow_status",
-          "type": "workflow_status",
+        "review_state": {
+          "name": "review_state",
+          "type": "review_state",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
           "default": "'unreviewed'"
+        },
+        "publication_state": {
+          "name": "publication_state",
+          "type": "publication_state_value",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'unpublished'"
+        },
+        "needs_update": {
+          "name": "needs_update",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "needs_update_reason": {
+          "name": "needs_update_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "editorial_state": {
+          "name": "editorial_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "generated": {
+            "as": "case\n        when review_state = 'rejected' then 'rejected'\n        when publication_state = 'superseded' then 'superseded'\n        when publication_state = 'withdrawn' then 'withdrawn'\n        when publication_state = 'published' and needs_update then 'published_needs_update'\n        when publication_state = 'published' then 'published'\n        when needs_update then 'needs_update'\n        when review_state = 'compliance_reviewed' then 'compliance_reviewed'\n        when review_state = 'clinical_reviewed' then 'clinical_reviewed'\n        when review_state = 'scientific_reviewed' then 'scientific_reviewed'\n        when review_state = 'primary_source_checked' then 'primary_source_checked'\n        when review_state = 'source_checked' then 'source_checked'\n        when review_state = 'captured' then 'captured'\n        else 'unreviewed'\n      end",
+            "type": "stored"
+          }
+        },
+        "withdrawn_at": {
+          "name": "withdrawn_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "superseded_at": {
+          "name": "superseded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
         },
         "version": {
           "name": "version",
@@ -3210,7 +3571,7 @@
         },
         "status": {
           "name": "status",
-          "type": "publication_status",
+          "type": "document_status",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
@@ -3750,17 +4111,15 @@
           "primaryKey": false,
           "notNull": false
         },
-        "previous_workflow_status": {
-          "name": "previous_workflow_status",
-          "type": "workflow_status",
-          "typeSchema": "public",
+        "previous_editorial_state": {
+          "name": "previous_editorial_state",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "new_workflow_status": {
-          "name": "new_workflow_status",
-          "type": "workflow_status",
-          "typeSchema": "public",
+        "new_editorial_state": {
+          "name": "new_editorial_state",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
@@ -4278,6 +4637,18 @@
         "unresolved"
       ]
     },
+    "public.document_status": {
+      "name": "document_status",
+      "schema": "public",
+      "values": [
+        "draft",
+        "in_review",
+        "published",
+        "needs_update",
+        "superseded",
+        "archived"
+      ]
+    },
     "public.evidence_class": {
       "name": "evidence_class",
       "schema": "public",
@@ -4306,16 +4677,14 @@
         "commentary"
       ]
     },
-    "public.publication_status": {
-      "name": "publication_status",
+    "public.publication_state_value": {
+      "name": "publication_state_value",
       "schema": "public",
       "values": [
-        "draft",
-        "in_review",
+        "unpublished",
         "published",
-        "needs_update",
-        "superseded",
-        "archived"
+        "withdrawn",
+        "superseded"
       ]
     },
     "public.publication_type": {
@@ -4372,6 +4741,20 @@
       "values": [
         "approved",
         "changes_requested",
+        "rejected"
+      ]
+    },
+    "public.review_state": {
+      "name": "review_state",
+      "schema": "public",
+      "values": [
+        "unreviewed",
+        "captured",
+        "source_checked",
+        "primary_source_checked",
+        "scientific_reviewed",
+        "clinical_reviewed",
+        "compliance_reviewed",
         "rejected"
       ]
     },
@@ -4434,23 +4817,6 @@
         "scientific_reviewer",
         "clinical_reviewer",
         "compliance_reviewer"
-      ]
-    },
-    "public.workflow_status": {
-      "name": "workflow_status",
-      "schema": "public",
-      "values": [
-        "unreviewed",
-        "captured",
-        "source_checked",
-        "primary_source_checked",
-        "scientific_reviewed",
-        "clinical_reviewed",
-        "compliance_reviewed",
-        "published",
-        "needs_update",
-        "superseded",
-        "rejected"
       ]
     }
   },

@@ -32,7 +32,7 @@ export default async function QualityTopicDetailPage({
       <PageHeader
         title={topic.name}
         description={topic.qualityKey}
-        actions={<StatusBadge status={topic.workflowStatus} />}
+        actions={<StatusBadge status={topic.editorialState} />}
       />
 
       <div className="grid gap-8 lg:grid-cols-[1fr_20rem]">
@@ -49,7 +49,7 @@ export default async function QualityTopicDetailPage({
             entityId={topic.id}
             role={session.role}
             canPublish={gate?.canPublish ?? false}
-            workflowStatus={topic.workflowStatus}
+            editorialState={topic.editorialState}
           />
         </aside>
       </div>

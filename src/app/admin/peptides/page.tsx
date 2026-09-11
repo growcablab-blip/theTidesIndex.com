@@ -30,7 +30,7 @@ export default async function PeptidesPage() {
                 <p className="font-mono text-xs text-slate">{peptide.peptideKey}</p>
               </Cell>
               <Cell>
-                <StatusBadge status={peptide.workflowStatus} />
+                <StatusBadge status={peptide.editorialState} />
                 <p className="mt-1 text-xs text-slate">v{peptide.version}</p>
               </Cell>
               <Cell className="text-sm">

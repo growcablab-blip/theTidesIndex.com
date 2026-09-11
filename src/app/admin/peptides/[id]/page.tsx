@@ -52,7 +52,7 @@ export default async function PeptideDetailPage({
       <PageHeader
         title={peptide.canonicalName}
         description={`${peptide.peptideKey}${peptide.compoundTypeLabel ? ` · ${peptide.compoundTypeLabel}` : ''}`}
-        actions={<StatusBadge status={peptide.workflowStatus} />}
+        actions={<StatusBadge status={peptide.editorialState} />}
       />
 
       {peptide.isPeptide === false ? (
@@ -124,7 +124,7 @@ export default async function PeptideDetailPage({
                     <Cell>{claim.importance}</Cell>
                     <Cell>{claim.evidenceCount}</Cell>
                     <Cell>
-                      <StatusBadge status={claim.workflowStatus} />
+                      <StatusBadge status={claim.editorialState} />
                     </Cell>
                   </Row>
                 ))}
@@ -162,7 +162,7 @@ export default async function PeptideDetailPage({
                     <Cell>{protocol.routeKey ?? '—'}</Cell>
                     <Cell>{protocol.sourceCount}</Cell>
                     <Cell>
-                      <StatusBadge status={protocol.workflowStatus} />
+                      <StatusBadge status={protocol.editorialState} />
                     </Cell>
                   </Row>
                 ))}
@@ -180,7 +180,7 @@ export default async function PeptideDetailPage({
             entityId={peptide.id}
             role={session.role}
             canPublish={gate?.canPublish ?? false}
-            workflowStatus={peptide.workflowStatus}
+            editorialState={peptide.editorialState}
           />
         </aside>
       </div>

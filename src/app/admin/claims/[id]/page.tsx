@@ -60,7 +60,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             ? `Claim about ${claim.peptideName}`
             : 'Claim not attached to a compound'
         }
-        actions={<StatusBadge status={claim.workflowStatus} />}
+        actions={<StatusBadge status={claim.editorialState} />}
       />
 
       <div className="grid gap-8 lg:grid-cols-[1fr_20rem]">
@@ -166,7 +166,7 @@ export default async function ClaimDetailPage({ params }: { params: Promise<{ id
             entityId={claim.id}
             role={session.role}
             canPublish={gate?.canPublish ?? false}
-            workflowStatus={claim.workflowStatus}
+            editorialState={claim.editorialState}
           />
         </aside>
       </div>

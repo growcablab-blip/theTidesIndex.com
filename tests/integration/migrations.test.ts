@@ -76,6 +76,26 @@ describe('migrations', () => {
     expect(rows.length).toBeGreaterThan(0);
   });
 
+  it('keeps verification state and publication state as separate columns', async () => {
+    // The combinations matter: scientifically reviewed but unpublished,
+    // published but flagged for update, previously published and superseded.
+    // A single ladder cannot express those.
+    const rows = await query<{ column_name: string; is_generated: string }>(
+      db,
+      `select column_name, is_generated from information_schema.columns
+       where table_name = 'claims'
+         and column_name in ('review_state', 'publication_state', 'needs_update', 'editorial_state')`,
+    );
+    const byName = new Map(rows.map((r) => [r.column_name, r.is_generated]));
+
+    expect(byName.get('review_state')).toBe('NEVER');
+    expect(byName.get('publication_state')).toBe('NEVER');
+    expect(byName.get('needs_update')).toBe('NEVER');
+    // The canonical label is derived, so it can never contradict the two
+    // dimensions it summarises.
+    expect(byName.get('editorial_state')).toBe('ALWAYS');
+  });
+
   it('separates human from preclinical evidence as a queryable attribute', async () => {
     const rows = await query<{ column_name: string }>(
       db,
@@ -95,12 +115,15 @@ describe('migrations', () => {
     const triggers = rows.map((r) => r.tgname);
 
     for (const expected of [
-      'claims_publish_gate',
-      'protocols_publish_gate',
-      'peptides_publish_gate',
-      'quality_topics_publish_gate',
-      'peptide_routes_publish_gate',
-      'regulatory_statuses_publish_gate',
+      'claims_c_publish_gate',
+      'protocols_c_publish_gate',
+      'peptides_c_publish_gate',
+      'quality_topics_c_publish_gate',
+      'peptide_routes_c_publish_gate',
+      'regulatory_statuses_c_publish_gate',
+      'claims_b_coherence',
+      'protocols_b_coherence',
+      'peptides_b_coherence',
       'claims_revision',
       'protocols_revision',
       'claim_evidence_provenance_guard',

@@ -24,7 +24,7 @@ import {
   recordReview,
   reviewInput,
   setStaffActive,
-  setWorkflowStatus,
+  setPublicationState,
   sourceInput,
   sourceLocationInput,
   staffProfileInput,
@@ -301,15 +301,9 @@ export async function publishAction(
   return result;
 }
 
-const withdrawStatus = z.enum([
-  'unreviewed',
-  'captured',
-  'needs_update',
-  'superseded',
-  'rejected',
-]);
+const publicationStateChange = z.enum(['unpublished', 'withdrawn', 'superseded']);
 
-export async function setWorkflowStatusAction(
+export async function setPublicationStateAction(
   _state: ActionResult | null,
   formData: FormData,
 ): Promise<ActionResult> {
@@ -317,13 +311,21 @@ export async function setWorkflowStatusAction(
 
   const entityType = publishableEntity.safeParse(text(formData, 'entityType'));
   const entityId = z.uuid().safeParse(text(formData, 'entityId'));
-  const status = withdrawStatus.safeParse(text(formData, 'status'));
+  const state = publicationStateChange.safeParse(text(formData, 'state'));
 
-  if (!entityType.success || !entityId.success || !status.success) {
+  if (!entityType.success || !entityId.success || !state.success) {
     return fail('That change could not be identified.');
   }
 
-  const result = await setWorkflowStatus(getStaffDb(), session, entityType.data, entityId.data, status.data);
+  const reason = text(formData, 'reason').trim();
+  const result = await setPublicationState(
+    getStaffDb(),
+    session,
+    entityType.data,
+    entityId.data,
+    state.data,
+    reason === '' ? undefined : reason,
+  );
   if (result.ok) {
     revalidatePath('/admin/review');
     revalidatePath('/admin');

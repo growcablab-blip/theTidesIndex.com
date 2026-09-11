@@ -16,12 +16,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "db:dev": "tsx scripts/db/dev-server.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx scripts/db/migrate.ts",
     "db:seed": "tsx scripts/db/seed.ts",
     "db:check": "drizzle-kit check",
-    "verify": "npm run lint && npm run typecheck && npm run test && npm run build",
-    "sources:verify": "tsx scripts/sources/verify-sources.ts"
+    "sources:verify": "tsx scripts/sources/verify-sources.ts",
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
+    "@electric-sql/pglite-socket": "^0.2.11",
     "@eslint/js": "^9.39.5",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^22.20.2",

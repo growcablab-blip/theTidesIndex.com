@@ -73,7 +73,7 @@ describe('publish gate parity between the domain layer and the database', () => 
   async function databaseAllowsPublish(table: string, id: string): Promise<boolean> {
     const message = await rejectionMessage(
       db.execute(
-        sql.raw(`update ${table} set workflow_status = 'published' where id = '${id}'`),
+        sql.raw(`update ${table} set publication_state = 'published' where id = '${id}'`),
       ),
     ).catch(() => null);
     return message === null;
