@@ -18,6 +18,7 @@ export * from './peptides';
 export * from './quality';
 export * from './claims';
 export * from './evidence-gaps';
+export * from './quality-map';
 export * from './protocols';
 export * from './evidence-context';
 export * from './publications';

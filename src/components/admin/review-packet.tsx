@@ -1,4 +1,8 @@
-import type { ReviewPacket, ReviewPacketClaim } from '@/server/editorial/queries';
+import type {
+  ReviewPacket,
+  ReviewPacketClaim,
+  ReviewPacketRelationship,
+} from '@/server/editorial/queries';
 import { Empty, NotRecorded, StatusBadge } from './primitives';
 
 /**
@@ -14,8 +18,26 @@ import { Empty, NotRecorded, StatusBadge } from './primitives';
  * extraction could not support, put in front of the reviewer to be confirmed as
  * absences rather than discovered as omissions.
  */
+/**
+ * How each edge of the map reads to a person. The label states the
+ * relationship; the rationale underneath says why; the basis says which record
+ * it rests on. A reviewer should be able to disagree with any of the three.
+ */
+const RELATIONSHIP_LABELS: Readonly<Record<string, string>> = {
+  complementary: 'Read alongside this',
+  commonly_conflated: 'Routinely confused with this — and a different question',
+  not_addressed_by: 'This test says nothing about',
+  same_process: 'Part of the same process',
+  other_attribute: 'A separate attribute of the same material',
+  scoped_by: 'What this result is a statement about',
+};
+
 export function ReviewPacketPanel({ packet }: { packet: ReviewPacket }) {
-  if (packet.claims.length === 0 && packet.gaps.length === 0) {
+  if (
+    packet.claims.length === 0 &&
+    packet.gaps.length === 0 &&
+    packet.relationships.length === 0
+  ) {
     return <Empty>No claims have been extracted for this topic yet.</Empty>;
   }
 
@@ -62,6 +84,81 @@ export function ReviewPacketPanel({ packet }: { packet: ReviewPacket }) {
           </ul>
         </section>
       ) : null}
+
+      {packet.relationships.length > 0 ? (
+        <section>
+          <h3 className="font-serif text-lg text-deep-tide">Related quality topics</h3>
+          <p className="mt-1 text-sm text-slate">
+            What else this result relates to, and what it does not answer. An edge that says
+            what a test does not establish must point at the claim or the recorded gap
+            behind it — the map is a way into the evidence, never a second place it is
+            stated.
+          </p>
+          <div className="mt-4 space-y-6">
+            {groupByRelationship(packet.relationships).map(([type, group]) => (
+              <div key={type}>
+                {/* Grouped, because the relationship is the point and repeating it
+                    above every row buries it. */}
+                <h4 className="text-xs font-semibold tracking-wide text-deep-tide uppercase">
+                  {RELATIONSHIP_LABELS[type] ?? type}
+                </h4>
+                <ul className="mt-2 space-y-3">
+                  {group.map((relationship) => (
+                    <li key={relationship.toSlug}>
+                      <RelationshipRow relationship={relationship} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </div>
+  );
+}
+
+/** Preserves the map's own ordering, both within a group and across groups. */
+function groupByRelationship(
+  relationships: readonly ReviewPacketRelationship[],
+): [string, ReviewPacketRelationship[]][] {
+  const groups = new Map<string, ReviewPacketRelationship[]>();
+  for (const relationship of relationships) {
+    const group = groups.get(relationship.relationshipType) ?? [];
+    group.push(relationship);
+    groups.set(relationship.relationshipType, group);
+  }
+  return [...groups];
+}
+
+function RelationshipRow({ relationship }: { relationship: ReviewPacketRelationship }) {
+  const basis =
+    relationship.claimKey ??
+    relationship.gapKey ??
+    (relationship.isEditorialNavigational ? null : 'no basis recorded');
+
+  return (
+    <div className="border-l-2 border-rule pl-4">
+      <p className="text-sm font-medium text-ink">
+        {relationship.toName}
+        {relationship.toEditorialState !== 'published' ? (
+          // An edge may point at a topic with nothing written yet. Saying so is
+          // more useful to a reader than hiding the relationship.
+          <span className="ml-2 text-xs tracking-wide text-slate uppercase">
+            {relationship.toEditorialState.replaceAll('_', ' ')}
+          </span>
+        ) : null}
+      </p>
+      <p className="mt-1 text-sm text-slate">{relationship.rationale}</p>
+      <p className="mt-1 text-xs text-slate">
+        {basis === null ? (
+          'Structural link — asserts nothing about what either test establishes.'
+        ) : (
+          <>
+            Rests on <span className="font-mono">{basis}</span>
+          </>
+        )}
+      </p>
     </div>
   );
 }

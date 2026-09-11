@@ -241,3 +241,28 @@ export const correctionSeverity = pgEnum('correction_severity', [
   'substantive',
   'material_medical',
 ]);
+
+/**
+ * How one quality topic relates to another.
+ *
+ * The distinctions carry weight, so they are typed rather than left to prose.
+ * The two that make a claim about what a test does or does not establish —
+ * `commonly_conflated` and `not_addressed_by` — cannot be asserted as bare
+ * navigation: a check constraint requires them to cite the claim or the recorded
+ * gap that establishes them. The map is a way into the evidence, never a second
+ * place where evidence is stated.
+ */
+export const qualityRelationship = pgEnum('quality_relationship', [
+  /** A different technique answering a different question about the same material. */
+  'complementary',
+  /** Readers routinely read one result as answering the other's question. */
+  'commonly_conflated',
+  /** This test carries no information about that attribute. */
+  'not_addressed_by',
+  /** Two stages of one production or evaluation cycle. */
+  'same_process',
+  /** A separate quality attribute of the same material, established by its own testing. */
+  'other_attribute',
+  /** What the result is a statement about: which material, which batch, when. */
+  'scoped_by',
+]);

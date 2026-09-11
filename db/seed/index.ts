@@ -2,6 +2,7 @@ import { sql } from 'drizzle-orm';
 import type { PgDatabase, PgQueryResultHKT } from 'drizzle-orm/pg-core';
 import * as schema from '../schema';
 import { loadEvidencePackets } from './evidence-packets';
+import { loadQualityMap } from './quality-map';
 import { seedData } from './seed-data';
 
 /**
@@ -32,6 +33,7 @@ export interface SeedResult {
   claims: number;
   claimEvidence: number;
   evidenceGaps: number;
+  qualityRelationships: number;
 }
 
 export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
@@ -44,6 +46,8 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
   const packets = await loadEvidencePackets(db);
   const total = (field: 'locations' | 'claims' | 'evidence' | 'gaps'): number =>
     packets.reduce((sum, p) => sum + p[field], 0);
+  // The map cites the claims and gaps the packets created, so it loads last.
+  const qualityRelationships = await loadQualityMap(db);
 
   return {
     sourceTypes: seedData.sourceTypes.length,
@@ -61,6 +65,7 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     claims: total('claims'),
     claimEvidence: total('evidence'),
     evidenceGaps: total('gaps'),
+    qualityRelationships,
   };
 }
 

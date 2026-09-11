@@ -688,3 +688,73 @@ during C.1 has been replaced by it. Extraction is only reproducible if the next
 person can open the same page.
 
 **152 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.3 — The quality map
+
+A certificate of analysis is a list of separate answers, and it gets read as one
+verdict. The map is the structure that holds them apart: for a given test, what
+else it relates to and — the half that actually helps — what it does not answer.
+
+`quality_relationships` holds typed directed edges. Six types, each carrying a
+one-sentence rationale: `complementary`, `commonly_conflated`,
+`not_addressed_by`, `same_process`, `other_attribute`, `scoped_by`.
+
+### C.3.1 The map must not become a second evidence layer
+
+"A purity figure says nothing about sterility" is a statement about evidence. A
+map free to assert it would be a second place where medical content is written —
+outside the provenance chain, outside the publish gates, and much easier to edit
+than a claim. That is the failure this design is built against.
+
+So `quality_relationships_basis` requires the two types that make such a
+statement, `commonly_conflated` and `not_addressed_by`, to cite the claim that
+establishes it or the recorded gap that explains why the register cannot. The
+remaining types may declare themselves structural, and a structural edge must not
+smuggle an assertion into its rationale.
+
+The distinction the design turns on is visible in one row: the sterility edge
+cites `hplc-purity-gap-01`, not a claim. This index does not know that purity
+says nothing about sterility because a source said so — it knows that no source
+it holds addresses sterility at all. Those are different facts, and the map
+points at the right one.
+
+### C.3.2 The HPLC hub
+
+Eleven edges. Identity testing and content/assay as `commonly_conflated`, resting
+on HPLC-002 and HPLC-005; mass spectrometry as `complementary` on HPLC-006;
+purification as `same_process`; sterility and bacterial endotoxin as
+`not_addressed_by`, resting on the recorded gaps; residual solvents, water
+content, pH and heavy metals as structural `other_attribute` links; batch
+traceability as `scoped_by`.
+
+pH and heavy metals were added as empty topic shells, since the map needed
+somewhere to point. Nothing is written on them.
+
+Residual solvents is *not* recorded as `not_addressed_by`, though it would have
+been an easy edge to write. Whether chromatographic purity bears on residual
+solvents is a claim, and no source in the register supports one either way, so
+the edge says only that it is a separate attribute.
+
+### C.3.3 An edge may point at an empty room
+
+`public_v_quality_relationships` is gated on the topic the reader is *on*, not the
+topic being pointed at, and carries the target's publication state. An edge to a
+topic with nothing written is worth showing: "sterility is a separate question
+and this index has no record for it" is true and useful, and hiding it would
+leave purity looking like the whole story. Same choice as the compound register
+in migration 0006.
+
+### C.3.4 Two things caught by looking at the output
+
+The map renders into the reviewer's packet, grouped by relationship type. Reading
+that output rather than trusting the JSON caught both:
+
+- The label repeated above every row, burying the relationship it was meant to
+  foreground. Now grouped.
+- The water-content edge read "it bears on how a purity figure relates to the
+  mass in a vial" — which is precisely the inference HPLC-005's uncertainty text
+  says is "not asserted here", appearing on a structural edge that cites nothing.
+  Exactly the smuggling the basis rule exists to prevent, arriving through the
+  one door the rule leaves open. Rewritten to assert nothing.
+
+**162 tests.** Lint, typecheck, tests and production build pass.

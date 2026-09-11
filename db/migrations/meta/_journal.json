@@ -78,6 +78,13 @@
       "when": 1789138146104,
       "tag": "0010_evidence_packets",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1789143354208,
+      "tag": "0011_quality_map",
+      "breakpoints": true
     }
   ]
 }

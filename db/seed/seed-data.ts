@@ -193,6 +193,39 @@ export type EvidencePacket = z.infer<typeof evidencePacketSchema>;
 /** Packets are listed explicitly: adding one is an editorial decision. */
 const EVIDENCE_PACKET_FILES = ['evidence/hplc-purity.json'] as const;
 
+/**
+ * The quality map: typed edges between quality topics.
+ *
+ * `claimKey` and `gapKey` are the edge's basis. The database refuses a
+ * `commonly_conflated` or `not_addressed_by` edge that has neither, because
+ * those two say something about what a test establishes and must resolve to the
+ * evidence layer rather than restating it.
+ */
+const qualityEdgeSchema = z.object({
+  from: z.string().min(1),
+  to: z.string().min(1),
+  relationshipType: z.enum([
+    'complementary',
+    'commonly_conflated',
+    'not_addressed_by',
+    'same_process',
+    'other_attribute',
+    'scoped_by',
+  ]),
+  rationale: z.string().min(1),
+  claimKey: z.string().nullable().default(null),
+  gapKey: z.string().nullable().default(null),
+  isEditorialNavigational: z.boolean().default(false),
+  sortOrder: z.number().int().default(0),
+});
+
+const qualityMapSchema = z.object({
+  note: z.string().min(1),
+  edges: z.array(qualityEdgeSchema).min(1),
+});
+
+export type QualityEdge = z.infer<typeof qualityEdgeSchema>;
+
 /** The source registry, as recorded in SOURCE_MANIFEST.json at the repo root. */
 const manifestSourceSchema = z.object({
   source_key: z.string().min(1),
@@ -258,6 +291,7 @@ export const seedData = {
   evidencePackets: EVIDENCE_PACKET_FILES.map((file) =>
     evidencePacketSchema.parse(loadJson(file)),
   ),
+  qualityMap: qualityMapSchema.parse(loadJson('quality_map.json')),
   sourceManifest: manifestSchema.parse(
     JSON.parse(
       readFileSync(fileURLToPath(new URL('../../SOURCE_MANIFEST.json', import.meta.url)), 'utf8'),

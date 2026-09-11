@@ -27,6 +27,7 @@ export type {
   ReviewPacketClaim,
   ReviewPacketEvidence,
   ReviewPacketGap,
+  ReviewPacketRelationship,
 } from './review-packet';
 
 export function asStaff<T>(

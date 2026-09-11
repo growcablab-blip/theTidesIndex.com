@@ -44,9 +44,28 @@ export interface ReviewPacketGap {
   readonly verificationIssueKey: string | null;
 }
 
+/**
+ * An edge out of this topic, with its basis attached.
+ *
+ * A reviewer judging "purity says nothing about sterility" needs to see which
+ * record the map is leaning on, because the map is not allowed to be the record.
+ */
+export interface ReviewPacketRelationship {
+  readonly relationshipType: string;
+  readonly rationale: string;
+  readonly claimKey: string | null;
+  readonly gapKey: string | null;
+  readonly isEditorialNavigational: boolean;
+  readonly toName: string;
+  readonly toSlug: string;
+  /** How far the target has got. An edge may point at an empty topic. */
+  readonly toEditorialState: string;
+}
+
 export interface ReviewPacket {
   readonly claims: readonly ReviewPacketClaim[];
   readonly gaps: readonly ReviewPacketGap[];
+  readonly relationships: readonly ReviewPacketRelationship[];
 }
 
 /**
@@ -69,7 +88,11 @@ export async function readQualityTopicReviewPacket(
   `);
   const claimRows = rows<Record<string, unknown>>(claimResult);
   if (claimRows.length === 0) {
-    return { claims: [], gaps: await gapsFor(tx, topicId) };
+    return {
+      claims: [],
+      gaps: await gapsFor(tx, topicId),
+      relationships: await relationshipsFor(tx, topicId),
+    };
   }
 
   const evidenceResult = await tx.execute(sql`
@@ -116,6 +139,7 @@ export async function readQualityTopicReviewPacket(
       evidence: byClaim.get(String(r.id)) ?? [],
     })),
     gaps: await gapsFor(tx, topicId),
+    relationships: await relationshipsFor(tx, topicId),
   };
 }
 
@@ -131,6 +155,31 @@ async function gapsFor(tx: Database, topicId: string): Promise<ReviewPacketGap[]
     whyNotSupported: String(r.why_not_supported),
     whatWouldResolveIt: str(r.what_would_resolve_it),
     verificationIssueKey: str(r.verification_issue_key),
+  }));
+}
+
+async function relationshipsFor(
+  tx: Database,
+  topicId: string,
+): Promise<ReviewPacketRelationship[]> {
+  const result = await tx.execute(sql`
+    select r.relationship_type, r.rationale, r.claim_key, r.gap_key,
+           r.is_editorial_navigational,
+           t.name, t.slug, t.editorial_state
+    from quality_relationships r
+    join quality_topics t on t.id = r.to_topic_id
+    where r.from_topic_id = ${topicId}
+    order by r.sort_order
+  `);
+  return rows<Record<string, unknown>>(result).map((r) => ({
+    relationshipType: String(r.relationship_type),
+    rationale: String(r.rationale),
+    claimKey: str(r.claim_key),
+    gapKey: str(r.gap_key),
+    isEditorialNavigational: Boolean(r.is_editorial_navigational),
+    toName: String(r.name),
+    toSlug: String(r.slug),
+    toEditorialState: String(r.editorial_state),
   }));
 }
 

@@ -1,0 +1,93 @@
+{
+  "note": "How quality topics relate. Edges asserting what a test does or does not establish must cite the claim or the recorded gap behind them; the database refuses them otherwise. Structural edges declare themselves navigational and must not smuggle an assertion into the rationale. This is the HPLC hub only — other topics gain their own edges when they gain their own evidence.",
+  "edges": [
+    {
+      "from": "hplc-purity",
+      "to": "identity-testing",
+      "relationshipType": "commonly_conflated",
+      "rationale": "A high purity figure is routinely read as confirmation that the material is what the label says. It is not: chromatography separates, and separation yields no information about covalent structure. Identity is a separate question with its own test.",
+      "claimKey": "HPLC-002",
+      "sortOrder": 10
+    },
+    {
+      "from": "hplc-purity",
+      "to": "peptide-content-assay",
+      "relationshipType": "commonly_conflated",
+      "rationale": "Purity and amount are different measurements. A preparation can be highly pure and still contain much less peptide than expected, because purity describes the proportions of what was detected, not the mass of peptide in a vial.",
+      "claimKey": "HPLC-005",
+      "sortOrder": 20
+    },
+    {
+      "from": "hplc-purity",
+      "to": "mass-spectrometry",
+      "relationshipType": "complementary",
+      "rationale": "Chromatography shows how many species are present; mass spectrometry shows what they weigh, and therefore bears on what they are. The two are designed to be read together.",
+      "claimKey": "HPLC-006",
+      "sortOrder": 30
+    },
+    {
+      "from": "hplc-purity",
+      "to": "purification",
+      "relationshipType": "same_process",
+      "rationale": "The same separation that measures how mixed a preparation is, is also how it is purified. Assessment and purification are stages of one cycle rather than separate activities.",
+      "claimKey": "HPLC-002",
+      "sortOrder": 40
+    },
+    {
+      "from": "hplc-purity",
+      "to": "sterility",
+      "relationshipType": "not_addressed_by",
+      "rationale": "Sterility is a microbiological question and chromatography does not address it. This index holds no source on sterility testing, so it records the gap rather than asserting the conclusion.",
+      "gapKey": "hplc-purity-gap-01",
+      "sortOrder": 50
+    },
+    {
+      "from": "hplc-purity",
+      "to": "bacterial-endotoxin",
+      "relationshipType": "not_addressed_by",
+      "rationale": "Bacterial endotoxin is likewise a microbiological attribute of a finished preparation, tested by a method this register holds no source for.",
+      "gapKey": "hplc-purity-gap-02",
+      "sortOrder": 60
+    },
+    {
+      "from": "hplc-purity",
+      "to": "residual-solvents",
+      "relationshipType": "other_attribute",
+      "rationale": "Solvents from synthesis and purification are a separate attribute with their own testing. This index holds no source on that testing yet, so the topic is registered rather than written.",
+      "isEditorialNavigational": true,
+      "sortOrder": 70
+    },
+    {
+      "from": "hplc-purity",
+      "to": "water-content",
+      "relationshipType": "other_attribute",
+      "rationale": "Water content is a separate attribute with its own testing. This index holds no source on it yet, so the topic is registered rather than written.",
+      "isEditorialNavigational": true,
+      "sortOrder": 80
+    },
+    {
+      "from": "hplc-purity",
+      "to": "ph",
+      "relationshipType": "other_attribute",
+      "rationale": "The pH of a reconstituted solution is a separate attribute with its own measurement. This index holds no source on it yet.",
+      "isEditorialNavigational": true,
+      "sortOrder": 90
+    },
+    {
+      "from": "hplc-purity",
+      "to": "heavy-metals",
+      "relationshipType": "other_attribute",
+      "rationale": "Elemental impurities are a separate attribute with their own testing. This index holds no source on that testing yet, so the topic is registered rather than written.",
+      "isEditorialNavigational": true,
+      "sortOrder": 100
+    },
+    {
+      "from": "hplc-purity",
+      "to": "batch-traceability",
+      "relationshipType": "scoped_by",
+      "rationale": "Every result describes the material that was tested. Which batch that was, and whether it is the batch in hand, is a record-keeping question rather than an analytical one — and it governs how far any result on this page reaches.",
+      "isEditorialNavigational": true,
+      "sortOrder": 110
+    }
+  ]
+}
