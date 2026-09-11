@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+/*
+ * The Tides Index — foundation design tokens.
+ * Source: DESIGN_SYSTEM.md. These are a starting palette; visual refinement is
+ * deliberately deferred to Phase D/E, after the evidence system works.
+ */
+@theme {
+  --color-ink: #0b1f2a;
+  --color-deep-tide: #123f4a;
+  --color-tide-teal: #1f6b73;
+  --color-sea-glass: #dcedef;
+  --color-mist: #f2f7f7;
+  --color-warm-white: #fbfcfa;
+  --color-slate: #66747b;
+  --color-rule: #d6e0e2;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+
+  /* Comfortable measure for long-form reference reading. */
+  --container-measure: 68ch;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-warm-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Never rely on colour alone to convey evidence or status (DESIGN_SYSTEM.md). */
+:where(a):focus-visible,
+:where(button):focus-visible,
+:where(input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-tide-teal);
+  outline-offset: 2px;
+}

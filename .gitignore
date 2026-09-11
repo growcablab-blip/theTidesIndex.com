@@ -1,28 +1,43 @@
-# Environment
+# Environment / secrets
 .env
 .env.*
 !.env.example
 
-# Node
+# Node / build
 node_modules/
 .next/
+out/
 dist/
 coverage/
 *.log
+*.tsbuildinfo
+.turbo/
 
-# OS/editor
+# OS / editor
 .DS_Store
 Thumbs.db
 .vscode/*
 !.vscode/extensions.json
+.idea/
 
-# Private research sources
-sources/**/*.pdf
-sources/**/*.epub
-sources/**/*.docx
+# ---------------------------------------------------------------------------
+# PRIVATE RESEARCH SOURCES
+# Copyrighted books are local-only research inputs. Nothing under sources/
+# is committed except the explanatory README. Do not weaken this rule.
+# ---------------------------------------------------------------------------
+sources/*
+!sources/README.md
+!sources/.gitkeep
 
-# Private imports
+# Private imports / extraction working files
 data/import/*
+!data/import/.gitkeep
+data/private/*
 
 # Generated publications
 publishing/pdf/generated/
+
+# Local database artefacts
+*.sqlite
+*.db
+.pglite/
