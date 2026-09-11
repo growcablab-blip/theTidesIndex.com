@@ -1047,3 +1047,50 @@ with explicit viewport sizes. A zero-width measurement is not a passing
 measurement, and a check that did not notice would have reported overflow forever.
 
 **287 tests.** Lint, typecheck, tests and production build pass.
+
+## Phase C.9 — The certificate page
+
+Full detail in `docs/PHASE_C9_REPORT.md` and
+`docs/CERTIFICATE_OF_ANALYSIS_GUIDE.md`. The C.5 architecture had been built and
+tested and never rendered; it is now a page.
+
+### C.9.0 Two failure modes hardened first
+
+**Semantic nulls.** A structured field holding "Not stated" had twice counted as
+populated. Now refused by `tides_is_placeholder` and check constraints on
+certificate and locator metadata, and mirrored in the fixture schema so a bad
+fixture fails at load with a readable message. The exception is deliberate and
+tested: `result_text` may hold "Not determined", because that is what the
+document reports — a source-reported negative is a finding, not a hole.
+
+**Invalid measurements.** `scripts/qa/visual-qa.ts` refuses to return pass or fail
+when the viewport or main region has zero width, the document has not loaded, or
+viewport emulation did not take. A run containing any invalid measurement is not
+a clean run, and an empty run is unchecked rather than clean.
+
+One calibration made against evidence: visibility started as an invalidator, and
+during this phase the pane was hidden while the page measured 1425px entirely
+correctly. A hidden tab still computes layout; the C.8 failure was zero width
+specifically. Invalidating on visibility would have made the guard refuse to
+grade anything in the environment it exists for, which is how a guard gets
+switched off. It is now a caveat.
+
+### C.9.1 The page's argument
+
+A reader arrives holding a document, not a question about chromatography. The
+analytical topics are therefore reached through the document rather than the
+other way round, and the omissions get as much room as the results: 31 marked
+absences and 5 unverified results on one page.
+
+### C.9.2 Scope reaching the reader three ways
+
+Q7 governs API and intermediate certificates. The specimen is a third-party
+report, which Q7 does not govern — so the page's own example is one the held
+requirements do not apply to. Three of five document families have no content
+requirement here at all, and the taxonomy says so rather than leaving a blank.
+
+The scope appears on the taxonomy card, in the `certificateTypeScope` field, and
+inside the claim text itself. A test asserts the third, because a scope living
+only in a field is one that can be dropped in rendering — which happened in C.5.
+
+**328 tests.** Lint, typecheck, tests and production build pass.

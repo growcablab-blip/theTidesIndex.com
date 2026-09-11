@@ -235,6 +235,42 @@ export type EvidencePacket = z.infer<typeof evidencePacketSchema>;
  */
 const NEWLINE = String.fromCharCode(10);
 
+/**
+ * Strings that mean "this field is empty" and must not be stored as though it
+ * were full.
+ *
+ * The same defect twice: a structured field carrying `"Not stated"` counted as
+ * populated, because a string existed. Absence belongs in the database as NULL;
+ * "Not stated" belongs in the presentation layer.
+ */
+const PLACEHOLDER_STRINGS = new Set([
+  'n/a', 'na', 'n.a.', 'not stated', 'notstated', 'unknown', 'none',
+  'not applicable', 'not available', 'not specified', 'not recorded',
+  'tbd', 'tba', 'null', 'nil', '-', '--', '?', '',
+]);
+
+export function isPlaceholderString(value: string): boolean {
+  return PLACEHOLDER_STRINGS.has(value.trim().toLowerCase());
+}
+
+/**
+ * A structured metadata field: a value, or null, and never a string standing in
+ * for null. Mirrors the database constraint so a fixture fails at load with a
+ * readable message rather than at insert with a constraint name.
+ *
+ * Not for prose, and not for a source-reported result — `"Not determined"` in a
+ * result field is what the document says, which is a finding rather than a hole.
+ */
+const structuredField = () =>
+  z
+    .string()
+    .nullable()
+    .default(null)
+    .refine((v) => v === null || !isPlaceholderString(v), {
+      message:
+        'record absence as null, not as a placeholder string; the interface renders "Not stated"',
+    });
+
 function parsePacket(file: string): EvidencePacket {
   const result = evidencePacketSchema.safeParse(loadJson(file));
   if (result.success) return result.data;
@@ -296,14 +332,14 @@ export type QualityEdge = z.infer<typeof qualityEdgeSchema>;
  */
 const specimenTestSchema = z.object({
   testName: z.string().min(1),
-  analyticalMethod: z.string().nullable().default(null),
-  methodReference: z.string().nullable().default(null),
-  referenceStandard: z.string().nullable().default(null),
-  specificationText: z.string().nullable().default(null),
+  analyticalMethod: structuredField(),
+  methodReference: structuredField(),
+  referenceStandard: structuredField(),
+  specificationText: structuredField(),
   resultNumeric: z.string().nullable().default(null),
-  resultUnit: z.string().nullable().default(null),
+  resultUnit: structuredField(),
   resultText: z.string().nullable().default(null),
-  attachmentReference: z.string().nullable().default(null),
+  attachmentReference: structuredField(),
   testDate: z.string().nullable().default(null),
   qualityKey: z.string().min(1),
   sortOrder: z.number().int().default(0),
@@ -322,31 +358,31 @@ const specimenCertificateSchema = z.object({
     'other_unknown',
   ]),
   documentTitle: z.string().min(1),
-  issuingEntity: z.string().nullable().default(null),
-  laboratoryName: z.string().nullable().default(null),
-  laboratoryAddress: z.string().nullable().default(null),
-  laboratoryContact: z.string().nullable().default(null),
-  manufacturerName: z.string().nullable().default(null),
-  manufacturerAddress: z.string().nullable().default(null),
-  distributorName: z.string().nullable().default(null),
+  issuingEntity: structuredField(),
+  laboratoryName: structuredField(),
+  laboratoryAddress: structuredField(),
+  laboratoryContact: structuredField(),
+  manufacturerName: structuredField(),
+  manufacturerAddress: structuredField(),
+  distributorName: structuredField(),
   documentDate: z.string().nullable().default(null),
-  reportNumber: z.string().nullable().default(null),
+  reportNumber: structuredField(),
   provenanceNotes: z.string().nullable().default(null),
-  statedMaterialName: z.string().nullable().default(null),
-  statedGrade: z.string().nullable().default(null),
-  statedStrength: z.string().nullable().default(null),
-  batchNumber: z.string().nullable().default(null),
-  manufacturerBatchNumber: z.string().nullable().default(null),
-  sampleIdentifier: z.string().nullable().default(null),
-  submittedSampleIdentifier: z.string().nullable().default(null),
+  statedMaterialName: structuredField(),
+  statedGrade: structuredField(),
+  statedStrength: structuredField(),
+  batchNumber: structuredField(),
+  manufacturerBatchNumber: structuredField(),
+  sampleIdentifier: structuredField(),
+  submittedSampleIdentifier: structuredField(),
   expiryDate: z.string().nullable().default(null),
   retestDate: z.string().nullable().default(null),
   testedMaterialScope: z.enum(['api', 'intermediate', 'bulk_material', 'finished_product', 'unknown']),
-  submittedBy: z.string().nullable().default(null),
+  submittedBy: structuredField(),
   chainOfCustodyKnown: z.boolean().nullable().default(null),
   batchLinkage: z.enum(['established', 'stated_only', 'not_established', 'unknown']),
   manufacturerIdentityEstablished: z.boolean().default(false),
-  authorisedBy: z.string().nullable().default(null),
+  authorisedBy: structuredField(),
   whatItDemonstrates: z.string().min(1),
   whatItDoesNotDemonstrate: z.string().min(1),
   provenanceGaps: z.string().nullable().default(null),

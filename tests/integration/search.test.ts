@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { seedDatabase } from '@db/seed';
 import { configureFuzzyMatching, search } from '@/server/search/search-service';
-import { closeTestDb, createTestDb, query, type TestDb } from '../support/test-db';
+import { closeTestDb, createTestDb, truncateContent, query, type TestDb } from '../support/test-db';
 import {
   approve,
   createStaff,
@@ -18,6 +18,10 @@ describe('search', () => {
 
   beforeAll(async () => {
     db = await createTestDb();
+    // This suite asserts what the search index does and does not contain, so it
+    // must start from an empty database rather than from whatever another suite
+    // published. Every file shares one instance.
+    await truncateContent(db);
     await seedDatabase(db);
     await configureFuzzyMatching(db);
     staff = await createStaff(db);
