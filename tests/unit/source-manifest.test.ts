@@ -72,10 +72,11 @@ describe('source registry', () => {
     // The copy itself is still corrupted, so it cannot support published content.
     expect(source?.qc_status).toBe('replace');
 
-    // The replacement remains an open task, and the general lesson is recorded.
+    // The replacement remains an open task, and the audit that settled the
+    // identity — and found five outright decoys — is recorded alongside it.
     expect(seedData.verificationIssues.find((i) => i.issueKey === 'V-013')).toBeDefined();
     expect(seedData.verificationIssues.find((i) => i.issueKey === 'V-014')?.topic).toMatch(
-      /filename metadata/i,
+      /not the works they claim to be/i,
     );
   });
 });

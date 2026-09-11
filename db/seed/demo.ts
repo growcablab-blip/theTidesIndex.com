@@ -48,9 +48,10 @@ async function ensureDemoStaff(db: SeedDb): Promise<Record<string, string>> {
 
   for (const [id, name, role] of people) {
     await db.execute(sql`
-      insert into profiles (user_id, display_name, role)
-      values (${id}, ${name}, ${role}::staff_role)
-      on conflict (user_id) do update set display_name = excluded.display_name
+      insert into profiles (user_id, display_name, role, is_demonstration)
+      values (${id}, ${name}, ${role}::staff_role, true)
+      on conflict (user_id) do update set display_name = excluded.display_name,
+                                          is_demonstration = true
     `);
   }
 
@@ -77,10 +78,11 @@ async function approve(
   const version = (rows[0] as { version?: number } | undefined)?.version ?? 1;
 
   await db.execute(sql`
-    insert into reviews (entity_type, entity_id, entity_version, review_type, reviewer_user_id, outcome, comments)
+    insert into reviews (entity_type, entity_id, entity_version, review_type,
+                         performed_by, reviewer_user_id, outcome, comments)
     values (${entityType}::reviewable_entity_type, ${entityId}, ${version},
-            ${reviewType}::review_type, ${reviewerId}, 'approved',
-            'Demonstration approval.')
+            ${reviewType}::review_type, 'human', ${reviewerId}, 'approved',
+            'Demonstration approval. Not a real review of real content.')
   `);
 }
 
@@ -99,16 +101,16 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
     sql`
       insert into sources (
         source_key, title, source_type_key, qc_status, authors, year, publisher,
-        primary_role, limitations_notes
+        primary_role, limitations_notes, is_demonstration
       ) values (
         ${DEMO_SOURCE_A},
         'Demonstration Source A — not a real publication',
         'primary_journal_article', 'usable',
         '["Demonstration Author"]'::jsonb, 2024, 'Not a real publisher',
         'Exists only to exercise this interface. Nothing attributed to it is a real finding.',
-        'Not a real work. Never cite it.'
+        'Not a real work. Never cite it.', true
       )
-      on conflict (source_key) do update set title = excluded.title
+      on conflict (source_key) do update set title = excluded.title, is_demonstration = true
       returning id
     `,
   );
@@ -118,16 +120,16 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
     sql`
       insert into sources (
         source_key, title, source_type_key, qc_status, authors, year,
-        primary_role, limitations_notes
+        primary_role, limitations_notes, is_demonstration
       ) values (
         ${DEMO_SOURCE_B},
         'Demonstration Source B — not a real publication',
         'practitioner_handbook', 'usable',
         '["Second Demonstration Author"]'::jsonb, 2023,
         'Exists only to exercise this interface. Nothing attributed to it is a real finding.',
-        'Not a real work. Never cite it.'
+        'Not a real work. Never cite it.', true
       )
-      on conflict (source_key) do update set title = excluded.title
+      on conflict (source_key) do update set title = excluded.title, is_demonstration = true
       returning id
     `,
   );
@@ -157,7 +159,8 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
       insert into peptides (
         peptide_key, canonical_name, slug, compound_type_key, primary_category_key,
         short_description, simple_summary, practitioner_summary, unknowns_summary,
-        sequence, molecular_description, natural_or_synthetic, evidence_cutoff_at
+        sequence, molecular_description, natural_or_synthetic, evidence_cutoff_at,
+        is_demonstration
       ) values (
         ${DEMO_PEPTIDE_KEY},
         'Demonstration Compound',
@@ -170,9 +173,10 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
         'Xaa-Xaa-Xaa (not a real sequence)',
         'Not a real molecule.',
         'Synthetic (fictional)',
-        '2026-01-01'
+        '2026-01-01', true
       )
-      on conflict (peptide_key) do update set canonical_name = excluded.canonical_name
+      on conflict (peptide_key) do update set canonical_name = excluded.canonical_name,
+                                              is_demonstration = true
       returning id
     `,
   );
@@ -408,7 +412,8 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
     sql`
       insert into quality_topics (
         quality_key, name, slug, short_description, simple_summary, practitioner_summary,
-        what_it_proves, what_it_does_not_prove, common_misinterpretations, sort_order
+        what_it_proves, what_it_does_not_prove, common_misinterpretations, sort_order,
+        is_demonstration
       ) values (
         'demo-analytical-test', 'Demonstration analytical test',
         'demonstration-analytical-test',
@@ -418,9 +423,9 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
         'It would establish a property of the specific sample that was analysed, at the time it was analysed.',
         'It would not establish the identity of the material, how much of it is in a given vial, whether that vial is sterile, or its endotoxin content. Those are four further questions, each answered by a different test. This half is required before a topic can be published.',
         'The common error is to read a single favourable number as proof of overall quality. A certificate of analysis is a set of separate answers, not one verdict.',
-        999
+        999, true
       )
-      on conflict (quality_key) do update set name = excluded.name
+      on conflict (quality_key) do update set name = excluded.name, is_demonstration = true
       returning id
     `,
   );

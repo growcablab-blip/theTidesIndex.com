@@ -50,6 +50,27 @@
       "when": 1789131291103,
       "tag": "0006_public_register_view",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1789136176779,
+      "tag": "0007_source_integrity_and_review_attribution",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1789136201184,
+      "tag": "0008_editorial_state_ready_rung",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1789136212023,
+      "tag": "0009_human_review_policy",
+      "breakpoints": true
     }
   ]
 }

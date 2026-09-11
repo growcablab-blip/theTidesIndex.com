@@ -23,6 +23,9 @@
     "db:demo": "tsx scripts/db/seed-demo.ts",
     "db:check": "drizzle-kit check",
     "sources:verify": "tsx scripts/sources/verify-sources.ts",
+    "sources:audit": "tsx scripts/sources/audit-sources.ts",
+    "sources:coverage": "tsx scripts/sources/domain-coverage.ts",
+    "sources:apply-audit": "tsx scripts/sources/apply-audit-findings.ts",
     "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
@@ -51,6 +54,7 @@
     "tsx": "^4.20.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0",
+    "unpdf": "^1.8.1",
     "vitest": "^5.0.0"
   }
 }

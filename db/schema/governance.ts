@@ -1,6 +1,7 @@
 import { sql } from 'drizzle-orm';
 import {
   boolean,
+  check,
   date,
   index,
   integer,
@@ -14,6 +15,7 @@ import {
   correctionSeverity,
   reviewClockClass,
   reviewOutcome,
+  reviewPerformer,
   reviewType,
   reviewableEntityType,
 } from './enums';
@@ -39,12 +41,26 @@ export const reviews = pgTable(
     entityVersion: integer().notNull().default(1),
 
     reviewType: reviewType().notNull(),
+
+    /**
+     * Human or automated. Only a human approval can satisfy a publish gate.
+     */
+    performedBy: reviewPerformer().notNull().default('human'),
     reviewerUserId: uuid().references(() => profiles.userId, { onDelete: 'set null' }),
+    /** Identifies the tool, for an automated check. Never a person's name. */
+    automatedTool: text(),
     outcome: reviewOutcome().notNull(),
     comments: text(),
     reviewedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    // A check is attributable either to a person or to a named tool, never to
+    // neither and never to both.
+    check(
+      'reviews_attribution',
+      sql`(performed_by = 'human' and reviewer_user_id is not null and automated_tool is null)
+          or (performed_by = 'automated' and automated_tool is not null and reviewer_user_id is null)`,
+    ),
     index('reviews_entity_idx').on(t.entityType, t.entityId),
     index('reviews_entity_version_idx').on(t.entityType, t.entityId, t.entityVersion),
     index('reviews_reviewer_idx').on(t.reviewerUserId),

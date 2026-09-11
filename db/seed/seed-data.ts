@@ -134,6 +134,19 @@ const manifestSourceSchema = z.object({
   public_fulltext_allowed: z.boolean(),
   authority_notes: z.string().nullable().default(null),
   limitations_notes: z.string().nullable().default(null),
+  isbn: z.string().nullable().default(null),
+  edition: z.string().nullable().default(null),
+  // Written by the source-integrity audit (verification issue V-014).
+  local_file_sha256: z.string().nullable().default(null),
+  local_file_bytes: z.number().int().nullable().default(null),
+  page_count: z.number().int().nullable().default(null),
+  title_page_verified: z.boolean().default(false),
+  bibliographic_verified: z.boolean().default(false),
+  title_page_title: z.string().nullable().default(null),
+  title_page_authors: z.string().nullable().default(null),
+  integrity_notes: z.string().nullable().default(null),
+  verified_at: z.string().nullable().default(null),
+  verified_by: z.string().nullable().default(null),
 });
 
 const manifestSchema = z.object({

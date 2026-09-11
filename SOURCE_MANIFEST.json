@@ -15,7 +15,20 @@
       "canonical_filename": "Seeds_Peptide_Protocols_Vol_1.pdf",
       "known_local_filename": "Peptide Protocol Dr. Seeds.pdf",
       "primary_role": "mechanisms, cellular systems, practitioner protocol examples",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. Title page, copyright page and full contents present; 322 pages. Registry matched the work exactly.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "A practitioner handbook. Authoritative for what its author describes; not a source of trial evidence.",
+      "title_page_title": "The Peptide Protocols, Volume 1: A Handbook for Practitioners",
+      "title_page_authors": "William A. Seeds, MD",
+      "publisher": "Spire Institute",
+      "isbn": "9780578624358",
+      "local_file_sha256": "433246e59ad12be57ee74b70066b30cf5339d22200b895709e3c0dfaf7cdd418",
+      "local_file_bytes": 1499936,
+      "page_count": 322
     },
     {
       "source_key": "SRC-002",
@@ -33,7 +46,19 @@
       "canonical_filename": "LaValle_Peptide_Handbook_2022.pdf",
       "known_local_filename": "Handbook-a-Professional-s-Guide-to-Peptide-Therapeutics-2022-Interactive.pdf",
       "primary_role": "monographs, routes, cautions, condition-based protocols",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. 281 pages, contents and monograph structure intact. Scanned rather than born-digital; text extraction is imperfect in places, so page locators should be confirmed visually.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "A practitioner handbook. Monograph statements are the authors’ practice, not study findings.",
+      "title_page_title": "Peptide Handbook: A Professional's Guide to Peptide Therapeutics",
+      "title_page_authors": "James B. LaValle, Gordon Crozier, Joseph P. Cleaver, Andrew Heyman",
+      "publisher": "Integrative Health Resources, LLC",
+      "local_file_sha256": "8db8385e88ea832b64091362387415f9195e8929bebc98fa909e465e795e9ee2",
+      "local_file_bytes": 99490395,
+      "page_count": 281
     },
     {
       "source_key": "SRC-003",
@@ -48,7 +73,18 @@
       "canonical_filename": "Campbell_Optimize_Your_Health_with_Therapeutic_Peptides.pdf",
       "known_local_filename": "Peptide book.pdf",
       "primary_role": "practitioner framing and practical organization",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. 264 pages.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Practitioner and personal-experience framing throughout. Usable as a record of what the author advocates; not evidence of effect.",
+      "title_page_title": "Optimize Your Health with Therapeutic Peptides: Extend Your Life by Becoming More Muscular, Leaner, Smarter, Injury-Free and Younger",
+      "title_page_authors": "Jay Campbell",
+      "local_file_sha256": "63638aaf103635769602651b7b6f4abcb7533b6f0a2fed4b528f9aaa4006f605",
+      "local_file_bytes": 3486844,
+      "page_count": 264
     },
     {
       "source_key": "SRC-004",
@@ -63,7 +99,18 @@
       "canonical_filename": "Campbell_Peptide_Cheat_Sheet.pdf",
       "known_local_filename": "Peptide cheat sheet 1.pdf",
       "primary_role": "quick-reference UX inspiration; protocol records require verification",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. 10 pages of tabulated regimens with no cited sources and no stated derivation.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "A quick-reference table with no provenance of its own. Every figure in it requires independent verification before it could support anything.",
+      "title_page_title": "Peptide Cheat Sheet",
+      "title_page_authors": "Jay Campbell",
+      "local_file_sha256": "40f1dc40ed3c7cf8ff18439e50ec12b2d60983f2750d42a1aef0dd8bc8831108",
+      "local_file_bytes": 4254636,
+      "page_count": 10
     },
     {
       "source_key": "SRC-005",
@@ -71,14 +118,25 @@
       "authors": [
         "Hack Smith"
       ],
-      "year": null,
+      "year": 2025,
       "source_type": "practitioner_handbook",
       "priority": "supporting",
       "qc_status": "usable",
       "canonical_filename": "Hack_Smith_Complete_Guide_to_Peptides.pdf",
       "known_local_filename": "Peptide book 3.pdf",
       "primary_role": "broad compound catalog, routes, storage, practical topics",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. 208 pages.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Self-published secondary compilation. Useful for discovering which compounds are discussed in practice; not an authority on any of them.",
+      "title_page_title": "The Complete Guide to Peptides: Unlocking the Secrets to Health, Healing, and Longevity",
+      "title_page_authors": "Hack Smith",
+      "local_file_sha256": "2422b05b24e0adf0c59959fa33aec4ca7ae0264a37b3b71d71582377e650c989",
+      "local_file_bytes": 38983223,
+      "page_count": 208
     },
     {
       "source_key": "SRC-006",
@@ -93,7 +151,22 @@
       "canonical_filename": "Grant_Synthetic_Peptides_2e_2002.pdf",
       "known_local_filename": "73671816-Synthetic-Peptides.pdf",
       "primary_role": "chemistry, SPPS, evaluation, purification, applications",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete and clean. 401 pages, 93% carrying domain vocabulary. Title page confirms Gregory A. Grant (ed.), Oxford University Press, 2002, ISBN 0-19-513261-0. Embedded PDF metadata agrees. The strongest analytical source currently held.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Published 2002. Authoritative for chromatographic and analytical principles, which have not changed; not current on instrumentation, regulatory expectations or compendial method requirements.",
+      "title_page_title": "Synthetic Peptides: A User's Guide, Second Edition",
+      "title_page_authors": "Edited by Gregory A. Grant",
+      "publisher": "Oxford University Press",
+      "publication_name": "Advances in Molecular Biology",
+      "isbn": "0-19-513261-0",
+      "edition": "2nd",
+      "local_file_sha256": "4b561e057dbb0e4c5c627884260f27aec1648b1a9a1589b51ff4825e556964c6",
+      "local_file_bytes": 8175950,
+      "page_count": 401
     },
     {
       "source_key": "SRC-007",
@@ -109,7 +182,20 @@
       "canonical_filename": "Kruger_Albericio_Advances_Peptide_Therapeutics_2015.pdf",
       "known_local_filename": "1029470766-2015-Advances-Discovery-Development-Peptide-Therapeutics.pdf",
       "primary_role": "drug discovery, manufacturing, formulation, delivery",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. 201 pages, 94% carrying domain vocabulary. Publisher corrected: the registry did not record one, and the title page states Future Science Ltd (ISSN 2047-332X), not the Royal Society of Chemistry as an incidental reference in the text might suggest.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "An edited volume of review chapters. Chapters report other work; trace to the primary study before relying on a specific finding.",
+      "title_page_title": "Advances in the Discovery and Development of Peptide Therapeutics",
+      "title_page_authors": "Editors: Gert Kruger, Fernando Albericio",
+      "publisher": "Future Science Ltd",
+      "isbn": "978-1-910419-02-1",
+      "local_file_sha256": "a887f7e0e9c622dcba5580e71285d286bc577bf52170bbf9422688b9d8b65a66",
+      "local_file_bytes": 14146782,
+      "page_count": 201
     },
     {
       "source_key": "SRC-008",
@@ -122,11 +208,20 @@
       "year": null,
       "source_type": "academic_methods_reference",
       "priority": "supporting",
-      "qc_status": "incomplete",
+      "qc_status": "replace",
       "canonical_filename": "Jensen_Peptide_Synthesis_and_Applications_2e.pdf",
       "known_local_filename": "1074265399-Read-Peptide-Synthesis-and-Applications-by-Knud-J-Jensen-Pernille-Tofteng-Shelton-Søren-L-Pedersen-1627035439-9781627035439-full-ebook-today.pdf",
       "primary_role": "synthesis methods and troubleshooting",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": false,
+      "integrity_notes": "NOT THE REGISTERED WORK. The first three pages are an aggregator listing carrying the correct title, ISBN and price. The remaining 201 pages are unrelated text — climate policy, human trafficking, family systems, fiction. Only 4% of pages contain any peptide-domain vocabulary, and those are the wrapper pages. The registry previously described this as \"real book begins after promotional pages\"; that is wrong. A replacement copy is required.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Not the registered work. Cannot support any statement.",
+      "local_file_sha256": "edfa2b62440a04b38676e3b07e9bd46d2aa396b547d8ca176bea40e0847fff6f",
+      "local_file_bytes": 746864,
+      "page_count": 204
     },
     {
       "source_key": "SRC-009",
@@ -139,11 +234,21 @@
       "year": 2024,
       "source_type": "academic_textbook",
       "priority": "supporting",
-      "qc_status": "incomplete",
+      "qc_status": "replace",
       "canonical_filename": "Crommelin_Pharmaceutical_Biotechnology_6e_2024.pdf",
       "known_local_filename": "1071771071-Pharmaceutical-Biotechnology-Fundamentals-and-Applications-6th-ebook-pdf.pdf",
       "primary_role": "pharma biotech, formulation, manufacture, development",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": false,
+      "integrity_notes": "NOT THE REGISTERED WORK. Two aggregator pages carrying the correct title and the genuine Springer ISBN, then 199 pages of unrelated text — Hume scholarship, parliamentary debate, island snake biogeography. 6% domain vocabulary. A replacement copy is required.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Not the registered work. Cannot support any statement.",
+      "isbn": "978-3-031-30022-6",
+      "local_file_sha256": "d6a6814ae9dde5b2701b5cb332ad37433afb80a362d6dc399a65c8d781493e25",
+      "local_file_bytes": 2968038,
+      "page_count": 201
     },
     {
       "source_key": "SRC-010",
@@ -154,11 +259,20 @@
       "year": 2017,
       "source_type": "academic_textbook",
       "priority": "supporting",
-      "qc_status": "incomplete",
+      "qc_status": "replace",
       "canonical_filename": "Srivastava_Peptide_Based_Drug_Discovery_2017.pdf",
       "known_local_filename": "1042230279-Peptide-based-Drug-Discovery-Challenges-and-New-Therapeutics-ISSN-Book-59-1st-Edition-available-instanly.pdf",
       "primary_role": "drug design, ADME, delivery, translation",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": false,
+      "integrity_notes": "NOT THE REGISTERED WORK. Three aggregator pages carrying the correct title, then unrelated text in several languages — barometric measurement, fiction in English, Spanish and German. The strongest title-like heading in the front matter belongs to a different book entirely (\"Herbal Bioactive-Based Drug Delivery Systems\"). 6% domain vocabulary. A replacement copy is required.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Not the registered work. Cannot support any statement.",
+      "local_file_sha256": "c8df9d2508f0ae251f74379204a69aef0eb64a401df89cdea003bdcb4cbc824f",
+      "local_file_bytes": 684020,
+      "page_count": 196
     },
     {
       "source_key": "SRC-011",
@@ -177,7 +291,18 @@
       "authority_notes": "Bibliographic identity confirmed by owner inspection on 2026-09-11: Gregg B. Fields (ed.), Methods in Molecular Biology vol. 386, Humana Press, 2007. Colin T. Mant, who appears in the third-party filename, is the lead author of Chapter 1 ('HPLC Analysis and Purification of Peptides') and is not the editor. Filename and wrapper metadata from download aggregators is not bibliographic authority and must never be treated as such. The held copy is corrupted: authentic front matter and the beginning of Chapter 1 were observed, after which unrelated material appears. Not citable. A clean replacement copy is required before this source can support published content.",
       "publication_name": "Methods in Molecular Biology, Volume 386",
       "publisher": "Humana Press",
-      "limitations_notes": "Held copy is partial and contaminated beyond the start of Chapter 1. Do not cite any section, including the authentic front matter, until a complete copy is obtained and verified."
+      "limitations_notes": "Authentic front matter and the opening of Chapter 1 only; the remainder is filler. Cannot support any statement, including from the authentic pages, until a complete copy is verified.",
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Bibliographic identity CONFIRMED and corrected. Page 1 is a Scribd wrapper naming Colin T. Mant — he is lead author of Chapter 1, not the editor. Pages 3–4 carry the authentic Humana front matter: Methods in Molecular Biology series, John M. Walker series editor, ISBN 10 1-58829-550-8 / ISBN 13 978-1-58829-550-7, which are the real MiMB 386 identifiers. The copy itself is unusable: only 96 of roughly 500 pages, and the body after the opening of Chapter 1 is unrelated filler. 14% domain vocabulary, concentrated in the front matter. Replacement required (V-013).",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "title_page_title": "Peptide Characterization and Application Protocols",
+      "title_page_authors": "Edited by Gregg B. Fields",
+      "isbn": "978-1-58829-550-7",
+      "local_file_sha256": "a92d8f853ec64d3b2f01107f96024e04b85dcc97a3df6db111199a809d3554d4",
+      "local_file_bytes": 908106,
+      "page_count": 96
     },
     {
       "source_key": "SRC-012",
@@ -194,7 +319,20 @@
       "canonical_filename": "Xu_Ye_Tam_Peptides_Biology_and_Chemistry_2002.pdf",
       "known_local_filename": "185968952-Peptides-Biology-and-Chemistry.pdf",
       "primary_role": "historical/supporting peptide science",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Complete. 283 pages, 83% domain vocabulary. Confirmed as the 1996 Chinese Peptide Symposium proceedings, Kluwer, ISBN 0-306-46859-X — not the Sewald/Jakubke textbook it is sometimes confused with.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Conference proceedings from 1996. Historical and supporting value; not a current authority on anything.",
+      "title_page_title": "Peptides: Biology and Chemistry — Proceedings of the 1996 Chinese Peptide Symposium",
+      "title_page_authors": "Edited by Xiao-Jie Xu, Yun-Hua Ye, James P. Tam",
+      "publisher": "Kluwer Academic Publishers",
+      "isbn": "0-306-46859-X",
+      "local_file_sha256": "e5032978d65c55bccd8316b814d636aaf6bcbfed17cd66b946707658fc4cc063",
+      "local_file_bytes": 2955342,
+      "page_count": 283
     },
     {
       "source_key": "SRC-013",
@@ -210,7 +348,18 @@
       "canonical_filename": "Costantino_Pikal_Lyophilization_of_Biopharmaceuticals.pdf",
       "known_local_filename": "88403241-Lyophilization-of-Biopharmaceuticals.pdf",
       "primary_role": "freeze-drying, excipients, stability, degradation; current file only TOC",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "integrity_notes": "Table of contents only — two pages, generated from a Word document. The contents confirm the work’s identity and chapter structure but no body text is present. Replacement required.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Contents listing only. Can establish that a chapter exists; cannot support anything it says.",
+      "title_page_title": "Lyophilization of Biopharmaceuticals",
+      "title_page_authors": "Henry R. Costantino, Michael J. Pikal",
+      "local_file_sha256": "c1f3ccaf7714036daecfd506d7ea839b9fc431b0c5aae7cb7a00f748867cc54f",
+      "local_file_bytes": 131177,
+      "page_count": 2
     },
     {
       "source_key": "SRC-014",
@@ -225,7 +374,16 @@
       "canonical_filename": "Banga_Therapeutic_Peptides_and_Proteins_3e.pdf",
       "known_local_filename": "1047650095-Download-Ebook-Therapeutic-Peptides-and-Proteins-Formulation-Processing-and-Delivery-Systems-3rd-Edition-146656606X.pdf",
       "primary_role": "formulation, processing, delivery; current copy corrupted",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": false,
+      "integrity_notes": "NOT THE REGISTERED WORK. Three aggregator pages carrying the correct title, then 154 pages of unrelated text — African Union politics, psychoanalysis, portfolio management. 3% domain vocabulary, the lowest of any file held. A replacement copy is required.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Not the registered work. Cannot support any statement.",
+      "local_file_sha256": "fbb4a6f6fba88266f580b7fdd01d967ffe7b69c824fc18e49555eec73b68c806",
+      "local_file_bytes": 497286,
+      "page_count": 157
     },
     {
       "source_key": "SRC-015",
@@ -240,7 +398,16 @@
       "canonical_filename": "Kastin_Handbook_Biologically_Active_Peptides_2e.pdf",
       "known_local_filename": "1047568316-Handbook-of-biologically-active-peptides-2nd-Edition-Ebook-PDF-download.pdf",
       "primary_role": "biological peptide families and mechanisms; current copy corrupted",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": true,
+      "bibliographic_verified": false,
+      "integrity_notes": "NOT THE REGISTERED WORK. Three aggregator pages carrying the correct title, then 160 pages of unrelated text — project management, educational psychology, marketing. 5% domain vocabulary. A replacement copy is required.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Not the registered work. Cannot support any statement.",
+      "local_file_sha256": "a5a2c3a55b51507c5dc5529562b8d0216377b515f80a196a36620a8a7821d9ba",
+      "local_file_bytes": 530900,
+      "page_count": 163
     },
     {
       "source_key": "SRC-016",
@@ -255,7 +422,13 @@
       "canonical_filename": null,
       "known_local_filename": null,
       "primary_role": "practitioner commentary, nomenclature, protocol trails, older literature leads",
-      "public_fulltext_allowed": false
+      "public_fulltext_allowed": false,
+      "title_page_verified": false,
+      "bibliographic_verified": false,
+      "integrity_notes": "Not yet captured. No file held.",
+      "verified_at": "2026-09-11",
+      "verified_by": "Automated front-matter inspection (unpdf text extraction), compared field by field against the registry.",
+      "limitations_notes": "Expert commentary. Requires exact source, date and timestamp before any use."
     }
   ]
 }

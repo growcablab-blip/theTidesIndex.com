@@ -60,13 +60,38 @@ export const sources = pgTable(
       .notNull()
       .generatedAlwaysAs(sql`qc_status not in ('replace', 'exclude')`),
 
+    // --- File identity ---------------------------------------------------
+    // The chain this section exists to establish:
+    //   file identity -> bibliographic identity -> QC status -> citability
+    // Third-party filenames are not bibliographic authority. SRC-011 nearly
+    // entered the register under the wrong editor because an aggregator's
+    // filename named a chapter author (verification issue V-014).
     /**
      * Filename of the private local copy. Never served, never rewritten, never
      * placed under a public directory.
      */
     localPrivateFilename: text(),
-    /** Sha-256 of the private copy, so a silently swapped file is detectable. */
+    /** The name this copy should be filed under once verified. */
+    canonicalFilename: text(),
+    /** SHA-256 of the private copy, so a silently swapped file is detectable. */
     localFileSha256: text(),
+    localFileBytes: integer(),
+    pageCount: integer(),
+
+    // --- Verification ----------------------------------------------------
+    /** Someone opened the copy and read its title page. */
+    titlePageVerified: boolean().notNull().default(false),
+    /** The registry's bibliographic fields were confirmed against the work. */
+    bibliographicVerified: boolean().notNull().default(false),
+    /** What the title page actually says, where it differs from the registry. */
+    titlePageTitle: text(),
+    titlePageAuthors: text(),
+    verifiedAt: date(),
+    /** Who or what performed the verification. A tool name, or a person. */
+    verifiedBy: text(),
+
+    /** Wrapper pages, contaminated ranges, truncation — what is wrong with it. */
+    integrityNotes: text(),
 
     /** What this source can legitimately support, and what it cannot. */
     primaryRole: text(),
@@ -82,6 +107,8 @@ export const sources = pgTable(
     publicFulltextAllowed: boolean().notNull().default(false),
 
     sourceSummary: text(),
+    /** Marks a record created by the local demonstration fixture. See profiles. */
+    isDemonstration: boolean().notNull().default(false),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },

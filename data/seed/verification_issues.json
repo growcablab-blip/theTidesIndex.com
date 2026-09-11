@@ -135,8 +135,8 @@
     "issueKey": "V-013",
     "topic": "SRC-011 replacement: Fields, Peptide Characterization and Application Protocols",
     "whyItMatters": "SRC-011 is a core source for the analytical chemistry the quality section rests on. The attribution question is resolved; the held copy is still unusable.",
-    "currentSourceSignal": "Owner inspection on 2026-09-11 confirmed the work as Gregg B. Fields (ed.), Methods in Molecular Biology vol. 386, Humana Press, 2007. Colin T. Mant, named in the third-party filename, is the lead author of Chapter 1, not the editor. Authentic front matter and the start of Chapter 1 are present; unrelated material follows.",
-    "neededVerification": "Obtain a complete, verified copy. Until then the source is marked replace and cannot support published content.",
+    "currentSourceSignal": "Resolved as to identity. Front-matter inspection confirms Gregg B. Fields (ed.), Methods in Molecular Biology vol. 386, Humana Press, 2007, ISBN 978-1-58829-550-7. The Scribd wrapper page naming Colin T. Mant refers to the author of Chapter 1. The held copy remains unusable: 96 of roughly 500 pages, with filler after the opening of Chapter 1.",
+    "neededVerification": "Obtain a complete verified copy. Identity no longer in question.",
     "priority": "high",
     "relatedKeys": [
       "source:SRC-011",
@@ -146,20 +146,34 @@
   },
   {
     "issueKey": "V-014",
-    "topic": "Third-party filename metadata is not bibliographic authority",
-    "whyItMatters": "SRC-011 was very nearly registered under the wrong editor because a download aggregator's filename named a chapter author. Every source acquired through a third-party wrapper carries the same risk, and a misattributed source corrupts provenance for everything citing it.",
-    "currentSourceSignal": "Eight of the sixteen registered sources have aggregator-generated filenames.",
-    "neededVerification": "For each source, open the held copy and confirm title page, editor or author, publisher, edition and year against the registry before it is used as provenance.",
-    "priority": "high",
+    "topic": "Source integrity: five held files are not the works they claim to be",
+    "whyItMatters": "An aggregator cover page carrying the correct title and ISBN, followed by unrelated text, is indistinguishable from a real copy in a file listing. Three of these were recorded as \"genuine content after promotional pages\", which would have allowed them to be cited.",
+    "currentSourceSignal": "Audit on 2026-09-11 opened every file, hashed it, counted its pages and read its front matter. SRC-008, SRC-009, SRC-010, SRC-014 and SRC-015 carry 3-6% peptide-domain vocabulary across their pages, concentrated in the wrapper; their bodies are climate policy, Hume scholarship, fiction in three languages, African Union politics and project management. SRC-011 holds authentic Humana front matter and the opening of Chapter 1, then filler. SRC-013 is a two-page contents listing. SRC-001 to SRC-007 and SRC-012 are confirmed complete.",
+    "neededVerification": "Obtain clean copies of the five decoys plus SRC-011 and SRC-013. Until then all seven are marked replace and are non-citable, which the publish gates enforce.",
+    "priority": "critical",
     "relatedKeys": [
-      "source:SRC-006",
-      "source:SRC-007",
       "source:SRC-008",
       "source:SRC-009",
       "source:SRC-010",
       "source:SRC-011",
-      "source:SRC-012",
+      "source:SRC-013",
+      "source:SRC-014",
       "source:SRC-015"
+    ]
+  },
+  {
+    "issueKey": "V-015",
+    "topic": "The quality section rests on a single analytical source",
+    "whyItMatters": "After the integrity audit, SRC-006 (Grant, Synthetic Peptides, 2nd ed., OUP 2002) is the only complete analytical reference held. It is authoritative on chromatographic principles, which have not changed, but it is twenty-plus years old and says nothing about current compendial method requirements or regulatory expectations. A quality section resting on one source of one age is fragile: if that source is ever downgraded, everything built on it is withdrawn at once.",
+    "currentSourceSignal": "SRC-011 and SRC-013, the other analytical and formulation references, are both unusable. No compendial or regulatory source is in the register at all.",
+    "neededVerification": "Add at least one current compendial or regulatory analytical source, and one modern analytical text, before the quality section is extended beyond chromatographic principles.",
+    "priority": "high",
+    "relatedKeys": [
+      "quality_topic:hplc-purity",
+      "quality_topic:identity-testing",
+      "quality_topic:sterility",
+      "quality_topic:bacterial-endotoxin",
+      "source:SRC-006"
     ]
   }
 ]

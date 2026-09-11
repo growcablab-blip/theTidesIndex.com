@@ -114,6 +114,7 @@ export const protocols = pgTable(
         when review_state = 'compliance_reviewed' then 'compliance_reviewed'
         when review_state = 'clinical_reviewed' then 'clinical_reviewed'
         when review_state = 'scientific_reviewed' then 'scientific_reviewed'
+        when review_state = 'ready_for_scientific_review' then 'ready_for_scientific_review'
         when review_state = 'primary_source_checked' then 'primary_source_checked'
         when review_state = 'source_checked' then 'source_checked'
         when review_state = 'captured' then 'captured'

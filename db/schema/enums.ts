@@ -37,11 +37,24 @@ export const reviewState = pgEnum('review_state', [
   'captured',
   'source_checked',
   'primary_source_checked',
+  'ready_for_scientific_review',
   'scientific_reviewed',
   'clinical_reviewed',
   'compliance_reviewed',
   'rejected',
 ]);
+
+/**
+ * Who carried out a check.
+ *
+ * Automated work is legitimate and useful — extracting, structuring, comparing,
+ * confirming that a citation resolves to what it claims — and recording it
+ * honestly is better than pretending a person did it. What automation must
+ * never do is stand in for a scientific, clinical or compliance approval, and
+ * the publish gates enforce that by requiring `human` (docs/LOCKED_DECISIONS.md
+ * #20).
+ */
+export const reviewPerformer = pgEnum('review_performer', ['human', 'automated']);
 
 /**
  * Publication state: whether the record is currently public.

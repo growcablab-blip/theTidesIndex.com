@@ -214,8 +214,9 @@ export async function approve(
 
   await query(
     db,
-    `insert into reviews (entity_type, entity_id, entity_version, review_type, reviewer_user_id, outcome)
-     values ($1::reviewable_entity_type, $2, $3, $4::review_type, $5, 'approved')`,
+    `insert into reviews (entity_type, entity_id, entity_version, review_type,
+                          performed_by, reviewer_user_id, outcome)
+     values ($1::reviewable_entity_type, $2, $3, $4::review_type, 'human', $5, 'approved')`,
     [options.entityType, options.entityId, row!.version, options.reviewType, options.reviewerId],
   );
 }

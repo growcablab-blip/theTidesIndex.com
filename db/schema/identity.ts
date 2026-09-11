@@ -20,6 +20,15 @@ export const profiles = pgTable('profiles', {
   role: staffRole().notNull(),
   /** Deactivation preserves audit history; staff rows are never deleted. */
   isActive: boolean().notNull().default(true),
+  /**
+   * Marks a record created by the local demonstration fixture.
+   *
+   * Demonstration data is barred from production by an opt-in and a
+   * localhost-only check at the point of loading, but a restored dump could
+   * still carry it. This flag makes that detectable after the fact:
+   * `npm run db:verify-production` refuses a database containing any.
+   */
+  isDemonstration: boolean().notNull().default(false),
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
 });
