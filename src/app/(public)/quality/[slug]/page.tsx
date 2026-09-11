@@ -14,6 +14,7 @@ import { ContentsRail, ReferenceLayout } from '@/components/public/contents-rail
 import { ModeExplainer, ModeSwitch } from '@/components/public/mode-switch';
 import { ClaimCard } from '@/components/public/evidence';
 import { ReferenceList } from '@/components/public/citation';
+import { PrintHeader } from '@/components/public/print-header';
 
 /**
  * A quality topic.
@@ -83,6 +84,14 @@ export default async function QualityTopicPage({
 
   return (
     <Container width="wide" className="py-8 sm:py-12">
+      <PrintHeader
+        title={topic.name}
+        mode={mode}
+        path={`/quality/${topic.slug}`}
+        version={topic.version}
+        lastReviewed={formatDate(topic.lastReviewedAt)}
+      />
+
       <nav aria-label="Breadcrumb" className="no-print mb-6 text-sm text-slate">
         <Link href="/quality" className="hover:text-deep-tide">
           Quality and testing

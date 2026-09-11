@@ -197,7 +197,10 @@ export default async function SearchPage({
                       <span className="font-serif text-lg text-ink group-hover:text-deep-tide">
                         {result.title}
                       </span>
-                      {result.matchedAlias && result.aliasText ? (
+                      {result.entityType === 'peptide' && result.matchedAlias ? (
+                        // Only meaningful for compounds: on a source record the
+                        // indexed alias text is the author list, and calling that
+                        // an alternative name would be misleading.
                         <span className="text-xs text-slate">matched an alternative name</span>
                       ) : null}
                     </div>

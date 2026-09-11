@@ -31,11 +31,11 @@ export function ContentsRail({ entries }: { entries: readonly ContentsEntry[] })
               href={`#${entry.id}`}
               className="-ml-px flex items-baseline justify-between gap-2 border-l border-transparent py-0.5 pl-3 text-sm transition-colors hover:border-tide-teal hover:text-deep-tide"
             >
-              <span className={entry.empty ? 'text-slate-light' : 'text-ink-soft'}>
+              <span className={entry.empty ? 'text-slate' : 'text-ink-soft'}>
                 {entry.label}
               </span>
               {entry.empty ? (
-                <span className="shrink-0 text-2xs text-slate-light">none yet</span>
+                <span className="shrink-0 text-2xs text-slate">none yet</span>
               ) : entry.count !== undefined ? (
                 <span className="tabular shrink-0 text-2xs text-slate">{entry.count}</span>
               ) : null}
@@ -56,11 +56,15 @@ export function ReferenceLayout({
   children: ReactNode;
 }) {
   return (
+    // The rail comes first in the DOM so it lands above the content on narrow
+    // screens, where a contents list is most useful, and is ordered to the right
+    // on wide ones. Source order also puts it before the body for a screen
+    // reader, which is the same reasoning.
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-14">
-      <div className="min-w-0 lg:order-1">{children}</div>
       <aside className="lg:order-2">
         <div className="lg:sticky lg:top-24">{rail}</div>
       </aside>
+      <div className="min-w-0 lg:order-1">{children}</div>
     </div>
   );
 }

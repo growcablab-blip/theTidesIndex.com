@@ -36,6 +36,7 @@ import {
 } from '@/components/public/protocols';
 import { ReferenceList } from '@/components/public/citation';
 import { RecordInPreparation } from '@/components/public/record-in-preparation';
+import { PrintHeader } from '@/components/public/print-header';
 
 /**
  * The canonical compound record.
@@ -143,6 +144,14 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
   return (
     <Container width="wide" className="py-8 sm:py-12">
+      <PrintHeader
+        title={peptide.canonicalName}
+        mode={mode}
+        path={path}
+        version={peptide.version}
+        lastReviewed={formatDate(peptide.lastReviewedAt)}
+      />
+
       <nav aria-label="Breadcrumb" className="no-print mb-6 text-sm text-slate">
         <Link href="/peptides" className="hover:text-deep-tide">
           Compounds

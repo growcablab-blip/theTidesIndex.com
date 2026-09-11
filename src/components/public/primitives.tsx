@@ -198,7 +198,7 @@ export function DefinitionRow({
 /** Absence, stated rather than left blank. */
 export function NotRecorded({ what }: { what?: string }) {
   return (
-    <span className="text-sm text-slate-light italic">
+    <span className="text-sm text-slate italic">
       {what ? `Not recorded — ${what}` : 'Not recorded'}
     </span>
   );

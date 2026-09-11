@@ -185,7 +185,7 @@ export function PractitionerProtocolCard({ protocol }: { protocol: PractitionerP
 function Cell({ value }: { value: string | null }) {
   return (
     <td className="pr-4 text-ink-soft">
-      {value ?? <span className="text-slate-light italic">not stated</span>}
+      {value ?? <span className="text-slate italic">not stated</span>}
     </td>
   );
 }

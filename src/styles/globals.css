@@ -21,12 +21,17 @@
   --color-sea-glass: #dcedef;
   --color-mist: #f2f7f7;
   --color-warm-white: #fbfcfa;
-  --color-slate: #66747b;
+  --color-slate: #5d6b72;
   --color-rule: #d6e0e2;
 
-  /* Derived steps, for hierarchy without introducing new hues. */
+  /* Derived steps, for hierarchy without introducing new hues.
+     Every text tone here clears 4.5:1 against every surface it is used on,
+     including the tinted panels — measured, not assumed. `slate` was darkened
+     from the brief's #66747b, which fell just under against the mist panel. */
   --color-ink-soft: #2c4551;
-  --color-slate-light: #8b979d;
+  /* Reserved for input placeholders on the warm-white surface only, where it
+     clears 4.5:1. Anything that carries meaning uses `slate`. */
+  --color-slate-light: #66747b;
   --color-rule-soft: #e6edee;
   --color-surface-sunk: #eef4f4;
 
