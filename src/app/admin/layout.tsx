@@ -27,7 +27,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div className="min-h-screen bg-warm-white">
-      <header className="border-b border-rule bg-mist">
+      {/* Editorial chrome is screen furniture. The one page here that is meant
+          to leave the building — the review packet export — must print as a
+          document, not as a screenshot of an application with a sign-out link
+          in the corner. */}
+      <header className="border-b border-rule bg-mist print:hidden">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-3">
           <div className="flex items-baseline gap-6">
             <Link href="/admin" className="font-serif text-lg text-ink">
@@ -65,9 +69,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 py-8">{children}</main>
+      <main className="mx-auto max-w-6xl px-6 py-8 print:max-w-none print:px-0 print:py-0">
+        {children}
+      </main>
 
-      <footer className="mx-auto max-w-6xl px-6 pb-10 text-xs text-slate">
+      <footer className="mx-auto max-w-6xl px-6 pb-10 text-xs text-slate print:hidden">
         <p>
           Nothing here is public until it passes its review gates. Source files are private research
           inputs and are never served from this application.

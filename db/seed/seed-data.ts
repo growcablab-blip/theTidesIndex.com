@@ -66,6 +66,18 @@ const qualityTopicSchema = z.object({
   qualityKey: z.string().min(1),
   name: z.string().min(1),
   slug: z.string().min(1),
+  /** Editorial navigation grouping. Never a scientific relationship. */
+  family: z
+    .enum([
+      'analytical',
+      'microbiological',
+      'chemical-physical',
+      'manufacturing',
+      'handling',
+      'documents',
+    ])
+    .nullable()
+    .default(null),
   sortOrder: z.number().int().default(0),
 });
 

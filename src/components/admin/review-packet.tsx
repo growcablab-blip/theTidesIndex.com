@@ -167,12 +167,23 @@ function ClaimCard({ claim }: { claim: ReviewPacketClaim }) {
   return (
     <article className="rounded border border-rule p-5">
       <header className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="font-mono text-xs tracking-wide text-slate">{claim.claimKey}</span>
+        <span className="font-mono text-xs tracking-wide text-slate">
+          {claim.claimKey} · v{claim.version}
+        </span>
         <span className="flex items-center gap-2">
           <span className="text-xs tracking-wide text-slate uppercase">{claim.importance}</span>
           <StatusBadge status={claim.editorialState} />
         </span>
       </header>
+
+      {claim.certificateTypeScope ? (
+        // The scope a requirement governs, beside the requirement. A reviewer
+        // approving "a certificate should state X" needs to see which kind of
+        // certificate before they can agree with it.
+        <p className="mt-2 inline-block rounded-sm border border-rule bg-mist px-2 py-0.5 text-xs text-deep-tide">
+          Applies to: {claim.certificateTypeScope.replaceAll('_', ' ')}
+        </p>
+      ) : null}
 
       <p className="mt-3 text-base text-ink">{claim.claimText}</p>
 
@@ -197,6 +208,39 @@ function ClaimCard({ claim }: { claim: ReviewPacketClaim }) {
         </div>
       </dl>
 
+      {claim.history.length > 0 ? (
+        <div className="mt-4 border-t border-rule pt-3">
+          <h4 className="text-xs font-semibold tracking-wide text-deep-tide uppercase">
+            Decisions already recorded
+          </h4>
+          <ul className="mt-2 space-y-1.5">
+            {claim.history.map((entry) => (
+              <li
+                key={`${entry.reviewType}-${entry.reviewedAt}`}
+                className="text-xs text-slate"
+              >
+                <span className="text-ink">{entry.reviewType.replaceAll('_', ' ')}</span>
+                {' — '}
+                {entry.outcome.replaceAll('_', ' ')} at v{entry.entityVersion} by{' '}
+                {entry.performedBy === 'automated'
+                  ? (entry.automatedTool ?? 'an automated tool')
+                  : (entry.reviewerName ?? 'an unnamed reviewer')}
+                {entry.appliesToCurrentVersion ? null : (
+                  // The whole reason version-bound approvals need showing: an
+                  // approval against an earlier version is history, not standing.
+                  <span className="ml-2 text-[var(--color-caution)]">
+                    superseded — the record has changed since
+                  </span>
+                )}
+                {entry.comments ? (
+                  <span className="mt-0.5 block text-slate">{entry.comments}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
       <div className="mt-4 border-t border-rule pt-4">
         <h4 className="text-xs font-semibold tracking-wide text-deep-tide uppercase">
           Rests on {claim.evidence.length === 1 ? 'one passage' : `${claim.evidence.length} passages`}
@@ -218,7 +262,19 @@ function ClaimCard({ claim }: { claim: ReviewPacketClaim }) {
                 ) : null}
               </p>
               <p className="mt-0.5 text-xs text-slate">
-                {evidence.sourceTitle} · {evidence.evidenceTypeKey} · {evidence.relationship}
+                {evidence.sourceTitle} · {evidence.sourceTypeLabel} · {evidence.evidenceTypeKey} ·{' '}
+                {evidence.relationship}
+              </p>
+              <p className="mt-0.5 text-xs">
+                {evidence.primarySourceVerified ? (
+                  <span className="text-deep-tide">Primary source traced and read</span>
+                ) : (
+                  // A source cited is not a source read, and a reviewer is
+                  // entitled to the difference before approving a reading of it.
+                  <span className="text-slate">
+                    Primary source not traced — this rests on the cited source as read
+                  </span>
+                )}
               </p>
               {evidence.interpretation ? (
                 <p className="mt-1 text-slate">{evidence.interpretation}</p>

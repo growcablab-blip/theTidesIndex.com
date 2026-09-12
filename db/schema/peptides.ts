@@ -82,6 +82,14 @@ export const peptides = pgTable(
     version: integer().notNull().default(1),
     publishedAt: timestamp({ withTimezone: true }),
     lastReviewedAt: timestamp({ withTimezone: true }),
+    /**
+     * When this record entered `ready_for_scientific_review`.
+     *
+     * Set and cleared by `tides_track_review_submission`, never written by the
+     * application. Null means never submitted, or submitted before the column
+     * existed — it does not mean no wait.
+     */
+    reviewSubmittedAt: timestamp({ withTimezone: true }),
     /** Date after which literature has not been surveyed. Shown publicly. */
     evidenceCutoffAt: date(),
 

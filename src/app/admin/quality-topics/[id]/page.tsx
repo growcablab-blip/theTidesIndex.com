@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { requireStaff } from '@/server/auth/session';
 import { getQualityTopicDetail, getQualityTopicReviewPacket } from '@/server/editorial/queries';
@@ -47,6 +48,18 @@ export default async function QualityTopicDetailPage({
             title="Review packet"
             description="Every claim on this topic, the reading behind it, what it admits is uncertain, and the passage it rests on. A reviewer should not have to leave this page to disagree with any of it."
           >
+            <p className="mb-4 text-sm">
+              <Link
+                href={`/admin/quality-topics/${topic.id}/export`}
+                className="text-deep-tide underline"
+              >
+                Open as a document
+              </Link>{' '}
+              <span className="text-slate">
+                — the same packet, printable, for a reviewer working outside the application.
+                Producing it records nothing.
+              </span>
+            </p>
             <ReviewPacketPanel packet={packet} />
           </Section>
         </div>

@@ -1,6 +1,6 @@
 {
-  "id": "597efaf8-883b-49d6-bb44-5ae375e53569",
-  "prevId": "c8020e94-f96c-44a4-9df6-02ccc7d0a8f7",
+  "id": "7e765f38-8a53-4e3e-8805-03d1ba9d7ddf",
+  "prevId": "e01ecbc8-b33a-4341-bf76-a923b116e43b",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -325,6 +325,48 @@
           "primaryKey": false,
           "notNull": true,
           "default": true
+        },
+        "professional_role": {
+          "name": "professional_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "review_domain": {
+          "name": "review_domain",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "organisation": {
+          "name": "organisation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "credential_summary": {
+          "name": "credential_summary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "conflicts_disclosed": {
+          "name": "conflicts_disclosed",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disclosure_notes": {
+          "name": "disclosure_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disclosed_at": {
+          "name": "disclosed_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
         },
         "is_demonstration": {
           "name": "is_demonstration",
@@ -1113,6 +1155,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "review_submitted_at": {
+          "name": "review_submitted_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
         "evidence_cutoff_at": {
           "name": "evidence_cutoff_at",
           "type": "date",
@@ -1281,6 +1329,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "family": {
+          "name": "family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "short_description": {
           "name": "short_description",
           "type": "text",
@@ -1389,6 +1443,12 @@
         },
         "last_reviewed_at": {
           "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "review_submitted_at": {
+          "name": "review_submitted_at",
           "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": false
@@ -1886,6 +1946,12 @@
         },
         "last_reviewed_at": {
           "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "review_submitted_at": {
+          "name": "review_submitted_at",
           "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": false
@@ -3291,6 +3357,12 @@
         },
         "last_reviewed_at": {
           "name": "last_reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "review_submitted_at": {
+          "name": "review_submitted_at",
           "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": false

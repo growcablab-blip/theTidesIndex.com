@@ -1,4 +1,4 @@
-import { boolean, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { boolean, date, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 import { staffRole } from './enums';
 
 /**
@@ -20,6 +20,31 @@ export const profiles = pgTable('profiles', {
   role: staffRole().notNull(),
   /** Deactivation preserves audit history; staff rows are never deleted. */
   isActive: boolean().notNull().default(true),
+
+  // --- Reviewer standing -------------------------------------------------
+  // A scientific review means more when the platform can say who performed it
+  // and on what basis. Deliberately minimal: enough for a reader to judge the
+  // review, and not a credential-marketing exercise. Every field is optional
+  // except the disclosure decision, which is the one that changes what an
+  // approval is worth.
+  /** e.g. "Analytical chemist", "Pharmacist". Not a job title to advertise. */
+  professionalRole: text(),
+  /** The domain their review carries weight in. */
+  reviewDomain: text(),
+  organisation: text(),
+  /** One or two lines. Not a CV. */
+  credentialSummary: text(),
+
+  /**
+   * Whether a relevant conflict of interest has been disclosed.
+   *
+   * Three states on purpose. `null` means nobody has asked, which is different
+   * from a reviewer stating they have none — and an approval by someone who was
+   * never asked should not read like one by someone who answered.
+   */
+  conflictsDisclosed: boolean(),
+  disclosureNotes: text(),
+  disclosedAt: date(),
   /**
    * Marks a record created by the local demonstration fixture.
    *

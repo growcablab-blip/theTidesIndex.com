@@ -167,6 +167,7 @@ export async function seedTaxonomies(db: SeedDb): Promise<void> {
       set: {
         name: sql`excluded.name`,
         slug: sql`excluded.slug`,
+        family: sql`excluded.family`,
         sortOrder: sql`excluded.sort_order`,
       },
     });

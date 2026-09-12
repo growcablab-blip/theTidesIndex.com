@@ -204,6 +204,9 @@ export async function approve(
     reviewType: string;
     reviewerId: string;
     table: string;
+    /** Defaults to an approval; a change request is recorded the same way. */
+    outcome?: 'approved' | 'changes_requested' | 'rejected';
+    comments?: string;
   },
 ): Promise<void> {
   const [row] = await query<{ version: number }>(
@@ -215,9 +218,18 @@ export async function approve(
   await query(
     db,
     `insert into reviews (entity_type, entity_id, entity_version, review_type,
-                          performed_by, reviewer_user_id, outcome)
-     values ($1::reviewable_entity_type, $2, $3, $4::review_type, 'human', $5, 'approved')`,
-    [options.entityType, options.entityId, row!.version, options.reviewType, options.reviewerId],
+                          performed_by, reviewer_user_id, outcome, comments)
+     values ($1::reviewable_entity_type, $2, $3, $4::review_type, 'human', $5,
+             $6::review_outcome, $7)`,
+    [
+      options.entityType,
+      options.entityId,
+      row!.version,
+      options.reviewType,
+      options.reviewerId,
+      options.outcome ?? 'approved',
+      options.comments ?? null,
+    ],
   );
 }
 

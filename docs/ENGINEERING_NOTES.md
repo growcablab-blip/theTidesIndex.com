@@ -96,6 +96,24 @@ Shuffling also surfaced a defect outside the tests. A claim resting on two
 passages had no tiebreaker in its `ORDER BY`, so its citations could reorder
 between renders. Ordered by page with a stable final key.
 
+### A second layout-dependent trap: `innerText`
+
+Found in C.10, and the same family as the zero-width measurement.
+
+Checking a rendered page for content with `element.innerText` reported six of
+seven headings present. `textContent` reported all seven, and the DOM had all
+seven. `innerText` is defined in terms of *rendered* text — it depends on layout
+and on what a browser considers visible — so on a hidden or backgrounded document
+it under-reports.
+
+**For presence checks, use `textContent`.** Reserve `innerText` for cases where
+what a user would actually see is the question, and treat a negative result from
+it on a hidden pane as unmeasured rather than absent.
+
+Both traps have the same shape: a browser API that silently answers a slightly
+different question than the one being asked, and returns a plausible number
+instead of an error.
+
 ---
 
 ## Why the gates run against real SQL

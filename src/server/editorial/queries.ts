@@ -5,6 +5,7 @@ import { withStaffSession } from '../db/session';
 import type { StaffSession } from '../auth/session';
 import type { Database } from '../db/types';
 import { readQualityTopicReviewPacket, type ReviewPacket } from './review-packet';
+import { buildPacketExport, type ExportedPacket } from './packet-export';
 
 /**
  * Read queries for the editorial surfaces.
@@ -885,6 +886,15 @@ export async function getQualityTopicReviewPacket(
   topicId: string,
 ): Promise<ReviewPacket> {
   return asStaff(session, (tx) => readQualityTopicReviewPacket(tx, topicId));
+}
+
+/** The same packet as a document that can leave the application. */
+export async function getQualityTopicPacketExport(
+  session: StaffSession,
+  topicId: string,
+  options: { readonly issuedAt?: string } = {},
+): Promise<ExportedPacket | null> {
+  return asStaff(session, (tx) => buildPacketExport(tx, topicId, options));
 }
 
 // ---------------------------------------------------------------------------

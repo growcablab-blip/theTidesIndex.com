@@ -114,6 +114,92 @@ try {
     select count(*) filter (where status = 'open')::int as open from verification_issues
   `);
 
+  /*
+   * Review. These are the numbers that say whether the review system is a
+   * system or a diagram of one, so they are deliberately the least flattering
+   * section here: a register with zero standing approvals is reporting the
+   * truth about itself.
+   */
+  const [rv] = await rows<{
+    awaiting_claims: number;
+    awaiting_topics: number;
+    standing_approvals: number;
+    invalidated_approvals: number;
+    returned: number;
+    rejected: number;
+    human_reviews: number;
+    automated_checks: number;
+  }>(sql`
+    select
+      (select count(*) filter (where review_state = 'ready_for_scientific_review')::int
+         from claims) as awaiting_claims,
+      (select count(*) filter (where review_state = 'ready_for_scientific_review')::int
+         from quality_topics) as awaiting_topics,
+      -- Bound to the version the record is at now. An approval against an
+      -- earlier version is history, and counting it here is exactly the drift
+      -- the version binding exists to prevent.
+      (select count(*)::int from reviews r join claims c on c.id = r.entity_id
+        where r.entity_type = 'claim' and r.review_type = 'scientific'
+          and r.outcome = 'approved' and r.performed_by = 'human'
+          and r.entity_version = c.version) as standing_approvals,
+      (select count(*)::int from reviews r join claims c on c.id = r.entity_id
+        where r.entity_type = 'claim' and r.review_type = 'scientific'
+          and r.outcome = 'approved' and r.performed_by = 'human'
+          and r.entity_version <> c.version) as invalidated_approvals,
+      (select count(*)::int from reviews
+        where review_type = 'scientific' and outcome = 'changes_requested') as returned,
+      (select count(*)::int from reviews
+        where review_type = 'scientific' and outcome = 'rejected') as rejected,
+      (select count(*)::int from reviews
+        where review_type in ('scientific','clinical','compliance')
+          and performed_by = 'human') as human_reviews,
+      (select count(*)::int from reviews where performed_by = 'automated') as automated_checks
+  `);
+
+  const [turnaround] = await rows<{
+    completed: number;
+    measurable: number;
+    median_days: number | null;
+    outstanding: number;
+    outstanding_measurable: number;
+    longest_wait_days: number | null;
+  }>(sql`
+    with completed as (
+      select r.reviewed_at, c.review_submitted_at
+      from reviews r join claims c on c.id = r.entity_id
+      where r.entity_type = 'claim' and r.review_type = 'scientific'
+        and r.performed_by = 'human'
+    ),
+    outstanding as (
+      select review_submitted_at from claims
+      where review_state = 'ready_for_scientific_review'
+    )
+    select
+      (select count(*)::int from completed) as completed,
+      (select count(*)::int from completed where review_submitted_at is not null) as measurable,
+      (select round(percentile_cont(0.5) within group (
+                order by extract(epoch from (reviewed_at - review_submitted_at)) / 86400))::int
+         from completed where review_submitted_at is not null) as median_days,
+      (select count(*)::int from outstanding) as outstanding,
+      (select count(*)::int from outstanding where review_submitted_at is not null)
+        as outstanding_measurable,
+      (select round(max(extract(epoch from (now() - review_submitted_at)) / 86400))::int
+         from outstanding where review_submitted_at is not null) as longest_wait_days
+  `);
+
+  const [reviewers] = await rows<{
+    scientific_reviewers: number;
+    with_standing: number;
+    disclosed: number;
+  }>(sql`
+    select count(*) filter (where role = 'scientific_reviewer')::int as scientific_reviewers,
+           count(*) filter (where role = 'scientific_reviewer'
+                              and credential_summary is not null)::int as with_standing,
+           count(*) filter (where role = 'scientific_reviewer'
+                              and conflicts_disclosed is not null)::int as disclosed
+    from profiles
+  `);
+
   const [d] = await rows<{ n: number }>(sql`select tides_demonstration_record_count() as n`);
 
   console.log('\nEXTRACTION QUALITY — internal only, never a public figure\n');
@@ -146,6 +232,48 @@ try {
   for (const gap of gaps) {
     console.log(`  ${gap.gap_type.replaceAll('_', ' ').padEnd(44)} ${String(gap.n)}`);
   }
+
+  console.log('\nREVIEW');
+  console.log(line({ label: 'claims awaiting scientific review', value: rv!.awaiting_claims, of: null }));
+  console.log(line({ label: 'topics awaiting scientific review', value: rv!.awaiting_topics, of: null }));
+  console.log(line({ label: 'standing human approvals (claims)', value: rv!.standing_approvals, of: null,
+    note: 'Bound to the version each record is at now.' }));
+  console.log(line({ label: 'approvals invalidated by later edits', value: rv!.invalidated_approvals, of: null,
+    note: 'A reviewer was asked again. Not a failure, but a cost worth watching.' }));
+  console.log(line({ label: 'returned for changes', value: rv!.returned, of: null }));
+  console.log(line({ label: 'rejected', value: rv!.rejected, of: null }));
+  console.log(line({ label: 'human scientific/clinical/compliance reviews', value: rv!.human_reviews, of: null }));
+  console.log(line({ label: 'automated checks recorded', value: rv!.automated_checks, of: null,
+    note: 'Confined by constraint to source_check and primary_verification.' }));
+
+  console.log('\nREVIEW TURNAROUND');
+  console.log(line({ label: 'completed scientific reviews', value: turnaround!.completed, of: null }));
+  console.log(
+    turnaround!.measurable === 0
+      ? '  ' + 'median days to a decision'.padEnd(44) + 'not measurable' +
+        '\n      No completed review has a submission timestamp. Null is not zero wait.'
+      : line({ label: 'median days to a decision', value: turnaround!.median_days ?? 0, of: null,
+          note: `Over ${String(turnaround!.measurable)} of ${String(turnaround!.completed)} completed reviews.` }),
+  );
+  console.log(line({ label: 'submissions outstanding', value: turnaround!.outstanding, of: null }));
+  console.log(
+    turnaround!.outstanding_measurable === 0
+      ? '  ' + 'longest outstanding wait'.padEnd(44) + 'not measurable' +
+        '\n      Submitted before review_submitted_at existed (migration 0019).'
+      : line({ label: 'longest outstanding wait (days)', value: turnaround!.longest_wait_days ?? 0, of: null }),
+  );
+  console.log(
+    '  ' + 'records beyond their review clock'.padEnd(44) + 'not computable' +
+      '\n      review_clocks defines the cadences, but no content record carries a' +
+      '\n      clock class, so staleness cannot be computed. Assigning one is an' +
+      '\n      editorial decision, not a derivation.',
+  );
+
+  console.log('\nREVIEWERS');
+  console.log(line({ label: 'scientific reviewer accounts', value: reviewers!.scientific_reviewers, of: null }));
+  console.log(line({ label: 'with recorded standing', value: reviewers!.with_standing, of: reviewers!.scientific_reviewers }));
+  console.log(line({ label: 'conflicts position recorded', value: reviewers!.disclosed, of: reviewers!.scientific_reviewers,
+    note: 'Null means nobody asked, which is different from a declaration of none.' }));
 
   console.log('\nQUEUE');
   console.log(line({ label: 'open verification issues', value: issues!.open, of: null }));

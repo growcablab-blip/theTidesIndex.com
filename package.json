@@ -31,6 +31,8 @@
     "evidence:submit": "tsx scripts/evidence/submit-packet.ts",
     "evidence:locators": "tsx scripts/evidence/verify-locators.ts",
     "qa:metrics": "tsx scripts/qa/metrics.ts",
+    "qa:visual": "tsx scripts/qa/grade-measurements.ts",
+    "qa:production": "tsx scripts/qa/production-readiness.ts",
     "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {

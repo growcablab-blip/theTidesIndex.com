@@ -504,6 +504,66 @@ export const getSpecimenCertificate = cache(
     asPublic((tx) => readSpecimenCertificate(tx, certificateKey)),
 );
 
+/**
+ * Every quality topic, published or not, with how far each has got.
+ *
+ * The section index needs this because listing only published topics rendered an
+ * empty page: four topics are written and none is published. "Nothing is
+ * published here yet" and "this subject is not in the index" are different
+ * statements and a reader deserves to tell them apart — the same reasoning as
+ * the compound register.
+ *
+ * Carries no prose. A short description is unreviewed content until the topic
+ * publishes, and published topics have their own view.
+ */
+export interface QualityRegisterEntry {
+  readonly id: string;
+  readonly qualityKey: string;
+  readonly name: string;
+  readonly slug: string;
+  readonly family: string | null;
+  readonly reviewState: string;
+  readonly isPublished: boolean;
+  readonly needsUpdate: boolean;
+  readonly claimCount: number;
+  readonly gapCount: number;
+  readonly relationshipCount: number;
+  /**
+   * The open verification issue blocking this topic, where one exists.
+   *
+   * "Nobody has written this yet" and "the source this needs cannot currently be
+   * obtained" are different states. The second is the more useful thing to tell
+   * a reader, and the verification queue already records it.
+   */
+  readonly openIssueKey: string | null;
+}
+
+export const listQualityRegister = cache(async (): Promise<QualityRegisterEntry[]> =>
+  asPublic(async (tx) => {
+    const result = await tx.execute(sql`
+      select id, quality_key, name, slug, family, review_state, is_published,
+             needs_update, claim_count, gap_count, relationship_count,
+             open_issue_key
+      from public_v_quality_register
+      order by sort_order, name
+    `);
+    return rows<Record<string, unknown>>(result).map((r) => ({
+      id: String(r.id),
+      qualityKey: String(r.quality_key),
+      name: String(r.name),
+      slug: String(r.slug),
+      family: str(r.family),
+      reviewState: String(r.review_state),
+      isPublished: Boolean(r.is_published),
+      needsUpdate: Boolean(r.needs_update),
+      claimCount: Number(r.claim_count),
+      gapCount: Number(r.gap_count),
+      relationshipCount: Number(r.relationship_count),
+      openIssueKey: str(r.open_issue_key),
+    }));
+  }),
+);
+
 export const getQualityTopicPage = cache(
   async (slug: string): Promise<QualityTopicPage | null> =>
     asPublic((tx) => readQualityTopic(tx, slug)),

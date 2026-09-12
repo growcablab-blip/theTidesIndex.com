@@ -27,6 +27,17 @@ export const qualityTopics = pgTable(
     name: text().notNull(),
     slug: text().notNull().unique(),
 
+    /**
+     * Editorial grouping for navigation — analytical, microbiological, and so on.
+     *
+     * Deliberately separate from the relationship map. A map edge is a claim
+     * about how two topics relate and must cite its basis; a family is a shelf
+     * somebody put a topic on. Using evidence-backed edges as navigation
+     * categories would make the two indistinguishable, and the weaker one would
+     * end up carrying the authority of the stronger.
+     */
+    family: text(),
+
     shortDescription: text(),
     simpleSummary: text(),
     practitionerSummary: text(),
@@ -85,6 +96,14 @@ export const qualityTopics = pgTable(
     version: integer().notNull().default(1),
     publishedAt: timestamp({ withTimezone: true }),
     lastReviewedAt: timestamp({ withTimezone: true }),
+    /**
+     * When this record entered `ready_for_scientific_review`.
+     *
+     * Set and cleared by `tides_track_review_submission`, never written by the
+     * application. Null means never submitted, or submitted before the column
+     * existed — it does not mean no wait.
+     */
+    reviewSubmittedAt: timestamp({ withTimezone: true }),
 
     sortOrder: integer().notNull().default(0),
     /** Marks a record created by the local demonstration fixture. See profiles. */

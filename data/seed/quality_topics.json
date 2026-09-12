@@ -3,126 +3,147 @@
     "qualityKey": "peptide-synthesis-spps",
     "name": "Peptide synthesis / SPPS",
     "slug": "peptide-synthesis-spps",
-    "sortOrder": 10
+    "sortOrder": 10,
+    "family": "analytical"
   },
   {
     "qualityKey": "purification",
     "name": "Purification",
     "slug": "purification",
-    "sortOrder": 20
+    "sortOrder": 20,
+    "family": "analytical"
   },
   {
     "qualityKey": "identity-testing",
     "name": "Identity testing",
     "slug": "identity-testing",
-    "sortOrder": 30
+    "sortOrder": 30,
+    "family": "analytical"
   },
   {
     "qualityKey": "hplc-purity",
     "name": "HPLC / chromatographic purity",
     "slug": "hplc-purity",
-    "sortOrder": 40
+    "sortOrder": 40,
+    "family": "analytical"
   },
   {
     "qualityKey": "mass-spectrometry",
     "name": "Mass spectrometry",
     "slug": "mass-spectrometry",
-    "sortOrder": 50
+    "sortOrder": 50,
+    "family": "analytical"
   },
   {
     "qualityKey": "peptide-content-assay",
     "name": "Peptide content / assay",
     "slug": "peptide-content-assay",
-    "sortOrder": 60
+    "sortOrder": 60,
+    "family": "analytical"
   },
   {
     "qualityKey": "sterility",
     "name": "Sterility",
     "slug": "sterility",
-    "sortOrder": 70
+    "sortOrder": 70,
+    "family": "microbiological"
   },
   {
     "qualityKey": "bacterial-endotoxin",
     "name": "Bacterial endotoxin",
     "slug": "bacterial-endotoxin",
-    "sortOrder": 80
+    "sortOrder": 80,
+    "family": "microbiological"
   },
   {
     "qualityKey": "residual-solvents",
     "name": "Residual solvents",
     "slug": "residual-solvents",
-    "sortOrder": 90
+    "sortOrder": 90,
+    "family": "chemical-physical"
   },
   {
     "qualityKey": "ph",
     "name": "pH",
     "slug": "ph",
-    "sortOrder": 95
+    "sortOrder": 95,
+    "family": "chemical-physical"
   },
   {
     "qualityKey": "water-content",
     "name": "Water content / moisture",
     "slug": "water-content",
-    "sortOrder": 100
+    "sortOrder": 100,
+    "family": "chemical-physical"
   },
   {
     "qualityKey": "heavy-metals",
     "name": "Heavy metals / elemental impurities",
     "slug": "heavy-metals",
-    "sortOrder": 105
+    "sortOrder": 105,
+    "family": "chemical-physical"
   },
   {
     "qualityKey": "gmp-cgmp",
     "name": "GMP / cGMP",
     "slug": "gmp-cgmp",
-    "sortOrder": 110
+    "sortOrder": 110,
+    "family": "manufacturing"
   },
   {
     "qualityKey": "lyophilization",
     "name": "Lyophilisation",
     "slug": "lyophilisation",
-    "sortOrder": 120
+    "sortOrder": 120,
+    "family": "manufacturing"
   },
   {
     "qualityKey": "formulation-excipients",
     "name": "Formulation / excipients",
     "slug": "formulation-excipients",
-    "sortOrder": 130
+    "sortOrder": 130,
+    "family": "manufacturing"
   },
   {
     "qualityKey": "administration-delivery",
     "name": "Administration / delivery",
     "slug": "administration-delivery",
-    "sortOrder": 140
+    "sortOrder": 140,
+    "family": "handling"
   },
   {
     "qualityKey": "storage-stability",
     "name": "Storage / stability",
     "slug": "storage-stability",
-    "sortOrder": 150
+    "sortOrder": 150,
+    "family": "handling"
   },
   {
     "qualityKey": "transport-excursions",
     "name": "Transportation / temperature excursions",
     "slug": "transport-excursions",
-    "sortOrder": 160
+    "sortOrder": 160,
+    "family": "handling"
   },
   {
     "qualityKey": "batch-traceability",
     "name": "Lot / batch traceability",
     "slug": "batch-traceability",
-    "sortOrder": 170
+    "sortOrder": 170,
+    "family": "manufacturing"
   },
   {
     "qualityKey": "global-manufacturing",
     "name": "Global manufacturing / supplier qualification",
     "slug": "global-manufacturing",
-    "sortOrder": 180
+    "sortOrder": 180,
+    "family": "manufacturing"
   },
   {
     "qualityKey": "coa-literacy",
     "name": "Reading a certificate of analysis",
     "slug": "certificate-of-analysis",
-    "sortOrder": 190
+    "sortOrder": 190,
+    "family": "documents"
   }
 ]
