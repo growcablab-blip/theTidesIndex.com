@@ -41,3 +41,9 @@ publishing/pdf/generated/
 *.sqlite
 *.db
 .pglite/
+
+# Build artefacts of the evidence architecture, not sources.
+build/
+
+# Screenshots and other review captures. A snapshot of a moment.
+review/
