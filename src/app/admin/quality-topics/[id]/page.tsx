@@ -57,7 +57,17 @@ export default async function QualityTopicDetailPage({
               </Link>{' '}
               <span className="text-slate">
                 — the same packet, printable, for a reviewer working outside the application.
-                Producing it records nothing.
+              </span>
+              {' · '}
+              <Link
+                href={`/admin/quality-topics/${topic.id}/bundle`}
+                className="text-deep-tide underline"
+              >
+                Open the external review bundle
+              </Link>{' '}
+              <span className="text-slate">
+                — cover, guide, packet and response form, for sending to a reviewer. Producing
+                either records nothing and moves no record.
               </span>
             </p>
             <ReviewPacketPanel packet={packet} />

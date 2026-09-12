@@ -89,7 +89,12 @@ export default async function ReviewPacketHarness({
         <Link href={`/dev/review-packet/${slug}/export`} className="text-deep-tide underline">
           Open as a document
         </Link>{' '}
-        <span className="text-slate">— the printable export, for a reviewer working on paper.</span>
+        <span className="text-slate">— the printable export.</span>
+        {' · '}
+        <Link href={`/dev/review-packet/${slug}/bundle`} className="text-deep-tide underline">
+          Open the external review bundle
+        </Link>{' '}
+        <span className="text-slate">— cover, guide, packet and response form.</span>
       </p>
 
       <div className="space-y-8">

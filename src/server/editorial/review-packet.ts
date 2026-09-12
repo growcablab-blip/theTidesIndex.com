@@ -19,7 +19,20 @@ export interface ReviewPacketEvidence {
   readonly locatorText: string | null;
   /** Printed page, and where in the held file to find it. */
   readonly pageStart: number | null;
+  readonly pageEnd: number | null;
   readonly filePage: number | null;
+  /*
+   * The structural locators, carried separately from `locatorText`.
+   *
+   * A reviewer opening a book navigates by chapter and table before they
+   * navigate by page, and a page number alone is the locator most likely to be
+   * wrong — editions repaginate, scans shift. Keeping the structure means a
+   * locator can still be followed when the page is off by one.
+   */
+  readonly chapter: string | null;
+  readonly section: string | null;
+  readonly tableNumber: string | null;
+  readonly figure: string | null;
   readonly evidenceTypeKey: string;
   readonly relationship: string;
   readonly interpretation: string | null;
@@ -70,6 +83,11 @@ export interface ReviewPacketClaim {
   readonly claimText: string;
   readonly plainLanguageText: string | null;
   readonly importance: string;
+  /** The claim family, e.g. `certificate-content`. Null where none is set. */
+  readonly claimCategory: string | null;
+  /** Site copy rather than an evidentiary assertion; exempt from the gate. */
+  readonly isEditorialNonEvidentiary: boolean;
+  readonly reviewState: string;
   readonly editorialState: string;
   readonly interpretationNotes: string | null;
   readonly uncertaintyText: string | null;
@@ -122,8 +140,9 @@ export async function readQualityTopicReviewPacket(
 ): Promise<ReviewPacket> {
   const claimResult = await tx.execute(sql`
     select c.id, c.claim_key, c.claim_text, c.plain_language_text, c.importance,
-           c.editorial_state, c.interpretation_notes, c.uncertainty_text,
-           c.version, c.certificate_type_scope
+           c.editorial_state, c.review_state, c.interpretation_notes,
+           c.uncertainty_text, c.version, c.certificate_type_scope,
+           c.claim_category, c.is_editorial_non_evidentiary
     from claims c
     where c.quality_topic_id = ${topicId}
     order by c.claim_key
@@ -139,7 +158,8 @@ export async function readQualityTopicReviewPacket(
 
   const evidenceResult = await tx.execute(sql`
     select e.claim_id, s.source_key, s.title, s.qc_status, s.printed_page_offset,
-           l.locator_text, l.page_start,
+           l.locator_text, l.page_start, l.page_end, l.chapter, l.section,
+           l.table_number, l.figure,
            e.evidence_type_key, e.relationship, e.interpretation,
            e.primary_source_verified, st.public_label as source_type_label
     from claim_evidence e
@@ -162,6 +182,11 @@ export async function readQualityTopicReviewPacket(
       qcStatus: String(r.qc_status),
       locatorText: str(r.locator_text),
       pageStart,
+      pageEnd: r.page_end === null ? null : Number(r.page_end),
+      chapter: str(r.chapter),
+      section: str(r.section),
+      tableNumber: str(r.table_number),
+      figure: str(r.figure),
       filePage: pageStart === null || offset === null ? null : pageStart + offset,
       evidenceTypeKey: String(r.evidence_type_key),
       relationship: String(r.relationship),
@@ -187,6 +212,9 @@ export async function readQualityTopicReviewPacket(
       claimText: String(r.claim_text),
       plainLanguageText: str(r.plain_language_text),
       importance: String(r.importance),
+      claimCategory: str(r.claim_category),
+      isEditorialNonEvidentiary: Boolean(r.is_editorial_non_evidentiary),
+      reviewState: String(r.review_state),
       editorialState: String(r.editorial_state),
       interpretationNotes: str(r.interpretation_notes),
       uncertaintyText: str(r.uncertainty_text),

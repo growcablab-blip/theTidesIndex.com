@@ -127,9 +127,18 @@ strands the approval, and — if the record was published — withdraws it. The
 reviewer is asked again, and shown what changed rather than being handed an
 apparently identical record.
 
-Publishing the topic needs a human scientific approval and a compliance
-approval. An automated scientific approval is not merely disallowed: the
-`reviews_automation_scope` constraint means it cannot be written down.
+Publishing needs more approvals than the pilot supplies, and the count is worth
+knowing before it starts. The **topic** needs one human scientific approval. Each
+of the seven **claims** needs three — a source check, a scientific review and,
+because all seven are high-impact, a compliance review. Twenty-two in total.
+
+The automated source check already recorded against every claim does not count
+towards any of them: `tides_has_approved_review` counts human approvals only, so
+an automated check advances the review state and opens no gate. And an automated
+*scientific* approval is not merely disallowed — the `reviews_automation_scope`
+constraint means it cannot be written down at all.
+
+`docs/FIRST_PUBLICATION_READINESS.md` has the full picture.
 
 ---
 
@@ -140,8 +149,10 @@ A clean database does not arrive with anything awaiting review.
 ```bash
 npm run db:migrate
 npm run db:seed
-npm run evidence:submit -- hplc-purity --as <staff-user-id>
+npm run evidence:submit -- --all --as <staff-user-id>
 ```
+
+A single packet key in place of `--all` submits just that one.
 
 The acting user must be an active editor or admin. The source check is recorded
 as automated and attributed to the tool, but somebody has to have run it —
@@ -155,7 +166,8 @@ npm run qa:production
 ```
 
 `qa:metrics` reports how much is awaiting review and how long it has waited.
-`qa:production` refuses to certify a database that still holds demonstration
+`npm run qa:publication -- hplc-purity` reports what stands between this record
+and publication. `qa:production` refuses to certify a database that still holds demonstration
 records — including the demonstration reviewer profile, whose approvals would
 otherwise satisfy a real publish gate.
 
@@ -167,7 +179,8 @@ otherwise satisfy a real publish gate.
 |---|---|
 | On screen | `/admin/quality-topics/<id>` — the review packet panel |
 | As a document | `/admin/quality-topics/<id>/export` — printable, PDF-ready |
-| In development | `/dev/review-packet/hplc-purity` and `…/export` |
+| As an external bundle | `/admin/quality-topics/<id>/bundle` — cover, guide, evidence, response form |
+| In development | `/dev/review-packet/hplc-purity`, `…/export` and `…/bundle` |
 
 The development routes are closed by two independent conditions — not a
 production build, and `TIDES_PREVIEW_UNPUBLISHED=1` — and 404 when either fails.

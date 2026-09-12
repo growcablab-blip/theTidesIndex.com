@@ -6,6 +6,7 @@ import type { StaffSession } from '../auth/session';
 import type { Database } from '../db/types';
 import { readQualityTopicReviewPacket, type ReviewPacket } from './review-packet';
 import { buildPacketExport, type ExportedPacket } from './packet-export';
+import { buildReviewBundle, type ReviewBundle } from './review-bundle';
 
 /**
  * Read queries for the editorial surfaces.
@@ -895,6 +896,15 @@ export async function getQualityTopicPacketExport(
   options: { readonly issuedAt?: string } = {},
 ): Promise<ExportedPacket | null> {
   return asStaff(session, (tx) => buildPacketExport(tx, topicId, options));
+}
+
+/** The full external bundle: cover, guide, packet, response form. */
+export async function getQualityTopicReviewBundle(
+  session: StaffSession,
+  topicId: string,
+  options: { readonly issuedAt?: string; readonly addressedTo?: string } = {},
+): Promise<ReviewBundle | null> {
+  return asStaff(session, (tx) => buildReviewBundle(tx, topicId, options));
 }
 
 // ---------------------------------------------------------------------------

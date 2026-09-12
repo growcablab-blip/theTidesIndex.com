@@ -255,6 +255,8 @@ function factsWith(overrides: Partial<ProductionFacts>): ProductionFacts {
     demonstrationRecords: 0,
     publishedWithoutStandingApproval: 0,
     approvalsByDemonstrationReviewers: 0,
+    fixtureRecords: 0,
+    privateColumnsExposed: [],
     previewEnabled: false,
     nodeEnv: 'production',
     ...overrides,

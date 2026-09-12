@@ -87,7 +87,14 @@ Three real defects, none of which was caused by the configuration change:
 - **`public-surface.test.ts` asserts that nothing is public**, which another
   suite publishing a record of its own would satisfy falsely.
 
-All three were latent. They are the argument for the shuffle rather than against
+A fourth appeared during the human review pilot, when new suites changed the
+shuffle distribution: **`reading-mode.test.ts` seeded in `beforeAll` without
+truncating**, and asserts on the register of compounds with *no* published
+record. A peptide left published by an earlier suite removed a row it expected.
+Same defect, same fix, and the fourth time the shuffle has found a suite quietly
+relying on a private database.
+
+All four were latent. They are the argument for the shuffle rather than against
 it.
 
 ### Non-determinism found in application code

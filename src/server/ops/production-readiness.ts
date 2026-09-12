@@ -16,8 +16,35 @@
  * demonstration one, the demonstration records are kept out of production
  * altogether. The gate stays simple and the guard is at the door.
  *
+ * **Development contains demonstration records on purpose, and this check is not
+ * softened to accommodate that.** It is a release gate, not a linter: a
+ * development database is expected to fail it, and a database that passes is one
+ * that may be served.
+ *
  * The judging is pure so that it is testable; the facts are gathered separately.
  */
+
+/**
+ * Key fragments that mark a record as a test fixture rather than content.
+ *
+ * A convention rather than a column, because the records this catches are ones
+ * nobody intended to create in a real database — a fixture written by a test
+ * against a shared instance, a row pasted from a spec. A flag would only be set
+ * by someone who had already thought about it.
+ *
+ * Deliberately narrow. `SAMPLE` and `EXAMPLE` are not here: a certificate
+ * specimen and an example calculation are legitimate content, and a check that
+ * cried wolf on those would be switched off within a month.
+ */
+export const FIXTURE_KEY_FRAGMENTS = ['TEST', 'FIXTURE'] as const;
+
+/** Columns that describe this index's private copy of a source. */
+export const PRIVATE_SOURCE_COLUMNS = [
+  'local_private_filename',
+  'local_file_sha256',
+  'local_file_bytes',
+  'canonical_filename',
+] as const;
 
 export interface ProductionFacts {
   /** `tides_demonstration_record_count()`. */
@@ -26,6 +53,15 @@ export interface ProductionFacts {
   readonly publishedWithoutStandingApproval: number;
   /** Approvals recorded against a reviewer profile marked as a demonstration. */
   readonly approvalsByDemonstrationReviewers: number;
+  /** Records whose key names them as a test fixture. */
+  readonly fixtureRecords: number;
+  /**
+   * Public view columns exposing a private source field, as `view.column`.
+   *
+   * A list rather than a count, because the fix is per column and an operator
+   * reading this needs to know which view leaked.
+   */
+  readonly privateColumnsExposed: readonly string[];
   /** Whether unpublished-content preview is switched on. */
   readonly previewEnabled: boolean;
   /** `process.env.NODE_ENV`. */
@@ -67,6 +103,26 @@ export function productionBlockers(facts: ProductionFacts): Blocker[] {
     });
   }
 
+  if (facts.fixtureRecords > 0) {
+    blockers.push({
+      key: 'fixture_records',
+      summary: `${String(facts.fixtureRecords)} record(s) whose key names them as a test fixture.`,
+      consequence:
+        'Fixture rows are unreviewed content that nobody intended to write down. They are ' +
+        'unpublished, and they should not be in a database that serves the public at all.',
+    });
+  }
+
+  if (facts.privateColumnsExposed.length > 0) {
+    blockers.push({
+      key: 'private_source_exposure',
+      summary: `A public view exposes a private source field: ${facts.privateColumnsExposed.join(', ')}.`,
+      consequence:
+        'The filename and checksum of a held third-party copy would be readable by anyone. ' +
+        'They are of no use to a reader and are an invitation to ask for the file.',
+    });
+  }
+
   if (facts.publishedWithoutStandingApproval > 0) {
     blockers.push({
       key: 'published_without_approval',
@@ -90,4 +146,16 @@ export function productionBlockers(facts: ProductionFacts): Blocker[] {
 
 export function readyForProduction(facts: ProductionFacts): boolean {
   return productionBlockers(facts).length === 0;
+}
+
+/** True when a record key names it as a test fixture. Case-insensitive. */
+export function isFixtureKey(key: string): boolean {
+  const upper = key.toUpperCase();
+  return FIXTURE_KEY_FRAGMENTS.some(
+    (fragment) =>
+      upper === fragment ||
+      upper.startsWith(`${fragment}-`) ||
+      upper.endsWith(`-${fragment}`) ||
+      upper.includes(`-${fragment}-`),
+  );
 }

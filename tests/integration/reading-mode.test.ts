@@ -3,7 +3,13 @@ import { seedDatabase } from '@db/seed';
 import { seedDemoData } from '@db/seed/demo';
 import { readProtocols } from '@/server/public/protocol-reader';
 import { DOSING_FIELD_NAMES, assertPatientSafe } from '@/domain/presentation/reading-mode';
-import { closeTestDb, createTestDb, query, type TestDb } from '../support/test-db';
+import {
+  closeTestDb,
+  createTestDb,
+  query,
+  truncateContent,
+  type TestDb,
+} from '../support/test-db';
 
 /**
  * ACCEPTANCE_TESTS.md B — patient and practitioner modes.
@@ -19,6 +25,12 @@ describe('reading modes over the same record', () => {
 
   beforeAll(async () => {
     db = await createTestDb();
+    // Truncate first. This suite seeds once and asserts on the register — which
+    // lists compounds with no published record — so a peptide left published by
+    // an earlier suite silently removes a row this file expects. Found by the
+    // shuffle: the fourth suite to have been quietly relying on a private
+    // database.
+    await truncateContent(db);
     await seedDatabase(db);
     await seedDemoData(db);
 
