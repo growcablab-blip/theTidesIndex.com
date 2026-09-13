@@ -301,25 +301,126 @@ const packetProtocolSchema = z.object({
   patientVisibility: z.literal(false).default(false),
 });
 
-const packetDisagreementSchema = z.object({
-  disagreementKey: z.string().min(1),
-  topic: z.string().min(1),
-  plainLanguageText: z.string().min(1),
-  candidateExplanation: z
-    .enum(['route', 'formulation', 'population', 'dose', 'study_design', 'terminology', 'date', 'unresolved'])
-    .default('unresolved'),
-  explanationNotes: z.string().min(1),
-  /** What would settle it. Never "more research": a kind of source. */
-  resolutionRequirement: z.string().min(1),
-  positions: z
-    .array(
-      z.object({
-        locationKey: z.string().min(1),
-        evidenceTypeKey: z.string().min(1),
-        positionText: z.string().min(1),
-      }),
-    )
-    .min(2),
+const packetDisagreementSchema = z
+  .object({
+    disagreementKey: z.string().min(1),
+    topic: z.string().min(1),
+    plainLanguageText: z.string().min(1),
+    candidateExplanation: z
+      .enum([
+        'route',
+        'formulation',
+        'population',
+        'dose',
+        'study_design',
+        'terminology',
+        'date',
+        'chemical_form',
+        'reporting_threshold',
+        'unresolved',
+      ])
+      .default('unresolved'),
+    explanationNotes: z.string().min(1),
+    /**
+     * Whether the difference has been settled. Separate from the axis above:
+     * two sources can differ on formulation with nobody having established
+     * that formulation is why.
+     */
+    resolution: z
+      .enum([
+        'unresolved',
+        'resolved_different_formulation',
+        'resolved_different_population',
+        'resolved_different_study_condition',
+        'resolved_different_chemical_form',
+        'resolved_different_reporting_threshold',
+        'source_error_confirmed',
+        'secondary_source_less_precise',
+        'regulatory_source_more_specific',
+        'index_error_confirmed',
+      ])
+      .default('unresolved'),
+    /** What settled it. Required for any resolution but `unresolved`. */
+    resolutionBasis: z.string().min(1).nullable().default(null),
+    resolvedAt: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/)
+      .nullable()
+      .default(null),
+    /** What would settle it. Never "more research": a kind of source. */
+    resolutionRequirement: z.string().min(1),
+    positions: z
+      .array(
+        z.object({
+          locationKey: z.string().min(1),
+          evidenceTypeKey: z.string().min(1),
+          positionText: z.string().min(1),
+        }),
+      )
+      .min(2),
+  })
+  .refine((d) => d.resolution === 'unresolved' || d.resolutionBasis !== null, {
+    message:
+      'a resolved disagreement must carry resolutionBasis: what established it',
+    path: ['resolutionBasis'],
+  });
+
+/**
+ * A marketed product of the compound.
+ *
+ * Kept apart from the molecule because strength, reconstitution, storage, dose
+ * and pharmacokinetics belong to the product, and three tesamorelin products
+ * differ in all five while sharing one active substance.
+ */
+const packetProductSchema = z.object({
+  productKey: z.string().min(1),
+  productName: z.string().min(1),
+  proprietaryName: z.string().nullable().default(null),
+  manufacturer: z.string().nullable().default(null),
+  authority: z.string().nullable().default(null),
+  jurisdiction: z.string().nullable().default(null),
+  applicationNumber: z.string().nullable().default(null),
+  marketingStatus: z.string().nullable().default(null),
+  presentation: z.string().nullable().default(null),
+  strengthText: z.string().nullable().default(null),
+  reconstitutionText: z.string().nullable().default(null),
+  labelledDoseText: z.string().nullable().default(null),
+  storageText: z.string().nullable().default(null),
+  excipientsText: z.string().nullable().default(null),
+  substitutabilityNote: z.string().nullable().default(null),
+  notes: z.string().nullable().default(null),
+  locationKey: z.string().min(1),
+});
+
+/** A chemical form and the weight that belongs to it. */
+const packetFormSchema = z.object({
+  formKey: z.string().min(1),
+  chemicalForm: z.string().min(1),
+  molecularFormula: z.string().nullable().default(null),
+  molecularWeight: z.number().nullable().default(null),
+  /** Required whenever a weight is given: what the weight is the weight of. */
+  weightBasis: z.string().nullable().default(null),
+  /** False when the source gave a number without saying which form it meant. */
+  formStatedBySource: z.boolean().default(true),
+  notes: z.string().nullable().default(null),
+  locationKey: z.string().min(1),
+});
+
+/** One PK result with the conditions that produced it. */
+const packetPkSchema = z.object({
+  observationKey: z.string().min(1),
+  productKey: z.string().nullable().default(null),
+  parameter: z.string().min(1),
+  valueText: z.string().min(1),
+  doseContext: z.string().nullable().default(null),
+  administration: z.enum(['single_dose', 'repeat_dose', 'not_stated']).default('not_stated'),
+  /** Never omitted. A PK value with no population is a value about nobody. */
+  population: z.string().min(1),
+  routeKey: z.string().nullable().default(null),
+  studyCondition: z.string().nullable().default(null),
+  evidenceTypeKey: z.string().min(1),
+  notes: z.string().nullable().default(null),
+  locationKey: z.string().min(1),
 });
 
 const packetRegulatorySchema = z.object({
@@ -368,6 +469,9 @@ const compoundPacketSchema = z.object({
   protocols: z.array(packetProtocolSchema).default([]),
   disagreements: z.array(packetDisagreementSchema).default([]),
   regulatory: z.array(packetRegulatorySchema).default([]),
+  products: z.array(packetProductSchema).default([]),
+  forms: z.array(packetFormSchema).default([]),
+  pharmacokinetics: z.array(packetPkSchema).default([]),
 });
 
 export type CompoundPacket = z.infer<typeof compoundPacketSchema>;
@@ -445,6 +549,59 @@ const EVIDENCE_PACKET_FILES = [
   'evidence/identity-testing.json',
   'evidence/peptide-content-assay.json',
 ] as const;
+
+/**
+ * A literature screen: a search, its criteria, and every record it returned.
+ *
+ * Generated by `scripts/literature/screen-bpc-157.py` rather than written by
+ * hand, so that the classification can be reproduced from the query instead of
+ * trusted. `resultCount` is the size of the universe, never a count of studies —
+ * the distinction the previous sprint identified and this file makes checkable.
+ */
+const screenRecordSchema = z.object({
+  pmid: z.string().min(1),
+  title: z.string().min(1),
+  year: z.string(),
+  journal: z.string(),
+  publicationTypes: z.array(z.string()).default([]),
+  studyType: z.enum([
+    'human_interventional',
+    'human_observational',
+    'case_report',
+    'human_pk_safety',
+    'animal_in_vivo',
+    'ex_vivo',
+    'in_vitro',
+    'review',
+    'commentary_editorial',
+    'other_peripheral',
+    'withdrawn',
+  ]),
+  evidenceClass: z.enum(['human', 'preclinical', 'not_evidence']),
+  included: z.boolean(),
+  primaryOrSecondary: z.enum(['primary', 'secondary']),
+  peptideIdentityCertainty: z.string().min(1),
+  fullTextStatus: z.string().min(1),
+  classifiedBy: z.enum(['rule', 'manual']),
+  reason: z.string().min(1),
+});
+
+const literatureScreenSchema = z.object({
+  screenKey: z.string().min(1),
+  peptideKey: z.string().min(1),
+  database: z.string().min(1),
+  query: z.string().min(1),
+  searchDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  resultCount: z.number().int().nonnegative(),
+  deduplication: z.string().min(1),
+  inclusionCriteria: z.string().min(1),
+  humanPrimaryCriteria: z.string().min(1),
+  records: z.array(screenRecordSchema).min(1),
+});
+
+export type LiteratureScreen = z.infer<typeof literatureScreenSchema>;
+
+const LITERATURE_SCREEN_FILES = ['literature/bpc-157-screen.json'] as const;
 
 const COMPOUND_PACKET_FILES = [
   'evidence/tesamorelin.json',
@@ -591,8 +748,27 @@ const manifestSourceSchema = z.object({
   /** Printed page + offset = page of the held file. Null where they agree. */
   printed_page_offset: z.number().int().nullable().default(null),
   /** Whether a copy is actually held, and why not where it is not. */
+  /*
+   * `abstract_held` is the state a journal record sits in after a literature
+   * screen: the bibliographic record and the abstract have been retrieved and
+   * read, and the full text has not been obtained.
+   *
+   * It exists because the alternatives were both wrong. Calling it `held`
+   * claims a copy that is not there; calling it `public_not_yet_retrieved`
+   * says nobody has read it, and would put it under the rule that nothing may
+   * rest on a source this index cannot open — which is the right rule and the
+   * wrong application of it, since the abstract is what is cited and the
+   * abstract is open.
+   */
   access_status: z
-    .enum(['held', 'subscription_required', 'public_not_yet_retrieved', 'unavailable', 'unknown'])
+    .enum([
+      'held',
+      'abstract_held',
+      'subscription_required',
+      'public_not_yet_retrieved',
+      'unavailable',
+      'unknown',
+    ])
     .default('unknown'),
   access_notes: z.string().nullable().default(null),
   /** The source this copy was acquired to supersede, where it replaces one. */
@@ -636,6 +812,9 @@ export const seedData = {
   evidenceTaxonomy: evidenceTaxonomySchema.parse(loadJson('evidence_taxonomy.json')),
   evidencePackets: EVIDENCE_PACKET_FILES.map((file) => parsePacket(file)),
   compoundPackets: COMPOUND_PACKET_FILES.map((file) => parseCompoundPacket(file)),
+  literatureScreens: LITERATURE_SCREEN_FILES.map((file) =>
+    literatureScreenSchema.parse(loadJson(file)),
+  ),
   qualityMap: qualityMapSchema.parse(loadJson('quality_map.json')),
   specimenCertificate: specimenCertificateSchema.parse(
     loadJson('certificates/specimen-coa.json'),

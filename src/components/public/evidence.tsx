@@ -5,6 +5,7 @@ import {
 } from '@/domain/evidence/evidence-types';
 import type { EvidenceRecord, PublicClaim } from '@/server/public/queries';
 import { CitationLine } from './citation';
+import { Disclosure } from '@/components/public/disclosure';
 import {
   EmptyState,
   EvidenceClassTag,
@@ -173,6 +174,23 @@ function ScopeBadge({ scope }: { scope: string | null }) {
   );
 }
 
+/**
+ * What kinds of source stand behind a claim, in one line.
+ *
+ * Printed on the closed disclosure so that collapsing the detail does not
+ * collapse the distinction the page exists to keep: "a handbook says" and "a
+ * trial found" must stay visibly different whether or not anybody opens it.
+ */
+function evidenceSummaryLine(claim: PublicClaim): string {
+  const counts = new Map<string, number>();
+  for (const evidence of claim.evidence) {
+    counts.set(evidence.evidenceTypeLabel, (counts.get(evidence.evidenceTypeLabel) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([label, n]) => (n === 1 ? label : `${label} (${String(n)})`))
+    .join(' · ');
+}
+
 export function ClaimCard({ claim, simple }: { claim: PublicClaim; simple: boolean }) {
   const text = simple ? (claim.plainLanguageText ?? claim.claimText) : claim.claimText;
   const hasPlainLanguage = claim.plainLanguageText !== null;
@@ -208,11 +226,34 @@ export function ClaimCard({ claim, simple }: { claim: PublicClaim; simple: boole
       ) : null}
 
       {claim.evidence.length > 0 ? (
-        <ul className="mt-4 space-y-2.5">
-          {claim.evidence.map((evidence) => (
-            <EvidenceCard key={evidence.id} evidence={evidence} />
-          ))}
-        </ul>
+        /*
+         * The evidence behind a claim, behind a disclosure.
+         *
+         * Not a hiding place. A claim carrying four evidence cards, each with a
+         * population, a route, an editorial note and a citation, runs to about a
+         * screen and a half; ten such claims made the BPC-157 evidence section
+         * ten thousand pixels tall, which is a section nobody reads to the end
+         * of. What stays visible without a click is the claim, its uncertainty,
+         * and the tag saying what class of evidence stands behind it, so the
+         * shape of the support is legible before the detail.
+         *
+         * The disclosure is a native `details`, open in print, open with
+         * JavaScript off, and reachable by find-in-page in browsers that
+         * implement it. Nothing here is conditional on a reading mode.
+         */
+        <div className="mt-4">
+          <Disclosure
+            summary={`The ${claim.evidence.length === 1 ? 'source' : 'sources'} behind this`}
+            detail={evidenceSummaryLine(claim)}
+            count={claim.evidence.length}
+          >
+            <ul className="space-y-2.5">
+              {claim.evidence.map((evidence) => (
+                <EvidenceCard key={evidence.id} evidence={evidence} />
+              ))}
+            </ul>
+          </Disclosure>
+        </div>
       ) : claim.isEditorialNonEvidentiary ? (
         <p className="mt-3 text-xs text-slate">
           Editorial explanation. This is how the platform works, not a finding about the compound.

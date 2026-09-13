@@ -3,6 +3,7 @@ import type { PgDatabase, PgQueryResultHKT } from 'drizzle-orm/pg-core';
 import * as schema from '../schema';
 import { loadEvidencePackets } from './evidence-packets';
 import { loadCompoundPackets } from './compound-packets';
+import { loadLiteratureScreens } from './literature-screens';
 import { loadQualityMap } from './quality-map';
 import { loadSpecimenCertificate } from './certificates';
 import { seedData } from './seed-data';
@@ -39,6 +40,10 @@ export interface SeedResult {
   compoundRoutes: number;
   compoundProtocols: number;
   compoundDisagreements: number;
+  compoundProducts: number;
+  compoundForms: number;
+  pkObservations: number;
+  literatureScreenRecords: number;
   qualityRelationships: number;
   specimenCertificateTests: number;
 }
@@ -57,6 +62,9 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
   // Compounds load after the quality packets: both write source_locations, and
   // a compound packet cites the same source registry.
   const compoundPackets = await loadCompoundPackets(db);
+  // Screens load after the compounds they belong to, and before nothing:
+  // they are a record of what a search returned, not an input to anything else.
+  const literatureScreens = await loadLiteratureScreens(db);
   const qualityRelationships = await loadQualityMap(db);
   const specimenCertificateTests = await loadSpecimenCertificate(db);
 
@@ -80,6 +88,10 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     compoundRoutes: compoundPackets.reduce((n, p) => n + p.routes, 0),
     compoundProtocols: compoundPackets.reduce((n, p) => n + p.protocols, 0),
     compoundDisagreements: compoundPackets.reduce((n, p) => n + p.disagreements, 0),
+    compoundProducts: compoundPackets.reduce((n, p) => n + p.products, 0),
+    compoundForms: compoundPackets.reduce((n, p) => n + p.forms, 0),
+    pkObservations: compoundPackets.reduce((n, p) => n + p.pharmacokinetics, 0),
+    literatureScreenRecords: literatureScreens.reduce((n, s) => n + s.records, 0),
     qualityRelationships,
     specimenCertificateTests,
   };

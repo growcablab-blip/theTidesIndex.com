@@ -86,6 +86,23 @@ describe('source registry', () => {
         expect(source.access_notes, entry.sourceKey).toBeTruthy();
         continue;
       }
+      /*
+       * The second fileless case, added with the BPC-157 literature screen: a
+       * journal record whose abstract was retrieved and read and whose full
+       * text was not obtained. It is not pending — somebody has read what is
+       * cited — and it is not `held`, because no copy of the work is here.
+       *
+       * The condition is the part that keeps this honest. Such a source must
+       * say in its own notes that the full text is missing, so that the state
+       * cannot quietly become a way of citing something nobody has opened.
+       */
+      if (source?.access_status === 'abstract_held') {
+        expect(source.bibliographic_verified, entry.sourceKey).toBe(true);
+        expect(source.access_notes, entry.sourceKey).toMatch(/abstract/i);
+        expect(source.access_notes, entry.sourceKey).toMatch(/full text not obtained/i);
+        expect(source.limitations_notes, entry.sourceKey).toBeTruthy();
+        continue;
+      }
       expect(source?.qc_status, entry.sourceKey).toBe('pending');
       // A source with no copy must say why there is no copy. "We should get it"
       // becoming "it says…" is the failure this closes, and an unexplained

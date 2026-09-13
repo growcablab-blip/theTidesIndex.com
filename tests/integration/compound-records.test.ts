@@ -93,18 +93,42 @@ describe('the compound evidence records', () => {
 
   // --- Evidence classes stay apart -----------------------------------------
 
-  it('records no human evidence for BPC-157, and says so', async () => {
+  it('holds BPC-157 human evidence that is uncontrolled, and never presents it otherwise', async () => {
+    /*
+     * This assertion used to be `expect(classes).not.toContain('human')`, with a
+     * note saying that if a human class ever appeared it would be because a
+     * human source had been added and the test should be updated deliberately.
+     * That is what happened. A PubMed screen identified three primary human
+     * studies, and the record now carries them.
+     *
+     * What replaces the old assertion is the thing that actually needs
+     * guarding. "There are human studies" and "there is human evidence for this
+     * use" are different statements, and the distance between them is every
+     * one of these studies being uncontrolled. A page that listed the human
+     * evidence without that would be worse than the page that said there was
+     * none.
+     */
     const page = await readPeptidePagePreview(db, 'bpc-157', 'practitioner');
-    const classes = page!.claims.flatMap((c) => c.evidence.map((e) => e.evidenceClass));
+    const human = page!.claims.flatMap((c) =>
+      c.evidence.filter((e) => e.evidenceClass === 'human'),
+    );
+    expect(human.length).toBeGreaterThan(0);
 
-    // Every claim rests on practitioner reference or preclinical work. If a
-    // human evidence class ever appears here it is because a human source was
-    // added, and this assertion should be updated deliberately rather than
-    // discovered to be failing.
-    expect(classes).not.toContain('human');
+    // None of it may be recorded as controlled or randomised evidence.
+    for (const evidence of human) {
+      expect(
+        ['human_rct', 'human_controlled_nonrandomized'],
+        `BPC-157 carries ${evidence.evidenceTypeKey} as human evidence`,
+      ).not.toContain(evidence.evidenceTypeKey);
+    }
+
+    // And the limitation is stated on the record, not left to a reader.
+    const quality = page!.claims.find((c) => c.claimCategory === 'evidence-quality');
+    expect(quality, 'no claim states what the human studies cannot establish').toBeDefined();
+    expect(quality!.claimText).toMatch(/control|randomi|blind/i);
 
     const text = `${page!.simpleSummary ?? ''} ${page!.unknownsSummary ?? ''}`;
-    expect(text).toMatch(/no (study|human|clinical)/i);
+    expect(text).toMatch(/comparison group|uncontrolled|no control/i);
   });
 
   it('keeps tesamorelin’s human evidence scoped to the population it was found in', async () => {

@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium, type Browser, type Page } from 'playwright-core';
 
 const BASE = process.env.TIDES_BASE_URL ?? 'http://localhost:3000';
-const OUT = fileURLToPath(new URL('../../review/peptides-v2/', import.meta.url));
+const OUT = fileURLToPath(new URL('../../review/peptides-v2-final/', import.meta.url));
 mkdirSync(OUT, { recursive: true });
 
 async function launch(): Promise<Browser> {
@@ -92,11 +92,20 @@ try {
           console.log(`  ${'BPC-157 protocol comparison'.padEnd(34)} ${slug}-protocol-comparison.png`);
         }
       }
-      if (!viewport.mobile && slug === 'tesamorelin') {
-        const evidence = page.locator('#evidence').first();
-        if (await evidence.isVisible()) {
-          await evidence.screenshot({ path: `${OUT}${slug}-evidence.png` });
-          console.log(`  ${'Tesamorelin evidence section'.padEnd(34)} ${slug}-evidence.png`);
+      // The modules this sprint added, each on its own, at desktop width. A
+      // full-page capture of a record this long shows none of them legibly.
+      if (!viewport.mobile) {
+        for (const [id, file, label] of [
+          ['literature', `${slug}-evidence-landscape.png`, `${name} evidence landscape`],
+          ['pharmacokinetics', `${slug}-pharmacokinetics.png`, `${name} pharmacokinetics`],
+          ['products', `${slug}-products.png`, `${name} products and form`],
+          ['evidence', `${slug}-evidence.png`, `${name} evidence section`],
+        ] as const) {
+          const section = page.locator(`#${id}`).first();
+          if ((await section.count()) > 0 && (await section.isVisible())) {
+            await section.screenshot({ path: `${OUT}${file}` });
+            console.log(`  ${label.padEnd(34)} ${file}`);
+          }
         }
       }
     }

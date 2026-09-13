@@ -215,3 +215,51 @@ export function formatDate(value: string | null): string {
     timeZone: 'UTC',
   }).format(date);
 }
+
+/**
+ * A summary from the record, as paragraphs.
+ *
+ * Summaries are stored with blank lines between paragraphs and `**lead-ins**`
+ * marking the section a paragraph is about, and both were being rendered
+ * literally: the tesamorelin practitioner summary arrived on the page as one
+ * unbroken block of eight hundred words with visible asterisks in it. Legible
+ * to nobody, and the fault of the renderer rather than the record.
+ *
+ * The subset handled is deliberately tiny — paragraph breaks, and bold runs
+ * delimited by a doubled asterisk. No links, no raw HTML, no markdown library.
+ * Everything here is React elements built from split strings, so there is no
+ * path by which stored text could become markup.
+ */
+export function SummaryProse({
+  text,
+  className = 'max-w-[62ch] text-lg leading-relaxed text-ink-soft',
+}: {
+  text: string;
+  className?: string;
+}) {
+  const paragraphs = text
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph !== '');
+
+  return (
+    <div className="space-y-4">
+      {paragraphs.map((paragraph) => (
+        <p key={paragraph.slice(0, 48)} className={className}>
+          {paragraph.split('**').map((run, index) =>
+            // Odd-indexed runs sit between a pair of delimiters. An unmatched
+            // delimiter leaves its tail unbolded rather than swallowing the
+            // rest of the paragraph.
+            index % 2 === 1 ? (
+              <strong key={`${String(index)}-${run.slice(0, 24)}`} className="font-medium text-ink">
+                {run}
+              </strong>
+            ) : (
+              <span key={`${String(index)}-${run.slice(0, 24)}`}>{run}</span>
+            ),
+          )}
+        </p>
+      ))}
+    </div>
+  );
+}

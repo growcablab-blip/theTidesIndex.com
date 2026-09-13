@@ -1,6 +1,7 @@
 import { sql } from 'drizzle-orm';
 import {
   boolean,
+  check,
   date,
   index,
   integer,
@@ -12,6 +13,7 @@ import {
 } from 'drizzle-orm/pg-core';
 import {
   disagreementExplanation,
+  disagreementResolution,
   publicationState,
   regulatoryStatusValue,
   reviewState,
@@ -195,9 +197,21 @@ export const disagreements = pgTable(
     topic: text().notNull(),
     /** Plain-language framing for patient mode. */
     plainLanguageText: text(),
-    /** Candidate explanation, or 'unresolved' when none has been established. */
+    /** The axis the sources differ on: route, formulation, population, dose… */
     candidateExplanation: disagreementExplanation().notNull().default('unresolved'),
     explanationNotes: text(),
+    /**
+     * Whether the difference has been *settled*, which is a separate question
+     * from what axis it lies on. A disagreement can be explained by formulation
+     * and still open, or explained by formulation and closed.
+     *
+     * `resolutionBasis` is required by a check constraint for any value but
+     * `unresolved`: marking a conflict settled is the one operation here that
+     * takes information away from a reader, so it may not be done silently.
+     */
+    resolution: disagreementResolution().notNull().default('unresolved'),
+    resolutionBasis: text(),
+    resolvedAt: date(),
     /** What would settle it. Drives the verification queue. */
     resolutionRequirement: text(),
 
@@ -241,6 +255,10 @@ export const disagreements = pgTable(
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    check(
+      'disagreements_resolution_shows_working',
+      sql`${t.resolution} = 'unresolved'::disagreement_resolution or (${t.resolutionBasis} is not null and btrim(${t.resolutionBasis}) <> '')`,
+    ),
     index('disagreements_peptide_idx').on(t.peptideId),
     index('disagreements_quality_topic_idx').on(t.qualityTopicId),
   ],

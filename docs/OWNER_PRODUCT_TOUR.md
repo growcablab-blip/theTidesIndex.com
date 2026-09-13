@@ -198,9 +198,35 @@ deliberately no medical content at all.
 
 ---
 
+## 13 · The practitioner reference sheets
+
+With the site running in another terminal:
+
+```bash
+npm run sheets
+```
+
+One PDF per compound, rendered from the database rather than written. Open
+`build/publications/tides-index-reference-tesamorelin.pdf` and
+`tides-index-reference-bpc-157.pdf`.
+
+These feed THE PEPTIDE REFERENCE GUIDE and PEPTIDE PROTOCOLS & CLINICAL QUICK
+REFERENCE. Every sheet prints the record's version, the date it was generated
+and whether a person has reviewed it, because a printed sheet is the artefact
+most likely to be consulted long after the record behind it was corrected.
+
+**Worth checking:** every regimen is attributed to the source that reported it,
+with the kind of evidence beside it, and there is no Tides dose anywhere.
+
+---
+
 ## What to judge
 
 1. Does it read as authoritative without overclaiming?
 2. Do the honest gaps make it feel more trustworthy, or unfinished?
 3. Is the PDF something you would put your name on?
+4. On a compound page: does the pharmacokinetics module make it obvious why
+   four different half-lives can all be correct?
+5. On BPC-157: does "230 records, 3 studies in people" land as the distinction
+   it is meant to be?
 4. Is anything here saying something you do not want it to say?

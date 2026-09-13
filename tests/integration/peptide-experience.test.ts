@@ -38,40 +38,49 @@ describe('peptide experience', () => {
 
   // --- Absence is bounded to this register ---------------------------------
 
-  it('says no human study is recorded here, never that none exists', async () => {
+  it('ties every statement about human evidence to the search that produced it', async () => {
+    /*
+     * This assertion has now been rewritten twice, and the history is the
+     * point.
+     *
+     * First it required the record to say "no human study is recorded here"
+     * rather than "none exists" — the right correction of an overclaim, and
+     * still a statement about a library rather than about the literature.
+     * Then the screen was run, and the answer came back the other way: three
+     * primary human studies, in 230 records.
+     *
+     * So what has to hold now is stronger than either. Any statement the record
+     * makes about human evidence must be bounded to a search somebody can
+     * repeat — its database, its date, its criteria — and the record may never
+     * assert that nothing exists anywhere, because PubMed is not the world.
+     */
     const page = await readPeptidePagePreview(db, 'bpc-157', 'practitioner');
     const prose = [
       page!.simpleSummary,
       page!.practitionerSummary,
       page!.unknownsSummary,
-      ...page!.claims.map((c) => `${c.claimText} ${c.interpretationNotes ?? ''}`),
+      ...page!.claims.map((c) => `${c.claimText} ${c.interpretationNotes ?? ''} ${c.uncertaintyText ?? ''}`),
       ...page!.gaps.map((g) => `${g.statement} ${g.whyNotSupported}`),
     ]
       .filter((t): t is string => typeof t === 'string')
       .join(' ');
 
-    /*
-     * The stronger claim would need a literature review this index has not
-     * done. A bare substring match is not enough, because the record uses these
-     * phrases *negated* — "does not assert that no human evidence exists" is the
-     * correct sentence, and a naive check flags it. So each occurrence is
-     * checked for a negator in front of it.
-     */
+    // Nothing may claim an absence in the world.
     const lower = prose.toLowerCase();
     for (const overclaim of [
       'no human studies exist',
       'no human evidence exists',
       'there are no human studies',
       'has never been studied in humans',
+      'no human research exists',
     ]) {
       let from = 0;
       for (;;) {
         const at = lower.indexOf(overclaim, from);
         if (at === -1) break;
         const preceding = lower.slice(Math.max(0, at - 60), at);
-        // Allowed two ways: a negator in front of it, or the phrase in quotes.
-        // The record contrasts the two wordings explicitly, and a mention is
-        // not a use.
+        // Allowed two ways: a negator in front of it, or the phrase in quotes,
+        // because the record discusses these wordings as wordings.
         const quoted = /['‘“"]$/.test(prose.slice(Math.max(0, at - 1), at));
         expect(
           quoted || /(not|never|cannot|does not|doesn't|nor)/.test(preceding),
@@ -81,9 +90,52 @@ describe('peptide experience', () => {
       }
     }
 
-    // And the bounded form is present and explicit about being about the register.
-    expect(prose).toMatch(/recorded in the reviewed sources|held by this index|held by The Tides Index/i);
-    expect(prose).toMatch(/statement about (this|the) register|not about the world|does not assert that no human evidence exists/i);
+    // And the screen it is bounded to is on the record, with everything needed
+    // to run it again.
+    const screen = page!.literatureScreens[0];
+    expect(screen, 'no literature screen is recorded for BPC-157').toBeDefined();
+    expect(screen!.databaseName).toMatch(/pubmed/i);
+    expect(screen!.searchDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(screen!.queryText.length).toBeGreaterThan(10);
+    expect(screen!.inclusionCriteria.length).toBeGreaterThan(40);
+    expect(screen!.humanPrimaryCriteria.length).toBeGreaterThan(40);
+    expect(screen!.deduplicationNotes.length).toBeGreaterThan(40);
+
+    // The prose names the date, so a reader is not left to find it elsewhere.
+    expect(prose).toContain(screen!.searchDate.slice(0, 4));
+    expect(prose).toMatch(/pubmed/i);
+  });
+
+  it('never lets a result count become a count of evidence', async () => {
+    /*
+     * The specific failure this guards: "228 records" reading as weight. The
+     * two numbers must stay far apart and must never be the same number.
+     */
+    const page = await readPeptidePagePreview(db, 'bpc-157', 'practitioner');
+    const screen = page!.literatureScreens[0]!;
+
+    expect(screen.resultCount).toBeGreaterThan(screen.includedCount);
+    expect(screen.includedCount).toBeGreaterThan(screen.humanPrimaryCount);
+
+    // Every classified record is in the ledger, so the counts cannot be
+    // asserted independently of the rows they are counted from.
+    const total = screen.typeCounts.reduce((n, t) => n + t.count, 0);
+    expect(total).toBe(screen.resultCount);
+
+    // And the record's own prose never presents the result count as studies.
+    const prose = `${page!.simpleSummary ?? ''} ${page!.practitionerSummary ?? ''}`;
+    const count = String(screen.resultCount);
+    let from = 0;
+    for (;;) {
+      const at = prose.indexOf(count, from);
+      if (at === -1) break;
+      const following = prose.slice(at, at + 90).toLowerCase();
+      expect(
+        /records?/.test(following),
+        `"${count}" is used without the word "records": …${prose.slice(at, at + 90)}…`,
+      ).toBe(true);
+      from = at + count.length;
+    }
   });
 
   // --- Primary and practitioner sources stay distinct -----------------------
@@ -109,16 +161,37 @@ describe('peptide experience', () => {
     }
   });
 
-  it('records where the label contradicts the handbook rather than dropping one', async () => {
+  it('records where sources differ rather than dropping one of them', async () => {
+    /*
+     * This assertion used to require at least three `contradicts` relationships
+     * on the tesamorelin record, and it now requires none.
+     *
+     * That is the finding, not a weakened test. Four of the five differences
+     * between the FDA labelling and the practitioner handbook turned out not to
+     * be contradictions at all — they were different products, different
+     * chemical forms, a frequency threshold, and a regulatory document being
+     * more specific. The fifth was this index misreading the handbook. What has
+     * to be guaranteed is that every difference is still *on the record* with
+     * both sides attributed, which is what a disagreement row is for.
+     */
     const page = await readPeptidePagePreview(db, 'tesamorelin', 'practitioner');
-    const contradicting = page!.claims.flatMap((c) =>
-      c.evidence.filter((e) => e.relationship === 'contradicts'),
-    );
-    // Jurisdiction, half-life and the adverse-effect list all differ.
-    expect(contradicting.length).toBeGreaterThanOrEqual(3);
-    for (const evidence of contradicting) {
-      expect(evidence.interpretation).toBeTruthy();
+    expect(page!.disagreements.length).toBeGreaterThanOrEqual(5);
+
+    for (const disagreement of page!.disagreements) {
+      expect(disagreement.positions.length, disagreement.topic).toBeGreaterThanOrEqual(2);
+      const sources = new Set(disagreement.positions.map((p) => p.citation.sourceKey));
+      // A disagreement whose sides come from one source is legitimate — the
+      // dose one does — but every side must still be separately located.
+      for (const position of disagreement.positions) {
+        expect(position.citation.sourceKey, disagreement.topic).toBeTruthy();
+      }
+      expect(sources.size, disagreement.topic).toBeGreaterThanOrEqual(1);
     }
+
+    // And every difference that is still open says so, rather than being
+    // quietly closed by the arrival of an authoritative source.
+    const open = page!.disagreements.filter((d) => d.resolution === 'unresolved');
+    expect(open.length).toBeGreaterThan(0);
   });
 
   it('requires authoritative provenance for an approved regulatory status', async () => {

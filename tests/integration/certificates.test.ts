@@ -335,13 +335,37 @@ describe('certificates', () => {
       expect(source.access_status, source.source_key).toBe('subscription_required');
     }
 
-    const cited = await query<{ n: number }>(
+    /*
+     * Nothing rests on a source this index cannot open.
+     *
+     * `abstract_held` was added when the BPC-157 literature screen brought in
+     * six journal records whose abstracts were retrieved and read and whose
+     * full texts were not obtained. That is openable and it is cited as what it
+     * is, so it passes — but only on the condition asserted below: every
+     * location on such a source must identify itself as an abstract. A record
+     * that cited "p. 412" of a paper nobody has opened would be exactly the
+     * failure this test was written for, and the new state must not become a
+     * way around it.
+     */
+    const cited = await query<{ n: number; source_key: string }>(
       db,
-      `select count(*)::int as n from claim_evidence e
-       join sources s on s.id = e.source_id
-       where s.access_status <> 'held'`,
+      `select count(*)::int as n, min(s.source_key) as source_key
+         from claim_evidence e
+         join sources s on s.id = e.source_id
+        where s.access_status not in ('held', 'abstract_held')`,
     );
-    // Nothing rests on a source this index cannot open.
-    expect(cited[0]?.n).toBe(0);
+    expect(cited[0]?.n, `first offender: ${cited[0]?.source_key ?? ''}`).toBe(0);
+
+    const abstractLocations = await query<{ source_key: string; locator_text: string }>(
+      db,
+      `select s.source_key, l.locator_text
+         from source_locations l
+         join sources s on s.id = l.source_id
+        where s.access_status = 'abstract_held'`,
+    );
+    expect(abstractLocations.length).toBeGreaterThan(0);
+    for (const location of abstractLocations) {
+      expect(location.locator_text, location.source_key).toMatch(/abstract/i);
+    }
   });
 });

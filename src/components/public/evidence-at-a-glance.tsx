@@ -18,6 +18,14 @@ import type { PeptidePage } from '@/server/public/queries';
  *
  * Every figure is counted from the record. Nothing here is written by hand, so
  * the panel cannot say something the page below contradicts.
+ *
+ * The values are descriptive first and numeric second, because a count on its
+ * own misleads in both directions. "6 statements" does not say whether the
+ * evidence is a controlled trial or a chart review; "None recorded" against
+ * preclinical evidence was flatly wrong for BPC-157, whose claims cite a
+ * practitioner handbook rather than the animal studies it is summarising, while
+ * a literature screen on the same page had classified 165 preclinical studies.
+ * Where a screen exists it is the better answer and this panel uses it.
  */
 
 export function EvidenceAtAGlance({
@@ -39,6 +47,46 @@ export function EvidenceAtAGlance({
     peptide.protocols.flatMap((protocol) => protocol.sources.map((s) => s.sourceKey)),
   );
 
+  /*
+   * A screen answers the evidence questions better than the claim layer can.
+   * The claim layer says what this index has written down; the screen says what
+   * the literature contains. Where both exist, the screen is what a reader
+   * means by "is there any evidence".
+   */
+  const screen = peptide.literatureScreens[0];
+  const PRECLINICAL = new Set(['animal_in_vivo', 'ex_vivo', 'in_vitro']);
+  const screenedPreclinical =
+    screen === undefined
+      ? 0
+      : screen.typeCounts
+          .filter((t) => PRECLINICAL.has(t.studyType))
+          .reduce((n, t) => n + t.count, 0);
+
+  const humanValue =
+    screen !== undefined
+      ? screen.humanPrimaryCount === 0
+        ? 'None identified'
+        : `${String(screen.humanPrimaryCount)} ${screen.humanPrimaryCount === 1 ? 'study' : 'studies'}, all small and uncontrolled`
+      : humanClaims === 0
+        ? 'None held'
+        : `${String(humanClaims)} statements`;
+
+  const humanNote =
+    screen !== undefined
+      ? `From a ${screen.databaseName.split(' ')[0] ?? 'literature'} screen on ${screen.searchDate}. None is a controlled trial.`
+      : humanClaims === 0
+        ? 'No study in people is held by this index for this compound.'
+        : 'Statements resting on evidence from people.';
+
+  const preclinicalValue =
+    screen !== undefined
+      ? screenedPreclinical === 0
+        ? 'None identified'
+        : `${String(screenedPreclinical)} studies identified`
+      : preclinicalClaims === 0
+        ? 'None recorded here'
+        : `${String(preclinicalClaims)} statements`;
+
   return (
     <section
       aria-labelledby="at-a-glance"
@@ -51,21 +99,19 @@ export function EvidenceAtAGlance({
       <dl className="mt-4 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
         <Item
           label="Human evidence"
-          value={humanClaims === 0 ? 'None held' : `${String(humanClaims)} statements`}
-          tone={humanClaims === 0 ? 'absent' : 'present'}
-          note={
-            humanClaims === 0
-              ? 'No study in people is held by this index for this compound.'
-              : 'Statements resting on evidence from people.'
+          value={humanValue}
+          tone={
+            (screen === undefined ? humanClaims : screen.humanPrimaryCount) === 0
+              ? 'absent'
+              : 'present'
           }
+          note={humanNote}
         />
         <Item
           label="Preclinical evidence"
-          value={
-            preclinicalClaims === 0 ? 'None recorded' : `${String(preclinicalClaims)} statements`
-          }
+          value={preclinicalValue}
           tone="neutral"
-          note="Laboratory and animal work. Not evidence about people."
+          note="Laboratory and animal work. However much of it there is, it is not evidence about people."
         />
         <Item
           label="Regulatory status"

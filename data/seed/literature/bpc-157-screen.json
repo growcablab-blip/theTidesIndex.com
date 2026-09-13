@@ -1,0 +1,4037 @@
+{
+  "screenKey": "bpc-157-pubmed-2026-09",
+  "peptideKey": "bpc-157",
+  "database": "PubMed (NCBI E-utilities esearch/efetch, db=pubmed)",
+  "query": "\"BPC 157\"[All Fields] OR \"body protection compound 157\"[All Fields] OR \"PL 14736\"[All Fields]",
+  "searchDate": "2026-09-13",
+  "resultCount": 230,
+  "deduplication": "PubMed returns one record per PMID, so within this database the result set carries no duplicates and none were removed. Records that report the same underlying study in different journals are NOT deduplicated here: this is a screen of publications, not of studies, and collapsing them would hide that one research group accounts for most of the corpus. A withdrawn article and its erratum are kept and marked rather than dropped.",
+  "inclusionCriteria": "A record is INCLUDED as evidence about BPC-157 when it reports original observations in which BPC-157 or an identified analogue was administered or applied, or when it characterises the compound itself. Reviews, commentary, editorials, replies and records that only mention the compound in passing are EXCLUDED from the evidence set and retained in the ledger, because a count of publications must never be read as a count of studies.",
+  "humanPrimaryCriteria": "A record counts as primary human evidence only when BPC-157 was administered to human beings and an outcome in those people was reported. A human tissue or plasma sample studied in a dish is not a person; a human measurement taken in a study whose BPC-157 arm was in rats is not human evidence for BPC-157; and a review asserting that trials happened is not a trial report.",
+  "records": [
+    {
+      "pmid": "41476424",
+      "title": "Injectable Peptide Therapy: A Primer for Orthopaedic and Sports Medicine Physicians.",
+      "year": "2026",
+      "journal": "The American journal of sports medicine",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41490200",
+      "title": "Therapeutic Peptides in Orthopaedics: Applications, Challenges, and Future Directions.",
+      "year": "2026",
+      "journal": "Journal of the American Academy of Orthopaedic Surgeons. Global research & reviews",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41599743",
+      "title": "Tracheocutaneous Fistula Resolved by Pentadecapeptide BPC 157 Therapy Through the NO-System-Triple NO-Agent Approach in Rats.",
+      "year": "2026",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "41599787",
+      "title": "Fourier Transform Infrared Spectroscopic Characterization of Aortic Wall Remodeling by Stable Gastric Pentadecapeptide BPC 157 After Unilateral Adrenalectomy in Rats.",
+      "year": "2026",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "41754776",
+      "title": "Conventional Antiarrhythmics Class I-IV, Late INa Inhibitors, IKs Enhancers, RyR2 Stabilizers, Gap Junction Modulators, Atrial-Selective Antiarrhythmics, and Stable Gastric Pentadecapeptide BPC 157 as Useful Cytoprotective Therapy in Arrhythmias.",
+      "year": "2026",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41754849",
+      "title": "Tendon, Ligament, and Muscle Injury, Osteotendinous, Myotendinous, and Muscle-to-Bone Junction Therapy Perspectives with Growth Factors and Stable Gastric Pentadecapeptide BPC 157-A Review.",
+      "year": "2026",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41832718",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 as a Therapy of Severe Electrolyte Disturbances in Rats.",
+      "year": "2026",
+      "journal": "Current neuropharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "41898733",
+      "title": "From Regeneration to Analgesia: The Role of BPC-157 in Tissue Repair and Pain Management.",
+      "year": "2026",
+      "journal": "International journal of molecular sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41901308",
+      "title": "Cytoprotection as a Unifying Strategy for Hemorrhage and Thrombosis: The Role of BPC 157 and Related Therapeutics.",
+      "year": "2026",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41966639",
+      "title": "Safety and Efficacy of Approved and Unapproved Peptide Therapies for Musculoskeletal Injuries and Athletic Performance.",
+      "year": "2026",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "42021992",
+      "title": "Therapeutic peptides in gerontology: mechanisms and applications for healthy aging.",
+      "year": "2026",
+      "journal": "Frontiers in aging",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "42123221",
+      "title": "Endothelium-Dependent Nitric Oxide-Mediated Vasorelaxant Effects of BPC 157 in Human Internal Mammary Artery.",
+      "year": "2026",
+      "journal": "Journal of clinical medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "ex_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Human internal mammary artery rings from 12 patients undergoing coronary bypass, endothelium-intact and denuded, exposed to BPC-157 in an organ bath. Human tissue, and therefore NOT human evidence under this screen: nobody was given the compound. It is the strongest tissue-level evidence in the corpus and it is still preclinical."
+    },
+    {
+      "pmid": "42123471",
+      "title": "Therapeutic Peptides in Aesthetic, Metabolic and Endocrine Conditions: Effects, Safety, Clinical Applications, and Future Perspectives.",
+      "year": "2026",
+      "journal": "International journal of molecular sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "other_peripheral",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "uncertain",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Review of peptides in aesthetic, metabolic and endocrine conditions. BPC-157 is not named in the title or abstract; the record entered the universe on a full-text match. Peripheral mention."
+    },
+    {
+      "pmid": "42160466",
+      "title": "Injectable Peptides in Sports Medicine: A Structured Narrative Review of Evidence, Safety, and Antidoping Implications.",
+      "year": "2026",
+      "journal": "JBJS reviews",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "42198317",
+      "title": "BPC-157 as an Investigational Peptide Therapeutic: Biopharmaceutical Challenges, Formulation Strategies, and Translational Development Barriers.",
+      "year": "2026",
+      "journal": "Pharmaceutics",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Narrative review of the development position, searched to April 2026 across PubMed/MEDLINE, Embase and Cochrane plus patent and regulator sources. States there is no approved formulation, no validated dosing regimen and no completed Phase II trial. Excluded as evidence; retained because it is an independent check on the assertion in PMID 17186181."
+    },
+    {
+      "pmid": "42204242",
+      "title": "Protective effects of BPC 157 in rats with experimentally induced lower extremity ischemia-reperfusion injury.",
+      "year": "2026",
+      "journal": "Scientific reports",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "42222211",
+      "title": "Peptide Therapies in Thyroid Health: Emerging Applications in Endocrine and Immune Modulation.",
+      "year": "2026",
+      "journal": "Integrative medicine (Encinitas, Calif.)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "42278509",
+      "title": "BPC-157 and Its Novel Hybrid Analogs as Inhibitors of Acetylcholinesterase.",
+      "year": "2026",
+      "journal": "International journal of molecular sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "42328738",
+      "title": "Rapid and harmonized analytical workflow for the determination of peptidic and non-peptidic doping agents in dried and liquid blood matrices.",
+      "year": "2026",
+      "journal": "The Analyst",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "other_peripheral",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Doping-control analytical workflow covering many agents, of which BPC-157 is one. Not a study of the compound."
+    },
+    {
+      "pmid": "42356491",
+      "title": "Unilateral Adrenalectomy, and the Stable Pentadecapeptide BPC 157 as Therapy in Rats-A Cytoprotection Approach.",
+      "year": "2026",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "42385164",
+      "title": "Effects of Supplementation in Masters Athletes and Older Adults: A Narrative Review.",
+      "year": "2026",
+      "journal": "Current sports medicine reports",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "42533460",
+      "title": "Stable pentadecapeptide therapy counteracts gentamicin-induced nephrotoxicity via nitric oxide-system modulation: evidence from a triple nitric oxide-agent approach in rats.",
+      "year": "2026",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "42542926",
+      "title": "Effects of BPC-157 and TB-500 on Achilles tendon healing in rats: A histopathological and biomechanical study.",
+      "year": "2026",
+      "journal": "Joint diseases and related surgery",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "42555375",
+      "title": "Fabrication and characterization of biocompatible BPC-157 based chitosan hydrogel.",
+      "year": "2026",
+      "journal": "3 Biotech",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "in_vitro",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Fabrication and physicochemical characterisation of a chitosan hydrogel carrying BPC-157. A materials study of a delivery vehicle."
+    },
+    {
+      "pmid": "42578445",
+      "title": "Peptide Supplements and Their Therapeutic Applications in Sports Medicine.",
+      "year": "2026",
+      "journal": "The American journal of sports medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "42635865",
+      "title": "Peptides in Regenerative Medicine: A Comprehensive Review of Clinical Applications in Tissue Repair and Chronic Pain Management.",
+      "year": "2026",
+      "journal": "Current pain and headache reports",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "42667535",
+      "title": "Efficient Expression of Small Molecule Bioactive Peptides in Bacillus licheniformis.",
+      "year": "2026",
+      "journal": "Applied biochemistry and biotechnology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "39265666",
+      "title": "Injectable Therapeutic Peptides-An Adjunct to Regenerative Medicine and Sports Performance?",
+      "year": "2025",
+      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
+      "publicationTypes": [
+        "Review",
+        "Letter"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is editorial, comment or letter."
+    },
+    {
+      "pmid": "39776466",
+      "title": "Compounded glucagon-like peptide-1 receptor agonists for weight loss: the direct-to-consumer market in Colorado.",
+      "year": "2025",
+      "journal": "Journal of pharmaceutical policy and practice",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "other_peripheral",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Survey of the direct-to-consumer compounded GLP-1 market in Colorado. BPC-157 appears as one of the compounds offered. Not a study of it."
+    },
+    {
+      "pmid": "39861766",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 as Therapy After Surgical Detachment of the Quadriceps Muscle from Its Attachments for Muscle-to-Bone Reattachment in Rats.",
+      "year": "2025",
+      "journal": "Pharmaceutics",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "39865815",
+      "title": "Withdrawn: Stable Gastric Pentadecapeptide BPC 157 as a Therapy of Severe Electrolyte Disturbances in Rats.",
+      "year": "2025",
+      "journal": "Current neuropharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Retracted Publication"
+      ],
+      "studyType": "withdrawn",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Withdrawn by the publisher at the authors request. A rat study. Kept in the ledger and excluded from the evidence set: a withdrawal that disappears from a count is a count that cannot be audited."
+    },
+    {
+      "pmid": "39909207",
+      "title": "Editorial Commentary: Testosterone, Growth Hormone, and Vitamin D Supplementation Is Not Routinely Indicated for Orthopaedic Surgery Patients.",
+      "year": "2025",
+      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
+      "publicationTypes": [
+        "Editorial"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is editorial, comment or letter."
+    },
+    {
+      "pmid": "40005408",
+      "title": "Protective Effects of BPC 157 on Liver, Kidney, and Lung Distant Organ Damage in Rats with Experimental Lower-Extremity Ischemia-Reperfusion Injury.",
+      "year": "2025",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "40005999",
+      "title": "Multifunctionality and Possible Medical Application of the BPC 157 Peptide-Literature and Patent Review.",
+      "year": "2025",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Literature and patent review raising the possibility that the compound pro-angiogenic activity could favour tumorigenesis, and stating it is not approved by the FDA for absence of sufficient clinical study. The review that PMID 41155565 answers."
+    },
+    {
+      "pmid": "40131143",
+      "title": "Safety of Intravenous Infusion of BPC157 in Humans: A Pilot Study.",
+      "year": "2025",
+      "journal": "Alternative therapies in health and medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "human_interventional",
+      "evidenceClass": "human",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "BPC-157 given intravenously to 2 adults (10 mg, then 20 mg, one-hour infusions) with blood work and vital signs before and after. Original human observations, so primary human evidence. Two participants, no control, no blinding, single private clinic, and both had received intravenous BPC-157 before the study. It reports what was measured; it does not establish safety."
+    },
+    {
+      "pmid": "40573261",
+      "title": "Acute Compartment Syndrome and Intra-Abdominal Hypertension, Decompression, Current Pharmacotherapy, and Stable Gastric Pentadecapeptide BPC 157 Solution.",
+      "year": "2025",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "40573323",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 as a Therapy and Safety Key: A Special Beneficial Pleiotropic Effect Controlling and Modulating Angiogenesis and the NO-System.",
+      "year": "2025",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "40756949",
+      "title": "Emerging Use of BPC-157 in Orthopaedic Sports Medicine: A Systematic Review.",
+      "year": "2025",
+      "journal": "HSS journal : the musculoskeletal journal of Hospital for Special Surgery",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Systematic review in an orthopaedic journal, searched to 3 June 2024, two screeners: 544 records identified, 36 studies included (35 preclinical, 1 clinical), and \"No clinical safety data were found\". Excluded as evidence; it is the closest thing to an independent replication of this screen and reaches the same shape of answer."
+    },
+    {
+      "pmid": "40759852",
+      "title": "Concerning BPC-157, a natural pentadecapeptide, that acts as a cytoprotectant and is believed to protect the gastro-intestinal tract (GIT).",
+      "year": "2025",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "40789979",
+      "title": "Regeneration or Risk? A Narrative Review of BPC-157 for Musculoskeletal Healing.",
+      "year": "2025",
+      "journal": "Current reviews in musculoskeletal medicine",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "41155565",
+      "title": "BPC 157 Therapy: Targeting Angiogenesis and Nitric Oxide's Cytotoxic and Damaging Actions, but Maintaining, Promoting, or Recovering Their Essential Protective Functions. Comment on Józwiak et al. Multifunctionality and Possible Medical Application of the BPC 157 Peptide-Literature and Patent Review. Pharmaceuticals 2025, 18, 185.",
+      "year": "2025",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Comment",
+        "Journal Article"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Comment defending BPC-157 against a review that raised tumorigenesis and neurodegeneration concerns, asserting \"prominent anti-tumor potential, in vivo and in vitro\". One side of the live dispute this index records rather than resolves."
+    },
+    {
+      "pmid": "41155566",
+      "title": "Reply to Sikiric et al. BPC 157 Therapy: Targeting Angiogenesis and Nitric Oxide's Cytotoxic and Damaging Actions, but Maintaining, Promoting, or Recovering Their Essential Protective Functions. Comment on \"Józwiak et al. Multifunctionality and Possible Medical Application of the BPC 157 Peptide-Literature and Patent Review. Pharmaceuticals 2025, 18, 185\".",
+      "year": "2025",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Comment",
+        "Journal Article"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "The reviewed authors reply to PMID 41155565. The other side of the same exchange."
+    },
+    {
+      "pmid": "41471311",
+      "title": "Challenge of Corneal Ulcer Healing: A Novel Conceptual Framework, the \"Triad\" of Corneal Ulcer Healing/Corneal Neovascularization/Intraocular Pressure, and Avascular Tendon Healing, for Evaluation of Corneal Ulcer Therapy, Therapy of Neovascularization, Glaucoma Therapy, and Pentadecapeptide BPC 157 Efficacy.",
+      "year": "2025",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "38583442",
+      "title": "Duodenocolic fistula healing by pentadecapeptide BPC 157 in rats. A cytoprotection viewpoint.",
+      "year": "2024",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "38675421",
+      "title": "The Stable Gastric Pentadecapeptide BPC 157 Pleiotropic Beneficial Activity and Its Possible Relations with Neurotransmitter Activity.",
+      "year": "2024",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "38980576",
+      "title": "New studies with stable gastric pentadecapeptide protecting gastrointestinal tract. significance of counteraction of vascular and multiorgan failure of occlusion/occlusion-like syndrome in cytoprotection/organoprotection.",
+      "year": "2024",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "39204186",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 and Intestinal Anastomoses Therapy in Rats-A Review.",
+      "year": "2024",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "39325560",
+      "title": "Effect of BPC-157 on Symptoms in Patients with Interstitial Cystitis: A Pilot Study.",
+      "year": "2024",
+      "journal": "Alternative therapies in health and medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "human_interventional",
+      "evidenceClass": "human",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "BPC-157 (10 mg total) injected around the bladder in 12 women with interstitial cystitis during a single cystoscopy, outcome by Global Response Assessment questionnaire. Original human observations. Uncontrolled, unblinded, single arm, single clinic, self-reported outcome, and the material was compounded by a 503A pharmacy rather than a characterised investigational product."
+    },
+    {
+      "pmid": "36200148",
+      "title": "Stable Gastric Pentadecapeptide BPC 157: Prompt Particular Activation of Collateral Pathways.",
+      "year": "2023",
+      "journal": "Current medicinal chemistry",
+      "publicationTypes": [
+        "Editorial"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is editorial, comment or letter."
+    },
+    {
+      "pmid": "37242459",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 May Recover Brain-Gut Axis and Gut-Brain Axis Function.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "37375736",
+      "title": "Innate Vascular Failure by Application of Neuroleptics, Amphetamine, and Domperidone Rapidly Induced Severe Occlusion/Occlusion-like Syndromes in Rats and Stable Gastric Pentadecapeptide BPC 157 as Therapy.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "37513889",
+      "title": "Antiarrhythmic Sotalol, Occlusion/Occlusion-like Syndrome in Rats, and Stable Gastric Pentadecapeptide BPC 157 Therapy.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "37513963",
+      "title": "Stable Gastric Pentadecapeptide BPC 157-Possible Novel Therapy of Glaucoma and Other Ocular Conditions.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "37545637",
+      "title": "Stomach perforation-induced general occlusion/occlusion-like syndrome and stable gastric pentadecapeptide BPC 157 therapy effect.",
+      "year": "2023",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "37895979",
+      "title": "Pentadecapeptide BPC 157 as Therapy for Inferior Caval Vein Embolization: Recovery of Sodium Laurate-Post-Embolization Syndrome in Rats.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "37959764",
+      "title": "Stable Isotope Labeling-Based Nontargeted Strategy for Characterization of the In Vitro Metabolic Profile of a Novel Doping BPC-157 in Doping Control by UHPLC-HRMS.",
+      "year": "2023",
+      "journal": "Molecules (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "human_pk_safety",
+      "evidenceClass": "human",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "In vitro metabolic profiling with stable-isotope-labelled BPC-157 and a validated method for the parent and five metabolites in human urine. Same category and same limit as PMID 28035768: metabolite identity, not clinical effect."
+    },
+    {
+      "pmid": "38004420",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 Therapy: Effect on Reperfusion Following Maintained Intra-Abdominal Hypertension (Grade III and IV) in Rats.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "38139825",
+      "title": "From Selye's and Szabo's Cysteamine-Duodenal Ulcer in Rats to Dopamine in the Stomach: Therapy Significance and Possibilities.",
+      "year": "2023",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "34380875",
+      "title": "Pentadecapeptide BPC 157 and the central nervous system.",
+      "year": "2022",
+      "journal": "Neural regeneration research",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "35125818",
+      "title": "Cytoprotective gastric pentadecapeptide BPC 157 resolves major vessel occlusion disturbances, ischemia-reperfusion injury following Pringle maneuver, and Budd-Chiari syndrome.",
+      "year": "2022",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Editorial"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is editorial, comment or letter."
+    },
+    {
+      "pmid": "35203478",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 May Counteract Myocardial Infarction Induced by Isoprenaline in Rats.",
+      "year": "2022",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "35449779",
+      "title": "The anti-nociceptive effect of BPC-157 on the incisional pain model in rats.",
+      "year": "2022",
+      "journal": "Journal of dental anesthesia and pain medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "35678659",
+      "title": "Novel Therapeutic Effects in Rat Spinal Cord Injuries: Recovery of the Definitive and Early Spinal Cord Injury by the Administration of Pentadecapeptide BPC 157 Therapy.",
+      "year": "2022",
+      "journal": "Current issues in molecular biology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "35740321",
+      "title": "Therapy Effect of the Stable Gastric Pentadecapeptide BPC 157 on Acute Pancreatitis as Vascular Failure-Induced Severe Peripheral and Central Syndrome in Rats.",
+      "year": "2022",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "35884767",
+      "title": "BPC 157, L-NAME, L-Arginine, NO-Relation, in the Suited Rat Ketamine Models Resembling \"Negative-Like\" Symptoms of Schizophrenia.",
+      "year": "2022",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "36228773",
+      "title": "Pentadecapeptide BPC 157 efficiently reduces radiation-induced liver injury and lipid accumulation through Kruppel-like factor 4 upregulation both in vivo and in vitro.",
+      "year": "2022",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "36359218",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 as Useful Cytoprotective Peptide Therapy in the Heart Disturbances, Myocardial Infarction, Heart Failure, Pulmonary Hypertension, Arrhythmias, and Thrombosis Presentation.",
+      "year": "2022",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "36551886",
+      "title": "Fourier Transform Infrared Spectroscopy Reveals Molecular Changes in Blood Vessels of Rats Treated with Pentadecapeptide BPC 157.",
+      "year": "2022",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "36551977",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 and Striated, Smooth, and Heart Muscle.",
+      "year": "2022",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "36588717",
+      "title": "Pharmacokinetics, distribution, metabolism, and excretion of body-protective compound 157, a potential drug for treating various wounds, in rats and dogs.",
+      "year": "2022",
+      "journal": "Frontiers in pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "32956773",
+      "title": "Pentadecapeptide BPC 157 counteracts L-NAME-induced catalepsy. BPC 157, L-NAME, L-arginine, NO-relation, in the suited rat acute and chronic models resembling 'positive-like' symptoms of schizophrenia.",
+      "year": "2021",
+      "journal": "Behavioural brain research",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34073625",
+      "title": "Occlusion of the Superior Mesenteric Artery in Rats Reversed by Collateral Pathways Activation: Gastric Pentadecapeptide BPC 157 Therapy Counteracts Multiple Organ Dysfunction Syndrome; Intracranial, Portal, and Caval Hypertension; and Aortal Hypotension.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34177567",
+      "title": "BPC 157 as a Therapy for Retinal Ischemia Induced by Retrobulbar Application of L-NAME in Rats.",
+      "year": "2021",
+      "journal": "Frontiers in pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34203464",
+      "title": "BPC 157 Therapy and the Permanent Occlusion of the Superior Sagittal Sinus in Rat: Vascular Recruitment.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34267654",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 and Wound Healing.",
+      "year": "2021",
+      "journal": "Frontiers in pharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "34324435",
+      "title": "Intra-Articular Injection of BPC 157 for Multiple Types of Knee Pain.",
+      "year": "2021",
+      "journal": "Alternative therapies in health and medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "human_observational",
+      "evidenceClass": "human",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Retrospective one-year chart review of 17 patients given intra-articular BPC-157, alone or with thymosin beta-4, followed up by telephone survey. Original human observations, so primary. Retrospective, unblinded, no validated instrument, and part of the cohort received two peptides, so an effect cannot be attributed to either."
+    },
+    {
+      "pmid": "34356860",
+      "title": "Occluded Superior Mesenteric Artery and Vein. Therapy with the Stable Gastric Pentadecapeptide BPC 157.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34356886",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 Therapy for Monocrotaline-Induced Pulmonary Hypertension in Rats Leads to Prevention and Reversal.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34440233",
+      "title": "Complex Syndrome of the Complete Occlusion of the End of the Superior Mesenteric Vein, Opposed with the Stable Gastric Pentadecapeptide BPC 157 in Rats.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34571768",
+      "title": "Physiological and Immunological Status of Adult Honeybees (Apis mellifera) Fed Sugar Syrup Supplemented with Pentadecapeptide BPC 157.",
+      "year": "2021",
+      "journal": "Biology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "BPC-157 fed to adult honeybees, with haemolymph and gland measurements. Animal in vivo, in an invertebrate — recorded as such rather than left unclassified, because the species is the whole of what the result means."
+    },
+    {
+      "pmid": "34572392",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 Heals Established Vesicovaginal Fistula and Counteracts Stone Formation in Rats.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34680419",
+      "title": "Robert's Intragastric Alcohol-Induced Gastric Lesion Model as an Escalated General Peripheral and Central Syndrome, Counteracted by the Stable Gastric Pentadecapeptide BPC 157.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Rat alcohol-induced gastric lesion model. Rule-classified as unclassifiable only because the abstract names the species late."
+    },
+    {
+      "pmid": "34798584",
+      "title": "BPC 157 as Potential Treatment for COVID-19.",
+      "year": "2021",
+      "journal": "Medical hypotheses",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34829735",
+      "title": "Over-Dose Lithium Toxicity as an Occlusive-like Syndrome in Rats and Gastric Pentadecapeptide BPC 157.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34829776",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 as a Therapy for the Disable Myotendinous Junctions in Rats.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34966273",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 Therapy for Primary Abdominal Compartment Syndrome in Rats.",
+      "year": "2021",
+      "journal": "Frontiers in pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "35052769",
+      "title": "Stable Gastric Pentadecapeptide BPC 157 Therapy of Rat Glaucoma.",
+      "year": "2021",
+      "journal": "Biomedicines",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "35126157",
+      "title": "Corrigendum: Stable Gastric Pentadecapeptide BPC 157 Therapy for Primary Abdominal Compartment Syndrome in Rats.",
+      "year": "2021",
+      "journal": "Frontiers in pharmacology",
+      "publicationTypes": [
+        "Published Erratum"
+      ],
+      "studyType": "other_peripheral",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Corrigendum to a rat study. Carries no findings of its own."
+    },
+    {
+      "pmid": "35485358",
+      "title": "Novel insight into Robert's cytoprotection: complex therapeutic effect of cytoprotective pentadecapeptide pentadecapeptide BPC 157 in rats with perforated stomach throughout modulation of nitric oxide-system. Comparison with L-arginine, ranitidine and pantoprazole therapy and L-NG-nitro-L-arginine methyl ester worsening.",
+      "year": "2021",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "31158953",
+      "title": "Stable Gastric Pentadecapeptide BPC 157, Robert's Stomach Cytoprotection/Adaptive Cytoprotection/Organoprotection, and Selye's Stress Coping Response: Progress, Achievements, and the Future.",
+      "year": "2020",
+      "journal": "Gut and liver",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "32226643",
+      "title": "Pentadecapeptide BPC 157 resolves suprahepatic occlusion of the inferior caval vein, Budd-Chiari syndrome model in rats.",
+      "year": "2020",
+      "journal": "World journal of gastrointestinal pathophysiology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "32329684",
+      "title": "Fistulas Healing. Stable Gastric Pentadecapeptide BPC 157 Therapy.",
+      "year": "2020",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "32445447",
+      "title": "BPC 157 Rescued NSAID-cytotoxicity Via Stabilizing Intestinal Permeability and Enhancing Cytoprotection.",
+      "year": "2020",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "32547687",
+      "title": "Pentadecapeptide BPC 157 resolves Pringle maneuver in rats, both ischemia and reperfusion.",
+      "year": "2020",
+      "journal": "World journal of hepatology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "32558293",
+      "title": "The effect of pentadecapeptide BPC 157 on hippocampal ischemia/reperfusion injuries in rats.",
+      "year": "2020",
+      "journal": "Brain and behavior",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "32566305",
+      "title": "In relation to NO-System, Stable Pentadecapeptide BPC 157 Counteracts Lidocaine-Induced Adverse Effects in Rats and Depolarisation In Vitro.",
+      "year": "2020",
+      "journal": "Emergency medicine international",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "33051481",
+      "title": "Modulatory effects of BPC 157 on vasomotor tone and the activation of Src-Caveolin-1-endothelial nitric oxide synthase pathway.",
+      "year": "2020",
+      "journal": "Scientific reports",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "33251034",
+      "title": "Bowel adhesion and therapy with the stable gastric pentadecapeptide BPC 157, L-NAME and L-arginine in rats.",
+      "year": "2020",
+      "journal": "World journal of gastrointestinal pharmacology and therapeutics",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "33376304",
+      "title": "Clopidogrel-Induced Gastric Injury in Rats is Attenuated by Stable Gastric Pentadecapeptide BPC 157.",
+      "year": "2020",
+      "journal": "Drug design, development and therapy",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "34177048",
+      "title": "Pentadecapeptide BPC 157 shortens duration of tetracaine- and oxybuprocaine-induced corneal anesthesia in rats.",
+      "year": "2020",
+      "journal": "Acta clinica Croatica",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "30116973",
+      "title": "Cytoprotective Mechanism of the Novel Gastric Peptide BPC157 in Gastrointestinal Tract and Cultured Enteric Neurons and Glial Cells.",
+      "year": "2019",
+      "journal": "Neuroscience bulletin",
+      "publicationTypes": [
+        "Letter"
+      ],
+      "studyType": "commentary_editorial",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is editorial, comment or letter."
+    },
+    {
+      "pmid": "30690000",
+      "title": "Stable gastric pentadecapeptide BPC 157 in the therapy of the rats with bile duct ligation.",
+      "year": "2019",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "30915550",
+      "title": "Gastric pentadecapeptide body protection compound BPC 157 and its role in accelerating musculoskeletal soft tissue healing.",
+      "year": "2019",
+      "journal": "Cell and tissue research",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "31266512",
+      "title": "Stable gastric pentadecapeptide BPC 157 can improve the healing course of spinal cord injury and lead to functional recovery in rats.",
+      "year": "2019",
+      "journal": "Journal of orthopaedic surgery and research",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "31401154",
+      "title": "Therapy of the rat hemorrhagic cystitis induced by cyclophosphamide. Stable gastric pentadecapeptide BPC 157, L-arginine, L-NAME.",
+      "year": "2019",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "31976029",
+      "title": "Intragastric Application of Aspirin, Clopidogrel, Cilostazol, and BPC 157 in Rats: Platelet Aggregation and Blood Clot.",
+      "year": "2019",
+      "journal": "Oxidative medicine and cellular longevity",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "29510201",
+      "title": "Rat inferior caval vein (ICV) ligature and particular new insights with the stable gastric pentadecapeptide BPC 157.",
+      "year": "2018",
+      "journal": "Vascular pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "29682749",
+      "title": "Stable gastric pentadecapeptide BPC 157 in honeybee (Apis mellifera) therapy, to control Nosema ceranae invasions in apiary conditions.",
+      "year": "2018",
+      "journal": "Journal of veterinary pharmacology and therapeutics",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "29879879",
+      "title": "Novel Cytoprotective Mediator, Stable Gastric Pentadecapeptide BPC 157. Vascular Recruitment and Gastrointestinal Tract Healing.",
+      "year": "2018",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "29898649",
+      "title": "BPC157 as Potential Agent Rescuing from Cancer Cachexia.",
+      "year": "2018",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "29998800",
+      "title": "BPC 157 and Standard Angiogenic Growth Factors. Gastrointestinal Tract Healing, Lessons from Tendon, Ligament, Muscle and Bone Healing.",
+      "year": "2018",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "30191288",
+      "title": "Engineering recombinant Lactococcus lactis as a delivery vehicle for BPC-157 peptide with antioxidant activities.",
+      "year": "2018",
+      "journal": "Applied microbiology and biotechnology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "in_vitro",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Recombinant Lactococcus lactis engineered to display or secrete BPC-157. Bacterial expression work; no animal or human administration."
+    },
+    {
+      "pmid": "30279308",
+      "title": "An endogeous defensive concept, renewed cytoprotection/adaptive cytoprotection: intra(per)-oral/intragastric strong alcohol in rat. Involvement of pentadecapeptide BPC 157 and nitric oxide system.",
+      "year": "2018",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "30598581",
+      "title": "Bypassing major venous occlusion and duodenal lesions in rats, and therapy with the stable gastric pentadecapeptide BPC 157, L-NAME and L-arginine.",
+      "year": "2018",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "30622376",
+      "title": "Counteraction of perforated cecum lesions in rats: Effects of pentadecapeptide BPC 157, L-NAME and L-arginine.",
+      "year": "2018",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "27847966",
+      "title": "Therapeutic potential of pro-angiogenic BPC157 is associated with VEGFR2 activation and up-regulation.",
+      "year": "2017",
+      "journal": "Journal of molecular medicine (Berlin, Germany)",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "28035768",
+      "title": "Detection and in vitro metabolism of the confiscated peptides BPC 157 and MGF R23H.",
+      "year": "2017",
+      "journal": "Drug testing and analysis",
+      "publicationTypes": [
+        "Journal Article",
+        "Validation Study"
+      ],
+      "studyType": "human_pk_safety",
+      "evidenceClass": "human",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Analytical: confiscated vials identified as BPC-157, in vitro plasma metabolism, and a validated urine detection method. Included as characterisation of the compound and its human metabolite, which is what a doping-control method establishes. It says nothing about effect or safety in a person."
+    },
+    {
+      "pmid": "28210905",
+      "title": "Hypermagnesemia disturbances in rats, NO-related: pentadecapeptide BPC 157 abrogates, L-NAME and L-arginine worsen.",
+      "year": "2017",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "28228068",
+      "title": "Stress in Gastrointestinal Tract and Stable Gastric Pentadecapeptide BPC 157. Finally, do we have a Solution?",
+      "year": "2017",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "28255738",
+      "title": "Cyclophosphamide induced stomach and duodenal lesions as a NO-system disturbance in rats: L-NAME, L-arginine, stable gastric pentadecapeptide BPC 157.",
+      "year": "2017",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "28516373",
+      "title": "Class side effects: decreased pressure in the lower oesophageal and the pyloric sphincters after the administration of dopamine antagonists, neuroleptics, anti-emetics, L-NAME, pentadecapeptide BPC 157 and L-arginine.",
+      "year": "2017",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "28614776",
+      "title": "Nonsteroidal anti-inflammatory drugs-induced failure of lower esophageal and pyloric sphincter and counteraction of sphincters failure with stable gatric pentadecapeptide BPC 157 in rats.",
+      "year": "2017",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "28641541",
+      "title": "\"Stress\" is 80 Years Old: From Hans Selye Original Paper in 1936 to Recent Advances in GI Ulceration.",
+      "year": "2017",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Historical Article",
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "28797793",
+      "title": "BPC 157 counteracts QTc prolongation induced by haloperidol, fluphenazine, clozapine, olanzapine, quetiapine, sulpiride, and metoclopramide in rats.",
+      "year": "2017",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "28839430",
+      "title": "Celecoxib-induced gastrointestinal, liver and brain lesions in rats, counteraction by BPC 157 or L-arginine, aggravation by L-NAME.",
+      "year": "2017",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "29358856",
+      "title": "Stable gastric pentadecapeptide BPC 157 in the treatment of colitis and ischemia and reperfusion in rats: New insights.",
+      "year": "2017",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "26698393",
+      "title": "NO system dependence of atropine-induced mydriasis and L-NAME- and L-arginine-induced miosis: Reversal by the pentadecapeptide BPC 157 in rats and guinea pigs.",
+      "year": "2016",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "26872976",
+      "title": "Stable gastric pentadecapeptide BPC 157 heals rectovaginal fistula in rats.",
+      "year": "2016",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "26875638",
+      "title": "Stable gastric pentadecapeptide BPC 157 heals rat colovesical fistula.",
+      "year": "2016",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "27060013",
+      "title": "BPC 157: The counteraction of succinylcholine, hyperkalemia, and arrhythmias.",
+      "year": "2016",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "27138887",
+      "title": "Brain-gut Axis and Pentadecapeptide BPC 157: Theoretical and Practical Implications.",
+      "year": "2016",
+      "journal": "Current neuropharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "27627764",
+      "title": "Effects of Diclofenac, L-NAME, L-Arginine, and Pentadecapeptide BPC 157 on Gastrointestinal, Liver, and Brain Lesions, Failed Anastomosis, and Intestinal Adaptation Deterioration in 24 Hour-Short-Bowel Rats.",
+      "year": "2016",
+      "journal": "PloS one",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "27815173",
+      "title": "Stable gastric pentadecapeptide BPC 157 and bupivacaine.",
+      "year": "2016",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "27895400",
+      "title": "Esophagogastric anastomosis in rats: Improved healing by BPC 157 and L-arginine, aggravated by L-NAME.",
+      "year": "2016",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "25897838",
+      "title": "Pentadecapeptide BPC 157 Reduces Bleeding and Thrombocytopenia after Amputation in Rats Treated with Heparin, Warfarin, L-NAME and L-Arginine.",
+      "year": "2015",
+      "journal": "PloS one",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "25912999",
+      "title": "Perforating corneal injury in rat and pentadecapeptide BPC 157.",
+      "year": "2015",
+      "journal": "Experimental eye research",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "25995620",
+      "title": "Body protective compound-157 enhances alkali-burn wound healing in vivo and promotes proliferation, migration, and angiogenesis in vitro.",
+      "year": "2015",
+      "journal": "Drug design, development and therapy",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "26348082",
+      "title": "Duodenocutaneous fistula in rats as a model for \"wound healing-therapy\" in ulcer healing: the effect of pentadecapeptide BPC 157, L-nitro-arginine methyl ester and L-arginine.",
+      "year": "2015",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "26563892",
+      "title": "BPC 157 antagonized the general anaesthetic potency of thiopental and reduced prolongation of anaesthesia induced by L-NAME/thiopental combination.",
+      "year": "2015",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "23755725",
+      "title": "Stable gastric pentadecapeptide BPC 157-NO-system relation.",
+      "year": "2014",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "23782145",
+      "title": "BPC 157 and blood vessels.",
+      "year": "2014",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "24486708",
+      "title": "Pentadecapeptide BPC 157 and anaphylactoid reaction in rats and mice after intravenous dextran and white egg administration.",
+      "year": "2014",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "25415472",
+      "title": "Pentadecapeptide BPC 157 enhances the growth hormone receptor expression in tendon fibroblasts.",
+      "year": "2014",
+      "journal": "Molecules (Basel, Switzerland)",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "22950504",
+      "title": "Toxicity by NSAIDs. Counteraction by stable gastric pentadecapeptide BPC 157.",
+      "year": "2013",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "23220707",
+      "title": "Pentadecapeptide BPC 157 and the esophagocutaneous fistula healing therapy.",
+      "year": "2013",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "23327997",
+      "title": "Mortal hyperkalemia disturbances in rats are NO-system related. The life saving effect of pentadecapeptide BPC 157.",
+      "year": "2013",
+      "journal": "Regulatory peptides",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "23478678",
+      "title": "Salutary effect of gastric pentadecapeptide BPC 157 in two different stress urinary incontinence models in female rats.",
+      "year": "2013",
+      "journal": "Medical science monitor basic research",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "24304574",
+      "title": "Stable gastric pentadecapeptide BPC 157 heals cysteamine-colitis and colon-colon-anastomosis and counteracts cuprizone brain injuries and motor disability.",
+      "year": "2013",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "21840572",
+      "title": "Pentadecapeptide BPC 157 reduces bleeding time and thrombocytopenia after amputation in rats treated with heparin, warfarin or aspirin.",
+      "year": "2012",
+      "journal": "Thrombosis research",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "22300085",
+      "title": "Focus on ulcerative colitis: stable gastric pentadecapeptide BPC 157.",
+      "year": "2012",
+      "journal": "Current medicinal chemistry",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "21030672",
+      "title": "The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration.",
+      "year": "2011",
+      "journal": "Journal of applied physiology (Bethesda, Md. : 1985)",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "21295044",
+      "title": "Pentadecapeptide BPC 157 and its effects on a NSAID toxicity model: diclofenac-induced gastrointestinal, liver, and encephalopathy lesions.",
+      "year": "2011",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "21548867",
+      "title": "Stable gastric pentadecapeptide BPC 157: novel therapy in gastrointestinal tract.",
+      "year": "2011",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "21645505",
+      "title": "Ibuprofen hepatic encephalopathy, hepatomegaly, gastric lesion and gastric pentadecapeptide BPC 157 in rats.",
+      "year": "2011",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "22204800",
+      "title": "BPC 157 therapy to detriment sphincters failure-esophagitis-pancreatitis in rat and acute pancreatitis patients low sphincters pressure.",
+      "year": "2011",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Adjudicated as animal evidence. The BPC-157 intervention was in rats. The human component is oesophageal manometry in acute pancreatitis patients who were not given BPC-157, so the paper carries a human measurement and no human evidence about this compound. A screen reading the MeSH heading \"Humans\" would have miscounted it."
+    },
+    {
+      "pmid": "19903499",
+      "title": "Peptide therapy with pentadecapeptide BPC 157 in traumatic nerve injury.",
+      "year": "2010",
+      "journal": "Regulatory peptides",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "19931318",
+      "title": "Traumatic brain injury in mice and pentadecapeptide BPC 157 effect.",
+      "year": "2010",
+      "journal": "Regulatory peptides",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20166993",
+      "title": "Revised Robert's cytoprotection and adaptive cytoprotection and stable gastric pentadecapeptide BPC 157. Possible significance and implications for novel mediator.",
+      "year": "2010",
+      "journal": "Current pharmaceutical design",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "20190676",
+      "title": "Impact of pentadecapeptide BPC 157 on muscle healing impaired by systemic corticosteroid application.",
+      "year": "2010",
+      "journal": "Medical science monitor : international medical journal of experimental and clinical research",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20225319",
+      "title": "Pentadecapeptide BPC 157 (PL 14736) improves ligament healing in the rat.",
+      "year": "2010",
+      "journal": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20436226",
+      "title": "High hepatotoxic dose of paracetamol produces generalized convulsions and brain damage in rats. A counteraction with the stable gastric pentadecapeptide BPC 157 (PL 14736).",
+      "year": "2010",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "18649140",
+      "title": "Therapy for unhealed gastrocutaneous fistulas in rats as a model for analogous healing of persistent skin wounds and persistent gastric ulcers: stable gastric pentadecapeptide BPC 157, atropine, ranitidine, and omeprazole.",
+      "year": "2009",
+      "journal": "Digestive diseases and sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "19093208",
+      "title": "Gastric pentadecapeptide BPC 157 and short bowel syndrome in rats.",
+      "year": "2009",
+      "journal": "Digestive diseases and sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "19465062",
+      "title": "Inhibition of methyldigoxin-induced arrhythmias by pentadecapeptide BPC 157: a relation with NO-system.",
+      "year": "2009",
+      "journal": "Regulatory peptides",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20388953",
+      "title": "Over-dose insulin and stable gastric pentadecapeptide BPC 157. Attenuated gastric ulcers, seizures, brain lesions, hepatomegaly, fatty liver, breakdown of liver glycogen, profound hypoglycemia and calcification in rats.",
+      "year": "2009",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20388954",
+      "title": "Antiinflammatory effect of BPC 157 on experimental periodontitis in rats.",
+      "year": "2009",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20388960",
+      "title": "Abdominal aorta anastomosis in rats and stable gastric pentadecapeptide BPC 157, prophylaxis and therapy.",
+      "year": "2009",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20388962",
+      "title": "Gastric pentadecapeptide BPC 157 counteracts morphine-induced analgesia in mice.",
+      "year": "2009",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "20388964",
+      "title": "Modulatory effect of gastric pentadecapeptide BPC 157 on angiogenesis in muscle and tendon healing.",
+      "year": "2009",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "18594781",
+      "title": "Modulation of early functional recovery of Achilles tendon to bone unit after transection by BPC 157 and methylprednisolone.",
+      "year": "2008",
+      "journal": "Inflammation research : official journal of the European Histamine Research Society ... [et al.]",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "18668315",
+      "title": "Gastric pentadecapeptide BPC 157 as an effective therapy for muscle crush injury in the rat.",
+      "year": "2008",
+      "journal": "Surgery today",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "18818478",
+      "title": "Pentadecapeptide BPC 157, in clinical trials as a therapy for inflammatory bowel disease (PL14736), is effective in the healing of colocutaneous fistulas in rats: role of the nitric oxide-system.",
+      "year": "2008",
+      "journal": "Journal of pharmacological sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "17452811",
+      "title": "Prolonged esophagitis after primary dysfunction of the pyloric sphincter in the rat and therapeutic potential of the gastric pentadecapeptide BPC 157.",
+      "year": "2007",
+      "journal": "Journal of pharmacological sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "17628536",
+      "title": "Enhancement by PL 14736 of granulation and collagen organization in healing wounds and the potential role of egr-1 expression.",
+      "year": "2007",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "17713731",
+      "title": "Stable gastric pentadecapeptide BPC 157 in trials for inflammatory bowel disease (PL-10, PLD-116, PL14736, Pliva, Croatia) heals ileoileal anastomosis in the rat.",
+      "year": "2007",
+      "journal": "Surgery today",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "16369461",
+      "title": "The influence of gastric pentadecapeptide BPC 157 on acute and chronic ethanol administration in mice. The effect of N(G)-nitro-L-arginine methyl ester and L-arginine.",
+      "year": "2006",
+      "journal": "Medical science monitor : international medical journal of experimental and clinical research",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "16583442",
+      "title": "Achilles detachment in rat and stable gastric pentadecapeptide BPC 157: Promoted tendon-to-bone healing and opposed corticosteroid aggravation.",
+      "year": "2006",
+      "journal": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "16609979",
+      "title": "Effective therapy of transected quadriceps muscle in rat: Gastric pentadecapeptide BPC 157.",
+      "year": "2006",
+      "journal": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "16785777",
+      "title": "Accelerated healing of excisional skin wounds by PL 14736 in alloxan-hyperglycemic rats.",
+      "year": "2006",
+      "journal": "Skin pharmacology and physiology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "17116974",
+      "title": "An experimental model of prolonged esophagitis with sphincter failure in the rat and the therapeutic potential of gastric pentadecapeptide BPC 157.",
+      "year": "2006",
+      "journal": "Journal of pharmacological sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "17186181",
+      "title": "Stable gastric pentadecapeptide BPC 157 in trials for inflammatory bowel disease (PL-10, PLD-116, PL 14736, Pliva, Croatia). Full and distended stomach, and vascular response.",
+      "year": "2006",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "A review, excluded from the evidence set, but flagged: it asserts that BPC-157 was \"safe in clinical trials for inflammatory bowel disease (PL 10, PLD 116, PLD 14736, Pliva, Croatia)\". No report of those trials appears in this search universe. The assertion is a lead, not evidence, and those trials are a named gap."
+    },
+    {
+      "pmid": "15774286",
+      "title": "The stable gastric pentadecapeptide BPC 157, given locally, improves CO2 laser healing in mice.",
+      "year": "2005",
+      "journal": "Burns : journal of the International Society for Burn Injuries",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "15840402",
+      "title": "Gastric pentadecapeptide BPC 157 effective against serotonin syndrome in rats.",
+      "year": "2005",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "16117343",
+      "title": "Gastric pentadecapeptide BPC 157 promotes corneal epithelial defects healing in rats.",
+      "year": "2005",
+      "journal": "Collegium antropologicum",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "15052688",
+      "title": "Protective effects of pentadecapeptide BPC 157 on gastric ulcer in rats.",
+      "year": "2004",
+      "journal": "World journal of gastroenterology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "15153646",
+      "title": "Doxorubicine-congestive heart failure-increased big endothelin-1 plasma concentration: reversal by amlodipine, losartan, and gastric pentadecapeptide BPC157 in rat and mouse.",
+      "year": "2004",
+      "journal": "Journal of pharmacological sciences",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "15381050",
+      "title": "The influence of gastric pentadecapeptide BPC 157 on acute and chronic ethanol administration in mice.",
+      "year": "2004",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "15531385",
+      "title": "Effects of pentadecapeptide BPC157 on regional serotonin synthesis in the rat brain: alpha-methyl-L-tryptophan autoradiographic measurements.",
+      "year": "2004",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Research Support, U.S. Gov't, P.H.S."
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "12781609",
+      "title": "Corticosteroid-impairment of healing and gastric pentadecapeptide BPC-157 creams in burned mice.",
+      "year": "2003",
+      "journal": "Burns : journal of the International Society for Burn Injuries",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "14512101",
+      "title": "Different effect of antiulcer agents on rat cysteamine-induced duodenal ulcer after sialoadenectomy, but not gastrectomy.",
+      "year": "2003",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "14554208",
+      "title": "Gastric pentadecapeptide BPC 157 accelerates healing of transected rat Achilles tendon and in vitro stimulates tendocytes growth.",
+      "year": "2003",
+      "journal": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11978191",
+      "title": "Pentadecapeptide BPC 157 attenuates chronic amphetamine-induced behavior disturbances.",
+      "year": "2002",
+      "journal": "Acta pharmacologica Sinica",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11292068",
+      "title": "Haloperidol-stomach lesions attenuation by pentadecapeptide BPC 157, omeprazole, bromocriptine, but not atropine, lansoprazole, pantoprazole, ranitidine, cimetidine and misoprostol in mice.",
+      "year": "2001",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11595448",
+      "title": "Cysteamine-colon and cysteamine-duodenum lesions in rats. Attenuation by gastric pentadecapeptide BPC 157, cimetidine, ranitidine, atropine, omeprazole, sulphasalazine and methylprednisolone.",
+      "year": "2001",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11595451",
+      "title": "Therapy effect of antiulcer agents on new chronic cysteamine colon lesion in rat.",
+      "year": "2001",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11595452",
+      "title": "Ethanol gastric lesion aggravated by lung injury in rat. Therapy effect of antiulcer agents.",
+      "year": "2001",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11595453",
+      "title": "Chronic cytoprotection: pentadecapeptide BPC 157, ranitidine and propranolol prevent, attenuate and reverse the gastric lesions appearance in chronic alcohol drinking rats.",
+      "year": "2001",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11595454",
+      "title": "Lung lesions and anti-ulcer agents beneficial effect: anti-ulcer agents pentadecapeptide BPC 157, ranitidine, omeprazole and atropine ameliorate lung lesion in rats.",
+      "year": "2001",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11595456",
+      "title": "Portal hypertension and liver lesions in chronically alcohol drinking rats prevented and reversed by stable gastric pentadecapeptide BPC 157 (PL-10, PLD-116), and propranolol, but not ranitidine.",
+      "year": "2001",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11718984",
+      "title": "Pentadecapeptide BPC 157 cream improves burn-wound healing and attenuates burn-gastric lesions in mice.",
+      "year": "2001",
+      "journal": "Burns : journal of the International Society for Burn Injuries",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "11742568",
+      "title": "Anxiolytic effect of BPC-157, a gastric pentadecapeptide: shock probe/burying test and light/dark test.",
+      "year": "2001",
+      "journal": "Acta pharmacologica Sinica",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10791689",
+      "title": "The antidepressant effect of an antiulcer pentadecapeptide BPC 157 in Porsolt's test and chronic unpredictable stress in rats. A comparison with antidepressants.",
+      "year": "2000",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10791690",
+      "title": "Gastric mucosal lesions induced by complete dopamine system failure in rats. The effects of dopamine agents, ranitidine, atropine, omeprazole and pentadecapeptide BPC 157.",
+      "year": "2000",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10071911",
+      "title": "Osteogenic effect of a gastric pentadecapeptide, BPC-157, on the healing of segmental bone defect in rabbits: a comparison with bone marrow and autologous cortical bone implantation.",
+      "year": "1999",
+      "journal": "Bone",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10499368",
+      "title": "Pentadecapeptide BPC 157 attenuates disturbances induced by neuroleptics: the effect on catalepsy and gastric ulcers in mice and rats.",
+      "year": "1999",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10672991",
+      "title": "Long-lasting cytoprotection after pentadecapeptide BPC 157, ranitidine, sucralfate or cholestyramine application in reflux oesophagitis in rats.",
+      "year": "1999",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10672992",
+      "title": "The effect of pentadecapeptide BPC 157, H2-blockers, omeprazole and sucralfate on new vessels and new granulation tissue formation.",
+      "year": "1999",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10672996",
+      "title": "Pentadecapeptide BPC 157 attenuates gastric lesions induced by alloxan in rats and mice.",
+      "year": "1999",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10672997",
+      "title": "A behavioural study of the effect of pentadecapeptide BPC 157 in Parkinson's disease models in mice and gastric lesions induced by 1-methyl-4-phenyl-1,2,3,6-tetrahydrophyridine.",
+      "year": "1999",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "10707891",
+      "title": "The effect of a novel pentadecapeptide BPC 157 on development of tolerance and physical dependence following repeated administration of diazepam.",
+      "year": "1999",
+      "journal": "The Chinese journal of physiology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "17657443",
+      "title": "The pharmacological properties of the novel peptide BPC 157 (PL-10).",
+      "year": "1999",
+      "journal": "Inflammopharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Narrative review of reported effects across organ systems. Also the earliest record here to state the sequence and a molecular weight (1419) for the pentadecapeptide."
+    },
+    {
+      "pmid": "9920181",
+      "title": "New model of cytoprotection/adaptive cytoprotection in rats: endogenous small irritants, antiulcer agents and indomethacin.",
+      "year": "1999",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9547930",
+      "title": "A novel pentadecapeptide, BPC 157, blocks the stereotypy produced acutely by amphetamine and the development of haloperidol-induced supersensitivity to amphetamine.",
+      "year": "1998",
+      "journal": "Biological psychiatry",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9065615",
+      "title": "Dose-dependent protective effect of BPC 157 on capsaicin-induced rhinitis in rats.",
+      "year": "1997",
+      "journal": "European archives of oto-rhino-laryngology : official journal of the European Federation of Oto-Rhino-Laryngological Societies (EUFOS) : affiliated with the German Society for Oto-Rhino-Laryngology - Head and Neck Surgery",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9073154",
+      "title": "Pentadecapeptide BPC 157 interactions with adrenergic and dopaminergic systems in mucosal protection in stress.",
+      "year": "1997",
+      "journal": "Digestive diseases and sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9149058",
+      "title": "Pentadecapeptide BPC 157, cimetidine, ranitidine, bromocriptine, and atropine effect in cysteamine lesions in totally gastrectromized rats: a model for cytoprotective studies.",
+      "year": "1997",
+      "journal": "Digestive diseases and sciences",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9298922",
+      "title": "The influence of a novel pentadecapeptide, BPC 157, on N(G)-nitro-L-arginine methylester and L-arginine effects on stomach mucosa integrity and blood pressure.",
+      "year": "1997",
+      "journal": "European journal of pharmacology",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9353174",
+      "title": "Evidence for direct cellular protective effect of PL-10 substances (synthesized parts of body protection compound, BPC) and their specificity to gastric mucosal cells.",
+      "year": "1997",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9403784",
+      "title": "Pentadecapeptide BPC 157 positively affects both non-steroidal anti-inflammatory agent-induced gastrointestinal lesions and adjuvant arthritis in rats.",
+      "year": "1997",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9403788",
+      "title": "The influence of BPC 157 on nitric oxide agonist and antagonist induced lesions in broiler chicks.",
+      "year": "1997",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9403790",
+      "title": "BPC 157's effect on healing.",
+      "year": "1997",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9403791",
+      "title": "Some aspects of the effects of PL-10.1.AK-15 on the gastrointestinal tract.",
+      "year": "1997",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "9403792",
+      "title": "Direct cellular effects of some mediators, hormones and growth factor-like agents on denervated (isolated) rat gastric mucosal cells.",
+      "year": "1997",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "8689934",
+      "title": "Salutary and prophylactic effect of pentadecapeptide BPC 157 on acute pancreatitis and concomitant gastroduodenal lesions in rats.",
+      "year": "1996",
+      "journal": "Digestive diseases and sciences",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "8769287",
+      "title": "Beneficial effect of a novel pentadecapeptide BPC 157 on gastric lesions induced by restraint stress, ethanol, indomethacin, and capsaicin neurotoxicity.",
+      "year": "1996",
+      "journal": "Digestive diseases and sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "7815358",
+      "title": "BPC-15 reduces trinitrobenzene sulfonic acid-induced colonic damage in rats.",
+      "year": "1995",
+      "journal": "The Journal of pharmacology and experimental therapeutics",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "7904712",
+      "title": "The beneficial effect of BPC 157, a 15 amino acid peptide BPC fragment, on gastric and duodenal lesions induced by restraint stress, cysteamine and 96% ethanol in rats. A comparative study with H2 receptor antagonists, dopamine promotors and gut peptides.",
+      "year": "1994",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "7901724",
+      "title": "Hepatoprotective effect of BPC 157, a 15-amino acid peptide, on liver lesions induced by either restraint stress or bile duct and hepatic artery ligation or CCl4 administration. A comparative study with dopamine agonists and somatostatin.",
+      "year": "1993",
+      "journal": "Life sciences",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    },
+    {
+      "pmid": "8298609",
+      "title": "A new gastric juice peptide, BPC. An overview of the stomach-stress-organoprotection hypothesis and beneficial effects of BPC.",
+      "year": "1993",
+      "journal": "Journal of physiology, Paris",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set."
+    },
+    {
+      "pmid": "1345210",
+      "title": "The significance of the gastroprotective effect of body protection compound (BPC): modulation by different procedures.",
+      "year": "1992",
+      "journal": "Acta physiologica Hungarica",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+    }
+  ]
+}

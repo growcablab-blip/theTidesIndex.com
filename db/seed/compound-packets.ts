@@ -35,6 +35,9 @@ interface PacketLoadResult {
   readonly protocols: number;
   readonly disagreements: number;
   readonly regulatory: number;
+  readonly products: number;
+  readonly forms: number;
+  readonly pharmacokinetics: number;
 }
 
 export async function loadCompoundPackets(db: SeedDb): Promise<PacketLoadResult[]> {
@@ -275,19 +278,25 @@ export async function loadCompoundPacket(
     const [row] = await db.execute(sql`
       insert into disagreements (
         disagreement_key, peptide_id, topic, plain_language_text,
-        candidate_explanation, explanation_notes, resolution_requirement
+        candidate_explanation, explanation_notes, resolution_requirement,
+        resolution, resolution_basis, resolved_at
       ) values (
         ${disagreement.disagreementKey}, ${peptide.id}, ${disagreement.topic},
         ${disagreement.plainLanguageText},
         ${disagreement.candidateExplanation}::disagreement_explanation,
-        ${disagreement.explanationNotes}, ${disagreement.resolutionRequirement}
+        ${disagreement.explanationNotes}, ${disagreement.resolutionRequirement},
+        ${disagreement.resolution}::disagreement_resolution,
+        ${disagreement.resolutionBasis}, ${disagreement.resolvedAt}::date
       )
       on conflict (disagreement_key) do update set
         topic = excluded.topic,
         plain_language_text = excluded.plain_language_text,
         candidate_explanation = excluded.candidate_explanation,
         explanation_notes = excluded.explanation_notes,
-        resolution_requirement = excluded.resolution_requirement
+        resolution_requirement = excluded.resolution_requirement,
+        resolution = excluded.resolution,
+        resolution_basis = excluded.resolution_basis,
+        resolved_at = excluded.resolved_at
       returning id
     `).then(rowsOf<{ id: string }>);
 
@@ -305,6 +314,84 @@ export async function loadCompoundPacket(
         )
       `);
     }
+  }
+
+  // --- Products ------------------------------------------------------------
+  /*
+   * Loaded before the PK observations, because an observation points at the
+   * product it was measured on. Cleared and rewritten: the packet owns this
+   * relation, and a product that leaves the packet should leave the database.
+   */
+  await db.execute(sql`delete from compound_products where peptide_id = ${peptide.id}`);
+  const productIds = new Map<string, string>();
+  for (const product of packet.products) {
+    const [row] = await db.execute(sql`
+      insert into compound_products (
+        product_key, peptide_id, product_name, proprietary_name, manufacturer,
+        authority, jurisdiction, application_number, marketing_status,
+        presentation, strength_text, reconstitution_text, labelled_dose_text,
+        storage_text, excipients_text, substitutability_note, notes,
+        source_id, source_location_id
+      ) values (
+        ${product.productKey}, ${peptide.id}, ${product.productName},
+        ${product.proprietaryName}, ${product.manufacturer}, ${product.authority},
+        ${product.jurisdiction}, ${product.applicationNumber},
+        ${product.marketingStatus}, ${product.presentation}, ${product.strengthText},
+        ${product.reconstitutionText}, ${product.labelledDoseText},
+        ${product.storageText}, ${product.excipientsText},
+        ${product.substitutabilityNote}, ${product.notes},
+        (select source_id from source_locations where id = ${locationId(product.locationKey)}),
+        ${locationId(product.locationKey)}
+      )
+      returning id
+    `).then(rowsOf<{ id: string }>);
+    productIds.set(product.productKey, row!.id);
+  }
+
+  // --- Chemical forms ------------------------------------------------------
+  await db.execute(sql`delete from compound_forms where peptide_id = ${peptide.id}`);
+  for (const form of packet.forms) {
+    await db.execute(sql`
+      insert into compound_forms (
+        form_key, peptide_id, chemical_form, molecular_formula, molecular_weight,
+        weight_basis, form_stated_by_source, notes, source_id, source_location_id
+      ) values (
+        ${form.formKey}, ${peptide.id}, ${form.chemicalForm}, ${form.molecularFormula},
+        ${form.molecularWeight}, ${form.weightBasis}, ${form.formStatedBySource},
+        ${form.notes},
+        (select source_id from source_locations where id = ${locationId(form.locationKey)}),
+        ${locationId(form.locationKey)}
+      )
+    `);
+  }
+
+  // --- Pharmacokinetic observations ----------------------------------------
+  await db.execute(sql`delete from pk_observations where peptide_id = ${peptide.id}`);
+  for (const observation of packet.pharmacokinetics) {
+    const productId = observation.productKey
+      ? (productIds.get(observation.productKey) ?? null)
+      : null;
+    if (observation.productKey && productId === null) {
+      throw new Error(
+        `${packet.packetKey}: PK observation ${observation.observationKey} names product ` +
+          `${observation.productKey}, which the packet does not define.`,
+      );
+    }
+    await db.execute(sql`
+      insert into pk_observations (
+        observation_key, peptide_id, product_id, parameter, value_text,
+        dose_context, administration, population, route_key, study_condition,
+        evidence_type_key, source_id, source_location_id, notes
+      ) values (
+        ${observation.observationKey}, ${peptide.id}, ${productId},
+        ${observation.parameter}, ${observation.valueText}, ${observation.doseContext},
+        ${observation.administration}::pk_administration, ${observation.population},
+        ${observation.routeKey}, ${observation.studyCondition},
+        ${observation.evidenceTypeKey},
+        (select source_id from source_locations where id = ${locationId(observation.locationKey)}),
+        ${locationId(observation.locationKey)}, ${observation.notes}
+      )
+    `);
   }
 
   // --- Regulatory ----------------------------------------------------------
@@ -333,6 +420,9 @@ export async function loadCompoundPacket(
     protocols: packet.protocols.length,
     disagreements: packet.disagreements.length,
     regulatory: packet.regulatory.length,
+    products: packet.products.length,
+    forms: packet.forms.length,
+    pharmacokinetics: packet.pharmacokinetics.length,
   };
 }
 

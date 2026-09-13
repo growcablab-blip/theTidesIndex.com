@@ -179,10 +179,130 @@ export interface Disagreement {
   readonly id: string;
   readonly topic: string;
   readonly plainLanguageText: string | null;
+  /** The axis the sources differ on: formulation, chemical form, dose… */
   readonly candidateExplanation: string;
   readonly explanationNotes: string | null;
+  /**
+   * Whether the difference has been settled, and how.
+   *
+   * The field that lets a page say "these values differ because they were
+   * measured under different conditions" instead of printing two numbers and
+   * leaving a reader to assume one of them is wrong.
+   */
+  readonly resolution: string;
+  readonly resolutionBasis: string | null;
+  readonly resolvedAt: string | null;
   readonly resolutionRequirement: string | null;
   readonly positions: readonly DisagreementPosition[];
+}
+
+/**
+ * A marketed product of the compound.
+ *
+ * Dose-bearing fields are null in patient mode. A vial strength plus a
+ * reconstitution volume is a dose written in two parts, and a patient page that
+ * carried both would be a dosing page whatever else it said.
+ */
+export interface CompoundProduct {
+  readonly id: string;
+  readonly productKey: string;
+  readonly productName: string;
+  readonly proprietaryName: string | null;
+  readonly manufacturer: string | null;
+  readonly authority: string | null;
+  readonly jurisdiction: string | null;
+  readonly applicationNumber: string | null;
+  readonly marketingStatus: string | null;
+  readonly presentation: string | null;
+  readonly strengthText: string | null;
+  readonly reconstitutionText: string | null;
+  readonly labelledDoseText: string | null;
+  readonly storageText: string | null;
+  readonly excipientsText: string | null;
+  readonly substitutabilityNote: string | null;
+  readonly notes: string | null;
+  readonly citation: Citation | null;
+}
+
+/** A chemical form, with the basis its molecular weight is expressed on. */
+export interface CompoundForm {
+  readonly id: string;
+  readonly formKey: string;
+  readonly chemicalForm: string;
+  readonly molecularFormula: string | null;
+  readonly molecularWeight: string | null;
+  readonly weightBasis: string | null;
+  readonly formStatedBySource: boolean;
+  readonly notes: string | null;
+  readonly citation: Citation | null;
+}
+
+/**
+ * One pharmacokinetic result and the conditions that produced it.
+ *
+ * `doseContext` is null in patient mode; everything else is not, because the
+ * conditions are the point. A patient reading that one figure came from a
+ * single injection and another from fourteen days of them has learned the thing
+ * that matters, without learning a dose.
+ */
+export interface PkObservation {
+  readonly id: string;
+  readonly observationKey: string;
+  readonly parameter: string;
+  readonly valueText: string;
+  readonly doseContext: string | null;
+  readonly administration: string;
+  readonly population: string;
+  readonly routeName: string | null;
+  readonly studyCondition: string | null;
+  readonly productName: string | null;
+  readonly evidenceTypeLabel: string;
+  readonly evidenceClass: EvidenceClass;
+  readonly notes: string | null;
+  readonly citation: Citation | null;
+}
+
+/** How many records of each study type a screen classified. */
+export interface ScreenTypeCount {
+  readonly studyType: string;
+  readonly count: number;
+}
+
+/**
+ * A literature screen: the search, its criteria, and what it found.
+ *
+ * `resultCount` is the number of records the query returned and nothing else.
+ * `humanPrimaryCount` is what the screen actually established, and the two are
+ * kept apart deliberately — the first is 230 and the second is 3.
+ */
+export interface LiteratureScreen {
+  readonly id: string;
+  readonly screenKey: string;
+  readonly databaseName: string;
+  readonly queryText: string;
+  readonly searchDate: string;
+  readonly resultCount: number;
+  readonly deduplicationNotes: string;
+  readonly inclusionCriteria: string;
+  readonly humanPrimaryCriteria: string;
+  readonly includedCount: number;
+  readonly humanPrimaryCount: number;
+  readonly typeCounts: readonly ScreenTypeCount[];
+  readonly humanRecords: readonly ScreenRecord[];
+}
+
+export interface ScreenRecord {
+  readonly externalId: string;
+  readonly externalIdType: string;
+  readonly title: string;
+  readonly publicationYear: number | null;
+  readonly journal: string | null;
+  readonly studyType: string;
+  readonly evidenceClass: string;
+  readonly included: boolean;
+  readonly primaryOrSecondary: string;
+  readonly classifiedBy: string;
+  readonly reason: string;
 }
 
 export interface PeptidePage {
@@ -210,6 +330,10 @@ export interface PeptidePage {
   readonly routes: readonly RouteEvidence[];
   readonly regulatoryStatuses: readonly RegulatoryStatus[];
   readonly disagreements: readonly Disagreement[];
+  readonly products: readonly CompoundProduct[];
+  readonly forms: readonly CompoundForm[];
+  readonly pharmacokinetics: readonly PkObservation[];
+  readonly literatureScreens: readonly LiteratureScreen[];
   /**
    * What the sources held here do not settle about this compound.
    *
@@ -252,6 +376,11 @@ const PEPTIDE_RELATIONS = {
   'public_v_protocol_simple': 'protocols',
   'public_v_protocol_sources': 'protocol_sources',
   'public_v_evidence_gaps': 'evidence_gaps',
+  'public_v_compound_products': 'compound_products',
+  'public_v_compound_forms': 'compound_forms',
+  'public_v_pk_observations': 'pk_observations',
+  'public_v_literature_screens': 'literature_screens',
+  'public_v_literature_screen_records': 'literature_screen_records',
 } as const;
 
 /**
@@ -322,7 +451,23 @@ async function readPeptidePage(
         await tx.execute(sql`
           select ce.id, ce.claim_id, ce.evidence_type_key, ce.relationship,
                  ce.population_model, ce.route_key, r.name as route_name,
-                 ce.formulation, ce.interpretation, ce.primary_source_verified,
+                 /*
+                  * The editor's note on what a source actually said, and the
+                  * formulation it said it about. Both routinely carry a dose:
+                  * the tesamorelin label's own pharmacology section cannot be
+                  * summarised without naming "1.4 mg of EGRIFTA SV", and that
+                  * sentence reached patient mode the moment the label was
+                  * cited. Withheld in simple mode for the same reason the
+                  * practitioner summary is, and by the same means — the query,
+                  * not a conditional in a component.
+                  *
+                  * What a patient still receives: the claim, its plain-language
+                  * form, every piece of evidence with its type, its class, its
+                  * population, its route and its full citation. The evidence is
+                  * not hidden. The annotation on it is.
+                  */
+                 ${simple ? sql`null::text as formulation, null::text as interpretation` : sql`ce.formulation, ce.interpretation`},
+                 ce.primary_source_verified,
                  et.public_label as evidence_type_label, et.evidence_class,
                  et.is_human_evidence, et.is_interpretive,
                  ${CITATION_SELECT}
@@ -441,7 +586,8 @@ async function readPeptidePage(
       const disagreementRows = rows<Record<string, unknown>>(
         await tx.execute(sql`
           select id, topic, plain_language_text, candidate_explanation,
-                 explanation_notes, resolution_requirement
+                 explanation_notes, resolution_requirement, resolution,
+                 resolution_basis, resolved_at::text as resolved_at
           from ${sql.raw(rel('public_v_disagreements'))}
           where peptide_id = ${peptideId}
           order by topic
@@ -518,9 +664,224 @@ async function readPeptidePage(
         plainLanguageText: str(d.plain_language_text),
         candidateExplanation: String(d.candidate_explanation),
         explanationNotes: str(d.explanation_notes),
+        resolution: String(d.resolution),
+        resolutionBasis: str(d.resolution_basis),
+        resolvedAt: str(d.resolved_at),
         resolutionRequirement: str(d.resolution_requirement),
         positions: positionsByDisagreement.get(String(d.id)) ?? [],
       }));
+
+      /*
+       * Products, forms and pharmacokinetics.
+       *
+       * Read here rather than folded into the compound row because each is a
+       * set: one molecule, three products; one molecule, two chemical forms
+       * with two different molecular weights; one molecule, seven
+       * pharmacokinetic results under seven different sets of conditions. A
+       * column on `peptides` could hold exactly one of each, which is how the
+       * record came to state a half-life that belonged to a product it did not
+       * name.
+       */
+      const products: CompoundProduct[] = rows<CitationRow & Record<string, unknown>>(
+        await tx.execute(sql`
+          select cp.id, cp.product_key, cp.product_name, cp.proprietary_name,
+                 cp.manufacturer, cp.authority, cp.jurisdiction,
+                 cp.application_number, cp.marketing_status, cp.presentation,
+                 -- Strength, reconstitution and labelled dose reconstruct a dose
+                 -- between them, so they go the way protocol dosing goes.
+                 ${simple
+                   ? sql`null::text as strength_text, null::text as reconstitution_text, null::text as labelled_dose_text`
+                   : sql`cp.strength_text, cp.reconstitution_text, cp.labelled_dose_text`},
+                 cp.storage_text, cp.excipients_text, cp.substitutability_note,
+                 -- The editorial note on a product is the place a strength ends
+                 -- up when nobody is watching: "the label states the safety of
+                 -- this product was established on trials with the 2 mg dose of
+                 -- the other one" is a natural sentence to write and a dose. It
+                 -- goes where the evidence annotation goes.
+                 ${simple ? sql`null::text` : sql`cp.notes`} as notes,
+                 ${CITATION_SELECT}
+          from ${sql.raw(rel('public_v_compound_products'))} cp
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = cp.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = cp.source_location_id
+          where cp.peptide_id = ${peptideId}
+          order by cp.product_key
+        `),
+      ).map((row) => ({
+        id: String(row.id),
+        productKey: String(row.product_key),
+        productName: String(row.product_name),
+        proprietaryName: str(row.proprietary_name),
+        manufacturer: str(row.manufacturer),
+        authority: str(row.authority),
+        jurisdiction: str(row.jurisdiction),
+        applicationNumber: str(row.application_number),
+        marketingStatus: str(row.marketing_status),
+        presentation: str(row.presentation),
+        strengthText: str(row.strength_text),
+        reconstitutionText: str(row.reconstitution_text),
+        labelledDoseText: str(row.labelled_dose_text),
+        storageText: str(row.storage_text),
+        excipientsText: str(row.excipients_text),
+        substitutabilityNote: str(row.substitutability_note),
+        notes: str(row.notes),
+        citation: row.source_id ? toCitation(row) : null,
+      }));
+
+      const forms: CompoundForm[] = rows<CitationRow & Record<string, unknown>>(
+        await tx.execute(sql`
+          select cf.id, cf.form_key, cf.chemical_form, cf.molecular_formula,
+                 cf.molecular_weight::text as molecular_weight, cf.weight_basis,
+                 cf.form_stated_by_source, cf.notes, ${CITATION_SELECT}
+          from ${sql.raw(rel('public_v_compound_forms'))} cf
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = cf.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = cf.source_location_id
+          where cf.peptide_id = ${peptideId}
+          order by cf.form_key
+        `),
+      ).map((row) => ({
+        id: String(row.id),
+        formKey: String(row.form_key),
+        chemicalForm: String(row.chemical_form),
+        molecularFormula: str(row.molecular_formula),
+        molecularWeight: str(row.molecular_weight),
+        weightBasis: str(row.weight_basis),
+        formStatedBySource: Boolean(row.form_stated_by_source),
+        notes: str(row.notes),
+        citation: row.source_id ? toCitation(row) : null,
+      }));
+
+      const pharmacokinetics: PkObservation[] = rows<CitationRow & Record<string, unknown>>(
+        await tx.execute(sql`
+          select o.id, o.observation_key, o.parameter, o.value_text,
+                 ${simple ? sql`null::text` : sql`o.dose_context`} as dose_context,
+                 o.administration, o.population, o.study_condition,
+                 -- Same rule as the product note and the evidence annotation.
+                 -- An explanatory note about a measurement almost always names
+                 -- the dose it was measured at, because that is what makes it
+                 -- explanatory. Patient mode gets the structure instead: the
+                 -- parameter, the value, the product, the population, whether it
+                 -- was one administration or a course, and the condition — which
+                 -- is the whole of the point without any of the amounts.
+                 ${simple ? sql`null::text` : sql`o.notes`} as notes,
+                 r.name as route_name, cp.product_name,
+                 et.public_label as evidence_type_label, et.evidence_class,
+                 ${CITATION_SELECT}
+          from ${sql.raw(rel('public_v_pk_observations'))} o
+          join ${sql.raw(rel('public_v_evidence_types'))} et on et.key = o.evidence_type_key
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = o.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = o.source_location_id
+          left join ${sql.raw(rel('public_v_routes'))} r on r.key = o.route_key
+          left join ${sql.raw(rel('public_v_compound_products'))} cp on cp.id = o.product_id
+          where o.peptide_id = ${peptideId}
+          order by o.parameter, o.observation_key
+        `),
+      ).map((row) => ({
+        id: String(row.id),
+        observationKey: String(row.observation_key),
+        parameter: String(row.parameter),
+        valueText: String(row.value_text),
+        doseContext: str(row.dose_context),
+        administration: String(row.administration),
+        population: String(row.population),
+        routeName: str(row.route_name),
+        studyCondition: str(row.study_condition),
+        productName: str(row.product_name),
+        evidenceTypeLabel: String(row.evidence_type_label),
+        evidenceClass: row.evidence_class as EvidenceClass,
+        notes: str(row.notes),
+        citation: row.source_id ? toCitation(row) : null,
+      }));
+
+      /*
+       * Literature screens.
+       *
+       * The counts are computed here rather than stored, so that a screen's
+       * ledger and the numbers shown beside it cannot disagree. `resultCount`
+       * comes from the search; everything else is counted from the rows.
+       *
+       * Only the human records are carried in full. The rest of the ledger is
+       * 225 rows and belongs on a page of its own, not in every compound
+       * payload — but the human ones are the answer to the question the screen
+       * was run to settle.
+       */
+      const screenRows = rows<Record<string, unknown>>(
+        await tx.execute(sql`
+          select id, screen_key, database_name, query_text,
+                 search_date::text as search_date, result_count,
+                 deduplication_notes, inclusion_criteria, human_primary_criteria
+          from ${sql.raw(rel('public_v_literature_screens'))}
+          where peptide_id = ${peptideId}
+          order by search_date desc
+        `),
+      );
+
+      const literatureScreens: LiteratureScreen[] = [];
+      for (const screen of screenRows) {
+        const ledger = rows<Record<string, unknown>>(
+          await tx.execute(sql`
+            select external_id, external_id_type, title, publication_year,
+                   journal, study_type, evidence_class, included,
+                   primary_or_secondary, classified_by, reason
+            from ${sql.raw(rel('public_v_literature_screen_records'))}
+            where screen_id = ${String(screen.id)}
+            order by publication_year desc nulls last, external_id
+          `),
+        ).map((r) => ({
+          externalId: String(r.external_id),
+          externalIdType: String(r.external_id_type),
+          title: String(r.title),
+          publicationYear: r.publication_year === null ? null : Number(r.publication_year),
+          journal: str(r.journal),
+          studyType: String(r.study_type),
+          evidenceClass: String(r.evidence_class),
+          included: Boolean(r.included),
+          primaryOrSecondary: String(r.primary_or_secondary),
+          classifiedBy: String(r.classified_by),
+          reason: String(r.reason),
+        }));
+
+        const byType = new Map<string, number>();
+        for (const record of ledger) {
+          byType.set(record.studyType, (byType.get(record.studyType) ?? 0) + 1);
+        }
+
+        literatureScreens.push({
+          id: String(screen.id),
+          screenKey: String(screen.screen_key),
+          databaseName: String(screen.database_name),
+          queryText: String(screen.query_text),
+          searchDate: String(screen.search_date),
+          resultCount: Number(screen.result_count),
+          deduplicationNotes: String(screen.deduplication_notes),
+          inclusionCriteria: String(screen.inclusion_criteria),
+          humanPrimaryCriteria: String(screen.human_primary_criteria),
+          includedCount: ledger.filter((r) => r.included).length,
+          /*
+           * Studies in which the compound was given to people.
+           *
+           * Counted by study type rather than by evidence class, and the
+           * difference is not pedantry: two of the five human-class records in
+           * the BPC-157 ledger are doping-control methods validated in human
+           * urine. Those carry the `human` class correctly — the matrix is
+           * human — and nobody in them was given anything. Counting them here
+           * put "5 primary human studies" on a page whose every sentence said
+           * three, and the sentences were right.
+           */
+          humanPrimaryCount: ledger.filter(
+            (r) =>
+              r.included &&
+              r.primaryOrSecondary === 'primary' &&
+              ['human_interventional', 'human_observational', 'case_report'].includes(r.studyType),
+          ).length,
+          typeCounts: [...byType.entries()]
+            .map(([studyType, count]) => ({ studyType, count }))
+            .sort((a, b) => b.count - a.count),
+          humanRecords: ledger.filter((r) => r.evidenceClass === 'human'),
+        });
+      }
 
       const protocols = await readProtocols(tx, peptideId, mode, { preview });
 
@@ -570,6 +931,10 @@ async function readPeptidePage(
         routes: routeEvidence,
         regulatoryStatuses,
         disagreements,
+        products,
+        forms,
+        pharmacokinetics,
+        literatureScreens,
         gaps,
         protocols,
         protocolCountAll: countRow?.n ?? 0,

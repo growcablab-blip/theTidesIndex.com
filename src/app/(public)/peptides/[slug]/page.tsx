@@ -16,6 +16,7 @@ import {
   MetaItem,
   NotRecorded,
   Section,
+  SummaryProse,
   UncertaintyNote,
   formatDate,
 } from '@/components/public/primitives';
@@ -41,6 +42,15 @@ import { PrintHeader } from '@/components/public/print-header';
 import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
 import { ProtocolComparison } from '@/components/public/protocol-comparison';
 import { Disclosure } from '@/components/public/disclosure';
+import {
+  ChemicalForms,
+  EvidenceLandscape,
+  HumanRecords,
+  PharmacokineticsFigure,
+  ProductDistinction,
+  RouteMap,
+  ScreenMethod,
+} from '@/components/public/compound-figures';
 
 /**
  * The canonical compound record.
@@ -123,6 +133,36 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
   const contents = [
     { id: 'overview', label: 'What it is' },
     { id: 'evidence', label: 'Evidence', count: peptide.claims.length, empty: peptide.claims.length === 0 },
+    // Conditional entries: a rail that lists a section which is not on the page
+    // is worse than a shorter rail. Sections that exist for every compound stay
+    // listed even when empty, because an empty "Evidence" heading is an answer.
+    ...(peptide.literatureScreens.length > 0
+      ? [
+          {
+            id: 'literature',
+            label: 'What a literature search returns',
+            count: peptide.literatureScreens[0]?.resultCount ?? 0,
+          },
+        ]
+      : []),
+    ...(peptide.pharmacokinetics.length > 0
+      ? [
+          {
+            id: 'pharmacokinetics',
+            label: 'Pharmacokinetics',
+            count: peptide.pharmacokinetics.length,
+          },
+        ]
+      : []),
+    ...(peptide.products.length > 0 || peptide.forms.length > 0
+      ? [
+          {
+            id: 'products',
+            label: 'Products and chemical form',
+            count: peptide.products.length + peptide.forms.length,
+          },
+        ]
+      : []),
     { id: 'routes', label: 'Administration routes', count: peptide.routes.length, empty: peptide.routes.length === 0 },
     {
       id: 'regulatory',
@@ -236,9 +276,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           <div className="space-y-5">
             {simple ? (
               peptide.simpleSummary ? (
-                <p className="max-w-[62ch] text-lg leading-relaxed text-ink-soft">
-                  {peptide.simpleSummary}
-                </p>
+                <SummaryProse text={peptide.simpleSummary} />
               ) : (
                 <EmptyState
                   headline="A plain-language summary has not been written yet."
@@ -246,9 +284,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
                 />
               )
             ) : peptide.practitionerSummary ? (
-              <p className="max-w-[62ch] text-lg leading-relaxed text-ink-soft">
-                {peptide.practitionerSummary}
-              </p>
+              <SummaryProse text={peptide.practitionerSummary} />
             ) : (
               <EmptyState
                 headline="A practitioner summary has not been written yet."
@@ -259,7 +295,12 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
             <AliasList aliases={peptide.aliases} />
 
             {peptide.unknownsSummary ? (
-              <UncertaintyNote>{peptide.unknownsSummary}</UncertaintyNote>
+              <UncertaintyNote>
+                <SummaryProse
+                  text={peptide.unknownsSummary}
+                  className="max-w-[62ch] text-sm leading-relaxed text-ink-soft"
+                />
+              </UncertaintyNote>
             ) : null}
 
             {!simple ? (
@@ -296,6 +337,73 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           <ClaimsByEvidenceClass claims={peptide.claims} simple={simple} />
         </Section>
 
+        {peptide.literatureScreens.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="literature"
+              title="What a literature search returns"
+              lede="A search result is a list of things somebody still has to read. This is what one search returned, what each record turned out to be, and what that does and does not establish."
+            >
+              <div className="space-y-6">
+                {peptide.literatureScreens.map((screen) => (
+                  <div key={screen.id} className="space-y-6">
+                    <EvidenceLandscape screen={screen} />
+
+                    <Disclosure
+                      summary="Every human record the screen identified"
+                      detail="Including the ones that carry a human sample but gave nobody the compound, with the reason each was counted or was not."
+                      count={screen.humanRecords.length}
+                      defaultOpen
+                    >
+                      <HumanRecords screen={screen} />
+                    </Disclosure>
+
+                    <Disclosure
+                      summary="How this search was run"
+                      detail="The query, the date, and the criteria — so that anyone can repeat it and check the answer."
+                    >
+                      <ScreenMethod screen={screen} />
+                    </Disclosure>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          </>
+        ) : null}
+
+        {peptide.pharmacokinetics.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="pharmacokinetics"
+              title="Pharmacokinetics"
+              lede="Every reported value with the conditions it was measured under. Values for the same parameter differ, and the conditions are why — a figure quoted without them is a figure about nothing in particular."
+            >
+              <PharmacokineticsFigure
+                observations={peptide.pharmacokinetics}
+                simple={simple}
+              />
+            </Section>
+          </>
+        ) : null}
+
+        {peptide.products.length > 0 || peptide.forms.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="products"
+              title="Products and chemical form"
+              lede="One molecule can be several products, and one substance can be weighed in several forms. Both are routinely quoted without saying which, and both change what a number means."
+            >
+              <div className="space-y-8">
+                <ProductDistinction products={peptide.products} simple={simple} />
+                <ChemicalForms forms={peptide.forms} />
+              </div>
+            </Section>
+          </>
+        ) : null}
+
         <hr className="tide-rule border-0" aria-hidden="true" />
 
         <Section
@@ -303,7 +411,12 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           title="Administration routes"
           lede="Route evidence is specific to this compound, in a stated formulation and population. Evidence that one peptide is absorbed by a route says nothing about another."
         >
-          <RouteEvidenceTable routes={peptide.routes} />
+          <div className="space-y-6">
+            {/* The map first: which routes, on what kind of evidence, at a
+                glance. The table below carries the full record. */}
+            <RouteMap peptide={peptide} />
+            <RouteEvidenceTable routes={peptide.routes} />
+          </div>
         </Section>
 
         <Section

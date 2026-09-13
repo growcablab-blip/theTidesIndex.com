@@ -1,0 +1,23 @@
+{
+  // Node scripts that read through the application's own query modules.
+  //
+  // `src/server/public/queries.ts` opens with `import 'server-only'`, which is a
+  // real guard: it makes the module unimportable from a client component and the
+  // Next build enforces it. A Node script is neither a client component nor a
+  // server component, so the package throws on sight and a build script cannot
+  // use the reader the site uses.
+  //
+  // The alternative is a second copy of the query, which is the thing this
+  // codebase avoids everywhere else — the copy that drifts is always the one
+  // nobody is reading. So the stub is scoped to this config, which nothing but
+  // `tsx` uses. The application build resolves the real package and the guard
+  // stands.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@db/*": ["./db/*"],
+      "server-only": ["./tests/support/server-only-stub.ts"]
+    }
+  }
+}

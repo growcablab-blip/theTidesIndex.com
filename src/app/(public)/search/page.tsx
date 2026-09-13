@@ -4,6 +4,7 @@ import { getPublicDb } from '@/server/db/client';
 import { withPublicSession } from '@/server/db/session';
 import { configureFuzzyMatching, search, type SearchEntityType } from '@/server/search/search-service';
 import { listEvidenceTypes, listRoutes } from '@/server/public/queries';
+import { sectionHintsFor } from '@/server/search/section-routing';
 import {
   Container,
   EmptyState,
@@ -103,6 +104,16 @@ export default async function SearchPage({
         });
 
   const evidenceClassOptions = [...new Set(evidenceTypes.map((t) => t.evidenceClass))];
+
+  /*
+   * Where in a compound record this query is probably heading.
+   *
+   * "BPC-157 human evidence" and "Tesamorelin FDA" reach the same two records
+   * as the bare compound names, and a result list that treats all four alike
+   * has discarded the only part of the query that says what the reader wanted.
+   * Empty for a bare name, which is the common case and the right answer.
+   */
+  const hints = sectionHintsFor(term);
 
   return (
     <Container className="py-10 sm:py-14">
@@ -220,6 +231,28 @@ export default async function SearchPage({
                       ) : null}
                     </div>
                   </Link>
+
+                  {/*
+                    Outside the card's own link, because a link inside a link is
+                    invalid markup and because these go somewhere different.
+                  */}
+                  {result.entityType === 'peptide' && hints.length > 0 ? (
+                    <p className="-mt-2 pb-4 text-sm text-slate">
+                      Go straight to{' '}
+                      {hints.map((hint, index) => (
+                        <span key={hint.id}>
+                          {index === 0 ? '' : index === hints.length - 1 ? ' or ' : ', '}
+                          <Link
+                            href={`${hrefFor(result.entityType, result.slug)}#${hint.id}`}
+                            className="underline decoration-rule underline-offset-2 hover:decoration-tide-teal"
+                          >
+                            {hint.label.toLowerCase()}
+                          </Link>
+                        </span>
+                      ))}
+                      .
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ul>

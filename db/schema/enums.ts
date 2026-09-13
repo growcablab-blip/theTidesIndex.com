@@ -197,7 +197,39 @@ export const disagreementExplanation = pgEnum('disagreement_explanation', [
   'study_design',
   'terminology',
   'date',
+  /** Free base, salt, or a salt's free-base equivalent. */
+  'chemical_form',
+  /** One source applied a frequency cut-off the other did not. */
+  'reporting_threshold',
   'unresolved',
+]);
+
+/**
+ * Whether a disagreement has been settled, and on what evidence.
+ *
+ * Separate from `disagreementExplanation`, which names the axis the sources
+ * differ on. The two were one column until an authoritative source arrived and
+ * the register could record that two values differed but not that somebody had
+ * since established *why* — which left five apparent contradictions on the
+ * tesamorelin record, four of which were not contradictions.
+ *
+ * `sourceErrorConfirmed` is deliberately hard to reach and rare in practice.
+ * Most apparent contradictions between a careful secondary source and a primary
+ * one are conditions, forms, thresholds or precision. And `indexErrorConfirmed`
+ * is kept distinct from it, because attributing an in-house extraction mistake
+ * to the source it was extracted from is its own kind of error.
+ */
+export const disagreementResolution = pgEnum('disagreement_resolution', [
+  'unresolved',
+  'resolved_different_formulation',
+  'resolved_different_population',
+  'resolved_different_study_condition',
+  'resolved_different_chemical_form',
+  'resolved_different_reporting_threshold',
+  'source_error_confirmed',
+  'secondary_source_less_precise',
+  'regulatory_source_more_specific',
+  'index_error_confirmed',
 ]);
 
 export const publicationType = pgEnum('publication_type', [

@@ -3,10 +3,10 @@
   "peptideKey": "bpc-157",
   "note": "Extracted from three practitioner sources held by this index: SRC-002 (LaValle et al., Peptide Handbook, 2022), SRC-003 (Campbell, Optimize Your Health with Therapeutic Peptides, 2023) and SRC-005 (Hack Smith, The Complete Guide to Peptides, 2025). BPC-157 is the deliberately harder half of this pair. There is no approved product, no human trial in anything held here, and three sources that describe three different regimens. The architecture's job on this record is to keep all of that visible at once without letting volume of discussion read as weight of evidence.",
   "compound": {
-    "shortDescription": "A synthetic fifteen-amino-acid peptide, described by the sources held here as derived from a protein found in human gastric juice. No human study is recorded in the reviewed sources this index holds, and no approved product exists in any source held here.",
-    "simpleSummary": "BPC-157 is a short synthetic peptide. The sources held here describe it as a fragment of a larger protein found in stomach fluid, which is where the name comes from: body protection compound.\n\nIt is discussed more than almost any other compound in this field, largely in the context of healing — tendons, ligaments, muscle, gut lining, skin. The sources held here report a considerable body of laboratory work behind those claims, and they are careful about how they say it: one describes the effects as observed \"in laboratory studies\", another as seen \"in several animal studies, and even more anecdotal testimonials\".\n\n**No human study is currently recorded in the reviewed sources held by The Tides Index.** That is a statement about this index, and it is worth being precise about what it does and does not mean. It does not mean no human research exists — a search of the PubMed database returns hundreds of records mentioning this compound, and this index has read none of them. What it means is that nothing on this page rests on evidence from people, because no such source has been obtained, checked and extracted here. Laboratory and animal work can show that something is worth studying in people; it cannot show that it works in them.\n\nThe second thing worth understanding is that the sources disagree with each other about how it is used. Three books describe three different regimens, and none of them cites a study establishing any of them. This index does not average them or choose between them, and it does not print amounts on this view — the practitioner view shows each regimen attributed to the source that reported it.\n\nNo approved product appears in any source held here, and no regulator's assessment of this compound is held by this index in any jurisdiction.\n\nBefore discussing BPC-157 with a clinician, the useful thing to understand is the gap between how much is said about it and how much has been established by evidence anyone has checked — and that a gap in what is known is not the same as evidence either way.",
-    "practitionerSummary": "Synthetic pentadecapeptide, sequence Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val, MW reported as 1419.556 g/mol, described as a partial sequence of body protection compound isolated from human gastric juice.\n\nMechanisms reported by the sources held here, all from laboratory work: angiomodulation — described as increasing angiogenesis where needed and decreasing it where not, including in tumour metastasis; nitric oxide stimulation; upregulation of VEGF, FGF and TGF-β; F-actin formation in fibroblasts; increased fibroblast migration and dispersal; increased phosphorylation of paxillin and FAK without change in the amounts produced; upregulation of anti-inflammatory transcription factors and downregulation of TNF-α; upregulation of growth hormone. Additional reported domains: neuroprotection with effects described on serotonergic, dopaminergic, opioid and GABAergic systems; cardioprotection including reported counteraction of neuroleptic-induced QTc prolongation; gastroprotection against ethanol, NSAIDs, corticosteroids, neuroleptics and capsaicin. Topical application reported to accelerate closure after alkali burn via granulation, re-epithelialisation and collagen deposition through ERK1/2.\n\n**Human evidence: none held by this index.** No source in the reviewed evidence base reports a clinical trial of BPC-157, and every mechanism above is reported from laboratory or animal work by a practitioner reference whose citations have not been traced. This is a statement about the register, not about the literature: a PubMed search on 12 September 2026 returned 228 records mentioning the compound, none of which this index has obtained or read. Nothing here supports the stronger claim that no human evidence exists, and nothing here supports a human effect either.\n\nPharmacokinetics: nothing. No source held here reports bioavailability, half-life, distribution or elimination for any route.\n\nRoutes: subcutaneous and oral are both reported, and one source reports topical in an animal burn model. No source held here compares them, and none reports what fraction of an oral amount is absorbed intact — which for a pentadecapeptide is the question that determines whether an oral route means anything.\n\nSafety, as reported: described as safe in recommended amounts by one source, with caution advised in cancer and other conditions where angiogenesis may need to be suppressed. Rare reactions listed as erythema, transient muscle atrophy, polyarthralgia with hand oedema, and rash. Paediatric safety not established. The angiogenesis caution and the reported anti-tumour effects sit in tension within the same source, and this index records both rather than resolving them.\n\nRegulatory: no approval, no authorisation and no assessment in any jurisdiction, in anything held here.\n\nProtocols: three sources, three different regimens, recorded separately and attributed. None cites a study establishing its amounts.",
-    "unknownsSummary": "Whether any of this happens in people, so far as this index can currently say. The reviewed sources held here contain no human trial, no case series, no pharmacokinetic study and no regulatory assessment of BPC-157 for any use by any route — which is a statement about this register and not about the world's literature, of which this index has reviewed none for this compound. The mechanisms recorded here come from laboratory and animal work reported by practitioner references whose own citations have not been traced. Nothing held here establishes an effective amount, a route that delivers intact peptide, a duration, what happens on stopping, what happens with prolonged use, or how the reported pro-angiogenic and anti-tumour effects are reconciled. The volume of discussion around this compound is not evidence, and this record is arranged so that the two are not mistaken for each other.",
+    "shortDescription": "A synthetic fifteen-amino-acid peptide, described by the sources held here as derived from a protein found in human gastric juice. Very widely discussed, almost entirely on animal research: a literature screen identified three small uncontrolled human studies and no approved product anywhere.",
+    "simpleSummary": "BPC-157 is a short synthetic peptide. The sources held here describe it as a fragment of a larger protein found in stomach fluid, which is where the name comes from: body protection compound.\n\nIt is discussed more than almost any other compound in this field, largely in the context of healing — tendons, ligaments, muscle, gut lining, skin. There is a considerable body of laboratory and animal work behind those claims, and the practitioner sources held here are careful about how they say it: one describes the effects as observed \"in laboratory studies\".\n\n**Research in people is very limited.** A search of the PubMed medical literature database on 13 September 2026 returned 230 records mentioning the compound. Reading through them, three were studies in people: two people given it intravenously, twelve women given it for a bladder condition, and a review of the records of seventeen patients given it in the knee. Thirty-one people in total, across three studies, none of which had a comparison group. That last point matters more than the numbers. Without a comparison group, a study cannot tell whether the people who got better did so because of the treatment.\n\nAlmost everything else is animal research. No medicines regulator has approved BPC-157 anywhere, and the reason two independent reviews give is that the clinical research needed to assess it has not been done.",
+    "practitionerSummary": "Synthetic pentadecapeptide, sequence Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val, MW reported as 1419.556 g/mol, described as a partial sequence of body protection compound isolated from human gastric juice.\n\nMechanisms reported by the sources held here, all from laboratory work: angiomodulation — described as increasing angiogenesis where needed and decreasing it where not, including in tumour metastasis; nitric oxide stimulation; upregulation of VEGF, FGF and TGF-β; F-actin formation in fibroblasts; increased fibroblast migration and dispersal; increased phosphorylation of paxillin and FAK without change in the amounts produced; upregulation of anti-inflammatory transcription factors and downregulation of TNF-α; upregulation of growth hormone. Additional reported domains: neuroprotection with effects described on serotonergic, dopaminergic, opioid and GABAergic systems; cardioprotection including reported counteraction of neuroleptic-induced QTc prolongation; gastroprotection against ethanol, NSAIDs, corticosteroids, neuroleptics and capsaicin. Topical application reported to accelerate closure after alkali burn via granulation, re-epithelialisation and collagen deposition through ERK1/2.\n\n**What the screen replaced.** This record previously said, under this heading, that no human evidence was held by this index, and noted that a PubMed search had returned 228 records none of which had been read. The screen recorded below read them. Three are human studies, so the earlier statement was true of the library and misleading about the world — which is exactly why it was bounded to the register at the time, and why the screen was the next thing to do.\n\nPharmacokinetics: nothing. No source held here reports bioavailability, half-life, distribution or elimination for any route.\n\nRoutes: subcutaneous and oral are both reported, and one source reports topical in an animal burn model. No source held here compares them, and none reports what fraction of an oral amount is absorbed intact — which for a pentadecapeptide is the question that determines whether an oral route means anything.\n\nSafety, as reported: described as safe in recommended amounts by one source, with caution advised in cancer and other conditions where angiogenesis may need to be suppressed. Rare reactions listed as erythema, transient muscle atrophy, polyarthralgia with hand oedema, and rash. Paediatric safety not established. The angiogenesis caution and the reported anti-tumour effects sit in tension within the same source, and this index records both rather than resolving them.\n\nRegulatory: no approval, no authorisation and no assessment in any jurisdiction, in anything held here.\n\nProtocols: three sources, three different regimens, recorded separately and attributed. None cites a study establishing its amounts.\n\n**Human evidence.** Three primary human studies identified by a PubMed screen on 13 September 2026, all uncontrolled: n = 2 intravenous safety pilot, n = 12 single-procedure injection for interstitial cystitis, n = 17 retrospective intra-articular chart review. No RCT exists.\n\n**Citation crosswalk.** All twenty-two references the practitioner handbook gives for its BPC-157 entry are preclinical or reviews; twenty-one resolve to records in the screen (fourteen animal studies, seven reviews). The sole citation for tumour cell growth inhibition is a 2004 conference abstract in a human melanoma cell line, not indexed in PubMed. The cancer-cachexia claim traces to a 2018 review that states it is written before any clinical trial. A clinician following the handbook's citations will not reach human evidence, because there is none at the end of them.",
+    "unknownsSummary": "Whether BPC-157 does anything useful in people. Three human studies have been identified and none of them can answer that, because none had a comparison group — and the conditions they looked at are ones that come and go on their own.\n\nAlso unknown: how much, how often, for how long, by which route, what happens on stopping, what happens with prolonged use, whether the material sold under this name is what it says it is, and whether the effect on blood-vessel growth is a hazard in cancer or a therapeutic possibility — a question on which two research groups disagree in print and neither has human evidence.\n\nOne more thing is unknown in a different way. A 2006 review states that clinical trials in inflammatory bowel disease were carried out under three development codes. No report of them appears in this search, and a 2026 review states that no Phase II trial has been completed. This index cannot tell whether those trials were run and never published, or whether the characterisation is wrong. It is recorded as a lead.\n\nThe volume of discussion around this compound is not evidence, and this record is arranged so that the two are not mistaken for each other.",
     "aliases": [
       {
         "alias": "Body Protection Compound-157",
@@ -94,6 +94,48 @@
       "locatorText": "file p. 188 of the held copy — persona regimen for skin rejuvenation",
       "pageStart": null,
       "section": "Persona regimens — skin repair"
+    },
+    {
+      "key": "bpc-iv-safety-abstract",
+      "sourceKey": "SRC-029",
+      "locatorText": "Abstract, PMID 40131143",
+      "section": "Design, participants and findings",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "bpc-cystitis-abstract",
+      "sourceKey": "SRC-030",
+      "locatorText": "Abstract, PMID 39325560",
+      "section": "Design, participants and findings",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "bpc-knee-abstract",
+      "sourceKey": "SRC-031",
+      "locatorText": "Abstract, PMID 34324435",
+      "section": "Design, participants and findings",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "bpc-systematic-review-abstract",
+      "sourceKey": "SRC-032",
+      "locatorText": "Abstract, PMID 40756949",
+      "section": "Methods, results and conclusion",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "bpc-jozwiak-abstract",
+      "sourceKey": "SRC-033",
+      "locatorText": "Abstract, PMID 40005999",
+      "section": "Summary and safety discussion",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "bpc-sikiric-comment-abstract",
+      "sourceKey": "SRC-034",
+      "locatorText": "Abstract, PMID 41155565",
+      "section": "Response on angiogenesis and tumorigenesis",
+      "notes": "Read at abstract level. Full text not obtained."
     }
   ],
   "claims": [
@@ -124,26 +166,40 @@
     },
     {
       "claimKey": "BPC-002",
-      "claimText": "The effects attributed to BPC-157 by the sources held here are reported from laboratory and animal studies. No human study is currently recorded in the reviewed sources held by The Tides Index.",
-      "plainLanguageText": "Everything these sources say BPC-157 does comes from laboratory and animal work. None of them reports a study in people, and this index has not reviewed the wider literature.",
+      "claimText": "A PubMed screen conducted on 13 September 2026 returned 230 records and identified three primary human studies of BPC-157, involving 31 people in total. All three are small, uncontrolled, unblinded, single-site and published in the same journal. The remaining evidence identified by the screen is preclinical: 162 animal studies, one human-tissue preparation and two in vitro studies, alongside 48 reviews and 7 commentary pieces.",
+      "plainLanguageText": "Most of what is said about BPC-157 comes from laboratory and animal research. A search of the medical literature found three studies in people, together involving thirty-one participants. None of them had a comparison group, so none can show that an effect was caused by the compound rather than by anything else.",
       "claimCategory": "evidence-base",
       "importance": "critical",
-      "interpretationNotes": "This is the load-bearing claim on the record, and it is a claim about the evidence base rather than about the compound. Both sources are explicit in their own framing — 'in laboratory studies BPC-157 has been reported to', and 'in several animal studies, and even more anecdotal testimonials from biohackers' — and this index states the consequence plainly rather than leaving a reader to infer it from an absent section. The wording is deliberately bounded to this register. 'No human study is recorded here' and 'no human studies exist' are different statements, and only the first is supported: a PubMed search on 12 September 2026 returned 228 records mentioning the compound, none of which this index has obtained or read.",
-      "uncertaintyText": "What is unknown is what those unreviewed records contain. They may include human studies; they may be reviews and animal work. Until sources are obtained, checked and extracted, this index can say only that nothing on this page rests on evidence from people — not that no such evidence exists, and not that it does.",
+      "interpretationNotes": "This claim replaces one that said no human study was recorded in the sources held here. That was true of the library and said nothing about the literature, which is why the screen was run. The answer it returned is not the one the register implied: human studies exist. They are also not the kind of evidence that would support any of the uses attributed to this compound — two participants, twelve participants and a seventeen-patient chart review, none controlled, are hypothesis-generating at best. A systematic review published in 2025 searched three databases independently to June 2024 and included 36 studies, of which it classified one as clinical, and reported that it found no clinical safety data. Two independent screens reaching the same shape of answer is worth more than either alone.",
+      "uncertaintyText": "This is a statement about one database on one date under one set of criteria, and it is bounded to that. PubMed is not the whole of the scientific literature: it indexes neither conference abstracts nor most regulatory submissions, and a 2006 review asserts that clinical trials for inflammatory bowel disease were conducted under the development codes PL 10, PLD 116 and PL 14736 — no report of which appears in this search. Those trials are recorded as a gap, not as evidence and not as absence. All three human studies were read at abstract level; the full texts are not held.",
       "evidence": [
         {
-          "locationKey": "lavalle-bpc-29",
-          "evidenceTypeKey": "practitioner_reference",
+          "locationKey": "bpc-iv-safety-abstract",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
-          "interpretation": "The source introduces its list of effects with 'In laboratory studies BPC-157 has been reported to accelerate the healing of wounds, injuries and tissues', and repeats 'In laboratory studies, BPC-157 is reported' before the detailed list.",
-          "populationModel": "Laboratory and animal models, as stated by the source. No human population is described."
+          "interpretation": "An IRB-approved study of intravenous infusion in two adults over three days, with blood work and vital signs before and after each infusion, reporting no measurable change in the biomarkers tested and no reported side effects.",
+          "populationModel": "Two adults at a private clinic, both of whom had received intravenous BPC-157 before the study."
         },
         {
-          "locationKey": "campbell-bpc-188",
-          "evidenceTypeKey": "practitioner_reference",
+          "locationKey": "bpc-cystitis-abstract",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
-          "interpretation": "The source attributes its list of regenerative effects to 'several animal studies, and even more anecdotal testimonials from biohackers' — placing anecdote alongside animal work as its basis, and naming no human study.",
-          "populationModel": "Animal studies and anecdotal report, as stated."
+          "interpretation": "Twelve women with interstitial cystitis who had not responded to pentosan polysulfate, treated during a single cystoscopy with injections around the area of inflammation, with outcome assessed by a self-reported global response questionnaire.",
+          "populationModel": "Twelve women aged 39 to 76 at a single private clinic."
+        },
+        {
+          "locationKey": "bpc-knee-abstract",
+          "evidenceTypeKey": "human_observational",
+          "relationship": "supports",
+          "interpretation": "A retrospective one-year chart review of seventeen patients given intra-articular BPC-157, alone or combined with thymosin beta-4, followed up by telephone survey with no validated instrument.",
+          "populationModel": "Seventeen patients at one clinic; sixteen were reached for follow-up."
+        },
+        {
+          "locationKey": "bpc-systematic-review-abstract",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "An independent systematic review, two screeners, three databases, searched to June 2024: 544 records identified, 36 studies included — 35 preclinical and 1 clinical — and no clinical safety data found.",
+          "populationModel": "Not applicable — a review of the literature."
         }
       ]
     },
@@ -271,14 +327,96 @@
           "populationModel": "Not specified."
         }
       ]
+    },
+    {
+      "claimKey": "BPC-008",
+      "claimText": "None of the three identified human studies had a control group, a randomisation procedure, or blinding, and all three were conducted at private clinics and published in the same journal. Two of the three used material whose identity and purity are not established in the report: one names a 503A compounding pharmacy as the manufacturer, and one gave a second peptide to part of the cohort.",
+      "plainLanguageText": "The human studies that exist are small and have no comparison group. That means that if the people in them improved, the study cannot show whether the compound caused it. It is the kind of research that suggests what to test next, not the kind that settles anything.",
+      "claimCategory": "evidence-quality",
+      "importance": "critical",
+      "interpretationNotes": "Recorded as a claim of its own rather than as a caveat on the one above, because it is the part that a reader will otherwise skip. 'There are human studies' and 'there is human evidence for this use' are different statements, and the distance between them is this claim. Uncontrolled studies of a condition that fluctuates — interstitial cystitis, knee pain — cannot separate a treatment effect from regression to the mean, from the procedure itself, or from expectation. The knee study gave some patients two peptides, so even its uncontrolled result cannot be attributed to this one.",
+      "uncertaintyText": "All three were read at abstract level. A full text might report design detail the abstract omits; it cannot supply a control group that was not there.",
+      "evidence": [
+        {
+          "locationKey": "bpc-cystitis-abstract",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "relationship": "supports",
+          "interpretation": "The abstract states that the material was manufactured by a 503A compounding pharmacy, that all twelve participants had failed prior treatment, and that the outcome was a self-rated global response after a single procedure.",
+          "populationModel": "Twelve women."
+        },
+        {
+          "locationKey": "bpc-knee-abstract",
+          "evidenceTypeKey": "human_observational",
+          "relationship": "supports",
+          "interpretation": "The abstract states that the study was retrospective, that follow-up varied, that patients were asked to rate their pain by telephone, and that no specific tools were used to measure function, quality of life, stiffness or activities of daily living.",
+          "populationModel": "Seventeen patients, some given BPC-157 with thymosin beta-4."
+        },
+        {
+          "locationKey": "bpc-systematic-review-abstract",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "The review classifies the studies it included as level IV and level V evidence, and reports that no clinical safety data were found.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "BPC-009",
+      "claimText": "Every one of the twenty-two references the practitioner handbook cites for its BPC-157 entry is preclinical or a review. Twenty-one resolve to records in this screen: fourteen animal studies and seven reviews. The twenty-second, the only citation given for inhibition of tumour cell growth, is a 2004 conference abstract in a human melanoma cell line that is not indexed in PubMed.",
+      "plainLanguageText": "The handbook that clinics most often use for this compound lists twenty-two scientific references. None of them is a study in people.",
+      "claimCategory": "evidence-base",
+      "importance": "critical",
+      "interpretationNotes": "This is the crosswalk between what a practitioner source says and what it cites, and it is the most useful single fact this index holds about BPC-157. The handbook is not misrepresenting its sources: it says throughout that the findings are from laboratory studies, and it is accurate. What the crosswalk establishes is that a reader following its citations will not arrive at human evidence, because there is none at the end of them. Every mechanism in the entry — angiogenesis, nitric oxide, growth-factor signalling, neuroprotection, cardioprotection, gastroprotection — traces to work in rats, mice or cells.",
+      "uncertaintyText": "The crosswalk matched references by title against the screen rather than by identifier, because the handbook gives no PubMed identifiers and its bibliography is reproduced from an imperfect scan. Two references are near-duplicates of each other, which the matching preserved rather than merged. The melanoma abstract could not be located in PubMed at all, which is a statement about PubMed's coverage of conference proceedings as much as about the reference.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-bpc-30",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The handbook's summary states that the healing effects are reported 'in laboratory studies' and carries superscript references 49 to 57 for them.",
+          "populationModel": "Not applicable — a statement about what the source cites."
+        },
+        {
+          "locationKey": "lavalle-bpc-31",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The entry's statement that BPC-157 inhibits the growth of several tumour cell lines carries a single reference, to a 2004 item in Melanoma Research at pages A14–A15 — an abstract supplement — reporting work in a human melanoma cell line.",
+          "populationModel": "A cell line."
+        }
+      ]
+    },
+    {
+      "claimKey": "BPC-010",
+      "claimText": "As of 2026, independent reviews report that BPC-157 has no approved formulation, no validated dosing regimen and no completed Phase II clinical trial, and that it is not approved by the FDA or other regulators for absence of sufficient clinical study.",
+      "plainLanguageText": "No medicines regulator has approved this compound, and the reason given is that the clinical research needed to assess it has not been done.",
+      "claimCategory": "regulatory",
+      "importance": "critical",
+      "interpretationNotes": "The previous version of this record could say only that the sources held here reported no approval — an absence in a small library. Two independent 2025–2026 reviews, one of them searching patent databases and regulator websites as well as three literature databases, state the position directly. That is still secondary evidence: a review saying a regulator has not approved something is not the regulator saying it. But it is a considerable advance on silence, and it is checkable.",
+      "uncertaintyText": "No regulator's own record has been consulted for BPC-157. The approach that produced authoritative labelling for tesamorelin — querying the FDA's own interface — returns nothing for this compound, which is consistent with the reviews and is not the same as confirmation from the regulator.",
+      "evidence": [
+        {
+          "locationKey": "bpc-jozwiak-abstract",
+          "evidenceTypeKey": "expert_commentary",
+          "relationship": "supports",
+          "interpretation": "States that the compound has not been approved for use in standard medicine by the FDA or other global regulatory authorities, owing to the absence of sufficient and comprehensive clinical studies confirming health benefits in humans. Also notes that it was temporarily prohibited by the World Anti-Doping Agency in 2022 and, as at the review's writing, is not currently listed.",
+          "populationModel": "Not applicable."
+        },
+        {
+          "locationKey": "bpc-systematic-review-abstract",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "States that the compound lacks FDA approval and that its use is banned in professional sport, while being increasingly used by clinicians and athletes.",
+          "populationModel": "Not applicable."
+        }
+      ]
     }
   ],
   "notYetSupported": [
     {
       "gapType": "human_evidence_not_established",
-      "statement": "That BPC-157 produces any effect in humans, on the evidence this index currently holds.",
-      "why": "The reviewed sources held here contain no clinical trial, case series or case report for BPC-157; every source reports laboratory or animal work, or anecdote, and says so in its own words. This is an absence in this register. This index has not conducted a literature review and does not assert that no human evidence exists anywhere — a PubMed search on 12 September 2026 returned 228 records mentioning the compound, none of them obtained or read here.",
-      "whatWouldResolveIt": "A systematic screen of the indexed literature, followed by obtaining and extracting whatever human studies it identifies — or establishing, with a search that is itself recorded, that none exists.",
+      "statement": "That BPC-157 produces any effect in humans.",
+      "why": "Three human studies were identified by the screen of 13 September 2026, and none of them is capable of establishing an effect. All three are uncontrolled: two participants given intravenous infusions, twelve women treated in a single procedure with outcomes self-rated afterwards, and a retrospective telephone survey of seventeen patients, some of whom received a second peptide as well. A study without a comparison group cannot separate what a treatment did from what would have happened anyway, and the conditions involved — interstitial cystitis, chronic knee pain — are exactly the kind that fluctuate.",
+      "whatWouldResolveIt": "A randomised controlled trial. Nothing smaller answers this question, and the existence of uncontrolled studies does not narrow the gap.",
       "verificationIssueKey": null
     },
     {
@@ -298,21 +436,21 @@
     {
       "gapType": "safety_not_established",
       "statement": "The safety profile of BPC-157 in humans, including with prolonged use.",
-      "why": "No human safety study, pharmacovigilance record or systematic adverse-event collection is held here. The adverse effects recorded on this page are a short list from one practitioner handbook, which is not a safety dataset.",
+      "why": "One identified study measured safety endpoints in humans: two people, three days, a panel of blood tests, no adverse effects reported. An independent systematic review searching three databases to June 2024 states that it found no clinical safety data at all. Nothing here addresses repeated use, long-term use, interactions, or use in anyone with a condition.",
       "whatWouldResolveIt": "Human safety data from a trial or a registry.",
       "verificationIssueKey": null
     },
     {
       "gapType": "conflicting_sources",
-      "statement": "Whether the reported pro-angiogenic and anti-tumour effects can both be true, and what determines which occurs.",
-      "why": "One source reports bidirectional angiomodulation and inhibition of tumour cell lines, and in the same entry advises caution in cancer. This index records the tension rather than resolving it, because resolving it would require the primary literature it does not hold.",
-      "whatWouldResolveIt": "The primary papers behind both claims, read closely enough to establish the models and the conditions under which each direction was observed.",
+      "statement": "Whether the compound's effect on blood-vessel growth is a hazard in cancer, a therapeutic possibility, or neither.",
+      "why": "Two research groups disagree about this in print, and the screen shows that neither side rests on human evidence. The concern is raised from mechanism in a 2025 literature and patent review; the counter-argument comes from the group that produced most of the preclinical work. The practitioner handbook's anti-tumour statement traces to a single 2004 conference abstract in a melanoma cell line, and its cancer-cachexia statement to a review that explicitly writes before any clinical trial.",
+      "whatWouldResolveIt": "In vivo tumour model reports read in full, which would establish what was observed in what model at what exposure; and, for the clinical question anyone actually has, a study in people with cancer, which does not exist.",
       "verificationIssueKey": null
     },
     {
       "gapType": "regulatory_status_unverified",
       "statement": "The regulatory position of BPC-157 in any named jurisdiction.",
-      "why": "No source held here is a regulatory source. The absence of a named product in three practitioner handbooks is consistent with there being no approval, and it is not the same as having checked with a regulator.",
+      "why": "Two independent 2025–2026 reviews state that no regulator has approved the compound and give the absence of sufficient clinical study as the reason. That is secondary evidence and this index records it as such: a review reporting a regulator's position is not the regulator. The FDA interface that supplied authoritative labelling for tesamorelin returns nothing for BPC-157, which is consistent with the reviews and is not confirmation from the regulator.",
       "whatWouldResolveIt": "A statement from a named authority in a named jurisdiction, with a date.",
       "verificationIssueKey": null
     },
@@ -321,6 +459,27 @@
       "statement": "What the laboratory studies behind every mechanism on this page actually did and found.",
       "why": "Both practitioner sources cite their primary literature by superscript or by a link to the author's own website. None of those citations has been obtained or opened by this index.",
       "whatWouldResolveIt": "The primary publications, obtained and read, with each mechanism checked against the paper reporting it.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The inflammatory bowel disease trials reported under the development codes PL 10, PLD 116 and PL 14736.",
+      "why": "A 2006 review states that the compound was \"safe in clinical trials for inflammatory bowel disease\" under those codes, attributed to Pliva, Croatia. No report of any such trial appears in the 230 records the screen returned, and a 2026 review of the compound's development position states that no Phase II trial has been completed. The assertion is therefore either about trials that were never published, or a characterisation this index cannot check. It is recorded as a lead, not as evidence that trials happened and not as evidence that they did not.",
+      "whatWouldResolveIt": "A trial report, a registry entry, or a regulatory submission under any of those codes.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What the full texts of the three identified human studies report.",
+      "why": "All three were read at abstract level through the NCBI interface. Full texts are behind publisher access and have not been obtained. An abstract carries design, setting and size reliably; it does not carry the detail that would let anyone judge how the outcomes were collected.",
+      "whatWouldResolveIt": "Access to the three full texts.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "What the material used in the identified human studies actually was.",
+      "why": "One study names a 503A compounding pharmacy as the manufacturer and reports no characterisation of the product; the others describe none. Every quality question this index documents elsewhere — identity, purity, content, endotoxin — is unanswered for the material those participants received, which limits what even a well-designed study of it could have established.",
+      "whatWouldResolveIt": "A certificate of analysis or product characterisation reported in the study, or an investigational product with a defined specification.",
       "verificationIssueKey": null
     }
   ],
@@ -469,27 +628,43 @@
           "evidenceTypeKey": "practitioner_reference",
           "positionText": "The Complete Guide to Peptides uses 500 mcg daily in its joint and tissue repair example, and 250 mcg twice daily in its skin repair example — two different amounts within the same book, for different stated purposes."
         }
-      ]
+      ],
+      "resolution": "unresolved",
+      "resolutionBasis": null,
+      "resolvedAt": null
     },
     {
       "disagreementKey": "BPC-D-002",
-      "topic": "Whether BPC-157 should be avoided in cancer, or may be protective against it.",
-      "plainLanguageText": "One handbook says to use caution in cancer because the compound affects blood vessel growth, and the same handbook reports that it inhibits tumour growth in laboratory studies. Both statements are on the record, and this index does not choose between them.",
+      "topic": "Whether BPC-157's effect on blood-vessel growth is a reason for caution in cancer or a reason to investigate it against cancer. Two research groups disagree in print, and a practitioner handbook carries both positions in one entry.",
+      "plainLanguageText": "This compound affects the growth of blood vessels. Tumours need blood vessels to grow. Some researchers treat that as a reason for caution in anyone with cancer; the group that has done most of the research argues that the compound regulates vessel growth rather than simply increasing it, and reports anti-tumour effects. This is an open scientific disagreement, and this index does not settle it.",
       "candidateExplanation": "unresolved",
-      "explanationNotes": "Both positions come from the same source, which makes this a disagreement within a source rather than between sources — and arguably the more instructive kind. A compound described as increasing blood vessel formation where needed and decreasing it where not is described in terms that cannot be wrong, and the clinical caution attached to it suggests the author does not fully rely on that description either. This index records the caution and the reported anti-tumour effect side by side, and treats neither as settling the question.",
-      "resolutionRequirement": "The primary literature behind the anti-tumour reports, read closely enough to establish the models and conditions; and any clinical evidence, of which this index holds none.",
+      "explanationNotes": "The screen makes the shape of this disagreement clear. A 2025 literature and patent review raises tumorigenesis as a speculative concern arising from the compound's pro-angiogenic activity. The research group that has produced most of the preclinical corpus published a comment rejecting that reading, arguing that the compound is angiomodulatory rather than pro-angiogenic and reporting prominent anti-tumour potential in vivo and in vitro; the reviewed authors replied. The practitioner handbook carries both sides without noting that they are contested.\n\nWhat the screen adds is the weight behind each. The pro-angiogenic finding is supported by an animal and cell study showing increased vessel density in a chick membrane assay, restored blood flow in a rat hind limb, and VEGFR2 upregulation in human endothelial cells. The handbook's anti-tumour statement carries one citation: a 2004 conference abstract reporting inhibition of cell growth in a human melanoma cell line, not indexed in PubMed. Its cancer-cachexia statement traces to a 2018 review that proposes the application and says in terms that it is writing before any clinical trial.\n\nSo the two sides are not symmetrical in evidence, and they are also not resolvable from what exists: a cell line is not a person in either direction, and neither position has human evidence behind it.",
+      "resolutionRequirement": "A study in humans with cancer, which nobody has done. Short of that, the in vivo tumour models themselves, read in full rather than through a conference abstract and a review — which would establish what was actually observed, in what model, by what route, and at what exposure.",
       "positions": [
         {
           "locationKey": "lavalle-bpc-28",
           "evidenceTypeKey": "practitioner_reference",
-          "positionText": "The source advises that although BPC-157 is angiomodulatory, it should be used with caution in cancer and other conditions where angiogenesis may need to be suppressed."
+          "positionText": "\"Although BPC-157 is angiomodulatory, use with caution in cancer and other conditions where angiogenesis may need to be suppressed.\""
         },
         {
           "locationKey": "lavalle-bpc-31",
           "evidenceTypeKey": "practitioner_reference",
-          "positionText": "The same source reports that BPC-157 inhibits and counteracts increased VEGF expression, thus avoiding VEGF-tumorigenesis, inhibits the growth of several tumour cell lines, and can counteract tumour cachexia."
+          "positionText": "The same entry states that the compound avoids VEGF-tumorigenesis, inhibits the growth of several tumour cell lines and can counteract tumour cachexia — citing, for the first of those, a single 2004 conference abstract in a melanoma cell line."
+        },
+        {
+          "locationKey": "bpc-jozwiak-abstract",
+          "evidenceTypeKey": "expert_commentary",
+          "positionText": "A 2025 literature and patent review raises the compound's pro-angiogenic activity as a possible route to tumorigenesis, as a concern arising from mechanism."
+        },
+        {
+          "locationKey": "bpc-sikiric-comment-abstract",
+          "evidenceTypeKey": "expert_commentary",
+          "positionText": "The principal research group's published comment rejects that reading, arguing the compound controls angiogenesis rather than simply promoting it, and asserting prominent anti-tumour potential in vivo and in vitro."
         }
-      ]
+      ],
+      "resolution": "unresolved",
+      "resolutionBasis": null,
+      "resolvedAt": null
     }
   ],
   "regulatory": [
@@ -501,6 +676,18 @@
       "locationKey": "lavalle-bpc-27",
       "checkedAt": "2026-09-12",
       "notes": "Recorded as 'not approved' on the basis that three practitioner handbooks — two of which name brand names and manufacturers for other compounds, including in the same volume — record none for BPC-157. That is consistent with there being no approval anywhere; it is not the same as a regulator having said so. This index holds no regulatory document for this compound and cannot state the position in any named jurisdiction. The date is the date the sources were read."
+    }
+  ],
+  "forms": [
+    {
+      "formKey": "bpc-157-pentadecapeptide",
+      "chemicalForm": "The pentadecapeptide GEPPPGKPADDAGLV. No salt or counter-ion is stated by any source held here.",
+      "molecularFormula": "C62H98N16O22, as printed — the held copy is an imperfect scan and the subscripts are partly illegible.",
+      "molecularWeight": 1419.556,
+      "weightBasis": "The peptide as such. No source held here states whether the figure is for a free acid, a salt, or a specific supplied form, and nothing about the material sold under this name is established by it.",
+      "formStatedBySource": false,
+      "notes": "Corroborated independently: a 1999 review identified by the screen gives the same sequence with a molecular weight of 1419, and a 2006 review repeats it. What a molecular weight does not establish is what is in any particular vial — which for an unapproved compound with no characterised product is the question that matters.",
+      "locationKey": "lavalle-bpc-27"
     }
   ]
 }
