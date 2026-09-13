@@ -3,11 +3,12 @@
     "issueKey": "V-001",
     "topic": "TB-500 versus full-length Thymosin beta-4 nomenclature",
     "whyItMatters": "Protocol identity can be wrong if the names are treated as interchangeable.",
-    "currentSourceSignal": "Practitioner sources use overlapping terminology without distinguishing the molecules.",
-    "neededVerification": "Primary chemistry, sequence and product-definition sources.",
+    "currentSourceSignal": "Resolved on the chemistry, 13 September 2026. Two independent analytical laboratories identify the TB-500 formulation as Ac-LKKTETQ, the N-terminally acetylated 17-23 fragment of thymosin beta-4 (SRC-041, SRC-042). The most widely used practitioner handbook lists TB-500 among the names for thymosin beta-4 and prints the full 43-residue sequence beside it, whose residues 17-23 read LKKTETQ - so the handbook's own data contains the distinction it does not draw. A 2026 peer-reviewed animal study repeats the conflation in its title.",
+    "neededVerification": "Remaining, and narrower: what any particular product sold as TB-500 actually contains. SRC-043 reports that the content of TB500/TB1000 products is not systematically consistent with their descriptions, so knowing what the name means in the literature does not establish what is in a vial.",
     "priority": "critical",
     "relatedKeys": [
-      "peptide:thymosin-beta-4"
+      "peptide:thymosin-beta-4",
+      "peptide:tb-500"
     ]
   },
   {

@@ -1,0 +1,167 @@
+{
+  "packetKey": "batch-traceability",
+  "qualityKey": "batch-traceability",
+  "note": "Extracted from SRC-017 (ICH Q7, Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients, Step 4, 10 November 2000), sections 6.3, 6.5, 8.3, 10.2 and 17.6. Locators are printed pages; the held file runs six ahead. SCOPE: Q7 is guidance for manufacturers of active pharmaceutical ingredients and intermediates and for those who distribute or repackage them. It does not set requirements for finished products, compounding, or research-use suppliers. Every claim below carries that scope, and none should be read as a statement of what any supplier actually does.",
+  "topic": {
+    "shortDescription": "How a batch number connects a vial back to its raw materials, its production record and its tests, and what that chain looks like when it is intact.",
+    "simpleSummary": "A batch (or lot) number is only useful if it connects to something. International manufacturing guidance for pharmaceutical ingredients describes what it should connect to: records of every raw material received, including who made it and who supplied it; a production record for the batch showing each significant step, the equipment used, the in-process test results and any deviation; the release test results; and a distribution record good enough to recall the batch. When material passes through a distributor or repacker, the guidance says the original manufacturer's name and batch number should travel with it. That chain is what lets a test result be tied to the material in front of you. A batch number with nothing behind it, or a certificate that cannot be matched to one, breaks the chain.",
+    "practitionerSummary": "ICH Q7 s. 6.3 requires records for each shipment of raw materials: manufacturer, identity and quantity, supplier, supplier control number, receipt number and date, test results, and use tracing. Section 6.5 requires a batch production record for each intermediate and API, uniquely numbered and checked against the master instruction, documenting dates, major equipment, batch numbers of materials used, critical process parameters, sampling, signatures, in-process and laboratory results, yields, deviations and release results; investigations of failures should extend to associated batches. Section 8.3 requires written, quality-approved critical in-process controls and sampling procedures that protect sample integrity. Section 10.2 permits distribution to third parties only after quality-unit release and requires a system by which each batch's distribution can be determined for recall. Section 17.6 requires agents, brokers, distributors, repackers and relabellers to pass on all quality information and to provide the original manufacturer's name and batch numbers.",
+    "whatItProves": "It describes what an intact traceability chain contains for a pharmaceutical ingredient under harmonised GMP guidance, which gives a reader concrete questions to ask of any batch: who made it, from what, under which record, tested how, released by whom, and distributed where.",
+    "whatItDoesNotProve": "It does not establish that any supplier keeps such records, and a batch number printed on a label is not evidence that the records behind it exist. It does not cover finished products, compounding, or research-use material. It does not establish that a certificate of analysis was produced from the batch it names.",
+    "commonMisinterpretations": "That a batch number is itself a mark of quality. It is an index, and only as good as the records it points to. A second misreading is that traceability ends at the manufacturer: the guideline treats distributors and repackers as links that must preserve the original manufacturer's identity and batch."
+  },
+  "locations": [
+    {
+      "key": "q7-6-3",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 6.3, p. 13",
+      "pageStart": 13,
+      "chapter": "6. Documentation and Records",
+      "section": "6.3 Records of Raw Materials, Intermediates, API Labelling and Packaging Materials"
+    },
+    {
+      "key": "q7-6-5",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 6.5, p. 14",
+      "pageStart": 14,
+      "chapter": "6. Documentation and Records",
+      "section": "6.5 Batch Production Records"
+    },
+    {
+      "key": "q7-8-3",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 8.3, p. 19",
+      "pageStart": 19,
+      "chapter": "8. Production and In-Process Controls",
+      "section": "8.3 In-process Sampling and Controls"
+    },
+    {
+      "key": "q7-10-2",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 10.2, p. 22",
+      "pageStart": 22,
+      "chapter": "10. Storage and Distribution",
+      "section": "10.2 Distribution Procedures"
+    },
+    {
+      "key": "q7-17-6",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 17.6, p. 33",
+      "pageStart": 33,
+      "chapter": "17. Agents, Brokers, Traders, Distributors, Repackers, and Relabellers",
+      "section": "17.6 Transfer of Information"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "TRACE-001",
+      "claimText": "ICH Q7 expects records for each shipment of each batch of raw materials, including the manufacturer's name, identity and quantity, the supplier's name and control number, the number allocated on receipt, the date of receipt, test results, and records tracing the use of the materials.",
+      "plainLanguageText": "Traceability starts with the ingredients: who made them, who supplied them, and where they went.",
+      "claimCategory": "traceability",
+      "importance": "high",
+      "interpretationNotes": "Q7 s. 6.30. API and intermediate manufacturing scope.",
+      "uncertaintyText": "A guideline expectation, not evidence of any supplier's practice.",
+      "evidence": [
+        {
+          "locationKey": "q7-6-3",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Raw material records: manufacturer, supplier, control and receipt numbers, tests, use tracing."
+        }
+      ]
+    },
+    {
+      "claimKey": "TRACE-002",
+      "claimText": "ICH Q7 expects a uniquely numbered batch production record for each intermediate and API, documenting each significant step including dates, major equipment, batch numbers of materials used, critical process parameters, sampling, signatures, in-process and laboratory results, yields, deviations and release test results.",
+      "plainLanguageText": "Each batch is supposed to have its own record of how it was actually made and tested.",
+      "claimCategory": "traceability",
+      "importance": "critical",
+      "interpretationNotes": "Q7 ss. 6.50–6.52. The record a batch number is supposed to point to.",
+      "uncertaintyText": "API scope; a guideline expectation.",
+      "evidence": [
+        {
+          "locationKey": "q7-6-5",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Batch production record contents and unique batch numbering."
+        }
+      ]
+    },
+    {
+      "claimKey": "TRACE-003",
+      "claimText": "Under ICH Q7, investigations of critical deviations or batch failures should extend to other batches that may have been associated with the failure.",
+      "plainLanguageText": "When one batch fails, related batches are supposed to be checked too.",
+      "claimCategory": "traceability",
+      "importance": "medium",
+      "interpretationNotes": "Q7 s. 6.53. Only possible if batches are linked by records.",
+      "uncertaintyText": "API scope.",
+      "evidence": [
+        {
+          "locationKey": "q7-6-5",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Investigations extend to associated batches."
+        }
+      ]
+    },
+    {
+      "claimKey": "TRACE-004",
+      "claimText": "ICH Q7 expects critical in-process controls to be written and approved by the quality unit, tighter controls may be appropriate at later steps such as isolation and purification, all tests are documented in the batch record, and in-process sampling should protect the integrity of samples after collection.",
+      "plainLanguageText": "Checks happen during manufacture, not only at the end, and the samples themselves have to be protected.",
+      "claimCategory": "quality-checkpoint",
+      "importance": "medium",
+      "interpretationNotes": "Q7 ss. 8.31–8.35. Basis for showing in-process checkpoints in the flow.",
+      "uncertaintyText": "API scope.",
+      "evidence": [
+        {
+          "locationKey": "q7-8-3",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "In-process controls, their approval and documentation, and sample integrity."
+        }
+      ]
+    },
+    {
+      "claimKey": "TRACE-005",
+      "claimText": "Under ICH Q7, APIs and intermediates should be released for distribution to third parties only after release by the quality unit, and a system should allow the distribution of each batch to be readily determined so that it can be recalled.",
+      "plainLanguageText": "A batch is supposed to be formally released before it ships, and it must be possible to find where every batch went.",
+      "claimCategory": "traceability",
+      "importance": "high",
+      "interpretationNotes": "Q7 ss. 10.20 and 10.24.",
+      "uncertaintyText": "API scope.",
+      "evidence": [
+        {
+          "locationKey": "q7-10-2",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Quality-unit release before distribution; batch distribution records permitting recall."
+        }
+      ]
+    },
+    {
+      "claimKey": "TRACE-006",
+      "claimText": "Under ICH Q7, agents, brokers, distributors, repackers and relabellers should pass on all quality and regulatory information received from the API manufacturer, and whoever supplies the customer should provide the name of the original manufacturer and the batch numbers supplied.",
+      "plainLanguageText": "A reseller is supposed to tell you who really made the material and which batch it came from.",
+      "claimCategory": "traceability",
+      "importance": "critical",
+      "interpretationNotes": "Q7 ss. 17.60–17.61. The single most practical question in the chain for a buyer downstream of a reseller.",
+      "uncertaintyText": "API scope; not a requirement placed on research-use or consumer sellers by this guideline.",
+      "evidence": [
+        {
+          "locationKey": "q7-17-6",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Transfer of quality information; original manufacturer name and batch numbers provided to the customer."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "Traceability expectations for finished peptide products, compounded preparations, and research-use materials.",
+      "why": "The only held GMP source, ICH Q7, is limited to APIs and intermediates.",
+      "whatWouldResolveIt": "Finished-product GMP guidance and compounding standards from the relevant jurisdictions.",
+      "gapType": "scope_not_established"
+    },
+    {
+      "statement": "Whether a specific certificate of analysis was generated from the batch it names.",
+      "why": "Nothing in a document alone can establish its link to a physical batch.",
+      "whatWouldResolveIt": "Independent testing of a retained sample against the certificate, with a documented chain of custody.",
+      "gapType": "chain_of_custody_unknown"
+    }
+  ]
+}

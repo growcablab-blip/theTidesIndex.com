@@ -1,0 +1,662 @@
+{
+  "packetKey": "tb-500",
+  "peptideKey": "tb-500",
+  "note": "TB-500: the seven-residue acetylated fragment Ac-LKKTETQ. A separate record from Thymosin beta-4 because the analytical literature establishes it is a separate molecule. No evidence is transferred from that record to this one, and the emptiness of the human column here is the reason the separation matters.",
+  "compound": {
+    "shortDescription": "A seven-amino-acid fragment of Thymosin beta-4, sold under a name that is usually taken to mean the whole 43-amino-acid peptide. No study in people has been identified. Analyses of products sold under the name have found their contents inconsistent with their descriptions.",
+    "simpleSummary": "TB-500 is the name of a product, not of a molecule that anybody discovered. When laboratories analysed what was in it, they found a short piece of a larger peptide: seven amino acids taken from the middle of Thymosin beta-4, which is 43 amino acids long. The piece is the part that binds actin, the protein cells use to move and change shape.\n\n**It is not Thymosin beta-4.** Sources disagree about this. Two practitioner books held here correctly describe it as a fragment; a third, and at least one scientific paper published in 2026, treat the two names as interchangeable. They are not. One is about five times the size of the other. The Tides Index keeps two separate records for that reason, and nothing on the Thymosin beta-4 page counts as evidence about this substance.\n\n**No studies in people have been found.** A search of the medical literature on 13 September 2026 returned 31 records for this name. Eight of them turn out not to be about it at all — the letters \"TB 500\" also appear in a chicken feed trial, a tuberculosis case count and a table of tablet prices. Of the rest, most are laboratory methods for detecting the substance in urine for drug testing. Six are animal or cell studies. None gave it to a human being.\n\n**Nobody can tell you what is in a vial.** In 2023 a laboratory analysed products sold online under this name and reported that their contents were not reliably what the labels described.",
+    "practitionerSummary": "Ac-LKKTETQ. Seven residues, corresponding to positions 17-23 of thymosin beta-4, N-terminally acetylated; the actin-binding region of the parent peptide. Approximately one fifth of the parent's mass.\n\n**Identity.** Established analytically and independently. High-resolution mass spectrometry of a TB-500 formulation identified Ac-LKKTETQ, which was then synthesised for assay development (SRC-041). A separate laboratory, developing an equine doping-control method, states that \"the key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus\" (SRC-042). Two later papers independently give the same sequence (SRC-044, PMID 41359360).\n\n**Human evidence: none identified.** A census of the 31-record PubMed universe on 13 September 2026, every record adjudicated by hand, found no study in which the substance was administered to a human being. A 2024 metabolism paper states directly that \"the biological effects of TB-500 have not been documented\".\n\n**What the corpus is.** 9 analytical or doping-control methods, 6 animal studies, 2 in vitro, 6 reviews, 8 false string matches. The analytical work is the best-developed part of the literature by a wide margin, which is a statement about why the substance is studied: it is studied to be detected.\n\n**Preclinical.** Rat Achilles tendon transection, 32 animals, intraperitoneal, four weeks: higher load to failure and lower Bonar and Movin scores in the TB-500 arm (SRC-045) — a study whose own title calls the substance \"synthetic thymosin beta-4\". Metabolism in rats: Ac-LK is the principal early metabolite, Ac-LKK persists to 72 hours, and of the metabolites tested only Ac-LKKTE showed wound-healing activity in fibroblasts (SRC-044). Corneal repair via an enzyme-responsive hydrogel in human corneal cells and a rat alkali burn (PMID 41359360).\n\n**Product identity.** A 2023 analysis of TB500 and TB1000 products sold online reports contents \"not systematically consistent with\" their descriptions (SRC-043). Establishing what the name means in the literature does not establish what is in a vial, and for this substance those are two separate unanswered questions stacked on each other.\n\n**Practitioner sources.** Split on identity: Campbell and Hack Smith describe TB-500 as a fragment, LaValle lists it as a name for thymosin beta-4. Four regimens are recorded from three sources — Campbell's book (2.0–2.5 mg every other day, subcutaneous or intramuscular), Campbell's one-page table (500 mcg every morning, eight weeks on and off), Hack Smith's entry (300 mcg to 1 mg daily in cycles of up to 90 days) and a Hack Smith worked example (500 mcg daily, weeks 1–8). Campbell's two publications disagree with each other. None cites a study.",
+    "unknownsSummary": "Almost everything a clinician would need, despite four practitioner regimens being in circulation. No study in a person has been identified, so there is no human safety data, no human pharmacokinetics, no effective amount, no established route, and no outcome of any kind in a human being.\n\nBeyond that: whether the material sold under the name contains what the name means — a 2023 analysis says not reliably; whether any of the parent peptide's human trial results transfer to a seven-residue fragment of it, which nothing establishes and which the size difference makes a genuine open question rather than a formality; and what its metabolites do, since one of them showed activity in a dish and the parent did not.\n\nWhat is *not* unknown: this is not Thymosin beta-4.",
+    "aliases": [
+      {
+        "alias": "Ac-LKKTETQ",
+        "note": "The sequence two analytical laboratories identify in the formulation."
+      },
+      {
+        "alias": "Thymosin beta-4",
+        "note": "A misnomer in wide use, including in the practitioner handbook held here and in the title of a 2026 peer-reviewed animal study. Recorded as a misnomer so that a reader searching either name meets the distinction rather than being quietly routed past it."
+      }
+    ],
+    "sequence": "Ac-Leu-Lys-Lys-Thr-Glu-Thr-Gln",
+    "molecularDescription": "Seven residues, N-terminally acetylated: the 17-23 segment of thymosin beta-4. No source held here states a molecular weight for it. Computing the average mass from the sequence gives approximately 889 Da, against approximately 4963 Da for the 43-residue parent — a ratio of about 5.6 to 1.",
+    "naturalOrSynthetic": "Synthetic. The sequence occurs within an endogenous human peptide; the acetylated seven-residue form does not occur as such.",
+    "nomenclatureNote": "TB-500 is a product name, not a scientific one. It has no INN, no CAS identity stated in any source held here, and it is applied to material whose contents a 2023 analysis found inconsistent with their descriptions. A name that denotes a defined fragment in the analytical literature and something uncertain in commerce is two problems, and only the first is solved."
+  },
+  "locations": [
+    {
+      "key": "tb500-ms-identity",
+      "sourceKey": "SRC-041",
+      "locatorText": "Abstract, PMID 22962027",
+      "section": "Identification and synthesis of Ac-LKKTETQ",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb500-equine",
+      "sourceKey": "SRC-042",
+      "locatorText": "Abstract, PMID 23084823",
+      "section": "Key ingredient, active region and detection method",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb500-adulteration",
+      "sourceKey": "SRC-043",
+      "locatorText": "Abstract, PMID 36482504",
+      "section": "Analysis of TB500, TB1000 and SGF1000 products",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb500-metabolism",
+      "sourceKey": "SRC-044",
+      "locatorText": "Abstract, PMID 38382158",
+      "section": "Metabolism in vitro and in rats, and wound-healing screen",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb500-achilles",
+      "sourceKey": "SRC-045",
+      "locatorText": "Abstract, PMID 42542926",
+      "section": "Design, groups, dosing and outcomes",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "lavalle-tb500-152",
+      "sourceKey": "SRC-002",
+      "locatorText": "pp. 152-153",
+      "pageStart": 152,
+      "pageEnd": 153,
+      "section": "Thymosin beta 4 — names, sequence and dosage, in which TB-500 is listed as a name"
+    },
+    {
+      "key": "campbell-tb500-190",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 190-191",
+      "pageStart": 190,
+      "pageEnd": 191,
+      "section": "TB-500 — derivation and mechanisms"
+    },
+    {
+      "key": "campbell-tb500-192",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 192",
+      "pageStart": 192,
+      "section": "TB-500 — reported effects and recommended dosage"
+    },
+    {
+      "key": "cheatsheet-tb500",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 3 of the held copy, table row \"TB-500\"",
+      "section": "Peptide table — healing"
+    },
+    {
+      "key": "hacksmith-tb500-entry",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 110-112 of the held copy",
+      "section": "TB-500 (Thymosin Beta-4 Fragment) — origin, mechanism, dosage, safety"
+    },
+    {
+      "key": "hacksmith-tb500-persona",
+      "sourceKey": "SRC-005",
+      "locatorText": "file p. 187 of the held copy — persona regimen for autoimmune disease and chronic inflammation",
+      "section": "Worked example — joint and tissue repair"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "TB500-001",
+      "claimText": "TB-500 is Ac-LKKTETQ: a seven-residue, N-terminally acetylated peptide corresponding to positions 17 to 23 of thymosin beta-4. Two analytical laboratories, in different countries and different matrices, identify it independently.",
+      "plainLanguageText": "When laboratories analysed what was in products sold as TB-500, they found a seven-amino-acid piece of a larger peptide — not the larger peptide itself.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "This is an analytical measurement of the substance, which is the only kind of evidence that can settle what a product name denotes. It was independently reached twice: once by mass spectrometry of the formulation with subsequent synthesis of the identified fragment, and once by a veterinary doping-control laboratory developing a detection method. Two more papers, in 2024 and 2025, state the same sequence without apparent reference to the first two.",
+      "uncertaintyText": "What this establishes is what the name means in the analytical literature, from the formulations those laboratories examined. It does not establish what is in any other vial, which a 2023 analysis of products sold online found to be an open question.",
+      "evidence": [
+        {
+          "locationKey": "tb500-ms-identity",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "High-performance liquid chromatography with high-resolution mass spectrometry detected and identified the N-terminally acetylated 17-23 fragment of human thymosin beta-4, Ac-LKKTETQ, in TB-500. The fragment was then synthesised by solid-phase peptide synthesis and an assay proposed for plasma and urine.",
+          "populationModel": "Not applicable — an analysis of a formulation."
+        },
+        {
+          "locationKey": "tb500-equine",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "\"A veterinary preparation known as TB-500 and containing a synthetic version of the naturally occurring peptide LKKTETQ has emerged… The key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus.\"",
+          "populationModel": "Not applicable."
+        },
+        {
+          "locationKey": "tb500-metabolism",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "States the identity in its own terms: \"TB-500 (Ac-LKKTETQ), derived from the active site of thymosin β4\".",
+          "populationModel": "Not applicable to the identity statement."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB500-002",
+      "claimText": "A census of the PubMed literature on 13 September 2026 returned 31 records for this name and identified no study in which the substance was administered to a human being. Eight of the 31 match the string while being about an unrelated subject.",
+      "plainLanguageText": "A search of the medical literature found 31 records. None of them is a study in people. Eight are not about this substance at all — the letters also appear in a chicken feed trial and a tuberculosis case count.",
+      "claimCategory": "evidence-base",
+      "importance": "critical",
+      "interpretationNotes": "Every one of the 31 records was adjudicated by hand, which is possible here and was not possible for the parent peptide's 1,112. The eight false matches are kept in the ledger rather than deleted: they are 26 per cent of the result count, and a register that quietly dropped them would be publishing a cleaner number than it earned. A 2024 metabolism paper states the position directly — \"the biological effects of TB-500 have not been documented\".",
+      "uncertaintyText": "This is one database on one date under stated criteria. PubMed indexes neither conference proceedings nor most regulatory submissions, and a substance studied mainly for detection in doping control may have industrial characterisation that never reaches a journal.",
+      "evidence": [
+        {
+          "locationKey": "tb500-metabolism",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "The source states that the biological effects of TB-500 have not been documented, and that its metabolites had been neither simultaneously quantified nor structurally identified against synthesised authentic standards before that work.",
+          "populationModel": "In vitro systems and rats."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB500-003",
+      "claimText": "Products sold under this name have been analysed and found not to contain reliably what their descriptions state.",
+      "plainLanguageText": "A laboratory bought products sold online under this name and analysed them. What was inside did not consistently match what was claimed.",
+      "claimCategory": "quality",
+      "importance": "critical",
+      "interpretationNotes": "The finding that keeps the identity question open in the only place it matters to a clinic. Knowing that the name denotes Ac-LKKTETQ in the analytical literature does not tell anyone what is in a particular vial, and this source establishes that the gap between the two is real rather than theoretical. The same analysis found a second product, sold as a growth-factor preparation, to be mainly sheep extracellular matrix and blood proteins.",
+      "uncertaintyText": "Three products, at one time. It establishes that inconsistency occurs; it does not establish how often, or for which suppliers, and it says nothing about any particular product a reader might be holding.",
+      "evidence": [
+        {
+          "locationKey": "tb500-adulteration",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "\"We confirm that the content of TB500/TB1000 products is not systematically consistent with its former descriptions\", in an analysis of three misbranded and adulterated products commercialised over the internet without approval by the EMA or the FDA for human or veterinary use.",
+          "populationModel": "Not applicable — an analysis of products."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB500-004",
+      "claimText": "In a rat Achilles tendon transection model, thirty-two animals given TB-500 intraperitoneally for four weeks showed higher maximum load to failure and lower histological injury scores than controls. The study's own title describes TB-500 as synthetic thymosin beta-4.",
+      "plainLanguageText": "In a study of rats with a cut Achilles tendon, the tendons of animals given TB-500 were stronger after four weeks than those of untreated animals. The study calls the substance by the wrong name in its title.",
+      "claimCategory": "preclinical-effect",
+      "importance": "high",
+      "interpretationNotes": "The strongest positive result held for this substance, and it is in rats. Recorded with its identity problem attached, because the paper is from 2026 and peer-reviewed: the conflation this index exists to prevent is not confined to practitioner literature. The route is intraperitoneal, which is a laboratory route and not one used in people.",
+      "uncertaintyText": "An animal model of a surgically transected tendon is not a human injury, four weeks is not a clinical outcome, and the arm that combined two peptides cannot attribute an effect to either. Nothing here transfers to a person.",
+      "evidence": [
+        {
+          "locationKey": "tb500-achilles",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "Thirty-two male Sprague-Dawley rats, standardised Achilles transection and repair, randomised to control, BPC-157, TB-500 at 60 micrograms per kilogram per day, or the combination, treated intraperitoneally for four weeks. Maximum load to failure was higher in the TB-500 group with statistical significance; total Bonar scores were lower in the TB-500 group and total Movin scores lower in the TB-500 and combination groups.",
+          "populationModel": "Thirty-two rats."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB500-005",
+      "claimText": "In rats, the principal early metabolite is Ac-LK and Ac-LKK persists to 72 hours. Of the metabolites tested in fibroblasts, only Ac-LKKTE showed wound-healing activity against control.",
+      "plainLanguageText": "In rats the substance breaks down quickly into shorter pieces. When those pieces were tested on cells in a dish, one of them showed an effect and the original substance did not.",
+      "claimCategory": "preclinical-mechanism",
+      "importance": "high",
+      "interpretationNotes": "Recorded because it complicates the simple story in a useful direction. If the activity observed in a dish belongs to a metabolite rather than to the administered substance, then what is being studied and what is being given are not the same thing — which is a third identity problem stacked on the two this record already carries.",
+      "uncertaintyText": "A wound-healing assay in fibroblasts is a cell model. No cytotoxicity was found for the parent or its metabolites, which is a statement about those cells and not about safety in an animal or a person.",
+      "evidence": [
+        {
+          "locationKey": "tb500-metabolism",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "Metabolism investigated in human serum, several in vitro enzyme systems, and urine from rats treated with TB-500. Ac-LK was the metabolite present at highest concentration in rats over 0-6 hours; Ac-LKK was detected to 72 hours. No cytotoxicity was found for the parent or its metabolites, and only Ac-LKKTE showed significant wound-healing activity against control in fibroblasts.",
+          "populationModel": "Rats, human serum, and fibroblast culture."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "That TB-500 produces any effect in a human being.",
+      "why": "A hand-adjudicated census of all 31 records the name returns found no study in which it was administered to a person. A 2024 paper studying its metabolism states that its biological effects have not been documented.",
+      "whatWouldResolveIt": "Any study in which the substance is given to human beings and an outcome is reported.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does Ac-LKKTETQ have any measurable effect in humans, by any route?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "The safety of TB-500 in humans.",
+      "why": "No human study was identified. The animal work reports no cytotoxicity in fibroblasts and no adverse findings in a four-week rat tendon study, neither of which is a human safety assessment.",
+      "whatWouldResolveIt": "A phase I safety study, of the kind the parent peptide has had twice.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the safety and tolerability of Ac-LKKTETQ in humans?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "What a product sold as TB-500 actually contains.",
+      "why": "A 2023 analysis of products sold online found their contents not systematically consistent with their descriptions. The name is a commercial one with no INN and no stated chemical identifier in any source held here.",
+      "whatWouldResolveIt": "Independent analysis of specific products, with identity, purity and content reported against a defined specification.",
+      "verificationIssueKey": "V-001",
+      "researchQuestion": "How consistently do products sold as TB-500 contain Ac-LKKTETQ, at what purity, and how much do suppliers and batches vary?",
+      "opportunityType": "product_characterisation"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Whether any finding about Thymosin beta-4 applies to this fragment.",
+      "why": "The two substances differ by a factor of about 5.6 in mass and by 36 residues. Nothing held here tests whether the fragment reproduces any effect of the parent, and the practice of treating them as interchangeable rests on the shared name rather than on evidence.",
+      "whatWouldResolveIt": "A head-to-head comparison of the parent peptide and the fragment in the same model.",
+      "verificationIssueKey": "V-001",
+      "researchQuestion": "Does Ac-LKKTETQ reproduce the effects of full-length Thymosin beta-4 in a comparable model, and at what relative exposure?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "route_not_established",
+      "statement": "Any route of administration with established pharmacokinetics.",
+      "why": "The only in vivo route identified is intraperitoneal, in rats. Practitioner sources describe subcutaneous administration; no study of that route was identified for this substance in any species.",
+      "whatWouldResolveIt": "A pharmacokinetic study by a route used in practice.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the pharmacokinetics of Ac-LKKTETQ after subcutaneous administration, and does intact peptide reach the circulation?",
+      "opportunityType": "route_comparison"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Whether the observed activity belongs to the substance or to a metabolite.",
+      "why": "In the one study that tested them side by side in fibroblasts, only the metabolite Ac-LKKTE showed wound-healing activity against control. If that holds, what is administered and what acts are different molecules.",
+      "whatWouldResolveIt": "Replication of the metabolite comparison, and work in an in vivo model rather than in culture.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Is the reported activity of TB-500 attributable to the parent peptide or to a metabolite, and does that hold in vivo?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The regulatory position of TB-500 in any jurisdiction.",
+      "why": "No regulator's own record has been consulted. A 2023 analysis describes products sold under this name as lacking approval by the EMA or the FDA for human or veterinary use, which is a secondary account.",
+      "whatWouldResolveIt": "A regulator's own record.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Any study of a regimen practitioners report for TB-500.",
+      "why": "Four regimens from three practitioner sources are recorded, differing in amount, frequency and cycle, and none cites a study. No study in which TB-500 was given to a person was identified, so no reported amount has human exposure data behind it.",
+      "whatWouldResolveIt": "A human pharmacokinetic and safety study at a defined amount and schedule.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What exposure do the regimens practitioners report for TB-500 actually produce in humans, and is any of them tolerated?",
+      "opportunityType": "protocol_validation"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "intramuscular",
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "tb500-achilles",
+      "populationModel": "Rats with surgically transected Achilles tendons.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Intraperitoneal administration in rats, recorded under the nearest available route key because the taxonomy has no intraperitoneal entry; the population field carries what was actually done. A laboratory route, not one used in people, and no human route has any pharmacokinetic evidence at all."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "hacksmith-tb500-entry",
+      "populationModel": "Not specified by the source.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "The route three practitioner sources specify. No study of TB-500 by this route was identified in any species, so nothing establishes that it delivers the peptide intact."
+    },
+    {
+      "routeKey": "intramuscular",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "campbell-tb500-192",
+      "populationModel": "Not specified by the source.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Given by one practitioner source as an alternative to subcutaneous injection. No study of this route was identified."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "TB500-PR-CAMPBELL-BOOK",
+      "objectiveContext": "Healing and repair of heart, skin, tissue and ligament damage, with immune, pain-relief and anti-inflammatory aims, as framed by Optimize Your Health with Therapeutic Peptides.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner source's regimen. Not a trial schedule: no study in which TB-500 was given to a person has been identified, so no amount here has human exposure data behind it. The source gives subcutaneous or intramuscular injection; recorded under subcutaneous with the alternative stated here.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "2.0 - 2.5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Every other day",
+      "timingText": null,
+      "durationText": null,
+      "cycleText": null,
+      "titrationText": null,
+      "combinationsText": "Stated as often stacked with BPC-157; the source gives the stack separately.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-tb500-192",
+      "patientVisibility": false
+    },
+    {
+      "protocolKey": "TB500-PR-CAMPBELL-SHEET",
+      "objectiveContext": "Healing, as listed in a one-page peptide table.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "A 10 mg vial reconstituted with 2 ml of bacteriostatic water, as the table states; the table's syringe-unit column is not reproduced.",
+      "regulatoryContext": "A practitioner source's regimen. Not a trial schedule: no study in which TB-500 was given to a person has been identified, so no amount here has human exposure data behind it. The table does not state a route; it assumes an insulin syringe, and is recorded under subcutaneous on that basis.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "500 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Every day",
+      "timingText": "AM",
+      "durationText": "8 weeks",
+      "cycleText": "8 weeks on, 8 weeks off",
+      "titrationText": null,
+      "combinationsText": "The same table lists TB-500 in three blends: with BPC-157; with BPC-157 and GHK-Cu; and with BPC-157, KPV and GHK-Cu.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-tb500",
+      "patientVisibility": false
+    },
+    {
+      "protocolKey": "TB500-PR-HACKSMITH-GUIDE",
+      "objectiveContext": "Injury recovery and soft tissue, muscle and joint repair, as framed by The Complete Guide to Peptides.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner source's regimen. Not a trial schedule: no study in which TB-500 was given to a person has been identified, so no amount here has human exposure data behind it.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "300 mcg to 1 mg daily",
+      "amountUnit": "mcg to mg",
+      "frequencyText": "Daily, depending on injury severity and treatment goals",
+      "timingText": null,
+      "durationText": "Cycles of up to 90 days",
+      "cycleText": "Up to 90 days, followed by a break to assess recovery progress",
+      "titrationText": null,
+      "combinationsText": "Commonly combined with BPC-157.",
+      "monitoringText": null,
+      "contraindicationsText": "The source states that individuals with cancer or pre-existing tumours should consult a healthcare professional before use, because the compound promotes angiogenesis.",
+      "safetyNotes": "Mild irritation or redness at the injection site; temporary fatigue or mild dizziness, particularly at higher doses.",
+      "locationKey": "hacksmith-tb500-entry",
+      "patientVisibility": false
+    },
+    {
+      "protocolKey": "TB500-PR-HACKSMITH-PERSONA",
+      "objectiveContext": "Joint and tissue repair within a worked example for a person with rheumatoid arthritis, joint pain, fatigue and systemic inflammation.",
+      "populationModel": "A hypothetical persona in the source, not a patient or a study population.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner source's regimen. Not a trial schedule: no study in which TB-500 was given to a person has been identified, so no amount here has human exposure data behind it. A worked example constructed by the author, recorded as such.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "500 mcg daily",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily",
+      "timingText": null,
+      "durationText": "Weeks 1-8",
+      "cycleText": null,
+      "titrationText": null,
+      "combinationsText": "Alongside thymulin and BPC-157 in weeks 1-8.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "hacksmith-tb500-persona",
+      "patientVisibility": false
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "TB500-D-001",
+      "topic": "Whether TB-500 is Thymosin beta-4 — laboratories say it is a fragment, and practitioner sources are split.",
+      "plainLanguageText": "Laboratories that analysed TB-500 found a seven-amino-acid fragment of thymosin beta-4. Two practitioner books held here agree that it is a fragment. A third lists it as another name for the whole peptide, and a scientific paper published in 2026 calls it synthetic thymosin beta-4.",
+      "candidateExplanation": "chemical_form",
+      "explanationNotes": "The evidence is asymmetric and this index says so rather than presenting two equal sides. On one side are two independent analytical characterisations of the substance itself, supported by two later papers giving the same sequence. On the other is usage — by a handbook, and by a 2026 peer-reviewed title. Usage is evidence about what people mean by a word; it is not evidence about what a molecule is. What makes the conflation worth recording rather than simply correcting is its consequence: a clinician who reads that thymosin beta-4 has human trial evidence and applies it to a vial of TB-500 has moved a result across a molecule boundary. The practitioner field itself is divided: Campbell and Hack Smith both describe TB-500 as a fragment, LaValle lists it as a name for the 43-residue peptide, and Seeds does not use the name at all. So the conflation is one practitioner source's, not the practitioner literature's.",
+      "resolution": "source_error_confirmed",
+      "resolutionBasis": "Two independent analytical identifications of Ac-LKKTETQ in the formulation (SRC-041, SRC-042), corroborated by two later papers stating the same sequence. The practitioner handbook's own printed 43-residue sequence for thymosin beta-4 contains LKKTETQ at positions 17 to 23, so the distinction is present in the source that does not draw it. The Tides Index keeps separate records and transfers no evidence between them.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "Nothing further is needed on the chemistry. The remaining question is what a given product contains, which is recorded as its own gap.",
+      "positions": [
+        {
+          "locationKey": "tb500-ms-identity",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "Mass spectrometry identifies the N-terminally acetylated 17-23 fragment Ac-LKKTETQ in the TB-500 formulation."
+        },
+        {
+          "locationKey": "tb500-equine",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "A second laboratory: the key ingredient is LKKTETQ with artificial N-terminal acetylation, the actin-binding active site within thymosin beta-4."
+        },
+        {
+          "locationKey": "lavalle-tb500-152",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "The practitioner handbook lists TB-500 among the names for Thymosin beta 4 and prints the full 43-residue sequence beside it, attaching a subcutaneous dose range of 300 mcg to 1 gram daily to that entry."
+        },
+        {
+          "locationKey": "tb500-achilles",
+          "evidenceTypeKey": "animal_in_vivo",
+          "positionText": "A 2026 peer-reviewed animal study describes TB-500 in its own title and abstract as \"synthetic thymosin beta-4\"."
+        },
+        {
+          "locationKey": "campbell-tb500-190",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "TB-500 is the active region of a 43-amino-acid peptide called thymosin beta-4 — the part of it responsible for its healing effects."
+        },
+        {
+          "locationKey": "hacksmith-tb500-entry",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "TB-500 (Thymosin Beta-4 Fragment): a synthetic peptide derived from thymosin beta-4, designed to replicate the regenerative properties of the full-length peptide."
+        }
+      ]
+    },
+    {
+      "disagreementKey": "TB500-D-002",
+      "topic": "Whether what is sold as TB-500 contains Ac-LKKTETQ.",
+      "plainLanguageText": "Even once you know what the name is supposed to mean, that does not tell you what is in a particular vial. One laboratory that checked found the contents did not match the descriptions.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "A second-order identity problem, and the one that reaches a clinic. The analytical literature establishes what the name denotes when a laboratory examines a formulation; the 2023 product analysis establishes that commercial material does not reliably match its description. Those two findings are not in conflict — they are answers to different questions — and holding them together is what stops a resolved identity from being read as a resolved product.",
+      "resolution": "unresolved",
+      "resolutionBasis": null,
+      "resolvedAt": null,
+      "resolutionRequirement": "Analysis of specific products against a defined specification, reporting identity, purity and content. Nothing smaller answers it, and nothing about the literature can.",
+      "positions": [
+        {
+          "locationKey": "tb500-ms-identity",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "The formulation examined in 2012 contained Ac-LKKTETQ."
+        },
+        {
+          "locationKey": "tb500-adulteration",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "\"The content of TB500/TB1000 products is not systematically consistent with its former descriptions.\""
+        }
+      ]
+    },
+    {
+      "disagreementKey": "TB500-D-003",
+      "topic": "How much TB-500, and how often: four practitioner regimens from three sources, two of them from the same author.",
+      "plainLanguageText": "The practitioner sources held here give different amounts and different schedules for TB-500 — including two publications by the same author that disagree with each other. None cites a study in people, because none has been found.",
+      "candidateExplanation": "dose",
+      "explanationNotes": "Three structures appear: a fixed daily amount, a range whose top is several times its bottom, and a larger amount every other day. Campbell's book and Campbell's own one-page table give different amounts and different frequencies. Separately, the Hack Smith range for TB-500 shares its lower bound with the LaValle and Seeds range for thymosin beta-4, while its upper bound is a thousand times smaller — the same number followed by a different unit. This index does not infer whether one figure is a transcription of the other; it records that the two ranges sit on differently named compounds and differ by that factor.",
+      "resolution": "unresolved",
+      "resolutionBasis": null,
+      "resolvedAt": null,
+      "resolutionRequirement": "A human study of TB-500 at any amount by any route, which does not exist in the literature screened.",
+      "positions": [
+        {
+          "locationKey": "campbell-tb500-192",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "2.0 to 2.5 mg subcutaneously or intramuscularly every other day."
+        },
+        {
+          "locationKey": "cheatsheet-tb500",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "500 mcg in the morning every day, eight weeks on and eight weeks off."
+        },
+        {
+          "locationKey": "hacksmith-tb500-entry",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "300 mcg to 1 mg daily subcutaneously, in cycles of up to 90 days."
+        },
+        {
+          "locationKey": "hacksmith-tb500-persona",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "500 mcg daily for weeks 1 to 8, within a worked example alongside thymulin and BPC-157."
+        }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any",
+      "status": "not_approved",
+      "authority": "No regulator's own record has been consulted",
+      "locationKey": "tb500-adulteration",
+      "checkedAt": "2026-09-13",
+      "notes": "Recorded as not approved on secondary evidence: a 2023 analytical paper describes the products it examined as commercialised over the internet without approval by the EMA or the FDA for either human or veterinary use. That is a researcher's characterisation, not a regulator's record, and this index has read no regulator's record for this substance. Non-approval is recorded here because it is a fact about the substance's position, not because it is a measure of the evidence."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "TB500-ID-001",
+      "nameUsed": "TB-500",
+      "chemicalForm": "N-terminally acetylated heptapeptide, residues 17-23 of thymosin beta-4",
+      "sequence": "LKKTETQ",
+      "residueCount": 7,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "fragment",
+      "verification": "analytically_characterised",
+      "usageContext": "High-resolution mass spectrometry of a TB-500 formulation, with independent synthesis of the identified fragment and development of a plasma and urine assay.",
+      "notes": "The measurement that settles what the name denotes.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "tb500-ms-identity"
+    },
+    {
+      "identityKey": "TB500-ID-002",
+      "nameUsed": "TB-500",
+      "chemicalForm": "LKKTETQ with artificial N-terminal acetylation",
+      "sequence": "LKKTETQ",
+      "residueCount": 7,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "fragment",
+      "verification": "analytically_characterised",
+      "usageContext": "A veterinary doping-control method for equine urine and plasma. States the key ingredient of the preparation and identifies 17-LKKTETQ-23 as the actin-binding active site within thymosin beta-4.",
+      "notes": "Independent confirmation: different laboratory, different country, different matrix.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "tb500-equine"
+    },
+    {
+      "identityKey": "TB500-ID-003",
+      "nameUsed": "TB500 / TB1000",
+      "chemicalForm": "Not established. Product contents reported as inconsistent with their descriptions.",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "preparation",
+      "verification": "asserted_without_detail",
+      "usageContext": "Products commercialised over the internet, analysed in 2023 as misbranded and adulterated.",
+      "notes": "The identity of the name and the identity of the product are different questions. This row is the second one, and it is open.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "tb500-adulteration"
+    },
+    {
+      "identityKey": "TB500-ID-004",
+      "nameUsed": "TB-500",
+      "chemicalForm": "Not stated; described as synthetic thymosin beta-4",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "unspecified",
+      "verification": "contradicted",
+      "usageContext": "The title and abstract of a 2026 peer-reviewed rat Achilles tendon study, which administered the substance intraperitoneally for four weeks.",
+      "notes": "Held as evidence that the conflation is present in the current peer-reviewed literature and not only in practitioner sources. It also means the study's own compound identity is uncertain: what was administered may be the fragment, or may be the parent peptide.",
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "tb500-achilles"
+    },
+    {
+      "identityKey": "TB500-ID-005",
+      "nameUsed": "TB-500",
+      "chemicalForm": "Not stated; listed as a name for the 43-residue thymosin beta-4",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "unspecified",
+      "verification": "contradicted",
+      "usageContext": "The practitioner handbook's compound entry, where TB-500 appears in the name list above the full 43-residue sequence and above a subcutaneous dose range attached to that entry.",
+      "notes": "The usage with the most direct clinical consequence held here: a dose range attached to a name whose analysed product is a different molecule. The range itself is on the thymosin beta-4 protocol record, in the practitioner view.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-tb500-152"
+    },
+    {
+      "identityKey": "TB500-ID-006",
+      "nameUsed": "TB-500",
+      "chemicalForm": "The active region of the 43-residue thymosin beta-4, stated without a sequence",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "A practitioner book's healing chapter, which describes TB-500 as the part of thymosin beta-4 responsible for its healing effects.",
+      "notes": "Consistent with the analytical literature. A practitioner source that draws the distinction LaValle does not.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "campbell-tb500-190"
+    },
+    {
+      "identityKey": "TB500-ID-007",
+      "nameUsed": "TB-500 (Thymosin Beta-4 Fragment)",
+      "chemicalForm": "A synthetic peptide derived from thymosin beta-4, stated without a sequence",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The heading of a practitioner guide's TB-500 entry, which describes it as designed to replicate the regenerative properties of full-length thymosin beta-4. The same guide lists TB-500 and thymosin beta-4 as separate entries in its cycle protocols.",
+      "notes": "Consistent with the analytical literature on form, without stating which fragment.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "hacksmith-tb500-entry"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "TB500-REP-001",
+      "finding": "TB-500 is Ac-LKKTETQ, the acetylated 17-23 fragment of thymosin beta-4.",
+      "state": "independent_multiple_countries",
+      "studyCount": 4,
+      "groupCount": 4,
+      "countryCount": 4,
+      "models": "Analytical characterisation of formulations, and two later studies stating the sequence they used.",
+      "humanConfirmed": false,
+      "basis": "Two independent analytical identifications in 2012 (PMID 22962027, Italy; PMID 23084823, Hong Kong), in different matrices and by different methods, corroborated by a 2024 metabolism study (PMID 38382158, South Korea) and a 2025 hydrogel study (PMID 41359360, China) each stating the same seven-residue sequence.",
+      "limitations": "Replication of an identity, not of a biological finding. It establishes what the name denotes in the literature and says nothing about what any particular product contains — which the 2023 adulteration analysis puts in question.",
+      "supportingRecords": "PMID 22962027; PMID 23084823; PMID 38382158; PMID 41359360"
+    },
+    {
+      "assessmentKey": "TB500-REP-002",
+      "finding": "TB-500 improves tendon healing.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Rat Achilles tendon transection, thirty-two animals, intraperitoneal.",
+      "humanConfirmed": false,
+      "basis": "One 2026 study. No other in vivo tendon study of this substance was identified in the census.",
+      "limitations": "A single animal study, by a laboratory route, in a surgical model, whose own title misidentifies the compound — so what was administered is itself uncertain.",
+      "supportingRecords": "PMID 42542926"
+    },
+    {
+      "assessmentKey": "TB500-REP-003",
+      "finding": "TB-500 has any effect in a human being.",
+      "state": "not_assessed",
+      "studyCount": 0,
+      "groupCount": 0,
+      "countryCount": 0,
+      "models": "None identified.",
+      "humanConfirmed": false,
+      "basis": "A hand-adjudicated census of all 31 records the name returns identified no study in which the substance was administered to a person. Recorded as an assessment rather than only as a gap, so that the replication view shows an empty human column beside the parent peptide's occupied one.",
+      "limitations": "An absence in one database on one date, bounded to the stated criteria.",
+      "supportingRecords": null
+    }
+  ]
+}

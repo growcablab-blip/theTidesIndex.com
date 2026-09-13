@@ -226,6 +226,17 @@ export const literatureScreens = pgTable(
     queryText: text().notNull(),
     searchDate: date().notNull(),
     resultCount: integer().notNull(),
+    /**
+     * How many of those records the ledger below actually classifies.
+     *
+     * Equal to `resultCount` for a census. Smaller for a stratified screen —
+     * the Thymosin beta-4 corpus is 1,112 records, which cannot be
+     * hand-adjudicated and must not be rule-classified and presented as though
+     * it had been. A screen that took a stratum has to name it, and a database
+     * constraint enforces that.
+     */
+    screenedCount: integer(),
+    stratum: text(),
     deduplicationNotes: text().notNull(),
     inclusionCriteria: text().notNull(),
     humanPrimaryCriteria: text().notNull(),
@@ -239,6 +250,14 @@ export const literatureScreens = pgTable(
   },
   (t) => [
     check('literature_screens_count_nonnegative', sql`${t.resultCount} >= 0`),
+    check(
+      'literature_screens_screened_within_result',
+      sql`${t.screenedCount} is null or (${t.screenedCount} >= 0 and ${t.screenedCount} <= ${t.resultCount})`,
+    ),
+    check(
+      'literature_screens_stratum_declared',
+      sql`${t.screenedCount} is null or ${t.screenedCount} = ${t.resultCount} or (${t.stratum} is not null and btrim(${t.stratum}) <> '')`,
+    ),
     index('literature_screens_peptide_idx').on(t.peptideId),
   ],
 );
@@ -255,6 +274,12 @@ export const screenStudyType = pgEnum('screen_study_type', [
   'commentary_editorial',
   'other_peripheral',
   'withdrawn',
+  /** Endogenous peptide measured in people, not administered to them. */
+  'human_biomarker',
+  /** A detection or characterisation method, not a study of effect. */
+  'analytical_method',
+  /** The query matched the string; the record is about something else. */
+  'false_match',
 ]);
 
 /**
@@ -289,6 +314,18 @@ export const literatureScreenRecords = pgTable(
     fullTextStatus: text().notNull().default('abstract_only'),
     classifiedBy: text().notNull(),
     reason: text().notNull(),
+
+    /**
+     * Who did the work and where.
+     *
+     * Not so that evidence can be ranked by country — the opposite. A register
+     * that does not record provenance cannot demonstrate that it is *not*
+     * privileging one, and cannot answer the question that actually matters:
+     * whether a finding has been reproduced by somebody else, somewhere else.
+     */
+    country: text(),
+    language: text(),
+    researchGroup: text(),
 
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },

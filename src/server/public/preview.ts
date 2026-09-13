@@ -5,6 +5,11 @@ import { readQualityTopic, type QualityTopicReading } from './quality-topic';
 import { readPeptidePagePreview, type PeptidePage } from './queries';
 import type { ReadingMode } from '@/domain/presentation/reading-mode';
 import { readSpecimenCertificate, type CertificateReading } from './certificate';
+import {
+  readProtocolLibrary,
+  type ProtocolLibrary,
+  type ProtocolLibraryFilters,
+} from './protocol-library';
 
 /**
  * Looking at an unpublished record during development.
@@ -73,4 +78,19 @@ export async function previewSpecimenCertificate(
 ): Promise<CertificateReading | null> {
   if (!previewEnabled()) return null;
   return readSpecimenCertificate(getStaffDb(), certificateKey, { preview: true });
+}
+
+/**
+ * The protocol library, read without the publication filter.
+ *
+ * Every regimen in the register is unpublished, so without this the page a
+ * clinic would use most could not be looked at by anyone. Closed by the same
+ * two conditions as every other preview.
+ */
+export async function previewProtocolLibrary(
+  mode: ReadingMode,
+  filters: ProtocolLibraryFilters,
+): Promise<ProtocolLibrary | null> {
+  if (!previewEnabled()) return null;
+  return readProtocolLibrary(getStaffDb(), mode, filters, { preview: true });
 }

@@ -38,6 +38,8 @@ interface PacketLoadResult {
   readonly products: number;
   readonly forms: number;
   readonly pharmacokinetics: number;
+  readonly identities: number;
+  readonly replication: number;
 }
 
 export async function loadCompoundPackets(db: SeedDb): Promise<PacketLoadResult[]> {
@@ -187,11 +189,13 @@ export async function loadCompoundPacket(
     await db.execute(sql`
       insert into evidence_gaps (
         gap_key, peptide_id, gap_type, statement, why_not_supported,
-        what_would_resolve_it, verification_issue_key, sort_order
+        what_would_resolve_it, verification_issue_key, sort_order,
+        research_question, opportunity_type
       ) values (
         ${`${packet.packetKey}-gap-${String(index + 1).padStart(2, '0')}`},
         ${peptide.id}, ${gap.gapType}::evidence_gap_type, ${gap.statement}, ${gap.why},
-        ${gap.whatWouldResolveIt}, ${gap.verificationIssueKey}, ${index}
+        ${gap.whatWouldResolveIt}, ${gap.verificationIssueKey}, ${index},
+        ${gap.researchQuestion}, ${gap.opportunityType}
       )
       on conflict (gap_key) do update set
         gap_type = excluded.gap_type,
@@ -199,7 +203,9 @@ export async function loadCompoundPacket(
         why_not_supported = excluded.why_not_supported,
         what_would_resolve_it = excluded.what_would_resolve_it,
         verification_issue_key = excluded.verification_issue_key,
-        sort_order = excluded.sort_order
+        sort_order = excluded.sort_order,
+        research_question = excluded.research_question,
+        opportunity_type = excluded.opportunity_type
     `);
   }
 
@@ -227,14 +233,17 @@ export async function loadCompoundPacket(
         protocol_key, peptide_id, objective_context, population_model, route_key,
         formulation, regulatory_context, evidence_type_key,
         amount_reported, amount_unit, frequency_text, duration_text,
-        monitoring_text, contraindications_text, safety_notes, patient_visibility
+        monitoring_text, contraindications_text, safety_notes, patient_visibility,
+        timing_text, cycle_text, titration_text, combinations_text
       ) values (
         ${protocol.protocolKey}, ${peptide.id}, ${protocol.objectiveContext},
         ${protocol.populationModel}, ${protocol.routeKey}, ${protocol.formulation},
         ${protocol.regulatoryContext}, ${protocol.evidenceTypeKey},
         ${protocol.amountReported}, ${protocol.amountUnit}, ${protocol.frequencyText},
         ${protocol.durationText}, ${protocol.monitoringText},
-        ${protocol.contraindicationsText}, ${protocol.safetyNotes}, false
+        ${protocol.contraindicationsText}, ${protocol.safetyNotes}, false,
+        ${protocol.timingText}, ${protocol.cycleText}, ${protocol.titrationText},
+        ${protocol.combinationsText}
       )
       on conflict (protocol_key) do update set
         objective_context = excluded.objective_context,
@@ -249,7 +258,11 @@ export async function loadCompoundPacket(
         duration_text = excluded.duration_text,
         monitoring_text = excluded.monitoring_text,
         contraindications_text = excluded.contraindications_text,
-        safety_notes = excluded.safety_notes
+        safety_notes = excluded.safety_notes,
+        timing_text = excluded.timing_text,
+        cycle_text = excluded.cycle_text,
+        titration_text = excluded.titration_text,
+        combinations_text = excluded.combinations_text
       returning id
     `).then(rowsOf<{ id: string }>);
 
@@ -394,6 +407,52 @@ export async function loadCompoundPacket(
     `);
   }
 
+  // --- Identity claims -----------------------------------------------------
+  /*
+   * What each source says the name refers to.
+   *
+   * Cleared and rewritten, because the packet owns the relation and a stale
+   * identity claim is the worst kind of stale record here: it is the one a
+   * reader consults to find out whether two names mean the same molecule.
+   */
+  await db.execute(sql`delete from compound_identity_claims where peptide_id = ${peptide.id}`);
+  for (const identity of packet.identities) {
+    await db.execute(sql`
+      insert into compound_identity_claims (
+        identity_key, peptide_id, name_used, chemical_form, sequence,
+        residue_count, molecular_weight, weight_basis, form, verification,
+        usage_context, notes, evidence_type_key, source_id, source_location_id
+      ) values (
+        ${identity.identityKey}, ${peptide.id}, ${identity.nameUsed},
+        ${identity.chemicalForm}, ${identity.sequence}, ${identity.residueCount},
+        ${identity.molecularWeight}, ${identity.weightBasis},
+        ${identity.form}::identity_form,
+        ${identity.verification}::identity_verification,
+        ${identity.usageContext}, ${identity.notes}, ${identity.evidenceTypeKey},
+        (select source_id from source_locations where id = ${locationId(identity.locationKey)}),
+        ${locationId(identity.locationKey)}
+      )
+    `);
+  }
+
+  // --- Replication ---------------------------------------------------------
+  await db.execute(sql`delete from replication_assessments where peptide_id = ${peptide.id}`);
+  for (const assessment of packet.replication) {
+    await db.execute(sql`
+      insert into replication_assessments (
+        assessment_key, peptide_id, finding, state, study_count, group_count,
+        country_count, models, human_confirmed, basis, limitations,
+        supporting_records
+      ) values (
+        ${assessment.assessmentKey}, ${peptide.id}, ${assessment.finding},
+        ${assessment.state}::replication_state, ${assessment.studyCount},
+        ${assessment.groupCount}, ${assessment.countryCount}, ${assessment.models},
+        ${assessment.humanConfirmed}, ${assessment.basis}, ${assessment.limitations},
+        ${assessment.supportingRecords}
+      )
+    `);
+  }
+
   // --- Regulatory ----------------------------------------------------------
   await db.execute(sql`delete from regulatory_statuses where peptide_id = ${peptide.id}`);
   for (const entry of packet.regulatory) {
@@ -423,6 +482,8 @@ export async function loadCompoundPacket(
     products: packet.products.length,
     forms: packet.forms.length,
     pharmacokinetics: packet.pharmacokinetics.length,
+    identities: packet.identities.length,
+    replication: packet.replication.length,
   };
 }
 

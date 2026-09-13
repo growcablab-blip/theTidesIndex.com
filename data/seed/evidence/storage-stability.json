@@ -1,0 +1,159 @@
+{
+  "packetKey": "storage-stability",
+  "qualityKey": "storage-stability",
+  "note": "Extracted from SRC-006 (Grant, 2002), chapter 4 'Evaluation of the Synthetic Product' (printed pp. 283–284) and chapter 3 (printed p. 165), and SRC-017 (ICH Q7, Step 4, 2000), section 10.1 and section 17.5 (printed pages; file page minus 6). Grant's guidance is written for research peptides held in a laboratory. ICH Q7 covers API manufacture, not finished products. Neither describes the stability of any reconstituted or finished injectable product, and nothing here is a handling instruction for a patient. SRC-013 (Costantino & Pikal, Lyophilization of Biopharmaceuticals) is a two-page contents listing and supports nothing.",
+  "topic": {
+    "shortDescription": "Why peptides change over time, what the held sources say about keeping them dry and cold, and what they do not say about finished products.",
+    "simpleSummary": "A peptide is not permanently stable. In water, some chemical bonds slowly break or rearrange, oxygen can damage certain amino acids, and traces of metal or leftover acid can cause further changes. A reference textbook on synthetic peptides therefore says peptides should be kept in solution only briefly, and for long-term storage should be freeze-dried and kept dry and frozen. It also says a cold container should be allowed to warm up before opening, because moisture condensing on the powder can damage what goes back into storage, and that a peptide stored for a long time is worth re-testing. That advice is written for research laboratories. It is not a guide to storing any medicine, and the Tides Index does not hold a source on how finished peptide products behave once mixed.",
+    "practitionerSummary": "Grant identifies solution-phase degradation routes: oxidation of Trp, Cys and Met; metal-ion-mediated Trp destruction; acid lability of Asp-Pro bonds in slightly acidic aqueous solution; and aspartimide formation at Asn-Gly, Asp-Gly and some Asp-X sequences, which can produce beta-aspartyl peptides with a drastically altered structure. Asn- and Gln-containing peptides stored solid with residual acid can deamidate. The recommendation is short solution storage only, lyophilisation from a volatile buffer or solvent, and desiccated storage at −20 °C in polyethylene, polypropylene or silanised glass; containers should equilibrate to room temperature before opening, and long-stored peptides should be re-evaluated, since lyophilised material can retain adsorbed solvent. ICH Q7 requires storage under appropriate, recorded conditions where critical, segregation of quarantined, rejected, returned or recalled material, and new stability studies to justify expiry or retest dates when an API is repackaged into a different container type.",
+    "whatItProves": "That storage conditions and time are quality variables in their own right: a peptide that was correct when tested can change afterwards, by known chemical routes that depend on its sequence. It also establishes, for API supply, that repackaging into a different container is expected to be supported by new stability data.",
+    "whatItDoesNotProve": "It does not establish a shelf life, a beyond-use period after reconstitution, or storage conditions for any finished or compounded product. The −20 °C recommendation is a research-laboratory recommendation for dry peptides; it is not a label condition and not evidence that any other condition is unsafe. No held source addresses stability after a vial is mixed.",
+    "commonMisinterpretations": "That a certificate of analysis dated at manufacture describes the material months later, after shipping and storage. Grant explicitly recommends re-evaluating a peptide that has been stored for an extended period. A second misreading is that freeze-dried means inert: lyophilised peptides can hold adsorbed solvent that contributes to unwanted reactions."
+  },
+  "locations": [
+    {
+      "key": "grant-ch4-283",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 283",
+      "pageStart": 283,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "Stability and storage"
+    },
+    {
+      "key": "grant-ch3-165-storage",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 165",
+      "pageStart": 165,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Side reactions: deamidation"
+    },
+    {
+      "key": "q7-10-1",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 10.1, p. 22",
+      "pageStart": 22,
+      "chapter": "10. Storage and Distribution",
+      "section": "10.1 Warehousing Procedures"
+    },
+    {
+      "key": "q7-17-5",
+      "sourceKey": "SRC-017",
+      "locatorText": "s. 17.5, p. 33",
+      "pageStart": 33,
+      "chapter": "17. Agents, Brokers, Traders, Distributors, Repackers, and Relabellers",
+      "section": "17.5 Stability"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "STAB-001",
+      "claimText": "In solution, peptides can degrade by several sequence-dependent routes, including oxidation of tryptophan, cysteine and methionine, acid hydrolysis at aspartic acid-proline bonds, and aspartimide formation that can yield beta-aspartyl peptides with a drastically altered structure; peptides should therefore be stored in solution only for short periods.",
+      "plainLanguageText": "Peptides in liquid slowly change, in ways that depend on their amino acids.",
+      "claimCategory": "degradation-route",
+      "importance": "high",
+      "interpretationNotes": "Grant p. 283. The chemical basis for treating time in solution as a quality risk.",
+      "uncertaintyText": "Rates are not given and depend on sequence, pH, temperature and formulation.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-283",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Oxidation, Asp-Pro hydrolysis, aspartimide formation and the recommendation against long solution storage."
+        }
+      ]
+    },
+    {
+      "claimKey": "STAB-002",
+      "claimText": "For long-term storage of research peptides the textbook recommends lyophilisation from a volatile buffer or solvent and desiccated storage at −20 °C in polyethylene, polypropylene or silanised glass containers, with cold containers allowed to reach room temperature before opening to limit condensation.",
+      "plainLanguageText": "A reference book advises keeping research peptides freeze-dried, dry and frozen, and letting them warm before opening.",
+      "claimCategory": "storage-practice",
+      "importance": "high",
+      "interpretationNotes": "Grant p. 283. Scope is research material in a laboratory. Recorded as that, not as a product storage condition.",
+      "uncertaintyText": "A 2002 laboratory recommendation. It is not a label storage condition and establishes nothing about finished or reconstituted products.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-283",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Lyophilise, store desiccated at −20 °C, equilibrate before opening."
+        }
+      ]
+    },
+    {
+      "claimKey": "STAB-003",
+      "claimText": "A peptide stored for an extended period is worth re-evaluating before use, and even lyophilised peptides can contain significant adsorbed solvent that contributes to unwanted reactions.",
+      "plainLanguageText": "An old test result may no longer describe old material.",
+      "claimCategory": "reading-a-result",
+      "importance": "high",
+      "interpretationNotes": "Grant p. 283. The direct link between storage and the limits of a certificate dated at manufacture.",
+      "uncertaintyText": "The source does not define 'extended'.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-283",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Re-evaluate after extended storage; adsorbed solvent in lyophilised material."
+        }
+      ]
+    },
+    {
+      "claimKey": "STAB-004",
+      "claimText": "Peptides containing asparagine, and even glutamine, can deamidate when stored in solid form with residual acid, and should not be stored that way; samples in solution should be monitored for deamidation and decomposition.",
+      "plainLanguageText": "Leftover acid from manufacture can damage some peptides even as a dry powder.",
+      "claimCategory": "degradation-route",
+      "importance": "medium",
+      "interpretationNotes": "Grant p. 165. Links a manufacturing residue to a storage outcome.",
+      "uncertaintyText": "Sequence-dependent; applies to Asn- and Gln-containing peptides.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-165-storage",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Deamidation of Asn/Gln peptides stored solid with residual acid."
+        }
+      ]
+    },
+    {
+      "claimKey": "STAB-005",
+      "claimText": "Under ICH Q7, facilities should store materials under appropriate conditions, keeping records of those conditions where they are critical to the material's characteristics, and should segregate quarantined, rejected, returned or recalled materials unless an alternative system prevents their unintended use.",
+      "plainLanguageText": "For pharmaceutical ingredients, storage conditions are meant to be controlled and recorded.",
+      "claimCategory": "gmp-expectation",
+      "importance": "medium",
+      "interpretationNotes": "Q7 s. 10.1. Scope is API and intermediate manufacture.",
+      "uncertaintyText": "Guidance for API manufacturers; says nothing about research-use suppliers or finished products.",
+      "evidence": [
+        {
+          "locationKey": "q7-10-1",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Storage under appropriate recorded conditions; segregation of quarantined and rejected material."
+        }
+      ]
+    },
+    {
+      "claimKey": "STAB-006",
+      "claimText": "Under ICH Q7, stability studies to justify an assigned expiry or retest date should be conducted if an API or intermediate is repackaged in a different type of container from the one the manufacturer used.",
+      "plainLanguageText": "Moving an ingredient into a different container is expected to need new stability evidence.",
+      "claimCategory": "gmp-expectation",
+      "importance": "high",
+      "interpretationNotes": "Q7 s. 17.5. Directly relevant to material that is bought in bulk and repackaged before sale.",
+      "uncertaintyText": "API scope. Whether a given reseller did this is not knowable from the guideline.",
+      "evidence": [
+        {
+          "locationKey": "q7-17-5",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Stability studies required when repackaged in a different container type."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "Stability of any peptide after reconstitution, and how long mixed material remains suitable.",
+      "why": "No held source addresses reconstituted or finished peptide products.",
+      "whatWouldResolveIt": "Product-specific stability data, approved labelling for comparable products, or a formulation stability reference.",
+      "gapType": "source_missing"
+    },
+    {
+      "statement": "Lyophilisation as a manufacturing process: cycle design, excipients and cake quality.",
+      "why": "SRC-013 is a contents listing only.",
+      "whatWouldResolveIt": "A complete copy of SRC-013 (Costantino & Pikal).",
+      "gapType": "source_corrupted"
+    }
+  ]
+}

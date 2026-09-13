@@ -40,7 +40,12 @@
     "qa:publication": "tsx scripts/qa/publication-readiness.ts",
     "verify": "npm run lint && npm run typecheck && npm run test && npm run build",
     "sheets": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-reference-sheets.ts",
-    "shots:peptides-final": "tsx scripts/qa/peptide-shots.ts"
+    "shots:peptides-final": "tsx scripts/qa/peptide-shots.ts",
+    "shots:tb500": "tsx scripts/qa/tb500-shots.ts",
+    "qa:doses": "tsx --tsconfig tsconfig.scripts.json scripts/qa/patient-dose-scan.ts",
+    "shots:protocols": "tsx scripts/qa/protocols-shots.ts",
+    "shots:manufacturing": "tsx scripts/qa/manufacturing-shots.ts",
+    "pdf:protocols": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-protocol-book.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

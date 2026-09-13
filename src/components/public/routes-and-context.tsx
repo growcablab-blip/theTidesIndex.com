@@ -187,8 +187,14 @@ export function RegulatoryStatusList({
 export function AliasList({ aliases }: { aliases: readonly PeptideAlias[] }) {
   if (aliases.length === 0) return null;
 
-  const plain = aliases.filter((a) => a.aliasType !== 'related_but_distinct');
+  // Three buckets, not two. A misnomer is a name in wide use that is wrong,
+  // which is neither a synonym nor a separate record — and printing it in a
+  // list headed "Also known as" would be this index endorsing the mistake.
+  const plain = aliases.filter(
+    (a) => a.aliasType !== 'related_but_distinct' && a.aliasType !== 'common_misnomer',
+  );
   const distinct = aliases.filter((a) => a.aliasType === 'related_but_distinct');
+  const misnomers = aliases.filter((a) => a.aliasType === 'common_misnomer');
 
   return (
     <div className="space-y-3">
@@ -198,6 +204,15 @@ export function AliasList({ aliases }: { aliases: readonly PeptideAlias[] }) {
           {plain.map((alias) => alias.alias).join(' · ')}
         </p>
       ) : null}
+
+      {misnomers.map((alias) => (
+        <Callout key={alias.alias} tone="caution" title={`${alias.alias}: a name in wide use, and wrong`}>
+          <p>
+            {alias.notes ??
+              `${alias.alias} is commonly used for this compound and does not refer to it. This index records the usage rather than repeating it.`}
+          </p>
+        </Callout>
+      ))}
 
       {distinct.map((alias) => (
         <Callout key={alias.alias} tone="caution" title={`${alias.alias}: not the same record`}>
@@ -210,7 +225,8 @@ export function AliasList({ aliases }: { aliases: readonly PeptideAlias[] }) {
 
       {plain.length > 0 ? (
         <p className="text-xs text-slate">
-          Each name above refers to the same compound record.
+          Each name in that first line refers to this compound record. Any name called out
+          separately below it does not.
         </p>
       ) : null}
     </div>

@@ -471,7 +471,18 @@ export function HumanRecords({ screen }: { screen: LiteratureScreen }) {
             {record.journal}
             {record.publicationYear === null ? '' : `, ${String(record.publicationYear)}`}
           </p>
-          <p className="mt-2 text-sm text-ink-soft">{record.reason}</p>
+          {record.country === null && record.researchGroup === null ? null : (
+            <p className="mt-0.5 text-xs text-slate">
+              {[record.researchGroup, record.country].filter(Boolean).join(' · ')}
+            </p>
+          )}
+          {record.reason === null ? (
+            <p className="mt-2 text-xs text-slate">
+              What each study gave, and why it was counted, is in the practitioner view.
+            </p>
+          ) : (
+            <p className="mt-2 text-sm text-ink-soft">{record.reason}</p>
+          )}
         </li>
       ))}
     </ul>

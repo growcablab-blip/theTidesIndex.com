@@ -117,6 +117,15 @@
     "sortOrder": 130
   },
   {
+    "key": "analytical_characterisation",
+    "publicLabel": "Analytical characterisation",
+    "description": "A laboratory measurement of what a substance is — identity, sequence, purity or content — rather than of what it does. Added when the TB-500 records exposed the gap: mass spectrometry of a formulation is not a human study, not a preclinical study of effect, and not a reference or an opinion. It is classed as preclinical because it is laboratory work, and it must never be read as evidence about people.",
+    "evidenceClass": "preclinical",
+    "isHumanEvidence": false,
+    "isInterpretive": false,
+    "sortOrder": 135
+  },
+  {
     "key": "academic_reference",
     "publicLabel": "Academic reference",
     "description": "A textbook or review describing established understanding. Reports evidence rather than generating it.",

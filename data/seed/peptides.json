@@ -6,9 +6,18 @@
     "compoundTypeKey": "peptide",
     "primaryCategoryKey": "repair-recovery",
     "aliases": [
-      { "alias": "Body Protection Compound 157", "aliasType": "chemical_name" },
-      { "alias": "BPC157", "aliasType": "abbreviation" },
-      { "alias": "PL 14736", "aliasType": "research_code" }
+      {
+        "alias": "Body Protection Compound 157",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "BPC157",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "PL 14736",
+        "aliasType": "research_code"
+      }
     ],
     "notes": "Route evidence is contested across practitioner sources; see verification issue V-002."
   },
@@ -19,15 +28,29 @@
     "compoundTypeKey": "peptide",
     "primaryCategoryKey": "repair-immune",
     "aliases": [
-      { "alias": "TB-4", "aliasType": "abbreviation" },
-      { "alias": "TB4", "aliasType": "abbreviation" },
+      {
+        "alias": "TB-4",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "TB4",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Tbeta4",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Tβ4",
+        "aliasType": "abbreviation"
+      },
       {
         "alias": "TB-500",
         "aliasType": "related_but_distinct",
-        "notes": "Practitioner sources frequently use TB-500 and full-length Thymosin beta-4 interchangeably. The relationship has not been verified against primary chemistry or product-definition sources and must not be presented as identity. Verification issue V-001."
+        "notes": "Not a synonym. Analytical characterisation of the TB-500 formulation identifies it as Ac-LKKTETQ, the N-terminally acetylated 17-23 fragment of this peptide: seven residues of forty-three, about one fifth of the mass. Practitioner sources and some 2026 peer-reviewed papers use the two names interchangeably; this index does not, and keeps a separate record for the fragment. Verification issue V-001, resolved 13 September 2026 by SRC-041 and SRC-042 and left open on the separate question of what any given product contains (SRC-043)."
       }
     ],
-    "notes": "Nomenclature review required before publication."
+    "notes": "Has genuine human trial evidence, which is unusual in this register and is attached to the full-length peptide rather than to the name practitioners use."
   },
   {
     "peptideKey": "ghk-cu",
@@ -36,8 +59,14 @@
     "compoundTypeKey": "peptide",
     "primaryCategoryKey": "skin-repair",
     "aliases": [
-      { "alias": "Copper tripeptide-1", "aliasType": "chemical_name" },
-      { "alias": "GHK copper peptide", "aliasType": "synonym" }
+      {
+        "alias": "Copper tripeptide-1",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "GHK copper peptide",
+        "aliasType": "synonym"
+      }
     ]
   },
   {
@@ -68,7 +97,12 @@
     "slug": "tesamorelin",
     "compoundTypeKey": "peptide_analog",
     "primaryCategoryKey": "gh-endocrine-metabolic",
-    "aliases": [{ "alias": "TH9507", "aliasType": "research_code" }]
+    "aliases": [
+      {
+        "alias": "TH9507",
+        "aliasType": "research_code"
+      }
+    ]
   },
   {
     "peptideKey": "mots-c",
@@ -76,7 +110,12 @@
     "slug": "mots-c",
     "compoundTypeKey": "peptide",
     "primaryCategoryKey": "mitochondrial-metabolic",
-    "aliases": [{ "alias": "MOTS-C", "aliasType": "synonym" }]
+    "aliases": [
+      {
+        "alias": "MOTS-C",
+        "aliasType": "synonym"
+      }
+    ]
   },
   {
     "peptideKey": "semax",
@@ -100,7 +139,45 @@
     "slug": "retatrutide",
     "compoundTypeKey": "peptide_analog",
     "primaryCategoryKey": "metabolic",
-    "aliases": [{ "alias": "LY3437943", "aliasType": "research_code" }],
+    "aliases": [
+      {
+        "alias": "LY3437943",
+        "aliasType": "research_code"
+      }
+    ],
     "notes": "Investigational. Development status is time-sensitive and must be re-checked before any publication. Verification issue V-003."
+  },
+  {
+    "peptideKey": "tb-500",
+    "canonicalName": "TB-500 (Ac-LKKTETQ)",
+    "slug": "tb-500",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "repair-immune",
+    "aliases": [
+      {
+        "alias": "TB500",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Ac-LKKTETQ",
+        "aliasType": "chemical_name",
+        "notes": "The sequence the analytical literature identifies in the TB-500 formulation."
+      },
+      {
+        "alias": "N-acetylated thymosin beta-4 (17-23)",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "TB1000",
+        "aliasType": "related_but_distinct",
+        "notes": "Sold alongside TB-500 and analysed with it in SRC-043, which found product contents inconsistent with their descriptions. No source held here establishes what TB1000 is."
+      },
+      {
+        "alias": "Thymosin beta-4",
+        "aliasType": "common_misnomer",
+        "notes": "Widely used for this substance and incorrect: thymosin beta-4 is the full 43-residue peptide, of which this is residues 17-23. Recorded as a misnomer rather than a synonym so that search surfaces the confusion instead of resolving it."
+      }
+    ],
+    "notes": "Kept as a record of its own because the evidence says it is a different molecule from Thymosin beta-4. Evidence must not cross between the two."
   }
 ]

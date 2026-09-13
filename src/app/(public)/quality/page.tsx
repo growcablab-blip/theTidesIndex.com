@@ -219,6 +219,21 @@ export default async function QualityIndexPage() {
           })}
         </ol>
 
+        <Link
+          href="/quality/sequence-to-vial"
+          className="group mt-10 block rounded-md border border-l-[3px] border-rule border-l-deep-tide bg-warm-white px-5 py-5 transition-colors hover:border-deep-tide"
+        >
+          <span className="meta-label text-tide-teal">Learning pathway two</span>
+          <span className="mt-1.5 block font-serif text-2xl text-ink group-hover:text-deep-tide">
+            From sequence to final vial
+          </span>
+          <span className="mt-1 block max-w-[62ch] text-sm text-ink-soft">
+            Fifteen stages from design to the vial in your hand: where impurities come from, where
+            checks happen, what a batch number is supposed to lead to, and which stages no held
+            source describes.
+          </span>
+        </Link>
+
         <div className="mt-10">
           <p className="meta-label">Pathways in development</p>
           <ul className="mt-3 grid gap-3 sm:grid-cols-3">

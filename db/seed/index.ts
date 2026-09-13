@@ -43,6 +43,8 @@ export interface SeedResult {
   compoundProducts: number;
   compoundForms: number;
   pkObservations: number;
+  identityClaims: number;
+  replicationAssessments: number;
   literatureScreenRecords: number;
   qualityRelationships: number;
   specimenCertificateTests: number;
@@ -91,6 +93,8 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     compoundProducts: compoundPackets.reduce((n, p) => n + p.products, 0),
     compoundForms: compoundPackets.reduce((n, p) => n + p.forms, 0),
     pkObservations: compoundPackets.reduce((n, p) => n + p.pharmacokinetics, 0),
+    identityClaims: compoundPackets.reduce((n, p) => n + p.identities, 0),
+    replicationAssessments: compoundPackets.reduce((n, p) => n + p.replication, 0),
     literatureScreenRecords: literatureScreens.reduce((n, s) => n + s.records, 0),
     qualityRelationships,
     specimenCertificateTests,

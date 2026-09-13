@@ -51,6 +51,11 @@ import {
   RouteMap,
   ScreenMethod,
 } from '@/components/public/compound-figures';
+import {
+  NomenclatureMap,
+  ReplicationMap,
+  ResearchOpportunities,
+} from '@/components/public/research-figures';
 
 /**
  * The canonical compound record.
@@ -130,18 +135,51 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
     ...peptide.regulatoryStatuses.flatMap((s) => (s.citation ? [s.citation] : [])),
   ];
 
+  /*
+   * The rail, in the order the page is now in.
+   *
+   * Regulatory status used to sit fourth, between routes and protocols, where a
+   * reader scanning the rail met it before the evidence. It is a useful fact
+   * about a compound and it is not a measure of the science — this index
+   * records approval, non-approval and silence the same way — so it sits
+   * near the end, with the products it belongs to.
+   *
+   * Conditional entries: a rail that lists a section not on the page is worse
+   * than a shorter rail. Sections that exist for every compound stay listed
+   * even when empty, because an empty "Evidence" heading is an answer.
+   */
   const contents = [
     { id: 'overview', label: 'What it is' },
-    { id: 'evidence', label: 'Evidence', count: peptide.claims.length, empty: peptide.claims.length === 0 },
-    // Conditional entries: a rail that lists a section which is not on the page
-    // is worse than a shorter rail. Sections that exist for every compound stay
-    // listed even when empty, because an empty "Evidence" heading is an answer.
+    ...(peptide.identities.length > 0
+      ? [
+          {
+            id: 'nomenclature',
+            label: 'What the names refer to',
+            count: new Set(peptide.identities.map((i) => i.nameUsed)).size,
+          },
+        ]
+      : []),
+    {
+      id: 'evidence',
+      label: 'Evidence',
+      count: peptide.claims.length,
+      empty: peptide.claims.length === 0,
+    },
     ...(peptide.literatureScreens.length > 0
       ? [
           {
             id: 'literature',
             label: 'What a literature search returns',
             count: peptide.literatureScreens[0]?.resultCount ?? 0,
+          },
+        ]
+      : []),
+    ...(peptide.replication.length > 0
+      ? [
+          {
+            id: 'replication',
+            label: 'What has been repeated',
+            count: peptide.replication.length,
           },
         ]
       : []),
@@ -154,6 +192,32 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           },
         ]
       : []),
+    {
+      id: 'routes',
+      label: 'Administration routes',
+      count: peptide.routes.length,
+      empty: peptide.routes.length === 0,
+    },
+    {
+      id: 'protocols',
+      label: 'Source-reported protocols',
+      // Simple mode receives no protocol rows, so the rail counts what exists
+      // rather than what is rendered. "none yet" beside a compound with five
+      // recorded regimens is the rail telling a patient something untrue.
+      count: peptide.protocolCountAll,
+      empty: peptide.protocolCountAll === 0,
+    },
+    {
+      id: 'disagreements',
+      label: 'Disagreements and unknowns',
+      count: peptide.disagreements.length,
+      empty: peptide.disagreements.length === 0,
+    },
+    {
+      id: 'research-questions',
+      label: 'What would be useful to study',
+      count: peptide.gaps.filter((g) => g.researchQuestion !== null).length,
+    },
     ...(peptide.products.length > 0 || peptide.forms.length > 0
       ? [
           {
@@ -163,26 +227,13 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           },
         ]
       : []),
-    { id: 'routes', label: 'Administration routes', count: peptide.routes.length, empty: peptide.routes.length === 0 },
     {
       id: 'regulatory',
-      label: 'Regulatory status',
+      label: 'Regulatory context',
       count: peptide.regulatoryStatuses.length,
       empty: peptide.regulatoryStatuses.length === 0,
     },
-    {
-      id: 'protocols',
-      label: 'Source-reported protocols',
-      count: peptide.protocols.length,
-      empty: peptide.protocols.length === 0,
-    },
-    {
-      id: 'disagreements',
-      label: 'Disagreements and unknowns',
-      count: peptide.disagreements.length,
-      empty: peptide.disagreements.length === 0,
-    },
-    { id: 'references', label: 'References', count: citations.length, empty: citations.length === 0 },
+    { id: 'references', label: 'References', count: citations.length },
     { id: 'record', label: 'About this record' },
   ];
 
@@ -327,6 +378,19 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           </div>
         </Section>
 
+        {peptide.identities.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="nomenclature"
+              title="What the names refer to"
+              lede="A compound is often sold under a name that means something else. This is what each source says the name denotes, with the analytical measurements first — because a measurement of the substance outranks a statement about it."
+            >
+              <NomenclatureMap identities={peptide.identities} />
+            </Section>
+          </>
+        ) : null}
+
         <hr className="tide-rule border-0" aria-hidden="true" />
 
         <Section
@@ -372,6 +436,19 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           </>
         ) : null}
 
+        {peptide.replication.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="replication"
+              title="What has been repeated"
+              lede="Whether a finding has been reproduced by somebody other than the people who first reported it. Not a count of papers: forty from one laboratory is a weaker position than two from two."
+            >
+              <ReplicationMap assessments={peptide.replication} />
+            </Section>
+          </>
+        ) : null}
+
         {peptide.pharmacokinetics.length > 0 ? (
           <>
             <hr className="tide-rule border-0" aria-hidden="true" />
@@ -384,22 +461,6 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
                 observations={peptide.pharmacokinetics}
                 simple={simple}
               />
-            </Section>
-          </>
-        ) : null}
-
-        {peptide.products.length > 0 || peptide.forms.length > 0 ? (
-          <>
-            <hr className="tide-rule border-0" aria-hidden="true" />
-            <Section
-              id="products"
-              title="Products and chemical form"
-              lede="One molecule can be several products, and one substance can be weighed in several forms. Both are routinely quoted without saying which, and both change what a number means."
-            >
-              <div className="space-y-8">
-                <ProductDistinction products={peptide.products} simple={simple} />
-                <ChemicalForms forms={peptide.forms} />
-              </div>
             </Section>
           </>
         ) : null}
@@ -417,14 +478,6 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
             <RouteMap peptide={peptide} />
             <RouteEvidenceTable routes={peptide.routes} />
           </div>
-        </Section>
-
-        <Section
-          id="regulatory"
-          title="Regulatory and development status"
-          lede="Jurisdiction-specific, and dated. A status without both is not a status."
-        >
-          <RegulatoryStatusList statuses={peptide.regulatoryStatuses} />
         </Section>
 
         <hr className="tide-rule border-0" aria-hidden="true" />
@@ -500,6 +553,43 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
         >
           <DisagreementList disagreements={peptide.disagreements} simple={simple} />
         </Section>
+
+        <hr className="tide-rule border-0" aria-hidden="true" />
+
+        <Section
+          id="research-questions"
+          title="What would be useful to study"
+          lede="Derived from what this index has recorded as missing, and from the disagreements it has not resolved. These describe research that would be useful — not anything anybody should try."
+        >
+          <ResearchOpportunities peptide={peptide} />
+        </Section>
+
+        <hr className="tide-rule border-0" aria-hidden="true" />
+
+        {peptide.products.length > 0 || peptide.forms.length > 0 ? (
+          <>
+            <Section
+              id="products"
+              title="Products and chemical form"
+              lede="One molecule can be several products, and one substance can be weighed in several forms. Both are routinely quoted without saying which, and both change what a number means."
+            >
+              <div className="space-y-8">
+                <ProductDistinction products={peptide.products} simple={simple} />
+                <ChemicalForms forms={peptide.forms} />
+              </div>
+            </Section>
+          </>
+        ) : null}
+
+        <Section
+          id="regulatory"
+          title="Regulatory context"
+          lede="Secondary. What a regulator has said about a compound in one jurisdiction on one date is a useful fact and is not a measure of the science: this index records approval, non-approval and silence the same way, and ranks nothing by them."
+        >
+          <RegulatoryStatusList statuses={peptide.regulatoryStatuses} />
+        </Section>
+
+        <hr className="tide-rule border-0" aria-hidden="true" />
 
         <Section
           id="references"

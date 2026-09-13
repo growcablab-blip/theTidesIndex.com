@@ -4,7 +4,7 @@ import { getPublicDb } from '@/server/db/client';
 import { withPublicSession } from '@/server/db/session';
 import { configureFuzzyMatching, search, type SearchEntityType } from '@/server/search/search-service';
 import { listEvidenceTypes, listRoutes } from '@/server/public/queries';
-import { sectionHintsFor } from '@/server/search/section-routing';
+import { protocolLibraryLinkFor, sectionHintsFor } from '@/server/search/section-routing';
 import {
   Container,
   EmptyState,
@@ -114,6 +114,10 @@ export default async function SearchPage({
    * Empty for a bare name, which is the common case and the right answer.
    */
   const hints = sectionHintsFor(term);
+  // A query about regimens gets a filtered link into the protocol library,
+  // shown whether or not any record is published — the library has its own
+  // preview path, and the question deserves an answer either way.
+  const protocolLink = protocolLibraryLinkFor(term);
 
   return (
     <Container className="py-10 sm:py-14">
@@ -173,6 +177,22 @@ export default async function SearchPage({
           </Filter>
         </div>
       </form>
+
+      {protocolLink === null ? null : (
+        <div className="mt-8 rounded-md border border-rule bg-mist px-4 py-3.5">
+          <p className="text-sm text-ink-soft">
+            Looking for regimens?{' '}
+            <a
+              href={protocolLink.href}
+              className="font-medium text-deep-tide underline decoration-rule underline-offset-2"
+            >
+              {protocolLink.label}
+            </a>
+            . Each is attributed to the source that reported it, with the kind of evidence it rests
+            on. Nothing there is a recommendation.
+          </p>
+        </div>
+      )}
 
       <div className="mt-10">
         {term === '' ? (

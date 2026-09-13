@@ -142,6 +142,7 @@ export async function readProtocols(
     timingText: str(p.timing_text),
     durationText: str(p.duration_text),
     cycleText: str(p.cycle_text),
+    combinationsText: str(p.combinations_text),
     titrationText: str(p.titration_text),
     monitoringText: str(p.monitoring_text),
     contraindicationsText: str(p.contraindications_text),

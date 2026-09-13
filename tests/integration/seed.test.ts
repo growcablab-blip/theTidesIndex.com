@@ -79,7 +79,15 @@ describe('seeding', () => {
        from peptides order by peptide_key`,
     );
 
-    expect(rows.length).toBe(10);
+    /*
+     * Eleven, not ten. The original cohort named ten compounds, one of them
+     * "Thymosin beta-4" with TB-500 as a related-but-distinct alias. Analytical
+     * characterisation then established that TB-500 is a separate molecule — a
+     * seven-residue fragment of the 43-residue parent — so it became a record
+     * of its own. The count changed because the chemistry was resolved, not
+     * because the register grew.
+     */
+    expect(rows.length).toBe(11);
 
     /*
      * Two compounds have been extracted from held sources and carry content;

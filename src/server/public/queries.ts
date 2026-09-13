@@ -1,4 +1,9 @@
 import 'server-only';
+import {
+  readProtocolLibrary,
+  type ProtocolLibrary,
+  type ProtocolLibraryFilters,
+} from './protocol-library';
 import { sql } from 'drizzle-orm';
 import { cache } from 'react';
 import { getPublicDb } from '../db/client';
@@ -282,6 +287,10 @@ export interface LiteratureScreen {
   readonly queryText: string;
   readonly searchDate: string;
   readonly resultCount: number;
+  /** How many of those the ledger classifies. Equal to resultCount for a census. */
+  readonly screenedCount: number;
+  /** Which part of the result set was taken, when it was not all of it. */
+  readonly stratum: string | null;
   readonly deduplicationNotes: string;
   readonly inclusionCriteria: string;
   readonly humanPrimaryCriteria: string;
@@ -289,6 +298,51 @@ export interface LiteratureScreen {
   readonly humanPrimaryCount: number;
   readonly typeCounts: readonly ScreenTypeCount[];
   readonly humanRecords: readonly ScreenRecord[];
+}
+
+/**
+ * One source's statement about what a name refers to.
+ *
+ * `nameUsed` is the name exactly as the source writes it, because the point of
+ * the record is that one name is used by different sources for different
+ * molecules.
+ */
+export interface CompoundIdentityClaim {
+  readonly id: string;
+  readonly identityKey: string;
+  readonly nameUsed: string;
+  readonly chemicalForm: string | null;
+  readonly sequence: string | null;
+  readonly residueCount: number | null;
+  readonly molecularWeight: string | null;
+  readonly weightBasis: string | null;
+  readonly form: string;
+  readonly verification: string;
+  readonly usageContext: string;
+  readonly notes: string | null;
+  readonly evidenceTypeLabel: string;
+  readonly citation: Citation | null;
+}
+
+/**
+ * How far a finding has been repeated, and by whom.
+ *
+ * Deliberately a state rather than a count: forty papers from one laboratory is
+ * a weaker position than two from two.
+ */
+export interface ReplicationAssessment {
+  readonly id: string;
+  readonly assessmentKey: string;
+  readonly finding: string;
+  readonly state: string;
+  readonly studyCount: number | null;
+  readonly groupCount: number | null;
+  readonly countryCount: number | null;
+  readonly models: string | null;
+  readonly humanConfirmed: boolean;
+  readonly basis: string;
+  readonly limitations: string | null;
+  readonly supportingRecords: string | null;
 }
 
 export interface ScreenRecord {
@@ -302,7 +356,16 @@ export interface ScreenRecord {
   readonly included: boolean;
   readonly primaryOrSecondary: string;
   readonly classifiedBy: string;
-  readonly reason: string;
+  /** Null in patient mode: a screener's note on a trial names what it gave. */
+  readonly reason: string | null;
+  /**
+   * Where the work was done and by whom. Recorded so that replication can be
+   * assessed — and so that the register can show it is not privileging a
+   * country, which it cannot do without knowing the country.
+   */
+  readonly country: string | null;
+  readonly language: string | null;
+  readonly researchGroup: string | null;
 }
 
 export interface PeptidePage {
@@ -334,6 +397,8 @@ export interface PeptidePage {
   readonly forms: readonly CompoundForm[];
   readonly pharmacokinetics: readonly PkObservation[];
   readonly literatureScreens: readonly LiteratureScreen[];
+  readonly identities: readonly CompoundIdentityClaim[];
+  readonly replication: readonly ReplicationAssessment[];
   /**
    * What the sources held here do not settle about this compound.
    *
@@ -381,6 +446,8 @@ const PEPTIDE_RELATIONS = {
   'public_v_pk_observations': 'pk_observations',
   'public_v_literature_screens': 'literature_screens',
   'public_v_literature_screen_records': 'literature_screen_records',
+  'public_v_compound_identity_claims': 'compound_identity_claims',
+  'public_v_replication_assessments': 'replication_assessments',
 } as const;
 
 /**
@@ -642,7 +709,8 @@ async function readPeptidePage(
       const gapRows = rows<Record<string, unknown>>(
         await tx.execute(sql`
           select id, gap_type, statement, why_not_supported, what_would_resolve_it,
-                 verification_issue_key, sort_order
+                 verification_issue_key, sort_order, research_question,
+                 opportunity_type
           from ${sql.raw(rel('public_v_evidence_gaps'))}
           where peptide_id = ${peptideId}
           order by sort_order
@@ -656,6 +724,8 @@ async function readPeptidePage(
         whyNotSupported: String(row.why_not_supported),
         whatWouldResolveIt: str(row.what_would_resolve_it),
         verificationIssueKey: str(row.verification_issue_key),
+        researchQuestion: str(row.research_question),
+        opportunityType: str(row.opportunity_type),
       }));
 
       const disagreements: Disagreement[] = disagreementRows.map((d) => ({
@@ -692,7 +762,12 @@ async function readPeptidePage(
                  ${simple
                    ? sql`null::text as strength_text, null::text as reconstitution_text, null::text as labelled_dose_text`
                    : sql`cp.strength_text, cp.reconstitution_text, cp.labelled_dose_text`},
-                 cp.storage_text, cp.excipients_text, cp.substitutability_note,
+                 cp.storage_text,
+                 -- Excipient quantities are per vial, and "50 mg mannitol" beside
+                 -- a vial strength is composition a patient can turn into a dose.
+                 -- Found by the dose scan rather than by a test anyone wrote.
+                 ${simple ? sql`null::text` : sql`cp.excipients_text`} as excipients_text,
+                 cp.substitutability_note,
                  -- The editorial note on a product is the place a strength ends
                  -- up when nobody is watching: "the label states the safety of
                  -- this product was established on trials with the 2 mg dose of
@@ -810,8 +885,9 @@ async function readPeptidePage(
       const screenRows = rows<Record<string, unknown>>(
         await tx.execute(sql`
           select id, screen_key, database_name, query_text,
-                 search_date::text as search_date, result_count,
-                 deduplication_notes, inclusion_criteria, human_primary_criteria
+                 search_date::text as search_date, result_count, screened_count,
+                 stratum, deduplication_notes, inclusion_criteria,
+                 human_primary_criteria
           from ${sql.raw(rel('public_v_literature_screens'))}
           where peptide_id = ${peptideId}
           order by search_date desc
@@ -824,7 +900,21 @@ async function readPeptidePage(
           await tx.execute(sql`
             select external_id, external_id_type, title, publication_year,
                    journal, study_type, evidence_class, included,
-                   primary_or_secondary, classified_by, reason
+                   primary_or_secondary, classified_by, country, language,
+                   research_group,
+                   /*
+                    * The adjudication reason, withheld from patient mode.
+                    *
+                    * It is the note a screener writes about why a study was
+                    * counted, and the natural way to describe a trial is by
+                    * what it gave: "10 mg, then 20 mg", "42–1260 mg". That
+                    * reached patient payloads through the human-records list
+                    * for two sprints before a dose scan found it. The patient
+                    * keeps the study type, the title, the journal, the year
+                    * and the country — enough to know what kind of work it
+                    * was, without the amounts.
+                    */
+                   ${simple ? sql`null::text` : sql`reason`} as reason
             from ${sql.raw(rel('public_v_literature_screen_records'))}
             where screen_id = ${String(screen.id)}
             order by publication_year desc nulls last, external_id
@@ -840,7 +930,10 @@ async function readPeptidePage(
           included: Boolean(r.included),
           primaryOrSecondary: String(r.primary_or_secondary),
           classifiedBy: String(r.classified_by),
-          reason: String(r.reason),
+          reason: str(r.reason),
+          country: str(r.country),
+          language: str(r.language),
+          researchGroup: str(r.research_group),
         }));
 
         const byType = new Map<string, number>();
@@ -855,6 +948,8 @@ async function readPeptidePage(
           queryText: String(screen.query_text),
           searchDate: String(screen.search_date),
           resultCount: Number(screen.result_count),
+          screenedCount: Number(screen.screened_count ?? screen.result_count),
+          stratum: str(screen.stratum),
           deduplicationNotes: String(screen.deduplication_notes),
           inclusionCriteria: String(screen.inclusion_criteria),
           humanPrimaryCriteria: String(screen.human_primary_criteria),
@@ -882,6 +977,80 @@ async function readPeptidePage(
           humanRecords: ledger.filter((r) => r.evidenceClass === 'human'),
         });
       }
+
+      /*
+       * Identity and replication.
+       *
+       * Both patient-facing in full. Neither carries a dose, and both answer
+       * questions a patient has as directly as a clinician does: is the thing I
+       * was sold the thing this page is about, and has anybody else found the
+       * same result.
+       */
+      const identities: CompoundIdentityClaim[] = rows<CitationRow & Record<string, unknown>>(
+        await tx.execute(sql`
+          select ci.id, ci.identity_key, ci.name_used, ci.chemical_form, ci.sequence,
+                 ci.residue_count, ci.molecular_weight::text as molecular_weight,
+                 ci.weight_basis, ci.form, ci.verification, ci.usage_context,
+                 ci.notes, et.public_label as evidence_type_label, ${CITATION_SELECT}
+          from ${sql.raw(rel('public_v_compound_identity_claims'))} ci
+          join ${sql.raw(rel('public_v_evidence_types'))} et on et.key = ci.evidence_type_key
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = ci.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = ci.source_location_id
+          where ci.peptide_id = ${peptideId}
+          order by ci.name_used, ci.identity_key
+        `),
+      ).map((row) => ({
+        id: String(row.id),
+        identityKey: String(row.identity_key),
+        nameUsed: String(row.name_used),
+        chemicalForm: str(row.chemical_form),
+        sequence: str(row.sequence),
+        residueCount: row.residue_count === null ? null : Number(row.residue_count),
+        molecularWeight: str(row.molecular_weight),
+        weightBasis: str(row.weight_basis),
+        form: String(row.form),
+        verification: String(row.verification),
+        usageContext: String(row.usage_context),
+        notes: str(row.notes),
+        evidenceTypeLabel: String(row.evidence_type_label),
+        citation: row.source_id ? toCitation(row) : null,
+      }));
+
+      const replication: ReplicationAssessment[] = rows<Record<string, unknown>>(
+        await tx.execute(sql`
+          select id, assessment_key, finding, state, study_count, group_count,
+                 country_count, models, human_confirmed, basis, limitations,
+                 supporting_records
+          from ${sql.raw(rel('public_v_replication_assessments'))}
+          where peptide_id = ${peptideId}
+          order by
+            case state
+              when 'confirmed_in_humans' then 0
+              when 'independent_multiple_countries' then 1
+              when 'independent_group' then 2
+              when 'repeated_same_group' then 3
+              when 'single_study' then 4
+              when 'conflicting_replication' then 5
+              when 'failed_replication' then 6
+              else 7
+            end,
+            assessment_key
+        `),
+      ).map((row) => ({
+        id: String(row.id),
+        assessmentKey: String(row.assessment_key),
+        finding: String(row.finding),
+        state: String(row.state),
+        studyCount: row.study_count === null ? null : Number(row.study_count),
+        groupCount: row.group_count === null ? null : Number(row.group_count),
+        countryCount: row.country_count === null ? null : Number(row.country_count),
+        models: str(row.models),
+        humanConfirmed: Boolean(row.human_confirmed),
+        basis: String(row.basis),
+        limitations: str(row.limitations),
+        supportingRecords: str(row.supporting_records),
+      }));
 
       const protocols = await readProtocols(tx, peptideId, mode, { preview });
 
@@ -935,6 +1104,8 @@ async function readPeptidePage(
         forms,
         pharmacokinetics,
         literatureScreens,
+        identities,
+        replication,
         gaps,
         protocols,
         protocolCountAll: countRow?.n ?? 0,
@@ -947,6 +1118,19 @@ export const getPeptidePage = cache(
   async (slug: string, mode: ReadingMode): Promise<PeptidePage | null> =>
     asPublic((tx) => readPeptidePage(tx, slug, mode)),
 );
+
+/**
+ * The protocol library across every published compound.
+ *
+ * Not wrapped in `cache`: the filters are part of the key and a page renders it
+ * once per request anyway.
+ */
+export function getProtocolLibrary(
+  mode: ReadingMode,
+  filters: ProtocolLibraryFilters,
+): Promise<ProtocolLibrary> {
+  return asPublic((tx) => readProtocolLibrary(tx, mode, filters));
+}
 
 /** The same record read without the publication filter, for local review only. */
 export async function readPeptidePagePreview(

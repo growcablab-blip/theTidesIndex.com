@@ -93,38 +93,47 @@ interface TaskCard {
   readonly state?: string;
 }
 
+/*
+ * The journeys the platform is for.
+ *
+ * Every one of these is a question about evidence, mechanism, route, protocol
+ * or quality. None of them is "look up a regulatory status", which is a real
+ * question and a small one: a regulator's position on a compound in one
+ * jurisdiction is a fact recorded inside a record, not a reason anybody comes
+ * here. A platform whose front door offered "check if it is approved" would be
+ * teaching people to sort compounds by approval, and that is the opposite of
+ * what the evidence layer underneath is built to show.
+ */
 const TASKS: readonly TaskCard[] = [
   {
-    title: 'A compound',
-    body: 'BPC-157, tesamorelin, retatrutide and the rest of the register — what is recorded, and what is not.',
+    title: 'Explore a compound',
+    body: 'What it is, what has been studied, what was found, and what nobody has established yet.',
     href: '/peptides',
   },
   {
-    title: 'A test or a certificate',
-    body: 'Purity, identity, content and what a certificate of analysis does and does not establish.',
-    href: '/quality',
-  },
-  {
-    title: 'The evidence itself',
-    body: 'How human, preclinical, practitioner and regulatory evidence are told apart, and why it matters.',
+    title: 'Compare the evidence',
+    body: 'Human, preclinical, practitioner and regulatory evidence kept apart — and what changes when you stop treating them as one pile.',
     href: '/evidence',
   },
   {
-    title: 'A route of administration',
-    body: 'Which routes are recorded for which compounds, and what has actually been reported about them.',
+    title: 'See what named sources report',
+    body: 'Regimens exactly as each source published them, attributed, never merged into a single recommendation.',
+    href: '/peptides',
+  },
+  {
+    title: 'Explore routes',
+    body: 'Which routes have been studied for which compound, in what population, and which are only reported.',
     href: '/routes',
   },
   {
-    title: 'A protocol',
-    body: 'What named sources report, each attributed, never merged into a single regimen.',
-    href: null,
-    state: 'In development — no protocol has been extracted and reviewed yet',
+    title: 'Understand quality and production',
+    body: 'Purity, identity, content, and what a certificate of analysis does and does not establish.',
+    href: '/quality',
   },
   {
-    title: 'How peptides are made',
-    body: 'Synthesis, purification, testing, fill and finish, storage — the path from a reaction to a vial.',
-    href: null,
-    state: 'In development — the manufacturing topics are registered and unwritten',
+    title: 'See what is still unknown',
+    body: 'Every compound record carries what this index cannot tell you, and the research questions that follow from it.',
+    href: '/coverage',
   },
 ];
 

@@ -1,0 +1,889 @@
+{
+  "packetKey": "thymosin-beta-4",
+  "peptideKey": "thymosin-beta-4",
+  "note": "Thymosin beta-4: the full-length 43-residue peptide. Held apart from TB-500, which the analytical literature identifies as a seven-residue fragment of it. Evidence does not cross between the two records, and that separation is the point of both.",
+  "compound": {
+    "shortDescription": "A 43-amino-acid peptide the human body already makes, present in almost every cell, whose main known job is binding actin. Seven records report giving it to people, across three countries and four conditions — more human evidence than almost anything in this index.",
+    "simpleSummary": "Thymosin beta-4 is a small protein found in nearly all human cells and tissues. It was first isolated from calf thymus, and its best-understood job inside a cell is binding to actin, the protein cells use to change shape and move. That is why it turns up wherever tissue is repairing itself.\n\n**It has been studied in people.** A search of the medical literature on 13 September 2026 found seven records in which it was given to human beings. They report six separate pieces of work: two of the seven are the design and the result of one study. Two were safety studies in healthy volunteers — one in the United States in 2010, one in China in 2021, done by different research groups a decade apart. Both reported that it was well tolerated. The others tested it on the surface of the eye for severe dry eye, on the skin for leg ulcers, and on the scalp for seborrheic dermatitis.\n\n**That is real evidence, and it is early evidence.** The trials are small — the dry-eye trial had nine patients — and each condition has been tested by essentially one research programme. Safety in healthy volunteers has been shown twice by different people, which is the strongest thing on this record. Whether it helps any particular condition has not been shown twice by anybody.\n\n**A different peptide is usually sold under a different name.** Most people encounter this compound as \"TB-500\". Laboratories that have analysed products sold under that name found something else in them: a seven-amino-acid fragment of this peptide, not the whole thing. This index keeps a separate record for that fragment, because they are not the same substance and the evidence here does not transfer to it.",
+    "practitionerSummary": "43-residue peptide, Ac-SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES, MW 4963.44 (acetylated). The principal G-actin-sequestering peptide in mammalian cells; present in all tissues and cell types except erythrocytes. One of sixteen beta-thymosins, three of which (beta-4, beta-10, beta-15) occur in humans.\n\n**Human evidence.** Seven records reporting six administration programmes, identified by a stratified PubMed screen on 13 September 2026 (1,112 records; 288-record human stratum classified in full). Phase I intravenous, healthy volunteers, US 2010: four cohorts of ten, 42–1260 mg single then daily for 14 days, no dose-limiting toxicity, dose-proportional PK with half-life increasing with dose. Phase I intravenous, healthy volunteers, China 2021: recombinant preparation (NL005), seven single-dose cohorts totalling 54 subjects at 0.05–25.0 µg/kg plus three multiple-dose cohorts of 30 subjects dosed 10 days, no dose-limiting toxicity, no serious adverse events, no accumulation. Phase 2 ophthalmic, severe dry eye, US 2015: RGN-259 0.1%, two sites, n=9, significant improvement in ocular discomfort and corneal fluorescein staining at day 56. Phase 2 topical, venous stasis ulcers, Italy and Poland 2010: eight sites, n=73, safety comparable to placebo, 0.03% suggested as potentially accelerating healing. Seborrheic dermatitis, China 2021: n=71, four weeks of 0.5 mg/mL recombinant gel against 2% ketoconazole, greater efficacy reported than the comparator.\n\n**Replication.** Safety in healthy volunteers is independently replicated: two groups, two countries, two preparations, a decade apart. Efficacy is not: each indication rests on one programme, and the two venous-ulcer papers are one programme reported twice.\n\n**Route.** Every human study used intravenous, topical or ophthalmic administration. No human study identified here used the subcutaneous route, which is the route every practitioner protocol specifies.\n\n**Identity.** The name \"TB-500\" is not this molecule. Two analytical laboratories identify the TB-500 formulation as Ac-LKKTETQ, residues 17–23 of the sequence above — seven residues, about one fifth of the mass. The practitioner sources held here are split: LaValle lists TB-500 among this compound's names and prints the full 43-residue sequence beside it (residues 17–23 of which read LKKTETQ); Campbell and Hack Smith both describe TB-500 as a fragment of it; Seeds uses only the parent's name throughout.\n\n**Source-reported protocols.** LaValle and Seeds give an identical subcutaneous range of 300 mcg to 1 gram daily with a three-month ceiling, and differ on the rest period (six weeks against one month). Seeds adds concurrent use with thymosin alpha-1 and BPC-157. Neither cites a study for any figure.\n\n**Evidence base beyond the human stratum.** 1,112 records, of which 603 carry the MeSH heading \"Humans\" — almost all of them measuring the endogenous peptide rather than administering it, which is the dominant confound for any compound the body already makes. Affiliations span the United States (269), China (229), Germany (96), South Korea (85), Italy (62), Japan (46) and others; 1,094 of 1,112 are in English.",
+    "unknownsSummary": "Whether it helps any specific condition. Seven human records exist, reporting six programmes, and no finding among them has been reproduced by an independent group: safety in healthy volunteers has, efficacy has not.\n\nAlso unknown: whether the subcutaneous route every practitioner protocol specifies delivers anything, since no human study used it; why two phase I programmes chose doses five orders of magnitude apart and what that implies about either; what happens beyond the weeks each trial ran; and what any product sold under the name contains.\n\nAnd one thing that is not unknown and is widely got wrong: this compound and TB-500 are not the same molecule.",
+    "aliases": [
+      {
+        "alias": "TB-500",
+        "note": "A related but distinct substance, and the name most people meet this compound under. Analytical characterisation identifies the TB-500 formulation as Ac-LKKTETQ, residues 17-23 of this peptide. The Tides Index keeps a separate record for it and does not transfer evidence between them. Verification issue V-001: resolved on the chemistry, open on product content."
+      },
+      {
+        "alias": "Tβ4",
+        "note": "The usual abbreviation in the scientific literature."
+      },
+      {
+        "alias": "TB4",
+        "note": "The usual abbreviation in practitioner sources."
+      }
+    ],
+    "sequence": "Ac-Ser-Asp-Lys-Pro-Asp-Met-Ala-Glu-Ile-Glu-Lys-Phe-Asp-Lys-Ser-Lys-Leu-Lys-Lys-Thr-Glu-Thr-Gln-Glu-Lys-Asn-Pro-Leu-Pro-Ser-Lys-Glu-Thr-Ile-Glu-Gln-Glu-Lys-Gln-Ala-Gly-Glu-Ser",
+    "molecularDescription": "43 residues, N-terminally acetylated. The practitioner handbook held here gives MW 4963.4408; computing the average mass from the sequence it prints gives 4963.5, which agrees. Residues 17-23 of that sequence are Leu-Lys-Lys-Thr-Glu-Thr-Gln — LKKTETQ — the actin-binding region, and the fragment sold as TB-500.",
+    "naturalOrSynthetic": "Endogenous in humans and other species; the material used in studies is synthetic or recombinant, and the two phase I programmes used different preparations.",
+    "nomenclatureNote": "Three names for three different things travel together here. Thymosin beta-4 is the 43-residue peptide. TB-500 is a seven-residue fragment of it. And \"thymosin\", unqualified, was historically thymosin fraction 5 — a mixture — whose clinical trials in the 1980s were of thymosin alpha-1 rather than beta-4. A source that says \"thymosin\" has not yet said which."
+  },
+  "locations": [
+    {
+      "key": "lavalle-tb4-152",
+      "sourceKey": "SRC-002",
+      "locatorText": "pp. 152-153",
+      "pageStart": 152,
+      "pageEnd": 153,
+      "section": "Thymosin beta 4 — names, sequence, molecular composition, indications and uses"
+    },
+    {
+      "key": "lavalle-tb4-153",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 153",
+      "pageStart": 153,
+      "pageEnd": 153,
+      "section": "Thymosin beta 4 — dosage, warnings and cautions"
+    },
+    {
+      "key": "lavalle-tb4-154",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 154",
+      "pageStart": 154,
+      "pageEnd": 154,
+      "section": "Thymosin beta 4 — summary, family and mechanism"
+    },
+    {
+      "key": "lavalle-tb4-155",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 155",
+      "pageStart": 155,
+      "pageEnd": 155,
+      "section": "Thymosin beta 4 — actin, wound healing, ongoing trials"
+    },
+    {
+      "key": "tb4-phase1-us",
+      "sourceKey": "SRC-035",
+      "locatorText": "Abstract, PMID 20536472",
+      "section": "Design, cohorts, doses and safety findings",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb4-phase1-cn",
+      "sourceKey": "SRC-036",
+      "locatorText": "Abstract, PMID 34346165",
+      "section": "Design, cohorts, doses, safety and pharmacokinetics",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb4-dryeye",
+      "sourceKey": "SRC-037",
+      "locatorText": "Abstract, PMID 25826322",
+      "section": "Design, participants and outcomes",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb4-ulcer",
+      "sourceKey": "SRC-038",
+      "locatorText": "Abstract, PMID 20536470",
+      "section": "Design, sites, participants and findings",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb4-ulcer-interim",
+      "sourceKey": "SRC-046",
+      "locatorText": "Abstract, PMID 17495250",
+      "section": "Study design and interim enrolment",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb4-sebderm",
+      "sourceKey": "SRC-039",
+      "locatorText": "Abstract, PMID 34318587",
+      "section": "Design, participants, comparator and findings",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb4-cornea-cases",
+      "sourceKey": "SRC-040",
+      "locatorText": "Abstract, PMID 20457990",
+      "section": "Title and publication type",
+      "notes": "Read at abstract level; the PubMed record carries no abstract, so this index holds the title, journal and publication type and nothing more."
+    },
+    {
+      "key": "tb500-identity-ms",
+      "sourceKey": "SRC-041",
+      "locatorText": "Abstract, PMID 22962027",
+      "section": "Identification of Ac-LKKTETQ in the TB-500 formulation",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "tb500-identity-equine",
+      "sourceKey": "SRC-042",
+      "locatorText": "Abstract, PMID 23084823",
+      "section": "Key ingredient and the 17-23 active region",
+      "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "seeds-tb4-177",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 177 of the held copy",
+      "section": "TB4 (Thymosin Beta 4) — introduction, family and gene"
+    },
+    {
+      "key": "seeds-tb4-180",
+      "sourceKey": "SRC-001",
+      "locatorText": "file pp. 180-181 of the held copy",
+      "section": "TB4 — modes of action, and the note on conflicting cancer research"
+    },
+    {
+      "key": "seeds-tb4-185",
+      "sourceKey": "SRC-001",
+      "locatorText": "file pp. 185-186 of the held copy",
+      "section": "TB4 in action — dosage and possible side effects"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "TB4-001",
+      "claimText": "Thymosin beta-4 is a 43-amino-acid peptide present in almost all human cells and tissues except erythrocytes, and is the principal G-actin-sequestering peptide in mammalian cells. It is one of sixteen known beta-thymosins, three of which occur in humans.",
+      "plainLanguageText": "Thymosin beta-4 is a small protein the body already makes, found in nearly every cell. Its main known job is binding to actin, the protein cells use to change shape and move.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "That the compound is endogenous is not a background detail: it determines how the literature about it must be read. A peptide the body already makes generates a large volume of studies that measure it rather than administer it, and 603 of the 1,112 records in this compound's corpus carry the MeSH heading \"Humans\" for precisely that reason.",
+      "uncertaintyText": "Being endogenous establishes nothing about the effect of giving more of it, by any route, to anybody. The two questions are unrelated and the first is often used as an argument for the second.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tb4-154",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source describes Thymosin beta-4 as a 43 amino acid, 5 kDa polypeptide, the main G-actin sequestering peptide, found in all tissues and cell types except red blood cells, and one of sixteen beta-thymosins of which three occur in man.",
+          "populationModel": "Not applicable — a statement about the molecule."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-002",
+      "claimText": "The sequence is Ac-SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES, N-terminally acetylated, with a molecular weight of approximately 4963 Da. Residues 17 to 23 of that sequence are LKKTETQ.",
+      "plainLanguageText": "The full peptide is 43 amino acids long. A short stretch in the middle of it — seven amino acids — is the part that binds actin, and it is that stretch, not the whole peptide, that is sold as TB-500.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The arithmetic is checkable by anyone holding the handbook page. Computing the average molecular mass from the 43-residue sequence the source prints gives 4963.5 against its stated 4963.4408. Counting to position 17 in that same printed sequence and reading seven residues gives LKKTETQ. The distinction between this peptide and TB-500 is therefore present in the handbook's own data, on the same page on which the handbook lists TB-500 as one of this compound's names.",
+      "uncertaintyText": "The handbook's printed molecular formula is partly illegible in the held scan. Nothing in this claim depends on it: the sequence and the molecular weight agree with each other and with the primary literature's description of the 17-23 region.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tb4-152",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source prints the 43-residue sequence and gives MW 4963.4408 under Molecular Composition.",
+          "populationModel": "Not applicable."
+        },
+        {
+          "locationKey": "tb500-identity-equine",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "The source states that the peptide segment 17-LKKTETQ-23 is the active site within thymosin beta-4 responsible for actin binding, cell migration and wound healing.",
+          "populationModel": "Not applicable — a statement about the molecule."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-003",
+      "claimText": "Thymosin beta-4 has been administered to healthy human volunteers in two independent phase I studies — intravenously in the United States in 2010 and as a recombinant preparation in China in 2021 — and both reported no dose-limiting toxicities and no serious adverse events.",
+      "plainLanguageText": "Two separate research teams, in two countries, ten years apart, gave this to healthy volunteers to test whether it was safe. Both reported that it was well tolerated at the doses they used.",
+      "claimCategory": "human-evidence",
+      "importance": "critical",
+      "interpretationNotes": "This is the strongest statement on the record, and its strength comes from the independence rather than from either study. Different research groups, different countries, different decades and different preparations — synthetic in one, recombinant in the other — reaching the same tolerability finding is what replication means. It is also worth stating what a phase I study is for: these establish that a dose range was tolerated by healthy people over days to weeks, and nothing at all about benefit in any condition.",
+      "uncertaintyText": "The two programmes used intravenous dose ranges roughly five orders of magnitude apart, one expressed as a fixed amount and the other per kilogram of body weight. Neither abstract explains the difference and this index does not reconcile it. Until it is understood, \"both found it well tolerated\" is a statement about two different exposures that happen to share a compound name. Both studies were in healthy volunteers, for days to weeks; neither addresses longer use or use in illness. The exact ranges are in the practitioner view.",
+      "evidence": [
+        {
+          "locationKey": "tb4-phase1-us",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "relationship": "supports",
+          "interpretation": "Randomised, placebo-controlled, single and multiple ascending dose study of intravenous synthetic thymosin beta-4: four cohorts of ten healthy subjects at 42, 140, 420 or 1260 mg, then the same regimen daily for 14 days. Adverse events infrequent and mild to moderate, no dose-limiting toxicities, dose-proportional single-dose pharmacokinetics with half-life increasing with dose.",
+          "populationModel": "Forty healthy adult volunteers, United States."
+        },
+        {
+          "locationKey": "tb4-phase1-cn",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "relationship": "supports",
+          "interpretation": "First-in-human randomised, double-blind study of recombinant human thymosin beta-4 (NL005) by intravenous injection: seven single-dose cohorts totalling 54 healthy subjects at 0.05 to 25.0 micrograms per kilogram observed for 28 days, plus three multiple-dose cohorts totalling 30 subjects dosed daily for 10 days. Adverse events mild to moderate, no dose-limiting toxicities, no serious adverse events, exposure increasing with dose and no accumulation on repeat dosing.",
+          "populationModel": "Eighty-four healthy adult volunteers, China."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-004",
+      "claimText": "Thymosin beta-4 has been tested against a control in three conditions: severe dry eye by eye drop, venous stasis ulcers topically, and seborrheic dermatitis as a scalp gel. Each of the three rests on a single research programme.",
+      "plainLanguageText": "Three conditions have been tested in people with a comparison group: severe dry eye, leg ulcers, and a scalp condition. Each has been tested by essentially one team, so none of the results has yet been confirmed by anyone else.",
+      "claimCategory": "human-evidence",
+      "importance": "critical",
+      "interpretationNotes": "Recorded as three separate programmes rather than as a body of efficacy evidence, because that is what they are. The dry-eye trial randomised nine patients at two sites; the venous-ulcer programme randomised 73 across eight European sites and reports its own result in explicitly suggestive language; the seborrheic dermatitis study compared 71 patients against an active comparator rather than a placebo. All three are early-phase results in different tissues by different routes, and none has an independent replication.",
+      "uncertaintyText": "Three indications tested once each is a weaker position than one indication tested three times, and it is easy to read as the opposite. None of these studies has been repeated by another group. All were read at abstract level.",
+      "evidence": [
+        {
+          "locationKey": "tb4-dryeye",
+          "evidenceTypeKey": "human_rct",
+          "relationship": "supports",
+          "interpretation": "Multicentre randomised double-masked placebo-controlled phase 2 trial of thymosin beta-4 eye drops (RGN-259, 0.1%) six times daily for 28 days with follow-up to day 56, at two US sites. Nine patients. At day 56 the treated group showed a 35.1% reduction in ocular discomfort and a 59.1% reduction in total corneal fluorescein staining against vehicle control.",
+          "populationModel": "Nine patients with severe dry eye, including disease associated with graft-versus-host disease. United States."
+        },
+        {
+          "locationKey": "tb4-ulcer",
+          "evidenceTypeKey": "human_rct",
+          "relationship": "supports",
+          "interpretation": "Double-blind placebo-controlled dose-escalation phase 2 study of topically administered thymosin beta-4 at eight European sites, 73 patients randomised. Safety across all doses deemed acceptable and comparable to placebo. The source states that a 0.03% dose may have the potential to accelerate wound healing.",
+          "populationModel": "Seventy-three patients with venous stasis ulcers. Italy and Poland."
+        },
+        {
+          "locationKey": "tb4-ulcer-interim",
+          "evidenceTypeKey": "human_rct",
+          "relationship": "contextualizes",
+          "interpretation": "The design and interim report of the same European programme, from the same group: three sequential dose groups, 3:1 randomisation, 84 days of treatment with 14 days of follow-up, healing measured by digital planimetry. Recorded so that two papers are not mistaken for two studies.",
+          "populationModel": "The same programme."
+        },
+        {
+          "locationKey": "tb4-sebderm",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "relationship": "supports",
+          "interpretation": "Four weeks of 0.5 mg/mL recombinant human thymosin beta-4 gel or 2% ketoconazole lotion in 71 patients with seborrheic dermatitis, with 21 healthy individuals for comparison. Clinical scoring by adherent scalp flaking score and maximum erythema area, with transepidermal water loss, hydration and sebum secretion. The source reports significantly greater efficacy than ketoconazole and a sustained effect.",
+          "populationModel": "Seventy-one patients with seborrheic dermatitis. China."
+        },
+        {
+          "locationKey": "tb4-cornea-cases",
+          "evidenceTypeKey": "human_case_series",
+          "relationship": "supports",
+          "interpretation": "Case reports of chronic non-healing neurotrophic corneal epithelial defects treated with thymosin beta-4. The PubMed record carries no abstract, so the design, number of patients and outcomes are not held here.",
+          "populationModel": "Not established from the record held."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-005",
+      "claimText": "Every human study identified used the intravenous, topical or ophthalmic route. No human study identified used the subcutaneous route, which is the route the practitioner sources held here specify.",
+      "plainLanguageText": "In the studies done in people, this was given into a vein, onto the skin, or as an eye drop. The injections under the skin that practitioners describe have not been studied in people at all.",
+      "claimCategory": "route",
+      "importance": "critical",
+      "interpretationNotes": "The single most consequential mismatch on this record. A reader who takes \"thymosin beta-4 has human trial evidence\" and applies it to a subcutaneous regimen has moved the evidence across a route boundary it does not cross. Route is not a detail for a peptide: it determines what reaches the circulation, in what form, and over what time.",
+      "uncertaintyText": "Absence of a subcutaneous human study in this screen is a statement about the screen. It is a stratified screen of one database, and the human stratum was taken in full — so a subcutaneous human study would have had to carry no trial, case-report or observational publication type and no administration term to escape it, which is possible and not likely.",
+      "evidence": [
+        {
+          "locationKey": "tb4-phase1-us",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "relationship": "supports",
+          "interpretation": "Intravenous administration.",
+          "populationModel": "Healthy volunteers."
+        },
+        {
+          "locationKey": "tb4-phase1-cn",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "relationship": "supports",
+          "interpretation": "Intravenous injection.",
+          "populationModel": "Healthy volunteers."
+        },
+        {
+          "locationKey": "tb4-ulcer",
+          "evidenceTypeKey": "human_rct",
+          "relationship": "supports",
+          "interpretation": "Topical administration to the ulcer.",
+          "populationModel": "Patients with venous ulcers."
+        },
+        {
+          "locationKey": "lavalle-tb4-153",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The handbook's dosage section specifies subcutaneous administration, a route none of the identified human studies used.",
+          "populationModel": "Not specified by the handbook."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-006",
+      "claimText": "The practitioner handbook held here lists TB-500 among the names for Thymosin beta-4 and prints the full 43-residue sequence beside it. Two analytical laboratories identify the TB-500 formulation as Ac-LKKTETQ, residues 17 to 23 of that same sequence.",
+      "plainLanguageText": "The handbook clinicians most often use treats TB-500 as another name for this compound. Laboratories that analysed products sold as TB-500 found a seven-amino-acid piece of it instead of the whole 43-amino-acid peptide.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "This is verification issue V-001, open since the register was built, and it is now answered on the chemistry. What makes the answer usable rather than merely correct is that the handbook's own page contains both halves of it: the printed sequence, whose residues 17-23 read LKKTETQ, and the name list that includes TB-500. The source is not concealing anything; it is treating a fragment and its parent as one substance, which is what practitioner usage does generally and what a reference platform exists to separate.",
+      "uncertaintyText": "What this establishes is what the name means in the analytical literature. It does not establish what is in any particular vial: a 2023 analysis of products sold online reports that the content of TB500 and TB1000 products is not systematically consistent with their descriptions. Knowing what a name denotes and knowing what a product contains are different questions and only the first is settled.",
+      "evidence": [
+        {
+          "locationKey": "tb500-identity-ms",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "High-performance liquid chromatography with high-resolution mass spectrometry detected and identified the N-terminally acetylated 17-23 fragment of human thymosin beta-4, Ac-LKKTETQ, in TB-500. The fragment was then synthesised independently and an assay developed for plasma and urine.",
+          "populationModel": "Not applicable — an analysis of a formulation."
+        },
+        {
+          "locationKey": "tb500-identity-equine",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "A second laboratory, in a different matrix: \"The key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus.\"",
+          "populationModel": "Not applicable."
+        },
+        {
+          "locationKey": "lavalle-tb4-152",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The handbook lists \"Thymosin beta 4\", \"Tb4\" and \"TB-500\" together under Name(s), and prints the 43-residue sequence immediately below them.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-007",
+      "claimText": "The mechanism described across the sources held here is actin sequestration: binding monomeric G-actin, preventing its polymerisation into filaments, and thereby affecting cell migration, matrix metalloproteinase expression, angiogenesis and inflammatory signalling.",
+      "plainLanguageText": "The way it is thought to work is by holding on to actin, the protein cells use to build their internal scaffolding. That affects how cells move and how tissue rebuilds itself.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Actin sequestration is an established molecular interaction rather than a proposal, and this index records it as the former. Everything downstream of it in the source — angiogenesis, chemokine downregulation, stem cell maturation, scar reduction — is a further step, observed in models, and is recorded as a separate kind of statement. The distance between \"binds actin\" and \"heals tendons in people\" is the whole of what this record is for.",
+      "uncertaintyText": "A mechanism is not an outcome. Nothing about actin binding establishes that administering the peptide produces any clinical effect, and the compound's own trials are the evidence for that question rather than the mechanism.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tb4-155",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source states that beta-thymosins bind and sequester monomeric actin, preventing polymerisation and formation of filamentous actin, and lists downstream activities including downregulation of inflammatory chemokines and cytokines and promotion of cell migration, blood vessel formation, cell survival and stem cell maturation.",
+          "populationModel": "Not applicable — a molecular mechanism."
+        },
+        {
+          "locationKey": "tb500-identity-equine",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "supports",
+          "interpretation": "Independently identifies 17-LKKTETQ-23 as the active site within thymosin beta-4 responsible for actin binding, cell migration and wound healing.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-008",
+      "claimText": "Two practitioner handbooks held here give the same subcutaneous dose range for thymosin beta-4, whose top is more than three thousand times its bottom, and cite no study for either end. They differ on the rest period between courses.",
+      "plainLanguageText": "Two handbooks give the same very wide range for this compound, with no study behind it. They disagree about how long to pause between courses.",
+      "claimCategory": "protocol",
+      "importance": "critical",
+      "interpretationNotes": "Two sources stating an identical range is not two confirmations of it. Both are practitioner handbooks, neither cites a study for the range, and identical wording in secondary sources is at least as consistent with one drawing on the other, or both on a common source, as with independent agreement. This index does not infer which. What it records is that the range has no human exposure data at any point: both human phase I programmes used the intravenous route. The amounts are on the two protocol records, in the practitioner view.",
+      "uncertaintyText": "This index has not established what a subcutaneous dose of this compound does at any point in that range, because no human study of the subcutaneous route was identified.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tb4-153",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source gives a general subcutaneous dosage range varied by clinical presentation, with a three-month limit and cycling of six weeks off.",
+          "populationModel": "Not specified by the handbook."
+        },
+        {
+          "locationKey": "seeds-tb4-185",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source gives the same subcutaneous range, varied by clinical presentation, with a three-month limit and cycling of one month off, and states it can be used concurrently with thymosin alpha-1 and BPC-157.",
+          "populationModel": "Not specified by the handbook."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "route_not_established",
+      "statement": "That subcutaneous administration of Thymosin beta-4 delivers anything, or does anything, in a person.",
+      "why": "Every human study identified used the intravenous, topical or ophthalmic route. The subcutaneous route is the one every practitioner source specifies and the one no identified study has examined in people.",
+      "whatWouldResolveIt": "A human pharmacokinetic study of subcutaneous administration, which would at minimum establish whether the peptide reaches the circulation intact by that route.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the pharmacokinetics of subcutaneous Thymosin beta-4 in humans, and how do they compare with the intravenous route on which the existing safety data rest?",
+      "opportunityType": "route_comparison"
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "Why two phase I programmes used intravenous dose ranges about five orders of magnitude apart.",
+      "why": "One programme gave a fixed amount and the other a per-kilogram amount of a recombinant preparation, and the ranges sit roughly five orders of magnitude apart. Neither abstract explains the difference, and this index holds neither full text. Until it is understood, the two tolerability findings cannot be combined.",
+      "whatWouldResolveIt": "The two full texts, and the preclinical dose rationale behind each.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What accounts for the difference in dose between the synthetic and recombinant phase I programmes, and are their safety findings comparable?",
+      "opportunityType": "dose_response"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Any independently replicated efficacy finding.",
+      "why": "Each of the three indications tested in people rests on one research programme, and the two venous-ulcer papers are one programme reported twice. Safety in healthy volunteers is replicated; no efficacy result is.",
+      "whatWouldResolveIt": "A second group repeating any one of the three trials.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Can the dry eye, venous ulcer or seborrheic dermatitis result be reproduced by an independent group?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Any human evidence for the musculoskeletal use that dominates practitioner discussion.",
+      "why": "Tendon, ligament and muscle repair is the first indication the practitioner handbook lists and the reason most readers arrive here. No identified human study examined it. The three conditions tested in people are ocular, dermatological and a chronic wound.",
+      "whatWouldResolveIt": "A controlled trial in a musculoskeletal injury.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does Thymosin beta-4 affect healing in a musculoskeletal injury in humans, by a route with established pharmacokinetics?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Safety beyond the weeks each study ran, and in people who are unwell.",
+      "why": "The phase I studies dosed healthy volunteers for up to 14 days; the longest identified treatment period in patients is the 84 days of the venous-ulcer programme. The practitioner handbook describes three-month courses with cycling and cites nothing for the schedule.",
+      "whatWouldResolveIt": "Longer controlled administration with safety follow-up.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the safety profile of Thymosin beta-4 administered for longer than three months, and in patient rather than volunteer populations?",
+      "opportunityType": "long_term_outcomes"
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "What a product sold under either name actually contains.",
+      "why": "A 2023 analysis of products sold online found that the content of TB500 and TB1000 products is not systematically consistent with their descriptions. Nothing in this index establishes the identity, purity or content of material a clinic or an individual would obtain.",
+      "whatWouldResolveIt": "Independent analysis of the material in question — the quality questions this index documents elsewhere, applied to a specific product.",
+      "verificationIssueKey": "V-001",
+      "researchQuestion": "What do products marketed as Thymosin beta-4 or TB-500 contain, and how consistent is that content between suppliers and batches?",
+      "opportunityType": "product_characterisation"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The full texts of the six human studies, and of the 824 records outside the human stratum.",
+      "why": "Everything on this record from the primary literature was read at abstract level, and the screen classified 288 of 1,112 records. Both limits are stated wherever the evidence is shown.",
+      "whatWouldResolveIt": "Access to the full texts, and a second pass over the remaining strata.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The regulatory position of Thymosin beta-4 in any jurisdiction.",
+      "why": "No regulator's own record has been consulted. The practitioner handbook refers to ongoing multicentre clinical trials and to non-clinical studies performed under ICH guidance, which describes a development programme rather than an approval.",
+      "whatWouldResolveIt": "A regulator's own record, or a trial registry entry.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "Whether elevated thymosin beta-4 in tumour tissue is a response to malignancy or a contributor to it.",
+      "why": "A practitioner handbook held here records that researchers have observed increased thymosin beta-4 in affected tissue in cancer, that this initially raised concern about carcinogenesis, and that whether the increase is a response or of aetiological concern is unresolved. The same compound is recorded here as pro-angiogenic. No study held here addresses what administering it does in a person with a malignancy.",
+      "whatWouldResolveIt": "The primary oncology literature on thymosin beta-4 expression, read in full; this index has not screened it.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Is increased thymosin beta-4 expression in tumour tissue a cause, a consequence or a marker of malignancy, and what does that imply for administering it?",
+      "opportunityType": "mechanism_confirmation"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "intravenous",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "locationKey": "tb4-phase1-us",
+      "populationModel": "Healthy adult volunteers in two independent phase I programmes, United States 2010 and China 2021.",
+      "formulation": "Synthetic peptide in one programme, recombinant in the other.",
+      "pkNotes": "The US study reports dose-proportional single-dose pharmacokinetics with half-life increasing with dose. The Chinese study reports exposure increasing with dose, consistent terminal clearance across dose groups and no accumulation on repeat dosing.",
+      "limitationsNotes": "The only route with human pharmacokinetic data. That is not a recommendation of it: both programmes were safety studies in healthy volunteers and neither tested an outcome in a condition."
+    },
+    {
+      "routeKey": "topical",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "tb4-ulcer",
+      "populationModel": "Patients with venous stasis ulcers in a European phase 2 programme; and, in a separate study, patients with seborrheic dermatitis treated with a scalp gel.",
+      "formulation": "A topical preparation at concentrations up to 0.03% in the ulcer programme; a 0.5 mg/mL recombinant gel in the dermatitis study.",
+      "pkNotes": null,
+      "limitationsNotes": "Applied to the lesion. Nothing about local application to a wound or the scalp transfers to systemic administration, or to any other tissue."
+    },
+    {
+      "routeKey": "other",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "tb4-dryeye",
+      "populationModel": "Patients with severe dry eye disease.",
+      "formulation": "Eye drops at 0.1%, six times daily.",
+      "pkNotes": null,
+      "limitationsNotes": "Ophthalmic administration to the ocular surface. Recorded under a general route because the taxonomy here has no ophthalmic key; the formulation field carries what was actually given."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-tb4-153",
+      "populationModel": "Not specified by the source.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "The route every practitioner source specifies and the route no identified human study used. That a source reports a route is not evidence that the route delivers anything: no pharmacokinetic study of subcutaneous administration in humans was identified."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "TB4-PR-LAVALLE-SQ",
+      "objectiveContext": "General use across the indications the handbook lists, from immune support to tissue repair, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook's regimen. Not an approved dose, not a trial schedule, and by a route no identified human study of this compound has used.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "300 mcg – 1 gram daily",
+      "amountUnit": "mcg to g",
+      "frequencyText": "Daily",
+      "durationText": "Not more than three months concurrently.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states the peptide is reported safe in recommended dosages, that safety in paediatrics has not been established, and that redness and pain at the injection site may occur.",
+      "locationKey": "lavalle-tb4-153",
+      "patientVisibility": false,
+      "cycleText": "If needed long-term: three months on and six weeks off, or six weeks on and six weeks off.",
+      "timingText": null,
+      "titrationText": null,
+      "combinationsText": null
+    },
+    {
+      "protocolKey": "TB4-PR-SEEDS-SQ",
+      "objectiveContext": "Cellular enhancement and immune modulation — restoring TH1/TH2 homeostasis, boosting NK cells and lowering inflammatory cytokines, as framed by The Peptide Protocols.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook's regimen. Not a trial schedule, and by a route no identified human study of thymosin beta-4 has used.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "Between 300 mcg and 1 gram daily",
+      "amountUnit": "mcg to g",
+      "frequencyText": "Daily",
+      "timingText": null,
+      "durationText": "Not more than three months.",
+      "cycleText": "If needed long-term: three months on, one month off.",
+      "titrationText": null,
+      "combinationsText": "Stated as usable concurrently with thymosin alpha-1 and BPC-157.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Possible side effects listed as reddening, pain and discomfort at the injection site, and temporary tiredness or lethargy.",
+      "locationKey": "seeds-tb4-185",
+      "patientVisibility": false
+    },
+    {
+      "formulation": "Synthetic thymosin beta-4.",
+      "amountReported": "42, 140, 420 or 1260 mg (one amount per ascending cohort)",
+      "amountUnit": "mg",
+      "frequencyText": "A single dose, then the same amount daily",
+      "timingText": null,
+      "durationText": "14 days of daily dosing after the single-dose phase",
+      "cycleText": null,
+      "titrationText": "Ascending across cohorts, after safety review of each",
+      "combinationsText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Adverse events infrequent and mild to moderate; no dose-limiting toxicity and no serious adverse events reported.",
+      "patientVisibility": false,
+      "protocolKey": "TB4-PR-STUDY-PHASE1-US",
+      "objectiveContext": "Safety, tolerability and pharmacokinetics in healthy volunteers (phase I), with cardiac ischaemia as the intended later use.",
+      "populationModel": "Forty healthy adult volunteers in four cohorts, United States.",
+      "routeKey": "intravenous",
+      "regulatoryContext": "The schedule a human study used. It is what that study tested in its population, not a regimen shown to work beyond it, and not a recommendation. Randomised and placebo-controlled; healthy volunteers only.",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "locationKey": "tb4-phase1-us"
+    },
+    {
+      "formulation": "Recombinant human thymosin beta-4 (NL005).",
+      "amountReported": "Single-dose cohorts 0.05, 0.25, 0.5, 2.0, 5.0, 12.5 or 25.0 µg/kg; multiple-dose cohorts 0.5, 2.0 or 5.0 µg/kg",
+      "amountUnit": "µg/kg",
+      "frequencyText": "A single dose; or once daily in the multiple-dose cohorts",
+      "timingText": null,
+      "durationText": "10 days in the multiple-dose cohorts; 28 days of observation",
+      "cycleText": null,
+      "titrationText": "Ascending across cohorts",
+      "combinationsText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Adverse events mild to moderate; no dose-limiting toxicities and no serious adverse events; no obvious accumulation on repeat dosing.",
+      "patientVisibility": false,
+      "protocolKey": "TB4-PR-STUDY-PHASE1-CN",
+      "objectiveContext": "First-in-human safety, tolerability, pharmacokinetics and anti-drug antibody assessment in healthy volunteers (phase I), towards a later study in acute myocardial infarction.",
+      "populationModel": "Eighty-four healthy adult volunteers, China: 54 in single-dose cohorts, 30 in multiple-dose cohorts.",
+      "routeKey": "intravenous",
+      "regulatoryContext": "The schedule a human study used. It is what that study tested in its population, not a regimen shown to work beyond it, and not a recommendation. Randomised and double-blind; healthy volunteers only. A recombinant preparation, not the synthetic peptide the US programme used.",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "locationKey": "tb4-phase1-cn"
+    },
+    {
+      "formulation": "RGN-259 eye drops, 0.1% thymosin beta-4, against vehicle.",
+      "amountReported": "0.1% eye drops",
+      "amountUnit": "%",
+      "frequencyText": "Six times daily",
+      "timingText": null,
+      "durationText": "28 days of treatment, with follow-up to day 56",
+      "cycleText": null,
+      "titrationText": null,
+      "combinationsText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "patientVisibility": false,
+      "protocolKey": "TB4-PR-STUDY-DRYEYE",
+      "objectiveContext": "Signs and symptoms of severe dry eye, including disease associated with graft-versus-host disease (phase 2 randomised trial).",
+      "populationModel": "Nine patients with severe dry eye at two US sites.",
+      "routeKey": "other",
+      "regulatoryContext": "The schedule a human study used. It is what that study tested in its population, not a regimen shown to work beyond it, and not a recommendation. Randomised, double-masked and placebo-controlled, and very small. Ophthalmic, applied to the eye.",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "tb4-dryeye"
+    },
+    {
+      "formulation": "Topical thymosin beta-4 at escalating concentrations, against placebo.",
+      "amountReported": "Dose escalation; 0.03% is the concentration the authors single out",
+      "amountUnit": "%",
+      "frequencyText": "Not stated in this abstract",
+      "timingText": null,
+      "durationText": "Not stated in this abstract",
+      "cycleText": null,
+      "titrationText": "Sequential dose groups, each started after safety review of the last",
+      "combinationsText": "Standard care including compression therapy, as described in the programme's design paper.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Safety across all doses deemed acceptable and comparable to placebo.",
+      "patientVisibility": false,
+      "protocolKey": "TB4-PR-STUDY-ULCER",
+      "objectiveContext": "Safety, tolerability and healing of venous stasis ulcers (phase 2 dose-escalation trial).",
+      "populationModel": "Seventy-three patients with venous stasis ulcers at eight sites in Italy and Poland.",
+      "routeKey": "topical",
+      "regulatoryContext": "The schedule a human study used. It is what that study tested in its population, not a regimen shown to work beyond it, and not a recommendation. Double-blind, placebo-controlled dose escalation. The same programme's design paper gives the treatment period; this abstract gives the result.",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "tb4-ulcer"
+    },
+    {
+      "formulation": "Recombinant human thymosin beta-4 gel.",
+      "amountReported": "0.5 mg/mL gel",
+      "amountUnit": "mg/mL",
+      "frequencyText": "Not stated in this abstract",
+      "timingText": null,
+      "durationText": "4 weeks",
+      "cycleText": null,
+      "titrationText": null,
+      "combinationsText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "patientVisibility": false,
+      "protocolKey": "TB4-PR-STUDY-SEBDERM",
+      "objectiveContext": "Scalp condition and microbiome in seborrheic dermatitis, against an active comparator.",
+      "populationModel": "Seventy-one patients with seborrheic dermatitis, China, with twenty-one healthy individuals for microbiome comparison.",
+      "routeKey": "topical",
+      "regulatoryContext": "The schedule a human study used. It is what that study tested in its population, not a regimen shown to work beyond it, and not a recommendation. Compared against 2% ketoconazole lotion rather than placebo; the abstract does not state randomisation or masking.",
+      "evidenceTypeKey": "human_controlled_nonrandomized",
+      "locationKey": "tb4-sebderm"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "TB4-D-001",
+      "topic": "Whether TB-500 is another name for Thymosin beta-4, or a different substance.",
+      "plainLanguageText": "Practitioner sources, and some recent scientific papers, use the two names for the same thing. Laboratories that analysed the material say they are not the same: one is a 43-amino-acid peptide, the other a seven-amino-acid piece of it.",
+      "candidateExplanation": "terminology",
+      "explanationNotes": "Two analytical laboratories, in different countries and different matrices, identify the TB-500 formulation as the N-terminally acetylated 17-23 fragment Ac-LKKTETQ. That is a measurement of the substance, which is the only kind of evidence that can settle what a name denotes. Against it stands usage: the practitioner handbook lists TB-500 among this compound's names, and a 2026 peer-reviewed animal study describes TB-500 in its own title as \"synthetic thymosin beta-4\". Usage is evidence about what people mean, not about what the substance is.",
+      "resolution": "source_error_confirmed",
+      "resolutionBasis": "Two independent analytical characterisations (SRC-041, SRC-042) establish the seven-residue acetylated fragment. The handbook's own printed 43-residue sequence contains that fragment at positions 17-23, so the distinction is available on the page where the conflation appears. This index keeps separate records for the two substances and does not transfer evidence between them.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "Nothing further establishes the chemistry. What remains open is narrower and recorded separately: what any particular product contains.",
+      "positions": [
+        {
+          "locationKey": "tb500-identity-ms",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "Mass spectrometry of the TB-500 formulation identifies Ac-LKKTETQ, the N-terminally acetylated 17-23 fragment of human thymosin beta-4."
+        },
+        {
+          "locationKey": "tb500-identity-equine",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "\"The key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus\", with 17-LKKTETQ-23 identified as the actin-binding active site within thymosin beta-4."
+        },
+        {
+          "locationKey": "lavalle-tb4-152",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "The handbook lists \"Thymosin beta 4\", \"Tb4\" and \"TB-500\" together under Name(s), and prints the 43-residue sequence beneath them — whose residues 17 to 23 are LKKTETQ."
+        }
+      ]
+    },
+    {
+      "disagreementKey": "TB4-D-002",
+      "topic": "By which route Thymosin beta-4 should be given: the routes the trials used, or the route the handbooks specify.",
+      "plainLanguageText": "Every study in people gave this into a vein, onto the skin, or into the eye. Practitioner sources describe injections under the skin. Those are not the same thing and no study has compared them.",
+      "candidateExplanation": "route",
+      "explanationNotes": "Not a disagreement about a fact but about practice, and it is recorded because the consequence is severe: the human evidence on this record is the strongest in the register for any unapproved compound, and none of it applies to the route by which the compound is actually used. This index cannot say that subcutaneous administration does not work. It can say that nothing identified here establishes that it does anything at all.",
+      "resolution": "unresolved",
+      "resolutionBasis": null,
+      "resolvedAt": null,
+      "resolutionRequirement": "A human pharmacokinetic study of subcutaneous administration, and ideally a comparison against the intravenous route on which the safety data rest.",
+      "positions": [
+        {
+          "locationKey": "tb4-phase1-us",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "positionText": "Intravenous administration in healthy volunteers, with pharmacokinetics reported."
+        },
+        {
+          "locationKey": "lavalle-tb4-153",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Subcutaneous administration, daily, with no pharmacokinetic basis cited."
+        }
+      ]
+    },
+    {
+      "disagreementKey": "TB4-D-003",
+      "topic": "How long to pause between courses of thymosin beta-4: two handbooks give the same range and different rest periods.",
+      "plainLanguageText": "Two practitioner handbooks describe the same amounts and the same three-month course, and then disagree about how long a break to take afterwards. Neither cites a study for either figure.",
+      "candidateExplanation": "dose",
+      "explanationNotes": "The two regimens are otherwise nearly word for word: the same range, the same qualification by clinical presentation, the same three-month ceiling. They diverge only on the off period. Neither source gives a rationale or a citation for its figure, so there is nothing to establish that either rest period does anything a different one would not.",
+      "resolution": "unresolved",
+      "resolutionBasis": null,
+      "resolvedAt": null,
+      "resolutionRequirement": "Any study of repeated courses with a defined washout — which would first require a human study of the subcutaneous route at all.",
+      "positions": [
+        {
+          "locationKey": "lavalle-tb4-153",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Three months on and six weeks off, or six weeks on and six weeks off."
+        },
+        {
+          "locationKey": "seeds-tb4-185",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Three months on, one month off."
+        }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any",
+      "status": "investigational_clinical",
+      "authority": "No regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-tb4-155",
+      "checkedAt": "2026-09-13",
+      "notes": "Recorded as investigational on the strength of the identified phase I and phase 2 human studies, which describe a development programme. This is a statement about the studies, not about a regulator: no authority's own record has been read, and the practitioner handbook's reference to ICH-guided non-clinical work and ongoing multicentre trials is a secondary account of a programme rather than evidence of an approval. This index holds no approval, no authorisation and no refusal for Thymosin beta-4 in any jurisdiction."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "TB4-ID-001",
+      "nameUsed": "Thymosin beta 4",
+      "chemicalForm": "N-terminally acetylated 43-residue peptide",
+      "sequence": "SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES",
+      "residueCount": 43,
+      "molecularWeight": 4963.4408,
+      "weightBasis": "The acetylated 43-residue peptide, as the practitioner handbook states it. Computing the average mass from the same printed sequence gives 4963.5, which agrees.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's compound entry, under Molecular Composition, beside a name list that also includes TB-500.",
+      "notes": "The chemistry here is correct and the name list is not. Both are on the same page.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-tb4-152"
+    },
+    {
+      "identityKey": "TB4-ID-002",
+      "nameUsed": "TB-500",
+      "chemicalForm": "N-terminally acetylated heptapeptide, residues 17-23 of thymosin beta-4",
+      "sequence": "LKKTETQ",
+      "residueCount": 7,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "fragment",
+      "verification": "analytically_characterised",
+      "usageContext": "High-resolution mass spectrometry of a TB-500 formulation suspected of doping use, followed by independent synthesis of the identified fragment.",
+      "notes": "The measurement that resolves verification issue V-001. Seven residues of forty-three, and about one fifth of the mass.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "tb500-identity-ms"
+    },
+    {
+      "identityKey": "TB4-ID-003",
+      "nameUsed": "TB-500",
+      "chemicalForm": "LKKTETQ with artificial acetylation of the N-terminus",
+      "sequence": "LKKTETQ",
+      "residueCount": 7,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "fragment",
+      "verification": "analytically_characterised",
+      "usageContext": "A veterinary doping-control method for equine urine and plasma, which states the key ingredient of the preparation and identifies 17-LKKTETQ-23 as the actin-binding active site within thymosin beta-4.",
+      "notes": "A second laboratory, a different country and a different matrix, reaching the same identification. This is what independent confirmation of an identity looks like.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "tb500-identity-equine"
+    },
+    {
+      "identityKey": "TB4-ID-004",
+      "nameUsed": "TB-500",
+      "chemicalForm": "Not stated; presented as a name for the 43-residue peptide",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "unspecified",
+      "verification": "contradicted",
+      "usageContext": "Listed among the names for Thymosin beta 4 in the handbook's compound entry, immediately above the full 43-residue sequence.",
+      "notes": "Contradicted by two analytical characterisations. Recorded rather than corrected, because what a widely used handbook tells clinicians is itself a fact a clinician needs.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-tb4-152"
+    },
+    {
+      "identityKey": "TB4-ID-005",
+      "nameUsed": "TB4 (Thymosin Beta 4)",
+      "chemicalForm": "The endogenous actin-sequestering peptide, described by family and gene rather than by sequence",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "A practitioner handbook's chapter on immune modulation, which describes TB4 as a member of the actin monomer-sequestering family encoded by the TMSB4X gene and never uses the name TB-500.",
+      "notes": "The only practitioner source held here that keeps to the parent peptide's name throughout. It cites the primary thymosin beta-4 literature — Goldstein, Kleinman, Sosne — rather than anything about the fragment.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-tb4-177"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "TB4-REP-001",
+      "finding": "Thymosin beta-4 was tolerated by healthy volunteers given it intravenously, with no dose-limiting toxicity reported.",
+      "state": "independent_multiple_countries",
+      "studyCount": 2,
+      "groupCount": 2,
+      "countryCount": 2,
+      "models": "Healthy adult human volunteers.",
+      "humanConfirmed": true,
+      "basis": "Two phase I studies with no shared authorship or institution: ICON Development Solutions in San Antonio, United States, 2010 (PMID 20536472), and Beijing Shijitan Hospital, Capital Medical University, China, 2021 (PMID 34346165). Different decades, different preparations — synthetic and recombinant — and both randomised and placebo-controlled with single and multiple dosing.",
+      "limitations": "The two dose ranges differ by roughly five orders of magnitude and neither abstract explains why, so this is replication of a tolerability finding rather than of an exposure. Both were in healthy volunteers for days to weeks. Tolerability in a phase I study establishes nothing about benefit.",
+      "supportingRecords": "PMID 20536472; PMID 34346165"
+    },
+    {
+      "assessmentKey": "TB4-REP-002",
+      "finding": "Topical Thymosin beta-4 accelerates healing of venous stasis ulcers.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 2,
+      "models": "Patients with venous stasis ulcers at eight European sites.",
+      "humanConfirmed": false,
+      "basis": "Two publications, 2007 and 2010, from the Vascular Ulcer Unit of the Istituto Dermopatico dell'Immacolata in Rome, reporting the design and then the results of a single dose-escalation programme across Italian and Polish sites. Two papers, one programme, one group.",
+      "limitations": "The source's own efficacy language is suggestive rather than conclusive: a 0.03% dose \"may have the potential to accelerate wound healing\". No independent group has repeated it. Recorded here as the clearest case for why counting papers is not counting evidence.",
+      "supportingRecords": "PMID 17495250; PMID 20536470"
+    },
+    {
+      "assessmentKey": "TB4-REP-003",
+      "finding": "Thymosin beta-4 eye drops improve signs and symptoms of severe dry eye.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Patients with severe dry eye disease, including disease associated with graft-versus-host disease.",
+      "humanConfirmed": false,
+      "basis": "One randomised, double-masked, placebo-controlled phase 2 trial at two US sites, n=9, reported in 2015 from the Kresge Eye Institute at Wayne State University.",
+      "limitations": "Nine patients. The corneal case series on this record is from the same institution, so the ocular evidence is one line rather than two. No independent replication.",
+      "supportingRecords": "PMID 25826322"
+    },
+    {
+      "assessmentKey": "TB4-REP-004",
+      "finding": "A recombinant Thymosin beta-4 gel improves scalp condition in seborrheic dermatitis.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Patients with seborrheic dermatitis.",
+      "humanConfirmed": false,
+      "basis": "One study of 71 patients against an active comparator, from the Beijing Institute of Biotechnology, 2021.",
+      "limitations": "Active comparator rather than placebo, and the abstract does not state randomisation or masking. No independent replication.",
+      "supportingRecords": "PMID 34318587"
+    },
+    {
+      "assessmentKey": "TB4-REP-005",
+      "finding": "Thymosin beta-4 improves healing of tendon, ligament or muscle injury in people.",
+      "state": "not_assessed",
+      "studyCount": 0,
+      "groupCount": 0,
+      "countryCount": 0,
+      "models": "None identified in humans.",
+      "humanConfirmed": false,
+      "basis": "The screen identified no human study of a musculoskeletal indication. This assessment exists because musculoskeletal repair is the first use the practitioner handbook lists and the reason most readers arrive at this record — so the absence belongs where a reader is looking, not only in the gaps list.",
+      "limitations": "An absence within a stratified screen of one database, bounded accordingly.",
+      "supportingRecords": null
+    }
+  ]
+}

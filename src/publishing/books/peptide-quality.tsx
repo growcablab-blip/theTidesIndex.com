@@ -569,16 +569,133 @@ export function PeptideQuality() {
         <SourceNote items={['Open verification issues V-015, V-016, V-017, V-018, V-020.']} />
       </PublicationPage>
 
+      {/* ================= 10. SEQUENCE TO FINAL VIAL ================= */}
+      <PublicationPage publication={PUBLICATION} section="Sequence to vial">
+        <ChapterOpener
+          eyebrow="Ten"
+          title="From sequence to final vial"
+          standfirst="Most of what decides a peptide’s quality happens where nobody holding the vial can see it."
+        />
+
+        <Body>
+          Longer synthetic peptides are usually built by solid-phase synthesis. The first protected
+          amino acid is anchored to an insoluble resin; the chain grows by repeated cycles of
+          deprotection and coupling, with excess reagents washed away between steps; and the
+          finished chain is cleaved from the support, ideally with its side-chain protecting groups
+          removed at the same time. What comes off is crude peptide, and it is never only the
+          intended peptide.
+        </Body>
+
+        <Body>
+          Incomplete couplings leave deletion or terminated sequences that must be separated from
+          the product. Acid cleavage can alkylate tryptophan, methionine and tyrosine unless
+          scavengers are used. Poorly solvated, aggregating chains couple less efficiently. Each is a
+          route by which impurities enter before any test is run.
+        </Body>
+
+        <Callout title="There is no single process">
+          Research-scale peptides are commonly made quickly on automated equipment with little
+          process development; pharmaceutical-scale peptides are made in quantity after it. How far a
+          peptide is purified depends on its use: some research peptides are used crude, while
+          standards are purified much further. A general sequence of stages is not a description of
+          how any product was made.
+        </Callout>
+
+        <SubHeading>The stages, and which ones this index can describe</SubHeading>
+        <Table
+          head={['Stage', 'Held source']}
+          widths={[2, 3]}
+          rows={[
+            ['Sequence and process design', 'Kruger & Albericio, ch. 3'],
+            ['Raw materials', 'Kruger & Albericio, ch. 3; ICH Q7 §6.3'],
+            ['Chain assembly, cleavage, crude peptide', 'Grant, ch. 3'],
+            ['Purification and characterisation', 'Kruger & Albericio, ch. 3; Grant, chs 3–4'],
+            ['Bulk peptide (API) and batch record', 'ICH Q7 §§6.5, 8.3, 10.2'],
+            ['Formulation', 'Source needed'],
+            ['Fill and finish', 'Source needed'],
+            ['Lyophilisation as a process', 'Source needed'],
+            ['Finished-product release testing', 'Source needed'],
+            ['Storage', 'Grant, ch. 4; ICH Q7 §§10.1, 17.5'],
+            ['Transport and repackaging', 'ICH Q7 §§10.2, 17.4, 17.6'],
+          ]}
+        />
+
+        <SourceNote
+          items={[
+            'Grant GA (ed.). Synthetic Peptides, 2nd edition, 2002 — ch. 3, pp. 95–96, 149, 163, 165; ch. 4, p. 284.',
+            'Kruger G, Albericio F (eds). Advances in the Discovery and Development of Peptide Therapeutics, 2015 — ch. 3 (Saneii), pp. 46, 49–50, 52–53.',
+          ]}
+        />
+      </PublicationPage>
+
+      <PublicationPage publication={PUBLICATION} section="Sequence to vial">
+        <SectionHeading>After the test: storage and transport</SectionHeading>
+
+        <Body>
+          A peptide can change after it has been tested. In solution it can oxidise, hydrolyse at
+          acid-sensitive bonds, or rearrange through an aspartimide intermediate into a structurally
+          different peptide; asparagine- and glutamine-containing peptides can deamidate even as a
+          dry solid if residual acid remains. The textbook held here recommends short solution storage
+          only, freeze-drying and desiccated frozen storage for research material, and re-evaluating
+          a peptide that has been stored for an extended period.
+        </Body>
+
+        <Body>
+          For pharmaceutical ingredients, the manufacturing guideline expects storage conditions to be
+          recorded where they matter, transport that does not harm quality, special conditions stated
+          on the label and followed by the carrier, repackaging under controls that avoid mix-ups and
+          contamination, and new stability data when material is moved into a different kind of
+          container.
+        </Body>
+
+        <SectionHeading>Five things worth knowing</SectionHeading>
+        <Bullets
+          items={[
+            'Know the source — a reseller is expected to name the original manufacturer and the batch.',
+            'Know the process — research-scale and pharmaceutical-scale manufacture differ, and so does the purification each needs.',
+            'Know the test — more than one kind of test should agree, and one discordant result matters.',
+            'Know the batch — a batch number is an index to a production record, not a mark of quality.',
+            'Know the chain — a result obtained before storage and shipping describes the material before them.',
+          ]}
+        />
+
+        <Callout title="Country of origin is not a quality test">
+          Where a peptide was made does not tell you whether it was made well. The questions above
+          can be asked of any manufacturer anywhere, and the harmonised guideline held here asks them
+          the same way in every region that adopted it.
+        </Callout>
+
+        <InPreparation>
+          No source held by this index describes formulation, fill and finish, sterile processing,
+          lyophilisation as a manufacturing process, or release testing of a finished peptide
+          product. Nor does any held source quantify what a temperature excursion does to any
+          peptide, or how long material remains suitable after it is mixed. These stages are named
+          and left unwritten.
+        </InPreparation>
+
+        <EvidenceNote
+          supports="General synthesis, purification, storage, traceability and transport expectations, located to Grant chs 3–4, Kruger & Albericio ch. 3, and ICH Q7 §§6, 8, 10 and 17."
+          doesNotSettle="How any particular product was made, stored or shipped. Every expectation cited from ICH Q7 applies to active pharmaceutical ingredients, not to finished products or research-use material."
+        />
+
+        <SourceNote
+          items={[
+            'Grant GA (ed.). Synthetic Peptides, 2nd edition, 2002 — ch. 3, p. 165; ch. 4, p. 283.',
+            'ICH Q7 — §§6.3, 6.5, 8.3, 10.1, 10.2, 17.4, 17.5, 17.6.',
+          ]}
+        />
+      </PublicationPage>
+
       {/* ================= 11. MULTI-DIMENSIONAL ====================== */}
       <PublicationPage publication={PUBLICATION} section="The whole picture">
         <ChapterOpener
-          eyebrow="Ten"
+          eyebrow="Eleven"
           title="Quality is multi-dimensional"
           standfirst="And this reference is not finished. Here is exactly how far it has got."
         />
 
         <Figure
-          number="Figure 7"
+          number="Figure 8"
           caption="The dimensions this index recognises, and the state of each."
         >
           <QualityDimensionsFigure
@@ -593,9 +710,9 @@ export function PeptideQuality() {
               { label: 'Residual solvents', written: false },
               { label: 'Water content', written: false },
               { label: 'Heavy metals', written: false },
-              { label: 'Storage', written: false },
-              { label: 'Transport', written: false },
-              { label: 'Manufacturing', written: false },
+              { label: 'Storage', written: true },
+              { label: 'Transport', written: true },
+              { label: 'Manufacturing', written: true },
             ]}
           />
         </Figure>
@@ -609,21 +726,22 @@ export function PeptideQuality() {
         </InPreparation>
 
         <Body>
-          The four written subjects are the analytical ones, and they are the ones a test report
-          raises. They are not the whole of quality, and this publication does not present them as
-          such.
+          The analytical subjects are the ones a test report raises. Manufacturing, storage and
+          transport are now written as far as the held sources reach, which stops short of the
+          finished vial. None of this is the whole of quality, and this publication does not present
+          it as such.
         </Body>
       </PublicationPage>
 
       {/* ================= 12. METHOD AND VERSION ====================== */}
       <PublicationPage publication={PUBLICATION} section="Method">
         <ChapterOpener
-          eyebrow="Eleven"
+          eyebrow="Twelve"
           title="How this was made"
           standfirst="Source, locator, claim, review, publication — and what happens when any of them changes."
         />
 
-        <Figure number="Figure 8" caption="The chain every statement in this publication travelled.">
+        <Figure number="Figure 9" caption="The chain every statement in this publication travelled.">
           <ProvenanceChainFigure width={contentWidth - 32} />
         </Figure>
 

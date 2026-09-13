@@ -148,6 +148,8 @@ export interface PractitionerProtocol extends SimpleProtocol {
   readonly timingText: string | null;
   readonly durationText: string | null;
   readonly cycleText: string | null;
+  /** What the source reports the regimen alongside. Never an endorsement of the pairing. */
+  readonly combinationsText: string | null;
   readonly titrationText: string | null;
   readonly monitoringText: string | null;
   readonly contraindicationsText: string | null;
@@ -175,6 +177,14 @@ export interface EvidenceGap {
   readonly whyNotSupported: string;
   readonly whatWouldResolveIt: string | null;
   readonly verificationIssueKey: string | null;
+  /**
+   * What it would be useful for somebody to study, derived from this absence.
+   *
+   * Null unless the gap carries one. Both fields move together — a database
+   * constraint refuses a question without a type or a type without a question.
+   */
+  readonly researchQuestion: string | null;
+  readonly opportunityType: string | null;
 }
 
 /**

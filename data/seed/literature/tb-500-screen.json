@@ -1,0 +1,652 @@
+{
+  "screenKey": "tb-500-pubmed-2026-09",
+  "peptideKey": "tb-500",
+  "database": "PubMed (NCBI E-utilities esearch/efetch, db=pubmed)",
+  "query": "\"TB-500\"[All Fields] OR \"TB500\"[All Fields] OR \"TB 500\"[All Fields]",
+  "searchDate": "2026-09-13",
+  "resultCount": 31,
+  "screenedCount": 31,
+  "stratum": null,
+  "deduplication": "PubMed returns one record per PMID and none were removed. The two screens are NOT deduplicated against each other: eight records use both names, and which ledger each belongs to is the open question, so each appears in the screen whose query returned it.",
+  "inclusionCriteria": "A record is INCLUDED as evidence about TB-500 when it reports original observations in which the substance was administered or applied, or when it characterises what the substance is. Reviews, commentary and records that only mention the name are retained in the ledger and excluded from the evidence set. Eight records match the string \"TB 500\" while being about something else entirely — a feed additive, an antipsychotic price table, an arrhythmogenic dose, tuberculosis case counts, biochar, a plant extract, theobromine and an HIV survey — and are marked as false matches rather than quietly dropped, because they are 26% of the result count and the clearest possible demonstration that a search total is not a body of evidence.",
+  "humanPrimaryCriteria": "A record counts as primary human evidence only when the named substance was administered to human beings and an outcome in those people was reported. Measuring the endogenous peptide in patients is not administration; pre-treating a patient’s own cells in a dish before returning them is not systemic administration and is classified separately; and a review asserting that trials happened is not a trial report.",
+  "notes": "A census: every record the query returned is classified here.",
+  "records": [
+    {
+      "pmid": "41443105",
+      "title": "Thymosin β4-derived peptides alleviate neuroinflammation and neurite atrophy in both in vitro models and in vivo 5 × FAD mice: A potential therapy for memory improvement in Alzheimer's disease.",
+      "year": "2026",
+      "journal": "International immunopharmacology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Thymosin beta-4-DERIVED peptides in cell models and 5xFAD mice for neuroinflammation and neurite atrophy. Fragment work rather than full-length, which is why it sits in this ledger.",
+      "country": "not stated",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "41476424",
+      "title": "Injectable Peptide Therapy: A Primer for Orthopaedic and Sports Medicine Physicians.",
+      "year": "2026",
+      "journal": "The American journal of sports medicine",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set.",
+      "country": "United States",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "41490200",
+      "title": "Therapeutic Peptides in Orthopaedics: Applications, Challenges, and Future Directions.",
+      "year": "2026",
+      "journal": "Journal of the American Academy of Orthopaedic Surgeons. Global research & reviews",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set.",
+      "country": null,
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "41966639",
+      "title": "Safety and Efficacy of Approved and Unapproved Peptide Therapies for Musculoskeletal Injuries and Athletic Performance.",
+      "year": "2026",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set.",
+      "country": "United States",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "42021992",
+      "title": "Therapeutic peptides in gerontology: mechanisms and applications for healthy aging.",
+      "year": "2026",
+      "journal": "Frontiers in aging",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set.",
+      "country": null,
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "42328738",
+      "title": "Rapid and harmonized analytical workflow for the determination of peptidic and non-peptidic doping agents in dried and liquid blood matrices.",
+      "year": "2026",
+      "journal": "The Analyst",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "An analytical or doping-control method. It characterises the substance or detects it in a matrix; it says nothing about effect.",
+      "country": null,
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "42542926",
+      "title": "Effects of BPC-157 and TB-500 on Achilles tendon healing in rats: A histopathological and biomechanical study.",
+      "year": "2026",
+      "journal": "Joint diseases and related surgery",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "contradicted",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Rat Achilles tendon transection model, 32 animals, four arms, intraperitoneal for four weeks. Reports higher load to failure and lower Bonar and Movin scores in the TB-500 arm. Identity certainty is recorded as CONTRADICTED: the title calls TB-500 \"synthetic thymosin beta-4\", which the analytical literature establishes it is not. A 2026 peer-reviewed paper making the conflation this index exists to prevent.",
+      "country": "Türkiye",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "42578445",
+      "title": "Peptide Supplements and Their Therapeutic Applications in Sports Medicine.",
+      "year": "2026",
+      "journal": "The American journal of sports medicine",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal model named in the record.",
+      "country": "United States",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "42635865",
+      "title": "Peptides in Regenerative Medicine: A Comprehensive Review of Clinical Applications in Tissue Repair and Chronic Pain Management.",
+      "year": "2026",
+      "journal": "Current pain and headache reports",
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set.",
+      "country": "United States",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "40681595",
+      "title": "Comparative effects of dietary sodium butyrate and tributyrin on broiler chickens' performance, gene expression, intestinal histomorphometry, blood indices, and litter.",
+      "year": "2025",
+      "journal": "Scientific reports",
+      "publicationTypes": [
+        "Journal Article",
+        "Comparative Study"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Broiler chicken feed trial in which TB-500 is a tributyrin supplement code.",
+      "country": "not stated",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "41359360",
+      "title": "Alkaline Phosphatase-Triggered Spatiotemporal Repair of Corneal Injury with TB500 Peptide Hydrogel.",
+      "year": "2025",
+      "journal": "ACS applied materials & interfaces",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "in_vitro",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "analytically_established",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "An enzyme-responsive peptide hydrogel incorporating TB500, sequence given as LKKTETQ, for corneal repair; human corneal epithelial cells and stromal fibroblasts in vitro plus a rat alkali burn model. Independently states the seven-residue sequence, and is the first ocular application of the fragment.",
+      "country": "China",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "38382158",
+      "title": "Simultaneous quantification of TB-500 and its metabolites in in-vitro experiments and rats by UHPLC-Q-Exactive orbitrap MS/MS and their screening by wound healing activities in-vitro.",
+      "year": "2024",
+      "journal": "Journal of chromatography. B, Analytical technologies in the biomedical and life sciences",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "analytically_established",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Quantification of TB-500 (Ac-LKKTETQ) and its metabolites in vitro and in rats. States plainly that \"the biological effects of TB-500 have not been documented\". Ac-LK was the main early metabolite and Ac-LKK persisted to 72 hours; of the metabolites tested only Ac-LKKTE showed wound-healing activity in fibroblasts.",
+      "country": "South Korea",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "36482504",
+      "title": "TB500/TB1000 and SGF1000: A scientific approach for a better understanding of misbranded and adulterated drugs.",
+      "year": "2023",
+      "journal": "Drug testing and analysis",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Analysis of three misbranded products sold online, including TB500 and TB1000: \"the content of TB500/TB1000 products is not systematically consistent with its former descriptions\". The finding that keeps the identity question open in the only place it matters to a clinic — knowing what the name means does not tell you what is in the vial.",
+      "country": "France",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "35730516",
+      "title": "Letter to the Editor: Rethinking The Cost Of Antipsychotic Treatment: The Average Cost Of The Drugs Used In Turkey In 2020.",
+      "year": "2022",
+      "journal": "Turk psikiyatri dergisi = Turkish journal of psychiatry",
+      "publicationTypes": [
+        "Letter"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "An antipsychotic cost table in which \"tb 500-1,000\" is a tablet dose range.",
+      "country": "Türkiye",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "35802965",
+      "title": "Multi-analyte screening of small peptides by alkaline pre-activated solid phase extraction coupled with liquid chromatography-high resolution mass spectrometry in doping controls.",
+      "year": "2022",
+      "journal": "Journal of chromatography. A",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "An analytical or doping-control method. It characterises the substance or detects it in a matrix; it says nothing about effect.",
+      "country": "China",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "31791503",
+      "title": "Residual effects of tobacco biochar along with different fixing agents on stabilization of trace elements in multi-metal contaminated soils.",
+      "year": "2020",
+      "journal": "Journal of environmental sciences (China)",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Tobacco biochar and trace-element stabilisation in contaminated soils.",
+      "country": "not stated",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "33318598",
+      "title": "Logistic regression analysis of environmental and other variables and incidences of tuberculosis in respiratory patients.",
+      "year": "2020",
+      "journal": "Scientific reports",
+      "publicationTypes": [
+        "Clinical Trial",
+        "Journal Article"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Tuberculosis incidence: \"500 had TB and 300 did not\".",
+      "country": "Pakistan",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "28887173",
+      "title": "Adsorption effects of the doping relevant peptides Insulin Lispro, Synachten, TB-500 and GHRP 5.",
+      "year": "2017",
+      "journal": "Analytical biochemistry",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal model named in the record.",
+      "country": null,
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "26472487",
+      "title": "Solid-phase extraction of small biologically active peptides on cartridges and microelution 96-well plates from human urine.",
+      "year": "2016",
+      "journal": "Drug testing and analysis",
+      "publicationTypes": [
+        "Journal Article",
+        "Validation Study"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "An analytical or doping-control method. It characterises the substance or detects it in a matrix; it says nothing about effect.",
+      "country": null,
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "26578461",
+      "title": "Simplifying and expanding the screening for peptides <2 kDa by direct urine injection, liquid chromatography, and ion mobility mass spectrometry.",
+      "year": "2016",
+      "journal": "Journal of separation science",
+      "publicationTypes": [
+        "Evaluation Study",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "An analytical or doping-control method. It characterises the substance or detects it in a matrix; it says nothing about effect.",
+      "country": "Germany",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "27569051",
+      "title": "Comparison of various in vitro model systems of the metabolism of synthetic doping peptides: Proteolytic enzymes, human blood serum, liver and kidney microsomes and liver S9 fraction.",
+      "year": "2016",
+      "journal": "Journal of proteomics",
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "studyType": "in_vitro",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "In vitro metabolism of synthetic doping peptides including TB-500 across proteolytic enzymes, human serum, liver and kidney microsomes and liver S9. Notes that in vivo studies with human volunteers are limited precisely because these peptides are not approved for human consumption — the reason the human column here is empty.",
+      "country": "Russia",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "25469748",
+      "title": "In vitro models for metabolic studies of small peptide hormones in sport drug testing.",
+      "year": "2015",
+      "journal": "Journal of peptide science : an official publication of the European Peptide Society",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "An analytical or doping-control method. It characterises the substance or detects it in a matrix; it says nothing about effect.",
+      "country": null,
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "24906629",
+      "title": "Analytical approaches for the detection of emerging therapeutics and non-approved drugs in human doping controls.",
+      "year": "2014",
+      "journal": "Journal of pharmaceutical and biomedical analysis",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "studyType": "review",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "PubMed publication type is review. Retained in the ledger, excluded from the evidence set.",
+      "country": "Germany",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "25382550",
+      "title": "Detecting peptidic drugs, drug candidates and analogs in sports doping: current status and future directions.",
+      "year": "2014",
+      "journal": "Expert review of proteomics",
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "An analytical or doping-control method. It characterises the substance or detects it in a matrix; it says nothing about effect.",
+      "country": "Germany",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "23318763",
+      "title": "Doping control analysis of seven bioactive peptides in horse plasma by liquid chromatography-mass spectrometry.",
+      "year": "2013",
+      "journal": "Analytical and bioanalytical chemistry",
+      "publicationTypes": [
+        "Evaluation Study",
+        "Journal Article"
+      ],
+      "studyType": "animal_in_vivo",
+      "evidenceClass": "preclinical",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "stated",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "rule",
+      "reason": "Animal model named in the record.",
+      "country": "China",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "22962027",
+      "title": "Synthesis and characterization of the N-terminal acetylated 17-23 fragment of thymosin beta 4 identified in TB-500, a product suspected to possess doping potential.",
+      "year": "2012",
+      "journal": "Drug testing and analysis",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "analytically_established",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "THE identity record. High-resolution mass spectrometry of the TB-500 formulation identified the N-terminally acetylated 17–23 fragment of human thymosin beta-4, Ac-LKKTETQ; the fragment was then synthesised and an assay developed for plasma and urine. Seven residues, not forty-three. This is an analytical measurement of the substance itself, which is the only kind of evidence that can settle what a name refers to.",
+      "country": "Italy",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "23084823",
+      "title": "Doping control analysis of TB-500, a synthetic version of an active region of thymosin β₄, in equine urine and plasma by liquid chromatography-mass spectrometry.",
+      "year": "2012",
+      "journal": "Journal of chromatography. A",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "analytical_method",
+      "evidenceClass": "not_evidence",
+      "included": true,
+      "primaryOrSecondary": "primary",
+      "peptideIdentityCertainty": "analytically_established",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Independent confirmation, in a different laboratory and a different matrix: \"The key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus\", with a detection method for the parent and its metabolites in equine urine and plasma. States that 17-LKKTETQ-23 is the actin-binding site within thymosin beta-4.",
+      "country": "Hong Kong",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "20726336",
+      "title": "Neuroprotective effect of hydroalcoholic extract of dried fruits of Trapa bispinosa Roxb on lipofuscinogenesis and fluorescence product in brain of D-galactose induced ageing accelerated mice.",
+      "year": "2010",
+      "journal": "Indian journal of experimental biology",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Hydroalcoholic extract of Trapa bispinosa fruits in a rat brain model.",
+      "country": "India",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "8837245",
+      "title": "Elimination of theobromine metabolites in healthy adults.",
+      "year": "1996",
+      "journal": "Scandinavian journal of clinical and laboratory investigation",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Elimination of theobromine metabolites in healthy adults.",
+      "country": "not stated",
+      "language": "eng",
+      "researchGroup": null
+    },
+    {
+      "pmid": "12290626",
+      "title": "[Human immunodeficiency virus infection in Guatemala].",
+      "year": "1992",
+      "journal": "Revista del Colegio de Medicos y Cirujanos de Guatemala",
+      "publicationTypes": [
+        "English Abstract",
+        "Journal Article"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "A 1992 Spanish-language HIV survey.",
+      "country": "Guatemala",
+      "language": "spa",
+      "researchGroup": null
+    },
+    {
+      "pmid": "1977520",
+      "title": "Sympathomimetic amines and cardiac arrhythmias.",
+      "year": "1990",
+      "journal": "Cardiovascular research",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "studyType": "false_match",
+      "evidenceClass": "not_evidence",
+      "included": false,
+      "primaryOrSecondary": "secondary",
+      "peptideIdentityCertainty": "not_applicable",
+      "fullTextStatus": "abstract_only",
+      "classifiedBy": "manual",
+      "reason": "Sympathomimetic amines and cardiac arrhythmias: \"Tb 500\" is an arrhythmogenic dose in micrograms.",
+      "country": "not stated",
+      "language": "eng",
+      "researchGroup": null
+    }
+  ]
+}

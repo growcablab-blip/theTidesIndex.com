@@ -23,6 +23,7 @@ export * from './certificates';
 export * from './protocols';
 export * from './evidence-context';
 export * from './formulations';
+export * from './identity-claims';
 export * from './publications';
 export * from './governance';
 export * from './search';

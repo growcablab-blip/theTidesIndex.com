@@ -40,6 +40,8 @@ const GAP: EvidenceGap = {
   statement: 'A chromatographic purity result says nothing about whether a preparation is sterile.',
   whyNotSupported: 'No compendial or regulatory source on sterility testing is held at all.',
   whatWouldResolveIt: 'A current compendial sterility chapter.',
+  researchQuestion: null,
+  opportunityType: null,
   verificationIssueKey: 'V-015',
 };
 

@@ -77,14 +77,29 @@ function toneClasses(tone: 'approved' | 'human' | 'reported' | 'preclinical'): s
  * has no wording for.
  */
 const BY_LABEL: Readonly<Record<string, string>> = {
+  // The taxonomy's current public labels, exactly as evidence_types.json has
+  // them. When the first human-study regimens arrived these were missing, so a
+  // trial column in the comparison read "Randomised human trial" while the
+  // same record's card read "Human trial regimen" — one regimen, two wordings.
+  'Approved product labelling': 'approved_label_evidence',
+  'Randomised human trial': 'human_rct',
+  'Controlled human study, not randomised': 'human_controlled_nonrandomized',
+  'Uncontrolled human study': 'human_prospective_uncontrolled',
+  'Human observational study': 'human_observational',
+  'Human case series': 'human_case_series',
+  'Human case report': 'human_case_report',
+  'Human pharmacokinetic study': 'human_pk_pd',
+  'Animal study': 'animal_in_vivo',
+  'Laboratory (in vitro) study': 'in_vitro',
   'Practitioner reference': 'practitioner_reference',
+  'Expert commentary': 'expert_commentary',
+  'Experiential report': 'experiential_anecdotal',
+  'Academic reference': 'academic_reference',
+  // Older wordings, kept so a stale label still maps.
   'Approved label': 'approved_label_evidence',
   'Approved-label evidence': 'approved_label_evidence',
   'Randomised controlled trial': 'human_rct',
   'Human pharmacokinetics': 'human_pk_pd',
-  'Animal study': 'animal_in_vivo',
-  'Expert commentary': 'expert_commentary',
-  'Academic reference': 'academic_reference',
 };
 
 export function ProtocolContextBadge({
@@ -115,15 +130,15 @@ const ROWS: readonly { label: string; get: (p: PractitionerProtocol) => string |
   { label: 'Population or model', get: (p) => p.populationModel },
   { label: 'Route', get: (p) => p.routeName },
   { label: 'Formulation', get: (p) => p.formulation },
-  {
-    label: 'Amount as reported',
-    get: (p) => (p.amountReported === null ? null : `${p.amountReported} ${p.amountUnit ?? ''}`.trim()),
-  },
+  // The source's own wording, which already carries its unit. `amountUnit` is a
+  // normalisation hint for filtering; appending it printed "500 mcg mcg".
+  { label: 'Amount as reported', get: (p) => p.amountReported },
   { label: 'Frequency', get: (p) => p.frequencyText },
   { label: 'Timing', get: (p) => p.timingText ?? null },
   { label: 'Duration', get: (p) => p.durationText },
   { label: 'Titration', get: (p) => p.titrationText ?? null },
   { label: 'Cycle / off period', get: (p) => p.cycleText ?? null },
+  { label: 'Combinations', get: (p) => p.combinationsText ?? null },
   { label: 'Monitoring', get: (p) => p.monitoringText },
   { label: 'Cautions', get: (p) => p.contraindicationsText },
   { label: 'Regulatory context', get: (p) => p.regulatoryContext },

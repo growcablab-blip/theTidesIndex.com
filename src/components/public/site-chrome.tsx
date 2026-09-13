@@ -12,6 +12,7 @@ import { Container } from './primitives';
 
 const PRIMARY_NAV = [
   { href: '/peptides', label: 'Peptides' },
+  { href: '/protocols', label: 'Protocols' },
   { href: '/quality', label: 'Quality' },
   { href: '/sources', label: 'Sources' },
   { href: '/methodology', label: 'Methodology' },
@@ -23,6 +24,7 @@ const FOOTER_NAV: readonly { heading: string; links: readonly { href: string; la
       heading: 'Reference',
       links: [
         { href: '/peptides', label: 'Compounds' },
+        { href: '/protocols', label: 'Source-reported protocols' },
         { href: '/quality', label: 'Quality and testing' },
         { href: '/routes', label: 'Administration routes' },
         { href: '/search', label: 'Search' },

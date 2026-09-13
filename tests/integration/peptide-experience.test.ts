@@ -323,7 +323,8 @@ describe('peptide experience', () => {
       // No printed page is claimed where none was verified, and the locator
       // says which kind of page it is rather than leaving a reader to guess.
       expect(row.page_start).toBeNull();
-      expect(row.locator_text).toMatch(/file p\./i);
+      // A single file page or a range of them; either way it says which kind.
+      expect(row.locator_text).toMatch(/file pp?\./i);
     }
   });
 

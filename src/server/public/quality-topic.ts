@@ -259,6 +259,10 @@ export async function readQualityTopic(
       whyNotSupported: String(g.why_not_supported),
       whatWouldResolveIt: str(g.what_would_resolve_it),
       verificationIssueKey: str(g.verification_issue_key),
+      // Quality topics carry no research questions yet. The shape is shared
+      // with compounds, so the fields are present and null rather than absent.
+      researchQuestion: null,
+      opportunityType: null,
     })),
 
     relationships: relationshipRows.map((rel) => ({

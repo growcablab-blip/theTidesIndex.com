@@ -61,11 +61,12 @@ export async function loadLiteratureScreens(db: SeedDb): Promise<ScreenLoadResul
         insert into literature_screens (
           screen_key, peptide_id, database_name, query_text, search_date,
           result_count, deduplication_notes, inclusion_criteria,
-          human_primary_criteria
+          human_primary_criteria, screened_count, stratum
         ) values (
           ${screen.screenKey}, ${peptideId}, ${screen.database}, ${screen.query},
           ${screen.searchDate}::date, ${screen.resultCount}, ${screen.deduplication},
-          ${screen.inclusionCriteria}, ${screen.humanPrimaryCriteria}
+          ${screen.inclusionCriteria}, ${screen.humanPrimaryCriteria},
+          ${screen.screenedCount ?? screen.records.length}, ${screen.stratum}
         )
         on conflict (screen_key) do update set
           database_name = excluded.database_name,
@@ -74,7 +75,9 @@ export async function loadLiteratureScreens(db: SeedDb): Promise<ScreenLoadResul
           result_count = excluded.result_count,
           deduplication_notes = excluded.deduplication_notes,
           inclusion_criteria = excluded.inclusion_criteria,
-          human_primary_criteria = excluded.human_primary_criteria
+          human_primary_criteria = excluded.human_primary_criteria,
+          screened_count = excluded.screened_count,
+          stratum = excluded.stratum
         returning id
       `,
       )
@@ -88,7 +91,7 @@ export async function loadLiteratureScreens(db: SeedDb): Promise<ScreenLoadResul
           screen_id, external_id, external_id_type, title, publication_year,
           journal, publication_types, study_type, evidence_class, included,
           primary_or_secondary, peptide_identity_certainty, full_text_status,
-          classified_by, reason
+          classified_by, reason, country, language, research_group
         ) values (
           ${screenId}, ${record.pmid}, 'pmid', ${record.title},
           ${record.year === '' ? null : Number(record.year)}, ${record.journal},
@@ -96,7 +99,8 @@ export async function loadLiteratureScreens(db: SeedDb): Promise<ScreenLoadResul
           ${record.studyType}::screen_study_type, ${record.evidenceClass},
           ${record.included}, ${record.primaryOrSecondary},
           ${record.peptideIdentityCertainty}, ${record.fullTextStatus},
-          ${record.classifiedBy}, ${record.reason}
+          ${record.classifiedBy}, ${record.reason}, ${record.country},
+          ${record.language}, ${record.researchGroup}
         )
       `);
     }

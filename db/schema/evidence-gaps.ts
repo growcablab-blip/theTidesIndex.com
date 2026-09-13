@@ -55,10 +55,38 @@ export const evidenceGaps = pgTable(
     }),
 
     sortOrder: integer().notNull().default(0),
+
+    /**
+     * What it would be useful for somebody to study, derived from this absence.
+     *
+     * Carried on the gap rather than in a table of its own, so a research
+     * question cannot exist without the recorded absence that motivates it —
+     * which is the difference between a research platform and a wish list.
+     *
+     * The distinction the wording must hold: "what would be useful to study" is
+     * this platform's purpose; "what someone should personally try" is not.
+     */
+    researchQuestion: text(),
+    opportunityType: text(),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    check(
+      'evidence_gaps_opportunity_type_known',
+      sql`${t.opportunityType} is null or ${t.opportunityType} in (
+        'identity_clarification', 'human_evidence', 'human_safety',
+        'human_pharmacokinetics', 'route_comparison', 'formulation_comparison',
+        'dose_response', 'independent_replication', 'long_term_outcomes',
+        'mechanism_confirmation', 'protocol_validation',
+        'product_characterisation', 'regulatory_position')`,
+    ),
+    // Half a record is worse than none: a question with no type cannot be
+    // grouped, and a type with no question says nothing.
+    check(
+      'evidence_gaps_question_and_type_together',
+      sql`(${t.researchQuestion} is null) = (${t.opportunityType} is null)`,
+    ),
     check(
       'evidence_gaps_subject_present',
       sql`${t.qualityTopicId} is not null or ${t.peptideId} is not null`,

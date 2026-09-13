@@ -1,0 +1,229 @@
+{
+  "packetKey": "peptide-synthesis-spps",
+  "qualityKey": "peptide-synthesis-spps",
+  "note": "Extracted from SRC-006 (Grant, Synthetic Peptides: A User's Guide, 2nd edn, 2002), chapter 3 'Principles and Practice of Solid-Phase Peptide Synthesis', and SRC-007 (Kruger & Albericio eds, Advances in the Discovery and Development of Peptide Therapeutics, 2015), chapter 3 'Peptide manufacturing' by Hossain Saneii. SRC-006 locators are printed pages (file page minus 11). SRC-007 printed pages run five behind the held file (file p. 50 is printed p. 45); the registry offset was set to 5 when this was confirmed, and each SRC-007 locator gives both. Statements are paraphrased: SRC-006 text extraction clips characters and mangles Greek letters. Both books describe general practice. Neither describes how any particular peptide sold today was made, and nothing here should be read as a description of one. SRC-008 (Jensen, Peptide Synthesis and Applications), which the registry intended as the synthesis methods reference, is not the registered work and supports nothing.",
+  "topic": {
+    "shortDescription": "How a peptide chain is built one amino acid at a time on a solid support, and why the crude product is never just the intended peptide.",
+    "simpleSummary": "Most synthetic peptides of more than a handful of amino acids are built by a method called solid-phase peptide synthesis. The first amino acid is fixed to tiny insoluble beads. Then, over and over, a protective cap is removed from the end of the growing chain and the next amino acid is attached. Because the chain stays stuck to the beads, leftover chemicals can simply be washed away between steps. When the sequence is complete, the chain is cut off the beads with strong acid, which also strips the protective groups from the amino acids. What comes off is called crude peptide. It is never only the intended peptide: any step that did not go to completion leaves shorter or altered chains mixed in, and the cutting step itself can damage some amino acids. That is why purification and testing follow, and why how a peptide was made matters even though you cannot see it in the vial.",
+    "practitionerSummary": "In stepwise SPPS an Nα-protected amino acid is anchored to an insoluble resin through a linker; cycles of selective Nα-deprotection and coupling of the next protected residue are repeated until the sequence is assembled, driven to completion with excess soluble reagents removed by filtration and washing. Cleavage releases the peptide as the free acid or amide, depending on the linker, and ideally removes side-chain protecting groups chosen to survive the repeated deprotections. In Fmoc chemistry TFA cleavage generates tert-butyl cations that can alkylate Trp, Met and, to a small degree, Tyr unless scavengers are used. Incomplete couplings produce deletion peptides; capping replaces them with terminated sequences; either way these by-products must be separated from the product. Coupling efficiency depends on solvation of the peptide-resin, and interchain β-sheet aggregation is associated with difficult couplings. At manufacturing scale, peptides above about ten residues are usually made by SPPS or hybrid solid/solution routes, and raw materials are expected to be specified, quarantined and released by quality control before use.",
+    "whatItProves": "It explains where a synthetic peptide's impurities come from: deletion and truncated sequences from incomplete coupling, side-chain modifications from cleavage, and aggregation-related failures in difficult sequences. That is the reason a crude peptide requires purification and why characterisation is a separate step rather than an assumption.",
+    "whatItDoesNotProve": "Knowing the general method does not tell anyone how a specific product was made, at what scale, with which chemistry, with what process development, or how well. A label or certificate that says a peptide was 'synthesised' says nothing about which impurities it contains. None of the held sources describe fill and finish, sterile processing, or how any finished injectable peptide product is assembled.",
+    "commonMisinterpretations": "That a synthetic peptide is a single clean substance because it was made to a defined sequence. The method produces a mixture by design, and the quality of the final material depends on how that mixture was separated and tested. A second misreading is that the process is identical everywhere: the same textbook describes different chemistries, resins, scales and levels of process development."
+  },
+  "locations": [
+    {
+      "key": "grant-ch3-95",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 95, fig. 3-1",
+      "pageStart": 95,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Introduction",
+      "figure": "3-1"
+    },
+    {
+      "key": "grant-ch3-96",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 96",
+      "pageStart": 96,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Introduction"
+    },
+    {
+      "key": "grant-ch3-149",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 149",
+      "pageStart": 149,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Cleavage: trifluoroacetic acid"
+    },
+    {
+      "key": "grant-ch3-163",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 163",
+      "pageStart": 163,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Capping"
+    },
+    {
+      "key": "grant-ch3-165",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 165",
+      "pageStart": 165,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Solvation and aggregation"
+    },
+    {
+      "key": "saneii-ch3-52",
+      "sourceKey": "SRC-007",
+      "locatorText": "ch. 3, p. 52 (file p. 57)",
+      "pageStart": 52,
+      "chapter": "3. Peptide manufacturing (Saneii)",
+      "section": "Large-scale peptide production"
+    },
+    {
+      "key": "saneii-ch3-53",
+      "sourceKey": "SRC-007",
+      "locatorText": "ch. 3, p. 53 (file p. 58)",
+      "pageStart": 53,
+      "chapter": "3. Peptide manufacturing (Saneii)",
+      "section": "Process development"
+    },
+    {
+      "key": "saneii-ch3-46",
+      "sourceKey": "SRC-007",
+      "locatorText": "ch. 3, p. 46 (file p. 51)",
+      "pageStart": 46,
+      "chapter": "3. Peptide manufacturing (Saneii)",
+      "section": "Small-scale and large-scale production"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "SPPS-001",
+      "claimText": "In stepwise solid-phase synthesis the first protected amino acid is anchored to an insoluble resin through a linker, and repeated cycles of selective N-terminal deprotection and coupling of the next protected residue build the sequence; the finished chain is then cleaved from the support as a free acid or amide, ideally with removal of side-chain protecting groups.",
+      "plainLanguageText": "The chain is built one amino acid at a time on insoluble beads, then cut off at the end.",
+      "claimCategory": "process-principle",
+      "importance": "high",
+      "interpretationNotes": "Grant's figure 3-1 legend. It describes the general linear stepwise scheme; the text notes variations. It is the structural reason every later stage exists.",
+      "uncertaintyText": "A description of the general method, not of any specific product's manufacturing route.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-95",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Figure 3-1 and its legend set out the attach, deprotect, couple, repeat and cleave sequence."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-002",
+      "claimText": "Keeping the growing chain on an insoluble support allows each step to be driven towards completion with excess soluble reagents that are removed by filtration and washing; after assembly the crude peptide must be cleaved under conditions minimally destructive to sensitive residues, and then purified and characterised to verify that the intended structure was obtained.",
+      "plainLanguageText": "Washing away leftovers is easy, but what comes off the beads is crude and still has to be purified and checked.",
+      "claimCategory": "process-principle",
+      "importance": "high",
+      "interpretationNotes": "Grant pp. 95–96. The book itself frames purification and 'scrupulous characterization' as part of the method, not an optional extra.",
+      "uncertaintyText": "General practice described in a 2002 textbook; instrumentation and reagents have moved on, the principle has not.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-95",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Excess soluble reagents removed by filtration and washing without manipulative losses."
+        },
+        {
+          "locationKey": "grant-ch3-96",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Cleavage of the crude peptide, then purification and characterisation to verify the structure obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-003",
+      "claimText": "Cleavage with trifluoroacetic acid in Fmoc chemistry generates tert-butyl cations that can alkylate tryptophan, methionine and, to a low degree, tyrosine; scavengers are added to minimise these modifications and to limit acid-catalysed oxidation.",
+      "plainLanguageText": "The acid step that frees the peptide can also damage some amino acids unless protective additives are used.",
+      "claimCategory": "impurity-origin",
+      "importance": "medium",
+      "interpretationNotes": "Grant p. 149. One concrete mechanism by which the cleavage step itself creates modified by-products that a later test would need to find.",
+      "uncertaintyText": "Sequence-dependent: whether it matters for a given peptide depends on which residues it contains.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-149",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "TFA cleavage, tert-butyl cation formation, alkylation of Trp, Met and Tyr, and scavengers."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-004",
+      "claimText": "Unreacted chains during assembly give rise to deletion peptides, or to terminated peptides if they are deliberately capped; in either case these by-products must ultimately be separated from the desired product.",
+      "plainLanguageText": "When a step does not fully work, shorter wrong chains are made, and they have to be removed later.",
+      "claimCategory": "impurity-origin",
+      "importance": "high",
+      "interpretationNotes": "Grant p. 163. The origin of the closely related impurities that make purification and resolution-sensitive testing necessary.",
+      "uncertaintyText": "The proportion of such by-products is not fixed; it depends on the sequence, chemistry and conditions.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-163",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Capping substitutes terminated for deletion peptides; both must be separated from the product."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-005",
+      "claimText": "Effective solvation of the peptide-resin is described as perhaps the most crucial condition for efficient chain assembly, and intermolecular beta-sheet aggregation has been shown to lower coupling efficiency.",
+      "plainLanguageText": "Some sequences are hard to build because the growing chains clump together.",
+      "claimCategory": "process-difficulty",
+      "importance": "medium",
+      "interpretationNotes": "Grant p. 165. Explains why some sequences are 'difficult' and why process choices differ between peptides.",
+      "uncertaintyText": "Which sequences aggregate is not predictable from this passage alone.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-165",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Solvation as the crucial condition; beta-sheet aggregates lower coupling efficiency."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-006",
+      "claimText": "Peptide manufacturing divides broadly into small-scale production (milligrams to grams, often custom and one-off, usually on automated equipment with generalised protocols and little process development) and large-scale production (multigram to multikilogram quantities of few products, with process development).",
+      "plainLanguageText": "A research-scale peptide and a pharmaceutical-scale peptide are usually made in quite different ways.",
+      "claimCategory": "process-variation",
+      "importance": "high",
+      "interpretationNotes": "Saneii, SRC-007 p. 46. The basis for the page's insistence that there is no single process.",
+      "uncertaintyText": "A review chapter's characterisation of the industry in 2015.",
+      "evidence": [
+        {
+          "locationKey": "saneii-ch3-46",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Small-scale versus large-scale production, their purposes and their differing process development."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-007",
+      "claimText": "At manufacturing scale, peptides longer than about ten amino acids are usually made by solid-phase synthesis, or by hybrid routes in which segments made on resin are assembled in solution, which allows segments to be purified before assembly.",
+      "plainLanguageText": "Longer peptides are usually built on beads, sometimes in pieces that are joined later.",
+      "claimCategory": "process-variation",
+      "importance": "medium",
+      "interpretationNotes": "Saneii, SRC-007 p. 52. Supports the statement that more than one route exists.",
+      "uncertaintyText": "A general statement about practice, not a rule; the chapter gives enfuvirtide as a hybrid example.",
+      "evidence": [
+        {
+          "locationKey": "saneii-ch3-52",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "SPPS for peptides above ten residues; hybrid solid/solution and fragment condensation routes."
+        }
+      ]
+    },
+    {
+      "claimKey": "SPPS-008",
+      "claimText": "In process optimisation every raw material, from resin and protected amino acids to reagents and solvents, is expected to have a detailed specification and testing procedure, and all starting material is quarantined and tested before being released for use, with failing material kept separate.",
+      "plainLanguageText": "Good practice tests the ingredients before they are used, not only the finished peptide.",
+      "claimCategory": "raw-material-control",
+      "importance": "high",
+      "interpretationNotes": "Saneii, SRC-007 p. 53. The earliest quality checkpoint in the sequence-to-vial flow.",
+      "uncertaintyText": "Describes what a well-run process should do; it is not evidence that any particular supplier does it.",
+      "evidence": [
+        {
+          "locationKey": "saneii-ch3-53",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Raw material specifications, quarantine and QC release before use."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "How any specific peptide sold today was synthesised.",
+      "why": "Manufacturing routes are rarely published by suppliers, and no held source describes the route for any compound in the register.",
+      "whatWouldResolveIt": "A manufacturer's disclosed process description, or a regulatory assessment report that summarises one.",
+      "gapType": "source_missing"
+    },
+    {
+      "statement": "A current synthesis methods reference.",
+      "why": "SRC-008 (Jensen et al.) was intended to serve this and is not the registered work.",
+      "whatWouldResolveIt": "A genuine copy of SRC-008 or another current methods text.",
+      "gapType": "source_corrupted"
+    }
+  ]
+}

@@ -37,12 +37,13 @@ export default async function HomePage() {
             <div className="max-w-[54ch]">
               <p className="meta-label">Independent peptide science &amp; clinical reference</p>
               <h1 className="mt-3 font-serif text-4xl leading-tight text-ink">
-                Every statement here can be traced to a source, a page, and a review.
+                What has actually been studied, what was found, and what nobody knows yet.
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-                A reference for clinicians and the people they treat. It records what named sources
-                actually report, keeps evidence from people separate from evidence from animals, and
-                says plainly where the evidence runs out.
+                A scientific and clinical reference for peptides. It records what named sources
+                report, keeps evidence from people separate from evidence from animals, shows
+                whether anybody has repeated a finding, and says plainly where the evidence runs
+                out — with every statement traceable to a source, a page and a review.
               </p>
 
               <form method="get" action="/search" className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -53,7 +54,7 @@ export default async function HomePage() {
                   id="home-search"
                   name="q"
                   type="search"
-                  placeholder="Search a peptide, pathway, route, test or topic…"
+                  placeholder="Search a compound, mechanism, route, protocol or research question…"
                   className="w-full rounded-md border border-rule bg-warm-white px-4 py-3 text-base text-ink placeholder:text-slate-light focus:border-tide-teal"
                 />
                 <button

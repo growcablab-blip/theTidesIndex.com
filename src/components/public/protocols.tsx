@@ -88,7 +88,9 @@ export function SimpleProtocolCard({ protocol }: { protocol: SimpleProtocol }) {
 
 /** The regimen exactly as the named source reported it. Practitioner mode only. */
 export function PractitionerProtocolCard({ protocol }: { protocol: PractitionerProtocol }) {
-  const amount = [protocol.amountReported, protocol.amountUnit].filter(Boolean).join(' ');
+  // Verbatim, which already carries its unit. Appending `amountUnit` printed
+  // "500 mcg mcg" once records started stating units in their own wording.
+  const amount = protocol.amountReported ?? '';
 
   return (
     <li className="avoid-break rounded-md border border-rule bg-warm-white">

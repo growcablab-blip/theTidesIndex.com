@@ -214,6 +214,33 @@ const packetGapSchema = z.object({
   why: z.string().min(1),
   whatWouldResolveIt: z.string().nullable().default(null),
   verificationIssueKey: z.string().nullable().default(null),
+  /**
+   * What it would be useful for somebody to study, derived from this absence.
+   *
+   * Both fields or neither — a database constraint enforces it. The wording
+   * must describe what would be useful to *study*, never what somebody should
+   * personally try; that line is the difference between a research platform
+   * and a recommendation engine.
+   */
+  researchQuestion: z.string().min(1).nullable().default(null),
+  opportunityType: z
+    .enum([
+      'identity_clarification',
+      'human_evidence',
+      'human_safety',
+      'human_pharmacokinetics',
+      'route_comparison',
+      'formulation_comparison',
+      'dose_response',
+      'independent_replication',
+      'long_term_outcomes',
+      'mechanism_confirmation',
+      'protocol_validation',
+      'product_characterisation',
+      'regulatory_position',
+    ])
+    .nullable()
+    .default(null),
 });
 
 const packetTopicSchema = z.object({
@@ -286,7 +313,14 @@ const packetProtocolSchema = z.object({
   amountReported: z.string().nullable().default(null),
   amountUnit: z.string().nullable().default(null),
   frequencyText: z.string().nullable().default(null),
+  /** When in the day, or relative to what: "AM", "before bedtime". */
+  timingText: z.string().nullable().default(null),
   durationText: z.string().nullable().default(null),
+  /** On/off structure as reported: "3 months on, 1 month off". */
+  cycleText: z.string().nullable().default(null),
+  titrationText: z.string().nullable().default(null),
+  /** What the source reports it alongside. Never an endorsement of the pairing. */
+  combinationsText: z.string().nullable().default(null),
   monitoringText: z.string().nullable().default(null),
   contraindicationsText: z.string().nullable().default(null),
   safetyNotes: z.string().nullable().default(null),
@@ -372,6 +406,72 @@ const packetDisagreementSchema = z
  * and pharmacokinetics belong to the product, and three tesamorelin products
  * differ in all five while sharing one active substance.
  */
+/**
+ * One source's statement about what a name refers to.
+ *
+ * `nameUsed` is the name exactly as the source writes it. Normalising it would
+ * destroy the evidence, because the whole subject here is that one name is used
+ * by different sources for different molecules.
+ */
+const packetIdentitySchema = z.object({
+  identityKey: z.string().min(1),
+  nameUsed: z.string().min(1),
+  chemicalForm: z.string().nullable().default(null),
+  sequence: z.string().nullable().default(null),
+  residueCount: z.number().int().nullable().default(null),
+  molecularWeight: z.number().nullable().default(null),
+  weightBasis: z.string().nullable().default(null),
+  form: z
+    .enum(['full_length', 'fragment', 'analogue', 'preparation', 'unspecified'])
+    .default('unspecified'),
+  verification: z
+    .enum([
+      'analytically_characterised',
+      'stated_by_primary_source',
+      'stated_by_secondary_source',
+      'asserted_without_detail',
+      'contradicted',
+    ])
+    .default('asserted_without_detail'),
+  /** Where the source is using the name. Never omitted. */
+  usageContext: z.string().min(1),
+  notes: z.string().nullable().default(null),
+  evidenceTypeKey: z.string().min(1),
+  locationKey: z.string().min(1),
+});
+
+/**
+ * How far a finding has been repeated, and by whom.
+ *
+ * `basis` is required. A replication claim with no working shown is an opinion
+ * wearing a taxonomy, and the database refuses the two independent states
+ * without at least two groups behind them.
+ */
+const packetReplicationSchema = z.object({
+  assessmentKey: z.string().min(1),
+  finding: z.string().min(1),
+  state: z
+    .enum([
+      'single_study',
+      'repeated_same_group',
+      'independent_group',
+      'independent_multiple_countries',
+      'confirmed_in_humans',
+      'conflicting_replication',
+      'failed_replication',
+      'not_assessed',
+    ])
+    .default('not_assessed'),
+  studyCount: z.number().int().nullable().default(null),
+  groupCount: z.number().int().nullable().default(null),
+  countryCount: z.number().int().nullable().default(null),
+  models: z.string().nullable().default(null),
+  humanConfirmed: z.boolean().default(false),
+  basis: z.string().min(1),
+  limitations: z.string().nullable().default(null),
+  supportingRecords: z.string().nullable().default(null),
+});
+
 const packetProductSchema = z.object({
   productKey: z.string().min(1),
   productName: z.string().min(1),
@@ -472,6 +572,8 @@ const compoundPacketSchema = z.object({
   products: z.array(packetProductSchema).default([]),
   forms: z.array(packetFormSchema).default([]),
   pharmacokinetics: z.array(packetPkSchema).default([]),
+  identities: z.array(packetIdentitySchema).default([]),
+  replication: z.array(packetReplicationSchema).default([]),
 });
 
 export type CompoundPacket = z.infer<typeof compoundPacketSchema>;
@@ -548,6 +650,11 @@ const EVIDENCE_PACKET_FILES = [
   'evidence/coa-literacy.json',
   'evidence/identity-testing.json',
   'evidence/peptide-content-assay.json',
+  'evidence/peptide-synthesis-spps.json',
+  'evidence/purification.json',
+  'evidence/storage-stability.json',
+  'evidence/batch-traceability.json',
+  'evidence/transport-excursions.json',
 ] as const;
 
 /**
@@ -576,6 +683,9 @@ const screenRecordSchema = z.object({
     'commentary_editorial',
     'other_peripheral',
     'withdrawn',
+    'human_biomarker',
+    'analytical_method',
+    'false_match',
   ]),
   evidenceClass: z.enum(['human', 'preclinical', 'not_evidence']),
   included: z.boolean(),
@@ -584,6 +694,9 @@ const screenRecordSchema = z.object({
   fullTextStatus: z.string().min(1),
   classifiedBy: z.enum(['rule', 'manual']),
   reason: z.string().min(1),
+  country: z.string().nullable().default(null),
+  language: z.string().nullable().default(null),
+  researchGroup: z.string().nullable().default(null),
 });
 
 const literatureScreenSchema = z.object({
@@ -593,6 +706,10 @@ const literatureScreenSchema = z.object({
   query: z.string().min(1),
   searchDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   resultCount: z.number().int().nonnegative(),
+  /** How many the ledger classifies. Equal to resultCount for a census. */
+  screenedCount: z.number().int().nonnegative().nullable().default(null),
+  /** Required when the two differ: which part of the result set was taken. */
+  stratum: z.string().min(1).nullable().default(null),
   deduplication: z.string().min(1),
   inclusionCriteria: z.string().min(1),
   humanPrimaryCriteria: z.string().min(1),
@@ -601,11 +718,20 @@ const literatureScreenSchema = z.object({
 
 export type LiteratureScreen = z.infer<typeof literatureScreenSchema>;
 
-const LITERATURE_SCREEN_FILES = ['literature/bpc-157-screen.json'] as const;
+const LITERATURE_SCREEN_FILES = [
+  'literature/bpc-157-screen.json',
+  'literature/thymosin-beta-4-screen.json',
+  'literature/tb-500-screen.json',
+] as const;
 
 const COMPOUND_PACKET_FILES = [
   'evidence/tesamorelin.json',
   'evidence/bpc-157.json',
+  // Two packets for what practitioner sources treat as one compound. The
+  // analytical literature says they are two molecules, so they are two records
+  // and no evidence crosses between them.
+  'evidence/thymosin-beta-4.json',
+  'evidence/tb-500.json',
 ] as const;
 
 /**

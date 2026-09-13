@@ -1,0 +1,151 @@
+{
+  "packetKey": "purification",
+  "qualityKey": "purification",
+  "note": "Extracted from SRC-007 (Kruger & Albericio eds, 2015), chapter 3 'Peptide manufacturing' by Hossain Saneii, and SRC-006 (Grant, 2002), chapters 3 and 4. SRC-007 locators give the printed page and the held file page (printed = file minus 5, registered as the source offset). SRC-006 locators are printed pages. The held sources describe why purification is needed and how much it varies by application; none describes a validated purification process for any compound, and no numerical purity threshold here is a requirement for products used in people.",
+  "topic": {
+    "shortDescription": "Separating the intended peptide from the by-products synthesis always makes, and why the level of purification depends on what the peptide is for.",
+    "simpleSummary": "What comes out of peptide synthesis is a mixture: the intended peptide plus shorter chains, damaged chains and leftover chemicals. Purification is the step that separates the intended peptide from the rest, usually by a scaled-up version of the same chromatography used to test purity. It is slow, hands-on work, which is a large part of why highly purified peptides cost much more than crude ones. How far a peptide is purified depends on what it is for. Some research uses accept crude material; a peptide used as a laboratory standard is typically purified much further. Knowing that a peptide was 'purified' therefore tells you little until you know to what level, for what purpose, and how that was checked.",
+    "practitionerSummary": "Crude SPPS product contains deletion and terminated sequences, cleavage-derived modifications and reagent residues, all of which must be separated from the target. Preparative HPLC at small scale uses equipment similar to analytical HPLC with larger columns and higher flow; it has not been successfully automated and remains labour-intensive, which the chapter links to the price gap between crude and highly purified peptide. Required purity is application-dependent: antibody-production and screening peptides are often used crude, whereas standards are purified to 98% or greater. Grant's evaluation chapter adds that a single symmetrical HPLC or CE peak with a good mass spectrum usually indicates the intended product, but that no single technique should be relied on and a discordant result should be investigated. Hybrid routes can allow segments to be purified before assembly, simplifying final purification.",
+    "whatItProves": "It establishes that purification is a necessary, variable and resource-intensive stage between crude synthesis and usable material, and that the appropriate degree of purification is set by the intended use.",
+    "whatItDoesNotProve": "The 98% figure is what the chapter says standards are purified to. It is not a regulatory specification, not a threshold for material given to people, and not evidence that any product labelled above it is suitable for any purpose. Purification does not by itself establish identity, content, sterility or endotoxin level.",
+    "commonMisinterpretations": "Treating 'purified' or a purity percentage as a single industry standard. The same source describes crude peptides used deliberately, and highly purified standards, as both being legitimate outputs of the same kind of process for different purposes."
+  },
+  "locations": [
+    {
+      "key": "saneii-ch3-49",
+      "sourceKey": "SRC-007",
+      "locatorText": "ch. 3, p. 49 (file p. 54)",
+      "pageStart": 49,
+      "chapter": "3. Peptide manufacturing (Saneii)",
+      "section": "Small-scale production"
+    },
+    {
+      "key": "saneii-ch3-50",
+      "sourceKey": "SRC-007",
+      "locatorText": "ch. 3, p. 50 (file p. 55)",
+      "pageStart": 50,
+      "chapter": "3. Peptide manufacturing (Saneii)",
+      "section": "Small-scale production; large-scale peptide production"
+    },
+    {
+      "key": "saneii-ch3-52-purif",
+      "sourceKey": "SRC-007",
+      "locatorText": "ch. 3, p. 52 (file p. 57)",
+      "pageStart": 52,
+      "chapter": "3. Peptide manufacturing (Saneii)",
+      "section": "Large-scale peptide production"
+    },
+    {
+      "key": "grant-ch3-163-purif",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 3, p. 163",
+      "pageStart": 163,
+      "chapter": "3. Principles and Practice of Solid-Phase Peptide Synthesis",
+      "section": "Capping"
+    },
+    {
+      "key": "grant-ch4-284",
+      "sourceKey": "SRC-006",
+      "locatorText": "ch. 4, p. 284",
+      "pageStart": 284,
+      "chapter": "4. Evaluation of the Synthetic Product",
+      "section": "How much is enough?"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "PUR-001",
+      "claimText": "By-products of synthesis, including deletion or terminated peptides, must ultimately be separated from the desired product.",
+      "plainLanguageText": "The wrong chains made during synthesis have to be removed.",
+      "claimCategory": "why-purify",
+      "importance": "high",
+      "interpretationNotes": "Grant p. 163. The reason the purification stage exists.",
+      "uncertaintyText": "How much by-product there is varies by sequence and process.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch3-163-purif",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Terminated and deletion peptides must be separated from the desired product."
+        }
+      ]
+    },
+    {
+      "claimKey": "PUR-002",
+      "claimText": "After synthesis, peptides may or may not be purified depending on application: peptides for antibody production or high-throughput screening are often used crude, while peptides used as standards are purified to 98% or greater.",
+      "plainLanguageText": "How pure a peptide is made depends on what it is for; there is no one level.",
+      "claimCategory": "application-dependence",
+      "importance": "high",
+      "interpretationNotes": "Saneii p. 49. The 98% figure applies to standards in the chapter's description; it is recorded with that scope and must not be generalised.",
+      "uncertaintyText": "Describes research-scale practice in 2015. It says nothing about specifications for material given to people.",
+      "evidence": [
+        {
+          "locationKey": "saneii-ch3-49",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Crude use for antibody production and screening; purification to 98% or greater for standards."
+        }
+      ]
+    },
+    {
+      "claimKey": "PUR-003",
+      "claimText": "Small-scale preparative purification uses equipment similar to analytical HPLC adapted for larger columns and higher flow; it had not been successfully automated and remained labour-intensive, which the chapter associates with the large price difference between crude and highly purified peptides.",
+      "plainLanguageText": "Purifying peptides is slow manual work, which is why pure peptide costs much more than crude.",
+      "claimCategory": "process-principle",
+      "importance": "medium",
+      "interpretationNotes": "Saneii p. 50. Relevant when a price looks implausibly low for the purity claimed, though price alone proves nothing.",
+      "uncertaintyText": "Statement about the state of automation in 2015.",
+      "evidence": [
+        {
+          "locationKey": "saneii-ch3-50",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Preparative HPLC equipment, labour intensity, and the crude-versus-purified price gap."
+        }
+      ]
+    },
+    {
+      "claimKey": "PUR-004",
+      "claimText": "In hybrid manufacturing routes, peptide segments can be purified before they are assembled, which simplifies purification of the final product.",
+      "plainLanguageText": "Building a long peptide in pieces lets each piece be cleaned up first.",
+      "claimCategory": "process-variation",
+      "importance": "low",
+      "interpretationNotes": "Saneii p. 52. Another reason processes differ between manufacturers.",
+      "uncertaintyText": "General statement; no product-specific route is described.",
+      "evidence": [
+        {
+          "locationKey": "saneii-ch3-52-purif",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Segments purified before assembly simplify final purification."
+        }
+      ]
+    },
+    {
+      "claimKey": "PUR-005",
+      "claimText": "Most peptides that purify to a single symmetrical HPLC or capillary electrophoresis peak and give a good mass spectrum will be the intended product, and evaluation should go at least that far; but no single technique should be relied on, and a result from one method that indicates a problem should be investigated rather than outvoted by the others.",
+      "plainLanguageText": "After purification, at least two different kinds of test should agree, and one worrying result matters.",
+      "claimCategory": "release-check",
+      "importance": "high",
+      "interpretationNotes": "Grant p. 284. Connects purification to the testing stage: purification is judged by more than one analytical view.",
+      "uncertaintyText": "A research-laboratory minimum from an evaluation chapter, not a release specification for a medicinal product.",
+      "evidence": [
+        {
+          "locationKey": "grant-ch4-284",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Single symmetrical peak plus a good mass spectrum as a practical minimum; do not rely on one technique."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "statement": "Counter-ion exchange (for example trifluoroacetate to acetate) and its effect on the final material.",
+      "why": "No held usable source describes it. SRC-014, the formulation text that might, is not the registered work.",
+      "whatWouldResolveIt": "A genuine copy of SRC-014 or a current peptide process chemistry reference.",
+      "gapType": "source_corrupted"
+    },
+    {
+      "statement": "Purity specifications for peptide material intended for use in people.",
+      "why": "The held sources give research-scale practice only; compendial monographs and product-specific specifications are not held.",
+      "whatWouldResolveIt": "Compendial monographs or regulatory product specifications.",
+      "gapType": "numerical_threshold_not_established"
+    }
+  ]
+}
