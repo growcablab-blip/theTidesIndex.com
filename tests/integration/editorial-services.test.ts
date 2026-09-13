@@ -295,8 +295,14 @@ describe('editorial services', () => {
 
     const rows = await query<{ protocol_key: string; amount_reported: string }>(
       db,
-      `select protocol_key, amount_reported from protocols where peptide_id = $1 order by protocol_key`,
-      [peptide!.id],
+      // Scoped to the two this test created. The compound packets now load
+      // real source-reported regimens against the seeded cohort, so "every
+      // protocol on this peptide" is no longer the same set as "the ones this
+      // test made" — and the property under test is that two sources produce
+      // two rows, not that the table is otherwise empty.
+      `select protocol_key, amount_reported from protocols
+        where peptide_id = $1 and protocol_key = any($2) order by protocol_key`,
+      [peptide!.id, keys],
     );
 
     expect(rows.map((r) => r.protocol_key)).toEqual(keys);

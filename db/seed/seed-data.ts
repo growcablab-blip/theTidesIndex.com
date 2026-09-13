@@ -237,6 +237,141 @@ const evidencePacketSchema = z.object({
 
 export type EvidencePacket = z.infer<typeof evidencePacketSchema>;
 
+// ---------------------------------------------------------------------------
+// Compound evidence packets
+// ---------------------------------------------------------------------------
+
+/**
+ * The same extraction discipline, applied to a compound.
+ *
+ * A quality topic and a compound need the same four things — located claims, a
+ * recorded reading, a stated uncertainty, and a list of what the sources do not
+ * settle — so those parts are shared verbatim rather than re-specified.
+ *
+ * What a compound adds is everything that can *differ between sources* about
+ * the same substance: which routes have been reported, what regimens were
+ * described and by whom, where sources disagree, and what a regulator has said
+ * in which jurisdiction on which date. Each is a separate relation because each
+ * has a different provenance and a different half-life, and because flattening
+ * them into prose is exactly how "one source reported 250 mcg twice daily"
+ * becomes "the dose is 500 mcg a day".
+ */
+const packetRouteSchema = z.object({
+  routeKey: z.string().min(1),
+  evidenceTypeKey: z.string().min(1),
+  locationKey: z.string().min(1),
+  /** Who or what it was reported in. Never omitted: a route without a
+   *  population is a route for nobody in particular. */
+  populationModel: z.string().min(1),
+  formulation: z.string().nullable().default(null),
+  pkNotes: z.string().nullable().default(null),
+  limitationsNotes: z.string().min(1),
+});
+
+const packetProtocolSchema = z.object({
+  protocolKey: z.string().min(1),
+  /** The purpose the *source* framed it for, in the source's own terms. */
+  objectiveContext: z.string().min(1),
+  populationModel: z.string().min(1),
+  routeKey: z.string().min(1),
+  formulation: z.string().nullable().default(null),
+  /**
+   * What this regimen is and is not, stated on the record itself.
+   *
+   * Required, because a regimen rendered without it reads as a
+   * recommendation — and none of these is one.
+   */
+  regulatoryContext: z.string().min(1),
+  evidenceTypeKey: z.string().min(1),
+  amountReported: z.string().nullable().default(null),
+  amountUnit: z.string().nullable().default(null),
+  frequencyText: z.string().nullable().default(null),
+  durationText: z.string().nullable().default(null),
+  monitoringText: z.string().nullable().default(null),
+  contraindicationsText: z.string().nullable().default(null),
+  safetyNotes: z.string().nullable().default(null),
+  locationKey: z.string().min(1),
+  /**
+   * Always false in a packet, and not configurable.
+   *
+   * `patient_visibility` is what the simple-mode query filters on. A packet is
+   * a bulk import; letting one set it would put a source-reported amount in
+   * front of a patient because somebody typed `true` in a JSON file.
+   */
+  patientVisibility: z.literal(false).default(false),
+});
+
+const packetDisagreementSchema = z.object({
+  disagreementKey: z.string().min(1),
+  topic: z.string().min(1),
+  plainLanguageText: z.string().min(1),
+  candidateExplanation: z
+    .enum(['route', 'formulation', 'population', 'dose', 'study_design', 'terminology', 'date', 'unresolved'])
+    .default('unresolved'),
+  explanationNotes: z.string().min(1),
+  /** What would settle it. Never "more research": a kind of source. */
+  resolutionRequirement: z.string().min(1),
+  positions: z
+    .array(
+      z.object({
+        locationKey: z.string().min(1),
+        evidenceTypeKey: z.string().min(1),
+        positionText: z.string().min(1),
+      }),
+    )
+    .min(2),
+});
+
+const packetRegulatorySchema = z.object({
+  jurisdiction: z.string().min(1),
+  indicationContext: z.string().min(1),
+  status: z.enum([
+    'approved',
+    'authorized_limited',
+    'investigational_clinical',
+    'preclinical',
+    'discontinued',
+    'withdrawn',
+    'not_approved',
+    'unknown',
+  ]),
+  authority: z.string().min(1),
+  locationKey: z.string().min(1),
+  /** The date the status was read from the source. Regulatory status decays. */
+  checkedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  notes: z.string().min(1),
+});
+
+const packetCompoundSchema = z.object({
+  shortDescription: z.string().min(1),
+  simpleSummary: z.string().min(1),
+  practitionerSummary: z.string().min(1),
+  /** What is not established. Required before a compound record can publish. */
+  unknownsSummary: z.string().min(1),
+  aliases: z.array(z.object({ alias: z.string().min(1), note: z.string().min(1) })).default([]),
+  sequence: z.string().nullable().default(null),
+  molecularDescription: z.string().nullable().default(null),
+  naturalOrSynthetic: z.string().nullable().default(null),
+  /** Naming problems a reader will meet elsewhere. Null where there are none. */
+  nomenclatureNote: z.string().nullable().default(null),
+});
+
+const compoundPacketSchema = z.object({
+  packetKey: z.string().min(1),
+  peptideKey: z.string().min(1),
+  note: z.string().min(1),
+  compound: packetCompoundSchema,
+  locations: z.array(packetLocationSchema).min(1),
+  claims: z.array(packetClaimSchema).min(1),
+  notYetSupported: z.array(packetGapSchema).default([]),
+  routes: z.array(packetRouteSchema).default([]),
+  protocols: z.array(packetProtocolSchema).default([]),
+  disagreements: z.array(packetDisagreementSchema).default([]),
+  regulatory: z.array(packetRegulatorySchema).default([]),
+});
+
+export type CompoundPacket = z.infer<typeof compoundPacketSchema>;
+
 /**
  * Parses a packet, naming the file and the field when it is malformed.
  *
@@ -293,12 +428,27 @@ function parsePacket(file: string): EvidencePacket {
   throw new Error(`Evidence packet is incomplete.${NEWLINE}${problems}`);
 }
 
+function parseCompoundPacket(file: string): CompoundPacket {
+  const result = compoundPacketSchema.safeParse(loadJson(file));
+  if (result.success) return result.data;
+
+  const problems = result.error.issues
+    .map((issue) => `  data/seed/${file} → ${issue.path.join(".")}: ${issue.message}`)
+    .join(NEWLINE);
+  throw new Error(`Compound evidence packet is incomplete.${NEWLINE}${problems}`);
+}
+
 /** Packets are listed explicitly: adding one is an editorial decision. */
 const EVIDENCE_PACKET_FILES = [
   'evidence/hplc-purity.json',
   'evidence/coa-literacy.json',
   'evidence/identity-testing.json',
   'evidence/peptide-content-assay.json',
+] as const;
+
+const COMPOUND_PACKET_FILES = [
+  'evidence/tesamorelin.json',
+  'evidence/bpc-157.json',
 ] as const;
 
 /**
@@ -485,6 +635,7 @@ export const seedData = {
     .parse(loadJson('verification_issues.json')),
   evidenceTaxonomy: evidenceTaxonomySchema.parse(loadJson('evidence_taxonomy.json')),
   evidencePackets: EVIDENCE_PACKET_FILES.map((file) => parsePacket(file)),
+  compoundPackets: COMPOUND_PACKET_FILES.map((file) => parseCompoundPacket(file)),
   qualityMap: qualityMapSchema.parse(loadJson('quality_map.json')),
   specimenCertificate: specimenCertificateSchema.parse(
     loadJson('certificates/specimen-coa.json'),

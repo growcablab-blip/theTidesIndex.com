@@ -42,6 +42,16 @@ const PAGES: readonly { file: string; path: string; label: string }[] = [
     label: 'Certificate of analysis',
   },
   { file: MOBILE ? '13-mobile-peptides.png' : '07-peptides.png', path: '/peptides', label: 'Compounds' },
+  {
+    file: MOBILE ? '14-mobile-tesamorelin.png' : '20-tesamorelin.png',
+    path: '/peptides/tesamorelin',
+    label: 'Tesamorelin',
+  },
+  {
+    file: MOBILE ? '15-mobile-bpc-157.png' : '21-bpc-157.png',
+    path: '/peptides/bpc-157',
+    label: 'BPC-157',
+  },
   { file: '08-sources.png', path: '/sources', label: 'Sources' },
 ];
 

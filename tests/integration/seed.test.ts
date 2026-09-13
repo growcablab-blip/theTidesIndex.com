@@ -80,9 +80,31 @@ describe('seeding', () => {
     );
 
     expect(rows.length).toBe(10);
+
+    /*
+     * Two compounds have been extracted from held sources and carry content;
+     * the other eight must carry none.
+     *
+     * The assertion is narrowed rather than dropped, because what it was
+     * guarding against has not changed: a compound acquiring a summary because
+     * somebody wrote one, rather than because a packet extracted one from a
+     * located source. An empty cohort made that easy to check. A cohort with
+     * two real records makes it worth checking.
+     */
+    const extracted = new Set(seedData.compoundPackets.map((packet) => packet.peptideKey));
+    expect(extracted.size).toBeGreaterThan(0);
+
     for (const row of rows) {
-      expect(row.simple_summary, row.peptide_key).toBeNull();
-      expect(row.practitioner_summary, row.peptide_key).toBeNull();
+      if (extracted.has(row.peptide_key)) {
+        // Extracted: it must have both summaries and a statement of what is
+        // not established, which is what the publish gate will require.
+        expect(row.simple_summary, row.peptide_key).not.toBeNull();
+        expect(row.practitioner_summary, row.peptide_key).not.toBeNull();
+      } else {
+        expect(row.simple_summary, row.peptide_key).toBeNull();
+        expect(row.practitioner_summary, row.peptide_key).toBeNull();
+      }
+      // Neither kind is reviewed by anyone. Extraction is not review.
       expect(row.editorial_state, row.peptide_key).toBe('unreviewed');
     }
   });

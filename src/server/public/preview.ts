@@ -2,6 +2,8 @@ import 'server-only';
 import { getStaffDb } from '../db/client';
 import { currentPreviewEnv, previewAllowed, previewRefusal } from './preview-gate';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
+import { readPeptidePagePreview, type PeptidePage } from './queries';
+import type { ReadingMode } from '@/domain/presentation/reading-mode';
 import { readSpecimenCertificate, type CertificateReading } from './certificate';
 
 /**
@@ -46,6 +48,23 @@ export function previewRefusalReason(): string | null {
 export async function previewQualityTopic(slug: string): Promise<QualityTopicReading | null> {
   if (!previewEnabled()) return null;
   return readQualityTopic(getStaffDb(), slug, { preview: true });
+}
+
+/**
+ * A compound record, read without the publication filter.
+ *
+ * The same reason as the topics, and a sharper one: a compound record is the
+ * first place this index's separations — human from preclinical, reported
+ * regimen from recommendation, route from evidence for a route — meet a subject
+ * where readers already hold strong opinions. Nobody can judge whether those
+ * separations survive presentation without seeing the page.
+ */
+export async function previewPeptidePage(
+  slug: string,
+  mode: ReadingMode,
+): Promise<PeptidePage | null> {
+  if (!previewEnabled()) return null;
+  return readPeptidePagePreview(getStaffDb(), slug, mode);
 }
 
 /** The specimen certificate, read without the publication filter. */

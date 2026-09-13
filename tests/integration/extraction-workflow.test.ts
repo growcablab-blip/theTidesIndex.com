@@ -193,8 +193,18 @@ describe('the extraction workflow, enforced', () => {
     // The workflow must handle a practitioner protocol without special pleading.
     // None has been extracted, so what is asserted here is that the structure is
     // ready and that nothing has been quietly invented in the meantime.
-    const protocols = await query<{ n: number }>(db, `select count(*)::int as n from protocols`);
-    expect(protocols[0]?.n).toBe(0);
+    /*
+     * Protocols now exist — the compound packets loaded five source-reported
+     * regimens for BPC-157 and one for tesamorelin. What this case is actually
+     * about is that a protocol cannot exist *without* its provenance, so it
+     * asserts that instead of asserting emptiness.
+     */
+    const orphaned = await query<{ n: number }>(
+      db,
+      `select count(*)::int as n from protocols p
+        where not exists (select 1 from protocol_sources ps where ps.protocol_id = p.id)`,
+    );
+    expect(orphaned[0]?.n).toBe(0);
 
     // The columns the standard requires all exist and are nullable, so a field
     // the source does not state can be stored as absent rather than guessed.

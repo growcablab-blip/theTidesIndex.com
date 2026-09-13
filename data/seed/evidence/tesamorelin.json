@@ -1,0 +1,353 @@
+{
+  "packetKey": "tesamorelin",
+  "peptideKey": "tesamorelin",
+  "note": "Extracted from SRC-002 (LaValle et al., Peptide Handbook, 2022), file pages 143-148 = printed pages 141-146. The handbook is a practitioner reference that cites primary literature by superscript; it is treated here as a practitioner reference reporting what studies found, not as the study. Where it reports a trial result, the claim says who reported it and that the primary paper has not been opened by this index. Tesamorelin is the deliberately 'easier' half of this pair: it has an approved product, an approved indication, and named Phase III trials, and the point of extracting it alongside BPC-157 is to show the same architecture recording a much stronger evidence base without inflating it.",
+
+  "compound": {
+    "shortDescription": "A growth hormone-releasing hormone analogue with an approved product and an approved indication, reported by the practitioner source held here to reduce visceral fat in HIV-associated lipodystrophy.",
+
+    "simpleSummary": "Tesamorelin is a laboratory-made version of a hormone the body already produces — growth hormone-releasing hormone, or GHRH. Rather than supplying growth hormone directly, it prompts the pituitary gland to release more of its own.\n\nIt is discussed because, unlike most compounds in this index, it exists as an approved medicine. The source held here names the product Egrifta and records an approved use: a change in body fat distribution that can occur in people with HIV, in which fat accumulates deep in the abdomen. The same source reports that in two clinical trials in people with HIV and abdominal obesity, treatment reduced that deep abdominal fat by around 15% over 26 weeks, without changing fat under the skin or overall body mass.\n\nWhat this index can tell you is limited by what it holds. It holds one practitioner handbook, which summarises those trials and cites them; it does not hold the trials themselves, the approved product labelling, or any regulatory document. So it can say what a careful practitioner reference reports, and it cannot independently confirm any of it.\n\nSeveral things remain open. The handbook notes that long-term use has not been studied. It lists conditions in which the compound should not be used, including pregnancy, active cancer, and pituitary disease. And nothing held here establishes anything about its use outside the approved indication, which is most of the reason it is discussed.\n\nBefore discussing tesamorelin with a clinician, the useful thing to understand is that an approved medicine has an approved use, and that a compound being approved for one purpose is not evidence about another.",
+
+    "practitionerSummary": "GHRH analogue: the endogenous 44-amino-acid sequence with a trans-3-hexenoyl group added at the N-terminus, which the source held here reports as conferring resistance to degradation. Acts at the GHRH receptor on somatotrophs to stimulate endogenous pulsatile GH secretion, and thus downstream IGF-1 — a mechanism the source distinguishes from exogenous GH administration.\n\nHuman evidence, as reported by the practitioner source: two Phase III trials (n = 412) in HIV-infected patients with abdominal obesity, in which visceral adipose tissue fell selectively by 15% over 26 weeks without change in subcutaneous adipose tissue or BMI; responders showed greater stability in glucose homeostasis than non-responders across waist circumference, triglycerides, fasting glucose, HbA1c, HOMA-IR, adiponectin and IGF-1. The same source reports a separate GHRH-administration trial in 152 adults aged 55-87 reporting favourable cognitive effects in both mild cognitive impairment and healthy ageing, and notes that longer trials are needed. **This index has not opened any of those papers.**\n\nPharmacokinetics, as reported: mean elimination half-life 26 minutes in healthy subjects and 38 minutes in HIV-infected patients after 14 consecutive days of subcutaneous administration. IGF-1 increase reported at a mean of 181 µg/L in men. Reported not to substantially affect TSH, LH, ACTH or prolactin.\n\nFormulation and route: the approved product is a lyophilised powder for subcutaneous injection, reconstituted with Sterile Water for Injection; the source records 1 mg of tesamorelin free base per single-use vial with 50 mg mannitol. Subcutaneous is the only route recorded here.\n\nSafety, as reported: contraindicated in hypersensitivity, pregnancy, pituitary conditions including HPA-axis disruption, existing head trauma and active malignancy; paediatric safety not established. Caution with elevated IGF-1, neoplasms, fluid retention and glucose intolerance. Reported interactions via cytochrome P-450. Most common adverse effects listed as injection-site erythema, rash, oedema, joint and muscle pain, and diarrhoea. The source reports no de novo serum enzyme elevations in HIV-lipodystrophy trials and no reported instances of clinically apparent liver injury.\n\nUnresolved: this index holds no regulatory document, no approved labelling and no primary trial paper. Every statement above is what one practitioner handbook reports, and the handbook's own citations have not been traced.",
+
+    "unknownsSummary": "Everything outside the indication the source names. This index holds no primary trial paper, no approved product labelling and no regulatory document for tesamorelin — only a practitioner handbook that summarises and cites them. It cannot confirm any reported trial result, cannot state the approved indication in a regulator's own words, cannot give an approval date or jurisdiction from an authority, and establishes nothing at all about use for body composition, ageing, sleep or performance in people without the condition studied. The source itself records that long-term use has not been studied.",
+
+    "aliases": [
+      { "alias": "Egrifta", "note": "Brand name recorded by SRC-002 for the product marketed by Theratechnologies Inc., Canada." },
+      { "alias": "TH9507", "note": "Development code. Not recorded in any source held here; listed because a reader will meet it elsewhere, and it is not sourced." },
+      { "alias": "GHRH(1-44) analogue", "note": "Descriptive, not a name. SRC-002 describes tesamorelin as a GHRH analogue with an added trans-3-hexanoic acid moiety." }
+    ],
+
+    "sequence": "N-(trans-3-hexenoyl)-Tyr-Ala-Asp-Ala-Ile-Phe-Thr-Asn-Ser-Tyr-Arg-Lys-Val-Leu-Gly-Gln-Leu-Ser-Ala-Arg-Lys-Leu-Leu-Gln-Asp-Ile-Met-Ser-Arg-Gln-Gln-Gly-Glu-Ser-Asn-Gln-Glu-Arg-Gly-Ala-Arg-Ala-Arg-Leu-NH2",
+    "molecularDescription": "Molecular weight reported as 5195.908 g/mol. The molecular formula printed in the held copy is degraded by optical character recognition and is not transcribed here rather than transcribed wrongly.",
+    "naturalOrSynthetic": "Synthetic analogue of an endogenous human hormone. The parent sequence is human GHRH; the trans-3-hexenoyl group at the N-terminus is not.",
+    "nomenclatureNote": "Tesamorelin is a GHRH analogue and is routinely grouped with sermorelin and CJC-1295, which the source held here does explicitly. That grouping is about mechanism, not about evidence: the three do not share an approval, an indication or a trial record, and a claim about one is not a claim about another."
+  },
+
+  "locations": [
+    {
+      "key": "lavalle-tesa-141",
+      "sourceKey": "SRC-002",
+      "locatorText": "pp. 141-142",
+      "pageStart": 141,
+      "pageEnd": 142,
+      "section": "Tesamorelin — category, sequence, indications and uses"
+    },
+    {
+      "key": "lavalle-tesa-142",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 142",
+      "pageStart": 142,
+      "section": "Tesamorelin — formulation and dosage"
+    },
+    {
+      "key": "lavalle-tesa-143",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 143",
+      "pageStart": 143,
+      "section": "Tesamorelin — administration, storage, warnings and cautions"
+    },
+    {
+      "key": "lavalle-tesa-144",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 144",
+      "pageStart": 144,
+      "section": "Tesamorelin — interactions, adverse effects, summary"
+    },
+    {
+      "key": "lavalle-tesa-145",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 145",
+      "pageStart": 145,
+      "section": "Tesamorelin — HIV lipodystrophy and primary uses"
+    },
+    {
+      "key": "lavalle-tesa-146",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 146",
+      "pageStart": 146,
+      "section": "Tesamorelin — trial results, pharmacokinetics, pituitary selectivity"
+    }
+  ],
+
+  "claims": [
+    {
+      "claimKey": "TESA-001",
+      "claimText": "Tesamorelin is a growth hormone-releasing hormone analogue: the GHRH sequence with an additional trans-3-hexanoic acid moiety. It acts as a somatotropin agonist, stimulating the pituitary to secrete endogenous growth hormone rather than supplying growth hormone itself.",
+      "plainLanguageText": "Tesamorelin is a modified copy of a hormone the body makes. It works by prompting the pituitary gland to release its own growth hormone, rather than by adding growth hormone from outside.",
+      "claimCategory": "mechanism",
+      "importance": "critical",
+      "interpretationNotes": "SRC-002 states the structural modification and the mechanism directly in its indications section, and repeats the mechanism in its summary: GHRH reaches the anterior pituitary through the hypothalamo-hypophyseal portal system and stimulates GH secretion at the GHRH receptor. The distinction this index draws from that passage is between a secretagogue and exogenous growth hormone, because the two are routinely conflated and have different implications for what a result means.",
+      "uncertaintyText": "This is a mechanism as described in a practitioner handbook, not a measurement. The handbook cites primary literature for it, and this index has not opened those citations. Nothing here establishes the magnitude or duration of the GH response in any particular person, or that a mechanism operating as described produces any particular clinical outcome.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-141",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source lists tesamorelin as a somatotropin agonist and GHRH analogue with an added trans-3-hexanoic acid moiety, and gives 'stimulation of pituitary endogenous GH' as its indication and use.",
+          "populationModel": "Not applicable — a statement about the molecule and its mechanism."
+        },
+        {
+          "locationKey": "lavalle-tesa-144",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source's summary restates the mechanism through the GHRH receptor on the anterior pituitary, and groups tesamorelin with sermorelin and CJC-1295 as GHRH analogues acting the same way.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-002",
+      "claimText": "An approved product exists. The source held here names Egrifta, marketed by Theratechnologies Inc., Canada, supplied as a lyophilised powder for subcutaneous injection containing 1 mg of tesamorelin as the free base with 50 mg mannitol per single-use vial.",
+      "plainLanguageText": "Unlike most compounds in this index, tesamorelin exists as an approved medicine with a brand name, a manufacturer and a defined formulation.",
+      "claimCategory": "regulatory",
+      "importance": "critical",
+      "interpretationNotes": "The existence of an approved product is the single most consequential fact about this compound, and it is the fact that most distinguishes it from the rest of the register. This index records it as reported by a practitioner handbook, because that is the only kind of source it holds for it. A named product, manufacturer and composition is a strong signal; it is not the same as having read the approval.",
+      "uncertaintyText": "This index holds no regulatory document, no approved labelling and no marketing authorisation for tesamorelin. It cannot state which authority approved it, in which jurisdiction, on what date, for what indication in the regulator's own words, or whether that status still stands. A practitioner handbook published in 2022 is not a current regulatory record.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-141",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source records Egrifta (Theratechnologies, Inc., Canada) under 'Other Name(s)'.",
+          "populationModel": "Not applicable."
+        },
+        {
+          "locationKey": "lavalle-tesa-142",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source gives the formulation: a lyophilised powder reconstituted with Sterile Water for Injection, each single-use vial containing 1 mg tesamorelin free base and 50 mg mannitol as the inactive ingredient.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-003",
+      "claimText": "In two Phase III trials in HIV-infected patients with abdominal obesity (n = 412), tesamorelin was reported to reduce visceral adipose tissue area by 15% over 26 weeks without altering subcutaneous adipose tissue or body mass index.",
+      "plainLanguageText": "Two large trials in people with HIV and abdominal obesity reported that treatment reduced deep abdominal fat by about 15% over six months, while fat under the skin and overall body mass did not change.",
+      "claimCategory": "human-evidence",
+      "importance": "critical",
+      "interpretationNotes": "This is the strongest human evidence anywhere in this index, and it reaches the index second-hand. The selectivity is the part worth holding onto: visceral fat fell and subcutaneous fat did not, which is a different and more specific finding than 'reduced fat'. This index reports it as a trial result reported by a practitioner handbook, with the trial identity, design, comparator and endpoints unexamined.",
+      "uncertaintyText": "The primary papers have not been opened by this index. The handbook gives a superscript citation and no trial name, registration number or journal. Nothing here establishes what the comparator was, how visceral fat was measured, what happened after 26 weeks, whether the effect persists after stopping, or whether it occurs in anyone without HIV-associated lipodystrophy.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-146",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source states that in two Phase III clinical trials of HIV-infected patients with abdominal obesity (n = 412), tesamorelin selectively reduced VAT area by 15% over 26 weeks without altering subcutaneous adipose tissue or BMI, citing the trials by superscript.",
+          "populationModel": "HIV-infected adults with abdominal obesity, as reported. Population characteristics beyond this are not given by the source."
+        },
+        {
+          "locationKey": "lavalle-tesa-145",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contextualizes",
+          "interpretation": "The source frames the primary use as treating HIV-associated lipodystrophy, a consequence of HIV infection and/or antiretroviral therapy, and separately reports a 15-20% reduction in visceral adipose tissue over 6-12 months.",
+          "populationModel": "Adults with HIV-associated abdominal adiposity."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-004",
+      "claimText": "The reported effect is confined to a specific population and indication: HIV-associated lipodystrophy, a redistribution of body fat arising from HIV infection or antiretroviral therapy.",
+      "plainLanguageText": "The evidence held here is about one condition in one group of people — a change in fat distribution that occurs with HIV or its treatment. It is not evidence about body composition in general.",
+      "claimCategory": "scope",
+      "importance": "critical",
+      "interpretationNotes": "Recorded as a claim rather than left implicit, because the inference from 'reduces visceral fat in HIV lipodystrophy' to 'reduces visceral fat' is the single most likely misreading of this record, and because that inference is what most of the non-clinical interest in this compound rests on. The source describes the population and the mechanism of the condition explicitly; it does not extend the finding beyond it.",
+      "uncertaintyText": "Whether the effect occurs in people without HIV-associated lipodystrophy is not established by anything this index holds. The absence of evidence here is not evidence that it does not — it is an absence, and it is recorded as one.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-145",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source describes HIV lipodystrophy syndrome as increased visceral adiposity, loss of subcutaneous fat, dyslipidaemia and insulin resistance developing variably with long-term antiretroviral therapy, and names treating it as the primary use of tesamorelin.",
+          "populationModel": "Patients receiving antiretroviral therapy for HIV."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-005",
+      "claimText": "Mean elimination half-life after subcutaneous administration for 14 consecutive days was reported as 26 minutes in healthy subjects and 38 minutes in HIV-infected patients.",
+      "plainLanguageText": "The compound clears from the blood quickly — within about half an hour — and slightly more slowly in people with HIV than in healthy volunteers.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "high",
+      "interpretationNotes": "A short half-life is consistent with the mechanism: a secretagogue acts by triggering a pulse rather than by maintaining a concentration, so persistence in plasma is not what determines the effect. The difference between the two populations is reported without explanation by the source, and this index does not supply one.",
+      "uncertaintyText": "The source gives no dose, no sampling schedule, no assay and no citation detail for these figures beyond a superscript. Half-life in plasma says nothing about the duration of the growth hormone response it provokes, which is the quantity that would actually matter and which is not reported here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-146",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source reports mean elimination half-life of 26 and 38 minutes in healthy subjects and HIV-infected patients respectively, after subcutaneous administration for 14 consecutive days.",
+          "populationModel": "Healthy subjects and HIV-infected patients, as reported; group sizes not given."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-006",
+      "claimText": "Tesamorelin was reported to raise IGF-1 by a mean of 181 micrograms per litre in men, and not to substantially affect thyroid-stimulating hormone, luteinizing hormone, adrenocorticotropic hormone or prolactin.",
+      "plainLanguageText": "Treatment raised a downstream marker of growth hormone activity, and the source reports that other pituitary hormones were not substantially affected.",
+      "claimCategory": "human-evidence",
+      "importance": "high",
+      "interpretationNotes": "Two statements that belong together: an effect on the intended axis, and an absence of effect on the others. Pituitary selectivity is the claim a GHRH analogue has to make, because acting at the pituitary is by definition acting where several axes converge. This index records both as reported, and records that the second is an absence reported by one source rather than a demonstrated one.",
+      "uncertaintyText": "A mean rise in IGF-1 across men says nothing about the distribution, the baseline, or what value would be expected or safe in any individual. The source lists elevated IGF-1 separately as a condition requiring caution, which is worth reading alongside this. 'Not substantially affected' is the source's wording, and no threshold for 'substantial' is given.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-146",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source reports an average increase in IGF-1 of 181 micrograms/litre in men with binding like endogenous GHRH, and separately that tesamorelin is reported not to substantially affect TSH, LH, ACTH or prolactin.",
+          "populationModel": "Men; the source does not state whether they were HIV-infected or healthy."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-007",
+      "claimText": "The source records contraindications in hypersensitivity to any component, pregnancy, pituitary conditions including disruption of the HPA axis, existing head trauma and active malignancy, and states that paediatric safety has not been established.",
+      "plainLanguageText": "The handbook lists situations in which this should not be used at all, including pregnancy, active cancer, and conditions affecting the pituitary gland. It also states that safety in children has not been established.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "Recorded verbatim in substance, because a contraindication is the kind of statement where paraphrase loses the point. This index reports what the handbook lists; it does not rank the items, add to them, or infer a mechanism for any of them. 'Not established' for paediatric safety is an absence the source states, and it is preserved as an absence.",
+      "uncertaintyText": "This is a practitioner handbook's list, not approved labelling. Approved labelling exists — the source names an approved product — and this index does not hold it, so it cannot confirm that this list matches, is complete, or is current. Anyone relying on a contraindication should be reading the labelling, not this.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-143",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source lists the contraindications and the caution conditions under 'Warnings and Cautions', and states that safety in paediatrics has not been established.",
+          "populationModel": "Not applicable — a list of conditions."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-008",
+      "claimText": "The source states that long-term use of tesamorelin has not been studied.",
+      "plainLanguageText": "How this behaves over long periods is not known. The handbook says so directly.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "A source stating the limit of its own evidence is unusual and worth recording as a claim in its own right rather than as a caveat attached to another. It bounds everything else on this record: a 26-week trial result and a 26-minute half-life together say nothing about years of use.",
+      "uncertaintyText": "None as to the statement itself — the source is explicit. What remains unknown is everything the statement points at: whether effects persist, whether they diminish, what happens on stopping, and whether any risk accumulates.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-tesa-144",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The source states 'Long term use has not been studied' among its warnings, immediately after listing the most common adverse effects.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    }
+  ],
+
+  "notYetSupported": [
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "Which regulatory authority approved tesamorelin, in which jurisdiction, on what date, and for what indication in the regulator's own words.",
+      "why": "This index holds no regulatory document, no approved labelling and no marketing authorisation for tesamorelin. The only source it holds names a product and a manufacturer, which is not the same as having read the approval.",
+      "whatWouldResolveIt": "The approved product labelling, or the authority's own assessment or approval record, from the jurisdiction concerned.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "What the Phase III trials actually reported — design, comparator, measurement method, endpoints and what happened after 26 weeks.",
+      "why": "The trials reach this index through a practitioner handbook's superscript citation. The papers have not been obtained or opened, so every trial figure here is reported at one remove.",
+      "whatWouldResolveIt": "The primary trial publications, obtained and read, with the figures checked against them.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "That tesamorelin reduces visceral fat, improves body composition or affects any outcome in people without HIV-associated lipodystrophy.",
+      "why": "Every human result this index holds is in a defined clinical population with a specific condition. Nothing held here extends beyond it, and the source does not extend it either.",
+      "whatWouldResolveIt": "Trials in a population without HIV-associated lipodystrophy, reporting the same or different outcomes.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "What happens with use beyond the studied period.",
+      "why": "The source states directly that long-term use has not been studied. This index has nothing that would qualify or extend that statement.",
+      "whatWouldResolveIt": "Long-term follow-up data, or a pharmacovigilance record from the jurisdiction where the product is approved.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "route_not_established",
+      "statement": "That any route other than subcutaneous injection has been studied or is appropriate.",
+      "why": "Subcutaneous is the only route the source records, and it is the route of the approved formulation. Nothing held here addresses any other.",
+      "whatWouldResolveIt": "A source reporting administration by another route, with the population and formulation it applies to.",
+      "verificationIssueKey": null
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What the reported cognitive findings in older adults mean for anyone.",
+      "why": "The source reports a 20-week GHRH administration trial in 152 adults aged 55-87 with favourable cognitive effects, and states in the same sentence that longer trials are needed. That trial is of GHRH administration, which this index cannot confirm is the same intervention as tesamorelin, and the paper has not been opened.",
+      "whatWouldResolveIt": "The primary publication, read closely enough to establish what was administered and to whom.",
+      "verificationIssueKey": null
+    }
+  ],
+
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-tesa-142",
+      "populationModel": "Adults with HIV-associated lipodystrophy, and the approved product's route.",
+      "formulation": "Lyophilised powder reconstituted with Sterile Water for Injection; 1 mg tesamorelin free base with 50 mg mannitol per single-use vial.",
+      "pkNotes": "Mean elimination half-life reported as 26 minutes in healthy subjects and 38 minutes in HIV-infected patients after 14 consecutive days by this route.",
+      "limitationsNotes": "This is the route of the approved formulation as recorded by a practitioner handbook. It is the only route any source held here records for tesamorelin, and recording it is not a statement that it is appropriate for any particular person or purpose."
+    }
+  ],
+
+  "protocols": [
+    {
+      "protocolKey": "TESA-PR-LAVALLE-01",
+      "objectiveContext": "Supporting growth hormone and treating HIV-associated lipodystrophy, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source beyond the indication it describes.",
+      "routeKey": "subcutaneous",
+      "formulation": "Reconstituted lyophilised powder. The source notes that an Egrifta 2 mg vial is reconstituted with 2.1 mL of diluent, mixed by rolling for 30 seconds and not shaken.",
+      "regulatoryContext": "Reported by a practitioner handbook, which itself notes a divergence between what many experts recommend and what the manufacturer recommends. This is not approved labelling, not a study regimen, and not a recommendation by The Tides Index.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1-2",
+      "amountUnit": "mg",
+      "frequencyText": "Daily, approximately 90 minutes before bedtime or after the last food intake",
+      "durationText": "Not stated by the source",
+      "monitoringText": null,
+      "contraindicationsText": "Hypersensitivity to any component, pregnancy, pituitary conditions including HPA-axis disruption, existing head trauma, active malignancy. Paediatric safety not established.",
+      "safetyNotes": "The source lists caution in elevated IGF-1, neoplasms, fluid retention and glucose intolerance, and notes possible interaction with cytochrome P-450 metabolised drugs.",
+      "locationKey": "lavalle-tesa-142",
+      "patientVisibility": false
+    }
+  ],
+
+  "disagreements": [
+    {
+      "disagreementKey": "TESA-D-001",
+      "topic": "How much tesamorelin, within one source: the amount many practitioners use and the amount the manufacturer specifies are recorded as different.",
+      "plainLanguageText": "Even within a single handbook, two different amounts are recorded — one that the manufacturer specifies and a lower one that the source says many practitioners use instead. The reason given for the difference is cost, not evidence.",
+      "candidateExplanation": "dose",
+      "explanationNotes": "This disagreement is unusual in that both positions come from the same passage of the same source, which reports the divergence rather than resolving it. The stated reason for the lower amount is cost effectiveness, which is a statement about economics rather than about what was studied. That matters: an amount chosen for cost is not an amount shown to be equivalent, and a reader could easily take the divergence as evidence that the lower amount works as well.",
+      "resolutionRequirement": "The approved product labelling, which would establish what amount the approval covers; and a comparative study, which would establish whether a lower amount produces the studied effect. This index holds neither.",
+      "positions": [
+        {
+          "locationKey": "lavalle-tesa-142",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "The source records 2 mg as recommended by the manufacturer of Egrifta."
+        },
+        {
+          "locationKey": "lavalle-tesa-142",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "The same passage records that 1 mg subcutaneously is recommended by many experts, on the stated basis of cost effectiveness rather than of comparative evidence."
+        }
+      ]
+    }
+  ],
+
+  "regulatory": [
+    {
+      "jurisdiction": "Canada",
+      "indicationContext": "HIV-associated lipodystrophy — reduction of excess abdominal fat, as described by the source rather than by a regulator.",
+      "status": "approved",
+      "authority": "Not established by any source held here. The source names Theratechnologies Inc., Canada as the manufacturer of Egrifta; it does not name the approving authority.",
+      "locationKey": "lavalle-tesa-141",
+      "checkedAt": "2026-09-12",
+      "notes": "Recorded as reported by a practitioner handbook published in 2022, not read from a regulatory record. This index holds no approved labelling and no authorisation document, so it cannot state the approval date, the authority, the exact approved indication, or whether the status still stands. The date on this entry is the date the source was read, not the date of any regulatory action. A reader needing the regulatory position should consult the authority, not this index."
+    }
+  ]
+}

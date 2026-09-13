@@ -36,7 +36,9 @@ import {
 } from '@/components/public/protocols';
 import { ReferenceList } from '@/components/public/citation';
 import { RecordInPreparation } from '@/components/public/record-in-preparation';
+import { previewPeptidePage } from '@/server/public/preview';
 import { PrintHeader } from '@/components/public/print-header';
+import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
 
 /**
  * The canonical compound record.
@@ -69,7 +71,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const mode = await getReadingMode();
-  const peptide = await getPeptidePage(slug, mode);
+  const peptide = (await getPeptidePage(slug, mode)) ?? (await previewPeptidePage(slug, mode));
 
   if (!peptide) {
     const registered = await getRegisteredPeptide(slug);
@@ -92,7 +94,7 @@ export async function generateMetadata({
 export default async function PeptidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const mode = await getReadingMode();
-  const peptide = await getPeptidePage(slug, mode);
+  const peptide = (await getPeptidePage(slug, mode)) ?? (await previewPeptidePage(slug, mode));
 
   // A compound that is registered but unpublished gets an honest page rather
   // than a 404: "in scope, not yet reviewed" is useful information, and hiding
@@ -218,6 +220,16 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       </header>
 
       <ReferenceLayout rail={<ContentsRail entries={contents} />}>
+        {/*
+          Above everything, because the two failure modes this record has to
+          survive are both failures of proportion: taking a strong result out of
+          its indication, and mistaking a large literature for a settled one.
+          The shape of the evidence belongs before the evidence.
+        */}
+        <div className="mb-10">
+          <EvidenceAtAGlance peptide={peptide} simple={simple} />
+        </div>
+
         <Section id="overview" title="What it is">
           <div className="space-y-5">
             {simple ? (

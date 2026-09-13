@@ -41,6 +41,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@db': fileURLToPath(new URL('./db', import.meta.url)),
+      // See tests/support/server-only-stub.ts. The build still enforces it.
+      'server-only': fileURLToPath(new URL('./tests/support/server-only-stub.ts', import.meta.url)),
     },
   },
 });

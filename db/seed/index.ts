@@ -2,6 +2,7 @@ import { sql } from 'drizzle-orm';
 import type { PgDatabase, PgQueryResultHKT } from 'drizzle-orm/pg-core';
 import * as schema from '../schema';
 import { loadEvidencePackets } from './evidence-packets';
+import { loadCompoundPackets } from './compound-packets';
 import { loadQualityMap } from './quality-map';
 import { loadSpecimenCertificate } from './certificates';
 import { seedData } from './seed-data';
@@ -34,6 +35,10 @@ export interface SeedResult {
   claims: number;
   claimEvidence: number;
   evidenceGaps: number;
+  compoundClaims: number;
+  compoundRoutes: number;
+  compoundProtocols: number;
+  compoundDisagreements: number;
   qualityRelationships: number;
   specimenCertificateTests: number;
 }
@@ -49,6 +54,9 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
   const total = (field: 'locations' | 'claims' | 'evidence' | 'gaps'): number =>
     packets.reduce((sum, p) => sum + p[field], 0);
   // The map cites the claims and gaps the packets created, so it loads last.
+  // Compounds load after the quality packets: both write source_locations, and
+  // a compound packet cites the same source registry.
+  const compoundPackets = await loadCompoundPackets(db);
   const qualityRelationships = await loadQualityMap(db);
   const specimenCertificateTests = await loadSpecimenCertificate(db);
 
@@ -68,6 +76,10 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
     claims: total('claims'),
     claimEvidence: total('evidence'),
     evidenceGaps: total('gaps'),
+    compoundClaims: compoundPackets.reduce((n, p) => n + p.claims, 0),
+    compoundRoutes: compoundPackets.reduce((n, p) => n + p.routes, 0),
+    compoundProtocols: compoundPackets.reduce((n, p) => n + p.protocols, 0),
+    compoundDisagreements: compoundPackets.reduce((n, p) => n + p.disagreements, 0),
     qualityRelationships,
     specimenCertificateTests,
   };

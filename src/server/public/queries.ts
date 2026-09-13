@@ -38,6 +38,7 @@ export type {
   PublicClaim,
   SimpleProtocol,
 } from './shapes';
+import type { EvidenceGap } from './shapes';
 import type { ReadingMode } from '@/domain/presentation/reading-mode';
 
 /**
@@ -160,7 +161,15 @@ export interface RegulatoryStatus {
 
 export interface DisagreementPosition {
   readonly id: string;
-  readonly positionText: string;
+  /**
+   * Null in patient mode.
+   *
+   * A disagreement about a dose states the doses in its positions, so the text
+   * is suppressed in the query the way protocol dosing is. The reader still
+   * learns that the sources differ, how many differ, and what kind of source
+   * each is.
+   */
+  readonly positionText: string | null;
   readonly evidenceTypeLabel: string;
   readonly evidenceClass: EvidenceClass;
   readonly citation: Citation;
@@ -201,6 +210,16 @@ export interface PeptidePage {
   readonly routes: readonly RouteEvidence[];
   readonly regulatoryStatuses: readonly RegulatoryStatus[];
   readonly disagreements: readonly Disagreement[];
+  /**
+   * What the sources held here do not settle about this compound.
+   *
+   * Loaded by the compound packets and not read by this assembly until the
+   * first real records existed, so both carried their recorded absences in the
+   * database and showed none of them. On a record whose most important content
+   * is what is *not* established — BPC-157 has no human evidence at all — that
+   * omission inverted the point of the page.
+   */
+  readonly gaps: readonly EvidenceGap[];
   readonly protocols: readonly SimpleProtocol[] | readonly PractitionerProtocol[];
   readonly protocolCountAll: number;
 }
@@ -213,16 +232,57 @@ export interface PeptidePage {
  * values never enter the process — there is nothing for a rendering mistake to
  * leak.
  */
-export const getPeptidePage = cache(
-  async (slug: string, mode: ReadingMode): Promise<PeptidePage | null> =>
-    asPublic(async (tx) => {
+const PEPTIDE_RELATIONS = {
+  'public_v_peptides': 'peptides',
+  'public_v_peptide_aliases': 'peptide_aliases',
+  'public_v_compound_categories': 'compound_categories',
+  'public_v_compound_types': 'compound_types',
+  'public_v_claims': 'claims',
+  'public_v_claim_evidence': 'claim_evidence',
+  'public_v_evidence_types': 'evidence_types',
+  'public_v_sources': 'sources',
+  'public_v_source_types': 'source_types',
+  'public_v_source_locations': 'source_locations',
+  'public_v_routes': 'routes',
+  'public_v_peptide_routes': 'peptide_routes',
+  'public_v_regulatory_statuses': 'regulatory_statuses',
+  'public_v_disagreements': 'disagreements',
+  'public_v_disagreement_positions': 'disagreement_positions',
+  'public_v_protocol_practitioner': 'protocols',
+  'public_v_protocol_simple': 'protocols',
+  'public_v_protocol_sources': 'protocol_sources',
+  'public_v_evidence_gaps': 'evidence_gaps',
+} as const;
+
+/**
+ * The compound assembly, once, for both surfaces.
+ *
+ * The public site reads the `public_v_*` views as `anon`; the development
+ * preview reads the base tables so an extracted record can be looked at before
+ * anyone is asked to approve it. Same query text, different relation names —
+ * the pattern `readQualityTopic` established, for the same reason: two
+ * separately maintained copies of this would drift, and the one that drifts is
+ * always the one nobody is reading.
+ */
+async function readPeptidePage(
+  tx: Database,
+  slug: string,
+  mode: ReadingMode,
+  options: { preview?: boolean } = {},
+): Promise<PeptidePage | null> {
+  const preview = options.preview === true;
+  const simple = mode === 'simple';
+  const rel = (name: keyof typeof PEPTIDE_RELATIONS): string =>
+    preview ? PEPTIDE_RELATIONS[name] : name;
+  {
+    {
       const peptideRows = rows<Record<string, unknown>>(
         await tx.execute(sql`
           select p.*, cc.label as category_label, ct.label as compound_type_label,
                  coalesce(ct.is_peptide, true) as is_peptide
-          from public_v_peptides p
-          left join public_v_compound_categories cc on cc.key = p.primary_category_key
-          left join public_v_compound_types ct on ct.key = p.compound_type_key
+          from ${sql.raw(rel('public_v_peptides'))} p
+          left join ${sql.raw(rel('public_v_compound_categories'))} cc on cc.key = p.primary_category_key
+          left join ${sql.raw(rel('public_v_compound_types'))} ct on ct.key = p.compound_type_key
           where p.slug = ${slug}
         `),
       );
@@ -233,7 +293,7 @@ export const getPeptidePage = cache(
 
       const aliases = rows<Record<string, unknown>>(
         await tx.execute(sql`
-          select alias, alias_type, notes from public_v_peptide_aliases
+          select alias, alias_type, notes from ${sql.raw(rel('public_v_peptide_aliases'))}
           where peptide_id = ${peptideId}
           order by case alias_type when 'related_but_distinct' then 1 else 0 end, alias
         `),
@@ -249,7 +309,7 @@ export const getPeptidePage = cache(
                  importance, certificate_type_scope, interpretation_notes, uncertainty_text,
                  is_editorial_non_evidentiary, needs_update,
                  last_reviewed_at::text as last_reviewed_at
-          from public_v_claims
+          from ${sql.raw(rel('public_v_claims'))}
           where peptide_id = ${peptideId}
           order by case importance
                      when 'critical' then 0 when 'high' then 1
@@ -266,13 +326,13 @@ export const getPeptidePage = cache(
                  et.public_label as evidence_type_label, et.evidence_class,
                  et.is_human_evidence, et.is_interpretive,
                  ${CITATION_SELECT}
-          from public_v_claim_evidence ce
-          join public_v_claims c on c.id = ce.claim_id
-          join public_v_evidence_types et on et.key = ce.evidence_type_key
-          join public_v_sources s on s.id = ce.source_id
-          join public_v_source_types st on st.key = s.source_type_key
-          left join public_v_source_locations l on l.id = ce.source_location_id
-          left join public_v_routes r on r.key = ce.route_key
+          from ${sql.raw(rel('public_v_claim_evidence'))} ce
+          join ${sql.raw(rel('public_v_claims'))} c on c.id = ce.claim_id
+          join ${sql.raw(rel('public_v_evidence_types'))} et on et.key = ce.evidence_type_key
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = ce.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = ce.source_location_id
+          left join ${sql.raw(rel('public_v_routes'))} r on r.key = ce.route_key
           where c.peptide_id = ${peptideId}
           order by et.sort_order, s.source_key
         `),
@@ -322,15 +382,21 @@ export const getPeptidePage = cache(
           select pr.id, pr.route_key, r.name as route_name,
                  r.general_limitations as route_limitations,
                  et.public_label as evidence_type_label, et.evidence_class,
-                 pr.population_model, pr.formulation, pr.pk_notes,
-                 pr.bioavailability_notes, pr.limitations_notes,
+                 pr.population_model,
+                 ${
+                   simple
+                     ? sql`null::text as formulation, null::text as pk_notes,
+                           null::text as bioavailability_notes`
+                     : sql`pr.formulation, pr.pk_notes, pr.bioavailability_notes`
+                 },
+                 pr.limitations_notes,
                  ${CITATION_SELECT}
-          from public_v_peptide_routes pr
-          join public_v_routes r on r.key = pr.route_key
-          join public_v_evidence_types et on et.key = pr.evidence_type_key
-          join public_v_sources s on s.id = pr.source_id
-          join public_v_source_types st on st.key = s.source_type_key
-          left join public_v_source_locations l on l.id = pr.source_location_id
+          from ${sql.raw(rel('public_v_peptide_routes'))} pr
+          join ${sql.raw(rel('public_v_routes'))} r on r.key = pr.route_key
+          join ${sql.raw(rel('public_v_evidence_types'))} et on et.key = pr.evidence_type_key
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = pr.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = pr.source_location_id
           where pr.peptide_id = ${peptideId}
           order by r.sort_order, et.sort_order
         `),
@@ -354,10 +420,10 @@ export const getPeptidePage = cache(
           select rs.id, rs.jurisdiction, rs.indication_context, rs.status,
                  rs.authority, rs.checked_at::text as checked_at, rs.notes,
                  ${CITATION_SELECT}
-          from public_v_regulatory_statuses rs
-          left join public_v_sources s on s.id = rs.source_id
-          left join public_v_source_types st on st.key = s.source_type_key
-          left join public_v_source_locations l on l.id = rs.source_location_id
+          from ${sql.raw(rel('public_v_regulatory_statuses'))} rs
+          left join ${sql.raw(rel('public_v_sources'))} s on s.id = rs.source_id
+          left join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = rs.source_location_id
           where rs.peptide_id = ${peptideId}
           order by rs.jurisdiction, rs.checked_at desc
         `),
@@ -376,23 +442,38 @@ export const getPeptidePage = cache(
         await tx.execute(sql`
           select id, topic, plain_language_text, candidate_explanation,
                  explanation_notes, resolution_requirement
-          from public_v_disagreements
+          from ${sql.raw(rel('public_v_disagreements'))}
           where peptide_id = ${peptideId}
           order by topic
         `),
       );
 
+      /*
+       * Position text is suppressed in patient mode, and suppressed here
+       * rather than in the component.
+       *
+       * A disagreement between sources about a *dose* is stated in the
+       * positions — "gives 250 mcg twice a day", "gives 300-600 mcg daily" —
+       * which is exactly the content the simple protocol relation exists to
+       * keep out of a patient payload. The protocol path was suppressed from
+       * the beginning; this path was not, because until a compound with
+       * dose-level disagreements existed there was nothing to leak.
+       *
+       * A patient still learns that the sources disagree, how many disagree,
+       * and what kind of source each is. What they do not get is the number.
+       */
       const positionRows = rows<CitationRow & Record<string, unknown>>(
         await tx.execute(sql`
-          select dp.id, dp.disagreement_id, dp.position_text,
+          select dp.id, dp.disagreement_id,
+                 ${simple ? sql`null::text` : sql`dp.position_text`} as position_text,
                  et.public_label as evidence_type_label, et.evidence_class,
                  ${CITATION_SELECT}
-          from public_v_disagreement_positions dp
-          join public_v_disagreements d on d.id = dp.disagreement_id
-          join public_v_evidence_types et on et.key = dp.evidence_type_key
-          join public_v_sources s on s.id = dp.source_id
-          join public_v_source_types st on st.key = s.source_type_key
-          left join public_v_source_locations l on l.id = dp.source_location_id
+          from ${sql.raw(rel('public_v_disagreement_positions'))} dp
+          join ${sql.raw(rel('public_v_disagreements'))} d on d.id = dp.disagreement_id
+          join ${sql.raw(rel('public_v_evidence_types'))} et on et.key = dp.evidence_type_key
+          join ${sql.raw(rel('public_v_sources'))} s on s.id = dp.source_id
+          join ${sql.raw(rel('public_v_source_types'))} st on st.key = s.source_type_key
+          left join ${sql.raw(rel('public_v_source_locations'))} l on l.id = dp.source_location_id
           where d.peptide_id = ${peptideId}
           order by dp.sort_order
         `),
@@ -404,13 +485,32 @@ export const getPeptidePage = cache(
         const list = positionsByDisagreement.get(key) ?? [];
         list.push({
           id: String(row.id),
-          positionText: String(row.position_text),
+          positionText: str(row.position_text),
           evidenceTypeLabel: String(row.evidence_type_label),
           evidenceClass: row.evidence_class as EvidenceClass,
           citation: toCitation(row),
         });
         positionsByDisagreement.set(key, list);
       }
+
+      const gapRows = rows<Record<string, unknown>>(
+        await tx.execute(sql`
+          select id, gap_type, statement, why_not_supported, what_would_resolve_it,
+                 verification_issue_key, sort_order
+          from ${sql.raw(rel('public_v_evidence_gaps'))}
+          where peptide_id = ${peptideId}
+          order by sort_order
+        `),
+      );
+
+      const gaps: EvidenceGap[] = gapRows.map((row) => ({
+        id: String(row.id),
+        gapType: String(row.gap_type),
+        statement: String(row.statement),
+        whyNotSupported: String(row.why_not_supported),
+        whatWouldResolveIt: str(row.what_would_resolve_it),
+        verificationIssueKey: str(row.verification_issue_key),
+      }));
 
       const disagreements: Disagreement[] = disagreementRows.map((d) => ({
         id: String(d.id),
@@ -422,11 +522,11 @@ export const getPeptidePage = cache(
         positions: positionsByDisagreement.get(String(d.id)) ?? [],
       }));
 
-      const protocols = await readProtocols(tx, peptideId, mode);
+      const protocols = await readProtocols(tx, peptideId, mode, { preview });
 
       const [countRow] = rows<{ n: number }>(
         await tx.execute(sql`
-          select count(*)::int as n from public_v_protocol_practitioner
+          select count(*)::int as n from ${sql.raw(rel('public_v_protocol_practitioner'))}
           where peptide_id = ${peptideId}
         `),
       );
@@ -456,11 +556,27 @@ export const getPeptidePage = cache(
         routes: routeEvidence,
         regulatoryStatuses,
         disagreements,
+        gaps,
         protocols,
         protocolCountAll: countRow?.n ?? 0,
       };
-    }),
+    }
+  }
+}
+
+export const getPeptidePage = cache(
+  async (slug: string, mode: ReadingMode): Promise<PeptidePage | null> =>
+    asPublic((tx) => readPeptidePage(tx, slug, mode)),
 );
+
+/** The same record read without the publication filter, for local review only. */
+export async function readPeptidePagePreview(
+  tx: Database,
+  slug: string,
+  mode: ReadingMode,
+): Promise<PeptidePage | null> {
+  return readPeptidePage(tx, slug, mode, { preview: true });
+}
 
 // ---------------------------------------------------------------------------
 // Quality topics

@@ -55,8 +55,12 @@ describe('the suite is deterministic under a shared worker', () => {
     // would otherwise look like growth nobody notices.
     expect(counts).toEqual({
       sources: seedData.sourceManifest.sources.length,
-      claims: seedData.evidencePackets.reduce((n, p) => n + p.claims.length, 0),
-      gaps: seedData.evidencePackets.reduce((n, p) => n + p.notYetSupported.length, 0),
+      claims:
+        seedData.evidencePackets.reduce((n, p) => n + p.claims.length, 0) +
+        seedData.compoundPackets.reduce((n, p) => n + p.claims.length, 0),
+      gaps:
+        seedData.evidencePackets.reduce((n, p) => n + p.notYetSupported.length, 0) +
+        seedData.compoundPackets.reduce((n, p) => n + p.notYetSupported.length, 0),
       relationships: seedData.qualityMap.edges.length,
       certificates: 1,
     });

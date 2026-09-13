@@ -272,7 +272,15 @@ export function DisagreementList({
                   <EvidenceClassTag evidenceClass={position.evidenceClass} />
                   <span className="text-sm text-deep-tide">{position.evidenceTypeLabel}</span>
                 </div>
-                <p className="mt-1.5 text-ink-soft">{position.positionText}</p>
+                {position.positionText === null ? (
+                  // Patient mode. The source and its kind are still shown; what
+                  // it says is not, because on this record what it says is a dose.
+                  <p className="mt-1.5 text-sm text-slate italic">
+                    What this source reports is shown in the practitioner view.
+                  </p>
+                ) : (
+                  <p className="mt-1.5 text-ink-soft">{position.positionText}</p>
+                )}
                 <div className="mt-1.5">
                   <CitationLine citation={position.citation} />
                 </div>
