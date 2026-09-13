@@ -9,7 +9,7 @@ import {
   SectionHeading,
   SubHeading,
 } from '../primitives';
-import { TideMark } from '../figures';
+import { SeriesMark } from '../figures';
 import { colour, contentWidth, leading, sans, serif, type } from '../theme';
 
 /**
@@ -340,12 +340,13 @@ export function UnderstandingPeptides() {
     >
       <Cover
         imprint="The Tides Index"
+        series="Reference series · Volume one"
         title="Understanding Peptides"
         subtitle="A plain-language introduction"
         descriptor="Independent peptide science & clinical reference"
         editionLine={`Design skeleton · issued ${ISSUED}`}
         statusLine="Structure and page templates only. This document contains no medical content."
-        mark={<TideMark width={300} />}
+        mark={<SeriesMark width={300} volume={1} />}
       />
 
       {/* --- What this is ---------------------------------------------- */}

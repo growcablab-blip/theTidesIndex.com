@@ -19,13 +19,17 @@ import { fileURLToPath } from 'node:url';
 import { chromium, type Browser } from 'playwright-core';
 
 const BASE = process.env.TIDES_BASE_URL ?? 'http://localhost:3000';
-const OUT = fileURLToPath(new URL('../../review/screenshots/', import.meta.url));
+const DIR = process.env.TIDES_SHOT_DIR ?? 'screenshots';
+const OUT = fileURLToPath(new URL(`../../review/${DIR}/`, import.meta.url));
+
+/** Phone captures, taken at 375 with a mobile user agent and touch points. */
+const MOBILE = process.env.TIDES_SHOT_MOBILE === '1';
 mkdirSync(OUT, { recursive: true });
 
 const PAGES: readonly { file: string; path: string; label: string }[] = [
-  { file: '01-home.png', path: '/', label: 'Home' },
-  { file: '02-quality-index.png', path: '/quality', label: 'Quality and testing' },
-  { file: '03-hplc-purity.png', path: '/quality/hplc-purity', label: 'HPLC / purity' },
+  { file: MOBILE ? '10-mobile-home.png' : '01-home.png', path: '/', label: 'Home' },
+  { file: MOBILE ? '11-mobile-quality-index.png' : '02-quality-index.png', path: '/quality', label: 'Quality and testing' },
+  { file: MOBILE ? '12-mobile-hplc-purity.png' : '03-hplc-purity.png', path: '/quality/hplc-purity', label: 'HPLC / purity' },
   { file: '04-identity-testing.png', path: '/quality/identity-testing', label: 'Identity testing' },
   {
     file: '05-peptide-content-assay.png',
@@ -37,7 +41,7 @@ const PAGES: readonly { file: string; path: string; label: string }[] = [
     path: '/quality/certificate-of-analysis',
     label: 'Certificate of analysis',
   },
-  { file: '07-peptides.png', path: '/peptides', label: 'Compounds' },
+  { file: MOBILE ? '13-mobile-peptides.png' : '07-peptides.png', path: '/peptides', label: 'Compounds' },
   { file: '08-sources.png', path: '/sources', label: 'Sources' },
 ];
 
@@ -61,7 +65,9 @@ const browser = await launch();
 
 try {
   const context = await browser.newContext({
-    viewport: { width: 1440, height: 900 },
+    ...(MOBILE
+      ? { viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true }
+      : { viewport: { width: 1440, height: 900 } }),
     // 1, not 2. A full-page capture of a long reference page at 2x builds a
     // bitmap large enough to exhaust the Node heap — which it duly did.
     deviceScaleFactor: 1,

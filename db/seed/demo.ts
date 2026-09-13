@@ -38,7 +38,7 @@ export interface DemoResult {
  * demonstration therefore creates a small editorial team rather than
  * side-stepping the rule — which also proves the rule holds.
  */
-async function ensureDemoStaff(db: SeedDb): Promise<Record<string, string>> {
+async function ensureDemoStaff(db: SeedDb, demo: boolean): Promise<Record<string, string>> {
   const people: [string, string, string][] = [
     ['11111111-1111-4111-8111-111111111101', 'Demo Editor', 'editor'],
     ['11111111-1111-4111-8111-111111111102', 'Demo Scientific Reviewer', 'scientific_reviewer'],
@@ -49,9 +49,9 @@ async function ensureDemoStaff(db: SeedDb): Promise<Record<string, string>> {
   for (const [id, name, role] of people) {
     await db.execute(sql`
       insert into profiles (user_id, display_name, role, is_demonstration)
-      values (${id}, ${name}, ${role}::staff_role, true)
+      values (${id}, ${name}, ${role}::staff_role, ${demo})
       on conflict (user_id) do update set display_name = excluded.display_name,
-                                          is_demonstration = true
+                                          is_demonstration = ${demo}
     `);
   }
 
@@ -92,8 +92,31 @@ async function scalar<T>(db: SeedDb, query: ReturnType<typeof sql>): Promise<T |
   return rows[0] as T | undefined;
 }
 
-export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
-  const staff = await ensureDemoStaff(db);
+export interface DemoOptions {
+  /**
+   * Whether the records are flagged as demonstration fixtures. Default true.
+   *
+   * The flag is what keeps these out of production and out of every public
+   * view, and it should almost never be turned off. The exception is the
+   * reading-mode suite, which needs a *published* record to prove that a dose
+   * cannot reach a patient payload — a property about publication, not about
+   * fixtures. With the flag set the record is correctly invisible to the public
+   * reader it is testing, and clearing it afterwards is not an option: that is
+   * a column change, so the touch trigger bumps the version, the approvals are
+   * stranded, and the gate withdraws the record. Which is the machinery working.
+   *
+   * So the choice is made at creation, explicitly, by the one caller that needs
+   * it. `npm run db:demo` and `npm run tides` never pass it.
+   */
+  readonly markAsDemonstration?: boolean;
+}
+
+export async function seedDemoData(
+  db: SeedDb,
+  options: DemoOptions = {},
+): Promise<DemoResult> {
+  const demo = options.markAsDemonstration ?? true;
+  const staff = await ensureDemoStaff(db, demo);
 
   // --- Sources ------------------------------------------------------------
   const sourceA = await scalar<{ id: string }>(
@@ -108,9 +131,9 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
         'primary_journal_article', 'usable',
         '["Demonstration Author"]'::jsonb, 2024, 'Not a real publisher',
         'Exists only to exercise this interface. Nothing attributed to it is a real finding.',
-        'Not a real work. Never cite it.', true
+        'Not a real work. Never cite it.', ${demo}
       )
-      on conflict (source_key) do update set title = excluded.title, is_demonstration = true
+      on conflict (source_key) do update set title = excluded.title, is_demonstration = ${demo}
       returning id
     `,
   );
@@ -127,9 +150,9 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
         'practitioner_handbook', 'usable',
         '["Second Demonstration Author"]'::jsonb, 2023,
         'Exists only to exercise this interface. Nothing attributed to it is a real finding.',
-        'Not a real work. Never cite it.', true
+        'Not a real work. Never cite it.', ${demo}
       )
-      on conflict (source_key) do update set title = excluded.title, is_demonstration = true
+      on conflict (source_key) do update set title = excluded.title, is_demonstration = ${demo}
       returning id
     `,
   );
@@ -173,10 +196,10 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
         'Xaa-Xaa-Xaa (not a real sequence)',
         'Not a real molecule.',
         'Synthetic (fictional)',
-        '2026-01-01', true
+        '2026-01-01', ${demo}
       )
       on conflict (peptide_key) do update set canonical_name = excluded.canonical_name,
-                                              is_demonstration = true
+                                              is_demonstration = ${demo}
       returning id
     `,
   );
@@ -423,9 +446,9 @@ export async function seedDemoData(db: SeedDb): Promise<DemoResult> {
         'It would establish a property of the specific sample that was analysed, at the time it was analysed.',
         'It would not establish the identity of the material, how much of it is in a given vial, whether that vial is sterile, or its endotoxin content. Those are four further questions, each answered by a different test. This half is required before a topic can be published.',
         'The common error is to read a single favourable number as proof of overall quality. A certificate of analysis is a set of separate answers, not one verdict.',
-        999, true
+        999, ${demo}
       )
-      on conflict (quality_key) do update set name = excluded.name, is_demonstration = true
+      on conflict (quality_key) do update set name = excluded.name, is_demonstration = ${demo}
       returning id
     `,
   );

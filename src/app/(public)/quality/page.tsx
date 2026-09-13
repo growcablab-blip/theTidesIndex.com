@@ -31,6 +31,40 @@ export const metadata: Metadata = {
  * and must cite its basis; a family is a shelf somebody put a topic on.
  */
 
+/**
+ * Featured learning pathways.
+ *
+ * The directory below lists twenty-one topics of roughly equal visual weight,
+ * which is accurate and useless as a starting point: a reader who does not
+ * already know the subject cannot tell which door to open first.
+ *
+ * A pathway is an editorial argument about reading order. It is defined here
+ * rather than in the database for the same reason the families are not derived
+ * from the relationship map — a map edge is a claim about how two topics relate
+ * and must cite its basis, and a reading order is neither.
+ *
+ * The three that are not built are listed anyway. A reader deciding whether
+ * this section will eventually cover their question is better served by seeing
+ * the plan than by seeing one pathway and guessing.
+ */
+const FUTURE_PATHWAYS: readonly { title: string; covers: string; state: string }[] = [
+  {
+    title: 'Manufacturing and the final vial',
+    covers: 'Synthesis · purification · fill and finish · lyophilisation · excipients',
+    state: 'Topics registered, sources not yet held',
+  },
+  {
+    title: 'Microbiological quality',
+    covers: 'Sterility · bacterial endotoxin',
+    state: 'Blocked on compendial access',
+  },
+  {
+    title: 'Storage and transport',
+    covers: 'Stability · temperature excursions · reconstitution and handling',
+    state: 'Topics registered, sources not yet held',
+  },
+];
+
 const PATHWAY: readonly { slug: string; step: string; question: string }[] = [
   {
     slug: 'hplc-purity',
@@ -63,7 +97,7 @@ const FAMILIES: readonly { key: string; name: string; blurb: string }[] = [
   {
     key: 'microbiological',
     name: 'Microbiological quality',
-    blurb: 'Questions chromatography does not address at all.',
+    blurb: 'A separate class of question from the analytical tests above.',
   },
   {
     key: 'chemical-physical',
@@ -149,13 +183,14 @@ export default async function QualityIndexPage() {
 
       {/* --- Start here ---------------------------------------------------- */}
       <section aria-labelledby="start-here" className="mt-14">
-        <h2 id="start-here" className="font-serif text-2xl text-ink">
-          Start here
+        <p className="meta-label text-tide-teal">Learning pathway one</p>
+        <h2 id="start-here" className="mt-2 font-serif text-2xl text-ink sm:text-3xl">
+          Understanding analytical testing
         </h2>
         <p className="mt-2 max-w-[62ch] text-ink-soft">
           Four pages, in order. They follow the questions a test report raises rather than the order
-          a laboratory would teach them. They are not the whole of quality — the families below are
-          the rest of it.
+          a laboratory would teach them. Roughly forty minutes end to end, or five for the first
+          page alone.
         </p>
 
         <ol className="mt-6 grid gap-4 lg:grid-cols-2">
@@ -183,6 +218,24 @@ export default async function QualityIndexPage() {
             );
           })}
         </ol>
+
+        <div className="mt-10">
+          <p className="meta-label">Pathways in development</p>
+          <ul className="mt-3 grid gap-3 sm:grid-cols-3">
+            {FUTURE_PATHWAYS.map((pathway) => (
+              <li
+                key={pathway.title}
+                className="rounded-md border border-dashed border-rule bg-mist px-4 py-3.5"
+              >
+                <span className="block font-medium text-ink">{pathway.title}</span>
+                <span className="mt-1 block text-xs text-slate">{pathway.covers}</span>
+                <span className="mt-2 block text-xs text-[var(--color-caution)]">
+                  {pathway.state}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       {/* --- The three questions -------------------------------------------- */}
@@ -200,8 +253,8 @@ export default async function QualityIndexPage() {
 
       {/* --- The families --------------------------------------------------- */}
       <section aria-labelledby="everything-else" className="mt-14">
-        <h2 id="everything-else" className="font-serif text-2xl text-ink">
-          The rest of the quality system
+        <h2 id="everything-else" className="font-serif text-2xl text-ink sm:text-3xl">
+          The full topic directory
         </h2>
         <p className="mt-2 max-w-[64ch] text-ink-soft">
           Every topic this index recognises, and how far each has got. Several are registered and
@@ -209,7 +262,7 @@ export default async function QualityIndexPage() {
           is listed rather than hidden.
         </p>
 
-        <div className="mt-8 space-y-10">
+        <div className="mt-8 space-y-8">
           {FAMILIES.map((family) => {
             const topics = register.filter((entry) => entry.family === family.key);
             if (topics.length === 0) return null;
@@ -219,7 +272,7 @@ export default async function QualityIndexPage() {
                 <h3 className="font-serif text-lg text-deep-tide">{family.name}</h3>
                 <p className="mt-1 max-w-[60ch] text-sm text-slate">{family.blurb}</p>
 
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                   {topics.map((entry) => {
                     const state = stateLabel(entry);
                     const readable = written.has(entry.slug);
@@ -228,14 +281,14 @@ export default async function QualityIndexPage() {
                         {readable ? (
                           <Link
                             href={`/quality/${entry.slug}`}
-                            className="group flex h-full flex-col rounded-md border border-rule bg-warm-white px-4 py-3.5 transition-colors hover:border-tide-teal"
+                            className="group flex h-full flex-col rounded-md border border-rule bg-warm-white px-3.5 py-3 transition-colors hover:border-tide-teal"
                           >
                             <TopicCard entry={entry} state={state} practitioner={practitioner} />
                           </Link>
                         ) : (
                           // Named, not hidden, and not a link: there is nothing
                           // to read. A reader still learns the question exists.
-                          <div className="flex h-full flex-col rounded-md border border-dashed border-rule bg-mist px-4 py-3.5">
+                          <div className="flex h-full flex-col rounded-md border border-dashed border-rule bg-mist px-3.5 py-3">
                             <TopicCard entry={entry} state={state} practitioner={practitioner} />
                           </div>
                         )}
@@ -275,7 +328,7 @@ function TopicCard({
     <>
       <span className="font-medium text-ink group-hover:text-deep-tide">{entry.name}</span>
       <span
-        className={`mt-2 flex-1 text-xs ${
+        className={`mt-1.5 flex-1 text-xs ${
           state.tone === 'ready' ? 'text-deep-tide' : 'text-slate'
         }`}
       >

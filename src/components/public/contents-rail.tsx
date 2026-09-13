@@ -24,12 +24,12 @@ export function ContentsRail({ entries }: { entries: readonly ContentsEntry[] })
   return (
     <nav aria-label="On this page" className="no-print">
       <p className="meta-label">On this page</p>
-      <ul className="mt-2.5 space-y-1.5 border-l border-rule">
+      <ul className="mt-2.5 border-l border-rule lg:space-y-1">
         {entries.map((entry) => (
           <li key={entry.id}>
             <a
               href={`#${entry.id}`}
-              className="-ml-px flex items-baseline justify-between gap-2 border-l border-transparent py-0.5 pl-3 text-sm transition-colors hover:border-tide-teal hover:text-deep-tide"
+              className="-ml-px flex items-baseline justify-between gap-2 border-l border-transparent py-2 pl-3 text-sm transition-colors hover:border-tide-teal hover:text-deep-tide lg:py-1"
             >
               <span className={entry.empty ? 'text-slate' : 'text-ink-soft'}>
                 {entry.label}

@@ -1,4 +1,4 @@
-import { Page, Text, View, StyleSheet, Svg, Path, Rect, Line } from '@react-pdf/renderer';
+import { Page, Text, View, StyleSheet, Svg, Path } from '@react-pdf/renderer';
 import type { ReactNode } from 'react';
 import { colour, columns, contentWidth, leading, page, RHYTHM, sans, serif, type } from './theme';
 
@@ -110,6 +110,8 @@ export function PublicationPage({
 
 export interface CoverProps {
   readonly imprint: string;
+  /** e.g. "Reference series · Volume three". Ties the five books together. */
+  readonly series?: string;
   readonly title: string;
   readonly subtitle?: string;
   readonly descriptor: string;
@@ -128,6 +130,7 @@ export interface CoverProps {
  */
 export function Cover({
   imprint,
+  series,
   title,
   subtitle,
   descriptor,
@@ -137,6 +140,18 @@ export function Cover({
 }: CoverProps) {
   return (
     <Page size="A4" style={{ backgroundColor: colour.ink, color: colour.warmWhite }}>
+      {/* The spine. A row of these on a shelf should read as one series. */}
+      <View
+        fixed
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: 16,
+          height: page.height,
+          backgroundColor: colour.tideTeal,
+        }}
+      />
       {/*
         The tide: a single curve, low and slow, behind everything.
 
@@ -183,6 +198,20 @@ export function Cover({
         >
           {imprint}
         </Text>
+        {series === undefined ? null : (
+          <Text
+            style={{
+              fontFamily: sans,
+              fontSize: type.caption,
+              letterSpacing: 1.4,
+              textTransform: 'uppercase',
+              color: colour.tideTeal,
+              marginTop: 6,
+            }}
+          >
+            {series}
+          </Text>
+        )}
 
         <View style={{ height: 2, width: 54, backgroundColor: colour.tideTeal, marginTop: 14 }} />
 
@@ -885,42 +914,36 @@ export function CurrentVersionBlock({
       }}
       wrap={false}
     >
-      <View style={{ marginRight: 16 }}>
-        <Svg width={64} height={64} viewBox="0 0 64 64">
-          <Rect x={0} y={0} width={64} height={64} fill={colour.white} stroke={colour.rule} />
-          {/* Finder-pattern placeholder. Not a scannable code, and not pretending to be. */}
-          {(
-            [
-              [8, 8],
-              [40, 8],
-              [8, 40],
-            ] as const
-          ).map(([x, y]) => (
-            <Rect
-              key={`${String(x)}-${String(y)}`}
-              x={x}
-              y={y}
-              width={16}
-              height={16}
-              fill="none"
-              stroke={colour.deepTide}
-              strokeWidth={2.5}
-            />
-          ))}
-          <Rect x={42} y={42} width={12} height={12} fill={colour.seaGlass} />
-          <Line x1={32} y1={12} x2={32} y2={52} stroke={colour.rule} strokeWidth={1} />
-        </Svg>
+      {/*
+        No QR code, and no drawing of one.
+        A square of finder patterns that cannot be scanned is worse than nothing:
+        a reader points a phone at it, gets no result, and concludes the document
+        is broken. The real code needs a public URL, which does not exist yet, so
+        until it does the block says where to look in words.
+      */}
+      <View
+        style={{
+          marginRight: 16,
+          width: 64,
+          height: 64,
+          borderWidth: 1,
+          borderColor: colour.rule,
+          borderStyle: 'dashed',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colour.mist,
+        }}
+      >
         <Text
           style={{
             fontFamily: sans,
-            fontSize: 5.5,
+            fontSize: 5.6,
+            letterSpacing: 0.6,
             color: colour.slate,
-            marginTop: 3,
             textAlign: 'center',
-            width: 64,
           }}
         >
-          placeholder
+          CODE{'\n'}WHEN{'\n'}PUBLISHED
         </Text>
       </View>
       <View style={{ flex: 1 }}>

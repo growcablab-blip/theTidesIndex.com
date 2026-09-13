@@ -53,7 +53,7 @@ export function ChromatographyFlowFigure({ id = 'fig-hplc-flow' }: { id?: string
           viewBox="0 24 720 162"
           role="img"
           aria-labelledby={`${titleId} ${descId}`}
-          className="h-auto w-full min-w-[520px] text-ink"
+          className="h-auto w-full min-w-[340px] text-ink sm:min-w-[520px]"
           preserveAspectRatio="xMidYMid meet"
         >
           <title id={titleId}>How a chromatographic separation produces a chromatogram</title>
@@ -200,7 +200,7 @@ export function QualityDimensionsFigure({ id = 'fig-quality-dimensions' }: { id?
           viewBox="0 0 720 210"
           role="img"
           aria-labelledby={`${titleId} ${descId}`}
-          className="h-auto w-full min-w-[520px] text-ink"
+          className="h-auto w-full min-w-[340px] text-ink sm:min-w-[520px]"
           preserveAspectRatio="xMidYMid meet"
         >
           <title id={titleId}>Quality attributes are separate questions</title>
@@ -281,7 +281,7 @@ export function IdentityComparisonFigure({ id = 'fig-identity' }: { id?: string 
           viewBox="0 28 720 152"
           role="img"
           aria-labelledby={`${titleId} ${descId}`}
-          className="h-auto w-full min-w-[520px] text-ink"
+          className="h-auto w-full min-w-[340px] text-ink sm:min-w-[520px]"
           preserveAspectRatio="xMidYMid meet"
         >
           <title id={titleId}>How an identity result is formed</title>
@@ -405,7 +405,7 @@ export function AnalyticalQuestionsFigure({
           viewBox="0 0 720 132"
           role="img"
           aria-labelledby={`${titleId} ${descId}`}
-          className="h-auto w-full min-w-[520px] text-ink"
+          className="h-auto w-full min-w-[340px] text-ink sm:min-w-[520px]"
           preserveAspectRatio="xMidYMid meet"
         >
           <title id={titleId}>Purity, identity and content are three separate questions</title>

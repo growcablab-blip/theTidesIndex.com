@@ -90,18 +90,43 @@ export function SpecimenNotice() {
 }
 
 /** One labelled line of the document, with absence shown rather than hidden. */
+/**
+ * One numbered marker on the document.
+ *
+ * The ten fields a reader has to be able to find are marked and keyed, the way
+ * an annotated figure in a textbook is. Before this the certificate rendered as
+ * two columns of equally weighted rows, which is what a real certificate looks
+ * like and is exactly the problem: the reader cannot tell which rows carry the
+ * question they came with.
+ */
+function Marker({ n }: { n: number }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="mr-2 inline-flex h-[1.15rem] w-[1.15rem] shrink-0 items-center justify-center rounded-full bg-deep-tide align-[0.05rem] text-[0.625rem] font-medium text-warm-white"
+    >
+      {n}
+    </span>
+  );
+}
+
 function Field({
   label,
   value,
   note,
+  marker,
 }: {
   label: string;
   value: string | null;
   note?: string | undefined;
+  marker?: number | undefined;
 }) {
   return (
     <div className="border-b border-rule py-2 last:border-b-0">
-      <dt className="text-xs tracking-wide text-slate uppercase">{label}</dt>
+      <dt className="flex items-center text-xs tracking-wide text-slate uppercase">
+        {marker === undefined ? null : <Marker n={marker} />}
+        {label}
+      </dt>
       <dd className="mt-0.5 text-sm text-ink">
         {value ?? (
           // Not blank, not "N/A". A field the document does not carry is the
@@ -110,6 +135,46 @@ function Field({
         )}
         {note ? <span className="mt-0.5 block text-xs text-slate">{note}</span> : null}
       </dd>
+    </div>
+  );
+}
+
+/**
+ * Ten things to find on any certificate.
+ *
+ * Numbered here and marked on the document below and in the results table, so a
+ * reader can carry the numbers to a real document. Four of the ten are about
+ * the *result*; six are about whether the document describes the material in
+ * front of them, which is the ratio the page is arguing for.
+ */
+const ANNOTATIONS: readonly { n: number; label: string; why: string }[] = [
+  { n: 1, label: 'Material', why: 'What the document says was tested.' },
+  { n: 2, label: 'Batch or lot', why: 'The number to compare against the container.' },
+  { n: 3, label: 'Sample', why: 'What actually reached the laboratory.' },
+  { n: 4, label: 'Laboratory', why: 'Who performed the analysis, not who issued the document.' },
+  { n: 5, label: 'Test', why: 'Each line is a separate measurement.' },
+  { n: 6, label: 'Method', why: 'Which question that measurement answers.' },
+  { n: 7, label: 'Result', why: 'The number, and what it is a proportion of.' },
+  { n: 8, label: 'Date', why: 'When, relative to manufacture and to now.' },
+  { n: 9, label: 'Specification', why: 'What the result was judged against, if anything.' },
+  { n: 10, label: 'Report ID', why: 'What to quote when asking about this document.' },
+];
+
+function AnnotationKey() {
+  return (
+    <div className="rounded-md border border-rule bg-mist px-5 py-4">
+      <p className="meta-label">Ten things to find on any certificate</p>
+      <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+        {ANNOTATIONS.map((item) => (
+          <li key={item.n} className="flex items-start text-sm">
+            <Marker n={item.n} />
+            <span>
+              <span className="font-medium text-ink">{item.label}</span>{' '}
+              <span className="text-slate">— {item.why}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -128,6 +193,8 @@ export function AnnotatedCertificate({
     <div className="space-y-6">
       <SpecimenNotice />
 
+      <AnnotationKey />
+
       <article className="rounded-md border border-rule bg-warm-white">
         <header className="border-b border-rule px-5 py-4">
           <p className="text-xs tracking-wide text-slate uppercase">What kind of document is this</p>
@@ -142,6 +209,7 @@ export function AnnotatedCertificate({
             <Field
               label="Laboratory that performed the analysis"
               value={certificate.laboratoryName}
+              marker={4}
             />
             {simple ? null : (
               <Field label="Laboratory address" value={certificate.laboratoryAddress} />
@@ -156,23 +224,24 @@ export function AnnotatedCertificate({
               }
             />
             <Field label="Supplier or distributor" value={certificate.distributorName} />
-            <Field label="Document date" value={certificate.documentDate} />
-            <Field label="Report number" value={certificate.reportNumber} />
+            <Field label="Document date" value={certificate.documentDate} marker={8} />
+            <Field label="Report number" value={certificate.reportNumber} marker={10} />
           </dl>
 
           <dl>
-            <Field label="Material named" value={certificate.statedMaterialName} />
+            <Field label="Material named" value={certificate.statedMaterialName} marker={1} />
             {simple ? null : <Field label="Grade" value={certificate.statedGrade} />}
             <Field
               label="Batch or lot number"
               value={certificate.batchNumber}
+              marker={2}
               note="This is the number to compare against the container in hand."
             />
             <Field
               label="Manufacturer's own batch number"
               value={certificate.manufacturerBatchNumber}
             />
-            <Field label="Laboratory sample identifier" value={certificate.sampleIdentifier} />
+            <Field label="Laboratory sample identifier" value={certificate.sampleIdentifier} marker={3} />
             <Field label="Sample submitted by" value={certificate.submittedBy} />
             <Field label="What was tested" value={MATERIAL_SCOPE[certificate.testedMaterialScope] ?? null} />
             <Field label="Signed by" value={certificate.authorisedBy} />

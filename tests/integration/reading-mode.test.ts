@@ -32,7 +32,19 @@ describe('reading modes over the same record', () => {
     // database.
     await truncateContent(db);
     await seedDatabase(db);
-    await seedDemoData(db);
+    /*
+     * Seeded unflagged, on purpose.
+     *
+     * Migration 0021 removed demonstration records from every public view,
+     * which is correct and which also removes the only published record this
+     * suite has to read. What is under test here is patient-mode suppression
+     * over a *published* record — that a dose cannot reach a patient payload —
+     * and that property has nothing to do with whether the record is a fixture.
+     *
+     * The demonstration policy is not weakened by this. Every other caller
+     * takes the default, and the exclusion has its own suite.
+     */
+    await seedDemoData(db, { markAsDemonstration: false });
 
     const [row] = await query<{ id: string }>(
       db,

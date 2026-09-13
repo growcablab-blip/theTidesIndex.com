@@ -14,7 +14,7 @@
  * how a particular renderer handles a page break. Every diagram is vector and
  * stays vector at any zoom.
  */
-import { mkdirSync, statSync } from 'node:fs';
+import { mkdirSync, renameSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { renderToFile, type DocumentProps } from '@react-pdf/renderer';
 import { registerFonts } from '@/publishing/theme';
@@ -46,10 +46,31 @@ for (const key of selected) {
     continue;
   }
 
+  /*
+   * Render beside the target, then replace it.
+   *
+   * On Windows a PDF viewer holds its file open, so writing straight to the
+   * destination fails with EBUSY the moment somebody is reading the last build
+   * — which is precisely when they are most likely to rebuild. Rendering to a
+   * sibling and renaming means the work is never lost, and a failed replace
+   * leaves a file that says where it is rather than an error and nothing.
+   */
   const path = `${OUT}${book.file}`;
-  await renderToFile(book.element(), path);
-  const bytes = statSync(path).size;
+  const staged = `${path}.new`;
+  await renderToFile(book.element(), staged);
+
+  let final = path;
+  try {
+    renameSync(staged, path);
+  } catch {
+    final = staged;
+  }
+
+  const bytes = statSync(final).size;
   console.log(`  ${book.file}  ${(bytes / 1024).toFixed(0)} KB`);
-  console.log(`    ${path}`);
+  console.log(`    ${final}`);
+  if (final !== path) {
+    console.log(`    (${book.file} is open in another program; close it and re-run to replace it)`);
+  }
 }
 console.log('');

@@ -1,44 +1,58 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import { getQualityTopicPage, getSpecimenCertificate, type Citation } from '@/server/public/queries';
-import { previewQualityTopic, previewSpecimenCertificate } from '@/server/public/preview';
-import { transparencyDimensions, type CertificateReading } from '@/server/public/certificate';
-import type { QualityTopicReading } from '@/server/public/quality-topic';
-import { getReadingMode } from '@/server/public/reading-mode';
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import {
+  getQualityTopicPage,
+  getSpecimenCertificate,
+  type Citation,
+} from "@/server/public/queries";
+import {
+  previewQualityTopic,
+  previewSpecimenCertificate,
+} from "@/server/public/preview";
+import {
+  transparencyDimensions,
+  type CertificateReading,
+} from "@/server/public/certificate";
+import type { QualityTopicReading } from "@/server/public/quality-topic";
+import { getReadingMode } from "@/server/public/reading-mode";
 import {
   Container,
   EmptyState,
   MetaItem,
   Section,
   formatDate,
-} from '@/components/public/primitives';
-import { ContentsRail, ReferenceLayout } from '@/components/public/contents-rail';
-import { ModeExplainer, ModeSwitch } from '@/components/public/mode-switch';
-import { ClaimCard } from '@/components/public/evidence';
-import { ReferenceList } from '@/components/public/citation';
-import { PrintHeader } from '@/components/public/print-header';
+} from "@/components/public/primitives";
+import {
+  ContentsRail,
+  ReferenceLayout,
+} from "@/components/public/contents-rail";
+import { ModeExplainer, ModeSwitch } from "@/components/public/mode-switch";
+import { ClaimCard } from "@/components/public/evidence";
+import { ReferenceList } from "@/components/public/citation";
+import { PrintHeader } from "@/components/public/print-header";
 import {
   AnalyticalQuestionsFigure,
   ChromatographyFlowFigure,
   IdentityComparisonFigure,
   QualityDimensionsFigure,
-} from '@/components/public/quality-figures';
+} from "@/components/public/quality-figures";
 import {
   EvidenceGapList,
   EvidenceLegend,
   RelatedTopicMap,
-} from '@/components/public/quality-evidence';
+} from "@/components/public/quality-evidence";
 import {
   EvidenceCutoff,
   PreviewBanner,
   ReviewStatusPanel,
-} from '@/components/public/record-status';
+} from "@/components/public/record-status";
+import { Disclosure } from "@/components/public/disclosure";
 import {
   AnnotatedCertificate,
   ChainOfCustodyFigure,
   TransparencyDimensions,
-} from '@/components/public/certificate';
+} from "@/components/public/certificate";
 
 /**
  * A quality topic.
@@ -62,7 +76,7 @@ import {
  * until the next deploy. It also means a build does not need database access,
  * which keeps deployment independent of the database being reachable.
  */
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 /**
  * Published first, then — locally only — the unpublished record.
@@ -78,7 +92,7 @@ async function loadTopic(slug: string): Promise<QualityTopicReading | null> {
 }
 
 /** The specimen is published content; the preview path is the same fallback. */
-const SPECIMEN_KEY = 'specimen-third-party-report';
+const SPECIMEN_KEY = "specimen-third-party-report";
 
 async function loadSpecimen(): Promise<CertificateReading | null> {
   const published = await getSpecimenCertificate(SPECIMEN_KEY);
@@ -93,11 +107,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const topic = await loadTopic(slug);
-  if (!topic) return { title: 'Topic not found' };
+  if (!topic) return { title: "Topic not found" };
 
   return {
     title: topic.name,
-    description: topic.shortDescription ?? `What ${topic.name} establishes, and what it does not.`,
+    description:
+      topic.shortDescription ??
+      `What ${topic.name} establishes, and what it does not.`,
     // An unpublished preview must never be indexed even if the site's global
     // noindex is one day lifted.
     ...(topic.isPreview ? { robots: { index: false, follow: false } } : {}),
@@ -115,7 +131,7 @@ export default async function QualityTopicPage({
 
   if (!topic) notFound();
 
-  const simple = mode === 'simple';
+  const simple = mode === "simple";
   const citations: Citation[] = topic.claims.flatMap((claim) =>
     claim.evidence.map((e) => e.citation),
   );
@@ -127,59 +143,68 @@ export default async function QualityTopicPage({
   // simply does not get the section, rather than getting a generic diagram that
   // would imply more than this index knows about it.
   const methodFigure =
-    topic.slug === 'hplc-purity' ? (
+    topic.slug === "hplc-purity" ? (
       <ChromatographyFlowFigure />
-    ) : topic.slug === 'identity-testing' ? (
+    ) : topic.slug === "identity-testing" ? (
       <IdentityComparisonFigure />
     ) : null;
   // The dimensions figure belongs wherever a reader is being told that quality
   // attributes are separate questions, which is both of these topics.
   // The three-question figure belongs on each of the three topics it is about,
   // marking whichever one the reader is currently on.
-  const ANALYTICAL_TRIO = ['hplc-purity', 'identity-testing', 'peptide-content-assay'];
+  const ANALYTICAL_TRIO = [
+    "hplc-purity",
+    "identity-testing",
+    "peptide-content-assay",
+  ];
   const showsDimensions = ANALYTICAL_TRIO.includes(topic.slug);
   // The certificate reader belongs to one topic. Everywhere else the section
   // simply does not appear, rather than appearing empty.
-  const certificate = topic.slug === 'certificate-of-analysis' ? await loadSpecimen() : null;
+  const certificate =
+    topic.slug === "certificate-of-analysis" ? await loadSpecimen() : null;
 
   const contents = [
-    { id: 'overview', label: 'In short' },
-    { id: 'establishes', label: 'What it establishes' },
-    { id: 'limits', label: 'What it does not establish' },
-    ...(methodFigure !== null ? [{ id: 'how-it-works', label: 'How the test works' }] : []),
+    { id: "overview", label: "In short" },
+    { id: "establishes", label: "What it establishes" },
+    { id: "limits", label: "What it does not establish" },
+    ...(methodFigure !== null
+      ? [{ id: "how-it-works", label: "How the test works" }]
+      : []),
     {
-      id: 'evidence',
-      label: 'Source-linked detail',
+      id: "evidence",
+      label: "Source-linked detail",
       count: topic.claims.length,
       empty: topic.claims.length === 0,
     },
     {
-      id: 'not-established',
-      label: 'Not established here',
+      id: "not-established",
+      label: "Not established here",
       count: topic.gaps.length,
       empty: topic.gaps.length === 0,
     },
-    ...(showsDimensions ? [{ id: 'dimensions', label: 'Separate questions' }] : []),
+    ...(showsDimensions
+      ? [{ id: "dimensions", label: "Separate questions" }]
+      : []),
     ...(certificate
       ? [
-          { id: 'specimen', label: 'A specimen document' },
-          { id: 'chain', label: 'Which batch was tested?' },
-          { id: 'transparency', label: 'What the document tells you' },
+          { id: "specimen", label: "A specimen document" },
+          { id: "chain", label: "Which batch was tested?" },
+          { id: "transparency", label: "What the document tells you" },
         ]
       : []),
     {
-      id: 'related',
-      label: 'Related topics',
+      id: "related",
+      label: "Related topics",
       count: topic.relationships.length,
       empty: topic.relationships.length === 0,
     },
     {
-      id: 'references',
-      label: 'References',
+      id: "references",
+      label: "References",
       count: referenceCount,
       empty: referenceCount === 0,
     },
-    { id: 'record', label: 'About this record' },
+    { id: "record", label: "About this record" },
   ];
 
   return (
@@ -193,7 +218,7 @@ export default async function QualityTopicPage({
       />
 
       <nav aria-label="Breadcrumb" className="no-print mb-6 text-sm text-slate">
-        <Link href="/quality" className="hover:text-deep-tide">
+        <Link href="/quality" className="inline-block py-2 hover:text-deep-tide lg:py-0">
           Quality and testing
         </Link>
         <span className="mx-2" aria-hidden="true">
@@ -207,9 +232,13 @@ export default async function QualityTopicPage({
       <header className="mb-8">
         <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
           <div className="min-w-0">
-            <h1 className="font-serif text-3xl text-ink sm:text-4xl">{topic.name}</h1>
+            <h1 className="font-serif text-3xl text-ink sm:text-4xl">
+              {topic.name}
+            </h1>
             {topic.shortDescription ? (
-              <p className="mt-2 max-w-[58ch] text-lg text-ink-soft">{topic.shortDescription}</p>
+              <p className="mt-2 max-w-[58ch] text-lg text-ink-soft">
+                {topic.shortDescription}
+              </p>
             ) : null}
           </div>
           <ModeSwitch mode={mode} path={`/quality/${topic.slug}`} />
@@ -297,30 +326,55 @@ export default async function QualityTopicPage({
           title="Source-linked detail"
           lede="Each statement here resolves to an exact location in a named analytical source."
         >
-          <div className="mb-5 no-print">
-            <EvidenceLegend />
-          </div>
-
-          {topic.claims.length === 0 ? (
-            <EmptyState
-              headline="No source-linked statements have been reviewed for this topic yet."
-              detail="Analytical statements need a compendial or methods source at an exact page. Several of the references this section depends on are held only as partial copies and are awaiting replacement."
-            >
-              <p>
-                The{' '}
-                <Link href="/sources" className="underline decoration-rule underline-offset-2">
-                  source register
-                </Link>{' '}
-                records which copies are usable and which are not.
-              </p>
-            </EmptyState>
-          ) : (
-            <div className="space-y-5">
-              {topic.claims.map((claim) => (
-                <ClaimCard key={claim.id} claim={claim} simple={simple} />
-              ))}
+          {/*
+            Open by default in practitioner mode and closed in simple mode.
+            A practitioner is here for the evidence and should not have to ask
+            for it; a reader who switched to plain language has said what depth
+            they want, and forty locators is not it. Nothing is removed either
+            way, and printing opens it regardless.
+          */}
+          <Disclosure
+            summary={
+              simple
+                ? "Show the evidence behind these statements"
+                : "The evidence, statement by statement"
+            }
+            detail={
+              simple
+                ? "Every statement above, with the passage it rests on, how this index reads it, and what it records as unsettled."
+                : undefined
+            }
+            count={topic.claims.length}
+            defaultOpen={!simple}
+          >
+            <div className="mb-5 no-print">
+              <EvidenceLegend />
             </div>
-          )}
+
+            {topic.claims.length === 0 ? (
+              <EmptyState
+                headline="No source-linked statements have been reviewed for this topic yet."
+                detail="Analytical statements need a compendial or methods source at an exact page. Several of the references this section depends on are held only as partial copies and are awaiting replacement."
+              >
+                <p>
+                  The{" "}
+                  <Link
+                    href="/sources"
+                    className="underline decoration-rule underline-offset-2"
+                  >
+                    source register
+                  </Link>{" "}
+                  records which copies are usable and which are not.
+                </p>
+              </EmptyState>
+            ) : (
+              <div className="space-y-5">
+                {topic.claims.map((claim) => (
+                  <ClaimCard key={claim.id} claim={claim} simple={simple} />
+                ))}
+              </div>
+            )}
+          </Disclosure>
         </Section>
 
         {/*
@@ -347,7 +401,7 @@ export default async function QualityTopicPage({
             lede="A result for one quality attribute is not an answer about another."
           >
             <AnalyticalQuestionsFigure highlight={topic.slug} />
-            {topic.slug === 'hplc-purity' ? <QualityDimensionsFigure /> : null}
+            {topic.slug === "hplc-purity" ? <QualityDimensionsFigure /> : null}
           </Section>
         ) : null}
 
@@ -370,13 +424,17 @@ export default async function QualityTopicPage({
               {certificate.whatItDemonstrates ? (
                 <div className="mt-5 grid gap-5 lg:grid-cols-2">
                   <div className="rounded-md border border-l-[3px] border-rule border-l-tide-teal bg-warm-white px-5 py-4">
-                    <h3 className="text-sm font-medium text-ink">What this document shows</h3>
+                    <h3 className="text-sm font-medium text-ink">
+                      What this document shows
+                    </h3>
                     <p className="mt-1.5 text-sm text-ink-soft">
                       {certificate.whatItDemonstrates}
                     </p>
                   </div>
                   <div className="rounded-md border border-l-[3px] border-[var(--color-caution-rule)] border-l-[var(--color-caution)] bg-[var(--color-caution-bg)] px-5 py-4">
-                    <h3 className="text-sm font-medium text-ink">What it does not show</h3>
+                    <h3 className="text-sm font-medium text-ink">
+                      What it does not show
+                    </h3>
                     <p className="mt-1.5 text-sm text-ink-soft">
                       {certificate.whatItDoesNotDemonstrate}
                     </p>
@@ -390,7 +448,9 @@ export default async function QualityTopicPage({
               title="What the document tells you, by kind"
               lede="Dimensions, not a score. Nothing here is added up, because a total would be read as a verdict on the material."
             >
-              <TransparencyDimensions dimensions={transparencyDimensions(certificate)} />
+              <TransparencyDimensions
+                dimensions={transparencyDimensions(certificate)}
+              />
             </Section>
           </>
         ) : null}
@@ -416,30 +476,43 @@ export default async function QualityTopicPage({
         </Section>
 
         <Section id="record" title="About this record">
-          <div className="rounded-md border border-rule bg-mist px-5 py-5">
-            <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              <MetaItem label="Version">{topic.version}</MetaItem>
-              <MetaItem label="Review state">{reviewStateLabel(topic.reviewState)}</MetaItem>
-              <MetaItem label="Publication">
-                {topic.publicationState === 'published' ? 'Published' : 'Not published'}
-              </MetaItem>
-              <MetaItem label="First published">{formatDate(topic.publishedAt)}</MetaItem>
-              <MetaItem label="Last reviewed">{formatDate(topic.lastReviewedAt)}</MetaItem>
-              <MetaItem label="Evidence cutoff">
-                <EvidenceCutoff value={topic.evidenceCutoffAt} />
-              </MetaItem>
-            </dl>
-            <p className="mt-5 border-t border-rule pt-4 text-sm text-slate">
-              Found something wrong?{' '}
-              <Link
-                href="/corrections"
-                className="underline decoration-rule underline-offset-2 hover:text-deep-tide"
-              >
-                How corrections work
-              </Link>
-              .
-            </p>
-          </div>
+          <Disclosure
+            summary="Version, review state and how this page is maintained"
+            detail="Who has checked this record, when, and what has not been checked."
+          >
+            <div className="rounded-md border border-rule bg-mist px-5 py-5">
+              <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <MetaItem label="Version">{topic.version}</MetaItem>
+                <MetaItem label="Review state">
+                  {reviewStateLabel(topic.reviewState)}
+                </MetaItem>
+                <MetaItem label="Publication">
+                  {topic.publicationState === "published"
+                    ? "Published"
+                    : "Not published"}
+                </MetaItem>
+                <MetaItem label="First published">
+                  {formatDate(topic.publishedAt)}
+                </MetaItem>
+                <MetaItem label="Last reviewed">
+                  {formatDate(topic.lastReviewedAt)}
+                </MetaItem>
+                <MetaItem label="Evidence cutoff">
+                  <EvidenceCutoff value={topic.evidenceCutoffAt} />
+                </MetaItem>
+              </dl>
+              <p className="mt-5 border-t border-rule pt-4 text-sm text-slate">
+                Found something wrong?{" "}
+                <Link
+                  href="/corrections"
+                  className="underline decoration-rule underline-offset-2 hover:text-deep-tide"
+                >
+                  How corrections work
+                </Link>
+                .
+              </p>
+            </div>
+          </Disclosure>
         </Section>
       </ReferenceLayout>
     </Container>
@@ -448,5 +521,5 @@ export default async function QualityTopicPage({
 
 /** The rung, spelled out. Never abbreviated into something that reads stronger. */
 function reviewStateLabel(state: string): string {
-  return state.replaceAll('_', ' ').replace(/^./, (c) => c.toUpperCase());
+  return state.replaceAll("_", " ").replace(/^./, (c) => c.toUpperCase());
 }

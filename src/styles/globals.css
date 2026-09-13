@@ -328,3 +328,23 @@ p {
 .print-only {
   display: none;
 }
+
+/* ==========================================================================
+   Progressive disclosure
+
+   Depth is optional on screen and mandatory on paper. A printed reference with
+   a collapsed section on it is a printed reference with a hole in it, and the
+   whole argument for this section is that nothing was removed.
+   ========================================================================== */
+
+@media print {
+  .tides-disclosure > summary {
+    display: none;
+  }
+  .tides-disclosure {
+    border: 0;
+  }
+  .tides-disclosure > div {
+    padding: 0;
+  }
+}

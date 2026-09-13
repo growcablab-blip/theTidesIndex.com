@@ -25,7 +25,7 @@ import {
   ProvenanceChainFigure,
   QualityDimensionsFigure,
   ThreeQuestionsFigure,
-  TideMark,
+  SeriesMark,
   TraceabilityFigure,
 } from '../figures';
 import { colour, contentWidth, leading, sans, serif, type } from '../theme';
@@ -67,12 +67,13 @@ export function PeptideQuality() {
       {/* ================= 1. COVER ==================================== */}
       <Cover
         imprint="The Tides Index"
+        series="Reference series · Volume three"
         title="Peptide Quality"
         subtitle="From Manufacturing to the Final Vial"
         descriptor="Independent peptide science & clinical reference"
         editionLine={`First edition excerpt · prototype · issued ${ISSUED}`}
         statusLine="Awaiting scientific review. Nothing in this document has been approved by a reviewer."
-        mark={<TideMark width={300} />}
+        mark={<SeriesMark width={300} volume={3} />}
       />
 
       {/* ================= 2. WHAT QUALITY MEANS ======================= */}
@@ -101,7 +102,7 @@ export function PeptideQuality() {
           items={[
             'It is not a statement of identity. A high figure says the sample was homogeneous by that method; it does not say what the substance is.',
             'It is not a statement of quantity. A proportion carries no amount — two vials with the same figure can hold very different masses of peptide.',
-            'It is not a statement about sterility or endotoxin. Chromatography does not address either.',
+            'It is not a statement about sterility or endotoxin. The reviewed evidence here establishes nothing about either from a purity result.',
             'It is not a statement about the material in your hand, unless the chain from product to lot to sample to report is unbroken.',
           ]}
         />
@@ -129,7 +130,7 @@ export function PeptideQuality() {
         <ChapterOpener
           eyebrow="Two"
           title="The three analytical questions"
-          standfirst="Purity, identity and content are separate undertakings, and no single technique addresses more than one of them well."
+          standfirst="Three separate undertakings. The source held here states that no single technique addresses homogeneity and covalent structure both."
         />
 
         <Body>
@@ -482,7 +483,7 @@ export function PeptideQuality() {
               ['Identity', 'Mass analysis', 'Conforms', 'The mass matched a calculation. Not a sequence.'],
               ['Purity', 'RP-HPLC', '99.1%', 'Of the material detected by this method, on this sample.'],
               ['Content', 'Not stated', '—', 'Absent. Nothing here tells you how much peptide is present.'],
-              ['Sterility', 'Not stated', '—', 'Absent. Chromatography does not address it.'],
+              ['Sterility', 'Not stated', '—', 'Absent. Nothing on this document reports it.'],
               ['Endotoxin', 'Not stated', '—', 'Absent.'],
             ]}
           />
@@ -531,12 +532,12 @@ export function PeptideQuality() {
             ],
             [
               'Whether the preparation is sterile',
-              'Chromatography does not address it.',
+              'No source held here establishes it from this result.',
               'Recorded gap',
             ],
             [
               'Endotoxin content',
-              'Chromatography does not address it.',
+              'No source held here establishes it from this result.',
               'Recorded gap',
             ],
             [

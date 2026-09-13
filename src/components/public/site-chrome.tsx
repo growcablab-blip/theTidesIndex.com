@@ -101,10 +101,15 @@ export function SiteHeader() {
           tap to every move. */}
       <nav aria-label="Sections" className="no-print border-b border-rule bg-mist md:hidden">
         <Container width="wide">
-          <ul className="scroll-x flex gap-5 py-2.5 text-sm">
+          {/*
+            Padding on the link, not on the row. The row was padded and the
+            anchors were not, so the tappable area was the height of the text —
+            17px on a phone, against a 44px guideline.
+          */}
+          <ul className="scroll-x flex gap-1 text-sm">
             {PRIMARY_NAV.map((item) => (
               <li key={item.href} className="shrink-0">
-                <Link href={item.href} className="text-ink-soft">
+                <Link href={item.href} className="block px-2.5 py-3 text-ink-soft">
                   {item.label}
                 </Link>
               </li>
@@ -140,10 +145,15 @@ export function SiteFooter() {
           {FOOTER_NAV.map((group) => (
             <nav key={group.heading} aria-label={group.heading}>
               <p className="meta-label">{group.heading}</p>
-              <ul className="mt-2.5 space-y-1.5 text-sm">
+              {/* Padded on a phone, tight on a desktop where the pointer is
+                  precise and the footer would otherwise sprawl. */}
+              <ul className="mt-1.5 text-sm lg:mt-2.5 lg:space-y-1.5">
                 {group.links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-ink-soft hover:text-deep-tide">
+                    <Link
+                      href={link.href}
+                      className="inline-block py-2 text-ink-soft hover:text-deep-tide lg:py-0"
+                    >
                       {link.label}
                     </Link>
                   </li>

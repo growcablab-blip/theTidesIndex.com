@@ -221,11 +221,14 @@ export function IdentityVersusPurityFigure({ width = 420 }: { width?: number }) 
 
 /** Two vials, identical purity, different content. */
 export function ContentFigure({ width = 420 }: { width?: number }) {
-  const height = 134;
+  // Taller, and the vials narrower and further apart. At the previous size the
+  // two captions under the vials ran into each other and into the footnote,
+  // which is the one thing a figure about "these are not the same" must not do.
+  const height = 152;
   const vial = (x: number, fill: number, label: string, sub: string) => {
-    const bodyTop = 34;
-    const bodyH = 72;
-    const w = 40;
+    const bodyTop = 32;
+    const bodyH = 66;
+    const w = 34;
     const filledH = bodyH * fill;
     return (
       <G>
@@ -247,18 +250,18 @@ export function ContentFigure({ width = 420 }: { width?: number }) {
           height={filledH}
           fill={colour.seaGlass}
         />
-        <SvgText x={x + w / 2} y={bodyTop + bodyH + 15} fill={colour.ink} style={{ fontFamily: FONT, fontSize: 7.6 }} textAnchor="middle">
+        <SvgText x={x + w / 2} y={bodyTop + bodyH + 16} fill={colour.ink} style={{ fontFamily: FONT, fontSize: 7.4 }} textAnchor="middle">
           {label}
         </SvgText>
-        <SvgText x={x + w / 2} y={bodyTop + bodyH + 26} fill={colour.slate} style={{ fontFamily: FONT, fontSize: 6.4 }} textAnchor="middle">
+        <SvgText x={x + w / 2} y={bodyTop + bodyH + 27} fill={colour.slate} style={{ fontFamily: FONT, fontSize: 6.2 }} textAnchor="middle">
           {sub}
         </SvgText>
       </G>
     );
   };
 
-  const left = width * 0.26;
-  const right = width * 0.62;
+  const left = width * 0.2;
+  const right = width * 0.68;
 
   return (
     <Svg width={width} height={height} viewBox={`0 0 ${String(width)} ${String(height)}`}>
@@ -391,7 +394,7 @@ export function TraceabilityFigure({ width = 440 }: { width?: number }) {
 
       <Line x1={0} y1={y + boxH + 14} x2={width} y2={y + boxH + 14} stroke={colour.cautionRule} strokeWidth={0.8} strokeDasharray="3 2" />
       <SvgText x={0} y={y + boxH + 27} fill={colour.caution} style={{ fontFamily: FONT, fontSize: 6.4 }}>
-        A break anywhere in this chain means the result describes a different material from the one in your hand.
+        A break in the documented chain means the record cannot establish that the tested sample represents the material in hand.
       </SvgText>
     </Svg>
   );
@@ -545,6 +548,42 @@ export function ProvenanceChainFigure({ width = 440 }: { width?: number }) {
 // ---------------------------------------------------------------------------
 // The cover mark
 // ---------------------------------------------------------------------------
+
+/**
+ * The series mark.
+ *
+ * Five volumes are planned and they need to look like one family without
+ * looking identical. The motif is the same layered curve throughout; the volume
+ * number sets how many strata are drawn and where the accent falls, so the
+ * marks are siblings rather than copies.
+ *
+ * Reusable by construction: a future volume passes its own number and gets its
+ * own mark without anybody drawing anything.
+ */
+export function SeriesMark({ width = 300, volume = 1 }: { width?: number; volume?: number }) {
+  const height = width * 0.34;
+  const strata = 3 + (volume % 3);
+  const accent = volume % strata;
+
+  return (
+    <Svg width={width} height={height} viewBox={`0 0 ${String(width)} ${String(height)}`}>
+      {Array.from({ length: strata }, (_, index) => {
+        const offset = index * (height / (strata + 1.6));
+        const isAccent = index === accent;
+        return (
+          <Path
+            key={offset}
+            d={`M0 ${String(height * 0.3 + offset)} C ${String(width * 0.26)} ${String(height * 0.06 + offset)}, ${String(width * 0.6)} ${String(height * 0.62 + offset)}, ${String(width)} ${String(height * 0.22 + offset)}`}
+            stroke={isAccent ? colour.seaGlass : colour.tideTeal}
+            strokeWidth={isAccent ? 1.8 : 0.9}
+            strokeOpacity={isAccent ? 1 : 0.55}
+            fill="none"
+          />
+        );
+      })}
+    </Svg>
+  );
+}
 
 /** Layered curves. The only ornament in the system. */
 export function TideMark({ width = 300 }: { width?: number }) {

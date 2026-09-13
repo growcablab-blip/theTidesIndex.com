@@ -754,6 +754,24 @@ export interface CoverageSnapshot {
   readonly citableSources: number;
   readonly publishedClaims: number;
   readonly claimsWithHumanEvidence: number;
+  /**
+   * Compounds the index recognises and is working on, published or not.
+   *
+   * The front page used to report published counts only. With the
+   * demonstration fixture correctly excluded those are all zero, and a reader
+   * would be told the index is empty — which is as misleading as the old
+   * "1 compound published" was, in the other direction.
+   *
+   * "In development" is the true statement, and it is also the more useful one:
+   * it tells a reader what is in scope, which is what they came to find out.
+   */
+  readonly compoundsInDevelopment: number;
+  /** Quality topics with extracted evidence attached, reviewed or not. */
+  readonly qualityReferencesWritten: number;
+  /** Quality topics the index recognises, written or not. */
+  readonly qualityTopicsRegistered: number;
+  /** Statements extracted and located, awaiting a human scientific review. */
+  readonly statementsAwaitingReview: number;
 }
 
 export const getCoverageSnapshot = cache(async (): Promise<CoverageSnapshot> =>
@@ -769,7 +787,15 @@ export const getCoverageSnapshot = cache(async (): Promise<CoverageSnapshot> =>
          from public_v_claims c
          join public_v_claim_evidence ce on ce.claim_id = c.id
          join public_v_evidence_types et on et.key = ce.evidence_type_key
-         where et.is_human_evidence)::int as claims_with_human_evidence
+         where et.is_human_evidence)::int as claims_with_human_evidence,
+        (select count(*) from public_v_peptide_register)::int
+          as compounds_in_development,
+        (select count(*) from public_v_quality_register where claim_count > 0)::int
+          as quality_references_written,
+        (select count(*) from public_v_quality_register)::int
+          as quality_topics_registered,
+        (select coalesce(sum(claim_count), 0) from public_v_quality_register)::int
+          as statements_awaiting_review
     `);
     const row = rows<Record<string, number>>(result)[0] ?? {};
     return {
@@ -779,6 +805,10 @@ export const getCoverageSnapshot = cache(async (): Promise<CoverageSnapshot> =>
       citableSources: row.citable_sources ?? 0,
       publishedClaims: row.published_claims ?? 0,
       claimsWithHumanEvidence: row.claims_with_human_evidence ?? 0,
+      compoundsInDevelopment: row.compounds_in_development ?? 0,
+      qualityReferencesWritten: row.quality_references_written ?? 0,
+      qualityTopicsRegistered: row.quality_topics_registered ?? 0,
+      statementsAwaitingReview: row.statements_awaiting_review ?? 0,
     };
   }),
 );

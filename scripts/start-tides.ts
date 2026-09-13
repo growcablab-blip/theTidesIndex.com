@@ -221,6 +221,21 @@ process.stdout.write(`\n  ${BOLD}The Tides Index${RESET} ${DIM}— starting${RES
 ensureEnvFile();
 loadEnvFile();
 process.env.DATABASE_URL ??= DB_URL;
+/*
+ * One connection, and not a preference.
+ *
+ * The development database serves the Postgres wire protocol from a single
+ * PGlite instance and answers one connection at a time. A pool larger than one
+ * interleaves prepared statements across connections it does not really have,
+ * and the result is not a clean failure: it is `bind message supplies 1
+ * parameters, but prepared statement "" requires 0`, and intermittent
+ * ECONNRESET, on pages that are perfectly correct.
+ *
+ * That cost several hours across this project before the cause was found, so
+ * the launcher sets it rather than trusting whatever an .env.local happens to
+ * carry. Against a real Postgres the launcher is not involved.
+ */
+process.env.DATABASE_POOL_MAX = '1';
 // Unreviewed records render at their public routes, with their banners. A
 // production build refuses this regardless of the flag.
 process.env.TIDES_PREVIEW_UNPUBLISHED = '1';
@@ -284,6 +299,7 @@ const web = spawnBackground('npm', ['run', 'dev'], {
   env: {
     TIDES_PREVIEW_UNPUBLISHED: '1',
     DATABASE_URL: process.env.DATABASE_URL,
+    DATABASE_POOL_MAX: '1',
   },
 });
 web.stdout?.on('data', (chunk: Buffer) => {

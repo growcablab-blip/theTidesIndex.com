@@ -14,13 +14,28 @@ import type { ReadingMode } from '@/domain/presentation/reading-mode';
  */
 export function ModeSwitch({ mode, path }: { mode: ReadingMode; path: string }) {
   return (
-    <div
-      className="no-print inline-flex items-center rounded-md border border-rule bg-warm-white p-0.5"
-      role="group"
-      aria-label="Reading depth"
-    >
-      <ModeButton mode="simple" current={mode} path={path} label="Simple" />
-      <ModeButton mode="practitioner" current={mode} path={path} label="Practitioner" />
+    <div className="no-print">
+      <div className="flex items-center gap-2.5">
+        <span className="meta-label">Reading depth</span>
+        <div
+          className="inline-flex items-center rounded-md border border-rule bg-warm-white p-0.5"
+          role="group"
+          aria-label="Reading depth"
+        >
+          <ModeButton mode="simple" current={mode} path={path} label="Simple" />
+          <ModeButton mode="practitioner" current={mode} path={path} label="Practitioner" />
+        </div>
+      </div>
+      {/*
+        The switch used to be two unlabelled words. A reader had to press one to
+        find out what it did, and pressing the wrong one on a patient-facing page
+        is the press that matters.
+      */}
+      <p className="mt-1.5 max-w-[30ch] text-right text-xs leading-snug text-slate sm:max-w-none">
+        {mode === 'simple'
+          ? 'Plain language, no doses. Switch for full evidence.'
+          : 'Full evidence, sources and reported regimens.'}
+      </p>
     </div>
   );
 }
@@ -44,7 +59,7 @@ function ModeButton({
       <button
         type="submit"
         aria-pressed={active}
-        className={`rounded-[5px] px-3 py-1.5 text-sm transition-colors ${
+        className={`rounded-[5px] px-3.5 py-2.5 text-sm transition-colors ${
           active
             ? 'bg-deep-tide font-medium text-warm-white'
             : 'text-slate hover:bg-mist hover:text-deep-tide'

@@ -37,7 +37,7 @@
       "from": "hplc-purity",
       "to": "sterility",
       "relationshipType": "not_addressed_by",
-      "rationale": "Sterility is a microbiological question and chromatography does not address it. This index holds no source on sterility testing, so it records the gap rather than asserting the conclusion.",
+      "rationale": "This index holds no source on sterility testing, so it records the absence rather than asserting that a purity result settles the question either way.",
       "gapKey": "hplc-purity-gap-01",
       "sortOrder": 50
     },
