@@ -103,8 +103,16 @@ describe('source integrity', () => {
     expect(s.page_count).toBeGreaterThan(390);
   });
 
-  it('leaves no source claiming its full text may be published', () => {
+  it('leaves no copyrighted source claiming its full text may be published', () => {
+    // See the same rule in source-manifest.test.ts. A public regulatory record
+    // may be republished; a book may not, and that is the distinction the flag
+    // was always encoding.
+    const PUBLIC_RECORD_TYPES = new Set(['regulatory_label', 'regulatory_guidance']);
     for (const s of seedData.sourceManifest.sources) {
+      if (s.public_fulltext_allowed === true) {
+        expect(PUBLIC_RECORD_TYPES.has(s.source_type), s.source_key).toBe(true);
+        continue;
+      }
       expect(s.public_fulltext_allowed, s.source_key).toBe(false);
     }
   });

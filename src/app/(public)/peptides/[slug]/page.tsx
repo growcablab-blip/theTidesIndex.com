@@ -39,6 +39,8 @@ import { RecordInPreparation } from '@/components/public/record-in-preparation';
 import { previewPeptidePage } from '@/server/public/preview';
 import { PrintHeader } from '@/components/public/print-header';
 import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
+import { ProtocolComparison } from '@/components/public/protocol-comparison';
+import { Disclosure } from '@/components/public/disclosure';
 
 /**
  * The canonical compound record.
@@ -325,6 +327,27 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
         >
           <div className="space-y-5">
             <ProtocolSectionLede count={peptide.protocols.length} />
+
+            {/*
+              The comparison first, then the records.
+              Five regimens read as a vertical list invite a reader to average
+              them; laid side by side the differences are the first thing seen,
+              which is the only reason this view exists. Practitioner mode only —
+              the rows are amounts.
+            */}
+            {!simple && peptide.protocols.length > 1 ? (
+              <Disclosure
+                summary="Compare what each source reports"
+                detail="Side by side, with the fields that differ named. Nothing is ranked or recommended."
+                count={peptide.protocols.length}
+                defaultOpen
+              >
+                <ProtocolComparison
+                  protocols={peptide.protocols as readonly PractitionerProtocol[]}
+                  compoundName={peptide.canonicalName}
+                />
+              </Disclosure>
+            ) : null}
 
             {peptide.protocols.length === 0 ? (
               <NoProtocolsYet simple={simple} />

@@ -1,29 +1,31 @@
 {
   "packetKey": "tesamorelin",
   "peptideKey": "tesamorelin",
-  "note": "Extracted from SRC-002 (LaValle et al., Peptide Handbook, 2022), file pages 143-148 = printed pages 141-146. The handbook is a practitioner reference that cites primary literature by superscript; it is treated here as a practitioner reference reporting what studies found, not as the study. Where it reports a trial result, the claim says who reported it and that the primary paper has not been opened by this index. Tesamorelin is the deliberately 'easier' half of this pair: it has an approved product, an approved indication, and named Phase III trials, and the point of extracting it alongside BPC-157 is to show the same architecture recording a much stronger evidence base without inflating it.",
-
+  "note": "Extracted from SRC-002 (LaValle et al., Peptide Handbook, 2022), printed pages 141-146, and then checked against SRC-027 — the FDA-approved prescribing information for EGRIFTA SV, retrieved from the regulator's own API. The label is the authoritative source and it does not agree with the handbook everywhere. Where they differ the record says which source says what and which one governs; the handbook is kept rather than replaced, because what a widely used practitioner reference tells clinicians is itself worth recording accurately.",
   "compound": {
-    "shortDescription": "A growth hormone-releasing hormone analogue with an approved product and an approved indication, reported by the practitioner source held here to reduce visceral fat in HIV-associated lipodystrophy.",
-
-    "simpleSummary": "Tesamorelin is a laboratory-made version of a hormone the body already produces — growth hormone-releasing hormone, or GHRH. Rather than supplying growth hormone directly, it prompts the pituitary gland to release more of its own.\n\nIt is discussed because, unlike most compounds in this index, it exists as an approved medicine. The source held here names the product Egrifta and records an approved use: a change in body fat distribution that can occur in people with HIV, in which fat accumulates deep in the abdomen. The same source reports that in two clinical trials in people with HIV and abdominal obesity, treatment reduced that deep abdominal fat by around 15% over 26 weeks, without changing fat under the skin or overall body mass.\n\nWhat this index can tell you is limited by what it holds. It holds one practitioner handbook, which summarises those trials and cites them; it does not hold the trials themselves, the approved product labelling, or any regulatory document. So it can say what a careful practitioner reference reports, and it cannot independently confirm any of it.\n\nSeveral things remain open. The handbook notes that long-term use has not been studied. It lists conditions in which the compound should not be used, including pregnancy, active cancer, and pituitary disease. And nothing held here establishes anything about its use outside the approved indication, which is most of the reason it is discussed.\n\nBefore discussing tesamorelin with a clinician, the useful thing to understand is that an approved medicine has an approved use, and that a compound being approved for one purpose is not evidence about another.",
-
-    "practitionerSummary": "GHRH analogue: the endogenous 44-amino-acid sequence with a trans-3-hexenoyl group added at the N-terminus, which the source held here reports as conferring resistance to degradation. Acts at the GHRH receptor on somatotrophs to stimulate endogenous pulsatile GH secretion, and thus downstream IGF-1 — a mechanism the source distinguishes from exogenous GH administration.\n\nHuman evidence, as reported by the practitioner source: two Phase III trials (n = 412) in HIV-infected patients with abdominal obesity, in which visceral adipose tissue fell selectively by 15% over 26 weeks without change in subcutaneous adipose tissue or BMI; responders showed greater stability in glucose homeostasis than non-responders across waist circumference, triglycerides, fasting glucose, HbA1c, HOMA-IR, adiponectin and IGF-1. The same source reports a separate GHRH-administration trial in 152 adults aged 55-87 reporting favourable cognitive effects in both mild cognitive impairment and healthy ageing, and notes that longer trials are needed. **This index has not opened any of those papers.**\n\nPharmacokinetics, as reported: mean elimination half-life 26 minutes in healthy subjects and 38 minutes in HIV-infected patients after 14 consecutive days of subcutaneous administration. IGF-1 increase reported at a mean of 181 µg/L in men. Reported not to substantially affect TSH, LH, ACTH or prolactin.\n\nFormulation and route: the approved product is a lyophilised powder for subcutaneous injection, reconstituted with Sterile Water for Injection; the source records 1 mg of tesamorelin free base per single-use vial with 50 mg mannitol. Subcutaneous is the only route recorded here.\n\nSafety, as reported: contraindicated in hypersensitivity, pregnancy, pituitary conditions including HPA-axis disruption, existing head trauma and active malignancy; paediatric safety not established. Caution with elevated IGF-1, neoplasms, fluid retention and glucose intolerance. Reported interactions via cytochrome P-450. Most common adverse effects listed as injection-site erythema, rash, oedema, joint and muscle pain, and diarrhoea. The source reports no de novo serum enzyme elevations in HIV-lipodystrophy trials and no reported instances of clinically apparent liver injury.\n\nUnresolved: this index holds no regulatory document, no approved labelling and no primary trial paper. Every statement above is what one practitioner handbook reports, and the handbook's own citations have not been traced.",
-
-    "unknownsSummary": "Everything outside the indication the source names. This index holds no primary trial paper, no approved product labelling and no regulatory document for tesamorelin — only a practitioner handbook that summarises and cites them. It cannot confirm any reported trial result, cannot state the approved indication in a regulator's own words, cannot give an approval date or jurisdiction from an authority, and establishes nothing at all about use for body composition, ageing, sleep or performance in people without the condition studied. The source itself records that long-term use has not been studied.",
-
+    "shortDescription": "A growth hormone-releasing hormone analogue with an FDA-approved product and one approved indication: reducing excess abdominal fat in adults with HIV-associated lipodystrophy. The approved labelling states it is not indicated for weight loss.",
+    "simpleSummary": "Tesamorelin is a laboratory-made version of a hormone the body already produces — growth hormone-releasing hormone. Rather than supplying growth hormone directly, it prompts the pituitary gland to release more of its own.\n\nIt is discussed because, unlike almost everything else in this index, it is an approved medicine. The US Food and Drug Administration has approved it, under the brand name Egrifta, for one purpose: reducing excess fat in the abdomen in adults who have HIV and a condition called lipodystrophy, in which body fat redistributes and accumulates deep in the abdomen.\n\nThe evidence behind that approval is two properly controlled trials — randomised, double-blind, placebo-controlled — each running 26 weeks with a further 26-week extension, measuring deep abdominal fat by CT scan.\n\n**The approved labelling says directly that it is not indicated for weight loss, and that it has a weight-neutral effect.** That sentence is worth more than anything else on this page, because weight and body composition are the main reasons the compound is discussed outside the approved population. The labelling also says that its long-term cardiovascular safety has not been established.\n\nThe labelling lists situations in which it must not be used at all, including pregnancy, active cancer, and disruption of the pituitary axis. It carries a warning about an increased risk of tumours, and requires monitoring of a growth-related blood marker and of blood glucose.\n\nBefore discussing tesamorelin with a clinician, the useful thing to understand is that an approved medicine has an approved use, and that a medicine being approved for one condition is not evidence about anything else.",
+    "practitionerSummary": "GHRH (GRF) analogue: the 44-amino-acid human GRF sequence with a hexenoyl moiety attached at the N-terminal tyrosine. Binds and stimulates human GRF receptors with similar potency to endogenous GRF, acting on pituitary somatotrophs to stimulate synthesis and pulsatile release of endogenous GH — a mechanism distinct from exogenous GH administration.\n\n**Regulatory.** FDA-approved, BLA 022505, Theratechnologies Inc. Indication: reduction of excess abdominal fat in HIV-infected adult patients with lipodystrophy. Labelled Limitations of Use: long-term cardiovascular safety not established; not indicated for weight loss management, having a weight-neutral effect; no data supporting improved antiretroviral compliance. Two formulations (EGRIFTA SV, EGRIFTA WR) differ in strength, dose, reconstitution and storage and are not substitutable. Authoritative for the United States only.\n\n**Human evidence.** Two multicentre, randomised, double-blind, placebo-controlled studies in HIV-infected patients with lipodystrophy and excess abdominal fat; 2:1 randomisation to tesamorelin or placebo; 26-week main phase plus 26-week extension. Primary endpoint: percent change from baseline to week 26 in visceral adipose tissue by CT at L4-L5. Secondary endpoints included triglycerides, total:HDL cholesterol ratio, IGF-1 and patient-reported body image; other endpoints included waist circumference, subcutaneous adipose tissue, trunk fat and lean body mass. The practitioner handbook reports the result as a 15% selective VAT reduction over 26 weeks in n=412 without change in SAT or BMI. **The primary publications have not been obtained or read by this index** — the design above is the regulator's account of them.\n\n**Pharmacokinetics.** Labelled mean elimination half-life 8 minutes in healthy subjects after a single 1.4 mg subcutaneous dose of EGRIFTA SV; mean volume of distribution 4.8 ± 1.9 L/kg. No formal human metabolism studies. PK not established in renal or hepatic impairment, in paediatric patients or in the elderly. The practitioner handbook reports 26 and 38 minutes in healthy and HIV-infected subjects after 14 days — a materially different figure, recorded as a difference rather than silently reconciled.\n\n**Route and formulation.** Subcutaneous only, into the abdomen with site rotation. Lyophilised powder reconstituted with the supplied diluent; mix by rolling, do not shake.\n\n**Safety.** Contraindicated in disruption of the hypothalamic-pituitary axis, active malignancy, known hypersensitivity, and pregnancy. Warnings: increased risk of neoplasms (preexisting malignancy must be inactive and treated before starting; discontinue on evidence of recurrence); elevated IGF-1 with monitoring and consideration of discontinuation on persistent elevation; fluid retention including oedema, arthralgia and carpal tunnel syndrome; glucose intolerance or diabetes with glucose evaluation before and during therapy; hypersensitivity; injection-site reactions. Adverse reactions above 5%: arthralgia, injection-site erythema, injection-site pruritus, pain in extremity, peripheral oedema, myalgia.\n\n**Where the sources differ.** Jurisdiction, half-life, molecular weight, adverse-effect list and dose all differ between the practitioner handbook and the approved labelling. Each difference is recorded on the claim it affects, with the label treated as governing.",
+    "unknownsSummary": "Everything outside the approved indication. The FDA labelling establishes what the approval covers in the United States and states in terms that the product is not indicated for weight loss and that long-term cardiovascular safety has not been established. Beyond that: this index has not obtained or read the primary trial publications, so it reports the trials only as the regulator describes them; it holds no regulatory record for any jurisdiction other than the United States; and it establishes nothing about use for body composition, ageing, sleep or performance in people without HIV-associated lipodystrophy. Where the practitioner handbook and the approved labelling disagree — on jurisdiction, half-life, molecular weight, dose and adverse effects — this index records the difference rather than resolving it, and treats the labelling as governing.",
     "aliases": [
-      { "alias": "Egrifta", "note": "Brand name recorded by SRC-002 for the product marketed by Theratechnologies Inc., Canada." },
-      { "alias": "TH9507", "note": "Development code. Not recorded in any source held here; listed because a reader will meet it elsewhere, and it is not sourced." },
-      { "alias": "GHRH(1-44) analogue", "note": "Descriptive, not a name. SRC-002 describes tesamorelin as a GHRH analogue with an added trans-3-hexanoic acid moiety." }
+      {
+        "alias": "Egrifta",
+        "note": "Brand name. The FDA labelling covers EGRIFTA SV and EGRIFTA WR, two formulations that differ in strength and dose and are explicitly not substitutable. Marketed by Theratechnologies Inc."
+      },
+      {
+        "alias": "TH9507",
+        "note": "Development code. Not recorded in any source held here; listed because a reader will meet it elsewhere, and it is not sourced."
+      },
+      {
+        "alias": "GHRH(1-44) analogue",
+        "note": "Descriptive, not a name. SRC-002 describes tesamorelin as a GHRH analogue with an added trans-3-hexanoic acid moiety."
+      }
     ],
-
     "sequence": "N-(trans-3-hexenoyl)-Tyr-Ala-Asp-Ala-Ile-Phe-Thr-Asn-Ser-Tyr-Arg-Lys-Val-Leu-Gly-Gln-Leu-Ser-Ala-Arg-Lys-Leu-Leu-Gln-Asp-Ile-Met-Ser-Arg-Gln-Gln-Gly-Glu-Ser-Asn-Gln-Glu-Arg-Gly-Ala-Arg-Ala-Arg-Leu-NH2",
-    "molecularDescription": "Molecular weight reported as 5195.908 g/mol. The molecular formula printed in the held copy is degraded by optical character recognition and is not transcribed here rather than transcribed wrongly.",
-    "naturalOrSynthetic": "Synthetic analogue of an endogenous human hormone. The parent sequence is human GHRH; the trans-3-hexenoyl group at the N-terminus is not.",
+    "molecularDescription": "The approved labelling gives the molecular formula of tesamorelin acetate as C221H366N72O67S · x C2H4O2 (x ≈ 7), with a molecular weight of 5135.9 Da as free base equivalent. The practitioner handbook records 5195.908 g/mol; where the two differ the labelling governs.",
+    "naturalOrSynthetic": "Synthetic. The labelling describes it as a human growth hormone-releasing factor analogue produced synthetically: the 44-amino-acid human GRF sequence with a hexenoyl moiety — a C6 chain with a double bond at position 3 — attached to the N-terminal tyrosine, prepared as an acetate salt.",
     "nomenclatureNote": "Tesamorelin is a GHRH analogue and is routinely grouped with sermorelin and CJC-1295, which the source held here does explicitly. That grouping is about mechanism, not about evidence: the three do not share an approval, an indication or a trial record, and a claim about one is not a claim about another."
   },
-
   "locations": [
     {
       "key": "lavalle-tesa-141",
@@ -67,9 +69,57 @@
       "locatorText": "p. 146",
       "pageStart": 146,
       "section": "Tesamorelin — trial results, pharmacokinetics, pituitary selectivity"
+    },
+    {
+      "key": "fda-egrifta-indications",
+      "sourceKey": "SRC-027",
+      "locatorText": "§1 Indications and Usage, including Limitations of Use",
+      "section": "1 INDICATIONS AND USAGE",
+      "notes": "SPL set id 7d9be20d-e0a5-47ab-997e-82ab2bd54cba, effective 29 July 2026."
+    },
+    {
+      "key": "fda-egrifta-dosage",
+      "sourceKey": "SRC-027",
+      "locatorText": "§2 Dosage and Administration",
+      "section": "2 DOSAGE AND ADMINISTRATION"
+    },
+    {
+      "key": "fda-egrifta-contraindications",
+      "sourceKey": "SRC-027",
+      "locatorText": "§4 Contraindications",
+      "section": "4 CONTRAINDICATIONS"
+    },
+    {
+      "key": "fda-egrifta-warnings",
+      "sourceKey": "SRC-027",
+      "locatorText": "§5 Warnings and Precautions",
+      "section": "5 WARNINGS AND PRECAUTIONS"
+    },
+    {
+      "key": "fda-egrifta-adverse",
+      "sourceKey": "SRC-027",
+      "locatorText": "§6.1 Adverse Reactions — Clinical Trial Experience",
+      "section": "6 ADVERSE REACTIONS"
+    },
+    {
+      "key": "fda-egrifta-description",
+      "sourceKey": "SRC-027",
+      "locatorText": "§11 Description",
+      "section": "11 DESCRIPTION"
+    },
+    {
+      "key": "fda-egrifta-pharmacology",
+      "sourceKey": "SRC-027",
+      "locatorText": "§12 Clinical Pharmacology",
+      "section": "12 CLINICAL PHARMACOLOGY"
+    },
+    {
+      "key": "fda-egrifta-studies",
+      "sourceKey": "SRC-027",
+      "locatorText": "§14 Clinical Studies",
+      "section": "14 CLINICAL STUDIES"
     }
   ],
-
   "claims": [
     {
       "claimKey": "TESA-001",
@@ -98,12 +148,12 @@
     },
     {
       "claimKey": "TESA-002",
-      "claimText": "An approved product exists. The source held here names Egrifta, marketed by Theratechnologies Inc., Canada, supplied as a lyophilised powder for subcutaneous injection containing 1 mg of tesamorelin as the free base with 50 mg mannitol per single-use vial.",
+      "claimText": "An approved product exists. The source held here names Egrifta, marketed by Theratechnologies Inc., supplied as a single-use vial of lyophilised powder that is reconstituted with Sterile Water for Injection for subcutaneous injection.",
       "plainLanguageText": "Unlike most compounds in this index, tesamorelin exists as an approved medicine with a brand name, a manufacturer and a defined formulation.",
       "claimCategory": "regulatory",
       "importance": "critical",
       "interpretationNotes": "The existence of an approved product is the single most consequential fact about this compound, and it is the fact that most distinguishes it from the rest of the register. This index records it as reported by a practitioner handbook, because that is the only kind of source it holds for it. A named product, manufacturer and composition is a strong signal; it is not the same as having read the approval.",
-      "uncertaintyText": "This index holds no regulatory document, no approved labelling and no marketing authorisation for tesamorelin. It cannot state which authority approved it, in which jurisdiction, on what date, for what indication in the regulator's own words, or whether that status still stands. A practitioner handbook published in 2022 is not a current regulatory record.",
+      "uncertaintyText": "Vial strengths and reconstitution volumes are not given on this view: they are concentrations from which a dose can be reconstructed, and they belong in the practitioner view with the labelling that governs them. More than one formulation exists and they are not substitutable.",
       "evidence": [
         {
           "locationKey": "lavalle-tesa-141",
@@ -116,7 +166,7 @@
           "locationKey": "lavalle-tesa-142",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
-          "interpretation": "The source gives the formulation: a lyophilised powder reconstituted with Sterile Water for Injection, each single-use vial containing 1 mg tesamorelin free base and 50 mg mannitol as the inactive ingredient.",
+          "interpretation": "The source gives the formulation: a lyophilised powder reconstituted with Sterile Water for Injection, supplied in single-use vials with mannitol as the inactive ingredient.",
           "populationModel": "Not applicable."
         }
       ]
@@ -235,21 +285,145 @@
           "populationModel": "Not applicable."
         }
       ]
+    },
+    {
+      "claimKey": "TESA-009",
+      "claimText": "The approved indication is the reduction of excess abdominal fat in HIV-infected adult patients with lipodystrophy. The labelling states as a Limitation of Use that the product is not indicated for weight loss management, having a weight-neutral effect, and that long-term cardiovascular safety has not been established.",
+      "plainLanguageText": "The approval covers one thing: reducing excess fat in the abdomen in adults who have HIV and a change in body fat distribution. The labelling says directly that it is not for weight loss and that it does not change overall weight.",
+      "claimCategory": "regulatory",
+      "importance": "critical",
+      "interpretationNotes": "This is the claim the whole record turns on, and it comes from the regulator rather than from a handbook. The Limitation of Use is more valuable to a reader than the indication itself: 'not indicated for weight loss management, as it has a weight neutral effect' directly addresses the most common reason people outside the approved population discuss this compound, and it is the approval document itself saying so.",
+      "uncertaintyText": "Authoritative for the United States and for this formulation. It states nothing about any other jurisdiction, and a label is superseded without notice — the version read here is the one effective 29 July 2026.",
+      "evidence": [
+        {
+          "locationKey": "fda-egrifta-indications",
+          "evidenceTypeKey": "approved_label_evidence",
+          "relationship": "supports",
+          "interpretation": "The labelling gives the indication and, under Limitations of Use, states that long-term cardiovascular safety has not been established, that the product is not indicated for weight loss management as it has a weight neutral effect, and that there are no data supporting improved antiretroviral compliance.",
+          "populationModel": "HIV-infected adult patients with lipodystrophy and excess abdominal fat."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-010",
+      "claimText": "The approving authority is the United States Food and Drug Administration, under Biologics License Application 022505, for products marketed by Theratechnologies Inc. Two formulations with different strengths and different doses are separately labelled and are not substitutable.",
+      "plainLanguageText": "The approval is a United States one, issued by the FDA. There is more than one version of the product, and they are not interchangeable.",
+      "claimCategory": "regulatory",
+      "importance": "critical",
+      "interpretationNotes": "This replaces an inference the record previously carried. The practitioner handbook named Theratechnologies Inc., Canada, and this index had recorded the jurisdiction as Canada — reading the manufacturer's country as the approval's country. The label establishes that the approval read here is the FDA's. Whether any Canadian authorisation also exists is a separate question this index still cannot answer.",
+      "uncertaintyText": "This establishes a United States approval and nothing about any other jurisdiction. Regulatory status elsewhere remains unverified.",
+      "evidence": [
+        {
+          "locationKey": "fda-egrifta-dosage",
+          "evidenceTypeKey": "approved_label_evidence",
+          "relationship": "supports",
+          "interpretation": "The labelling identifies the application number and states that the EGRIFTA SV and EGRIFTA WR formulations differ in dosage, vial count, reconstitution and storage, and are not substitutable.",
+          "populationModel": "Not applicable."
+        },
+        {
+          "locationKey": "lavalle-tesa-141",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The handbook records only 'Egrifta (Theratechnologies, Inc., Canada)', which names the manufacturer's country and not the approving jurisdiction. Read alone it invites exactly the inference this index made and has now corrected.",
+          "populationModel": "Not applicable."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-011",
+      "claimText": "The labelled elimination half-life is 8 minutes in healthy subjects after a single subcutaneous dose of the EGRIFTA SV formulation. The practitioner handbook reports 26 minutes in healthy subjects and 38 minutes in HIV-infected patients after 14 consecutive days of administration.",
+      "plainLanguageText": "Two sources give different figures for how quickly the compound clears. The approved labelling gives a much shorter figure than the practitioner handbook does.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "high",
+      "interpretationNotes": "Recorded as a difference rather than as a correction, because the two figures describe different things: a single dose of one formulation against fourteen days of another, and different populations. That is a plausible explanation and this index has not verified it — what it can say is that a reader who took the handbook's figure as the labelled one would be wrong, and that the label is what governs.",
+      "uncertaintyText": "This index has not traced the study behind either figure. Whether the difference is explained by formulation, dosing duration or population is not established here.",
+      "evidence": [
+        {
+          "locationKey": "fda-egrifta-pharmacology",
+          "evidenceTypeKey": "approved_label_evidence",
+          "relationship": "supports",
+          "interpretation": "The labelling states a mean elimination half-life of 8 minutes in healthy subjects after single-dose subcutaneous administration of the EGRIFTA SV formulation, and a mean volume of distribution of 4.8 ± 1.9 L/kg.",
+          "populationModel": "Healthy subjects, single dose."
+        },
+        {
+          "locationKey": "lavalle-tesa-146",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The handbook reports 26 and 38 minutes in healthy subjects and HIV-infected patients respectively, after subcutaneous administration for 14 consecutive days.",
+          "populationModel": "Healthy subjects and HIV-infected patients, repeat dosing."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-012",
+      "claimText": "The trials supporting the approval were two multicentre, randomised, double-blind, placebo-controlled studies in HIV-infected patients with lipodystrophy and excess abdominal fat, each with a 26-week main phase and a 26-week extension. Patients were randomised 2:1 to tesamorelin or placebo, and the primary endpoint was percent change from baseline to week 26 in visceral adipose tissue measured by CT at the L4-L5 level.",
+      "plainLanguageText": "The evidence behind the approval is two properly controlled trials, each running six months with a further six-month extension, measuring deep abdominal fat by CT scan.",
+      "claimCategory": "human-evidence",
+      "importance": "critical",
+      "interpretationNotes": "The label supplies the trial design the handbook summarised without: the randomisation ratio, the blinding, the comparator, the measurement method and the endpoint. Recording the measurement method matters — 'visceral adipose tissue by CT at L4-L5' is a specific quantity, and it is what the 15% figure refers to.",
+      "uncertaintyText": "The label is the regulator's account of the trials, not the trial publications. This index has still not opened the primary papers, so it cannot report anything the label does not, and cannot check the label's account against them.",
+      "evidence": [
+        {
+          "locationKey": "fda-egrifta-studies",
+          "evidenceTypeKey": "approved_label_evidence",
+          "relationship": "supports",
+          "interpretation": "The labelling describes the two studies, the inclusion and exclusion criteria, the 2:1 randomisation, the 26-week main and extension phases, the CT-measured VAT primary endpoint, and subcutaneous adipose tissue among the other endpoints.",
+          "populationModel": "HIV-infected adults aged 18-65 with defined waist circumference and waist-to-hip ratio criteria, on stable antiretroviral therapy for at least 8 weeks."
+        },
+        {
+          "locationKey": "lavalle-tesa-146",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The handbook's account — two Phase III trials, n=412, 15% VAT reduction over 26 weeks without change in subcutaneous adipose tissue or BMI — is consistent with the label's description of the design and endpoints.",
+          "populationModel": "As reported."
+        }
+      ]
+    },
+    {
+      "claimKey": "TESA-013",
+      "claimText": "The labelled warnings include an increased risk of neoplasms, elevated IGF-1 with instruction to monitor, fluid retention, glucose intolerance or diabetes mellitus, hypersensitivity reactions and injection-site reactions. The most commonly reported adverse reactions above 5% are arthralgia, injection-site erythema, injection-site pruritus, pain in extremity, peripheral oedema and myalgia.",
+      "plainLanguageText": "The approved labelling lists the risks that require monitoring, and the side effects reported by more than one patient in twenty during the trials.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "The label both strengthens and narrows the handbook's account. Neoplasm risk appears as a Warning with an instruction to discontinue on evidence of recurrence, where the handbook lists neoplasms only among conditions requiring caution. Conversely the handbook's adverse-effect list includes rash and diarrhoea, which do not appear in the label's above-5% list. Where the two differ on safety, the label governs.",
+      "uncertaintyText": "An adverse-reaction frequency from controlled trials is not the rate in ordinary use, and the label says as much about the limits of cross-trial comparison. Nothing here covers use outside the approved indication or population.",
+      "evidence": [
+        {
+          "locationKey": "fda-egrifta-warnings",
+          "evidenceTypeKey": "approved_label_evidence",
+          "relationship": "supports",
+          "interpretation": "The labelling lists the warnings and precautions with their monitoring instructions, including that any preexisting malignancy should be inactive and its treatment complete before starting, and that treatment should be discontinued on any evidence of recurrent malignancy.",
+          "populationModel": "The approved population."
+        },
+        {
+          "locationKey": "fda-egrifta-adverse",
+          "evidenceTypeKey": "approved_label_evidence",
+          "relationship": "supports",
+          "interpretation": "The labelling gives the adverse reactions reported above 5% in clinical trials.",
+          "populationModel": "Clinical trial participants."
+        },
+        {
+          "locationKey": "lavalle-tesa-144",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The handbook lists rash and diarrhoea among the most common adverse effects; neither appears in the label's above-5% list.",
+          "populationModel": "Not specified by the handbook."
+        }
+      ]
     }
   ],
-
   "notYetSupported": [
     {
       "gapType": "regulatory_status_unverified",
-      "statement": "Which regulatory authority approved tesamorelin, in which jurisdiction, on what date, and for what indication in the regulator's own words.",
-      "why": "This index holds no regulatory document, no approved labelling and no marketing authorisation for tesamorelin. The only source it holds names a product and a manufacturer, which is not the same as having read the approval.",
-      "whatWouldResolveIt": "The approved product labelling, or the authority's own assessment or approval record, from the jurisdiction concerned.",
+      "statement": "The regulatory position of tesamorelin outside the United States.",
+      "why": "The FDA label establishes a United States approval and speaks only to that jurisdiction. No source held here addresses any other, including Canada — where the manufacturer is based, and which this index previously and wrongly recorded as the approving jurisdiction.",
+      "whatWouldResolveIt": "The authorisation record or approved labelling from the authority in the jurisdiction concerned.",
       "verificationIssueKey": null
     },
     {
       "gapType": "primary_source_missing",
-      "statement": "What the Phase III trials actually reported — design, comparator, measurement method, endpoints and what happened after 26 weeks.",
-      "why": "The trials reach this index through a practitioner handbook's superscript citation. The papers have not been obtained or opened, so every trial figure here is reported at one remove.",
+      "statement": "The trial publications themselves — what the papers report beyond the regulator's account of them.",
+      "why": "The FDA label now supplies the design, the randomisation, the comparator, the endpoint and the measurement method, which the practitioner handbook did not. The primary publications remain unobtained, so this index still cannot check the regulator's account against them or report anything it does not contain.",
       "whatWouldResolveIt": "The primary trial publications, obtained and read, with the figures checked against them.",
       "verificationIssueKey": null
     },
@@ -282,7 +456,6 @@
       "verificationIssueKey": null
     }
   ],
-
   "routes": [
     {
       "routeKey": "subcutaneous",
@@ -294,7 +467,6 @@
       "limitationsNotes": "This is the route of the approved formulation as recorded by a practitioner handbook. It is the only route any source held here records for tesamorelin, and recording it is not a statement that it is appropriate for any particular person or purpose."
     }
   ],
-
   "protocols": [
     {
       "protocolKey": "TESA-PR-LAVALLE-01",
@@ -315,7 +487,6 @@
       "patientVisibility": false
     }
   ],
-
   "disagreements": [
     {
       "disagreementKey": "TESA-D-001",
@@ -338,16 +509,15 @@
       ]
     }
   ],
-
   "regulatory": [
     {
-      "jurisdiction": "Canada",
-      "indicationContext": "HIV-associated lipodystrophy — reduction of excess abdominal fat, as described by the source rather than by a regulator.",
+      "jurisdiction": "United States",
+      "indicationContext": "Reduction of excess abdominal fat in HIV-infected adult patients with lipodystrophy. Not indicated for weight loss management.",
       "status": "approved",
-      "authority": "Not established by any source held here. The source names Theratechnologies Inc., Canada as the manufacturer of Egrifta; it does not name the approving authority.",
-      "locationKey": "lavalle-tesa-141",
+      "authority": "United States Food and Drug Administration, Biologics License Application 022505",
+      "locationKey": "fda-egrifta-indications",
       "checkedAt": "2026-09-12",
-      "notes": "Recorded as reported by a practitioner handbook published in 2022, not read from a regulatory record. This index holds no approved labelling and no authorisation document, so it cannot state the approval date, the authority, the exact approved indication, or whether the status still stands. The date on this entry is the date the source was read, not the date of any regulatory action. A reader needing the regulatory position should consult the authority, not this index."
+      "notes": "Read from the FDA-approved prescribing information via the regulator's own API, Structured Product Label effective 29 July 2026. This replaces an earlier entry that recorded the jurisdiction as Canada, which was an inference from the manufacturer's address in a practitioner handbook rather than a reading of any approval. Authoritative for the United States only: the status in every other jurisdiction remains unverified by this index."
     }
   ]
 }

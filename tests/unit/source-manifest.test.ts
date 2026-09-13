@@ -22,8 +22,30 @@ describe('source registry', () => {
     }
   });
 
-  it('marks no copyrighted book in the archive as publishable full text', () => {
+  it('marks no copyrighted work in the archive as publishable full text', () => {
+    /*
+     * Narrowed when SRC-027 — the FDA-approved prescribing information —
+     * entered the register.
+     *
+     * The flag was `false` on every source because every source was a
+     * copyrighted book, and the assertion read as "nothing may be republished".
+     * That is the right rule for a book and the wrong rule for a United States
+     * government public record, which may be quoted in full and which is the
+     * highest regulatory authority this index holds.
+     *
+     * So the rule is stated as what it always meant: a work under copyright may
+     * not have its full text published, and a public record may.
+     */
+    const PUBLIC_RECORD_TYPES = new Set(['regulatory_label', 'regulatory_guidance']);
+
     for (const source of seedData.sourceManifest.sources) {
+      if (source.public_fulltext_allowed === true) {
+        expect(
+          PUBLIC_RECORD_TYPES.has(source.source_type),
+          `${source.source_key} claims publishable full text but is a ${source.source_type}`,
+        ).toBe(true);
+        continue;
+      }
       expect(source.public_fulltext_allowed, source.source_key).toBe(false);
     }
   });
@@ -49,6 +71,21 @@ describe('source registry', () => {
 
     for (const entry of pending) {
       const source = seedData.sourceManifest.sources.find((s) => s.source_key === entry.sourceKey);
+      /*
+       * A source with no file recorded is normally pending — nobody has
+       * obtained a copy. SRC-027 is the exception the register did not
+       * previously have: it is retrieved live from the regulator's own API and
+       * pinned by a Structured Product Label set id and effective date, so
+       * there is no file and nothing is outstanding. The distinction that
+       * matters is not "is there a file" but "has anyone actually read it",
+       * which `bibliographic_verified` records.
+       */
+      if (source?.access_status === 'held' && source.bibliographic_verified === true) {
+        // Retrieved live and pinned by an identifier recorded in the notes,
+        // rather than by a file on disk.
+        expect(source.access_notes, entry.sourceKey).toBeTruthy();
+        continue;
+      }
       expect(source?.qc_status, entry.sourceKey).toBe('pending');
       // A source with no copy must say why there is no copy. "We should get it"
       // becoming "it says…" is the failure this closes, and an unexplained

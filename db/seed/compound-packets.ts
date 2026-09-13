@@ -250,6 +250,14 @@ export async function loadCompoundPacket(
       returning id
     `).then(rowsOf<{ id: string }>);
 
+    /*
+     * Cleared first. `protocol_sources` has no unique constraint on
+     * (protocol, source, location), so `on conflict do nothing` did nothing and
+     * every reseed appended another identical row — which showed up as the same
+     * locator printed eight times in the comparison table. A packet owns this
+     * relation, so it replaces it.
+     */
+    await db.execute(sql`delete from protocol_sources where protocol_id = ${row!.id}`);
     await db.execute(sql`
       insert into protocol_sources (protocol_id, source_id, source_location_id, source_role)
       values (

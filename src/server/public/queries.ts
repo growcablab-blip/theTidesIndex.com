@@ -538,7 +538,21 @@ async function readPeptidePage(
         canonicalName: String(peptide.canonical_name),
         shortDescription: str(peptide.short_description),
         simpleSummary: str(peptide.simple_summary),
-        practitionerSummary: str(peptide.practitioner_summary),
+        /*
+         * Null in patient mode, and dropped here rather than in the component.
+         *
+         * The practitioner summary is the densest prose on the record and it
+         * carries doses, concentrations and reconstitution detail — on
+         * tesamorelin it names the labelled dose. It was being loaded in both
+         * modes and simply not rendered in simple mode, which means every
+         * patient payload has been carrying it: one changed component, one
+         * debug view, one print stylesheet away from being read.
+         *
+         * The project's rule is that a patient payload should not contain what
+         * a patient must not see, rather than contain it and decline to draw
+         * it. This is that rule applied to the field that most needed it.
+         */
+        practitionerSummary: simple ? null : str(peptide.practitioner_summary),
         unknownsSummary: str(peptide.unknowns_summary),
         sequence: str(peptide.sequence),
         molecularDescription: str(peptide.molecular_description),

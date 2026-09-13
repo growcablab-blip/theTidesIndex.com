@@ -817,6 +817,41 @@
       "verified_by": null,
       "access_status": "subscription_required",
       "access_notes": "USP-NF general chapters require a paid USP-NF subscription. Checked 11 September 2026: USP publishes no lawful free full text of this chapter."
+    },
+    {
+      "source_key": "SRC-027",
+      "title": "EGRIFTA SV (tesamorelin) for injection — FDA-approved prescribing information",
+      "authors": [
+        "Theratechnologies Inc."
+      ],
+      "year": 2026,
+      "source_type": "regulatory_label",
+      "priority": "core",
+      "qc_status": "usable",
+      "canonical_filename": null,
+      "known_local_filename": null,
+      "primary_role": "The authoritative regulatory source for tesamorelin in the United States. Approved labelling is what an approval actually says, as distinct from what a practitioner handbook reports about it.",
+      "public_fulltext_allowed": true,
+      "authority_notes": "US Food and Drug Administration approved prescribing information, BLA 022505, retrieved from the openFDA drug label API (api.fda.gov), Structured Product Label set id 7d9be20d-e0a5-47ab-997e-82ab2bd54cba, effective 29 July 2026. A United States government public record, not a copyrighted work: it may be quoted and is the highest authority this index holds on the regulatory position of any compound.",
+      "limitations_notes": "Authoritative for the United States and for the EGRIFTA SV formulation only. It says nothing about any other jurisdiction, and nothing about use outside the approved indication. A label is also a point in time: it is superseded without notice, and the effective date recorded here is what this index read.",
+      "isbn": null,
+      "edition": null,
+      "publisher": "United States Food and Drug Administration",
+      "publication_name": "FDA Structured Product Labeling",
+      "local_file_sha256": null,
+      "local_file_bytes": null,
+      "page_count": null,
+      "printed_page_offset": null,
+      "title_page_verified": true,
+      "bibliographic_verified": true,
+      "title_page_title": null,
+      "title_page_authors": null,
+      "integrity_notes": "Retrieved directly from the regulator’s own API, so there is no intermediary copy whose provenance could be in doubt — the failure mode that produced verification issue V-014 for five of the held books.",
+      "verified_at": "2026-09-12",
+      "verified_by": "openFDA drug label API, retrieved and read",
+      "access_status": "held",
+      "access_notes": "Retrieved live from the openFDA API rather than stored as a file. The set id and effective date pin which version was read.",
+      "canonical_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22TESAMORELIN%22"
     }
   ]
 }

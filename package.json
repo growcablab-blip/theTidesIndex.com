@@ -34,6 +34,7 @@
     "pdf": "tsx scripts/publishing/build-pdf.ts",
     "qa:metrics": "tsx scripts/qa/metrics.ts",
     "screenshots": "tsx scripts/qa/screenshots.ts",
+    "shots:peptides": "tsx scripts/qa/peptide-shots.ts",
     "qa:visual": "tsx scripts/qa/grade-measurements.ts",
     "qa:production": "tsx scripts/qa/production-readiness.ts",
     "qa:publication": "tsx scripts/qa/publication-readiness.ts",
