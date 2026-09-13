@@ -8,9 +8,18 @@
     "practitionerSummary": "Semax (Met-Glu-His-Phe-Pro-Gly-Pro; ACTH(4-7)PGP) is a heptapeptide analogue of ACTH(4-10) in which a C-terminal Pro-Gly-Pro was added for stability. Preclinical work from the developer institute reports increased hippocampal BDNF protein, trkB phosphorylation and BDNF/trkB mRNA after a single intranasal dose in rats, with improved conditioned avoidance; tritium-labelled intranasal Semax reached rat brain within 2 minutes in a small fraction and was rapidly degraded, Pro-Gly-Pro predominating; the Pro-Gly-Pro fragment alone lacked the full peptide's neuroprotection in rat ischaemia. Semax and Selank inhibit enkephalin-degrading enzymes of human serum in vitro. Human evidence is Russian-language and add-on in design: acute ischaemic stroke (30 treated against 80 conventionally treated controls, non-randomised; later 110 rehabilitation patients with plasma BDNF and Barthel index, allocation not stated), optic nerve disease, glaucomatous optic neuropathy, refractory peptic ulcer, cerebrovascular insufficiency, diabetic retinopathy, psoriasis with metabolic syndrome, and an open-label motor neuron disease study; two small resting-state fMRI studies in healthy volunteers; and a report of paroxysmal EEG activity after some injections in posthypoxic encephalopathy. No human pharmacokinetic study, and no randomised blinded trial registered outside Russia, was identified. Practitioner amounts for nootropic use are one to two orders of magnitude below the stroke-study daily doses and cite no human study. Seized preparations in Belgium contained Semax.",
     "unknownsSummary": "Not established: human pharmacokinetics by any route; whether any clinical benefit holds in a randomised, blinded, independently replicated trial; any cognitive effect in healthy people at the amounts practitioner sources describe; long-term safety, including the EEG finding; the regulatory position, which practitioner sources describe but no regulator record held here confirms; and anything about N-acetyl Semax amidate, a modified molecule sold interchangeably by some sources.",
     "aliases": [
-      { "alias": "ACTH(4-7)PGP", "note": "Chemical shorthand: the ACTH 4-7 fragment with Pro-Gly-Pro." },
-      { "alias": "Semaks", "note": "Transliteration used in some Russian journal titles." },
-      { "alias": "N-acetyl Semax amidate", "note": "NOT this molecule: a modified form with added end groups, sold as a nootropic. No study of it was identified." }
+      {
+        "alias": "ACTH(4-7)PGP",
+        "note": "Chemical shorthand: the ACTH 4-7 fragment with Pro-Gly-Pro."
+      },
+      {
+        "alias": "Semaks",
+        "note": "Transliteration used in some Russian journal titles."
+      },
+      {
+        "alias": "N-acetyl Semax amidate",
+        "note": "NOT this molecule: a modified form with added end groups, sold as a nootropic. No study of it was identified."
+      }
     ],
     "sequence": "MEHFPGP",
     "molecularDescription": "Heptapeptide Met-Glu-His-Phe-Pro-Gly-Pro: the ACTH 4-7 sequence followed by Pro-Gly-Pro.",
@@ -18,31 +27,161 @@
     "nomenclatureNote": "Sometimes called an ACTH(4-10) analogue and sometimes ACTH(4-7)PGP; both describe the same seven residues. N-acetyl Semax amidate, offered interchangeably by one quick-reference source, is a different molecule."
   },
   "locations": [
-    { "key": "gusev-1997", "sourceKey": "SRC-097", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 11517472)" },
-    { "key": "gusev-2018", "sourceKey": "SRC-098", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 29798983)" },
-    { "key": "polunin-2000", "sourceKey": "SRC-099", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 10741256)" },
-    { "key": "ivanikov-2002", "sourceKey": "SRC-100", "locatorText": "Abstract", "section": "Abstract (PMID 12459874)" },
-    { "key": "gusev-2005", "sourceKey": "SRC-101", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 15792140)" },
-    { "key": "serdiuk-2007", "sourceKey": "SRC-102", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 18379501)" },
-    { "key": "lebedeva-2018", "sourceKey": "SRC-103", "locatorText": "Abstract", "section": "Abstract (PMID 30225715)" },
-    { "key": "panikratova-2020", "sourceKey": "SRC-104", "locatorText": "Abstract", "section": "Abstract (PMID 32342318)" },
-    { "key": "kost-2001", "sourceKey": "SRC-105", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 11443939)" },
-    { "key": "dolotov-2006", "sourceKey": "SRC-106", "locatorText": "Abstract", "section": "Abstract (PMID 16996037)" },
-    { "key": "shevchenko-2006", "sourceKey": "SRC-107", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 16523722)" },
-    { "key": "fadyukova-2005", "sourceKey": "SRC-108", "locatorText": "Abstract", "section": "Abstract (PMID 16027870)" },
-    { "key": "ashmarin-1997", "sourceKey": "SRC-109", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 9173745)" },
-    { "key": "posthypoxic-1999", "sourceKey": "SRC-119", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 10199046)" },
-    { "key": "vanhee-2020", "sourceKey": "SRC-114", "locatorText": "Abstract", "section": "Abstract (PMID 31667971)" },
-    { "key": "seeds-semax-231", "sourceKey": "SRC-001", "locatorText": "file p. 231", "section": "Semax (N-Acetyl): properties" },
-    { "key": "seeds-semax-233", "sourceKey": "SRC-001", "locatorText": "file p. 233", "section": "Semax: dosage" },
-    { "key": "lavalle-semax-123", "sourceKey": "SRC-002", "locatorText": "file p. 123", "section": "Semax: category, names, sequence, indications" },
-    { "key": "lavalle-semax-125", "sourceKey": "SRC-002", "locatorText": "file pp. 125-126", "section": "Semax: warnings, summary, Russian drug list" },
-    { "key": "campbell-semax-111", "sourceKey": "SRC-003", "locatorText": "pp. 111-112", "pageStart": 111, "pageEnd": 112, "section": "Semax" },
-    { "key": "campbell-semax-113", "sourceKey": "SRC-003", "locatorText": "pp. 113-116", "pageStart": 113, "pageEnd": 116, "section": "Semax recommended dosage" },
-    { "key": "campbell-semax-117", "sourceKey": "SRC-003", "locatorText": "p. 117", "pageStart": 117, "section": "Important note: N-acetyl Semax amidate" },
-    { "key": "cheatsheet-semax-5", "sourceKey": "SRC-004", "locatorText": "file p. 5", "section": "Cognition table, Semax OR NA Semax Amidate row" },
-    { "key": "hacksmith-semax", "sourceKey": "SRC-005", "locatorText": "file pp. 105-107", "section": "Semax" },
-    { "key": "hacksmith-persona-semax", "sourceKey": "SRC-005", "locatorText": "file pp. 188-189", "section": "Personas: cognitive function and sleep" }
+    {
+      "key": "gusev-1997",
+      "sourceKey": "SRC-097",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 11517472)"
+    },
+    {
+      "key": "gusev-2018",
+      "sourceKey": "SRC-098",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 29798983)"
+    },
+    {
+      "key": "polunin-2000",
+      "sourceKey": "SRC-099",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 10741256)"
+    },
+    {
+      "key": "ivanikov-2002",
+      "sourceKey": "SRC-100",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 12459874)"
+    },
+    {
+      "key": "gusev-2005",
+      "sourceKey": "SRC-101",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 15792140)"
+    },
+    {
+      "key": "serdiuk-2007",
+      "sourceKey": "SRC-102",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 18379501)"
+    },
+    {
+      "key": "lebedeva-2018",
+      "sourceKey": "SRC-103",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 30225715)"
+    },
+    {
+      "key": "panikratova-2020",
+      "sourceKey": "SRC-104",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 32342318)"
+    },
+    {
+      "key": "kost-2001",
+      "sourceKey": "SRC-105",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 11443939)"
+    },
+    {
+      "key": "dolotov-2006",
+      "sourceKey": "SRC-106",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 16996037)"
+    },
+    {
+      "key": "shevchenko-2006",
+      "sourceKey": "SRC-107",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 16523722)"
+    },
+    {
+      "key": "fadyukova-2005",
+      "sourceKey": "SRC-108",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 16027870)"
+    },
+    {
+      "key": "ashmarin-1997",
+      "sourceKey": "SRC-109",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 9173745)"
+    },
+    {
+      "key": "posthypoxic-1999",
+      "sourceKey": "SRC-119",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 10199046)"
+    },
+    {
+      "key": "vanhee-2020",
+      "sourceKey": "SRC-114",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 31667971)"
+    },
+    {
+      "key": "seeds-semax-231",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 231",
+      "section": "Semax (N-Acetyl): properties"
+    },
+    {
+      "key": "seeds-semax-233",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 233",
+      "section": "Semax: dosage"
+    },
+    {
+      "key": "lavalle-semax-123",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 123",
+      "section": "Semax: category, names, sequence, indications"
+    },
+    {
+      "key": "lavalle-semax-125",
+      "sourceKey": "SRC-002",
+      "locatorText": "file pp. 125-126",
+      "section": "Semax: warnings, summary, Russian drug list"
+    },
+    {
+      "key": "campbell-semax-111",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 111-112",
+      "pageStart": 111,
+      "pageEnd": 112,
+      "section": "Semax"
+    },
+    {
+      "key": "campbell-semax-113",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 113-116",
+      "pageStart": 113,
+      "pageEnd": 116,
+      "section": "Semax recommended dosage"
+    },
+    {
+      "key": "campbell-semax-117",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 117",
+      "pageStart": 117,
+      "section": "Important note: N-acetyl Semax amidate"
+    },
+    {
+      "key": "cheatsheet-semax-5",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 5",
+      "section": "Cognition table, Semax OR NA Semax Amidate row"
+    },
+    {
+      "key": "hacksmith-semax",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 105-107",
+      "section": "Semax"
+    },
+    {
+      "key": "hacksmith-persona-semax",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 188-189",
+      "section": "Personas: cognitive function and sleep"
+    }
   ],
   "claims": [
     {
@@ -54,7 +193,13 @@
       "interpretationNotes": "Confirms the sequence from a primary source and gives one mechanism. Serum enzymes in a tube are not a person.",
       "uncertaintyText": "In vitro; clinical relevance not established.",
       "evidence": [
-        { "locationKey": "kost-2001", "evidenceTypeKey": "in_vitro", "interpretation": "Sequence stated; dose-dependent inhibition of serum enkephalinases." }
+        {
+          "locationKey": "kost-2001",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Sequence stated; dose-dependent inhibition of serum enkephalinases.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -66,7 +211,13 @@
       "interpretationNotes": "The basis of practitioner claims about BDNF and cognition. The work is from the developer institute.",
       "uncertaintyText": "Rats. No human study measured brain BDNF after Semax; one stroke study measured plasma BDNF.",
       "evidence": [
-        { "locationKey": "dolotov-2006", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Hippocampal BDNF/trkB and avoidance learning after intranasal Semax." }
+        {
+          "locationKey": "dolotov-2006",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Hippocampal BDNF/trkB and avoidance learning after intranasal Semax.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -78,8 +229,20 @@
       "interpretationNotes": "Animal pharmacokinetics; the only distribution data identified.",
       "uncertaintyText": "Rats; no human pharmacokinetic study was identified.",
       "evidence": [
-        { "locationKey": "shevchenko-2006", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Brain and blood kinetics and degradation after intranasal labelled Semax." },
-        { "locationKey": "fadyukova-2005", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Pro-Gly-Pro lacks neuroprotection in incomplete global ischaemia." }
+        {
+          "locationKey": "shevchenko-2006",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Brain and blood kinetics and degradation after intranasal labelled Semax.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "fadyukova-2005",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Pro-Gly-Pro lacks neuroprotection in incomplete global ischaemia.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -91,8 +254,20 @@
       "interpretationNotes": "The core clinical claim. Both studies come from the same Moscow group, read through English abstracts, with non-random or unstated allocation.",
       "uncertaintyText": "Risk of bias is high: allocation, blinding and outcome assessment are not described in the abstracts. Not replicated outside this group.",
       "evidence": [
-        { "locationKey": "gusev-1997", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Neurological recovery with Semax added to intensive therapy versus conventional therapy." },
-        { "locationKey": "gusev-2018", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Plasma BDNF, motor performance and Barthel index with and without Semax." }
+        {
+          "locationKey": "gusev-1997",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Neurological recovery with Semax added to intensive therapy versus conventional therapy.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "gusev-2018",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Plasma BDNF, motor performance and Barthel index with and without Semax.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -104,9 +279,27 @@
       "interpretationNotes": "A broad spread of indications from small add-on studies. Breadth is not strength: none reports randomisation or blinding in its abstract.",
       "uncertaintyText": "Design details largely absent from the abstracts; group sizes not always stated.",
       "evidence": [
-        { "locationKey": "polunin-2000", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Visual function outcomes against a control group." },
-        { "locationKey": "ivanikov-2002", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Ulcer healing rates with and without intranasal Semax." },
-        { "locationKey": "gusev-2005", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "Progression and cerebrovascular events; comparison group not clearly stated." }
+        {
+          "locationKey": "polunin-2000",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Visual function outcomes against a control group.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "ivanikov-2002",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Ulcer healing rates with and without intranasal Semax.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "gusev-2005",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "interpretation": "Progression and cerebrovascular events; comparison group not clearly stated.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -118,8 +311,20 @@
       "interpretationNotes": "The only human studies in healthy people. They measure imaging signals, not cognition.",
       "uncertaintyText": "Small groups; single sessions; imaging endpoints only.",
       "evidence": [
-        { "locationKey": "lebedeva-2018", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Default mode network before and after intranasal Semax or placebo." },
-        { "locationKey": "panikratova-2020", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Amygdala functional connectivity after Semax, Selank or placebo." }
+        {
+          "locationKey": "lebedeva-2018",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Default mode network before and after intranasal Semax or placebo.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "panikratova-2020",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Amygdala functional connectivity after Semax, Selank or placebo.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -131,7 +336,13 @@
       "interpretationNotes": "A safety signal from a vulnerable population; it does not appear in any practitioner source held here, which describe Semax as well tolerated.",
       "uncertaintyText": "Uncontrolled; frequency and clinical consequence not stated in the abstract.",
       "evidence": [
-        { "locationKey": "posthypoxic-1999", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "Paroxysmal EEG activity after some injections and the advice to monitor the first injection." }
+        {
+          "locationKey": "posthypoxic-1999",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "interpretation": "Paroxysmal EEG activity after some injections and the advice to monitor the first injection.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -143,7 +354,13 @@
       "interpretationNotes": "The laboratory's statement about trials sits against the Russian clinical literature; both are recorded and the difference is a disagreement below.",
       "uncertaintyText": "Two preparations; the laboratory's statement is a background remark, not a literature review.",
       "evidence": [
-        { "locationKey": "vanhee-2020", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Identification of Semax and Selank in seized material." }
+        {
+          "locationKey": "vanhee-2020",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Identification of Semax and Selank in seized material.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     }
   ],
@@ -390,9 +607,21 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "A dose-finding study in the population of interest.",
       "positions": [
-        { "locationKey": "gusev-1997", "evidenceTypeKey": "human_controlled_nonrandomized", "positionText": "Daily doses in the milligram range for moderate and severe stroke, for 5-10 days." },
-        { "locationKey": "seeds-semax-233", "evidenceTypeKey": "practitioner_reference", "positionText": "Hundreds of micrograms daily for neuroprotection and cognition." },
-        { "locationKey": "campbell-semax-113", "evidenceTypeKey": "practitioner_reference", "positionText": "States that its dosing recommendations are entirely different from those for treating stroke." }
+        {
+          "locationKey": "gusev-1997",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "positionText": "Daily doses in the milligram range for moderate and severe stroke, for 5-10 days."
+        },
+        {
+          "locationKey": "seeds-semax-233",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Hundreds of micrograms daily for neuroprotection and cognition."
+        },
+        {
+          "locationKey": "campbell-semax-113",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "States that its dosing recommendations are entirely different from those for treating stroke."
+        }
       ]
     },
     {
@@ -404,9 +633,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A systematic search of Russian trial registries and regulatory dossiers.",
       "positions": [
-        { "locationKey": "gusev-1997", "evidenceTypeKey": "human_controlled_nonrandomized", "positionText": "Reports a controlled clinical study in acute ischaemic stroke." },
-        { "locationKey": "lavalle-semax-125", "evidenceTypeKey": "practitioner_reference", "positionText": "Semax has undergone extensive study in Russia." },
-        { "locationKey": "vanhee-2020", "evidenceTypeKey": "analytical_characterisation", "positionText": "To the authors' knowledge, Semax and Selank have not completed any clinical trials." }
+        {
+          "locationKey": "gusev-1997",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "positionText": "Reports a controlled clinical study in acute ischaemic stroke."
+        },
+        {
+          "locationKey": "lavalle-semax-125",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Semax has undergone extensive study in Russia."
+        },
+        {
+          "locationKey": "vanhee-2020",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "To the authors' knowledge, Semax and Selank have not completed any clinical trials."
+        }
       ]
     },
     {
@@ -420,9 +661,21 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None for the chemistry; any claim about the modified form needs its own study.",
       "positions": [
-        { "locationKey": "cheatsheet-semax-5", "evidenceTypeKey": "practitioner_reference", "positionText": "Semax OR NA Semax Amidate, one schedule for both." },
-        { "locationKey": "campbell-semax-117", "evidenceTypeKey": "practitioner_reference", "positionText": "A vendor prefers N-acetyl Semax amidate for brain entry and half-life." },
-        { "locationKey": "kost-2001", "evidenceTypeKey": "in_vitro", "positionText": "Semax is Met-Glu-His-Phe-Pro-Gly-Pro." }
+        {
+          "locationKey": "cheatsheet-semax-5",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Semax OR NA Semax Amidate, one schedule for both."
+        },
+        {
+          "locationKey": "campbell-semax-117",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "A vendor prefers N-acetyl Semax amidate for brain entry and half-life."
+        },
+        {
+          "locationKey": "kost-2001",
+          "evidenceTypeKey": "in_vitro",
+          "positionText": "Semax is Met-Glu-His-Phe-Pro-Gly-Pro."
+        }
       ]
     },
     {
@@ -434,8 +687,16 @@
       "resolution": "unresolved",
       "resolutionRequirement": "The Russian State Register of Medicinal Products entry and the relevant government list.",
       "positions": [
-        { "locationKey": "campbell-semax-111", "evidenceTypeKey": "practitioner_reference", "positionText": "Russia's pharmaceutical regulatory agency approved Semax in 1996." },
-        { "locationKey": "lavalle-semax-125", "evidenceTypeKey": "practitioner_reference", "positionText": "On the Russian List of Vital and Essential Drugs approved on 7 December 2011." }
+        {
+          "locationKey": "campbell-semax-111",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Russia's pharmaceutical regulatory agency approved Semax in 1996."
+        },
+        {
+          "locationKey": "lavalle-semax-125",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "On the Russian List of Vital and Essential Drugs approved on 7 December 2011."
+        }
       ]
     }
   ],
@@ -537,6 +798,152 @@
       "basis": "No human study outside Russia was identified.",
       "limitations": null,
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-097",
+      "sourceKey": "SRC-097",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-098",
+      "sourceKey": "SRC-098",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-099",
+      "sourceKey": "SRC-099",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-100",
+      "sourceKey": "SRC-100",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-101",
+      "sourceKey": "SRC-101",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-102",
+      "sourceKey": "SRC-102",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-103",
+      "sourceKey": "SRC-103",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-106",
+      "sourceKey": "SRC-106",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-107",
+      "sourceKey": "SRC-107",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-108",
+      "sourceKey": "SRC-108",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-109",
+      "sourceKey": "SRC-109",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-119",
+      "sourceKey": "SRC-119",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

@@ -76,7 +76,9 @@
           "locationKey": "grant-ch4-222",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant states that homogeneity and correct covalent structure are the two basic goals of the synthetic endeavour, and lists the analytical techniques used to assess them."
+          "interpretation": "Grant states that homogeneity and correct covalent structure are the two basic goals of the synthetic endeavour, and lists the analytical techniques used to assess them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -93,13 +95,17 @@
           "locationKey": "grant-ch4-223",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-1 lists reverse-phase HPLC with the advantages 'assesses level of heterogeneity' and 'useful for purification', and the limitation 'does not yield structural information'."
+          "interpretation": "Table 4-1 lists reverse-phase HPLC with the advantages 'assesses level of heterogeneity' and 'useful for purification', and the limitation 'does not yield structural information'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-224",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that analytical HPLC or capillary electrophoresis is usually the first level of assessment and reveals the relative number of different species present, but that these techniques lack direct information about covalent structure."
+          "interpretation": "Grant writes that analytical HPLC or capillary electrophoresis is usually the first level of assessment and reveals the relative number of different species present, but that these techniques lack direct information about covalent structure.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -116,7 +122,9 @@
           "locationKey": "grant-ch4-239",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant cautions that a single peak does not guarantee homogeneity and presents chromatograms (figure 4-5) of a sample that gave one symmetrical peak under one condition and resolved into two peptides, differing by a single glutamic acid residue, when the buffer pH was altered."
+          "interpretation": "Grant cautions that a single peak does not guarantee homogeneity and presents chromatograms (figure 4-5) of a sample that gave one symmetrical peak under one condition and resolved into two peptides, differing by a single glutamic acid residue, when the buffer pH was altered.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -133,7 +141,9 @@
           "locationKey": "grant-ch4-241",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant describes the effect of column age on resolution, states that similar peptides may co-elute as a result and that heterogeneity may go undetected, and recommends periodic performance checks against a standard."
+          "interpretation": "Grant describes the effect of column age on resolution, states that similar peptides may co-elute as a result and that heterogeneity may go undetected, and recommends periodic performance checks against a standard.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -150,13 +160,17 @@
           "locationKey": "grant-ch4-261",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that amino acid analysis is still the best method for peptide quantitation, listing it among techniques that remain useful for specific questions alongside mass spectrometry."
+          "interpretation": "Grant writes that amino acid analysis is still the best method for peptide quantitation, listing it among techniques that remain useful for specific questions alongside mass spectrometry.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-223",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-1 gives amino acid analysis the advantage 'accurately quantitates peptide levels' and gives reversed-phase HPLC no quantitative capability."
+          "interpretation": "Table 4-1 gives amino acid analysis the advantage 'accurately quantitates peptide levels' and gives reversed-phase HPLC no quantitative capability.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -173,7 +187,9 @@
           "locationKey": "grant-ch4-223",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-1 lists mass spectrometry with the advantages 'provides accurate peptide mass', 'can indicate heterogeneity' and 'can give sequence information'. Its limitations column ends with 'not quantitative', which is the entry this claim rests on."
+          "interpretation": "Table 4-1 lists mass spectrometry with the advantages 'provides accurate peptide mass', 'can indicate heterogeneity' and 'can give sequence information'. Its limitations column ends with 'not quantitative', which is the entry this claim rests on.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -190,13 +206,17 @@
           "locationKey": "grant-ch4-224",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that each technique makes its own specialised contribution and that they are generally used in a complementary fashion, the whole being sufficient to judge the state of the synthetic peptide."
+          "interpretation": "Grant writes that each technique makes its own specialised contribution and that they are generally used in a complementary fashion, the whole being sufficient to judge the state of the synthetic peptide.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-223",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-1 presents the techniques side by side with their respective advantages and limitations, which is the form the complementarity takes."
+          "interpretation": "Table 4-1 presents the techniques side by side with their respective advantages and limitations, which is the form the complementarity takes.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

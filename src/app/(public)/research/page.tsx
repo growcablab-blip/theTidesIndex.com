@@ -4,7 +4,11 @@ import { getResearchQuestions } from '@/server/public/queries';
 import { previewResearchQuestions } from '@/server/public/preview';
 import type { ResearchQuestionEntry } from '@/server/public/research-index';
 import { Callout, Container, EmptyState } from '@/components/public/primitives';
-import { OPPORTUNITY_LABELS } from '@/components/public/research-figures';
+import {
+  GAP_TYPE_LABELS,
+  OPPORTUNITY_LABELS,
+  SOURCE_THAT_WOULD_HELP,
+} from '@/components/public/research-figures';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,13 +27,21 @@ export const metadata: Metadata = {
  * hold a question of its own, which is what keeps it an agenda rather than a
  * wish list, and every entry says what kind of absence produced it.
  *
+ * Version two answers the question a researcher actually arrives with, which is
+ * not "what is unknown" but "what would somebody have to do about it". Four
+ * things the first version ran together are now separate: what is unknown, why
+ * it is unknown, what kind of study would settle it, and which recorded absence
+ * produced it. That last one matters because two questions can read alike and
+ * be different problems — one waiting on a researcher, the other waiting on
+ * this index to obtain a paper that already exists.
+ *
  * Two things this page must not become. It is not a list of things readers
- * should try: every question describes what would be useful to *study*. And it
- * is not a ranking: groups are by kind of question and compounds are listed
- * alphabetically within them.
+ * should try: every question describes what would be useful to *study*, and no
+ * entry describes how to run anything. And it is not a ranking: groups are by
+ * kind of question and records are listed alphabetically within them.
  */
 
-type SearchParams = Promise<{ type?: string; subject?: string }>;
+type SearchParams = Promise<{ type?: string; subject?: string; absence?: string }>;
 
 const ORDER = [
   'human_evidence',
@@ -63,27 +75,61 @@ const WHY: Record<string, string> = {
   regulatory_position: 'A regulatory question is open.',
 };
 
+/**
+ * Absences this index could close itself, rather than ones needing new
+ * research. Worth separating: somebody offering to help should be able to see
+ * which questions need a laboratory and which need a library.
+ */
+const OURS_TO_CLOSE = new Set([
+  'source_missing',
+  'source_inaccessible',
+  'source_corrupted',
+  'primary_source_missing',
+]);
+
 export default async function ResearchPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
   const published = await getResearchQuestions();
-  const all: ResearchQuestionEntry[] = published.length > 0 ? published : ((await previewResearchQuestions()) ?? []);
+  const all: ResearchQuestionEntry[] =
+    published.length > 0 ? published : ((await previewResearchQuestions()) ?? []);
   const isPreview = published.length === 0 && all.length > 0;
 
-  const type = params.type && ORDER.includes(params.type) ? params.type : undefined;
-  const subjects = [...new Map(all.map((q) => [q.subjectSlug, q.subjectName])).entries()].sort((a, b) =>
-    a[1].localeCompare(b[1]),
+  const type = params.type !== undefined && ORDER.includes(params.type) ? params.type : undefined;
+  const subjects = [...new Map(all.map((q) => [q.subjectSlug, q.subjectName])).entries()].sort(
+    (a, b) => a[1].localeCompare(b[1]),
   );
-  const subject = params.subject && subjects.some(([slug]) => slug === params.subject) ? params.subject : undefined;
+  const subject =
+    params.subject !== undefined && subjects.some(([slug]) => slug === params.subject)
+      ? params.subject
+      : undefined;
+  const absences = [...new Set(all.map((q) => q.gapType))].sort((a, b) =>
+    (GAP_TYPE_LABELS[a] ?? a).localeCompare(GAP_TYPE_LABELS[b] ?? b),
+  );
+  const absence =
+    params.absence !== undefined && absences.includes(params.absence) ? params.absence : undefined;
 
-  const shown = all.filter((q) => (type === undefined || q.opportunityType === type) && (subject === undefined || q.subjectSlug === subject));
-  const byType = ORDER.map((key) => ({ key, items: shown.filter((q) => q.opportunityType === key) })).filter((g) => g.items.length > 0);
-  const counts = new Map(ORDER.map((key) => [key, all.filter((q) => q.opportunityType === key).length]));
+  const shown = all.filter(
+    (q) =>
+      (type === undefined || q.opportunityType === type) &&
+      (subject === undefined || q.subjectSlug === subject) &&
+      (absence === undefined || q.gapType === absence),
+  );
+  const byType = ORDER.map((key) => ({
+    key,
+    items: shown.filter((q) => q.opportunityType === key),
+  })).filter((group) => group.items.length > 0);
+  const counts = new Map(
+    ORDER.map((key) => [key, all.filter((q) => q.opportunityType === key).length]),
+  );
+  const ours = all.filter((q) => OURS_TO_CLOSE.has(q.gapType)).length;
 
   return (
     <Container width="wide" className="py-10 sm:py-14">
       <header className="max-w-[66ch]">
         <p className="meta-label text-tide-teal">Research agenda</p>
-        <h1 className="mt-2 font-serif text-3xl text-ink sm:text-5xl">What would be useful to study next</h1>
+        <h1 className="mt-2 font-serif text-3xl text-ink sm:text-5xl">
+          What would be useful to study next
+        </h1>
         <p className="mt-4 text-lg text-ink-soft">
           Every question here comes from something this index could not find evidence for. Read
           together, they show where the peptide literature is thin — which is often not where the
@@ -101,8 +147,9 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
         <Callout title="Questions for research, not suggestions to try">
           <p>
             A question on this page describes a study that would reduce uncertainty. It is not a
-            recommendation to use anything, and a missing study is not evidence that something does
-            not work — only that nobody has shown whether it does.
+            recommendation to use anything, no entry describes how to run anything, and a missing
+            study is not evidence that something does not work — only that nobody has shown whether
+            it does.
           </p>
         </Callout>
       </div>
@@ -116,10 +163,17 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
         </div>
       ) : (
         <>
-          <form method="get" className="mt-10 flex flex-wrap items-end gap-4 rounded-md border border-rule bg-mist px-4 py-4">
+          <form
+            method="get"
+            className="mt-10 flex flex-wrap items-end gap-4 rounded-md border border-rule bg-mist px-4 py-4"
+          >
             <label className="text-sm text-ink-soft">
               <span className="meta-label block">Kind of question</span>
-              <select name="type" defaultValue={type ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+              <select
+                name="type"
+                defaultValue={type ?? ''}
+                className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink"
+              >
                 <option value="">All ({all.length})</option>
                 {ORDER.filter((key) => (counts.get(key) ?? 0) > 0).map((key) => (
                   <option key={key} value={key}>
@@ -129,8 +183,27 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
               </select>
             </label>
             <label className="text-sm text-ink-soft">
+              <span className="meta-label block">Kind of absence</span>
+              <select
+                name="absence"
+                defaultValue={absence ?? ''}
+                className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink"
+              >
+                <option value="">Any</option>
+                {absences.map((key) => (
+                  <option key={key} value={key}>
+                    {GAP_TYPE_LABELS[key] ?? key}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm text-ink-soft">
               <span className="meta-label block">Compound or topic</span>
-              <select name="subject" defaultValue={subject ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+              <select
+                name="subject"
+                defaultValue={subject ?? ''}
+                className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink"
+              >
                 <option value="">All</option>
                 {subjects.map(([slug, name]) => (
                   <option key={slug} value={slug}>
@@ -139,16 +212,23 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
                 ))}
               </select>
             </label>
-            <button type="submit" className="rounded border border-deep-tide bg-deep-tide px-3 py-1.5 text-sm text-warm-white">
+            <button
+              type="submit"
+              className="rounded border border-deep-tide bg-deep-tide px-3 py-1.5 text-sm text-warm-white"
+            >
               Show
             </button>
-            {type || subject ? (
-              <Link href="/research" className="text-sm text-deep-tide underline-offset-2 hover:underline">
+            {type !== undefined || subject !== undefined || absence !== undefined ? (
+              <Link
+                href="/research"
+                className="text-sm text-deep-tide underline-offset-2 hover:underline"
+              >
                 Clear
               </Link>
             ) : null}
             <p className="w-full text-xs text-slate">
-              {shown.length} of {all.length} questions from {subjects.length} records.
+              {shown.length} of {all.length} questions from {subjects.length} records. {ours} of
+              them wait on a source this index has not obtained rather than on new research.
             </p>
           </form>
 
@@ -160,26 +240,58 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
                   <span className="ml-2 text-base text-slate">{group.items.length}</span>
                 </h2>
                 <p className="mt-1 max-w-[62ch] text-sm text-slate">{WHY[group.key]}</p>
+                {SOURCE_THAT_WOULD_HELP[group.key] === undefined ? null : (
+                  <p className="mt-1 max-w-[66ch] text-sm text-ink-soft">
+                    <span className="text-slate">The kind of work that would answer it: </span>
+                    {SOURCE_THAT_WOULD_HELP[group.key]}
+                  </p>
+                )}
                 <ul className="mt-5 grid gap-4 lg:grid-cols-2">
                   {group.items.map((q) => (
-                    <li key={q.gapKey} className="rounded-md border border-l-[3px] border-rule border-l-tide-teal bg-warm-white px-5 py-4">
-                      <Link
-                        href={q.subjectKind === 'compound' ? `/peptides/${q.subjectSlug}#research-questions` : `/quality/${q.subjectSlug}#not-established`}
-                        className="text-xs tracking-wide text-deep-tide uppercase hover:underline"
-                      >
-                        {q.subjectName}
-                      </Link>
+                    <li
+                      key={q.gapKey}
+                      className="rounded-md border border-l-[3px] border-rule border-l-tide-teal bg-warm-white px-5 py-4"
+                    >
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <Link
+                          href={
+                            q.subjectKind === 'compound'
+                              ? `/peptides/${q.subjectSlug}#research-questions`
+                              : `/quality/${q.subjectSlug}#not-established`
+                          }
+                          className="text-xs tracking-wide text-deep-tide uppercase hover:underline"
+                        >
+                          {q.subjectName}
+                        </Link>
+                        <span
+                          className={
+                            OURS_TO_CLOSE.has(q.gapType)
+                              ? 'rounded-sm border border-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] px-1.5 py-0.5 text-2xs text-[var(--color-caution)]'
+                              : 'rounded-sm border border-rule px-1.5 py-0.5 text-2xs text-slate'
+                          }
+                        >
+                          {GAP_TYPE_LABELS[q.gapType] ?? q.gapType}
+                        </span>
+                      </div>
+
                       <p className="mt-1.5 font-serif text-lg leading-snug text-ink">{q.question}</p>
-                      <p className="mt-2 text-sm text-ink-soft">
-                        <span className="text-slate">Because: </span>
-                        {q.why}
-                      </p>
-                      {q.whatWouldResolveIt ? (
-                        <p className="mt-1 text-sm text-ink-soft">
-                          <span className="text-slate">What would settle it: </span>
-                          {q.whatWouldResolveIt}
-                        </p>
-                      ) : null}
+
+                      <dl className="mt-3 space-y-1.5 text-sm">
+                        <div>
+                          <dt className="inline text-slate">What is unknown: </dt>
+                          <dd className="inline text-ink-soft">{q.statement}</dd>
+                        </div>
+                        <div>
+                          <dt className="inline text-slate">Why: </dt>
+                          <dd className="inline text-ink-soft">{q.why}</dd>
+                        </div>
+                        {q.whatWouldResolveIt === null ? null : (
+                          <div>
+                            <dt className="inline text-slate">What would settle it: </dt>
+                            <dd className="inline text-ink-soft">{q.whatWouldResolveIt}</dd>
+                          </div>
+                        )}
+                      </dl>
                     </li>
                   ))}
                 </ul>

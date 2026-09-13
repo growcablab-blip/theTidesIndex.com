@@ -14,6 +14,7 @@ import {
   certificateType,
   claimImportance,
   evidenceRelationship,
+  primaryTraceState,
   publicationState,
   reviewState,
 } from './enums';
@@ -204,6 +205,18 @@ export const claimEvidence = pgTable(
     /** Where the secondary source's reading overstates the primary source. */
     interpretationConcerns: text(),
 
+    /**
+     * How far this passage has been traced back to the research itself.
+     *
+     * The boolean above answers one question — was a full text read — and
+     * cannot distinguish the two states that matter most in a register built
+     * partly from practitioner handbooks: a citation nobody has obtained, and
+     * a citation obtained and found not to support the claim.
+     */
+    primaryTrace: primaryTraceState().notNull().default('not_attempted'),
+    /** What was read and what it showed. Required for any full-text verdict. */
+    primaryTraceNote: text(),
+
     reviewerNotes: text(),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
@@ -214,6 +227,22 @@ export const claimEvidence = pgTable(
     // it. A passage that supports two different propositions belongs to two
     // claims, not to two evidence rows on one.
     uniqueIndex('claim_evidence_claim_location_uniq').on(t.claimId, t.sourceLocationId),
+    // A verdict about a full text may not be recorded without saying what was
+    // read: it is the state a reviewer will challenge, so it carries its own
+    // audit trail.
+    check(
+      'claim_evidence_trace_verdict_explained',
+      sql`${t.primaryTrace} not in ('full_text_supports', 'full_text_partially_supports', 'full_text_does_not_support', 'full_text_different_context') or ${t.primaryTraceNote} is not null`,
+    ),
+    // The two may not contradict each other. An implication, not an
+    // equivalence: rows predating the trace column carry the boolean without a
+    // verdict, and inventing one for them would be worse than leaving the
+    // state untouched.
+    check(
+      'claim_evidence_verified_matches_trace',
+      sql`${t.primaryTrace} not in ('full_text_supports', 'full_text_partially_supports', 'full_text_does_not_support', 'full_text_different_context') or ${t.primarySourceVerified}`,
+    ),
+    index('claim_evidence_primary_trace_idx').on(t.primaryTrace),
     index('claim_evidence_claim_idx').on(t.claimId),
     index('claim_evidence_source_idx').on(t.sourceId),
     index('claim_evidence_evidence_type_idx').on(t.evidenceTypeKey),

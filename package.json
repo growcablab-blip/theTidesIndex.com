@@ -47,7 +47,10 @@
     "shots:manufacturing": "tsx scripts/qa/manufacturing-shots.ts",
     "shots:record": "tsx scripts/qa/record-shots.ts",
     "shots:index": "tsx scripts/qa/index-shots.ts",
-    "pdf:protocols": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-protocol-book.ts"
+    "readiness": "tsx --tsconfig tsconfig.scripts.json scripts/qa/readiness.ts",
+    "pdf:protocols": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-protocol-book.ts",
+    "pdf:guide": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-reference-guide.ts",
+    "pdf:science": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-science-applications.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

@@ -170,14 +170,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source lists tesamorelin as a somatotropin agonist and GHRH analogue with an added trans-3-hexanoic acid moiety, and gives 'stimulation of pituitary endogenous GH' as its indication and use.",
-          "populationModel": "Not applicable — a statement about the molecule and its mechanism."
+          "populationModel": "Not applicable — a statement about the molecule and its mechanism.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-tesa-144",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source's summary restates the mechanism through the GHRH receptor on the anterior pituitary, and groups tesamorelin with sermorelin and CJC-1295 as GHRH analogues acting the same way.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -195,21 +199,27 @@
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling states that its recommendations apply to one presentation only, directs the reader to the separate prescribing information for another, and states that the two differ in dosage, vial count, reconstitution and storage.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "fda-egrifta-wr-dosage",
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The third product's labelling makes the same statement for its own presentation, at a third strength and a third daily dose.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "lavalle-tesa-142",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contextualizes",
           "interpretation": "The handbook describes a vial containing tesamorelin as the free base with mannitol as the inactive ingredient — the original presentation — while elsewhere in the same entry giving reconstitution instructions for a different one. A single compound entry describing two products without separating them is the ordinary case, not an unusual one.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -227,14 +237,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source states that in two Phase III clinical trials of HIV-infected patients with abdominal obesity (n = 412), tesamorelin selectively reduced VAT area by 15% over 26 weeks without altering subcutaneous adipose tissue or BMI, citing the trials by superscript.",
-          "populationModel": "HIV-infected adults with abdominal obesity, as reported. Population characteristics beyond this are not given by the source."
+          "populationModel": "HIV-infected adults with abdominal obesity, as reported. Population characteristics beyond this are not given by the source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-tesa-145",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contextualizes",
           "interpretation": "The source frames the primary use as treating HIV-associated lipodystrophy, a consequence of HIV infection and/or antiretroviral therapy, and separately reports a 15-20% reduction in visceral adipose tissue over 6-12 months.",
-          "populationModel": "Adults with HIV-associated abdominal adiposity."
+          "populationModel": "Adults with HIV-associated abdominal adiposity.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -252,7 +266,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source describes HIV lipodystrophy syndrome as increased visceral adiposity, loss of subcutaneous fat, dyslipidaemia and insulin resistance developing variably with long-term antiretroviral therapy, and names treating it as the primary use of tesamorelin.",
-          "populationModel": "Patients receiving antiretroviral therapy for HIV."
+          "populationModel": "Patients receiving antiretroviral therapy for HIV.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -270,7 +286,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source reports mean elimination half-life of 26 and 38 minutes in healthy subjects and HIV-infected patients respectively, after subcutaneous administration for 14 consecutive days.",
-          "populationModel": "Healthy subjects and HIV-infected patients, as reported; group sizes not given."
+          "populationModel": "Healthy subjects and HIV-infected patients, as reported; group sizes not given.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -288,7 +306,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source reports an average increase in IGF-1 of 181 micrograms/litre in men with binding like endogenous GHRH, and separately that tesamorelin is reported not to substantially affect TSH, LH, ACTH or prolactin.",
-          "populationModel": "Men; the source does not state whether they were HIV-infected or healthy."
+          "populationModel": "Men; the source does not state whether they were HIV-infected or healthy.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -306,7 +326,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source lists the contraindications and the caution conditions under 'Warnings and Cautions', and states that safety in paediatrics has not been established.",
-          "populationModel": "Not applicable — a list of conditions."
+          "populationModel": "Not applicable — a list of conditions.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -324,7 +346,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source states 'Long term use has not been studied' among its warnings, immediately after listing the most common adverse effects.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -342,7 +366,9 @@
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling gives the indication and, under Limitations of Use, states that long-term cardiovascular safety has not been established, that the product is not indicated for weight loss management as it has a weight neutral effect, and that there are no data supporting improved antiretroviral compliance.",
-          "populationModel": "HIV-infected adult patients with lipodystrophy and excess abdominal fat."
+          "populationModel": "HIV-infected adult patients with lipodystrophy and excess abdominal fat.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -360,14 +386,18 @@
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling identifies the application number and the approving authority.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "lavalle-tesa-142",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The handbook states that tesamorelin is indicated and approved by the US FDA in 2010 for the reduction of excess visceral fat in HIV-infected patients with lipodystrophy. It agrees with the labelling, and this index's earlier record of a Canadian approval came from reading the manufacturer's address one page earlier.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -385,21 +415,27 @@
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling states a mean elimination half-life of 8 minutes in healthy subjects after single-dose subcutaneous administration of the EGRIFTA SV presentation, and a mean volume of distribution of 4.8 ± 1.9 L/kg.",
-          "populationModel": "Healthy subjects, single dose, EGRIFTA SV."
+          "populationModel": "Healthy subjects, single dose, EGRIFTA SV.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "fda-egrifta-wr-pharmacology",
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling for the second currently marketed product states a mean elimination half-life of 11 minutes under otherwise identical conditions. Two labels from one regulator, effective the same day, give different values for one molecule.",
-          "populationModel": "Healthy subjects, single dose, EGRIFTA WR."
+          "populationModel": "Healthy subjects, single dose, EGRIFTA WR.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "lavalle-tesa-146",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contextualizes",
           "interpretation": "The handbook reports 26 and 38 minutes in healthy subjects and HIV-infected patients respectively, after subcutaneous administration for 14 consecutive days — a different dosing duration, and, on the labelling's own account of which product that study used, a different product.",
-          "populationModel": "Healthy subjects and HIV-infected patients, repeat dosing."
+          "populationModel": "Healthy subjects and HIV-infected patients, repeat dosing.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -417,14 +453,18 @@
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling describes the two studies, the inclusion and exclusion criteria, the 2:1 randomisation, the 26-week main and extension phases, the CT-measured VAT primary endpoint, and subcutaneous adipose tissue among the other endpoints.",
-          "populationModel": "HIV-infected adults aged 18-65 with defined waist circumference and waist-to-hip ratio criteria, on stable antiretroviral therapy for at least 8 weeks."
+          "populationModel": "HIV-infected adults aged 18-65 with defined waist circumference and waist-to-hip ratio criteria, on stable antiretroviral therapy for at least 8 weeks.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "lavalle-tesa-146",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The handbook's account — two Phase III trials, n=412, 15% VAT reduction over 26 weeks without change in subcutaneous adipose tissue or BMI — is consistent with the label's description of the design and endpoints.",
-          "populationModel": "As reported."
+          "populationModel": "As reported.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -442,21 +482,27 @@
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling lists the warnings and precautions with their monitoring instructions, including that any preexisting malignancy should be inactive and its treatment complete before starting, and that treatment should be discontinued on any evidence of recurrent malignancy.",
-          "populationModel": "The approved population."
+          "populationModel": "The approved population.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "fda-egrifta-adverse",
           "evidenceTypeKey": "approved_label_evidence",
           "relationship": "supports",
           "interpretation": "The labelling gives the adverse reactions reported above 5%, and separately tabulates those occurring in at least 1% of patients and more frequently than with placebo across the combined 26-week studies.",
-          "populationModel": "Clinical trial participants: 543 receiving the drug, 263 receiving placebo, during the initial 26-week phase."
+          "populationModel": "Clinical trial participants: 543 receiving the drug, 263 receiving placebo, during the initial 26-week phase.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         },
         {
           "locationKey": "lavalle-tesa-144",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The handbook lists injection-site erythema, rash, oedema, joint and muscle pain and diarrhoea as the most common side effects. Four of the five are corroborated by the labelling; diarrhoea is the one with no counterpart in it.",
-          "populationModel": "Not specified by the handbook."
+          "populationModel": "Not specified by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

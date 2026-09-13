@@ -8,10 +8,22 @@
     "practitionerSummary": "GHK (glycyl-L-histidyl-L-lysine; historically GHL) is an endogenous plasma tripeptide that complexes transition metals, principally Cu(II), in vivo; GHK-Cu is the copper complex. The reproducible laboratory signal is extracellular-matrix synthesis: nanomolar GHK-Cu increased collagen and glycosaminoglycan synthesis in fibroblast culture, and injection into rat wound chambers increased connective-tissue accumulation — both from one French group. Human skin models show negligible permeation of the peptide through intact skin in 9 hours, increased markedly by microneedle pretreatment; copper itself permeates and is retained when applied as GHK cuprate. Controlled human evidence for GHK-Cu as the sole active is one 1994 multicentre vehicle-controlled trial of a topical gel in diabetic plantar ulcers (improved closure, fewer infections) and a 13-completer RCT after CO2 laser resurfacing (no objective difference; higher satisfaction), consistent with a 2026 systematic review counting 2 RCTs against 18 preclinical studies. Other human records are uncontrolled or multi-ingredient (including a 1,000-patient open-label intradermal scalp formulation with growth factors and thymosin beta-4). No human pharmacokinetic, injected, oral or sublingual study was identified. Practitioner sources describe subcutaneous and intramuscular injection, sublingual strips and multi-peptide blends; one advises monitoring for copper excess and zinc co-supplementation, without citing data.",
     "unknownsSummary": "Not established: any effect or safety of injected, oral or sublingual GHK-Cu in people, including copper exposure; human pharmacokinetics by any route; whether the 1994 ulcer result has been replicated; what GHK-Cu contributes in the multi-ingredient products most human studies used; how much intact peptide reaches living skin from ordinary topical products; and the primary measurement behind the widely repeated claim that plasma GHK falls with age.",
     "aliases": [
-      { "alias": "GHK", "note": "The tripeptide itself, without copper. Sources often use GHK and GHK-Cu interchangeably; chemically they are the free peptide and its copper complex." },
-      { "alias": "Glycyl-L-histidyl-L-lysine", "note": "The chemical name of GHK." },
-      { "alias": "GHL", "note": "The older abbreviation used in the 1980 characterisation of the plasma peptide." },
-      { "alias": "Copper tripeptide-1", "note": "The cosmetic ingredient name used on formulations containing GHK-Cu." }
+      {
+        "alias": "GHK",
+        "note": "The tripeptide itself, without copper. Sources often use GHK and GHK-Cu interchangeably; chemically they are the free peptide and its copper complex."
+      },
+      {
+        "alias": "Glycyl-L-histidyl-L-lysine",
+        "note": "The chemical name of GHK."
+      },
+      {
+        "alias": "GHL",
+        "note": "The older abbreviation used in the 1980 characterisation of the plasma peptide."
+      },
+      {
+        "alias": "Copper tripeptide-1",
+        "note": "The cosmetic ingredient name used on formulations containing GHK-Cu."
+      }
     ],
     "sequence": "GHK",
     "molecularDescription": "Tripeptide glycyl-L-histidyl-L-lysine, which binds Cu(II) with high affinity to form GHK-Cu.",
@@ -19,29 +31,147 @@
     "nomenclatureNote": "Two traps. First, GHK and GHK-Cu are the free peptide and its copper complex: one practitioner source gives them separate entries with different uses, others use the names interchangeably. Second, the letters GHK are also the Goldman-Hodgkin-Katz equation, a dental staging system and two childhood-obesity programmes, which is why 71 of 403 records in the literature search are false matches. Palmitoyl and biotinylated GHK derivatives are different molecules and are not this record."
   },
   "locations": [
-    { "key": "mulder-1994", "sourceKey": "SRC-055", "locatorText": "Abstract", "section": "Abstract (PMID 17147644)" },
-    { "key": "miller-2006", "sourceKey": "SRC-056", "locatorText": "Abstract", "section": "Abstract (PMID 16847171)" },
-    { "key": "maquart-1993", "sourceKey": "SRC-057", "locatorText": "Abstract", "section": "Abstract (PMID 8227353)" },
-    { "key": "maquart-1988", "sourceKey": "SRC-058", "locatorText": "Abstract", "section": "Abstract (PMID 3169264)" },
-    { "key": "li-2015", "sourceKey": "SRC-059", "locatorText": "Abstract", "section": "Abstract (PMID 25690343)" },
-    { "key": "hostynek-2010", "sourceKey": "SRC-060", "locatorText": "Abstract", "section": "Abstract (PMID 20703511)" },
-    { "key": "li-2016", "sourceKey": "SRC-061", "locatorText": "Abstract", "section": "Abstract (PMID 27892491)" },
-    { "key": "dou-2020", "sourceKey": "SRC-062", "locatorText": "Abstract", "section": "Abstract (PMID 35083444)" },
-    { "key": "mokhtar-2026", "sourceKey": "SRC-063", "locatorText": "Abstract", "section": "Abstract (PMID 42619529)" },
-    { "key": "kapoor-2018", "sourceKey": "SRC-064", "locatorText": "Abstract", "section": "Abstract (PMID 29482481)" },
-    { "key": "pickart-1980", "sourceKey": "SRC-065", "locatorText": "Abstract", "section": "Abstract (PMID 6246126)" },
-    { "key": "seeds-ghk-146", "sourceKey": "SRC-001", "locatorText": "file p. 146", "section": "GHK-Cu" },
-    { "key": "seeds-ghk-147", "sourceKey": "SRC-001", "locatorText": "file p. 147", "section": "GHK-Cu: properties and applications" },
-    { "key": "lavalle-ghk-59", "sourceKey": "SRC-002", "locatorText": "file p. 59", "section": "GHK-Cu: composition, indications, dosage" },
-    { "key": "lavalle-ghk-60", "sourceKey": "SRC-002", "locatorText": "file p. 60", "section": "GHK-Cu: topical use, warnings and cautions" },
-    { "key": "lavalle-ghk-61", "sourceKey": "SRC-002", "locatorText": "file pp. 61-62", "section": "GHK-Cu: summary" },
-    { "key": "campbell-ghk-90", "sourceKey": "SRC-003", "locatorText": "p. 90", "pageStart": 90, "section": "GHK-Cu" },
-    { "key": "campbell-ghk-91", "sourceKey": "SRC-003", "locatorText": "pp. 91-92", "pageStart": 91, "pageEnd": 92, "section": "GHK-Cu: topical use" },
-    { "key": "cheatsheet-ghk-3", "sourceKey": "SRC-004", "locatorText": "file p. 3", "section": "Longevity and healing table, GHK-CU row" },
-    { "key": "cheatsheet-ghk-6", "sourceKey": "SRC-004", "locatorText": "file p. 6", "section": "Blends table, BPC-157 / TB-500 / GHK-Cu row" },
-    { "key": "cheatsheet-ghk-7", "sourceKey": "SRC-004", "locatorText": "file p. 7", "section": "Oral sublingual peptide strips, GHK-Cu row" },
-    { "key": "hacksmith-ghkcu", "sourceKey": "SRC-005", "locatorText": "file pp. 55-57", "section": "GHK-Cu (copper peptide)" },
-    { "key": "hacksmith-ghkbase", "sourceKey": "SRC-005", "locatorText": "file pp. 57-58", "section": "GHK base (no Cu)" }
+    {
+      "key": "mulder-1994",
+      "sourceKey": "SRC-055",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 17147644)"
+    },
+    {
+      "key": "miller-2006",
+      "sourceKey": "SRC-056",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 16847171)"
+    },
+    {
+      "key": "maquart-1993",
+      "sourceKey": "SRC-057",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 8227353)"
+    },
+    {
+      "key": "maquart-1988",
+      "sourceKey": "SRC-058",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 3169264)"
+    },
+    {
+      "key": "li-2015",
+      "sourceKey": "SRC-059",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 25690343)"
+    },
+    {
+      "key": "hostynek-2010",
+      "sourceKey": "SRC-060",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 20703511)"
+    },
+    {
+      "key": "li-2016",
+      "sourceKey": "SRC-061",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 27892491)"
+    },
+    {
+      "key": "dou-2020",
+      "sourceKey": "SRC-062",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 35083444)"
+    },
+    {
+      "key": "mokhtar-2026",
+      "sourceKey": "SRC-063",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 42619529)"
+    },
+    {
+      "key": "kapoor-2018",
+      "sourceKey": "SRC-064",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 29482481)"
+    },
+    {
+      "key": "pickart-1980",
+      "sourceKey": "SRC-065",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 6246126)"
+    },
+    {
+      "key": "seeds-ghk-146",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 146",
+      "section": "GHK-Cu"
+    },
+    {
+      "key": "seeds-ghk-147",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 147",
+      "section": "GHK-Cu: properties and applications"
+    },
+    {
+      "key": "lavalle-ghk-59",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 59",
+      "section": "GHK-Cu: composition, indications, dosage"
+    },
+    {
+      "key": "lavalle-ghk-60",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 60",
+      "section": "GHK-Cu: topical use, warnings and cautions"
+    },
+    {
+      "key": "lavalle-ghk-61",
+      "sourceKey": "SRC-002",
+      "locatorText": "file pp. 61-62",
+      "section": "GHK-Cu: summary"
+    },
+    {
+      "key": "campbell-ghk-90",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 90",
+      "pageStart": 90,
+      "section": "GHK-Cu"
+    },
+    {
+      "key": "campbell-ghk-91",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 91-92",
+      "pageStart": 91,
+      "pageEnd": 92,
+      "section": "GHK-Cu: topical use"
+    },
+    {
+      "key": "cheatsheet-ghk-3",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 3",
+      "section": "Longevity and healing table, GHK-CU row"
+    },
+    {
+      "key": "cheatsheet-ghk-6",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 6",
+      "section": "Blends table, BPC-157 / TB-500 / GHK-Cu row"
+    },
+    {
+      "key": "cheatsheet-ghk-7",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 7",
+      "section": "Oral sublingual peptide strips, GHK-Cu row"
+    },
+    {
+      "key": "hacksmith-ghkcu",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 55-57",
+      "section": "GHK-Cu (copper peptide)"
+    },
+    {
+      "key": "hacksmith-ghkbase",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 57-58",
+      "section": "GHK base (no Cu)"
+    }
   ],
   "claims": [
     {
@@ -53,7 +183,13 @@
       "interpretationNotes": "The 1980 characterisation, under the older abbreviation GHL. It is why GHK and GHK-Cu are two forms of one peptide rather than two compounds.",
       "uncertaintyText": "An early study; how much circulating GHK is copper-bound at any moment is not stated in the abstract.",
       "evidence": [
-        { "locationKey": "pickart-1980", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Association of GHL with Cu and Fe in plasma; metal-binding selectivity in vitro." }
+        {
+          "locationKey": "pickart-1980",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Association of GHL with Cu and Fe in plasma; metal-binding selectivity in vitro.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -65,7 +201,13 @@
       "interpretationNotes": "The foundational laboratory finding behind the skin and wound claims. Culture concentrations are not doses.",
       "uncertaintyText": "Cell culture. Whether any topical or injected product produces such concentrations in living tissue is not shown here.",
       "evidence": [
-        { "locationKey": "maquart-1988", "evidenceTypeKey": "in_vitro", "interpretation": "Concentration-dependent stimulation of collagen synthesis in fibroblasts." }
+        {
+          "locationKey": "maquart-1988",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Concentration-dependent stimulation of collagen synthesis in fibroblasts.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -77,7 +219,13 @@
       "interpretationNotes": "Animal evidence, delivered directly into the wound space. The same laboratory reported the culture findings.",
       "uncertaintyText": "Rats, local delivery. Says nothing about people or about systemic injection.",
       "evidence": [
-        { "locationKey": "maquart-1993", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Wound-chamber extracellular-matrix accumulation with a control tripeptide." }
+        {
+          "locationKey": "maquart-1993",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Wound-chamber extracellular-matrix accumulation with a control tripeptide.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -89,8 +237,20 @@
       "interpretationNotes": "The central fact for a mostly topical compound. The two studies measured different things: the first the peptide and copper through intact versus microneedle-treated skin, the second copper alone through dermatomed skin, which is thinner than intact skin.",
       "uncertaintyText": "Ex vivo skin. Real products, formulations and application conditions vary.",
       "evidence": [
-        { "locationKey": "li-2015", "evidenceTypeKey": "ex_vivo", "interpretation": "Negligible peptide and copper permeation through intact human skin; marked increase after microneedle pretreatment." },
-        { "locationKey": "hostynek-2010", "evidenceTypeKey": "ex_vivo", "interpretation": "Copper from GHK cuprate permeated and was retained in dermatomed skin; the peptide itself was not measured." }
+        {
+          "locationKey": "li-2015",
+          "evidenceTypeKey": "ex_vivo",
+          "interpretation": "Negligible peptide and copper permeation through intact human skin; marked increase after microneedle pretreatment.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "hostynek-2010",
+          "evidenceTypeKey": "ex_vivo",
+          "interpretation": "Copper from GHK cuprate permeated and was retained in dermatomed skin; the peptide itself was not measured.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -102,7 +262,13 @@
       "interpretationNotes": "The strongest human evidence on this record and the only controlled human trial identified in which GHK-Cu was the sole investigational active on a wound.",
       "uncertaintyText": "Published in 1994; sample size and sponsor are not stated in the abstract; no replication was identified in the screen.",
       "evidence": [
-        { "locationKey": "mulder-1994", "evidenceTypeKey": "human_rct", "interpretation": "Closure of plantar ulcers and infection incidence versus vehicle." }
+        {
+          "locationKey": "mulder-1994",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Closure of plantar ulcers and infection incidence versus vehicle.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -114,7 +280,13 @@
       "interpretationNotes": "A negative objective result is as much evidence as a positive one and is recorded as such.",
       "uncertaintyText": "Very small trial; products contained other ingredients.",
       "evidence": [
-        { "locationKey": "miller-2006", "evidenceTypeKey": "human_rct", "interpretation": "No objective difference; higher patient satisfaction." }
+        {
+          "locationKey": "miller-2006",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "No objective difference; higher patient satisfaction.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -126,7 +298,13 @@
       "interpretationNotes": "Ten human records in the census; one tested GHK-Cu alone on a wound, one tested GHK-Cu products after laser, and one tested GHK complexed with another compound. The rest are mixtures, uncontrolled, or both.",
       "uncertaintyText": "Classification rests on abstracts.",
       "evidence": [
-        { "locationKey": "kapoor-2018", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "A six-active injected formulation; single-arm." }
+        {
+          "locationKey": "kapoor-2018",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "interpretation": "A six-active injected formulation; single-arm.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -138,7 +316,13 @@
       "interpretationNotes": "An independent count that agrees with this index's screen on the shape of the evidence.",
       "uncertaintyText": "The review's second trial on wrinkles was not identified by this index's search and is not described here.",
       "evidence": [
-        { "locationKey": "mokhtar-2026", "evidenceTypeKey": "academic_reference", "interpretation": "Study counts and the review's own statement of limitations." }
+        {
+          "locationKey": "mokhtar-2026",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Study counts and the review's own statement of limitations.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review characterising studies this index has not obtained. Its account of them has not been checked against the papers."
+        }
       ]
     },
     {
@@ -150,7 +334,13 @@
       "interpretationNotes": "Relevant to topical use only, and only to irritation.",
       "uncertaintyText": "A cell model; it establishes nothing about injection or systemic copper exposure.",
       "evidence": [
-        { "locationKey": "li-2016", "evidenceTypeKey": "in_vitro", "interpretation": "Irritation biomarkers for GHK-Cu versus copper salts." }
+        {
+          "locationKey": "li-2016",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Irritation biomarkers for GHK-Cu versus copper salts.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -162,9 +352,30 @@
       "interpretationNotes": "Primary-source tracing: the figure travels from review to handbook with the same numbers, which is a sign of a shared citation rather than of repeated measurement.",
       "uncertaintyText": "The measurement may exist in a source outside PubMed or in full text not held.",
       "evidence": [
-        { "locationKey": "dou-2020", "evidenceTypeKey": "academic_reference", "relationship": "cites", "interpretation": "States the age-related plasma figures without reporting the measurement." },
-        { "locationKey": "seeds-ghk-147", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "Repeats the figures." },
-        { "locationKey": "lavalle-ghk-61", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "Repeats the figures with a reference marker." }
+        {
+          "locationKey": "dou-2020",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "cites",
+          "interpretation": "States the age-related plasma figures without reporting the measurement.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "seeds-ghk-147",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "cites",
+          "interpretation": "Repeats the figures.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        },
+        {
+          "locationKey": "lavalle-ghk-61",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "cites",
+          "interpretation": "Repeats the figures with a reference marker.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        }
       ]
     }
   ],
@@ -472,10 +683,26 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A human pharmacokinetic and safety study of injected GHK-Cu, and any controlled comparison of routes.",
       "positions": [
-        { "locationKey": "campbell-ghk-91", "evidenceTypeKey": "practitioner_reference", "positionText": "The only peptide in the book that functions best as a transdermal cream or serum; recommended as the primary option for skin aging." },
-        { "locationKey": "lavalle-ghk-59", "evidenceTypeKey": "practitioner_reference", "positionText": "Given by subcutaneous injection, and can be given intramuscularly, for a list of systemic indications." },
-        { "locationKey": "hacksmith-ghkcu", "evidenceTypeKey": "practitioner_reference", "positionText": "Topical for skin and hair, and subcutaneous injection for tissue regeneration or anti-aging." },
-        { "locationKey": "mulder-1994", "evidenceTypeKey": "human_rct", "positionText": "Controlled human evidence is for a topical gel on wounds." }
+        {
+          "locationKey": "campbell-ghk-91",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "The only peptide in the book that functions best as a transdermal cream or serum; recommended as the primary option for skin aging."
+        },
+        {
+          "locationKey": "lavalle-ghk-59",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Given by subcutaneous injection, and can be given intramuscularly, for a list of systemic indications."
+        },
+        {
+          "locationKey": "hacksmith-ghkcu",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Topical for skin and hair, and subcutaneous injection for tissue regeneration or anti-aging."
+        },
+        {
+          "locationKey": "mulder-1994",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "Controlled human evidence is for a topical gel on wounds."
+        }
       ]
     },
     {
@@ -487,9 +714,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A human study of injected GHK-Cu that defines a schedule.",
       "positions": [
-        { "locationKey": "lavalle-ghk-59", "evidenceTypeKey": "practitioner_reference", "positionText": "Daily for 10-21 days." },
-        { "locationKey": "hacksmith-ghkcu", "evidenceTypeKey": "practitioner_reference", "positionText": "Every 1-2 days, no duration stated." },
-        { "locationKey": "cheatsheet-ghk-3", "evidenceTypeKey": "practitioner_reference", "positionText": "Every day, 8 weeks on and 8 weeks off." }
+        {
+          "locationKey": "lavalle-ghk-59",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Daily for 10-21 days."
+        },
+        {
+          "locationKey": "hacksmith-ghkcu",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Every 1-2 days, no duration stated."
+        },
+        {
+          "locationKey": "cheatsheet-ghk-3",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Every day, 8 weeks on and 8 weeks off."
+        }
       ]
     },
     {
@@ -503,9 +742,21 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None further for the chemistry. Which form a given product contains requires analysis of the product.",
       "positions": [
-        { "locationKey": "hacksmith-ghkbase", "evidenceTypeKey": "practitioner_reference", "positionText": "GHK base, without the copper ion, is a separate entry with its own uses." },
-        { "locationKey": "lavalle-ghk-61", "evidenceTypeKey": "practitioner_reference", "positionText": "The summary moves between GHK and GHK-Cu when describing effects." },
-        { "locationKey": "pickart-1980", "evidenceTypeKey": "analytical_characterisation", "positionText": "The plasma tripeptide associates with copper and iron in vivo and forms complexes with several metals." }
+        {
+          "locationKey": "hacksmith-ghkbase",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "GHK base, without the copper ion, is a separate entry with its own uses."
+        },
+        {
+          "locationKey": "lavalle-ghk-61",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "The summary moves between GHK and GHK-Cu when describing effects."
+        },
+        {
+          "locationKey": "pickart-1980",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "The plasma tripeptide associates with copper and iron in vivo and forms complexes with several metals."
+        }
       ]
     },
     {
@@ -517,9 +768,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "The primary measurement study, or a new age-stratified measurement.",
       "positions": [
-        { "locationKey": "seeds-ghk-147", "evidenceTypeKey": "practitioner_reference", "positionText": "States the plasma level at age 20 and at age 60, without a study." },
-        { "locationKey": "lavalle-ghk-61", "evidenceTypeKey": "practitioner_reference", "positionText": "States the same figures with a reference marker." },
-        { "locationKey": "dou-2020", "evidenceTypeKey": "academic_reference", "positionText": "Repeats the same figures in a review abstract." }
+        {
+          "locationKey": "seeds-ghk-147",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "States the plasma level at age 20 and at age 60, without a study."
+        },
+        {
+          "locationKey": "lavalle-ghk-61",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "States the same figures with a reference marker."
+        },
+        {
+          "locationKey": "dou-2020",
+          "evidenceTypeKey": "academic_reference",
+          "positionText": "Repeats the same figures in a review abstract."
+        }
       ]
     }
   ],
@@ -645,6 +908,140 @@
       "basis": "No study exists to replicate.",
       "limitations": null,
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-055",
+      "sourceKey": "SRC-055",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-056",
+      "sourceKey": "SRC-056",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-057",
+      "sourceKey": "SRC-057",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-058",
+      "sourceKey": "SRC-058",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-059",
+      "sourceKey": "SRC-059",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-060",
+      "sourceKey": "SRC-060",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-061",
+      "sourceKey": "SRC-061",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-062",
+      "sourceKey": "SRC-062",
+      "locationKey": "dou-2020",
+      "funderKind": "government",
+      "sponsorName": "NIA NIH HHS",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": "R01 AG057381; R01 AG067193; R56 AG058543",
+      "disclosureText": "Grants recorded by PubMed: NIA NIH HHS. Declared interests: Conflict of Interest: Warren Ladiges is a member of the Editorial Board of Aging Pathobiology and Therapeutics. All authors declare no conflict of interest and were not involved in the journal’s review or desicions related to this manuscript.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-063",
+      "sourceKey": "SRC-063",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-064",
+      "sourceKey": "SRC-064",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-065",
+      "sourceKey": "SRC-065",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

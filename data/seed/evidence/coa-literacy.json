@@ -51,7 +51,9 @@
           "locationKey": "q7-11-4-p24",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §11.41 states that information on the name of the intermediate or API including where appropriate its grade, the batch number, and the date of release should be provided on the certificate of analysis, and that an expiry or retest date should be indicated where applicable."
+          "interpretation": "Q7 §11.41 states that information on the name of the intermediate or API including where appropriate its grade, the batch number, and the date of release should be provided on the certificate of analysis, and that an expiry or retest date should be indicated where applicable.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -69,7 +71,9 @@
           "locationKey": "q7-11-4-p24",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §11.42 states that the certificate should list each test performed in accordance with compendial or customer requirements, including the acceptance limits and the numerical results obtained if test results are numerical."
+          "interpretation": "Q7 §11.42 states that the certificate should list each test performed in accordance with compendial or customer requirements, including the acceptance limits and the numerical results obtained if test results are numerical.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -87,7 +91,9 @@
           "locationKey": "q7-11-4-p24",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §11.43 states that certificates should be dated and signed by authorised personnel of the quality unit and should show the name, address and telephone number of the original manufacturer."
+          "interpretation": "Q7 §11.43 states that certificates should be dated and signed by authorised personnel of the quality unit and should show the name, address and telephone number of the original manufacturer.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -105,7 +111,9 @@
           "locationKey": "q7-11-4-p24",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §11.43 states that where the analysis has been carried out by a repacker or reprocessor, the certificate of analysis should show that party's name, address and telephone number and a reference to the name of the original manufacturer."
+          "interpretation": "Q7 §11.43 states that where the analysis has been carried out by a repacker or reprocessor, the certificate of analysis should show that party's name, address and telephone number and a reference to the name of the original manufacturer.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -123,7 +131,9 @@
           "locationKey": "q7-11-4-p24",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §11.44 states that certificates issued by or on behalf of repackers, reprocessors, agents or brokers should show the name, address and telephone number of the laboratory that performed the analysis, and should contain a reference to the name and address of the original manufacturer and to the original batch certificate, a copy of which should be attached."
+          "interpretation": "Q7 §11.44 states that certificates issued by or on behalf of repackers, reprocessors, agents or brokers should show the name, address and telephone number of the laboratory that performed the analysis, and should contain a reference to the name and address of the original manufacturer and to the original batch certificate, a copy of which should be attached.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -141,7 +151,9 @@
           "locationKey": "q7-17-2-p32",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §17.20 states that agents, brokers, traders, distributors, repackers and relabellers should maintain complete traceability of the APIs and intermediates they distribute, and lists the documents to be retained and available, including the identity and address of the original manufacturer, the manufacturer's batch number, transportation and distribution records, and all authentic certificates of analysis including those of the original manufacturer."
+          "interpretation": "Q7 §17.20 states that agents, brokers, traders, distributors, repackers and relabellers should maintain complete traceability of the APIs and intermediates they distribute, and lists the documents to be retained and available, including the identity and address of the original manufacturer, the manufacturer's batch number, transportation and distribution records, and all authentic certificates of analysis including those of the original manufacturer.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -159,7 +171,9 @@
           "locationKey": "q7-17-6-p33",
           "evidenceTypeKey": "regulatory_reference",
           "relationship": "supports",
-          "interpretation": "Q7 §17.61 states that the party supplying the API or intermediate to the customer should provide the name of the original manufacturer and the batch number(s) supplied; §17.63 states that the specific guidance for certificates of analysis in section 11.4 should be met."
+          "interpretation": "Q7 §17.61 states that the party supplying the API or intermediate to the customer should provide the name of the original manufacturer and the batch number(s) supplied; §17.63 states that the specific guidance for certificates of analysis in section 11.4 should be met.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     }

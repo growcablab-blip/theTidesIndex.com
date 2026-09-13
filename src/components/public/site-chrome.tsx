@@ -10,13 +10,22 @@ import { Container } from './primitives';
  * nowhere else.
  */
 
+/*
+ * Ordered by what a reader came to do, not by how the database is shaped.
+ *
+ * "Learn" leads because the most common arrival is someone who has heard a
+ * name and wants to know what it means; the register, the regimens and the
+ * research agenda follow in the order a reader moves through them. Methodology
+ * left the primary row for the Learn hub and the footer: it explains how the
+ * index works, which matters enormously and is not a task anyone arrives with.
+ */
 const PRIMARY_NAV = [
+  { href: '/learn', label: 'Learn' },
   { href: '/peptides', label: 'Peptides' },
   { href: '/protocols', label: 'Protocols' },
   { href: '/research', label: 'Research' },
   { href: '/quality', label: 'Quality' },
   { href: '/sources', label: 'Sources' },
-  { href: '/methodology', label: 'Methodology' },
 ] as const;
 
 const FOOTER_NAV: readonly { heading: string; links: readonly { href: string; label: string }[] }[] =

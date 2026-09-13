@@ -8,9 +8,18 @@
     "practitionerSummary": "MOTS-c (mitochondrial open reading frame of the 12S rRNA-c) is a 16-residue peptide encoded by a short open reading frame in mtDNA. Its discovery paper reports skeletal muscle as the primary target, inhibition of the folate cycle and de novo purine biosynthesis with AICAR accumulation and AMPK activation, and prevention of age-dependent and high-fat-diet-induced insulin resistance and diet-induced obesity with MOTS-c treatment in mice. The same group later reported improved physical performance in young, middle-aged and old mice, including with late-life intermittent treatment three times a week, and exercise-induced increases in endogenous MOTS-c in human muscle and plasma. Peripherally administered MOTS-c did not cross the blood-brain barrier in mice, and oral MOTS-c did not improve mouse colitis where intraperitoneal did. Every human record in the census measures endogenous MOTS-c or a genetic variant; the associations are inconsistent (insulin sensitivity in lean but not obese individuals; a trend only after acute endurance exercise; a rise after 16 weeks of training in one ethnic group but not another; low levels predicting cardiac events in diabetics, high levels predicting death and cardiovascular events in haemodialysis). A validated LC-MS method could not confirm the endogenous plasma levels a commercial ELISA reported in healthy subjects. No human pharmacokinetic, safety or efficacy study of administered MOTS-c was identified.",
     "unknownsSummary": "Not established: anything about MOTS-c given to people — absorption, half-life, dose, safety, effect; whether human blood levels measured by immunoassay are real; which direction any human association runs; whether effects in mice translate; the effect of folate-cycle inhibition on folate or homocysteine in people; the stability of reconstituted peptide; and the correct residue at position 9 in products, since the two handbooks that print a sequence disagree.",
     "aliases": [
-      { "alias": "MOTS-C", "note": "Capitalisation variant used by several practitioner sources." },
-      { "alias": "MOTSc", "note": "Spelling without the hyphen." },
-      { "alias": "Mitochondrial open reading frame of the 12S rRNA-c", "note": "The full name from the discovery paper." }
+      {
+        "alias": "MOTS-C",
+        "note": "Capitalisation variant used by several practitioner sources."
+      },
+      {
+        "alias": "MOTSc",
+        "note": "Spelling without the hyphen."
+      },
+      {
+        "alias": "Mitochondrial open reading frame of the 12S rRNA-c",
+        "note": "The full name from the discovery paper."
+      }
     ],
     "sequence": null,
     "molecularDescription": "16-residue peptide encoded by a short open reading frame within the mitochondrial 12S rRNA gene. The two practitioner sources that print a sequence differ at position 9 (isoleucine or leucine), so no sequence is asserted here.",
@@ -18,29 +27,148 @@
     "nomenclatureNote": "No naming conflict with another molecule. Cell-penetrating MOTS-c conjugates developed for brain and oral delivery in mice are different molecules and are not this record. Two unrelated acronyms (MOTS) produce false matches in literature searches."
   },
   "locations": [
-    { "key": "lee-2015", "sourceKey": "SRC-086", "locatorText": "Abstract", "section": "Abstract (PMID 25738459)" },
-    { "key": "reynolds-2021", "sourceKey": "SRC-087", "locatorText": "Abstract", "section": "Abstract (PMID 33473109)" },
-    { "key": "fuku-2015", "sourceKey": "SRC-088", "locatorText": "Abstract", "section": "Abstract (PMID 26289118)" },
-    { "key": "cataldo-2018", "sourceKey": "SRC-089", "locatorText": "Abstract", "section": "Abstract (PMID 29593067)" },
-    { "key": "knoop-2019", "sourceKey": "SRC-090", "locatorText": "Abstract", "section": "Abstract (PMID 30394592)" },
-    { "key": "vonwalden-2021", "sourceKey": "SRC-091", "locatorText": "Abstract", "section": "Abstract (PMID 34351816)" },
-    { "key": "dieli-2021", "sourceKey": "SRC-092", "locatorText": "Abstract", "section": "Abstract (PMID 34413391)" },
-    { "key": "jiang-2021", "sourceKey": "SRC-093", "locatorText": "Abstract", "section": "Abstract (PMID 33861582)" },
-    { "key": "jiang-2023", "sourceKey": "SRC-094", "locatorText": "Abstract", "section": "Abstract (PMID 36528071)" },
-    { "key": "ikonomidis-2020", "sourceKey": "SRC-095", "locatorText": "Abstract", "section": "Abstract (PMID 32052315)" },
-    { "key": "bolignano-2024", "sourceKey": "SRC-096", "locatorText": "Abstract", "section": "Abstract (PMID 39111290)" },
-    { "key": "seeds-mots-214", "sourceKey": "SRC-001", "locatorText": "file p. 214", "section": "MOTS-c" },
-    { "key": "seeds-mots-215", "sourceKey": "SRC-001", "locatorText": "file p. 215", "section": "MOTS-c: sequence and applications" },
-    { "key": "seeds-mots-216", "sourceKey": "SRC-001", "locatorText": "file p. 216", "section": "MOTS-c: dosage" },
-    { "key": "lavalle-mots-102", "sourceKey": "SRC-002", "locatorText": "file p. 102", "section": "MOTS-c: sequence, composition, indications, dosage" },
-    { "key": "lavalle-mots-103", "sourceKey": "SRC-002", "locatorText": "file p. 103", "section": "MOTS-c: warnings and cautions" },
-    { "key": "lavalle-mots-104", "sourceKey": "SRC-002", "locatorText": "file pp. 104-106", "section": "MOTS-c: summary" },
-    { "key": "campbell-mots-81", "sourceKey": "SRC-003", "locatorText": "pp. 81-82", "pageStart": 81, "pageEnd": 82, "section": "MOTS-C" },
-    { "key": "campbell-mots-83", "sourceKey": "SRC-003", "locatorText": "p. 83", "pageStart": 83, "section": "MOTS-C recommended dosage" },
-    { "key": "campbell-mots-84", "sourceKey": "SRC-003", "locatorText": "p. 84", "pageStart": 84, "section": "MOTS-C timing and stability" },
-    { "key": "cheatsheet-mots-2", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, MOTS-C row" },
-    { "key": "cheatsheet-mots-6", "sourceKey": "SRC-004", "locatorText": "file p. 6", "section": "Blends table, NAD+ / MOTS-C / 5-Amino-1MQ row" },
-    { "key": "hacksmith-mots", "sourceKey": "SRC-005", "locatorText": "file pp. 90-91", "section": "MOTS-C" }
+    {
+      "key": "lee-2015",
+      "sourceKey": "SRC-086",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 25738459)"
+    },
+    {
+      "key": "reynolds-2021",
+      "sourceKey": "SRC-087",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 33473109)"
+    },
+    {
+      "key": "fuku-2015",
+      "sourceKey": "SRC-088",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 26289118)"
+    },
+    {
+      "key": "cataldo-2018",
+      "sourceKey": "SRC-089",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 29593067)"
+    },
+    {
+      "key": "knoop-2019",
+      "sourceKey": "SRC-090",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 30394592)"
+    },
+    {
+      "key": "vonwalden-2021",
+      "sourceKey": "SRC-091",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 34351816)"
+    },
+    {
+      "key": "dieli-2021",
+      "sourceKey": "SRC-092",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 34413391)"
+    },
+    {
+      "key": "jiang-2021",
+      "sourceKey": "SRC-093",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 33861582)"
+    },
+    {
+      "key": "jiang-2023",
+      "sourceKey": "SRC-094",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 36528071)"
+    },
+    {
+      "key": "ikonomidis-2020",
+      "sourceKey": "SRC-095",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 32052315)"
+    },
+    {
+      "key": "bolignano-2024",
+      "sourceKey": "SRC-096",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 39111290)"
+    },
+    {
+      "key": "seeds-mots-214",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 214",
+      "section": "MOTS-c"
+    },
+    {
+      "key": "seeds-mots-215",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 215",
+      "section": "MOTS-c: sequence and applications"
+    },
+    {
+      "key": "seeds-mots-216",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 216",
+      "section": "MOTS-c: dosage"
+    },
+    {
+      "key": "lavalle-mots-102",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 102",
+      "section": "MOTS-c: sequence, composition, indications, dosage"
+    },
+    {
+      "key": "lavalle-mots-103",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 103",
+      "section": "MOTS-c: warnings and cautions"
+    },
+    {
+      "key": "lavalle-mots-104",
+      "sourceKey": "SRC-002",
+      "locatorText": "file pp. 104-106",
+      "section": "MOTS-c: summary"
+    },
+    {
+      "key": "campbell-mots-81",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 81-82",
+      "pageStart": 81,
+      "pageEnd": 82,
+      "section": "MOTS-C"
+    },
+    {
+      "key": "campbell-mots-83",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 83",
+      "pageStart": 83,
+      "section": "MOTS-C recommended dosage"
+    },
+    {
+      "key": "campbell-mots-84",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 84",
+      "pageStart": 84,
+      "section": "MOTS-C timing and stability"
+    },
+    {
+      "key": "cheatsheet-mots-2",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 2",
+      "section": "Fat loss table, MOTS-C row"
+    },
+    {
+      "key": "cheatsheet-mots-6",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 6",
+      "section": "Blends table, NAD+ / MOTS-C / 5-Amino-1MQ row"
+    },
+    {
+      "key": "hacksmith-mots",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 90-91",
+      "section": "MOTS-C"
+    }
   ],
   "claims": [
     {
@@ -52,8 +180,20 @@
       "interpretationNotes": "The first two rungs of the ladder: the molecule and its effects in mice.",
       "uncertaintyText": "Cells and mice. Nothing here was done in people.",
       "evidence": [
-        { "locationKey": "lee-2015", "evidenceTypeKey": "in_vitro", "interpretation": "Identification of the open reading frame and cellular mechanism." },
-        { "locationKey": "lee-2015", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Insulin resistance and obesity in treated mice." }
+        {
+          "locationKey": "lee-2015",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Identification of the open reading frame and cellular mechanism.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "lee-2015",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Insulin resistance and obesity in treated mice.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -65,8 +205,20 @@
       "interpretationNotes": "Two different kinds of evidence in one paper: treatment effects in mice, and measurement of the body's own peptide in people. The second is not evidence that giving MOTS-c does what exercise does.",
       "uncertaintyText": "Mouse treatment; human measurement only.",
       "evidence": [
-        { "locationKey": "reynolds-2021", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Physical performance and healthspan in treated mice." },
-        { "locationKey": "reynolds-2021", "evidenceTypeKey": "human_observational", "interpretation": "Endogenous MOTS-c in human muscle and plasma after exercise." }
+        {
+          "locationKey": "reynolds-2021",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Physical performance and healthspan in treated mice.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "reynolds-2021",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "Endogenous MOTS-c in human muscle and plasma after exercise.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -78,11 +230,41 @@
       "interpretationNotes": "The third rung. These are associations with the body's own peptide, in five countries, and they do not add up to a single direction. None involved giving MOTS-c.",
       "uncertaintyText": "Observational measurements, mostly by immunoassay, whose validity is itself in question (MOTS-004).",
       "evidence": [
-        { "locationKey": "cataldo-2018", "evidenceTypeKey": "human_observational", "interpretation": "Plasma MOTS-c, obesity and insulin sensitivity." },
-        { "locationKey": "vonwalden-2021", "evidenceTypeKey": "human_observational", "interpretation": "Plasma MOTS-c after acute exercise; trend only." },
-        { "locationKey": "dieli-2021", "evidenceTypeKey": "human_observational", "interpretation": "MOTS-c after a 16-week exercise intervention, by ethnicity." },
-        { "locationKey": "ikonomidis-2020", "evidenceTypeKey": "human_observational", "interpretation": "Low MOTS-c as a predictor of cardiac events in diabetics." },
-        { "locationKey": "bolignano-2024", "evidenceTypeKey": "human_observational", "interpretation": "High MOTS-c associated with death and cardiovascular events in haemodialysis." }
+        {
+          "locationKey": "cataldo-2018",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "Plasma MOTS-c, obesity and insulin sensitivity.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "vonwalden-2021",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "Plasma MOTS-c after acute exercise; trend only.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "dieli-2021",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "MOTS-c after a 16-week exercise intervention, by ethnicity.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "ikonomidis-2020",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "Low MOTS-c as a predictor of cardiac events in diabetics.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "bolignano-2024",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "High MOTS-c associated with death and cardiovascular events in haemodialysis.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -94,7 +276,13 @@
       "interpretationNotes": "Undercuts the human rung. If immunoassay values are not confirmed by mass spectrometry, the human associations may partly reflect what the assay detects rather than MOTS-c.",
       "uncertaintyText": "One laboratory, one ELISA, 20 subjects. It does not show every immunoassay is wrong; it shows the question is open.",
       "evidence": [
-        { "locationKey": "knoop-2019", "evidenceTypeKey": "analytical_characterisation", "interpretation": "LC-MS versus ELISA comparison in healthy subjects' plasma." }
+        {
+          "locationKey": "knoop-2019",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "LC-MS versus ELISA comparison in healthy subjects' plasma.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -106,8 +294,20 @@
       "interpretationNotes": "Relevant to claims of cognitive benefit and to oral products. The analogues are different molecules.",
       "uncertaintyText": "Mice; one research group.",
       "evidence": [
-        { "locationKey": "jiang-2021", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Blood-brain barrier crossing of peripheral MOTS-c." },
-        { "locationKey": "jiang-2023", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Oral versus intraperitoneal MOTS-c in colitis." }
+        {
+          "locationKey": "jiang-2021",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Blood-brain barrier crossing of peripheral MOTS-c.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "jiang-2023",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Oral versus intraperitoneal MOTS-c in colitis.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -119,8 +319,22 @@
       "interpretationNotes": "A plausible, mechanism-based caution, recorded as a caution rather than a finding.",
       "uncertaintyText": "Mechanistic inference; no human data.",
       "evidence": [
-        { "locationKey": "lavalle-mots-103", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "Folate supplementation and homocysteine monitoring advice." },
-        { "locationKey": "lee-2015", "evidenceTypeKey": "in_vitro", "relationship": "contextualizes", "interpretation": "Folate-cycle inhibition as the cellular mechanism." }
+        {
+          "locationKey": "lavalle-mots-103",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "cites",
+          "interpretation": "Folate supplementation and homocysteine monitoring advice.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        },
+        {
+          "locationKey": "lee-2015",
+          "evidenceTypeKey": "in_vitro",
+          "relationship": "contextualizes",
+          "interpretation": "Folate-cycle inhibition as the cellular mechanism.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -132,7 +346,13 @@
       "interpretationNotes": "A hypothesis in a short report. Practitioner longevity framing often rests on this kind of association.",
       "uncertaintyText": "Proposal only; no mechanism or intervention.",
       "evidence": [
-        { "locationKey": "fuku-2015", "evidenceTypeKey": "human_observational", "interpretation": "Polymorphism and longevity hypothesis." }
+        {
+          "locationKey": "fuku-2015",
+          "evidenceTypeKey": "human_observational",
+          "interpretation": "Polymorphism and longevity hypothesis.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     }
   ],
@@ -381,8 +601,16 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "An analytical characterisation stating the mass of MOTS-c.",
       "positions": [
-        { "locationKey": "seeds-mots-215", "evidenceTypeKey": "practitioner_reference", "positionText": "Prints a 16-residue sequence with a weight about 114 higher than that sequence computes to." },
-        { "locationKey": "lavalle-mots-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Prints a 16-residue sequence with a weight that matches it." }
+        {
+          "locationKey": "seeds-mots-215",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Prints a 16-residue sequence with a weight about 114 higher than that sequence computes to."
+        },
+        {
+          "locationKey": "lavalle-mots-102",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Prints a 16-residue sequence with a weight that matches it."
+        }
       ]
     },
     {
@@ -394,8 +622,16 @@
       "resolution": "unresolved",
       "resolutionRequirement": "The sequence from the discovery paper's full text or the mitochondrial genome reference, and sequence confirmation of products.",
       "positions": [
-        { "locationKey": "seeds-mots-215", "evidenceTypeKey": "practitioner_reference", "positionText": "Leucine at position 9." },
-        { "locationKey": "lavalle-mots-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Isoleucine at position 9." }
+        {
+          "locationKey": "seeds-mots-215",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Leucine at position 9."
+        },
+        {
+          "locationKey": "lavalle-mots-102",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Isoleucine at position 9."
+        }
       ]
     },
     {
@@ -407,9 +643,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A controlled human study of administered MOTS-c with performance or metabolic outcomes.",
       "positions": [
-        { "locationKey": "campbell-mots-81", "evidenceTypeKey": "practitioner_reference", "positionText": "Studies in obese mice showed it could replicate the benefits of exercise without exercising; described as the most experimental fat-loss peptide in the book." },
-        { "locationKey": "seeds-mots-214", "evidenceTypeKey": "practitioner_reference", "positionText": "Used to increase performance in athletes; a potential exercise mimetic and insulin sensitizer." },
-        { "locationKey": "reynolds-2021", "evidenceTypeKey": "animal_in_vivo", "positionText": "Improved physical performance in treated mice; exercise raised endogenous MOTS-c in people." }
+        {
+          "locationKey": "campbell-mots-81",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Studies in obese mice showed it could replicate the benefits of exercise without exercising; described as the most experimental fat-loss peptide in the book."
+        },
+        {
+          "locationKey": "seeds-mots-214",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Used to increase performance in athletes; a potential exercise mimetic and insulin sensitizer."
+        },
+        {
+          "locationKey": "reynolds-2021",
+          "evidenceTypeKey": "animal_in_vivo",
+          "positionText": "Improved physical performance in treated mice; exercise raised endogenous MOTS-c in people."
+        }
       ]
     },
     {
@@ -421,9 +669,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "Cohort studies with a validated assay across populations.",
       "positions": [
-        { "locationKey": "ikonomidis-2020", "evidenceTypeKey": "human_observational", "positionText": "Low MOTS-c predicted adverse cardiac outcomes in revascularised type 2 diabetics." },
-        { "locationKey": "bolignano-2024", "evidenceTypeKey": "human_observational", "positionText": "MOTS-c was higher in haemodialysis patients and independently associated with death and cardiovascular events." },
-        { "locationKey": "lavalle-mots-104", "evidenceTypeKey": "practitioner_reference", "positionText": "MOTS-c levels are inversely correlated with markers of insulin resistance and obesity." }
+        {
+          "locationKey": "ikonomidis-2020",
+          "evidenceTypeKey": "human_observational",
+          "positionText": "Low MOTS-c predicted adverse cardiac outcomes in revascularised type 2 diabetics."
+        },
+        {
+          "locationKey": "bolignano-2024",
+          "evidenceTypeKey": "human_observational",
+          "positionText": "MOTS-c was higher in haemodialysis patients and independently associated with death and cardiovascular events."
+        },
+        {
+          "locationKey": "lavalle-mots-104",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "MOTS-c levels are inversely correlated with markers of insulin resistance and obesity."
+        }
       ]
     },
     {
@@ -435,10 +695,26 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A human dose-ranging study.",
       "positions": [
-        { "locationKey": "seeds-mots-216", "evidenceTypeKey": "practitioner_reference", "positionText": "Three times a week, then weekly." },
-        { "locationKey": "lavalle-mots-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Twice a week." },
-        { "locationKey": "campbell-mots-83", "evidenceTypeKey": "practitioner_reference", "positionText": "Four different protocols from weekly to every third day." },
-        { "locationKey": "cheatsheet-mots-2", "evidenceTypeKey": "practitioner_reference", "positionText": "Mornings, five days on and two off, in eight-week cycles." }
+        {
+          "locationKey": "seeds-mots-216",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Three times a week, then weekly."
+        },
+        {
+          "locationKey": "lavalle-mots-102",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Twice a week."
+        },
+        {
+          "locationKey": "campbell-mots-83",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Four different protocols from weekly to every third day."
+        },
+        {
+          "locationKey": "cheatsheet-mots-2",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Mornings, five days on and two off, in eight-week cycles."
+        }
       ]
     }
   ],
@@ -556,6 +832,140 @@
       "basis": "No study exists to replicate.",
       "limitations": null,
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-086",
+      "sourceKey": "SRC-086",
+      "locationKey": "lee-2015",
+      "funderKind": "government",
+      "sponsorName": "NIEHS NIH HHS",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": "1R01AG 034430; 1R01ES 020812; 1R01GM 090311; NIH DK063491; P30 DK063491; R01 AG034430",
+      "disclosureText": "Grants recorded by PubMed: NCATS NIH HHS; NIA NIH HHS; NIDDK NIH HHS; NIEHS NIH HHS; NIGMS NIH HHS.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-087",
+      "sourceKey": "SRC-087",
+      "locationKey": "reynolds-2021",
+      "funderKind": "mixed",
+      "sponsorName": "CohBar, Inc.",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": "P01 AG034906; R00 AG049934; R01 AG052258; T32 AG052374",
+      "disclosureText": "Grants recorded by PubMed: NIA NIH HHS. Declared interests: P.C. and C.L. are consultants and shareholders of CohBar, Inc. All other authors declare no competing interests.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-088",
+      "sourceKey": "SRC-088",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-089",
+      "sourceKey": "SRC-089",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-090",
+      "sourceKey": "SRC-090",
+      "locationKey": "knoop-2019",
+      "funderKind": "government",
+      "sponsorName": "Federal Ministry of the Interior - Federal Republic of Germany",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": "Grants recorded by PubMed: Federal Ministry of the Interior - Federal Republic of Germany; Manfred-Donike Institute for Doping Analysis.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-091",
+      "sourceKey": "SRC-091",
+      "locationKey": "vonwalden-2021",
+      "funderKind": "government",
+      "sponsorName": "NIA NIH HHS",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": "R01 AG069698",
+      "disclosureText": "Grants recorded by PubMed: NIA NIH HHS. Declared interests: The study was funded by Futurum—the Academy for Health and Care, Region Jönköping County, Sweden (to B.A.) and The Swedish Kidney Foundation (to F.v.W.). No conflicts of interest, financial or otherwise, are declared by the authors.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-092",
+      "sourceKey": "SRC-092",
+      "locationKey": "dieli-2021",
+      "funderKind": "mixed",
+      "sponsorName": "CohBar, Inc.",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": "K07 CA160718; R01 AG068405; R01 AG069698; R56 AG062693; RF1 AG061834; UL1 TR000130",
+      "disclosureText": "Grants recorded by PubMed: NCATS NIH HHS; NCI NIH HHS; NIA NIH HHS. Declared interests: Pinchas Cohen is a consultant and stockholder of CohBar Inc.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-093",
+      "sourceKey": "SRC-093",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-094",
+      "sourceKey": "SRC-094",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-095",
+      "sourceKey": "SRC-095",
+      "locationKey": "ikonomidis-2020",
+      "funderKind": "foundation_or_charity",
+      "sponsorName": "Hellenic Diabetes Association",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": "2017",
+      "disclosureText": "Grants recorded by PubMed: Hellenic Diabetes Association.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-096",
+      "sourceKey": "SRC-096",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

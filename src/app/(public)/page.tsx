@@ -151,7 +151,7 @@ export default async function HomePage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="/methodology"
+                href="/learn"
                 className="rounded-md border border-deep-tide px-5 py-2.5 text-sm font-medium text-deep-tide transition-colors hover:bg-deep-tide hover:text-warm-white"
               >
                 How this works

@@ -57,7 +57,9 @@
         {
           "locationKey": "grant-ch4-283",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Oxidation, Asp-Pro hydrolysis, aspartimide formation and the recommendation against long solution storage."
+          "interpretation": "Oxidation, Asp-Pro hydrolysis, aspartimide formation and the recommendation against long solution storage.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -73,7 +75,9 @@
         {
           "locationKey": "grant-ch4-283",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Lyophilise, store desiccated at −20 °C, equilibrate before opening."
+          "interpretation": "Lyophilise, store desiccated at −20 °C, equilibrate before opening.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -89,7 +93,9 @@
         {
           "locationKey": "grant-ch4-283",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Re-evaluate after extended storage; adsorbed solvent in lyophilised material."
+          "interpretation": "Re-evaluate after extended storage; adsorbed solvent in lyophilised material.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -105,7 +111,9 @@
         {
           "locationKey": "grant-ch3-165-storage",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Deamidation of Asn/Gln peptides stored solid with residual acid."
+          "interpretation": "Deamidation of Asn/Gln peptides stored solid with residual acid.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -121,7 +129,9 @@
         {
           "locationKey": "q7-10-1",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Storage under appropriate recorded conditions; segregation of quarantined and rejected material."
+          "interpretation": "Storage under appropriate recorded conditions; segregation of quarantined and rejected material.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -137,7 +147,9 @@
         {
           "locationKey": "q7-17-5",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Stability studies required when repackaged in a different container type."
+          "interpretation": "Stability studies required when repackaged in a different container type.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     }

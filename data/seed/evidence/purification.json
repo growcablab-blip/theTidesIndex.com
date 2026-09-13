@@ -65,7 +65,9 @@
         {
           "locationKey": "grant-ch3-163-purif",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Terminated and deletion peptides must be separated from the desired product."
+          "interpretation": "Terminated and deletion peptides must be separated from the desired product.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -81,7 +83,9 @@
         {
           "locationKey": "saneii-ch3-49",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Crude use for antibody production and screening; purification to 98% or greater for standards."
+          "interpretation": "Crude use for antibody production and screening; purification to 98% or greater for standards.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -97,7 +101,9 @@
         {
           "locationKey": "saneii-ch3-50",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Preparative HPLC equipment, labour intensity, and the crude-versus-purified price gap."
+          "interpretation": "Preparative HPLC equipment, labour intensity, and the crude-versus-purified price gap.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -113,7 +119,9 @@
         {
           "locationKey": "saneii-ch3-52-purif",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Segments purified before assembly simplify final purification."
+          "interpretation": "Segments purified before assembly simplify final purification.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -129,7 +137,9 @@
         {
           "locationKey": "grant-ch4-284",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Single symmetrical peak plus a good mass spectrum as a practical minimum; do not rely on one technique."
+          "interpretation": "Single symmetrical peak plus a good mass spectrum as a practical minimum; do not rely on one technique.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

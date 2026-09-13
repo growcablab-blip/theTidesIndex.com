@@ -387,3 +387,42 @@ export const evidenceGapType = pgEnum('evidence_gap_type', [
   'formulation_unspecified',
   'chain_of_custody_unknown',
 ]);
+
+/**
+ * How far a claim's evidence has been traced back to the research itself.
+ *
+ * A boolean could not distinguish "nobody has looked" from "looked, and the
+ * primary source does not support the claim", which are opposite facts about
+ * the same claim. The ladder runs from untouched to read-in-full, with a
+ * separate state for evidence that cites the study directly and therefore has
+ * no secondary characterisation to check.
+ */
+export const primaryTraceState = pgEnum('primary_trace_state', [
+  'not_attempted',
+  'cited_not_obtained',
+  'abstract_only',
+  'full_text_supports',
+  'full_text_partially_supports',
+  'full_text_does_not_support',
+  'full_text_different_context',
+  'primary_source_is_cited',
+]);
+
+/**
+ * Who paid for a study, as the study discloses it.
+ *
+ * Context, never a score. Industry funding does not invalidate a trial and
+ * public funding does not sanctify one; the platform records the disclosure
+ * and derives no rating from it. "Not reported in source" and "not checked"
+ * are different answers and both are kept.
+ */
+export const fundingKind = pgEnum('funding_kind', [
+  'industry',
+  'government',
+  'academic_institution',
+  'foundation_or_charity',
+  'mixed',
+  'none_declared',
+  'not_reported_in_source',
+  'not_checked',
+]);

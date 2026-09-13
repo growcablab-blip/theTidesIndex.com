@@ -68,7 +68,9 @@
           "locationKey": "grant-ch4-243-covalent",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant states that the previous sections dealt mainly with the assessment of peptide homogeneity and purification, that these methods do not provide any information on the covalent nature of the peptide, and that determining the covalent structure is correct is no less important than obtaining a peptide free of by-products."
+          "interpretation": "Grant states that the previous sections dealt mainly with the assessment of peptide homogeneity and purification, that these methods do not provide any information on the covalent nature of the peptide, and that determining the covalent structure is correct is no less important than obtaining a peptide free of by-products.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -85,7 +87,9 @@
           "locationKey": "grant-ch4-244-mass",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that determination of the overall mass of a synthetic peptide is the most practical and common utilisation of mass analysis and is usually sufficient to evaluate a synthetic peptide effectively and accurately, and that evaluation of the mass of the molecular ion is usually sufficient particularly when used in conjunction with other analytical methods."
+          "interpretation": "Grant writes that determination of the overall mass of a synthetic peptide is the most practical and common utilisation of mass analysis and is usually sufficient to evaluate a synthetic peptide effectively and accurately, and that evaluation of the mass of the molecular ion is usually sufficient particularly when used in conjunction with other analytical methods.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -102,7 +106,9 @@
           "locationKey": "grant-ch4-244-mass",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that mass determination may be the only way to determine the presence of modifications that are unstable or invisible to other analytical procedures, and refers to table 4-2 for a list of mass differences that may be encountered."
+          "interpretation": "Grant writes that mass determination may be the only way to determine the presence of modifications that are unstable or invisible to other analytical procedures, and refers to table 4-2 for a list of mass differences that may be encountered.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -119,7 +125,9 @@
           "locationKey": "grant-ch4-249-esi",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant describes electrospray ionisation as producing a series of ions differing by a single charge, notes that multiple charging produces multiple signals despite the peptide being homogeneous, and gives the relationship between the observed mass, the peptide mass, the number of charges and the mass of the charging species."
+          "interpretation": "Grant describes electrospray ionisation as producing a series of ions differing by a single charge, notes that multiple charging produces multiple signals despite the peptide being homogeneous, and gives the relationship between the observed mass, the peptide mass, the number of charges and the mass of the charging species.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -136,7 +144,9 @@
           "locationKey": "grant-ch4-253-deconvolution",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-3 and the surrounding text give a manual deconvolution of the electrospray spectrum, averaging to 4005.3 and 4006.5, described as in excellent agreement with the calculated mass of 4005.7 for the 33-residue peptide; the MALDI spectrum of the same peptide shows an (M+H)+ mass of 4006.6, giving a measured mass of 4005.6. Grant adds that greater error is introduced when multiplying higher-charged peaks by their charge, so only the lower-charged peaks are routinely used."
+          "interpretation": "Table 4-3 and the surrounding text give a manual deconvolution of the electrospray spectrum, averaging to 4005.3 and 4006.5, described as in excellent agreement with the calculated mass of 4005.7 for the 33-residue peptide; the MALDI spectrum of the same peptide shows an (M+H)+ mass of 4006.6, giving a measured mass of 4005.6. Grant adds that greater error is introduced when multiplying higher-charged peaks by their charge, so only the lower-charged peaks are routinely used.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -153,13 +163,17 @@
           "locationKey": "grant-ch4-253-sequencing",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that both electrospray and MALDI instruments are capable of producing sequence information for synthetic peptides which can be very helpful in determining the identity or position of an anomaly, and describes collision-induced decomposition of a selected ion in an ion trap as the usual means."
+          "interpretation": "Grant writes that both electrospray and MALDI instruments are capable of producing sequence information for synthetic peptides which can be very helpful in determining the identity or position of an anomaly, and describes collision-induced decomposition of a selected ion in an ion trap as the usual means.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-244-mass",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant notes separately that although the technology exists to produce useful information on the actual sequence of a peptide, in practice evaluation of the mass of the molecular ion is usually sufficient — treating the two as distinct measurements with different roles."
+          "interpretation": "Grant notes separately that although the technology exists to produce useful information on the actual sequence of a peptide, in practice evaluation of the mass of the molecular ion is usually sufficient — treating the two as distinct measurements with different roles.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -176,7 +190,9 @@
           "locationKey": "grant-ch4-244-mass",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant qualifies the sufficiency of molecular-ion mass evaluation with 'particularly when used in conjunction with other analytical methods', treating mass analysis as one contribution among several rather than as a standalone verdict."
+          "interpretation": "Grant qualifies the sufficiency of molecular-ion mass evaluation with 'particularly when used in conjunction with other analytical methods', treating mass analysis as one contribution among several rather than as a standalone verdict.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

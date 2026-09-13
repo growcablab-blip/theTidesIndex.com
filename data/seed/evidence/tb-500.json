@@ -115,21 +115,27 @@
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "High-performance liquid chromatography with high-resolution mass spectrometry detected and identified the N-terminally acetylated 17-23 fragment of human thymosin beta-4, Ac-LKKTETQ, in TB-500. The fragment was then synthesised by solid-phase peptide synthesis and an assay proposed for plasma and urine.",
-          "populationModel": "Not applicable — an analysis of a formulation."
+          "populationModel": "Not applicable — an analysis of a formulation.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb500-equine",
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "\"A veterinary preparation known as TB-500 and containing a synthetic version of the naturally occurring peptide LKKTETQ has emerged… The key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus.\"",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb500-metabolism",
           "evidenceTypeKey": "animal_in_vivo",
           "relationship": "supports",
           "interpretation": "States the identity in its own terms: \"TB-500 (Ac-LKKTETQ), derived from the active site of thymosin β4\".",
-          "populationModel": "Not applicable to the identity statement."
+          "populationModel": "Not applicable to the identity statement.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -147,7 +153,9 @@
           "evidenceTypeKey": "animal_in_vivo",
           "relationship": "supports",
           "interpretation": "The source states that the biological effects of TB-500 have not been documented, and that its metabolites had been neither simultaneously quantified nor structurally identified against synthesised authentic standards before that work.",
-          "populationModel": "In vitro systems and rats."
+          "populationModel": "In vitro systems and rats.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -165,7 +173,9 @@
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "\"We confirm that the content of TB500/TB1000 products is not systematically consistent with its former descriptions\", in an analysis of three misbranded and adulterated products commercialised over the internet without approval by the EMA or the FDA for human or veterinary use.",
-          "populationModel": "Not applicable — an analysis of products."
+          "populationModel": "Not applicable — an analysis of products.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -183,7 +193,9 @@
           "evidenceTypeKey": "animal_in_vivo",
           "relationship": "supports",
           "interpretation": "Thirty-two male Sprague-Dawley rats, standardised Achilles transection and repair, randomised to control, BPC-157, TB-500 at 60 micrograms per kilogram per day, or the combination, treated intraperitoneally for four weeks. Maximum load to failure was higher in the TB-500 group with statistical significance; total Bonar scores were lower in the TB-500 group and total Movin scores lower in the TB-500 and combination groups.",
-          "populationModel": "Thirty-two rats."
+          "populationModel": "Thirty-two rats.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -201,7 +213,9 @@
           "evidenceTypeKey": "animal_in_vivo",
           "relationship": "supports",
           "interpretation": "Metabolism investigated in human serum, several in vitro enzyme systems, and urine from rats treated with TB-500. Ac-LK was the metabolite present at highest concentration in rats over 0-6 hours; Ac-LKK was detected to 72 hours. No cytotoxicity was found for the parent or its metabolites, and only Ac-LKKTE showed significant wound-healing activity against control in fibroblasts.",
-          "populationModel": "Rats, human serum, and fibroblast culture."
+          "populationModel": "Rats, human serum, and fibroblast culture.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     }
@@ -657,6 +671,68 @@
       "basis": "A hand-adjudicated census of all 31 records the name returns identified no study in which the substance was administered to a person. Recorded as an assessment rather than only as a gap, so that the replication view shows an empty human column beside the parent peptide's occupied one.",
       "limitations": "An absence in one database on one date, bounded to the stated criteria.",
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-041",
+      "sourceKey": "SRC-041",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-042",
+      "sourceKey": "SRC-042",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-043",
+      "sourceKey": "SRC-043",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-044",
+      "sourceKey": "SRC-044",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-045",
+      "sourceKey": "SRC-045",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

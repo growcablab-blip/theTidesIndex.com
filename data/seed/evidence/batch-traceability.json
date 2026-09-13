@@ -65,7 +65,9 @@
         {
           "locationKey": "q7-6-3",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Raw material records: manufacturer, supplier, control and receipt numbers, tests, use tracing."
+          "interpretation": "Raw material records: manufacturer, supplier, control and receipt numbers, tests, use tracing.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -81,7 +83,9 @@
         {
           "locationKey": "q7-6-5",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Batch production record contents and unique batch numbering."
+          "interpretation": "Batch production record contents and unique batch numbering.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -97,7 +101,9 @@
         {
           "locationKey": "q7-6-5",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Investigations extend to associated batches."
+          "interpretation": "Investigations extend to associated batches.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -113,7 +119,9 @@
         {
           "locationKey": "q7-8-3",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "In-process controls, their approval and documentation, and sample integrity."
+          "interpretation": "In-process controls, their approval and documentation, and sample integrity.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -129,7 +137,9 @@
         {
           "locationKey": "q7-10-2",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Quality-unit release before distribution; batch distribution records permitting recall."
+          "interpretation": "Quality-unit release before distribution; batch distribution records permitting recall.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -145,7 +155,9 @@
         {
           "locationKey": "q7-17-6",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Transfer of quality information; original manufacturer name and batch numbers provided to the customer."
+          "interpretation": "Transfer of quality information; original manufacturer name and batch numbers provided to the customer.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     }

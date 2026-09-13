@@ -161,6 +161,52 @@ const packetEvidenceSchema = z.object({
    *  reading attached is a pointer, not evidence. */
   interpretation: z.string().min(1),
   populationModel: z.string().nullable().default(null),
+  /**
+   * How far this passage has been traced back to the research itself. The
+   * default is the honest one: nobody has looked.
+   */
+  primaryTrace: z
+    .enum([
+      'not_attempted',
+      'cited_not_obtained',
+      'abstract_only',
+      'full_text_supports',
+      'full_text_partially_supports',
+      'full_text_does_not_support',
+      'full_text_different_context',
+      'primary_source_is_cited',
+    ])
+    .default('not_attempted'),
+  primaryTraceNote: z.string().nullable().default(null),
+});
+
+/**
+ * Who funded the study behind a source.
+ *
+ * Attaches to a source rather than to a claim, because it is a property of the
+ * study. Recorded as context: nothing scores a finding by its sponsor.
+ */
+const packetFundingSchema = z.object({
+  fundingKey: z.string().min(1),
+  sourceKey: z.string().min(1),
+  /** Where the disclosure was read. Required unless nobody has checked. */
+  locationKey: z.string().nullable().default(null),
+  funderKind: z.enum([
+    'industry',
+    'government',
+    'academic_institution',
+    'foundation_or_charity',
+    'mixed',
+    'none_declared',
+    'not_reported_in_source',
+    'not_checked',
+  ]),
+  sponsorName: z.string().nullable().default(null),
+  manufacturerInvolved: z.boolean().nullable().default(null),
+  institution: z.string().nullable().default(null),
+  grantReference: z.string().nullable().default(null),
+  disclosureText: z.string().nullable().default(null),
+  notes: z.string().nullable().default(null),
 });
 
 const packetClaimSchema = z.object({
@@ -574,6 +620,7 @@ const compoundPacketSchema = z.object({
   pharmacokinetics: z.array(packetPkSchema).default([]),
   identities: z.array(packetIdentitySchema).default([]),
   replication: z.array(packetReplicationSchema).default([]),
+  funding: z.array(packetFundingSchema).default([]),
 });
 
 export type CompoundPacket = z.infer<typeof compoundPacketSchema>;

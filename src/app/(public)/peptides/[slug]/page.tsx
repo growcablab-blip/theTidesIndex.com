@@ -58,6 +58,34 @@ import {
 } from '@/components/public/research-figures';
 
 /**
+ * The four questions a record answers, in the order it answers them.
+ *
+ * A compound page is long because provenance is long, and a reader who only
+ * wants to know whether anything has been shown in people should not have to
+ * discover that by scrolling past a literature ledger. These are in-page
+ * anchors rather than a summary: nothing is duplicated, and the depth is still
+ * there for whoever wants it.
+ */
+const READING_GUIDE: readonly { href: string; title: string; body: string }[] = [
+  { href: '#overview', title: 'What it is', body: 'The molecule, and the names it goes by.' },
+  {
+    href: '#evidence',
+    title: 'What is known',
+    body: 'In people, in animals, and in practice — kept apart.',
+  },
+  {
+    href: '#research-questions',
+    title: 'What is not known',
+    body: 'Recorded as carefully as the findings.',
+  },
+  {
+    href: '#protocols',
+    title: 'What sources report',
+    body: 'Regimens, each attributed. Never averaged.',
+  },
+];
+
+/**
  * The canonical compound record.
  *
  * One page per compound, one record behind it, two reading depths over the same
@@ -322,6 +350,34 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
         <div className="mb-10">
           <EvidenceAtAGlance peptide={peptide} simple={simple} />
         </div>
+
+        {/*
+          Progressive disclosure. A reader should be able to answer the four
+          questions that matter and stop, without meeting a literature ledger,
+          a locator or a review state on the way. Everything deeper stays on the
+          page and stays traceable; it is just not in the path.
+        */}
+        <nav aria-label="Reading guide" className="mb-12">
+          <p className="meta-label">Read as far as you need</p>
+          <ol className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {READING_GUIDE.map((item, index) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="flex h-full flex-col rounded-md border border-rule bg-warm-white px-4 py-3 transition-colors hover:border-tide-teal"
+                >
+                  <span className="font-serif text-xl text-tide-teal">{index + 1}</span>
+                  <span className="mt-0.5 font-serif text-base text-ink">{item.title}</span>
+                  <span className="mt-1 text-xs leading-relaxed text-ink-soft">{item.body}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-3 max-w-[66ch] text-xs text-slate">
+            Everything past that — the literature ledger, the references, and the record&rsquo;s own
+            version history — stays on the page for anyone who wants it.
+          </p>
+        </nav>
 
         <Section id="overview" title="What it is">
           <div className="space-y-5">
@@ -602,7 +658,20 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
               detail="References appear here as claims, route records and protocols pass review. A compound page with no references is a page with nothing asserted on it."
             />
           ) : (
-            <ReferenceList citations={citations} />
+            /*
+              Collapsed by default. The references are the proof and they are
+              not the reading: a reader who wants to check a statement opens
+              this, and a reader who does not should not have to scroll past
+              forty citations to reach the record's history.
+            */
+            <details>
+              <summary className="cursor-pointer text-sm text-deep-tide underline-offset-2 hover:underline">
+                Show all {citations.length} references
+              </summary>
+              <div className="mt-4">
+                <ReferenceList citations={citations} />
+              </div>
+            </details>
           )}
         </Section>
 

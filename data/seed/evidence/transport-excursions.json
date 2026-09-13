@@ -49,7 +49,9 @@
         {
           "locationKey": "q7-10-2-transport",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "Transport without adverse effect on quality; conditions on the label; contractor compliance."
+          "interpretation": "Transport without adverse effect on quality; conditions on the label; contractor compliance.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -65,7 +67,9 @@
         {
           "locationKey": "q7-17-4",
           "evidenceTypeKey": "regulatory_reference",
-          "interpretation": "GMP controls on repackaging and holding to preserve identity and purity."
+          "interpretation": "GMP controls on repackaging and holding to preserve identity and purity.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The document is the authority for what it states — labelling, a standard or a stated method — rather than an account of research reported elsewhere."
         }
       ]
     },
@@ -82,7 +86,9 @@
           "locationKey": "grant-ch4-283-transport",
           "evidenceTypeKey": "academic_reference",
           "relationship": "contextualizes",
-          "interpretation": "Degradation routes and re-evaluation after storage; transport is not addressed directly."
+          "interpretation": "Degradation routes and re-evaluation after storage; transport is not addressed directly.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

@@ -29,7 +29,7 @@ mkdirSync(OUT, { recursive: true });
 const BOOKS: Record<string, { file: string; element: () => React.ReactElement<DocumentProps> }> = {
   quality: { file: 'tides-index-peptide-quality.pdf', element: PeptideQuality },
   understanding: {
-    file: 'tides-index-understanding-peptides-skeleton.pdf',
+    file: 'tides-index-understanding-peptides.pdf',
     element: UnderstandingPeptides,
   },
 };

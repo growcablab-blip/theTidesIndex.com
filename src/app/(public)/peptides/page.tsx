@@ -52,6 +52,60 @@ function regimenKinds(keys: readonly string[]): string[] {
   return kinds;
 }
 
+/**
+ * Descriptive states, not counts.
+ *
+ * The directory used to print "17" against one compound and "3" against
+ * another, side by side, which reads as a league table however the caption is
+ * worded — and a paper count is a poor thing to rank on: it rewards compounds
+ * that are fashionable, counts substudies twice, and says nothing about what
+ * any of the papers found. The counts still exist, on the record page, where
+ * the database, the search date, the study types and the substudy treatment
+ * are all stated around them.
+ *
+ * So each dimension here answers a question in words: has anyone studied this
+ * in people, is there laboratory work, has anybody repeated it, where do the
+ * regimens come from, and how close to the research the citations actually
+ * get.
+ */
+function humanState(row: DiscoveryRow): { text: string; tone: 'plain' | 'caution' | 'quiet' } {
+  if (!row.hasScreen) return { text: 'No literature screen yet', tone: 'quiet' };
+  if (row.humanRecords === 0) return { text: 'None found in the screen', tone: 'caution' };
+  return { text: 'Studies in people identified', tone: 'plain' };
+}
+
+function preclinicalState(row: DiscoveryRow): string {
+  if (!row.hasScreen) return '—';
+  if (row.preclinicalRecords === 0) return 'None found';
+  return 'Laboratory or animal work identified';
+}
+
+/** How close to the research this record's citations get. */
+function traceState(row: DiscoveryRow): { text: string; detail: string | null } {
+  if (row.evidenceRows === 0) return { text: '—', detail: null };
+  const direct = row.citesPrimaryResearch + row.abstractOnly;
+  if (direct === 0) {
+    return { text: 'Secondary sources', detail: 'Handbooks and reviews; citations not obtained' };
+  }
+  if (row.restsOnSecondary === 0) {
+    return {
+      text: 'Cites the research',
+      detail: row.fullTextRead > 0 ? 'Some full texts read' : 'Abstract level',
+    };
+  }
+  return {
+    text: 'Mixed',
+    detail: row.fullTextRead > 0 ? 'Research and handbooks; some full texts read' : 'Research and handbooks',
+  };
+}
+
+function fundingState(row: DiscoveryRow): string {
+  if (row.fundingSources === 0) return '—';
+  if (row.fundingChecked === 0) return 'Not captured';
+  if (row.fundingChecked >= row.fundingSources) return 'Captured';
+  return 'Partly captured';
+}
+
 async function loadDiscovery(): Promise<{ rows: DiscoveryRow[]; preview: boolean }> {
   const published = await getDiscovery();
   if (published.length > 0) return { rows: published, preview: false };
@@ -102,8 +156,10 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
           </h2>
           <p className="mt-1.5 max-w-[66ch] text-sm text-slate">
             Filter by what the evidence looks like rather than by what a compound is claimed to do.
-            Counts come from each compound&rsquo;s literature screen and records; they describe the
-            literature, not how well anything works, and the list is alphabetical.
+            Each column describes a kind of evidence in words, because a count of papers is a poor
+            thing to compare compounds on: it rewards whatever is fashionable and says nothing about
+            what the papers found. The counts are on each record, with the database, the search date
+            and the study types stated beside them. The list is alphabetical.
             {discovery.preview ? ' Development preview: these records are not published.' : ''}
           </p>
 
@@ -157,45 +213,72 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
           </form>
 
           <div className="mt-5 overflow-x-auto">
-            <table className="w-full min-w-[56rem] border-collapse text-sm">
-              <caption className="sr-only">Compounds by the shape of their evidence. Alphabetical; not a ranking.</caption>
+            <table className="w-full min-w-[64rem] border-collapse text-sm">
+              <caption className="sr-only">
+                Compounds by the shape of their evidence, described rather than counted.
+                Alphabetical; not a ranking.
+              </caption>
               <thead>
                 <tr className="border-b border-ink text-left align-bottom">
                   <th scope="col" className="py-2 pr-4"><span className="meta-label">Compound</span></th>
                   <th scope="col" className="py-2 pr-4"><span className="meta-label">Area</span></th>
-                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Human records</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Human evidence</span></th>
                   <th scope="col" className="py-2 pr-4"><span className="meta-label">Preclinical</span></th>
-                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Routes</span></th>
-                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Regimens from</span></th>
-                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Replication at best</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Independent replication</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Protocol sources</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Routes recorded</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Citations</span></th>
                   <th scope="col" className="py-2"><span className="meta-label">Open questions</span></th>
                 </tr>
               </thead>
               <tbody>
-                {shown.map((r) => (
-                  <tr key={r.slug} className="border-b border-rule-soft align-top">
-                    <th scope="row" className="py-3 pr-4 text-left">
-                      <Link href={`/peptides/${r.slug}`} className="font-serif text-base text-ink hover:text-deep-tide">{r.name}</Link>
-                      {r.compoundTypeLabel ? <span className="block text-xs text-slate">{r.compoundTypeLabel}</span> : null}
-                    </th>
-                    <td className="py-3 pr-4 text-ink-soft">{r.categoryLabel ?? '—'}</td>
-                    <td className="py-3 pr-4 text-ink-soft">
-                      {r.hasScreen ? (r.humanRecords === 0 ? <span className="text-[var(--color-caution)]">None found</span> : r.humanRecords) : <span className="text-slate">No screen</span>}
-                      {r.nonEnglishHumanRecords > 0 ? <span className="block text-xs text-slate">{r.nonEnglishHumanRecords} not in English</span> : null}
-                    </td>
-                    <td className="py-3 pr-4 text-ink-soft">{r.hasScreen ? r.preclinicalRecords : '—'}</td>
-                    <td className="py-3 pr-4 text-ink-soft">{r.routes.length > 0 ? r.routes.map((x) => x.name).join(', ') : '—'}</td>
-                    <td className="py-3 pr-4 text-ink-soft">
-                      {r.protocolCount === 0 ? '—' : `${String(r.protocolCount)} · ${regimenKinds(r.protocolEvidenceKeys).join(', ')}`}
-                    </td>
-                    <td className="py-3 pr-4 text-ink-soft">{r.bestReplication ? (REPLICATION_LABELS[r.bestReplication] ?? r.bestReplication) : '—'}</td>
-                    <td className="py-3 text-ink-soft">
-                      {r.researchQuestions > 0 ? (
-                        <Link href={`/research?subject=${r.slug}`} className="text-deep-tide underline-offset-2 hover:underline">{r.researchQuestions}</Link>
-                      ) : '—'}
-                    </td>
-                  </tr>
-                ))}
+                {shown.map((r) => {
+                  const human = humanState(r);
+                  const trace = traceState(r);
+                  return (
+                    <tr key={r.slug} className="border-b border-rule-soft align-top">
+                      <th scope="row" className="py-3 pr-4 text-left">
+                        <Link href={`/peptides/${r.slug}`} className="font-serif text-base text-ink hover:text-deep-tide">{r.name}</Link>
+                        {r.compoundTypeLabel ? <span className="block text-xs text-slate">{r.compoundTypeLabel}</span> : null}
+                      </th>
+                      <td className="py-3 pr-4 text-ink-soft">{r.categoryLabel ?? '—'}</td>
+                      <td className="py-3 pr-4">
+                        <span
+                          className={
+                            human.tone === 'caution'
+                              ? 'text-[var(--color-caution)]'
+                              : human.tone === 'quiet'
+                                ? 'text-slate'
+                                : 'text-ink-soft'
+                          }
+                        >
+                          {human.text}
+                        </span>
+                        {r.nonEnglishHumanRecords > 0 ? (
+                          <span className="block text-xs text-slate">Includes work not published in English</span>
+                        ) : null}
+                      </td>
+                      <td className="py-3 pr-4 text-ink-soft">{preclinicalState(r)}</td>
+                      <td className="py-3 pr-4 text-ink-soft">{r.bestReplication ? (REPLICATION_LABELS[r.bestReplication] ?? r.bestReplication) : 'Not assessed'}</td>
+                      <td className="py-3 pr-4 text-ink-soft">
+                        {r.protocolCount === 0 ? 'None recorded' : regimenKinds(r.protocolEvidenceKeys).join(', ')}
+                      </td>
+                      <td className="py-3 pr-4 text-ink-soft">{r.routes.length > 0 ? r.routes.map((x) => x.name).join(', ') : '—'}</td>
+                      <td className="py-3 pr-4 text-ink-soft">
+                        {trace.text}
+                        {trace.detail === null ? null : <span className="block text-xs text-slate">{trace.detail}</span>}
+                        <span className="block text-xs text-slate">Funding context: {fundingState(r).toLowerCase()}</span>
+                      </td>
+                      <td className="py-3 text-ink-soft">
+                        {r.researchQuestions > 0 ? (
+                          <Link href={`/research?subject=${r.slug}`} className="text-deep-tide underline-offset-2 hover:underline">
+                            {r.researchQuestions} recorded
+                          </Link>
+                        ) : 'None recorded'}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             {shown.length === 0 ? <p className="mt-3 text-sm text-slate">No compound matches every filter.</p> : null}

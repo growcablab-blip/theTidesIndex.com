@@ -71,7 +71,12 @@ locator on those sources says "Abstract".
 **Why it needs you.** Institutional or publisher access is a purchasing
 decision. The brief prohibits buying services without authorisation.
 
-**Default if unanswered.** Continue at abstract level and record it.
+**Answered, 13 September 2026.** The owner will obtain a source when it is
+named specifically. This is no longer a blocked decision but a queue: the
+priority list is in `docs/FIRST_GENERATION_COMPLETION_REPORT.md` under source
+needs, headed by full texts for the retatrutide trials and the three BPC-157
+human studies. Until a full text arrives the record stays at abstract level
+and says so.
 
 ## D-06 · SRC-016, Tremblay / CanLab, is not held
 
@@ -132,9 +137,14 @@ GMP or sterile-manufacturing reference; compendial sterility and endotoxin
 chapters (already D-05 territory). Acquiring any of these is a purchasing
 decision.
 
-**Default if unanswered.** The four stages stay marked source needed. A test
-(`tests/unit/sequence-to-vial.test.ts`) pins them as unsourced so they cannot be
-quietly filled.
+**Answered, 13 September 2026.** The owner will obtain these when they are
+named specifically. The four stages stay marked source needed until the
+replacements arrive, and a test (`tests/unit/sequence-to-vial.test.ts`) pins
+them as unsourced so they cannot be quietly filled. What is needed, exactly:
+a genuine copy of Costantino & Pikal on lyophilisation (SRC-013 is a two-page
+contents listing), a genuine copy of Banga on therapeutic peptide formulation
+(SRC-014 is the wrong work), a finished-product sterile-manufacturing
+reference, and the compendial sterility and bacterial endotoxin chapters.
 
 ## D-11 · A regimen table that names no route is recorded under "other"
 
@@ -214,3 +224,90 @@ researchers.
 
 **Default if unanswered.** Keep both pages and keep "Research" in the
 navigation.
+
+## D-15 · Funding absent from a PubMed record is recorded as "not checked"
+
+**What was done.** Funding and conflict disclosures were read from the PubMed
+record of every cited study: its grant list, its conflict statement, and any
+funding sentence in the abstract. Fourteen sources disclosed something — five
+retatrutide trials authored by Eli Lilly employees, NIH-funded work behind
+several CJC-1295 and MOTS-c records, two MOTS-c papers whose authors consult
+for the company developing the compound, and one Hellenic Diabetes Association
+grant. The other 76 disclosed nothing in the record consulted, and those are
+stored as `not_checked` with a note naming what was read, rather than as
+`none_declared`.
+
+**Why it needs you.** The distinction is the whole value of the field. "No
+funding was declared" is a finding about a study; "we did not read the full
+text" is a fact about this index. Coding the second as the first would
+manufacture 76 findings. The cost is that funding coverage looks thin, which is
+accurate.
+
+**Default if unanswered.** Keep `not_checked`, and upgrade records as full
+texts are obtained.
+
+## D-16 · Understanding Peptides ships with five chapters written and seven briefed
+
+**What was done.** Chapters eight to twelve are written: understanding
+evidence, safety and uncertainty, quality and testing, questions to ask your
+clinician, and how to use the index. Four rest on the editorial method and the
+product; the quality chapter rests on claims extracted from a peptide
+chemistry textbook and ICH Q7. Chapters one to seven — what a peptide is,
+amino acids, peptides in the body, signalling, receptors, why peptides are
+studied, routes — remain briefs, because this index holds no extracted
+biochemistry, physiology or pharmacology source and writing them would mean
+composing science from general knowledge.
+
+**Why it needs you.** It is a publication decision: a patient-facing volume
+that is five-twelfths written can either wait or ship as a draft that says
+which parts are missing and why.
+
+**Default if unanswered.** Keep the briefs visible and acquire a biochemistry
+and a pharmacology reference before writing them.
+
+## D-17 · "Ready for review" is a mechanical result, not a quality judgement
+
+**What was done.** `npm run readiness` checks six things per record: that every
+citation resolves to a location, that claims about people cite the research or
+an abstract of it rather than a handbook's account, that safety claims have
+been traced at all, that every regimen names its source, that gaps and research
+questions exist, and that funding context has been captured for the study
+sources. All twelve records now pass. The command prints, under the table, that
+passing is not review.
+
+**Why it needs you.** "12 of 12 ready" is exactly the sentence somebody will
+quote out of context. It means a reviewer will not waste their first hour
+finding missing locators. It does not mean any statement is correct.
+
+**Default if unanswered.** Keep the wording, and never surface the figure
+without the caveat.
+
+## D-18 · Primary-source tracing is derived by source type, and says so
+
+**What was done.** Each of the 234 evidence rows now carries how far it has
+been traced: the research cited directly, held at abstract level, or a
+secondary source whose citations have not been obtained. The states were
+derived from the source register — what kind of source it is and whether the
+full text is held — and each row records the rule that produced it. Full-text
+verdicts (supports, partially supports, does not support, different context)
+are never derived: the database refuses one without a note, and only a person
+who read the paper can set it.
+
+**Why it needs you.** A reviewer may disagree with a category rather than with
+400 individual decisions, which is the point of deriving them. The current
+distribution is 114 abstract-level, 94 secondary, 26 citing the primary source.
+
+**Default if unanswered.** Keep the derivation and record hand-set verdicts as
+full texts are read.
+
+## D-19 · Methodology left the primary navigation for the Learn hub
+
+**What was done.** Primary navigation is now Learn, Peptides, Protocols,
+Research, Quality, Sources. Methodology, how evidence is classified, editorial
+policy and coverage sit under Learn and in the footer.
+
+**Why it needs you.** Methodology is the argument for trusting the index, and
+it is now one click further away. The reasoning is that navigation should
+reflect what a reader arrived to do, and nobody arrives to read a methodology.
+
+**Default if unanswered.** Keep the current arrangement.

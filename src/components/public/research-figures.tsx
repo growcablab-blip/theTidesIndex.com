@@ -295,6 +295,55 @@ export function ReplicationMap({
 
 // --- Research opportunities ---------------------------------------------------
 
+/**
+ * The kind of absence a gap records.
+ *
+ * Distinct from the opportunity type, which says what work would resolve it.
+ * "Nobody has studied this in people" and "a study exists and this index
+ * cannot reach it" both leave a reader without an answer, and they are
+ * different problems with different owners: one is for researchers, the other
+ * is for this index.
+ */
+export const GAP_TYPE_LABELS: Record<string, string> = {
+  source_missing: 'No source held',
+  source_inaccessible: 'Source exists, not obtained',
+  source_corrupted: 'Source held but unusable',
+  primary_source_missing: 'Primary source not obtained',
+  no_current_reviewed_evidence: 'Nothing reviewed to draw on',
+  scope_not_established: 'Scope not established',
+  numerical_threshold_not_established: 'No threshold established',
+  human_evidence_not_established: 'Not established in people',
+  route_not_established: 'Route not established',
+  safety_not_established: 'Safety not established',
+  regulatory_status_unverified: 'Regulatory position unverified',
+  terminology_unresolved: 'Name or identity unresolved',
+  conflicting_sources: 'Sources conflict',
+  formulation_unspecified: 'Formulation unspecified',
+  chain_of_custody_unknown: 'Chain of custody unknown',
+};
+
+/**
+ * The kind of work that would answer a question of each type.
+ *
+ * Describes the study a researcher would run, never a procedure and never
+ * anything a reader could act on themselves.
+ */
+export const SOURCE_THAT_WOULD_HELP: Record<string, string> = {
+  human_evidence: 'A controlled study in people, reporting a defined outcome.',
+  human_safety: 'Systematic collection of harms in people — a trial safety arm, or a registry.',
+  human_pharmacokinetics: 'A pharmacokinetic study measuring the substance in human blood.',
+  independent_replication: 'The same experiment, run by a group with no stake in the first result.',
+  long_term_outcomes: 'Follow-up beyond the studied period, or a pharmacovigilance record.',
+  protocol_validation: 'A study testing the schedule that is actually in use.',
+  dose_response: 'A dose-finding study comparing amounts in the same population.',
+  route_comparison: 'A study administering by more than one route and comparing them.',
+  formulation_comparison: 'A study separating what each component of a mixture contributes.',
+  mechanism_confirmation: 'Laboratory or animal work testing the proposed mechanism directly.',
+  identity_clarification: 'Analytical characterisation — sequence and mass — of what the name denotes.',
+  product_characterisation: 'Analysis of purchased product against a reference standard.',
+  regulatory_position: 'A dated statement from a named authority in a named jurisdiction.',
+};
+
 export const OPPORTUNITY_LABELS: Record<string, string> = {
   identity_clarification: 'Identity',
   human_evidence: 'Human evidence',

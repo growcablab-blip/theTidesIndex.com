@@ -8,10 +8,22 @@
     "practitionerSummary": "Modified GRF (1-29) is described by practitioner sources as a tetrasubstituted 29-residue C-terminally amidated GHRH(1-29) analogue (Tyr-D-Ala2 …), the core peptide of CJC-1295 without the added maleimidopropionamide lysine, and therefore without covalent albumin binding. Handbooks give its half-life as about 30 minutes against 5-7 minutes for native GRF(1-29); no primary pharmacokinetic study was identified. Mass spectrometry of a preparation seized in Norway and sold as CJC-1295 found a 29-residue amide consistent with this peptide, and powders seized in Denmark contained N-terminally glycine-extended modified GRF 1-29 analogues. No human or animal administration study of this molecule specifically was identified in the screen. Practitioner regimens are nightly or multiple-daily subcutaneous injections, commonly combined with ipamorelin; none cites a study.",
     "unknownsSummary": "Not established: any human pharmacokinetics, including the half-life every handbook repeats; any effect on GH, IGF-I or outcomes in people; safety; the combination with ipamorelin; and what purchased products labelled with this name or with CJC-1295 contain, given seized products with altered sequences.",
     "aliases": [
-      { "alias": "Modified GRF (1-29)", "note": "The descriptive name." },
-      { "alias": "Mod GRF 1-29", "note": "Common abbreviation." },
-      { "alias": "Tetrasubstituted GRF (1-29)", "note": "Chemical description of the four substitutions." },
-      { "alias": "CJC-1295 without DAC", "note": "Market and handbook name. Misleading: CJC-1295 in the scientific literature is a different, albumin-binding molecule with its own record." }
+      {
+        "alias": "Modified GRF (1-29)",
+        "note": "The descriptive name."
+      },
+      {
+        "alias": "Mod GRF 1-29",
+        "note": "Common abbreviation."
+      },
+      {
+        "alias": "Tetrasubstituted GRF (1-29)",
+        "note": "Chemical description of the four substitutions."
+      },
+      {
+        "alias": "CJC-1295 without DAC",
+        "note": "Market and handbook name. Misleading: CJC-1295 in the scientific literature is a different, albumin-binding molecule with its own record."
+      }
     ],
     "sequence": "YaDAIFTQSYRKVLAQLSARKLLQDILSR",
     "molecularDescription": "29-residue C-terminally amidated GHRH(1-29) analogue with four substitutions, as stated by practitioner sources; lower-case a denotes D-alanine.",
@@ -19,19 +31,85 @@
     "nomenclatureNote": "This record exists because of a naming problem. \"CJC-1295 without DAC\" suggests CJC-1295 with a component removed. Chemically it is the 29-residue core; the originator's CJC-1295 is that core plus a reactive lysine. A product sold simply as \"CJC-1295\" was found to be this peptide. Evidence about CJC-1295, including its human trials, is not evidence about this molecule."
   },
   "locations": [
-    { "key": "jette-2005-mod", "sourceKey": "SRC-066", "locatorText": "Abstract", "section": "Abstract (PMID 15817669)" },
-    { "key": "henninge-2010-mod", "sourceKey": "SRC-071", "locatorText": "Abstract", "section": "Abstract (PMID 21204297)" },
-    { "key": "denmark-2019", "sourceKey": "SRC-072", "locatorText": "Abstract", "section": "Abstract (PMID 30136411)" },
-    { "key": "seeds-modgrf-89", "sourceKey": "SRC-001", "locatorText": "file p. 89", "section": "Types of GHRH" },
-    { "key": "seeds-modgrf-97", "sourceKey": "SRC-001", "locatorText": "file p. 97", "section": "MOD GRF (1-29): properties" },
-    { "key": "seeds-modgrf-98", "sourceKey": "SRC-001", "locatorText": "file pp. 98-99", "section": "MOD GRF (1-29): applications and dosage" },
-    { "key": "lavalle-modgrf-36", "sourceKey": "SRC-002", "locatorText": "file p. 36", "section": "Dosages: CJC 1295 alone, and CJC 1295 (w/o DAC) + Ipamorelin" },
-    { "key": "lavalle-modgrf-38", "sourceKey": "SRC-002", "locatorText": "file pp. 38-39", "section": "Summary: DAC and non-DAC forms" },
-    { "key": "hacksmith-modgrf", "sourceKey": "SRC-005", "locatorText": "file pp. 88-89", "section": "Mod-GRF (1-29) (aka CJC-1295 without DAC)" },
-    { "key": "hacksmith-persona-cjc", "sourceKey": "SRC-005", "locatorText": "file p. 186", "section": "Persona 1: bodybuilder regimen" },
-    { "key": "campbell-modgrf-98", "sourceKey": "SRC-003", "locatorText": "p. 98", "pageStart": 98, "section": "CJC-1295 recommended dosage: without DAC" },
-    { "key": "cheatsheet-modgrf-3", "sourceKey": "SRC-004", "locatorText": "file p. 3", "section": "Longevity table, CJC-1295 No DAC row" },
-    { "key": "cheatsheet-modgrf-2", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, Ipamorelin / CJC-1295 No DAC row" }
+    {
+      "key": "jette-2005-mod",
+      "sourceKey": "SRC-066",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 15817669)"
+    },
+    {
+      "key": "henninge-2010-mod",
+      "sourceKey": "SRC-071",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 21204297)"
+    },
+    {
+      "key": "denmark-2019",
+      "sourceKey": "SRC-072",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 30136411)"
+    },
+    {
+      "key": "seeds-modgrf-89",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 89",
+      "section": "Types of GHRH"
+    },
+    {
+      "key": "seeds-modgrf-97",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 97",
+      "section": "MOD GRF (1-29): properties"
+    },
+    {
+      "key": "seeds-modgrf-98",
+      "sourceKey": "SRC-001",
+      "locatorText": "file pp. 98-99",
+      "section": "MOD GRF (1-29): applications and dosage"
+    },
+    {
+      "key": "lavalle-modgrf-36",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 36",
+      "section": "Dosages: CJC 1295 alone, and CJC 1295 (w/o DAC) + Ipamorelin"
+    },
+    {
+      "key": "lavalle-modgrf-38",
+      "sourceKey": "SRC-002",
+      "locatorText": "file pp. 38-39",
+      "section": "Summary: DAC and non-DAC forms"
+    },
+    {
+      "key": "hacksmith-modgrf",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 88-89",
+      "section": "Mod-GRF (1-29) (aka CJC-1295 without DAC)"
+    },
+    {
+      "key": "hacksmith-persona-cjc",
+      "sourceKey": "SRC-005",
+      "locatorText": "file p. 186",
+      "section": "Persona 1: bodybuilder regimen"
+    },
+    {
+      "key": "campbell-modgrf-98",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 98",
+      "pageStart": 98,
+      "section": "CJC-1295 recommended dosage: without DAC"
+    },
+    {
+      "key": "cheatsheet-modgrf-3",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 3",
+      "section": "Longevity table, CJC-1295 No DAC row"
+    },
+    {
+      "key": "cheatsheet-modgrf-2",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 2",
+      "section": "Fat loss table, Ipamorelin / CJC-1295 No DAC row"
+    }
   ],
   "claims": [
     {
@@ -43,8 +121,21 @@
       "interpretationNotes": "The comparison of the two descriptions is this index's reading; neither source makes it explicitly.",
       "uncertaintyText": "The handbook sequence has not been checked against an analytical reference for this peptide.",
       "evidence": [
-        { "locationKey": "seeds-modgrf-97", "evidenceTypeKey": "practitioner_reference", "interpretation": "29-residue sequence, amide, also known as CJC 1295 without DAC." },
-        { "locationKey": "jette-2005-mod", "evidenceTypeKey": "analytical_characterisation", "relationship": "contextualizes", "interpretation": "CJC-1295 defined as the core plus an added maleimidopropionamide lysine." }
+        {
+          "locationKey": "seeds-modgrf-97",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "29-residue sequence, amide, also known as CJC 1295 without DAC.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        },
+        {
+          "locationKey": "jette-2005-mod",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "contextualizes",
+          "interpretation": "CJC-1295 defined as the core plus an added maleimidopropionamide lysine.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -56,7 +147,13 @@
       "interpretationNotes": "The only analytical evidence identifying this molecule in a product, and it was sold under the other name.",
       "uncertaintyText": "One preparation.",
       "evidence": [
-        { "locationKey": "henninge-2010-mod", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Sequence proposal from high-resolution tandem mass spectrometry." }
+        {
+          "locationKey": "henninge-2010-mod",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Sequence proposal from high-resolution tandem mass spectrometry.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -68,7 +165,13 @@
       "interpretationNotes": "A different molecule again, one residue longer. What name the powders were sold under is not stated in the abstract.",
       "uncertaintyText": "Seized material; not a survey of products.",
       "evidence": [
-        { "locationKey": "denmark-2019", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Glycine-extended analogues identified by LC-HRMS against reference standards." }
+        {
+          "locationKey": "denmark-2019",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Glycine-extended analogues identified by LC-HRMS against reference standards.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -80,8 +183,22 @@
       "interpretationNotes": "The figure underpins every practitioner schedule for this peptide.",
       "uncertaintyText": "May exist outside PubMed or in full text not held.",
       "evidence": [
-        { "locationKey": "seeds-modgrf-97", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "States a half-life of about 30 minutes." },
-        { "locationKey": "lavalle-modgrf-36", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "States a half-life of about 30 minutes for CJC 1295 without DAC." }
+        {
+          "locationKey": "seeds-modgrf-97",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "cites",
+          "interpretation": "States a half-life of about 30 minutes.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        },
+        {
+          "locationKey": "lavalle-modgrf-36",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "cites",
+          "interpretation": "States a half-life of about 30 minutes for CJC 1295 without DAC.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        }
       ]
     }
   ],
@@ -288,9 +405,21 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None further for the chemistry.",
       "positions": [
-        { "locationKey": "seeds-modgrf-89", "evidenceTypeKey": "practitioner_reference", "positionText": "Better known in the industry as CJC 1295 without DAC." },
-        { "locationKey": "hacksmith-modgrf", "evidenceTypeKey": "practitioner_reference", "positionText": "Mod-GRF (1-29), also known as CJC-1295 without DAC." },
-        { "locationKey": "jette-2005-mod", "evidenceTypeKey": "analytical_characterisation", "positionText": "CJC-1295 is the tetrasubstituted core with an added reactive lysine." }
+        {
+          "locationKey": "seeds-modgrf-89",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Better known in the industry as CJC 1295 without DAC."
+        },
+        {
+          "locationKey": "hacksmith-modgrf",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Mod-GRF (1-29), also known as CJC-1295 without DAC."
+        },
+        {
+          "locationKey": "jette-2005-mod",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "CJC-1295 is the tetrasubstituted core with an added reactive lysine."
+        }
       ]
     },
     {
@@ -302,9 +431,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A human pharmacokinetic and GH-response study.",
       "positions": [
-        { "locationKey": "lavalle-modgrf-36", "evidenceTypeKey": "practitioner_reference", "positionText": "At bedtime five days a week; up to four times a day for weight loss." },
-        { "locationKey": "hacksmith-modgrf", "evidenceTypeKey": "practitioner_reference", "positionText": "One to three times daily, fasted." },
-        { "locationKey": "cheatsheet-modgrf-3", "evidenceTypeKey": "practitioner_reference", "positionText": "Evenings, five days on and two off, in eight-week cycles." }
+        {
+          "locationKey": "lavalle-modgrf-36",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "At bedtime five days a week; up to four times a day for weight loss."
+        },
+        {
+          "locationKey": "hacksmith-modgrf",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "One to three times daily, fasted."
+        },
+        {
+          "locationKey": "cheatsheet-modgrf-3",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Evenings, five days on and two off, in eight-week cycles."
+        }
       ]
     }
   ],

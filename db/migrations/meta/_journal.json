@@ -176,6 +176,13 @@
       "when": 1789180905681,
       "tag": "0024_public_view_grants",
       "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1789180965681,
+      "tag": "0025_primary_tracing_and_funding",
+      "breakpoints": true
     }
   ]
 }

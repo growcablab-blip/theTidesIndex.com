@@ -17,6 +17,7 @@ export * from './sources';
 export * from './peptides';
 export * from './quality';
 export * from './claims';
+export * from './funding';
 export * from './evidence-gaps';
 export * from './quality-map';
 export * from './certificates';

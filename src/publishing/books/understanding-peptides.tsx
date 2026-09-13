@@ -197,13 +197,16 @@ interface ChapterPlan {
   readonly illustration: string;
   readonly illustrationNote?: string;
   /**
-   * Written rather than briefed.
+   * Written rather than briefed, and which body of material it rests on.
    *
-   * A chapter may only be set here if it can be written without stating
-   * anything about peptides — which in practice means the editorial method
-   * itself. Everything else waits for sources and review.
+   * A chapter may only be set here if it can be written from something this
+   * index holds: the editorial method, or claims extracted from a named
+   * source. Everything else stays a brief. The distinction is not
+   * bureaucratic — a chapter written from general knowledge would set in the
+   * same typeface as a sourced one, and this is the volume whose readers can
+   * least afford that.
    */
-  readonly written?: boolean;
+  readonly written?: 'evidence' | 'safety' | 'quality' | 'clinician' | 'using';
 }
 
 const CHAPTERS: readonly ChapterPlan[] = [
@@ -307,7 +310,7 @@ const CHAPTERS: readonly ChapterPlan[] = [
     needs:
       'Written from the editorial method. It states nothing about peptides, so it needed no peptide source; it still requires scientific and clinical review before publication.',
     illustration: 'A hierarchy of evidence, with the limits of each tier marked',
-    written: true,
+    written: 'evidence',
   },
   {
     number: 'Nine',
@@ -319,8 +322,9 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'What a reader should do with an unknown',
     ],
     needs:
-      'Regulatory and pharmacovigilance sources. Nothing in this chapter may imply a safety conclusion the register does not hold.',
+      'Written from the editorial method and from what the register records as unsettled. It makes no safety claim about any compound, because none could be sourced.',
     illustration: 'Known, unknown, and not yet asked',
+    written: 'safety',
   },
   {
     number: 'Ten',
@@ -332,8 +336,9 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'Why a purity figure answers less than it appears to',
     ],
     needs:
-      'Already supported. This chapter can be drawn from the reviewed Peptide Quality material once that review is complete.',
+      'Written from claims extracted into this index from a peptide chemistry textbook and from ICH Q7. Those records are not yet scientifically reviewed, and neither is this chapter.',
     illustration: 'Purity, identity, content — the simplified triangle',
+    written: 'quality',
   },
   {
     number: 'Eleven',
@@ -345,8 +350,23 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'Questions about monitoring and what would change the plan',
     ],
     needs:
-      'Clinical review. This chapter is a prompt sheet and must never read as advice, a protocol or a dosing guide.',
+      'Written as a prompt sheet. It asks questions and answers none, contains no dose and no protocol, and still requires clinical review before publication.',
     illustration: 'A single-page prompt card',
+    written: 'clinician',
+  },
+  {
+    number: 'Twelve',
+    title: 'How to use The Tides Index',
+    standfirst: 'What the website will and will not tell you.',
+    covers: [
+      'How a record is arranged, and where to stop reading',
+      'What the two reading depths change, and what they do not',
+      'How to follow a statement back to the page it came from',
+    ],
+    needs:
+      'Written from the product itself. It describes how the index works and makes no claim about any compound.',
+    illustration: 'A record, annotated',
+    written: 'using',
   },
 ];
 
@@ -362,6 +382,21 @@ const CHAPTERS: readonly ChapterPlan[] = [
  * The three classes and their definitions are the taxonomy the database
  * enforces, not a hierarchy invented for the page.
  */
+function WrittenChapter({ chapter }: { chapter: ChapterPlan }) {
+  switch (chapter.written) {
+    case 'safety':
+      return <SafetyAndUncertainty chapter={chapter} />;
+    case 'quality':
+      return <QualitySourceTesting chapter={chapter} />;
+    case 'clinician':
+      return <QuestionsToAsk chapter={chapter} />;
+    case 'using':
+      return <HowToUseTheIndex chapter={chapter} />;
+    default:
+      return <UnderstandingEvidence chapter={chapter} />;
+  }
+}
+
 function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
   return (
     <>
@@ -493,12 +528,326 @@ function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
   );
 }
 
+/**
+ * Chapter nine, written.
+ *
+ * Safety is the chapter a patient-facing volume is most likely to get wrong in
+ * the reassuring direction, so this one makes no safety claim about any
+ * compound at all. It is about how to read silence — which is the actual
+ * situation a reader of this register is in.
+ */
+function SafetyAndUncertainty({ chapter }: { chapter: ChapterPlan }) {
+  return (
+    <PublicationPage publication={PUBLICATION} section={chapter.title}>
+      <ChapterOpener
+        eyebrow={chapter.number}
+        title={chapter.title}
+        standfirst={chapter.standfirst}
+      />
+
+      <Lede>
+        The most common mistake in reading about peptides is to treat silence as reassurance.
+        Nothing has been reported, so nothing must happen. That is not what silence means.
+      </Lede>
+
+      <SectionHeading>&ldquo;No reported harm&rdquo; is not &ldquo;shown to be safe&rdquo;</SectionHeading>
+      <Comparison
+        left={{
+          title: 'What a small study can show',
+          items: [
+            'That the people in it, for as long as it ran, mostly tolerated it',
+            'That common, obvious, early problems did not appear in that group',
+          ],
+        }}
+        right={{
+          title: 'What it cannot show',
+          items: [
+            'That an uncommon harm does not exist — a study of twelve people cannot find a one-in-a-thousand problem',
+            'What happens after the study ended',
+            'What happens to someone older, iller, pregnant, or taking something else',
+          ],
+        }}
+      />
+      <Body>
+        This is why a record in this index will say that safety is not established even when no
+        source reports a problem. The two statements are compatible, and only one of them is about
+        the compound.
+      </Body>
+
+      <SectionHeading>How uncertainty is recorded here</SectionHeading>
+      <Body>
+        Every important statement in this index has to say what remains unknown about it before it
+        can be published. What is not established is a record in its own right, with its own
+        reason and its own description of what would settle it — not a caveat at the bottom of a
+        page.
+      </Body>
+      <Bullets
+        items={[
+          'Not established: this index looked and found nothing that supports the statement.',
+          'Sources disagree: two named sources say different things, and both are shown.',
+          'Not obtained: a study exists and this index has not been able to read it.',
+          'Not assessed: nobody has checked whether the finding has ever been repeated.',
+        ]}
+      />
+
+      <SectionHeading>People differ, and the record says who was studied</SectionHeading>
+      <Body>
+        A result belongs to the people it was measured in. Where a record reports a finding, it
+        states the population — and where a source extends a finding beyond the group it studied,
+        this index records that as something the source did, not as a fact.
+      </Body>
+
+      <Callout title="What to do with an unknown">
+        <Text>
+          An unknown is a reason to ask a question, not a reason to assume either answer. If
+          something here matters to a decision you are making, take the page to a clinician who
+          knows your history — the index is built so that you can hand them the source, not just
+          the claim.
+        </Text>
+      </Callout>
+    </PublicationPage>
+  );
+}
+
+/**
+ * Chapter ten, written.
+ *
+ * The one chapter in this volume with real chemistry in it, and the only one
+ * that could have it: the claims come from a peptide chemistry textbook and
+ * from ICH Q7, both held and extracted. The plain-language job here is to keep
+ * three questions apart that a certificate routinely runs together.
+ */
+function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
+  return (
+    <>
+      <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <ChapterOpener
+          eyebrow={chapter.number}
+          title={chapter.title}
+          standfirst={chapter.standfirst}
+        />
+
+        <Lede>
+          Three different questions get asked about a vial, and they are usually answered with one
+          number. Is it pure? Is it the right molecule? How much of it is in there?
+        </Lede>
+
+        <IllustrationSlot
+          label="Purity, identity, content — three questions, three measurements"
+          height={150}
+          note="Vector diagram, drawn from the analytical sources"
+        />
+
+        <SectionHeading>Pure is not the same as correct</SectionHeading>
+        <Body>
+          The usual purity test separates what is in a sample and shows it as a trace with peaks. A
+          single clean peak looks conclusive, and it is not: two peptides differing by a single
+          amino acid can come out together and appear as one. A purity figure describes how mixed a
+          sample is. It does not say what the substance is.
+        </Body>
+        <Body>
+          Identity is a separate measurement. Weighing the molecule — mass spectrometry — compares
+          a measured mass against the one the intended sequence predicts, and the comparison
+          carries a margin. It can also reveal changes that other methods miss entirely.
+        </Body>
+        <Body>
+          How much peptide is present is separate again. The established method breaks the peptide
+          into its amino acids and measures those, which is indirect: several amino acids do not
+          survive the process intact, so what comes back is a considered estimate rather than a
+          reading off a scale.
+        </Body>
+        <EvidenceNote
+          supports="Claims extracted into this index from a peptide chemistry textbook (SRC-006) and its characterisation protocols (SRC-011)."
+          doesNotSettle="Anything about a specific product. These are the questions to ask, not answers about any vial."
+          status="Extracted and awaiting scientific review"
+        />
+      </PublicationPage>
+
+      <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <SectionHeading>What a certificate is</SectionHeading>
+        <Body>
+          A certificate of analysis is a document saying which tests were run on a material and
+          what they returned. The manufacturing standard this index holds sets out what one should
+          contain for an active ingredient: the name of the material, each test performed with its
+          limits and result, the date, and a signature from someone authorised. Where the testing
+          was done by a repacker rather than the original manufacturer, the certificate should say
+          so and name the original.
+        </Body>
+        <Bullets
+          items={[
+            'A certificate describes the batch it names, and no other.',
+            'A certificate from the seller is not the same as a certificate from an independent laboratory.',
+            'A missing test is not a passed test.',
+            'A document with no batch number cannot be matched to anything you hold.',
+          ]}
+        />
+
+        <SectionHeading>Peptides degrade, in known ways</SectionHeading>
+        <Body>
+          In solution, peptides break down by routes that depend on their sequence. Material kept
+          for a long time is worth re-checking before use, and even freeze-dried peptide can hold
+          more water than expected. This is why storage and transport are part of quality rather
+          than an afterthought: the manufacturing standard expects storage conditions to be
+          recorded and transport not to compromise the material.
+        </Body>
+
+        <Callout title="Country of origin is not a quality test">
+          <Text>
+            Nothing in the sources held here supports judging a material by where it was made. What
+            supports a judgement is the process, the test, the batch and the chain of custody —
+            each of which is a document that someone either has or does not.
+          </Text>
+        </Callout>
+
+        <SourceNote
+          items={[
+            'SRC-006 — Synthetic Peptides: A User’s Guide, 2nd edition.',
+            'SRC-011 — Peptide Characterization and Application Protocols.',
+            'SRC-017 — ICH Q7, Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients.',
+            'The fuller treatment is in the Peptide Quality volume, from the same records.',
+          ]}
+        />
+      </PublicationPage>
+    </>
+  );
+}
+
+/**
+ * Chapter eleven, written.
+ *
+ * A prompt sheet. It asks and answers nothing, which is what keeps it on the
+ * right side of the line: a patient-facing publication may help someone have a
+ * better conversation, and may not conduct it for them.
+ */
+function QuestionsToAsk({ chapter }: { chapter: ChapterPlan }) {
+  return (
+    <PublicationPage publication={PUBLICATION} section={chapter.title}>
+      <ChapterOpener
+        eyebrow={chapter.number}
+        title={chapter.title}
+        standfirst={chapter.standfirst}
+      />
+
+      <Lede>
+        These are questions, not advice, and none of them has a right answer printed here. The
+        point is to hear how they are answered.
+      </Lede>
+
+      <SectionHeading>About the evidence</SectionHeading>
+      <Bullets
+        items={[
+          'Has this been studied in people, or only in animals and laboratories?',
+          'If it has been studied in people, was there a comparison group?',
+          'What outcome was actually measured — and is it the thing I care about, or a stand-in for it?',
+          'Who was in the study, and are they like me?',
+          'Has anyone other than the original group found the same thing?',
+        ]}
+      />
+
+      <SectionHeading>About the material</SectionHeading>
+      <Bullets
+        items={[
+          'What exactly is this substance — its sequence and mass, not just its trade name?',
+          'Where does it come from, and what testing has been done on this batch?',
+          'Can I see the certificate, and does it name the batch I would be given?',
+          'Is it made for use in people, or labelled for research?',
+        ]}
+      />
+
+      <SectionHeading>About the plan</SectionHeading>
+      <Bullets
+        items={[
+          'What would tell us this is working, and by when?',
+          'What would make you stop?',
+          'What are we going to monitor, and how often?',
+          'What are the known risks, and what is simply unknown?',
+          'What are the alternatives, including doing nothing for now?',
+        ]}
+      />
+
+      <Callout title="What this page is not">
+        <Text>
+          There are no amounts, schedules or instructions anywhere in this volume, and that is
+          deliberate. A decision about treatment belongs to you and a clinician who knows your
+          history, with the evidence in front of you both.
+        </Text>
+      </Callout>
+    </PublicationPage>
+  );
+}
+
+/**
+ * Chapter twelve, written.
+ *
+ * Documentation of the product, which makes it the safest chapter in the book
+ * to write and one of the most useful: a reader who understands how a record
+ * is arranged can find the uncertainty themselves rather than taking a summary
+ * on trust.
+ */
+function HowToUseTheIndex({ chapter }: { chapter: ChapterPlan }) {
+  return (
+    <PublicationPage publication={PUBLICATION} section={chapter.title}>
+      <ChapterOpener
+        eyebrow={chapter.number}
+        title={chapter.title}
+        standfirst={chapter.standfirst}
+      />
+
+      <Lede>
+        Every compound record answers the same four questions in the same order, and you can stop
+        after any one of them.
+      </Lede>
+
+      <Table
+        head={['The question', 'What you will find']}
+        rows={[
+          ['What it is', 'The molecule, the names it is sold under, and whether those names refer to the same thing.'],
+          ['What is known', 'What has been measured in people, what only in animals, and whether anyone repeated it.'],
+          ['What is not known', 'Recorded as carefully as the findings, because it is usually the larger part.'],
+          ['What sources report', 'Regimens attributed to the source that published them — never merged, never averaged.'],
+        ]}
+        widths={[1, 2.4]}
+      />
+
+      <SectionHeading>Two reading depths, one set of records</SectionHeading>
+      <Body>
+        The site offers a plain-language view and a practitioner view over the same records. The
+        difference is depth, not content: the plain view carries no amounts or schedules, and that
+        is enforced in the query that builds the page rather than by hiding things on it. Nothing
+        is written for one audience and withheld from the other.
+      </Body>
+
+      <SectionHeading>Following a statement back</SectionHeading>
+      <Body>
+        Every statement names the source it came from and the exact place in it — a page, a
+        section, a record identifier. Where this index has read only a summary of a study rather
+        than the full paper, the record says so. Where a statement rests on a practitioner
+        describing their own practice, it says that too, and it is not presented as a study.
+      </Body>
+
+      <SectionHeading>What &ldquo;not published&rdquo; means</SectionHeading>
+      <Body>
+        A record becomes public only after a named scientific reviewer has approved the exact
+        version they read. Until then it carries its state openly. Automated extraction is real
+        work and it is not review, and this index will not describe one as the other.
+      </Body>
+
+      <Callout title="Where to start">
+        <Text>
+          If you are new: the Learn pages, then a compound record, then the research questions —
+          which are the honest map of what nobody knows yet.
+        </Text>
+      </Callout>
+    </PublicationPage>
+  );
+}
+
 export function UnderstandingPeptides() {
   return (
     <Document
-      title="Understanding Peptides — design skeleton"
+      title="Understanding Peptides — first draft"
       author="The Tides Index"
-      subject="Design skeleton with one written chapter. Contains no medical content and no reviewed content."
+      subject="Patient-facing first draft. Five written chapters, seven briefs. No dosing and no reviewed content."
       creator="The Tides Index"
     >
       <Cover
@@ -507,8 +856,8 @@ export function UnderstandingPeptides() {
         title="Understanding Peptides"
         subtitle="A plain-language introduction"
         descriptor="Independent peptide science & clinical reference"
-        editionLine={`Design skeleton · one chapter written · issued ${ISSUED}`}
-        statusLine="Ten chapter briefs and one written chapter, awaiting review. This document contains no medical content."
+        editionLine={`First draft · five chapters written · issued ${ISSUED}`}
+        statusLine="Five written chapters and seven briefs, all awaiting review. No dosing, no administration instructions, no treatment advice."
         mark={<SeriesMark width={300} volume={1} />}
       />
 
@@ -517,7 +866,7 @@ export function UnderstandingPeptides() {
         <ChapterOpener
           eyebrow="Skeleton"
           title="What this document is"
-          standfirst="A layout, a structure, ten briefs and one written chapter."
+          standfirst="Five chapters written, seven still briefs — and the difference is where the sources run out."
         />
 
         <Lede>
@@ -539,12 +888,19 @@ export function UnderstandingPeptides() {
 
         <SectionHeading>What has to happen before it is written</SectionHeading>
         <Body>
-          Most of these chapters need sources this index does not yet hold. Two do not. The chapter
-          on understanding evidence rests on the editorial method rather than on peptide science, and
-          it is now written. The chapter on quality can be drawn from the Peptide Quality material,
-          but only once that volume’s scientific review is complete — drawing a
-          patient-facing chapter out of unreviewed material would put the least checkable text in
-          the programme on top of the least checked.
+          Five chapters are written. Four of them — understanding evidence, safety and uncertainty,
+          questions to ask your clinician, and how to use this index — rest on the editorial method
+          and on the product rather than on peptide science, so they could be written without a
+          peptide source. The fifth, on quality and testing, rests on claims extracted into this
+          index from a peptide chemistry textbook and from a manufacturing standard, both held in
+          full.
+        </Body>
+        <Body>
+          The remaining seven need sources this index does not hold: a biochemistry reference, a
+          physiology source, a pharmacology source. Those chapters stay briefs rather than being
+          written from general knowledge, because a paragraph written to fill a page sets in the
+          same typeface as a sourced one and this is the volume whose readers can least afford
+          that.
         </Body>
 
         <View
@@ -565,7 +921,7 @@ export function UnderstandingPeptides() {
 
       {/* --- Contents --------------------------------------------------- */}
       <PublicationPage publication={PUBLICATION} section="Contents">
-        <ChapterOpener eyebrow="Contents" title="Eleven chapters" />
+        <ChapterOpener eyebrow="Contents" title="Twelve chapters" />
 
         {CHAPTERS.map((chapter, index) => (
           <View
@@ -611,8 +967,8 @@ export function UnderstandingPeptides() {
 
       {/* --- One page per chapter --------------------------------------- */}
       {CHAPTERS.map((chapter) =>
-        chapter.written === true ? (
-          <UnderstandingEvidence key={chapter.title} chapter={chapter} />
+        chapter.written !== undefined ? (
+          <WrittenChapter key={chapter.title} chapter={chapter} />
         ) : (
           <PublicationPage key={chapter.title} publication={PUBLICATION} section={chapter.title}>
             <ChapterOpener
@@ -652,7 +1008,7 @@ export function UnderstandingPeptides() {
         <CurrentVersionBlock
           url="thetidesindex.com"
           version={`Understanding Peptides · design skeleton · issued ${ISSUED}`}
-          note="One written chapter, on method. No peptide claims. No review yet."
+          note="Five written chapters. No dosing anywhere. No review yet, of the chapters or the records behind them."
         />
       </PublicationPage>
     </Document>

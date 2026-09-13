@@ -19,19 +19,86 @@
     "nomenclatureNote": "No naming conflict in the scientific record: LY3437943 and retatrutide denote the same molecule. The practical naming problem is elsewhere — products sold online under the name retatrutide are not the trial product, and nothing in the held records establishes what they contain."
   },
   "locations": [
-    { "key": "coskun-2022", "sourceKey": "SRC-047", "locatorText": "Abstract", "section": "Abstract (PMID 35985340)" },
-    { "key": "urva-2022", "sourceKey": "SRC-048", "locatorText": "Abstract", "section": "Abstract (PMID 36354040)" },
-    { "key": "rosenstock-2023", "sourceKey": "SRC-049", "locatorText": "Abstract", "section": "Abstract (PMID 37385280)" },
-    { "key": "jastreboff-2023", "sourceKey": "SRC-050", "locatorText": "Abstract", "section": "Abstract (PMID 37366315)" },
-    { "key": "sanyal-2024", "sourceKey": "SRC-051", "locatorText": "Abstract", "section": "Abstract (PMID 38858523)" },
-    { "key": "bajaj-2026", "sourceKey": "SRC-052", "locatorText": "Abstract", "section": "Abstract (PMID 42250575)" },
-    { "key": "case-2026", "sourceKey": "SRC-053", "locatorText": "Abstract", "section": "Abstract (PMID 42669023)" },
-    { "key": "ctgov-2026", "sourceKey": "SRC-054", "locatorText": "Registry summary fields, held at abstract level: search of 34 studies, read 13 September 2026", "section": "Intervention query: retatrutide OR LY3437943" },
-    { "key": "campbell-reta-227", "sourceKey": "SRC-003", "locatorText": "p. 227", "pageStart": 227, "section": "Retatrutide" },
-    { "key": "campbell-reta-228", "sourceKey": "SRC-003", "locatorText": "p. 228", "pageStart": 228, "section": "Retatrutide" },
-    { "key": "cheatsheet-reta", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, Retatrutide row" },
-    { "key": "hacksmith-reta", "sourceKey": "SRC-005", "locatorText": "file pp. 98-100", "section": "Retatrutide" },
-    { "key": "hacksmith-stacks", "sourceKey": "SRC-005", "locatorText": "file p. 176", "section": "Common peptide stacks: fat loss and metabolism" }
+    {
+      "key": "coskun-2022",
+      "sourceKey": "SRC-047",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 35985340)"
+    },
+    {
+      "key": "urva-2022",
+      "sourceKey": "SRC-048",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 36354040)"
+    },
+    {
+      "key": "rosenstock-2023",
+      "sourceKey": "SRC-049",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 37385280)"
+    },
+    {
+      "key": "jastreboff-2023",
+      "sourceKey": "SRC-050",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 37366315)"
+    },
+    {
+      "key": "sanyal-2024",
+      "sourceKey": "SRC-051",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 38858523)"
+    },
+    {
+      "key": "bajaj-2026",
+      "sourceKey": "SRC-052",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 42250575)"
+    },
+    {
+      "key": "case-2026",
+      "sourceKey": "SRC-053",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 42669023)"
+    },
+    {
+      "key": "ctgov-2026",
+      "sourceKey": "SRC-054",
+      "locatorText": "Registry summary fields, held at abstract level: search of 34 studies, read 13 September 2026",
+      "section": "Intervention query: retatrutide OR LY3437943"
+    },
+    {
+      "key": "campbell-reta-227",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 227",
+      "pageStart": 227,
+      "section": "Retatrutide"
+    },
+    {
+      "key": "campbell-reta-228",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 228",
+      "pageStart": 228,
+      "section": "Retatrutide"
+    },
+    {
+      "key": "cheatsheet-reta",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 2",
+      "section": "Fat loss table, Retatrutide row"
+    },
+    {
+      "key": "hacksmith-reta",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 98-100",
+      "section": "Retatrutide"
+    },
+    {
+      "key": "hacksmith-stacks",
+      "sourceKey": "SRC-005",
+      "locatorText": "file p. 176",
+      "section": "Common peptide stacks: fat loss and metabolism"
+    }
   ],
   "claims": [
     {
@@ -43,8 +110,20 @@
       "interpretationNotes": "The developer's discovery paper. The receptor profile is laboratory pharmacology and the energy-expenditure mechanism is from mice; neither is a human measurement.",
       "uncertaintyText": "How the three receptor activities contribute in people is inferred from this profile and from trial outcomes, not measured directly in the held records.",
       "evidence": [
-        { "locationKey": "coskun-2022", "evidenceTypeKey": "in_vitro", "interpretation": "Receptor activity profile in vitro." },
-        { "locationKey": "coskun-2022", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Body weight, glycaemic control and energy expenditure in obese mice." }
+        {
+          "locationKey": "coskun-2022",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Receptor activity profile in vitro.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "coskun-2022",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Body weight, glycaemic control and energy expenditure in obese mice.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -56,8 +135,20 @@
       "interpretationNotes": "Two developer studies agree on the once-weekly rationale. The half-life figure is from the phase 1b abstract.",
       "uncertaintyText": "Measured in the trial formulation given by subcutaneous injection. Says nothing about other schedules or about products sold outside trials.",
       "evidence": [
-        { "locationKey": "urva-2022", "evidenceTypeKey": "human_pk_pd", "interpretation": "Dose-proportional pharmacokinetics, half-life approximately six days, suitability for once-weekly dosing." },
-        { "locationKey": "coskun-2022", "evidenceTypeKey": "human_pk_pd", "interpretation": "Single-ascending-dose phase 1 pharmacokinetics supporting once-weekly dosing." }
+        {
+          "locationKey": "urva-2022",
+          "evidenceTypeKey": "human_pk_pd",
+          "interpretation": "Dose-proportional pharmacokinetics, half-life approximately six days, suitability for once-weekly dosing.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "coskun-2022",
+          "evidenceTypeKey": "human_pk_pd",
+          "interpretation": "Single-ascending-dose phase 1 pharmacokinetics supporting once-weekly dosing.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -69,7 +160,13 @@
       "interpretationNotes": "The largest efficacy signal in the record and a randomised, placebo-controlled result. It is one developer-sponsored trial with a surrogate endpoint (weight), not a clinical outcome.",
       "uncertaintyText": "48 weeks, 338 participants. Durability after stopping, and effects on clinical events, are not addressed.",
       "evidence": [
-        { "locationKey": "jastreboff-2023", "evidenceTypeKey": "human_rct", "interpretation": "Percentage change in body weight at 24 and 48 weeks by dose group versus placebo." }
+        {
+          "locationKey": "jastreboff-2023",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Percentage change in body weight at 24 and 48 weeks by dose group versus placebo.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -81,9 +178,28 @@
       "interpretationNotes": "The phase 2 result was repeated in a phase 3 trial with a different population mix and countries (USA, Mexico, India), which is the strongest repetition on this record — within the same developer's programme.",
       "uncertaintyText": "HbA1c and weight are surrogate endpoints. Both trials were developer-sponsored.",
       "evidence": [
-        { "locationKey": "rosenstock-2023", "evidenceTypeKey": "human_rct", "interpretation": "HbA1c at 24 and 36 weeks and body weight at 36 weeks by dose group versus placebo and dulaglutide." },
-        { "locationKey": "bajaj-2026", "evidenceTypeKey": "human_rct", "interpretation": "HbA1c and body weight at 40 weeks versus placebo; phase 3." },
-        { "locationKey": "urva-2022", "evidenceTypeKey": "human_rct", "relationship": "contextualizes", "interpretation": "Glucose and HbA1c reductions in the higher-dose cohorts of the 12-week phase 1b study." }
+        {
+          "locationKey": "rosenstock-2023",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "HbA1c at 24 and 36 weeks and body weight at 36 weeks by dose group versus placebo and dulaglutide.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "bajaj-2026",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "HbA1c and body weight at 40 weeks versus placebo; phase 3.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "urva-2022",
+          "evidenceTypeKey": "human_rct",
+          "relationship": "contextualizes",
+          "interpretation": "Glucose and HbA1c reductions in the higher-dose cohorts of the 12-week phase 1b study.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -95,10 +211,34 @@
       "interpretationNotes": "Consistent across four trials. The starting-dose finding matters to anyone comparing trial schedules with practitioner schedules: how fast the dose rises changed tolerability.",
       "uncertaintyText": "Trials of up to 48 weeks in selected populations. Rare or long-latency harms are not excluded by trials of this size and length.",
       "evidence": [
-        { "locationKey": "jastreboff-2023", "evidenceTypeKey": "human_rct", "interpretation": "Gastrointestinal events dose-related and mitigated by lower starting dose; heart-rate increases peaked at 24 weeks." },
-        { "locationKey": "rosenstock-2023", "evidenceTypeKey": "human_rct", "interpretation": "Gastrointestinal adverse events by group; no severe hypoglycaemia; no deaths." },
-        { "locationKey": "bajaj-2026", "evidenceTypeKey": "human_rct", "interpretation": "Mild-to-moderate gastrointestinal events, 2–5% adverse-event discontinuation, no severe hypoglycaemia, two deaths judged unrelated." },
-        { "locationKey": "urva-2022", "evidenceTypeKey": "human_rct", "interpretation": "Gastrointestinal disorders the most frequent treatment-emergent adverse events in phase 1b." }
+        {
+          "locationKey": "jastreboff-2023",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Gastrointestinal events dose-related and mitigated by lower starting dose; heart-rate increases peaked at 24 weeks.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "rosenstock-2023",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Gastrointestinal adverse events by group; no severe hypoglycaemia; no deaths.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "bajaj-2026",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Mild-to-moderate gastrointestinal events, 2–5% adverse-event discontinuation, no severe hypoglycaemia, two deaths judged unrelated.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "urva-2022",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Gastrointestinal disorders the most frequent treatment-emergent adverse events in phase 1b.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -110,7 +250,13 @@
       "interpretationNotes": "A substudy of the same trial as RETA-003, not an independent trial. Liver fat is an imaging measure, not liver outcomes.",
       "uncertaintyText": "Single substudy; whether this changes fibrosis or clinical liver outcomes is not addressed. A phase 3 MASLD master protocol is registered and recruiting.",
       "evidence": [
-        { "locationKey": "sanyal-2024", "evidenceTypeKey": "human_rct", "interpretation": "Relative change in liver fat at 24 weeks by dose group versus placebo." }
+        {
+          "locationKey": "sanyal-2024",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Relative change in liver fat at 24 weeks by dose group versus placebo.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -122,7 +268,13 @@
       "interpretationNotes": "Registry data describe what was registered and its status, not results. The shape of the programme is itself informative: the evidence record is growing quickly and is concentrated in one sponsor.",
       "uncertaintyText": "Registry status is time-sensitive and sponsor-reported. Trials registered only elsewhere are not captured.",
       "evidence": [
-        { "locationKey": "ctgov-2026", "evidenceTypeKey": "regulatory_reference", "interpretation": "Registry search results: phases, start dates, sponsors, statuses and enrolment targets. A trial registry, not a regulator's decision." }
+        {
+          "locationKey": "ctgov-2026",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Registry search results: phases, start dates, sponsors, statuses and enrolment targets. A trial registry, not a regulator's decision.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -134,7 +286,13 @@
       "interpretationNotes": "The only human record of use outside trials. Two things are unknown and both matter: what the product contained, and how much of the illness was the infection.",
       "uncertaintyText": "A single case with a confounding infection and an unanalysed product. It is a signal about unsupervised use, not evidence about the trial molecule.",
       "evidence": [
-        { "locationKey": "case-2026", "evidenceTypeKey": "human_case_report", "interpretation": "Clinical course, confounding infection, and the authors' statement that causation cannot be established." }
+        {
+          "locationKey": "case-2026",
+          "evidenceTypeKey": "human_case_report",
+          "interpretation": "Clinical course, confounding infection, and the authors' statement that causation cannot be established.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     }
   ],
@@ -362,9 +520,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A pharmacokinetic and tolerability study of a more frequent schedule.",
       "positions": [
-        { "locationKey": "jastreboff-2023", "evidenceTypeKey": "human_rct", "positionText": "Once weekly, in every dose group, for 48 weeks." },
-        { "locationKey": "urva-2022", "evidenceTypeKey": "human_pk_pd", "positionText": "Pharmacokinetics with a half-life of about six days suggest suitability for once-weekly dosing." },
-        { "locationKey": "cheatsheet-reta", "evidenceTypeKey": "practitioner_reference", "positionText": "Three times per week, in the morning, 8 weeks on and 8 weeks off." }
+        {
+          "locationKey": "jastreboff-2023",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "Once weekly, in every dose group, for 48 weeks."
+        },
+        {
+          "locationKey": "urva-2022",
+          "evidenceTypeKey": "human_pk_pd",
+          "positionText": "Pharmacokinetics with a half-life of about six days suggest suitability for once-weekly dosing."
+        },
+        {
+          "locationKey": "cheatsheet-reta",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Three times per week, in the morning, 8 weeks on and 8 weeks off."
+        }
       ]
     },
     {
@@ -378,8 +548,16 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None further: the primary abstract states the conditions.",
       "positions": [
-        { "locationKey": "urva-2022", "evidenceTypeKey": "human_rct", "positionText": "Placebo-adjusted body-weight reduction appeared dose dependent, largest in the highest stepwise-escalation cohort at week 12." },
-        { "locationKey": "campbell-reta-228", "evidenceTypeKey": "practitioner_reference", "positionText": "Describes the phase 1 result as a mean body weight loss after 12 weeks and compares it with a tirzepatide phase 3 result at 40 weeks." }
+        {
+          "locationKey": "urva-2022",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "Placebo-adjusted body-weight reduction appeared dose dependent, largest in the highest stepwise-escalation cohort at week 12."
+        },
+        {
+          "locationKey": "campbell-reta-228",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Describes the phase 1 result as a mean body weight loss after 12 weeks and compares it with a tirzepatide phase 3 result at 40 weeks."
+        }
       ]
     },
     {
@@ -391,9 +569,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "Human body-composition results (DXA or MRI) from the phase 2 substudy or phase 3 trials.",
       "positions": [
-        { "locationKey": "campbell-reta-227", "evidenceTypeKey": "practitioner_reference", "positionText": "Points to an early preclinical study in mice as showing larger weight loss than tirzepatide." },
-        { "locationKey": "campbell-reta-228", "evidenceTypeKey": "practitioner_reference", "positionText": "States that most of the weight loss is pure body fat." },
-        { "locationKey": "coskun-2022", "evidenceTypeKey": "animal_in_vivo", "positionText": "Reports body-weight reduction and energy-expenditure effects in obese mice; the abstract makes no human body-composition statement." }
+        {
+          "locationKey": "campbell-reta-227",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Points to an early preclinical study in mice as showing larger weight loss than tirzepatide."
+        },
+        {
+          "locationKey": "campbell-reta-228",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "States that most of the weight loss is pure body fat."
+        },
+        {
+          "locationKey": "coskun-2022",
+          "evidenceTypeKey": "animal_in_vivo",
+          "positionText": "Reports body-weight reduction and energy-expenditure effects in obese mice; the abstract makes no human body-composition statement."
+        }
       ]
     }
   ],
@@ -515,6 +705,92 @@
       "basis": "One case report with an unanalysed product and a confounding infection. There is nothing to replicate yet.",
       "limitations": null,
       "supportingRecords": "PMID 42669023"
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-047",
+      "sourceKey": "SRC-047",
+      "locationKey": "coskun-2022",
+      "funderKind": "industry",
+      "sponsorName": "Eli Lilly and Company",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": "Declared interests: Declaration of interests All authors are employees and stockholders of Eli Lilly and Company and have no other conflicts of interest to declare. C.L. is a former employee of Eli Lilly and Company.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-048",
+      "sourceKey": "SRC-048",
+      "locationKey": "urva-2022",
+      "funderKind": "mixed",
+      "sponsorName": "Eli Lilly and Company",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": "Declared interests: Declaration of interests SU, TC, MTL, YD, SG, AH, CTB, and ZM are employees and shareholders of Eli Lilly and Company. MKT is an employee and shareholder of Eli Lilly and Company, and reports being industry chair of a steering committee on Accelerating Medicines Partnership-Type 2 Diabetes, and a steering committee member on Accelerating Medicines Partnership-Common Metabolic Diseases. DAD reports research grants and advisory fees from Eli Lilly and Company; research grants from Merck; consulting fees from Intarcia and Sun Pharmaceuticals; and editorial fees from American Diabetes Association …",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-049",
+      "sourceKey": "SRC-049",
+      "locationKey": "rosenstock-2023",
+      "funderKind": "mixed",
+      "sponsorName": "Eli Lilly and Company",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": "Declared interests: Declaration of interests JR has received grants and research support from Applied Therapeutics, AstraZeneca, Boehringer Ingelheim, Eli Lilly and Company, Hanmi, Merck, Oramed, Novartis, Novo Nordisk, Pfizer, and Sanofi; served on scientific advisory boards and received honorarium or consulting fees from Applied Therapeutics, Boehringer Ingelheim, Eli Lilly and Company, Hanmi, Novo Nordisk, Oramed, Sanofi, Structure Therapeutics, Terns Pharma, and Zealand; received honorarium for lectures or educational events from Boehringer Ingelheim, Eli Lilly and Company, Novo Nordisk, and Sanofi; and recei…",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-050",
+      "sourceKey": "SRC-050",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-051",
+      "sourceKey": "SRC-051",
+      "locationKey": "sanyal-2024",
+      "funderKind": "industry",
+      "sponsorName": "Eli Lilly and Company",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": "Declared interests: A.J.S. has stock options in Genfit, Tiziana, Indalo, Durect, Inversago and Galmed. He has served as a consultant to AstraZeneca, Salix, Tobira, Takeda, Janssen, Gilead, Terns, Merck, Madrigal, NGM Biopharmaceuticals, Sagimet, Valeant, Boehringer Ingelheim, Bristol Myers Squibb, Eli Lilly and Company, Hemoshear, Novartis, Inventiva, Enyo, Akero, 89Bio, Novo Nordisk, Pfizer, Amgen, Genentech, Regeneron, Alnylam, Hanmi, LG Chem, Histoindex, Thera Technologies, Intercept, Target-RWE, Surrozen, Zydus, Path AI, Exhalenz and Genfit. His institution has received grant support from Gilead, Salix, Tobir…",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-052",
+      "sourceKey": "SRC-052",
+      "locationKey": "bajaj-2026",
+      "funderKind": "industry",
+      "sponsorName": "Eli Lilly and Company",
+      "manufacturerInvolved": true,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": "Declared interests: Declaration of interests HSB reports research support (paid to institution) from Abbott, Amgen, AstraZeneca, Boehringer Ingelheim, Eli Lilly, Ionis, Novartis, Novo Nordisk, Pfizer, Roche, and Vertex; and serving as a speaker and on advisory panels for Eli Lilly, Novo Nordisk, and Roche. MW reports payment as a member of a speakers bureau from, support for attending meetings or travel from, and stocks in Eli Lilly and Company. EL reports consulting and speaker fees from Abbott, Eli Lilly, Dexcom, CeQur, Insulet, Madrigal Pharmaceuticals, and Mannkind. PS reports speaker fees from Eli Lilly and …",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-053",
+      "sourceKey": "SRC-053",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

@@ -35,8 +35,8 @@ const AUDIENCES: readonly AudienceCard[] = [
       'How quality and testing work, and what a certificate does not tell you',
       'Questions worth asking before you agree to anything',
     ],
-    href: '/quality',
-    cta: 'Start with quality and testing',
+    href: '/learn',
+    cta: 'Start with how to read it',
   },
   {
     eyebrow: 'If you are a clinician or work in a clinic',

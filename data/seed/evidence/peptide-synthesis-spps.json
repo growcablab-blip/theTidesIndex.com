@@ -90,7 +90,9 @@
         {
           "locationKey": "grant-ch3-95",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Figure 3-1 and its legend set out the attach, deprotect, couple, repeat and cleave sequence."
+          "interpretation": "Figure 3-1 and its legend set out the attach, deprotect, couple, repeat and cleave sequence.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -106,12 +108,16 @@
         {
           "locationKey": "grant-ch3-95",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Excess soluble reagents removed by filtration and washing without manipulative losses."
+          "interpretation": "Excess soluble reagents removed by filtration and washing without manipulative losses.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch3-96",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Cleavage of the crude peptide, then purification and characterisation to verify the structure obtained."
+          "interpretation": "Cleavage of the crude peptide, then purification and characterisation to verify the structure obtained.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -127,7 +133,9 @@
         {
           "locationKey": "grant-ch3-149",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "TFA cleavage, tert-butyl cation formation, alkylation of Trp, Met and Tyr, and scavengers."
+          "interpretation": "TFA cleavage, tert-butyl cation formation, alkylation of Trp, Met and Tyr, and scavengers.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -143,7 +151,9 @@
         {
           "locationKey": "grant-ch3-163",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Capping substitutes terminated for deletion peptides; both must be separated from the product."
+          "interpretation": "Capping substitutes terminated for deletion peptides; both must be separated from the product.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -159,7 +169,9 @@
         {
           "locationKey": "grant-ch3-165",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Solvation as the crucial condition; beta-sheet aggregates lower coupling efficiency."
+          "interpretation": "Solvation as the crucial condition; beta-sheet aggregates lower coupling efficiency.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -175,7 +187,9 @@
         {
           "locationKey": "saneii-ch3-46",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Small-scale versus large-scale production, their purposes and their differing process development."
+          "interpretation": "Small-scale versus large-scale production, their purposes and their differing process development.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -191,7 +205,9 @@
         {
           "locationKey": "saneii-ch3-52",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "SPPS for peptides above ten residues; hybrid solid/solution and fragment condensation routes."
+          "interpretation": "SPPS for peptides above ten residues; hybrid solid/solution and fragment condensation routes.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -207,7 +223,9 @@
         {
           "locationKey": "saneii-ch3-53",
           "evidenceTypeKey": "academic_reference",
-          "interpretation": "Raw material specifications, quarantine and QC release before use."
+          "interpretation": "Raw material specifications, quarantine and QC release before use.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

@@ -34,6 +34,9 @@ const RELATIONS = {
   public_v_protocol_practitioner: 'protocols',
   public_v_disagreements: 'disagreements',
   public_v_replication_assessments: 'replication_assessments',
+  public_v_claims: 'claims',
+  public_v_claim_evidence: 'claim_evidence',
+  public_v_study_funding: 'study_funding',
 } as const;
 
 type Rel = (name: keyof typeof RELATIONS) => SQL;
@@ -80,6 +83,21 @@ export interface DiscoveryRow {
   readonly bestReplication: string | null;
   readonly unresolvedDisagreements: number;
   readonly researchQuestions: number;
+  /**
+   * How far this record's citations have been traced back to research.
+   *
+   * Counted here, never shown as a count: the directory renders a phrase, and
+   * a reader comparing two compounds should be comparing what kind of source
+   * each rests on, not how many rows one has.
+   */
+  readonly evidenceRows: number;
+  readonly citesPrimaryResearch: number;
+  readonly abstractOnly: number;
+  readonly restsOnSecondary: number;
+  readonly fullTextRead: number;
+  /** Sources behind this record that carry a funding disclosure either way. */
+  readonly fundingChecked: number;
+  readonly fundingSources: number;
 }
 
 export interface ResearchQuestionEntry {
@@ -142,7 +160,32 @@ export async function readDiscovery(tx: Database, options: { preview?: boolean }
              (select count(*) from ${rel('public_v_disagreements')} d
                where d.peptide_id = pe.id and d.resolution = 'unresolved')::int as unresolved_disagreements,
              (select count(*) from ${rel('public_v_evidence_gaps')} g
-               where g.peptide_id = pe.id and g.research_question is not null)::int as research_questions
+               where g.peptide_id = pe.id and g.research_question is not null)::int as research_questions,
+             (select count(*) from ${rel('public_v_claim_evidence')} ce
+                join ${rel('public_v_claims')} c on c.id = ce.claim_id
+               where c.peptide_id = pe.id)::int as evidence_rows,
+             (select count(*) from ${rel('public_v_claim_evidence')} ce
+                join ${rel('public_v_claims')} c on c.id = ce.claim_id
+               where c.peptide_id = pe.id
+                 and ce.primary_trace = 'primary_source_is_cited')::int as cites_primary,
+             (select count(*) from ${rel('public_v_claim_evidence')} ce
+                join ${rel('public_v_claims')} c on c.id = ce.claim_id
+               where c.peptide_id = pe.id and ce.primary_trace = 'abstract_only')::int as abstract_only,
+             (select count(*) from ${rel('public_v_claim_evidence')} ce
+                join ${rel('public_v_claims')} c on c.id = ce.claim_id
+               where c.peptide_id = pe.id
+                 and ce.primary_trace in ('cited_not_obtained', 'not_attempted'))::int as rests_on_secondary,
+             (select count(*) from ${rel('public_v_claim_evidence')} ce
+                join ${rel('public_v_claims')} c on c.id = ce.claim_id
+               where c.peptide_id = pe.id and ce.primary_source_verified)::int as full_text_read,
+             (select count(distinct f.source_id) from ${rel('public_v_study_funding')} f
+               where f.source_id in (
+                 select ce.source_id from ${rel('public_v_claim_evidence')} ce
+                   join ${rel('public_v_claims')} c on c.id = ce.claim_id
+                  where c.peptide_id = pe.id))::int as funding_checked,
+             (select count(distinct ce.source_id) from ${rel('public_v_claim_evidence')} ce
+                join ${rel('public_v_claims')} c on c.id = ce.claim_id
+               where c.peptide_id = pe.id)::int as funding_sources
         from ${rel('public_v_peptides')} pe
         left join ${rel('public_v_compound_categories')} cc on cc.key = pe.primary_category_key
         left join ${rel('public_v_compound_types')} ct on ct.key = pe.compound_type_key
@@ -178,6 +221,13 @@ export async function readDiscovery(tx: Database, options: { preview?: boolean }
         bestReplication: best,
         unresolvedDisagreements: Number(r.unresolved_disagreements),
         researchQuestions: Number(r.research_questions),
+        evidenceRows: Number(r.evidence_rows),
+        citesPrimaryResearch: Number(r.cites_primary),
+        abstractOnly: Number(r.abstract_only),
+        restsOnSecondary: Number(r.rests_on_secondary),
+        fullTextRead: Number(r.full_text_read),
+        fundingChecked: Number(r.funding_checked),
+        fundingSources: Number(r.funding_sources),
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));

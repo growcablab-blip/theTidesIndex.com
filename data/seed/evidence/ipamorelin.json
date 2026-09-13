@@ -8,8 +8,14 @@
     "practitionerSummary": "Ipamorelin (NNC 26-0161; Aib-His-D-2-Nal-D-Phe-Lys-NH2) is a pentapeptide GH secretagogue acting through the GHRP (ghrelin) receptor. In the developer's pharmacology it matched GHRP-6 for GH release in rat pituitary cells, anaesthetised rats and conscious swine, and in swine did not raise ACTH or cortisol above GHRH-stimulated levels even at more than 200 times the GH ED50, nor alter FSH, LH, prolactin or TSH. In healthy men, 15-minute intravenous infusions across five dose levels gave dose-proportional pharmacokinetics, a terminal half-life of about 2 hours and a single GH episode peaking at about 40 minutes. A multicentre phase 2 RCT of intravenous ipamorelin twice daily after bowel resection (n = 114) found it well tolerated with no significant effect on time to tolerated meal or secondary endpoints. Animal work: dose-dependent longitudinal bone growth in rats (subcutaneous, three times daily), preservation of muscle strength and bone formation under glucocorticoid treatment, increased relative body fat and food intake in mice (twice daily, GH-independent), and roughly 20% intranasal bioavailability in rats. Anti-doping laboratories have identified N-terminally glycine-extended ipamorelin in black-market and seized products. No human study of subcutaneous administration, of body composition, or of the combination with a GHRH analogue was identified.",
     "unknownsSummary": "Not established in people: the pharmacokinetics and effects of subcutaneous ipamorelin; whether its hormonal selectivity seen in swine holds in humans; any effect on body composition, sleep or recovery; the effect of combining it with a GHRH analogue; long-term safety, including appetite and body fat given the mouse findings; and the identity of products sold under the name.",
     "aliases": [
-      { "alias": "NNC 26-0161", "note": "The developer's research code." },
-      { "alias": "Ipamorelin acetate", "note": "A salt form named in some studies; the peptide is the same." }
+      {
+        "alias": "NNC 26-0161",
+        "note": "The developer's research code."
+      },
+      {
+        "alias": "Ipamorelin acetate",
+        "note": "A salt form named in some studies; the peptide is the same."
+      }
     ],
     "sequence": null,
     "molecularDescription": "Pentapeptide Aib-His-D-2-Nal-D-Phe-Lys-NH2. Contains non-standard residues (aminoisobutyric acid, D-2-naphthylalanine), so no one-letter sequence is recorded.",
@@ -17,30 +23,158 @@
     "nomenclatureNote": "One practitioner book calls ipamorelin a growth-hormone-releasing peptide in one chapter and a growth-hormone-releasing hormone in another, swapping it with tesamorelin; the pharmacology places it at the GHRP (ghrelin) receptor. Glycine-extended ipamorelin found in black-market products is a different molecule."
   },
   "locations": [
-    { "key": "raun-1998", "sourceKey": "SRC-076", "locatorText": "Abstract", "section": "Abstract (PMID 9849822)" },
-    { "key": "gobburu-1999", "sourceKey": "SRC-077", "locatorText": "Abstract", "section": "Abstract (PMID 10496658)" },
-    { "key": "beck-2014", "sourceKey": "SRC-078", "locatorText": "Abstract", "section": "Abstract (PMID 25331030)" },
-    { "key": "nasal-rat-1998", "sourceKey": "SRC-079", "locatorText": "Abstract", "section": "Abstract (PMID 9879640)" },
-    { "key": "bone-rat-1999", "sourceKey": "SRC-080", "locatorText": "Abstract", "section": "Abstract (PMID 10373343)" },
-    { "key": "gc-rat-2001", "sourceKey": "SRC-081", "locatorText": "Abstract", "section": "Abstract (PMID 11735244)" },
-    { "key": "fat-mice-2001", "sourceKey": "SRC-082", "locatorText": "Abstract", "section": "Abstract (PMID 11162489)" },
-    { "key": "blackmarket-2018", "sourceKey": "SRC-083", "locatorText": "Abstract", "section": "Abstract (PMID 29864719)" },
-    { "key": "denmark-2019-ipa", "sourceKey": "SRC-072", "locatorText": "Abstract", "section": "Abstract (PMID 30136411)" },
-    { "key": "nasal-human-2015", "sourceKey": "SRC-084", "locatorText": "Abstract", "section": "Abstract (PMID 25869809)" },
-    { "key": "ileus-rat-2009", "sourceKey": "SRC-085", "locatorText": "Abstract", "section": "Abstract (PMID 19289567)" },
-    { "key": "seeds-ipa-90", "sourceKey": "SRC-001", "locatorText": "file p. 90", "section": "Types of GHRP: ipamorelin" },
-    { "key": "lavalle-ipa-36", "sourceKey": "SRC-002", "locatorText": "file p. 36", "section": "Dosages: ipamorelin half-life" },
-    { "key": "lavalle-ipa-41", "sourceKey": "SRC-002", "locatorText": "file pp. 40-41", "section": "Benefits of combining CJC 1295 with ipamorelin" },
-    { "key": "lavalle-ipa-196", "sourceKey": "SRC-002", "locatorText": "file p. 196", "section": "Exercise recovery: peptide protocol" },
-    { "key": "campbell-ipa-58", "sourceKey": "SRC-003", "locatorText": "p. 58", "pageStart": 58, "section": "Ipamorelin (fat loss chapter)" },
-    { "key": "campbell-ipa-59", "sourceKey": "SRC-003", "locatorText": "pp. 59-60", "pageStart": 59, "pageEnd": 60, "section": "Ipamorelin recommended dosage" },
-    { "key": "campbell-ipa-100", "sourceKey": "SRC-003", "locatorText": "pp. 100-101", "pageStart": 100, "pageEnd": 101, "section": "Ipamorelin (longevity chapter)" },
-    { "key": "campbell-ipa-193", "sourceKey": "SRC-003", "locatorText": "p. 193", "pageStart": 193, "section": "Ipamorelin and tesamorelin" },
-    { "key": "campbell-ipa-199", "sourceKey": "SRC-003", "locatorText": "pp. 199-200", "pageStart": 199, "pageEnd": 200, "section": "The Wolverine protocol" },
-    { "key": "cheatsheet-ipa-2", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, Ipamorelin row" },
-    { "key": "cheatsheet-ipa-6", "sourceKey": "SRC-004", "locatorText": "file p. 6", "section": "Blends table, Tesamorelin / Ipamorelin row" },
-    { "key": "hacksmith-ipa", "sourceKey": "SRC-005", "locatorText": "file pp. 69-71", "section": "Ipamorelin" },
-    { "key": "hacksmith-persona-ipa", "sourceKey": "SRC-005", "locatorText": "file p. 186", "section": "Persona 1: bodybuilder regimen" }
+    {
+      "key": "raun-1998",
+      "sourceKey": "SRC-076",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 9849822)"
+    },
+    {
+      "key": "gobburu-1999",
+      "sourceKey": "SRC-077",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 10496658)"
+    },
+    {
+      "key": "beck-2014",
+      "sourceKey": "SRC-078",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 25331030)"
+    },
+    {
+      "key": "nasal-rat-1998",
+      "sourceKey": "SRC-079",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 9879640)"
+    },
+    {
+      "key": "bone-rat-1999",
+      "sourceKey": "SRC-080",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 10373343)"
+    },
+    {
+      "key": "gc-rat-2001",
+      "sourceKey": "SRC-081",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 11735244)"
+    },
+    {
+      "key": "fat-mice-2001",
+      "sourceKey": "SRC-082",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 11162489)"
+    },
+    {
+      "key": "blackmarket-2018",
+      "sourceKey": "SRC-083",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 29864719)"
+    },
+    {
+      "key": "denmark-2019-ipa",
+      "sourceKey": "SRC-072",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 30136411)"
+    },
+    {
+      "key": "nasal-human-2015",
+      "sourceKey": "SRC-084",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 25869809)"
+    },
+    {
+      "key": "ileus-rat-2009",
+      "sourceKey": "SRC-085",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 19289567)"
+    },
+    {
+      "key": "seeds-ipa-90",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 90",
+      "section": "Types of GHRP: ipamorelin"
+    },
+    {
+      "key": "lavalle-ipa-36",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 36",
+      "section": "Dosages: ipamorelin half-life"
+    },
+    {
+      "key": "lavalle-ipa-41",
+      "sourceKey": "SRC-002",
+      "locatorText": "file pp. 40-41",
+      "section": "Benefits of combining CJC 1295 with ipamorelin"
+    },
+    {
+      "key": "lavalle-ipa-196",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 196",
+      "section": "Exercise recovery: peptide protocol"
+    },
+    {
+      "key": "campbell-ipa-58",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 58",
+      "pageStart": 58,
+      "section": "Ipamorelin (fat loss chapter)"
+    },
+    {
+      "key": "campbell-ipa-59",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 59-60",
+      "pageStart": 59,
+      "pageEnd": 60,
+      "section": "Ipamorelin recommended dosage"
+    },
+    {
+      "key": "campbell-ipa-100",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 100-101",
+      "pageStart": 100,
+      "pageEnd": 101,
+      "section": "Ipamorelin (longevity chapter)"
+    },
+    {
+      "key": "campbell-ipa-193",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 193",
+      "pageStart": 193,
+      "section": "Ipamorelin and tesamorelin"
+    },
+    {
+      "key": "campbell-ipa-199",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 199-200",
+      "pageStart": 199,
+      "pageEnd": 200,
+      "section": "The Wolverine protocol"
+    },
+    {
+      "key": "cheatsheet-ipa-2",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 2",
+      "section": "Fat loss table, Ipamorelin row"
+    },
+    {
+      "key": "cheatsheet-ipa-6",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 6",
+      "section": "Blends table, Tesamorelin / Ipamorelin row"
+    },
+    {
+      "key": "hacksmith-ipa",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 69-71",
+      "section": "Ipamorelin"
+    },
+    {
+      "key": "hacksmith-persona-ipa",
+      "sourceKey": "SRC-005",
+      "locatorText": "file p. 186",
+      "section": "Persona 1: bodybuilder regimen"
+    }
   ],
   "claims": [
     {
@@ -52,8 +186,20 @@
       "interpretationNotes": "The origin of the selectivity claim every practitioner source repeats. It was shown in pigs.",
       "uncertaintyText": "Animal pharmacology from the developer. Human hormonal selectivity was not measured in any record held.",
       "evidence": [
-        { "locationKey": "raun-1998", "evidenceTypeKey": "in_vitro", "interpretation": "GH release from rat pituitary cells and receptor profiling with antagonists." },
-        { "locationKey": "raun-1998", "evidenceTypeKey": "animal_in_vivo", "interpretation": "GH, ACTH, cortisol and other pituitary hormones in rats and swine." }
+        {
+          "locationKey": "raun-1998",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "GH release from rat pituitary cells and receptor profiling with antagonists.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "raun-1998",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "GH, ACTH, cortisol and other pituitary hormones in rats and swine.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -65,7 +211,13 @@
       "interpretationNotes": "The only human pharmacokinetic study. The half-life practitioner sources quote matches it, but they describe injection under the skin, which this study did not test.",
       "uncertaintyText": "Intravenous, single infusions, healthy men only.",
       "evidence": [
-        { "locationKey": "gobburu-1999", "evidenceTypeKey": "human_pk_pd", "interpretation": "Dose-escalation PK/PD in healthy male volunteers." }
+        {
+          "locationKey": "gobburu-1999",
+          "evidenceTypeKey": "human_pk_pd",
+          "interpretation": "Dose-escalation PK/PD in healthy male volunteers.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -77,7 +229,13 @@
       "interpretationNotes": "The only controlled efficacy trial in people, and a negative one. Rat models of the same condition were positive.",
       "uncertaintyText": "A small proof-of-concept study with a broad range of underlying conditions.",
       "evidence": [
-        { "locationKey": "beck-2014", "evidenceTypeKey": "human_rct", "interpretation": "Tolerability and efficacy endpoints versus placebo (NCT00672074)." }
+        {
+          "locationKey": "beck-2014",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Tolerability and efficacy endpoints versus placebo (NCT00672074).",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -89,7 +247,13 @@
       "interpretationNotes": "Directly relevant to practitioner framing of ipamorelin as a fat-loss peptide. Mouse findings do not establish what happens in people; neither does the practitioner framing.",
       "uncertaintyText": "Mice; not replicated in the held records.",
       "evidence": [
-        { "locationKey": "fat-mice-2001", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Body fat, food intake and leptin with ipamorelin versus GH." }
+        {
+          "locationKey": "fat-mice-2001",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Body fat, food intake and leptin with ipamorelin versus GH.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -101,8 +265,20 @@
       "interpretationNotes": "Two groups in Denmark, one the developer.",
       "uncertaintyText": "Rats. No human bone or muscle study was identified.",
       "evidence": [
-        { "locationKey": "bone-rat-1999", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Longitudinal bone growth, body weight, IGF-I." },
-        { "locationKey": "gc-rat-2001", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Muscle strength and bone formation with glucocorticoid." }
+        {
+          "locationKey": "bone-rat-1999",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Longitudinal bone growth, body weight, IGF-I.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "gc-rat-2001",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Muscle strength and bone formation with glucocorticoid.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -114,8 +290,20 @@
       "interpretationNotes": "Route evidence that no practitioner source held here relies on; recorded for completeness.",
       "uncertaintyText": "Rat bioavailability; a single human volunteer for metabolite identification only.",
       "evidence": [
-        { "locationKey": "nasal-rat-1998", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Nasal bioavailability and excretion in rats." },
-        { "locationKey": "nasal-human-2015", "evidenceTypeKey": "human_pk_pd", "interpretation": "Urinary metabolites after nasal administration in one volunteer." }
+        {
+          "locationKey": "nasal-rat-1998",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Nasal bioavailability and excretion in rats.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "nasal-human-2015",
+          "evidenceTypeKey": "human_pk_pd",
+          "interpretation": "Urinary metabolites after nasal administration in one volunteer.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -127,8 +315,20 @@
       "interpretationNotes": "Two laboratories in two countries. Glycine-extended ipamorelin is a different molecule with unstudied properties.",
       "uncertaintyText": "Seized and black-market material; not a survey of products.",
       "evidence": [
-        { "locationKey": "blackmarket-2018", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Gly-ipamorelin identified by high-resolution MS and confirmed by synthesis." },
-        { "locationKey": "denmark-2019-ipa", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Glycine-extended ipamorelin among seized secretagogue analogues." }
+        {
+          "locationKey": "blackmarket-2018",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Gly-ipamorelin identified by high-resolution MS and confirmed by synthesis.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "denmark-2019-ipa",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Glycine-extended ipamorelin among seized secretagogue analogues.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     }
   ],
@@ -412,10 +612,26 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A controlled human study measuring appetite, food intake and body composition.",
       "positions": [
-        { "locationKey": "campbell-ipa-100", "evidenceTypeKey": "practitioner_reference", "positionText": "Does not touch the hunger hormone ghrelin, so hunger is reduced; an excellent choice for fat loss." },
-        { "locationKey": "campbell-ipa-58", "evidenceTypeKey": "practitioner_reference", "positionText": "Recommended as the best introductory peptide for fat loss." },
-        { "locationKey": "fat-mice-2001", "evidenceTypeKey": "animal_in_vivo", "positionText": "Increased relative body fat, food intake and leptin in mice, independently of GH." },
-        { "locationKey": "beck-2014", "evidenceTypeKey": "human_rct", "positionText": "Describes ipamorelin as a ghrelin-receptor agonist." }
+        {
+          "locationKey": "campbell-ipa-100",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Does not touch the hunger hormone ghrelin, so hunger is reduced; an excellent choice for fat loss."
+        },
+        {
+          "locationKey": "campbell-ipa-58",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Recommended as the best introductory peptide for fat loss."
+        },
+        {
+          "locationKey": "fat-mice-2001",
+          "evidenceTypeKey": "animal_in_vivo",
+          "positionText": "Increased relative body fat, food intake and leptin in mice, independently of GH."
+        },
+        {
+          "locationKey": "beck-2014",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "Describes ipamorelin as a ghrelin-receptor agonist."
+        }
       ]
     },
     {
@@ -427,9 +643,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "Measurement of ACTH, cortisol and prolactin after ipamorelin in people.",
       "positions": [
-        { "locationKey": "seeds-ipa-90", "evidenceTypeKey": "practitioner_reference", "positionText": "Does not create prolactin or cortisol." },
-        { "locationKey": "hacksmith-ipa", "evidenceTypeKey": "practitioner_reference", "positionText": "Does not stimulate cortisol or prolactin release." },
-        { "locationKey": "raun-1998", "evidenceTypeKey": "animal_in_vivo", "positionText": "In swine, no ACTH or cortisol release beyond GHRH levels, and no change in prolactin." }
+        {
+          "locationKey": "seeds-ipa-90",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Does not create prolactin or cortisol."
+        },
+        {
+          "locationKey": "hacksmith-ipa",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Does not stimulate cortisol or prolactin release."
+        },
+        {
+          "locationKey": "raun-1998",
+          "evidenceTypeKey": "animal_in_vivo",
+          "positionText": "In swine, no ACTH or cortisol release beyond GHRH levels, and no change in prolactin."
+        }
       ]
     },
     {
@@ -441,9 +669,21 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A larger adequately powered human trial, or a defined human gut outcome in another setting.",
       "positions": [
-        { "locationKey": "campbell-ipa-100", "evidenceTypeKey": "practitioner_reference", "positionText": "Lists better gut health among its outcomes." },
-        { "locationKey": "ileus-rat-2009", "evidenceTypeKey": "animal_in_vivo", "positionText": "Improved bowel function and food intake after surgery in rats." },
-        { "locationKey": "beck-2014", "evidenceTypeKey": "human_rct", "positionText": "No significant difference from placebo in time to tolerated meal or secondary endpoints after bowel resection." }
+        {
+          "locationKey": "campbell-ipa-100",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Lists better gut health among its outcomes."
+        },
+        {
+          "locationKey": "ileus-rat-2009",
+          "evidenceTypeKey": "animal_in_vivo",
+          "positionText": "Improved bowel function and food intake after surgery in rats."
+        },
+        {
+          "locationKey": "beck-2014",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "No significant difference from placebo in time to tolerated meal or secondary endpoints after bowel resection."
+        }
       ]
     },
     {
@@ -457,9 +697,21 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None further.",
       "positions": [
-        { "locationKey": "campbell-ipa-58", "evidenceTypeKey": "practitioner_reference", "positionText": "Ipamorelin is a GHRP." },
-        { "locationKey": "campbell-ipa-193", "evidenceTypeKey": "practitioner_reference", "positionText": "Ipamorelin is a GHRH and tesamorelin a GHRP." },
-        { "locationKey": "raun-1998", "evidenceTypeKey": "in_vitro", "positionText": "Stimulates GH release via a GHRP-like receptor, shown with GHRP and GHRH antagonists." }
+        {
+          "locationKey": "campbell-ipa-58",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Ipamorelin is a GHRP."
+        },
+        {
+          "locationKey": "campbell-ipa-193",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Ipamorelin is a GHRH and tesamorelin a GHRP."
+        },
+        {
+          "locationKey": "raun-1998",
+          "evidenceTypeKey": "in_vitro",
+          "positionText": "Stimulates GH release via a GHRP-like receptor, shown with GHRP and GHRH antagonists."
+        }
       ]
     },
     {
@@ -471,10 +723,26 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A human study of subcutaneous dosing frequency.",
       "positions": [
-        { "locationKey": "campbell-ipa-59", "evidenceTypeKey": "practitioner_reference", "positionText": "One to three times a day, cycled for no more than 8 weeks." },
-        { "locationKey": "hacksmith-ipa", "evidenceTypeKey": "practitioner_reference", "positionText": "One to three times daily, fasted." },
-        { "locationKey": "cheatsheet-ipa-2", "evidenceTypeKey": "practitioner_reference", "positionText": "Morning or evening, five days on and two off, in eight-week cycles." },
-        { "locationKey": "gobburu-1999", "evidenceTypeKey": "human_pk_pd", "positionText": "Terminal half-life about 2 hours after intravenous infusion." }
+        {
+          "locationKey": "campbell-ipa-59",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "One to three times a day, cycled for no more than 8 weeks."
+        },
+        {
+          "locationKey": "hacksmith-ipa",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "One to three times daily, fasted."
+        },
+        {
+          "locationKey": "cheatsheet-ipa-2",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Morning or evening, five days on and two off, in eight-week cycles."
+        },
+        {
+          "locationKey": "gobburu-1999",
+          "evidenceTypeKey": "human_pk_pd",
+          "positionText": "Terminal half-life about 2 hours after intravenous infusion."
+        }
       ]
     }
   ],
@@ -585,6 +853,140 @@
       "basis": "No study exists to replicate.",
       "limitations": null,
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-072",
+      "sourceKey": "SRC-072",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-076",
+      "sourceKey": "SRC-076",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-077",
+      "sourceKey": "SRC-077",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-078",
+      "sourceKey": "SRC-078",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-079",
+      "sourceKey": "SRC-079",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-080",
+      "sourceKey": "SRC-080",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-081",
+      "sourceKey": "SRC-081",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-082",
+      "sourceKey": "SRC-082",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-083",
+      "sourceKey": "SRC-083",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-084",
+      "sourceKey": "SRC-084",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-085",
+      "sourceKey": "SRC-085",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

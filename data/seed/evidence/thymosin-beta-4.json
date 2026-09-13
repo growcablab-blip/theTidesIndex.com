@@ -156,7 +156,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source describes Thymosin beta-4 as a 43 amino acid, 5 kDa polypeptide, the main G-actin sequestering peptide, found in all tissues and cell types except red blood cells, and one of sixteen beta-thymosins of which three occur in man.",
-          "populationModel": "Not applicable — a statement about the molecule."
+          "populationModel": "Not applicable — a statement about the molecule.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -174,14 +176,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source prints the 43-residue sequence and gives MW 4963.4408 under Molecular Composition.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "tb500-identity-equine",
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "The source states that the peptide segment 17-LKKTETQ-23 is the active site within thymosin beta-4 responsible for actin binding, cell migration and wound healing.",
-          "populationModel": "Not applicable — a statement about the molecule."
+          "populationModel": "Not applicable — a statement about the molecule.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -199,14 +205,18 @@
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "Randomised, placebo-controlled, single and multiple ascending dose study of intravenous synthetic thymosin beta-4: four cohorts of ten healthy subjects at 42, 140, 420 or 1260 mg, then the same regimen daily for 14 days. Adverse events infrequent and mild to moderate, no dose-limiting toxicities, dose-proportional single-dose pharmacokinetics with half-life increasing with dose.",
-          "populationModel": "Forty healthy adult volunteers, United States."
+          "populationModel": "Forty healthy adult volunteers, United States.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-phase1-cn",
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "First-in-human randomised, double-blind study of recombinant human thymosin beta-4 (NL005) by intravenous injection: seven single-dose cohorts totalling 54 healthy subjects at 0.05 to 25.0 micrograms per kilogram observed for 28 days, plus three multiple-dose cohorts totalling 30 subjects dosed daily for 10 days. Adverse events mild to moderate, no dose-limiting toxicities, no serious adverse events, exposure increasing with dose and no accumulation on repeat dosing.",
-          "populationModel": "Eighty-four healthy adult volunteers, China."
+          "populationModel": "Eighty-four healthy adult volunteers, China.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -224,35 +234,45 @@
           "evidenceTypeKey": "human_rct",
           "relationship": "supports",
           "interpretation": "Multicentre randomised double-masked placebo-controlled phase 2 trial of thymosin beta-4 eye drops (RGN-259, 0.1%) six times daily for 28 days with follow-up to day 56, at two US sites. Nine patients. At day 56 the treated group showed a 35.1% reduction in ocular discomfort and a 59.1% reduction in total corneal fluorescein staining against vehicle control.",
-          "populationModel": "Nine patients with severe dry eye, including disease associated with graft-versus-host disease. United States."
+          "populationModel": "Nine patients with severe dry eye, including disease associated with graft-versus-host disease. United States.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-ulcer",
           "evidenceTypeKey": "human_rct",
           "relationship": "supports",
           "interpretation": "Double-blind placebo-controlled dose-escalation phase 2 study of topically administered thymosin beta-4 at eight European sites, 73 patients randomised. Safety across all doses deemed acceptable and comparable to placebo. The source states that a 0.03% dose may have the potential to accelerate wound healing.",
-          "populationModel": "Seventy-three patients with venous stasis ulcers. Italy and Poland."
+          "populationModel": "Seventy-three patients with venous stasis ulcers. Italy and Poland.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-ulcer-interim",
           "evidenceTypeKey": "human_rct",
           "relationship": "contextualizes",
           "interpretation": "The design and interim report of the same European programme, from the same group: three sequential dose groups, 3:1 randomisation, 84 days of treatment with 14 days of follow-up, healing measured by digital planimetry. Recorded so that two papers are not mistaken for two studies.",
-          "populationModel": "The same programme."
+          "populationModel": "The same programme.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-sebderm",
           "evidenceTypeKey": "human_controlled_nonrandomized",
           "relationship": "supports",
           "interpretation": "Four weeks of 0.5 mg/mL recombinant human thymosin beta-4 gel or 2% ketoconazole lotion in 71 patients with seborrheic dermatitis, with 21 healthy individuals for comparison. Clinical scoring by adherent scalp flaking score and maximum erythema area, with transepidermal water loss, hydration and sebum secretion. The source reports significantly greater efficacy than ketoconazole and a sustained effect.",
-          "populationModel": "Seventy-one patients with seborrheic dermatitis. China."
+          "populationModel": "Seventy-one patients with seborrheic dermatitis. China.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-cornea-cases",
           "evidenceTypeKey": "human_case_series",
           "relationship": "supports",
           "interpretation": "Case reports of chronic non-healing neurotrophic corneal epithelial defects treated with thymosin beta-4. The PubMed record carries no abstract, so the design, number of patients and outcomes are not held here.",
-          "populationModel": "Not established from the record held."
+          "populationModel": "Not established from the record held.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -270,28 +290,36 @@
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "Intravenous administration.",
-          "populationModel": "Healthy volunteers."
+          "populationModel": "Healthy volunteers.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-phase1-cn",
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "Intravenous injection.",
-          "populationModel": "Healthy volunteers."
+          "populationModel": "Healthy volunteers.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb4-ulcer",
           "evidenceTypeKey": "human_rct",
           "relationship": "supports",
           "interpretation": "Topical administration to the ulcer.",
-          "populationModel": "Patients with venous ulcers."
+          "populationModel": "Patients with venous ulcers.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "lavalle-tb4-153",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contradicts",
           "interpretation": "The handbook's dosage section specifies subcutaneous administration, a route none of the identified human studies used.",
-          "populationModel": "Not specified by the handbook."
+          "populationModel": "Not specified by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -309,21 +337,27 @@
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "High-performance liquid chromatography with high-resolution mass spectrometry detected and identified the N-terminally acetylated 17-23 fragment of human thymosin beta-4, Ac-LKKTETQ, in TB-500. The fragment was then synthesised independently and an assay developed for plasma and urine.",
-          "populationModel": "Not applicable — an analysis of a formulation."
+          "populationModel": "Not applicable — an analysis of a formulation.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "tb500-identity-equine",
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "A second laboratory, in a different matrix: \"The key ingredient of TB-500 is the peptide LKKTETQ with artificial acetylation of the N-terminus.\"",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "lavalle-tb4-152",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contradicts",
           "interpretation": "The handbook lists \"Thymosin beta 4\", \"Tb4\" and \"TB-500\" together under Name(s), and prints the 43-residue sequence immediately below them.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -341,14 +375,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source states that beta-thymosins bind and sequester monomeric actin, preventing polymerisation and formation of filamentous actin, and lists downstream activities including downregulation of inflammatory chemokines and cytokines and promotion of cell migration, blood vessel formation, cell survival and stem cell maturation.",
-          "populationModel": "Not applicable — a molecular mechanism."
+          "populationModel": "Not applicable — a molecular mechanism.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "tb500-identity-equine",
           "evidenceTypeKey": "analytical_characterisation",
           "relationship": "supports",
           "interpretation": "Independently identifies 17-LKKTETQ-23 as the active site within thymosin beta-4 responsible for actin binding, cell migration and wound healing.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         }
       ]
     },
@@ -366,14 +404,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source gives a general subcutaneous dosage range varied by clinical presentation, with a three-month limit and cycling of six weeks off.",
-          "populationModel": "Not specified by the handbook."
+          "populationModel": "Not specified by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "seeds-tb4-185",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source gives the same subcutaneous range, varied by clinical presentation, with a three-month limit and cycling of one month off, and states it can be used concurrently with thymosin alpha-1 and BPC-157.",
-          "populationModel": "Not specified by the handbook."
+          "populationModel": "Not specified by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }
@@ -884,6 +926,92 @@
       "basis": "The screen identified no human study of a musculoskeletal indication. This assessment exists because musculoskeletal repair is the first use the practitioner handbook lists and the reason most readers arrive at this record — so the absence belongs where a reader is looking, not only in the gaps list.",
       "limitations": "An absence within a stratified screen of one database, bounded accordingly.",
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-035",
+      "sourceKey": "SRC-035",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-036",
+      "sourceKey": "SRC-036",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-037",
+      "sourceKey": "SRC-037",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-038",
+      "sourceKey": "SRC-038",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-039",
+      "sourceKey": "SRC-039",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-040",
+      "sourceKey": "SRC-040",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-046",
+      "sourceKey": "SRC-046",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

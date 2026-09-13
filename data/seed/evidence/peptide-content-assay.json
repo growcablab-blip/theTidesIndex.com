@@ -75,13 +75,17 @@
           "locationKey": "grant-ch4-223-table",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-1 gives amino acid analysis the advantages 'accurately quantitates peptide levels' and 'provides mol ratio of amino acids', and gives reversed-phase HPLC the advantages 'assesses level of heterogeneity' and 'useful for purification' with no quantitative capability listed."
+          "interpretation": "Table 4-1 gives amino acid analysis the advantages 'accurately quantitates peptide levels' and 'provides mol ratio of amino acids', and gives reversed-phase HPLC the advantages 'assesses level of heterogeneity' and 'useful for purification' with no quantitative capability listed.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-224-quantitation",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that amino acid analysis quantitates the amount of the peptide and informs whether the requisite amino acids are present at reasonable ratios, in a passage contrasting it with the separation techniques that reveal only the relative number of species present."
+          "interpretation": "Grant writes that amino acid analysis quantitates the amount of the peptide and informs whether the requisite amino acids are present at reasonable ratios, in a passage contrasting it with the separation techniques that reveal only the relative number of species present.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -98,13 +102,17 @@
           "locationKey": "grant-ch4-261-quantitation",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes, listing techniques that remain useful in particular situations alongside mass spectrometry, that amino acid analysis is still the best method for peptide quantitation."
+          "interpretation": "Grant writes, listing techniques that remain useful in particular situations alongside mass spectrometry, that amino acid analysis is still the best method for peptide quantitation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-262-aaa",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that amino acid analysis reveals the content of amino acids in a peptide and quantitates the amount of each, and that more importantly this is the best method for determining the amount of peptide."
+          "interpretation": "Grant writes that amino acid analysis reveals the content of amino acids in a peptide and quantitates the amount of each, and that more importantly this is the best method for determining the amount of peptide.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -121,13 +129,17 @@
           "locationKey": "grant-ch4-262-aaa",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that amino acid analysis quantitates the amount of each amino acid and that, with the exception of a few amino acids which do not yield quantitatively, the average amount of the amino acids can be directly converted into an accurate quantitation of the peptide."
+          "interpretation": "Grant writes that amino acid analysis quantitates the amount of each amino acid and that, with the exception of a few amino acids which do not yield quantitatively, the average amount of the amino acids can be directly converted into an accurate quantitation of the peptide.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-263-hydrolysis",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that since all amino acid analysis techniques analyse the free amino acids, any polypeptide including synthetic peptides must first be broken down into its individual amino acids by hydrolysis of the peptide bonds, commonly by subjecting the peptide to 6N hydrochloric acid."
+          "interpretation": "Grant writes that since all amino acid analysis techniques analyse the free amino acids, any polypeptide including synthetic peptides must first be broken down into its individual amino acids by hydrolysis of the peptide bonds, commonly by subjecting the peptide to 6N hydrochloric acid.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -144,13 +156,17 @@
           "locationKey": "grant-ch4-266-losses",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant states that cysteine and methionine are generally determined after performic acid oxidation as cysteic acid and methionine sulfone, that reported alternatives for preserving tryptophan have been found variable in practice while alkaline hydrolysis preserves it but destroys other amino acids, and that glutamine and asparagine are completely converted to glutamic and aspartic acid so that the Glu and Asp values represent Glu plus Gln and Asp plus Asn content."
+          "interpretation": "Grant states that cysteine and methionine are generally determined after performic acid oxidation as cysteic acid and methionine sulfone, that reported alternatives for preserving tryptophan have been found variable in practice while alkaline hydrolysis preserves it but destroys other amino acids, and that glutamine and asparagine are completely converted to glutamic and aspartic acid so that the Glu and Asp values represent Glu plus Gln and Asp plus Asn content.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-224-quantitation",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that amino acid analysis is less reliable for certain unstable amino acids such as cysteine, methionine and tryptophan, and that compositional accuracy decreases as the peptide gets larger."
+          "interpretation": "Grant writes that amino acid analysis is less reliable for certain unstable amino acids such as cysteine, methionine and tryptophan, and that compositional accuracy decreases as the peptide gets larger.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -167,7 +183,9 @@
           "locationKey": "grant-ch4-263-hydrolysis",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that a limitation of post-column ninhydrin detection is its limited sensitivity, and that even on modern ninhydrin-based instruments levels below approximately 100 pmol do not quantitate accurately."
+          "interpretation": "Grant writes that a limitation of post-column ninhydrin detection is its limited sensitivity, and that even on modern ninhydrin-based instruments levels below approximately 100 pmol do not quantitate accurately.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -184,13 +202,17 @@
           "locationKey": "grant-ch4-262-aaa",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Grant writes that a mole ratio of the amino acids can be calculated from the analysis and compared to the predicted mole ratio based on the intended sequence of the peptide."
+          "interpretation": "Grant writes that a mole ratio of the amino acids can be calculated from the analysis and compared to the predicted mole ratio based on the intended sequence of the peptide.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "grant-ch4-223-table",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
-          "interpretation": "Table 4-1 lists 'provides mol ratio of amino acids' among the advantages of amino acid analysis and 'does not distinguish heterogeneous species' among its limitations."
+          "interpretation": "Table 4-1 lists 'provides mol ratio of amino acids' among the advantages of amino acid analysis and 'does not distinguish heterogeneous species' among its limitations.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     }

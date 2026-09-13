@@ -8,9 +8,18 @@
     "practitionerSummary": "CJC-1295 is tetrasubstituted hGRF(1-29) with an added C-terminal Nε-3-maleimidopropionamide lysine that bioconjugates to Cys34 of serum albumin; the originator (ConjuChem) selected it from three maleimido derivatives for DPP-IV resistance and extended plasma presence in rats. Two randomised, placebo-controlled ascending-dose trials in healthy adults reported dose-dependent GH increases for 6 days or more and IGF-I increases for 9-11 days after a single subcutaneous injection, an estimated half-life of 5.8-8.1 days, IGF-I above baseline up to 28 days after multiple doses, a cumulative effect, and no serious adverse reactions. A single-injection study in healthy young men found trough GH markedly raised with pulse frequency and amplitude preserved. In GHRH-knockout mice, daily administration normalised growth, less so at 48- or 72-hour intervals. No published efficacy trial in any condition was identified. A practitioner source reports a phase II trial in HIV lipodystrophy with one death judged unrelated; it was not found in PubMed. Anti-doping laboratories list CJC-1295 and CJC-1295 with DAC as separate analytes, and a seized product sold as CJC-1295 contained a 29-residue amide — the modified GRF (1-29) molecule, recorded separately.",
     "unknownsSummary": "Not established: any benefit or long-term safety in any condition; the phase II lipodystrophy trial reported by a practitioner source and its outcome; the effect of practitioner schedules (nightly, twice weekly, weekly) given a half-life of about a week; combination with ipamorelin; and whether products sold as CJC-1295 or CJC-1295 with DAC contain the albumin-binding molecule at all.",
     "aliases": [
-      { "alias": "CJC-1295 with DAC", "note": "Practitioner name for this molecule; DAC (drug affinity complex) was the developer's term for the albumin-binding technology." },
-      { "alias": "DAC:GRF", "note": "A shorthand for the same albumin-binding GRF analogue." },
-      { "alias": "CJC-1295 without DAC", "note": "NOT this molecule. Used for modified GRF (1-29), which has its own record." }
+      {
+        "alias": "CJC-1295 with DAC",
+        "note": "Practitioner name for this molecule; DAC (drug affinity complex) was the developer's term for the albumin-binding technology."
+      },
+      {
+        "alias": "DAC:GRF",
+        "note": "A shorthand for the same albumin-binding GRF analogue."
+      },
+      {
+        "alias": "CJC-1295 without DAC",
+        "note": "NOT this molecule. Used for modified GRF (1-29), which has its own record."
+      }
     ],
     "sequence": null,
     "molecularDescription": "Tetrasubstituted hGRF(1-29) with an added C-terminal lysine carrying a 3-maleimidopropionamide group that binds albumin covalently after injection.",
@@ -18,27 +27,134 @@
     "nomenclatureNote": "The name is not reliable on its own. The originator, the human trials and equine anti-doping work use CJC-1295 for the albumin-binding molecule. Handbooks and sellers use \"CJC-1295 without DAC\" for a 29-residue peptide with no albumin-binding group, and one handbook assigns both molecules the same molecular weight. A seized product sold as CJC-1295 was analysed and found to be the 29-residue peptide."
   },
   "locations": [
-    { "key": "jette-2005", "sourceKey": "SRC-066", "locatorText": "Abstract", "section": "Abstract (PMID 15817669)" },
-    { "key": "teichman-2006", "sourceKey": "SRC-067", "locatorText": "Abstract", "section": "Abstract (PMID 16352683)" },
-    { "key": "ionescu-2006", "sourceKey": "SRC-068", "locatorText": "Abstract", "section": "Abstract (PMID 17018654)" },
-    { "key": "alba-2006", "sourceKey": "SRC-069", "locatorText": "Abstract", "section": "Abstract (PMID 16822960)" },
-    { "key": "proteomics-2009", "sourceKey": "SRC-070", "locatorText": "Abstract", "section": "Abstract (PMID 19386527)" },
-    { "key": "henninge-2010", "sourceKey": "SRC-071", "locatorText": "Abstract", "section": "Abstract (PMID 21204297)" },
-    { "key": "equine-2019", "sourceKey": "SRC-073", "locatorText": "Abstract", "section": "Abstract (PMID 30489688)" },
-    { "key": "kings-2021", "sourceKey": "SRC-074", "locatorText": "Abstract", "section": "Abstract (PMID 34665524)" },
-    { "key": "review-2026", "sourceKey": "SRC-075", "locatorText": "Abstract", "section": "Abstract (PMID 42395176)" },
-    { "key": "seeds-cjc-89", "sourceKey": "SRC-001", "locatorText": "file p. 89", "section": "Types of GHRH" },
-    { "key": "seeds-cjc-101", "sourceKey": "SRC-001", "locatorText": "file p. 101", "section": "CJC 1295: properties" },
-    { "key": "seeds-cjc-102", "sourceKey": "SRC-001", "locatorText": "file p. 102", "section": "CJC 1295: applications and dosage" },
-    { "key": "lavalle-cjc-34", "sourceKey": "SRC-002", "locatorText": "file p. 34", "section": "CJC-1295 and CJC-1295 + Ipamorelin: names, sequence, composition" },
-    { "key": "lavalle-cjc-36", "sourceKey": "SRC-002", "locatorText": "file p. 36", "section": "Dosages" },
-    { "key": "lavalle-cjc-37", "sourceKey": "SRC-002", "locatorText": "file p. 37", "section": "Warnings and cautions" },
-    { "key": "lavalle-cjc-38", "sourceKey": "SRC-002", "locatorText": "file pp. 38-39", "section": "Summary" },
-    { "key": "campbell-cjc-98", "sourceKey": "SRC-003", "locatorText": "p. 98", "pageStart": 98, "section": "CJC-1295 recommended dosage" },
-    { "key": "campbell-cjc-99", "sourceKey": "SRC-003", "locatorText": "p. 99", "pageStart": 99, "section": "What is DAC" },
-    { "key": "cheatsheet-cjc-7", "sourceKey": "SRC-004", "locatorText": "file p. 7", "section": "Oral sublingual peptide strips, CJC-1295 row" },
-    { "key": "hacksmith-cjc-dac", "sourceKey": "SRC-005", "locatorText": "file pp. 47-49", "section": "CJC-1295 with DAC" },
-    { "key": "hacksmith-monitoring", "sourceKey": "SRC-005", "locatorText": "file p. 184", "section": "Peptide monitoring and blood tests" }
+    {
+      "key": "jette-2005",
+      "sourceKey": "SRC-066",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 15817669)"
+    },
+    {
+      "key": "teichman-2006",
+      "sourceKey": "SRC-067",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 16352683)"
+    },
+    {
+      "key": "ionescu-2006",
+      "sourceKey": "SRC-068",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 17018654)"
+    },
+    {
+      "key": "alba-2006",
+      "sourceKey": "SRC-069",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 16822960)"
+    },
+    {
+      "key": "proteomics-2009",
+      "sourceKey": "SRC-070",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 19386527)"
+    },
+    {
+      "key": "henninge-2010",
+      "sourceKey": "SRC-071",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 21204297)"
+    },
+    {
+      "key": "equine-2019",
+      "sourceKey": "SRC-073",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 30489688)"
+    },
+    {
+      "key": "kings-2021",
+      "sourceKey": "SRC-074",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 34665524)"
+    },
+    {
+      "key": "review-2026",
+      "sourceKey": "SRC-075",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 42395176)"
+    },
+    {
+      "key": "seeds-cjc-89",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 89",
+      "section": "Types of GHRH"
+    },
+    {
+      "key": "seeds-cjc-101",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 101",
+      "section": "CJC 1295: properties"
+    },
+    {
+      "key": "seeds-cjc-102",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 102",
+      "section": "CJC 1295: applications and dosage"
+    },
+    {
+      "key": "lavalle-cjc-34",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 34",
+      "section": "CJC-1295 and CJC-1295 + Ipamorelin: names, sequence, composition"
+    },
+    {
+      "key": "lavalle-cjc-36",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 36",
+      "section": "Dosages"
+    },
+    {
+      "key": "lavalle-cjc-37",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 37",
+      "section": "Warnings and cautions"
+    },
+    {
+      "key": "lavalle-cjc-38",
+      "sourceKey": "SRC-002",
+      "locatorText": "file pp. 38-39",
+      "section": "Summary"
+    },
+    {
+      "key": "campbell-cjc-98",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 98",
+      "pageStart": 98,
+      "section": "CJC-1295 recommended dosage"
+    },
+    {
+      "key": "campbell-cjc-99",
+      "sourceKey": "SRC-003",
+      "locatorText": "p. 99",
+      "pageStart": 99,
+      "section": "What is DAC"
+    },
+    {
+      "key": "cheatsheet-cjc-7",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 7",
+      "section": "Oral sublingual peptide strips, CJC-1295 row"
+    },
+    {
+      "key": "hacksmith-cjc-dac",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 47-49",
+      "section": "CJC-1295 with DAC"
+    },
+    {
+      "key": "hacksmith-monitoring",
+      "sourceKey": "SRC-005",
+      "locatorText": "file p. 184",
+      "section": "Peptide monitoring and blood tests"
+    }
   ],
   "claims": [
     {
@@ -50,8 +166,20 @@
       "interpretationNotes": "The chemical definition of the name. Everything else on this record depends on which molecule a source means.",
       "uncertaintyText": "The full sequence and substitutions are not given in the abstract.",
       "evidence": [
-        { "locationKey": "jette-2005", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Chemical description of the selected maleimido derivative and albumin conjugate identification." },
-        { "locationKey": "jette-2005", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Rat pharmacokinetics and GH response." }
+        {
+          "locationKey": "jette-2005",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Chemical description of the selected maleimido derivative and albumin conjugate identification.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "jette-2005",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Rat pharmacokinetics and GH response.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -63,7 +191,13 @@
       "interpretationNotes": "The core human evidence. It is pharmacology in healthy volunteers: hormone levels, not a health outcome.",
       "uncertaintyText": "Short trials in healthy people. Says nothing about benefit, or about safety with long-term use.",
       "evidence": [
-        { "locationKey": "teichman-2006", "evidenceTypeKey": "human_rct", "interpretation": "GH and IGF-I response, half-life, multiple-dose effect and safety." }
+        {
+          "locationKey": "teichman-2006",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "GH and IGF-I response, half-life, multiple-dose effect and safety.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -75,7 +209,13 @@
       "interpretationNotes": "Directly relevant to a practitioner claim that the long-acting form causes a continuous \"GH bleed\" that blunts pulses; the measured pulses were preserved.",
       "uncertaintyText": "Small study, one week after one injection. What happens to pulsatility with repeated dosing is not addressed.",
       "evidence": [
-        { "locationKey": "ionescu-2006", "evidenceTypeKey": "human_pk_pd", "interpretation": "Overnight 20-minute GH sampling before and after injection." }
+        {
+          "locationKey": "ionescu-2006",
+          "evidenceTypeKey": "human_pk_pd",
+          "interpretation": "Overnight 20-minute GH sampling before and after injection.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -87,7 +227,13 @@
       "interpretationNotes": "Animal evidence in a deficiency model. Mice clear drugs far faster than people, so the interval finding does not translate to a human schedule.",
       "uncertaintyText": "Mice without the hormone; not a model of healthy adults.",
       "evidence": [
-        { "locationKey": "alba-2006", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Growth and body composition by dosing interval." }
+        {
+          "locationKey": "alba-2006",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Growth and body composition by dosing interval.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -99,8 +245,21 @@
       "interpretationNotes": "The measurement that separates the two records. The comparison with the originator molecule is this index's reading of the two abstracts together.",
       "uncertaintyText": "One preparation. It does not establish what any other product contains.",
       "evidence": [
-        { "locationKey": "henninge-2010", "evidenceTypeKey": "analytical_characterisation", "interpretation": "29-residue C-terminal amide identified in a product marketed as CJC-1295." },
-        { "locationKey": "jette-2005", "evidenceTypeKey": "analytical_characterisation", "relationship": "contextualizes", "interpretation": "The originator molecule carries an additional C-terminal reactive lysine." }
+        {
+          "locationKey": "henninge-2010",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "29-residue C-terminal amide identified in a product marketed as CJC-1295.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "jette-2005",
+          "evidenceTypeKey": "analytical_characterisation",
+          "relationship": "contextualizes",
+          "interpretation": "The originator molecule carries an additional C-terminal reactive lysine.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -112,9 +271,27 @@
       "interpretationNotes": "Usage by laboratories that must identify the substance chemically. The two descriptions differ in how they apply the name, which is itself evidence that the name is unstable.",
       "uncertaintyText": "The abstracts do not give the full structures they used for each analyte.",
       "evidence": [
-        { "locationKey": "kings-2021", "evidenceTypeKey": "analytical_characterisation", "interpretation": "CJC-1295 and CJC-1295 with DAC as separate reference analytes." },
-        { "locationKey": "equine-2019", "evidenceTypeKey": "analytical_characterisation", "interpretation": "30-residue peptide with a maleimidopropionic group, conjugated to plasma proteins." },
-        { "locationKey": "review-2026", "evidenceTypeKey": "academic_reference", "interpretation": "Lists CJC-1295 with DAC and without DAC as distinct agents." }
+        {
+          "locationKey": "kings-2021",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "CJC-1295 and CJC-1295 with DAC as separate reference analytes.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "equine-2019",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "30-residue peptide with a maleimidopropionic group, conjugated to plasma proteins.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "review-2026",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Lists CJC-1295 with DAC and without DAC as distinct agents.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -126,7 +303,14 @@
       "interpretationNotes": "Recorded as what the handbook says, attributed, because it is the only mention of a trial in patients and of a serious event. It is not verified.",
       "uncertaintyText": "Secondary account; no primary publication, registry record or regulatory document was identified.",
       "evidence": [
-        { "locationKey": "lavalle-cjc-37", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "The handbook's account of the trial and the death." }
+        {
+          "locationKey": "lavalle-cjc-37",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "cites",
+          "interpretation": "The handbook's account of the trial and the death.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        }
       ]
     }
   ],
@@ -358,10 +542,26 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None further for the chemistry. Which molecule a given product contains requires analysis of that product.",
       "positions": [
-        { "locationKey": "jette-2005", "evidenceTypeKey": "analytical_characterisation", "positionText": "CJC-1295 is tetrasubstituted hGRF(1-29) with an added maleimidopropionamide lysine that binds albumin." },
-        { "locationKey": "henninge-2010", "evidenceTypeKey": "analytical_characterisation", "positionText": "A product marketed as CJC-1295 contained a 29-residue amide peptide." },
-        { "locationKey": "seeds-cjc-89", "evidenceTypeKey": "practitioner_reference", "positionText": "Modified GRF (1-29) is better known in the industry as CJC 1295 without DAC." },
-        { "locationKey": "kings-2021", "evidenceTypeKey": "analytical_characterisation", "positionText": "CJC-1295 and CJC-1295 with drug affinity complex are distinct analytes." }
+        {
+          "locationKey": "jette-2005",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "CJC-1295 is tetrasubstituted hGRF(1-29) with an added maleimidopropionamide lysine that binds albumin."
+        },
+        {
+          "locationKey": "henninge-2010",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "A product marketed as CJC-1295 contained a 29-residue amide peptide."
+        },
+        {
+          "locationKey": "seeds-cjc-89",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Modified GRF (1-29) is better known in the industry as CJC 1295 without DAC."
+        },
+        {
+          "locationKey": "kings-2021",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "CJC-1295 and CJC-1295 with drug affinity complex are distinct analytes."
+        }
       ]
     },
     {
@@ -375,8 +575,16 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "An analytical characterisation stating the molecular mass of the maleimido-lysine molecule.",
       "positions": [
-        { "locationKey": "seeds-cjc-101", "evidenceTypeKey": "practitioner_reference", "positionText": "Gives CJC-1295 with DAC the same molecular weight as modified GRF (1-29)." },
-        { "locationKey": "lavalle-cjc-34", "evidenceTypeKey": "practitioner_reference", "positionText": "Gives a higher molecular weight and a sequence ending in an additional lysine." }
+        {
+          "locationKey": "seeds-cjc-101",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Gives CJC-1295 with DAC the same molecular weight as modified GRF (1-29)."
+        },
+        {
+          "locationKey": "lavalle-cjc-34",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Gives a higher molecular weight and a sequence ending in an additional lysine."
+        }
       ]
     },
     {
@@ -388,10 +596,26 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A pharmacokinetic and IGF-I study of frequent dosing of the albumin-binding molecule.",
       "positions": [
-        { "locationKey": "teichman-2006", "evidenceTypeKey": "human_rct", "positionText": "Single doses, or doses weekly or every other week; half-life 5.8-8.1 days; cumulative effect after multiple doses." },
-        { "locationKey": "lavalle-cjc-36", "evidenceTypeKey": "practitioner_reference", "positionText": "Once weekly." },
-        { "locationKey": "seeds-cjc-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Twice a week, or daily for short-term IGF-I elevation." },
-        { "locationKey": "hacksmith-cjc-dac", "evidenceTypeKey": "practitioner_reference", "positionText": "Nightly, five days on and two off, in 8-12 week cycles." }
+        {
+          "locationKey": "teichman-2006",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "Single doses, or doses weekly or every other week; half-life 5.8-8.1 days; cumulative effect after multiple doses."
+        },
+        {
+          "locationKey": "lavalle-cjc-36",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Once weekly."
+        },
+        {
+          "locationKey": "seeds-cjc-102",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Twice a week, or daily for short-term IGF-I elevation."
+        },
+        {
+          "locationKey": "hacksmith-cjc-dac",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Nightly, five days on and two off, in 8-12 week cycles."
+        }
       ]
     },
     {
@@ -403,8 +627,16 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A comparison of pulsatility and outcomes under repeated dosing of the two forms.",
       "positions": [
-        { "locationKey": "lavalle-cjc-38", "evidenceTypeKey": "practitioner_reference", "positionText": "Weekly long-acting dosing can give ineffective stimulation at the time of the natural pulse, described as a GH bleed with an inferior overall result." },
-        { "locationKey": "ionescu-2006", "evidenceTypeKey": "human_pk_pd", "positionText": "After a single injection, GH pulse frequency and magnitude were unaltered while trough levels rose." }
+        {
+          "locationKey": "lavalle-cjc-38",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Weekly long-acting dosing can give ineffective stimulation at the time of the natural pulse, described as a GH bleed with an inferior overall result."
+        },
+        {
+          "locationKey": "ionescu-2006",
+          "evidenceTypeKey": "human_pk_pd",
+          "positionText": "After a single injection, GH pulse frequency and magnitude were unaltered while trough levels rose."
+        }
       ]
     }
   ],
@@ -532,6 +764,116 @@
       "basis": "No efficacy study exists to replicate.",
       "limitations": null,
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-066",
+      "sourceKey": "SRC-066",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-067",
+      "sourceKey": "SRC-067",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-068",
+      "sourceKey": "SRC-068",
+      "locationKey": "ionescu-2006",
+      "funderKind": "government",
+      "sponsorName": "NCRR NIH HHS",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": "M01-RR-13987",
+      "disclosureText": "Grants recorded by PubMed: NCRR NIH HHS.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-069",
+      "sourceKey": "SRC-069",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-070",
+      "sourceKey": "SRC-070",
+      "locationKey": "proteomics-2009",
+      "funderKind": "government",
+      "sponsorName": "NIA NIH HHS",
+      "manufacturerInvolved": false,
+      "institution": null,
+      "grantReference": "(AG019899-06; DK075436-01; R01 AG019899; R15 DK075436",
+      "disclosureText": "Grants recorded by PubMed: NIA NIH HHS; NIDDK NIH HHS.",
+      "notes": "Read from the PubMed record for this study: its grant list, its conflict-of-interest statement, or a funding sentence in the abstract. Recorded as context; nothing in this index scores a study by who paid for it."
+    },
+    {
+      "fundingKey": "FUND-SRC-071",
+      "sourceKey": "SRC-071",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-073",
+      "sourceKey": "SRC-073",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-074",
+      "sourceKey": "SRC-074",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-075",
+      "sourceKey": "SRC-075",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

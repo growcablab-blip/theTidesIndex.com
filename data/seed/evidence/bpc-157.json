@@ -153,14 +153,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source gives the fifteen-residue sequence, the molecular weight, and the category 'gastric pentadecapeptide', and lists Body Protection Compound-157 and Bepecin as other names.",
-          "populationModel": "Not applicable — a statement about the molecule."
+          "populationModel": "Not applicable — a statement about the molecule.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "campbell-bpc-187",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source describes BPC-157 as a synthetic 15-amino-acid peptide derived from a peptide called body protecting compound produced in stomach acid.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -178,28 +182,36 @@
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "An IRB-approved study of intravenous infusion in two adults over three days, with blood work and vital signs before and after each infusion, reporting no measurable change in the biomarkers tested and no reported side effects.",
-          "populationModel": "Two adults at a private clinic, both of whom had received intravenous BPC-157 before the study."
+          "populationModel": "Two adults at a private clinic, both of whom had received intravenous BPC-157 before the study.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "bpc-cystitis-abstract",
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "Twelve women with interstitial cystitis who had not responded to pentosan polysulfate, treated during a single cystoscopy with injections around the area of inflammation, with outcome assessed by a self-reported global response questionnaire.",
-          "populationModel": "Twelve women aged 39 to 76 at a single private clinic."
+          "populationModel": "Twelve women aged 39 to 76 at a single private clinic.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "bpc-knee-abstract",
           "evidenceTypeKey": "human_observational",
           "relationship": "supports",
           "interpretation": "A retrospective one-year chart review of seventeen patients given intra-articular BPC-157, alone or combined with thymosin beta-4, followed up by telephone survey with no validated instrument.",
-          "populationModel": "Seventeen patients at one clinic; sixteen were reached for follow-up."
+          "populationModel": "Seventeen patients at one clinic; sixteen were reached for follow-up.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "bpc-systematic-review-abstract",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
           "interpretation": "An independent systematic review, two screeners, three databases, searched to June 2024: 544 records identified, 36 studies included — 35 preclinical and 1 clinical — and no clinical safety data found.",
-          "populationModel": "Not applicable — a review of the literature."
+          "populationModel": "Not applicable — a review of the literature.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review characterising studies this index has not obtained. Its account of them has not been checked against the papers."
         }
       ]
     },
@@ -217,14 +229,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source lists 'Helps heal tissues — promotes microscopic regeneration; improves tissue granulation, fibroblast recruitment and collagen formation' among the effects reported in laboratory studies, with the tissue list given in its opening sentence.",
-          "populationModel": "Laboratory studies, models not specified by the source."
+          "populationModel": "Laboratory studies, models not specified by the source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "campbell-bpc-188",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source lists healing of wounds and injuries in muscles, tendons, ligaments, bone and skin, and increased blood flow to damaged areas, as effects consistently observed in animal studies and anecdotal report.",
-          "populationModel": "Animal studies and anecdote."
+          "populationModel": "Animal studies and anecdote.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -242,21 +258,27 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source lists BPC-157 as a 'potent angiomodulatory factor' that 'modulates angiogenesis — increased when needed, decreased when needed such as in tumor metastasis', and separately lists nitric oxide stimulation and the angiogenic cytokines VEGF, FGF and TGF-β.",
-          "populationModel": "Laboratory studies."
+          "populationModel": "Laboratory studies.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-bpc-31",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contextualizes",
           "interpretation": "The source states that despite its ability to promote angiogenesis, BPC-157 is reported to inhibit and counteract increased VEGF expression and subsequent signalling, thus avoiding VEGF-tumorigenesis, and that it inhibits the growth of several tumour cell lines and can counteract tumour cachexia.",
-          "populationModel": "Tumour cell lines and laboratory models."
+          "populationModel": "Tumour cell lines and laboratory models.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-bpc-28",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "contradicts",
           "interpretation": "The same source advises using BPC-157 with caution in cancer and other conditions where angiogenesis may need to be suppressed — a caution that sits against its own account of bidirectional angiomodulation and anti-tumour effect.",
-          "populationModel": "Not applicable — a clinical caution."
+          "populationModel": "Not applicable — a clinical caution.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -274,14 +296,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source gives separate subcutaneous and oral amounts under 'Dosage', and lists an available injectable solution strength. It gives no bioavailability figure for either.",
-          "populationModel": "Not specified by the source."
+          "populationModel": "Not specified by the source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-bpc-31",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source reports that topical treatment accelerated wound closure following an alkali burn, with a mechanism attributed to granulation, re-epithelialisation, dermal remodelling and collagen deposition through ERK1/2 signalling.",
-          "populationModel": "Animal burn model; species not specified by the source."
+          "populationModel": "Animal burn model; species not specified by the source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -299,7 +325,9 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source's 'Other Name(s)' field for BPC-157 lists only descriptive names and Bepecin, with no brand name, manufacturer or approval — in contrast with the same handbook's tesamorelin entry, which names Egrifta and Theratechnologies.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -317,14 +345,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source states that BPC-157 is reported safe in recommended dosages, advises caution in cancer and conditions where angiogenesis may need suppressing, and notes that redness and pain at the injection site may occur.",
-          "populationModel": "Not specified."
+          "populationModel": "Not specified.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-bpc-29",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The source lists rare adverse reactions as erythema, transient muscle atrophy, polyarthralgia combined with hand oedema, and rash, and states that safety in paediatrics has not been established.",
-          "populationModel": "Not specified."
+          "populationModel": "Not specified.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -342,21 +374,27 @@
           "evidenceTypeKey": "human_prospective_uncontrolled",
           "relationship": "supports",
           "interpretation": "The abstract states that the material was manufactured by a 503A compounding pharmacy, that all twelve participants had failed prior treatment, and that the outcome was a self-rated global response after a single procedure.",
-          "populationModel": "Twelve women."
+          "populationModel": "Twelve women.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "bpc-knee-abstract",
           "evidenceTypeKey": "human_observational",
           "relationship": "supports",
           "interpretation": "The abstract states that the study was retrospective, that follow-up varied, that patients were asked to rate their pain by telephone, and that no specific tools were used to measure function, quality of life, stiffness or activities of daily living.",
-          "populationModel": "Seventeen patients, some given BPC-157 with thymosin beta-4."
+          "populationModel": "Seventeen patients, some given BPC-157 with thymosin beta-4.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "bpc-systematic-review-abstract",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
           "interpretation": "The review classifies the studies it included as level IV and level V evidence, and reports that no clinical safety data were found.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review characterising studies this index has not obtained. Its account of them has not been checked against the papers."
         }
       ]
     },
@@ -374,14 +412,18 @@
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The handbook's summary states that the healing effects are reported 'in laboratory studies' and carries superscript references 49 to 57 for them.",
-          "populationModel": "Not applicable — a statement about what the source cites."
+          "populationModel": "Not applicable — a statement about what the source cites.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         },
         {
           "locationKey": "lavalle-bpc-31",
           "evidenceTypeKey": "practitioner_reference",
           "relationship": "supports",
           "interpretation": "The entry's statement that BPC-157 inhibits the growth of several tumour cell lines carries a single reference, to a 2004 item in Melanoma Research at pages A14–A15 — an abstract supplement — reporting work in a human melanoma cell line.",
-          "populationModel": "A cell line."
+          "populationModel": "A cell line.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
     },
@@ -399,14 +441,18 @@
           "evidenceTypeKey": "expert_commentary",
           "relationship": "supports",
           "interpretation": "States that the compound has not been approved for use in standard medicine by the FDA or other global regulatory authorities, owing to the absence of sufficient and comprehensive clinical studies confirming health benefits in humans. Also notes that it was temporarily prohibited by the World Anti-Doping Agency in 2022 and, as at the review's writing, is not currently listed.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
           "locationKey": "bpc-systematic-review-abstract",
           "evidenceTypeKey": "academic_reference",
           "relationship": "supports",
           "interpretation": "States that the compound lacks FDA approval and that its use is banned in professional sport, while being increasingly used by clinicians and athletes.",
-          "populationModel": "Not applicable."
+          "populationModel": "Not applicable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review characterising studies this index has not obtained. Its account of them has not been checked against the papers."
         }
       ]
     }
@@ -770,6 +816,80 @@
       "formStatedBySource": false,
       "notes": "Corroborated independently: a 1999 review identified by the screen gives the same sequence with a molecular weight of 1419, and a 2006 review repeats it. What a molecular weight does not establish is what is in any particular vial — which for an unapproved compound with no characterised product is the question that matters.",
       "locationKey": "lavalle-bpc-27"
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-029",
+      "sourceKey": "SRC-029",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-030",
+      "sourceKey": "SRC-030",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-031",
+      "sourceKey": "SRC-031",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-032",
+      "sourceKey": "SRC-032",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-033",
+      "sourceKey": "SRC-033",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-034",
+      "sourceKey": "SRC-034",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

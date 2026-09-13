@@ -8,8 +8,14 @@
     "practitionerSummary": "Selank (Thr-Lys-Pro-Arg-Pro-Gly-Pro; earlier TP-7) is a heptapeptide analogue of tuftsin (Thr-Lys-Pro-Arg) extended with Pro-Gly-Pro. It inhibits enkephalin-degrading enzymes of human plasma and serum in vitro at micromolar concentrations, and patients with generalised anxiety disorder showed shortened enkephalin half-life. In rats it changed expression of 45 of 84 neurotransmission genes in frontal cortex within 1 hour, correlating with GABA's effects, while in IMR-32 cells it had no direct effect on GABAergic gene mRNA but modified GABA's. Tritium-labelled Selank is degraded in plasma to TKPRP, TKP, RP and GP. Human studies (Russian-language, English abstracts): a randomised comparison with medazepam in 62 patients with GAD or neurasthenia (similar anxiolytic effect, additional antiasthenic and psychostimulant effects, enkephalin half-life changes); a comparison with phenazepam in 60 patients (anxiolytic effect persisting a week after the last dose); a randomised add-on to phenazepam in 70 patients (earlier response and fewer phenazepam adverse effects); serum Th1/Th2 cytokine changes after 14 days; and resting-state connectivity changes in healthy volunteers. No placebo-controlled patient trial, human pharmacokinetic study, dependence study or cognitive-outcome trial was identified. Seized preparations in Belgium contained Selank.",
     "unknownsSummary": "Not established: efficacy against placebo in any anxiety disorder; replication outside Russia; human pharmacokinetics, including the nasal bioavailability figure a practitioner book attributes to the developers; absence of dependence or withdrawal, which is asserted but not studied in the records found; any cognitive benefit in people; the doses used in the clinical studies, which the English abstracts do not state; and anything about N-acetyl Selank amidate.",
     "aliases": [
-      { "alias": "TP-7", "note": "Earlier designation in the 1990s literature." },
-      { "alias": "N-acetyl Selank amidate", "note": "NOT this molecule: a modified form sold as a nootropic. No study of it was identified." }
+      {
+        "alias": "TP-7",
+        "note": "Earlier designation in the 1990s literature."
+      },
+      {
+        "alias": "N-acetyl Selank amidate",
+        "note": "NOT this molecule: a modified form sold as a nootropic. No study of it was identified."
+      }
     ],
     "sequence": "TKPRPGP",
     "molecularDescription": "Heptapeptide Thr-Lys-Pro-Arg-Pro-Gly-Pro: the tuftsin tetrapeptide followed by Pro-Gly-Pro.",
@@ -17,26 +23,130 @@
     "nomenclatureNote": "Called TP-7 in early reports. N-acetyl Selank amidate, offered interchangeably by one quick-reference source, is a different molecule."
   },
   "locations": [
-    { "key": "zozulia-2008", "sourceKey": "SRC-110", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 18454096)" },
-    { "key": "medvedev-2014", "sourceKey": "SRC-111", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 25176261)" },
-    { "key": "medvedev-2015", "sourceKey": "SRC-112", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 26356395)" },
-    { "key": "uchakina-2008", "sourceKey": "SRC-113", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 18577961)" },
-    { "key": "vanhee-2020-sel", "sourceKey": "SRC-114", "locatorText": "Abstract", "section": "Abstract (PMID 31667971)" },
-    { "key": "volkova-2016", "sourceKey": "SRC-115", "locatorText": "Abstract", "section": "Abstract (PMID 26924987)" },
-    { "key": "filatova-2017", "sourceKey": "SRC-116", "locatorText": "Abstract", "section": "Abstract (PMID 28293190)" },
-    { "key": "zolotarev-2006", "sourceKey": "SRC-117", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 16637290)" },
-    { "key": "zozulya-2001", "sourceKey": "SRC-118", "locatorText": "Abstract", "section": "Abstract (PMID 11550013)" },
-    { "key": "kost-2001-sel", "sourceKey": "SRC-105", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 11443939)" },
-    { "key": "panikratova-2020-sel", "sourceKey": "SRC-104", "locatorText": "Abstract", "section": "Abstract (PMID 32342318)" },
-    { "key": "seeds-selank-225", "sourceKey": "SRC-001", "locatorText": "file p. 225", "section": "Selank: properties" },
-    { "key": "seeds-selank-227", "sourceKey": "SRC-001", "locatorText": "file p. 227", "section": "Selank: applications" },
-    { "key": "lavalle-selank-120", "sourceKey": "SRC-002", "locatorText": "file p. 120", "section": "Selank: category, names, sequence, indications" },
-    { "key": "lavalle-selank-121", "sourceKey": "SRC-002", "locatorText": "file p. 121", "section": "Selank: how supplied, dosage, warnings" },
-    { "key": "lavalle-selank-122", "sourceKey": "SRC-002", "locatorText": "file p. 122", "section": "Selank: summary" },
-    { "key": "campbell-selank-117", "sourceKey": "SRC-003", "locatorText": "pp. 117-118", "pageStart": 117, "pageEnd": 118, "section": "Selank" },
-    { "key": "campbell-selank-119", "sourceKey": "SRC-003", "locatorText": "pp. 119-121", "pageStart": 119, "pageEnd": 121, "section": "Selank recommended dosage" },
-    { "key": "cheatsheet-selank-5", "sourceKey": "SRC-004", "locatorText": "file p. 5", "section": "Cognition table, Selank or NA Selank Amidate row" },
-    { "key": "hacksmith-selank", "sourceKey": "SRC-005", "locatorText": "file pp. 100-102", "section": "Selank" }
+    {
+      "key": "zozulia-2008",
+      "sourceKey": "SRC-110",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 18454096)"
+    },
+    {
+      "key": "medvedev-2014",
+      "sourceKey": "SRC-111",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 25176261)"
+    },
+    {
+      "key": "medvedev-2015",
+      "sourceKey": "SRC-112",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 26356395)"
+    },
+    {
+      "key": "uchakina-2008",
+      "sourceKey": "SRC-113",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 18577961)"
+    },
+    {
+      "key": "vanhee-2020-sel",
+      "sourceKey": "SRC-114",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 31667971)"
+    },
+    {
+      "key": "volkova-2016",
+      "sourceKey": "SRC-115",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 26924987)"
+    },
+    {
+      "key": "filatova-2017",
+      "sourceKey": "SRC-116",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 28293190)"
+    },
+    {
+      "key": "zolotarev-2006",
+      "sourceKey": "SRC-117",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 16637290)"
+    },
+    {
+      "key": "zozulya-2001",
+      "sourceKey": "SRC-118",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 11550013)"
+    },
+    {
+      "key": "kost-2001-sel",
+      "sourceKey": "SRC-105",
+      "locatorText": "Abstract (English abstract of Russian article)",
+      "section": "Abstract (PMID 11443939)"
+    },
+    {
+      "key": "panikratova-2020-sel",
+      "sourceKey": "SRC-104",
+      "locatorText": "Abstract",
+      "section": "Abstract (PMID 32342318)"
+    },
+    {
+      "key": "seeds-selank-225",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 225",
+      "section": "Selank: properties"
+    },
+    {
+      "key": "seeds-selank-227",
+      "sourceKey": "SRC-001",
+      "locatorText": "file p. 227",
+      "section": "Selank: applications"
+    },
+    {
+      "key": "lavalle-selank-120",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 120",
+      "section": "Selank: category, names, sequence, indications"
+    },
+    {
+      "key": "lavalle-selank-121",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 121",
+      "section": "Selank: how supplied, dosage, warnings"
+    },
+    {
+      "key": "lavalle-selank-122",
+      "sourceKey": "SRC-002",
+      "locatorText": "file p. 122",
+      "section": "Selank: summary"
+    },
+    {
+      "key": "campbell-selank-117",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 117-118",
+      "pageStart": 117,
+      "pageEnd": 118,
+      "section": "Selank"
+    },
+    {
+      "key": "campbell-selank-119",
+      "sourceKey": "SRC-003",
+      "locatorText": "pp. 119-121",
+      "pageStart": 119,
+      "pageEnd": 121,
+      "section": "Selank recommended dosage"
+    },
+    {
+      "key": "cheatsheet-selank-5",
+      "sourceKey": "SRC-004",
+      "locatorText": "file p. 5",
+      "section": "Cognition table, Selank or NA Selank Amidate row"
+    },
+    {
+      "key": "hacksmith-selank",
+      "sourceKey": "SRC-005",
+      "locatorText": "file pp. 100-102",
+      "section": "Selank"
+    }
   ],
   "claims": [
     {
@@ -48,8 +158,20 @@
       "interpretationNotes": "Proposed as the mechanism of its anxiolytic effect by the authors. A tube of plasma is not a person, and the patient measurement did not involve Selank.",
       "uncertaintyText": "In vitro inhibition; association in patients; causal link not shown.",
       "evidence": [
-        { "locationKey": "zozulya-2001", "evidenceTypeKey": "in_vitro", "interpretation": "Enkephalinase inhibition by Selank and enkephalin half-life in anxiety disorders." },
-        { "locationKey": "kost-2001-sel", "evidenceTypeKey": "in_vitro", "interpretation": "Sequence stated; serum enkephalinase inhibition alongside Semax." }
+        {
+          "locationKey": "zozulya-2001",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Enkephalinase inhibition by Selank and enkephalin half-life in anxiety disorders.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "kost-2001-sel",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "Sequence stated; serum enkephalinase inhibition alongside Semax.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -61,7 +183,13 @@
       "interpretationNotes": "The strongest human evidence: randomised, active comparator, no placebo. Similar effect to a benzodiazepine is not the same as better.",
       "uncertaintyText": "Blinding not stated in the English abstract; small; no placebo arm.",
       "evidence": [
-        { "locationKey": "zozulia-2008", "evidenceTypeKey": "human_rct", "interpretation": "Anxiolytic outcomes versus medazepam and enkephalin measures." }
+        {
+          "locationKey": "zozulia-2008",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Anxiolytic outcomes versus medazepam and enkephalin measures.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -73,8 +201,20 @@
       "interpretationNotes": "Same clinical field; the add-on finding bears on practitioner claims of no dependence only indirectly, since it measured phenazepam's effects, not Selank's.",
       "uncertaintyText": "Allocation stated only for the second study; blinding not stated; no placebo arm.",
       "evidence": [
-        { "locationKey": "medvedev-2014", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Anxiolytic effect and tolerability compared with phenazepam." },
-        { "locationKey": "medvedev-2015", "evidenceTypeKey": "human_rct", "interpretation": "Phenazepam alone versus phenazepam with Selank: response timing and adverse effects." }
+        {
+          "locationKey": "medvedev-2014",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Anxiolytic effect and tolerability compared with phenazepam.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "medvedev-2015",
+          "evidenceTypeKey": "human_rct",
+          "interpretation": "Phenazepam alone versus phenazepam with Selank: response timing and adverse effects.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -86,7 +226,13 @@
       "interpretationNotes": "Supports practitioner immune claims at the level of biomarkers only.",
       "uncertaintyText": "Small; clinical relevance of the cytokine changes not shown.",
       "evidence": [
-        { "locationKey": "uchakina-2008", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "Serum cytokines after 14 days of treatment and cell-culture IL-6 findings." }
+        {
+          "locationKey": "uchakina-2008",
+          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "interpretation": "Serum cytokines after 14 days of treatment and cell-culture IL-6 findings.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -98,8 +244,20 @@
       "interpretationNotes": "Consistent with the authors' hypothesis of allosteric GABA modulation; not a demonstration of receptor binding.",
       "uncertaintyText": "Gene expression in rat tissue and a cell line.",
       "evidence": [
-        { "locationKey": "volkova-2016", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Frontal cortex gene expression after Selank or GABA." },
-        { "locationKey": "filatova-2017", "evidenceTypeKey": "in_vitro", "interpretation": "No direct GABAergic mRNA change; modification of GABA's effect." }
+        {
+          "locationKey": "volkova-2016",
+          "evidenceTypeKey": "animal_in_vivo",
+          "interpretation": "Frontal cortex gene expression after Selank or GABA.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        },
+        {
+          "locationKey": "filatova-2017",
+          "evidenceTypeKey": "in_vitro",
+          "interpretation": "No direct GABAergic mRNA change; modification of GABA's effect.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -111,7 +269,13 @@
       "interpretationNotes": "The only pharmacokinetic work identified; the species for the in vivo part is not stated in the English abstract.",
       "uncertaintyText": "Not a human pharmacokinetic study.",
       "evidence": [
-        { "locationKey": "zolotarev-2006", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Degradation products in plasma and intranasal brain pharmacokinetics by tritium labelling." }
+        {
+          "locationKey": "zolotarev-2006",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Degradation products in plasma and intranasal brain pharmacokinetics by tritium labelling.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -123,7 +287,13 @@
       "interpretationNotes": "An imaging signal in healthy people, not an anxiety or cognitive outcome.",
       "uncertaintyText": "Single session; imaging endpoint.",
       "evidence": [
-        { "locationKey": "panikratova-2020-sel", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Functional connectivity after Selank, Semax or placebo." }
+        {
+          "locationKey": "panikratova-2020-sel",
+          "evidenceTypeKey": "human_controlled_nonrandomized",
+          "interpretation": "Functional connectivity after Selank, Semax or placebo.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     },
     {
@@ -135,7 +305,13 @@
       "interpretationNotes": "Product identity in two seized samples.",
       "uncertaintyText": "Two preparations.",
       "evidence": [
-        { "locationKey": "vanhee-2020-sel", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Identification of Selank in seized material." }
+        {
+          "locationKey": "vanhee-2020-sel",
+          "evidenceTypeKey": "analytical_characterisation",
+          "interpretation": "Identification of Selank in seized material.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+        }
       ]
     }
   ],
@@ -361,9 +537,21 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None further for what the trials say; superiority would need a trial designed to show it.",
       "positions": [
-        { "locationKey": "campbell-selank-117", "evidenceTypeKey": "practitioner_reference", "positionText": "Numerous human trials show it performs far better than benzodiazepines." },
-        { "locationKey": "lavalle-selank-122", "evidenceTypeKey": "practitioner_reference", "positionText": "Clinical studies report anxiolytic effects comparable to benzodiazepines." },
-        { "locationKey": "zozulia-2008", "evidenceTypeKey": "human_rct", "positionText": "The anxiolytic effects of Selank and medazepam were similar." }
+        {
+          "locationKey": "campbell-selank-117",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Numerous human trials show it performs far better than benzodiazepines."
+        },
+        {
+          "locationKey": "lavalle-selank-122",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Clinical studies report anxiolytic effects comparable to benzodiazepines."
+        },
+        {
+          "locationKey": "zozulia-2008",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "The anxiolytic effects of Selank and medazepam were similar."
+        }
       ]
     },
     {
@@ -375,8 +563,16 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A placebo-controlled human cognitive study.",
       "positions": [
-        { "locationKey": "hacksmith-selank", "evidenceTypeKey": "practitioner_reference", "positionText": "Improves focus, mental clarity and learning ability." },
-        { "locationKey": "campbell-selank-117", "evidenceTypeKey": "practitioner_reference", "positionText": "Learning and memory effects confirmed only by rat studies and anonymous testimonials." }
+        {
+          "locationKey": "hacksmith-selank",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Improves focus, mental clarity and learning ability."
+        },
+        {
+          "locationKey": "campbell-selank-117",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Learning and memory effects confirmed only by rat studies and anonymous testimonials."
+        }
       ]
     },
     {
@@ -388,8 +584,16 @@
       "resolution": "unresolved",
       "resolutionRequirement": "The primary pharmacokinetic study, or a human study.",
       "positions": [
-        { "locationKey": "campbell-selank-119", "evidenceTypeKey": "practitioner_reference", "positionText": "High intranasal bioavailability and detection in plasma and brain within minutes, attributed to the developer institute." },
-        { "locationKey": "zolotarev-2006", "evidenceTypeKey": "analytical_characterisation", "positionText": "Brain pharmacokinetics after intranasal administration were studied; plasma degradation products identified; no bioavailability figure in the abstract." }
+        {
+          "locationKey": "campbell-selank-119",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "High intranasal bioavailability and detection in plasma and brain within minutes, attributed to the developer institute."
+        },
+        {
+          "locationKey": "zolotarev-2006",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "Brain pharmacokinetics after intranasal administration were studied; plasma degradation products identified; no bioavailability figure in the abstract."
+        }
       ]
     },
     {
@@ -403,8 +607,16 @@
       "resolvedAt": "2026-09-13",
       "resolutionRequirement": "None for the chemistry.",
       "positions": [
-        { "locationKey": "cheatsheet-selank-5", "evidenceTypeKey": "practitioner_reference", "positionText": "Selank or NA Selank Amidate, one schedule for both." },
-        { "locationKey": "zozulya-2001", "evidenceTypeKey": "in_vitro", "positionText": "Selank is Thr-Lys-Pro-Arg-Pro-Gly-Pro." }
+        {
+          "locationKey": "cheatsheet-selank-5",
+          "evidenceTypeKey": "practitioner_reference",
+          "positionText": "Selank or NA Selank Amidate, one schedule for both."
+        },
+        {
+          "locationKey": "zozulya-2001",
+          "evidenceTypeKey": "in_vitro",
+          "positionText": "Selank is Thr-Lys-Pro-Arg-Pro-Gly-Pro."
+        }
       ]
     },
     {
@@ -416,8 +628,16 @@
       "resolution": "unresolved",
       "resolutionRequirement": "A search of Russian trial registries and regulatory dossiers.",
       "positions": [
-        { "locationKey": "zozulia-2008", "evidenceTypeKey": "human_rct", "positionText": "Reports a randomised comparison with medazepam." },
-        { "locationKey": "vanhee-2020-sel", "evidenceTypeKey": "analytical_characterisation", "positionText": "To the authors' knowledge, Selank and Semax have not completed any clinical trials." }
+        {
+          "locationKey": "zozulia-2008",
+          "evidenceTypeKey": "human_rct",
+          "positionText": "Reports a randomised comparison with medazepam."
+        },
+        {
+          "locationKey": "vanhee-2020-sel",
+          "evidenceTypeKey": "analytical_characterisation",
+          "positionText": "To the authors' knowledge, Selank and Semax have not completed any clinical trials."
+        }
       ]
     }
   ],
@@ -519,6 +739,140 @@
       "basis": "No human study outside Russia was identified.",
       "limitations": null,
       "supportingRecords": null
+    }
+  ],
+  "funding": [
+    {
+      "fundingKey": "FUND-SRC-104",
+      "sourceKey": "SRC-104",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-105",
+      "sourceKey": "SRC-105",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-110",
+      "sourceKey": "SRC-110",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-111",
+      "sourceKey": "SRC-111",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-112",
+      "sourceKey": "SRC-112",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-113",
+      "sourceKey": "SRC-113",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-114",
+      "sourceKey": "SRC-114",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-115",
+      "sourceKey": "SRC-115",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-116",
+      "sourceKey": "SRC-116",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-117",
+      "sourceKey": "SRC-117",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-118",
+      "sourceKey": "SRC-118",
+      "locationKey": null,
+      "funderKind": "not_checked",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": null,
+      "grantReference": null,
+      "disclosureText": null,
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
     }
   ]
 }

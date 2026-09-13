@@ -40,6 +40,7 @@ interface PacketLoadResult {
   readonly pharmacokinetics: number;
   readonly identities: number;
   readonly replication: number;
+  readonly funding: number;
 }
 
 export async function loadCompoundPackets(db: SeedDb): Promise<PacketLoadResult[]> {
@@ -167,7 +168,8 @@ export async function loadCompoundPacket(
       await db.execute(sql`
         insert into claim_evidence (
           claim_id, source_id, source_location_id, evidence_type_key, relationship,
-          interpretation, population_model
+          interpretation, population_model, primary_trace, primary_trace_note,
+          primary_source_verified
         ) values (
           ${claimRow!.id},
           (select source_id from source_locations where id = ${locationId(evidence.locationKey)}),
@@ -175,13 +177,52 @@ export async function loadCompoundPacket(
           ${evidence.evidenceTypeKey},
           ${evidence.relationship}::evidence_relationship,
           ${evidence.interpretation},
-          ${evidence.populationModel}
+          ${evidence.populationModel},
+          ${evidence.primaryTrace}::primary_trace_state,
+          ${evidence.primaryTraceNote},
+          ${evidence.primaryTrace.startsWith('full_text_')}
         )
         on conflict (claim_id, source_location_id) do update
-          set interpretation = excluded.interpretation
+          set interpretation = excluded.interpretation,
+              primary_trace = excluded.primary_trace,
+              primary_trace_note = excluded.primary_trace_note,
+              primary_source_verified = excluded.primary_source_verified
       `);
       evidenceCount += 1;
     }
+  }
+
+  // --- Funding and conflicts -----------------------------------------------
+  // Attached to the source, because that is what it is a fact about. A packet
+  // may record funding for a source it cites without claiming anything else
+  // about it.
+  for (const funding of packet.funding) {
+    await db.execute(sql`
+      insert into study_funding (
+        funding_key, source_id, source_location_id, funder_kind, sponsor_name,
+        manufacturer_involved, institution, grant_reference, disclosure_text, notes
+      ) values (
+        ${funding.fundingKey},
+        (select id from sources where source_key = ${funding.sourceKey}),
+        ${funding.locationKey === null ? null : locationId(funding.locationKey)},
+        ${funding.funderKind}::funding_kind,
+        ${funding.sponsorName},
+        ${funding.manufacturerInvolved},
+        ${funding.institution},
+        ${funding.grantReference},
+        ${funding.disclosureText},
+        ${funding.notes}
+      )
+      on conflict (funding_key) do update set
+        source_location_id = excluded.source_location_id,
+        funder_kind = excluded.funder_kind,
+        sponsor_name = excluded.sponsor_name,
+        manufacturer_involved = excluded.manufacturer_involved,
+        institution = excluded.institution,
+        grant_reference = excluded.grant_reference,
+        disclosure_text = excluded.disclosure_text,
+        notes = excluded.notes
+    `);
   }
 
   // --- Gaps ----------------------------------------------------------------
@@ -484,6 +525,7 @@ export async function loadCompoundPacket(
     pharmacokinetics: packet.pharmacokinetics.length,
     identities: packet.identities.length,
     replication: packet.replication.length,
+    funding: packet.funding.length,
   };
 }
 
