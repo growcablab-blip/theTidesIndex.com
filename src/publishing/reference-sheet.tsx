@@ -315,6 +315,20 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
           </>
         )}
 
+        {/* --- Questions for research ----------------------------------------- */}
+        {/* Gaps about access carry no question, so they are simply skipped. */}
+        {peptide.gaps.some((gap) => gap.researchQuestion !== null) ? (
+          <>
+            <SectionHeading>Questions for research</SectionHeading>
+            <Bullets
+              items={peptide.gaps.flatMap((gap) =>
+                gap.researchQuestion === null ? [] : [gap.researchQuestion],
+              )}
+            />
+          </>
+        ) : null}
+
+
         {/* --- Provenance ------------------------------------------------------ */}
         <SectionHeading>Sources</SectionHeading>
         <SourceNote items={sourceLines(peptide)} />

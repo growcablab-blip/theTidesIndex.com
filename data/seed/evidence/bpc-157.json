@@ -417,6 +417,8 @@
       "statement": "That BPC-157 produces any effect in humans.",
       "why": "Three human studies were identified by the screen of 13 September 2026, and none of them is capable of establishing an effect. All three are uncontrolled: two participants given intravenous infusions, twelve women treated in a single procedure with outcomes self-rated afterwards, and a retrospective telephone survey of seventeen patients, some of whom received a second peptide as well. A study without a comparison group cannot separate what a treatment did from what would have happened anyway, and the conditions involved — interstitial cystitis, chronic knee pain — are exactly the kind that fluctuate.",
       "whatWouldResolveIt": "A randomised controlled trial. Nothing smaller answers this question, and the existence of uncontrolled studies does not narrow the gap.",
+      "researchQuestion": "Does BPC-157 produce any measurable effect in people, in a trial with a comparison group?",
+      "opportunityType": "human_evidence",
       "verificationIssueKey": null
     },
     {
@@ -424,6 +426,8 @@
       "statement": "What proportion of an orally administered amount reaches the circulation intact.",
       "why": "Two sources report an oral amount and neither reports a bioavailability figure or a pharmacokinetic study. For a fifteen-residue peptide this is the question that determines whether an oral route delivers anything at all, and nothing held here addresses it.",
       "whatWouldResolveIt": "A pharmacokinetic study comparing oral and parenteral administration, in any species, reporting plasma concentrations of intact peptide.",
+      "researchQuestion": "What proportion of an oral amount of BPC-157 reaches the circulation intact, and how does that compare with injection?",
+      "opportunityType": "human_pharmacokinetics",
       "verificationIssueKey": null
     },
     {
@@ -431,6 +435,8 @@
       "statement": "An effective amount, frequency or duration for any purpose.",
       "why": "Three sources give three different regimens and none cites a study establishing any of them. This index does not average regimens and does not choose between sources, so it has no amount to state.",
       "whatWouldResolveIt": "A dose-finding study, or any source that states the basis for the amounts it recommends.",
+      "researchQuestion": "Is there any amount of BPC-157 at which a measurable effect appears in people, and does the effect change with the amount given?",
+      "opportunityType": "dose_response",
       "verificationIssueKey": null
     },
     {
@@ -438,6 +444,8 @@
       "statement": "The safety profile of BPC-157 in humans, including with prolonged use.",
       "why": "One identified study measured safety endpoints in humans: two people, three days, a panel of blood tests, no adverse effects reported. An independent systematic review searching three databases to June 2024 states that it found no clinical safety data at all. Nothing here addresses repeated use, long-term use, interactions, or use in anyone with a condition.",
       "whatWouldResolveIt": "Human safety data from a trial or a registry.",
+      "researchQuestion": "What harms occur in people given BPC-157, including with repeated and prolonged use?",
+      "opportunityType": "human_safety",
       "verificationIssueKey": null
     },
     {
@@ -445,6 +453,8 @@
       "statement": "Whether the compound's effect on blood-vessel growth is a hazard in cancer, a therapeutic possibility, or neither.",
       "why": "Two research groups disagree about this in print, and the screen shows that neither side rests on human evidence. The concern is raised from mechanism in a 2025 literature and patent review; the counter-argument comes from the group that produced most of the preclinical work. The practitioner handbook's anti-tumour statement traces to a single 2004 conference abstract in a melanoma cell line, and its cancer-cachexia statement to a review that explicitly writes before any clinical trial.",
       "whatWouldResolveIt": "In vivo tumour model reports read in full, which would establish what was observed in what model at what exposure; and, for the clinical question anyone actually has, a study in people with cancer, which does not exist.",
+      "researchQuestion": "Does BPC-157 promote or inhibit tumour growth in a comparable in vivo model, and at what exposure?",
+      "opportunityType": "mechanism_confirmation",
       "verificationIssueKey": null
     },
     {
@@ -452,6 +462,8 @@
       "statement": "The regulatory position of BPC-157 in any named jurisdiction.",
       "why": "Two independent 2025–2026 reviews state that no regulator has approved the compound and give the absence of sufficient clinical study as the reason. That is secondary evidence and this index records it as such: a review reporting a regulator's position is not the regulator. The FDA interface that supplied authoritative labelling for tesamorelin returns nothing for BPC-157, which is consistent with the reviews and is not confirmation from the regulator.",
       "whatWouldResolveIt": "A statement from a named authority in a named jurisdiction, with a date.",
+      "researchQuestion": "What position has each named medicines regulator taken on BPC-157, and on what date?",
+      "opportunityType": "regulatory_position",
       "verificationIssueKey": null
     },
     {
@@ -466,6 +478,8 @@
       "statement": "The inflammatory bowel disease trials reported under the development codes PL 10, PLD 116 and PL 14736.",
       "why": "A 2006 review states that the compound was \"safe in clinical trials for inflammatory bowel disease\" under those codes, attributed to Pliva, Croatia. No report of any such trial appears in the 230 records the screen returned, and a 2026 review of the compound's development position states that no Phase II trial has been completed. The assertion is therefore either about trials that were never published, or a characterisation this index cannot check. It is recorded as a lead, not as evidence that trials happened and not as evidence that they did not.",
       "whatWouldResolveIt": "A trial report, a registry entry, or a regulatory submission under any of those codes.",
+      "researchQuestion": "Were the inflammatory bowel disease trials reported under PL 10, PLD 116 and PL 14736 conducted, and what did they find?",
+      "opportunityType": "human_evidence",
       "verificationIssueKey": null
     },
     {
@@ -480,6 +494,8 @@
       "statement": "What the material used in the identified human studies actually was.",
       "why": "One study names a 503A compounding pharmacy as the manufacturer and reports no characterisation of the product; the others describe none. Every quality question this index documents elsewhere — identity, purity, content, endotoxin — is unanswered for the material those participants received, which limits what even a well-designed study of it could have established.",
       "whatWouldResolveIt": "A certificate of analysis or product characterisation reported in the study, or an investigational product with a defined specification.",
+      "researchQuestion": "What do products sold as BPC-157 contain, and what was the material given in the identified human studies?",
+      "opportunityType": "product_characterisation",
       "verificationIssueKey": null
     }
   ],

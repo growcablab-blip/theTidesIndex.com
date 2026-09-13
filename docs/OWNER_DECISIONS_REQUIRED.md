@@ -203,10 +203,14 @@ main navigation. Both pages stay noindex.
 
 **Why it needs you.** Putting a research agenda in the main navigation is a
 product-positioning choice. Showing screen counts next to each other invites
-comparison even without a ranking. Tesamorelin and BPC-157 predate the
-research-question field, so they show no questions yet; that means the field
-has not been filled in, not that nothing is open.
+comparison even without a ranking.
 
-**Default if unanswered.** Keep both pages, keep "Research" in the navigation,
-and fill in research questions for Tesamorelin and BPC-157 when those records
-are next revised.
+Tesamorelin and BPC-157 predated the research-question field and have since
+been filled in: 76 of the 86 compound gaps now carry a question, across all 12
+records. The remaining ten carry none, and deliberately — they are gaps in *access* (a full text
+behind a paywall, an archived label, which study a figure belongs to) rather
+than gaps in knowledge. Those are work for this index, not questions for
+researchers.
+
+**Default if unanswered.** Keep both pages and keep "Research" in the
+navigation.

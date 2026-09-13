@@ -467,6 +467,8 @@
       "statement": "The regulatory position of tesamorelin outside the United States.",
       "why": "The FDA label establishes a United States approval and speaks only to that jurisdiction. No source held here addresses any other, including Canada — where the manufacturer is based, and which this index previously and wrongly recorded as the approving jurisdiction.",
       "whatWouldResolveIt": "The authorisation record or approved labelling from the authority in the jurisdiction concerned.",
+      "researchQuestion": "Which authorities outside the United States have authorised tesamorelin, for what indication, and on what date?",
+      "opportunityType": "regulatory_position",
       "verificationIssueKey": null
     },
     {
@@ -481,6 +483,8 @@
       "statement": "That tesamorelin reduces visceral fat, improves body composition or affects any outcome in people without HIV-associated lipodystrophy.",
       "why": "Every human result this index holds is in a defined clinical population with a specific condition. Nothing held here extends beyond it, and the source does not extend it either.",
       "whatWouldResolveIt": "Trials in a population without HIV-associated lipodystrophy, reporting the same or different outcomes.",
+      "researchQuestion": "Does tesamorelin change visceral fat or body composition in people without HIV-associated lipodystrophy?",
+      "opportunityType": "human_evidence",
       "verificationIssueKey": null
     },
     {
@@ -488,6 +492,8 @@
       "statement": "What happens with use beyond the studied period.",
       "why": "The source states directly that long-term use has not been studied. This index has nothing that would qualify or extend that statement.",
       "whatWouldResolveIt": "Long-term follow-up data, or a pharmacovigilance record from the jurisdiction where the product is approved.",
+      "researchQuestion": "What happens to people who use tesamorelin beyond the studied period, in both benefit and harm?",
+      "opportunityType": "long_term_outcomes",
       "verificationIssueKey": null
     },
     {
@@ -495,6 +501,8 @@
       "statement": "That any route other than subcutaneous injection has been studied or is appropriate.",
       "why": "Subcutaneous is the only route the source records, and it is the route of the approved formulation. Nothing held here addresses any other.",
       "whatWouldResolveIt": "A source reporting administration by another route, with the population and formulation it applies to.",
+      "researchQuestion": "Has tesamorelin been administered by any route other than subcutaneous injection, and with what result?",
+      "opportunityType": "route_comparison",
       "verificationIssueKey": null
     },
     {
@@ -502,6 +510,8 @@
       "statement": "What the reported cognitive findings in older adults mean for anyone.",
       "why": "The source reports a 20-week GHRH administration trial in 152 adults aged 55-87 with favourable cognitive effects, and states in the same sentence that longer trials are needed. That trial is of GHRH administration, which this index cannot confirm is the same intervention as tesamorelin, and the paper has not been opened.",
       "whatWouldResolveIt": "The primary publication, read closely enough to establish what was administered and to whom.",
+      "researchQuestion": "Does tesamorelin itself affect cognition in older adults, as distinct from GHRH administration in general?",
+      "opportunityType": "human_evidence",
       "verificationIssueKey": null
     },
     {

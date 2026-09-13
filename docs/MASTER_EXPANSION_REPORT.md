@@ -16,8 +16,8 @@ a development preview from unreviewed records.
   score, no dosing fields.
 - **Research agenda** (`/research`). Every gap that carries a research
   question, grouped by opportunity type, filterable by kind and by compound or
-  topic, linked back to the section of the record it came from. 63 questions
-  from 10 records.
+  topic, linked back to the section of the record it came from. 76 questions
+  from all 12 records.
 - Navigation and footer link to both.
 - Record-page fixes found during the expansion:
   - Human evidence is counted as "records in people", because substudies are
@@ -76,17 +76,29 @@ in this round; the `review/manufacturing-v1/` captures stand.
 ## PUBLICATIONS
 
 Built (gitignored, `build/publications/`):
-- 12 reference sheets.
+- 12 reference sheets. Each now ends with "Questions for research", printing
+  the questions attached to that record's gaps — so the sheet a practitioner
+  carries says what is not known as well as what is recorded.
 - The protocol book (84 regimens).
 - Peptide Quality (15 pages).
 
+- Understanding Peptides: the skeleton now carries one **written** chapter,
+  Eight, "Understanding evidence" — the three evidence classes as the database
+  defines them, what each can support, why animal evidence is not human
+  evidence, what a study design can and cannot show, and what "not
+  established" means here. It was writable because it makes no claim about any
+  peptide.
+
 **Not done in this round:**
-- The *Understanding Peptides* fill.
+- The other ten Understanding Peptides chapters. Chapter Ten (quality) could be
+  drawn from the Peptide Quality material, but that volume is not yet
+  scientifically reviewed, and building the most patient-facing chapter in the
+  programme on unreviewed material is the wrong order.
 - *Peptide Science & Applications*.
 - A bound *Reference Guide* assembled from the sheets.
 
-These are listed under NEXT and were not written from thin air: each needs
-chapter copy that has to come from the records, and the records are unreviewed.
+These need chapter copy that has to come from the records, and the records are
+unreviewed.
 
 ## SOURCES
 

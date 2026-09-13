@@ -1,21 +1,27 @@
 import { Document, Svg, Rect, Line, Text, View } from '@react-pdf/renderer';
 import {
   Body,
+  Bullets,
+  Callout,
   ChapterOpener,
+  Comparison,
   Cover,
   CurrentVersionBlock,
+  EvidenceNote,
   Lede,
   PublicationPage,
   SectionHeading,
+  SourceNote,
   SubHeading,
+  Table,
 } from '../primitives';
 import { SeriesMark } from '../figures';
 import { colour, contentWidth, leading, sans, serif, type } from '../theme';
 
 /**
- * UNDERSTANDING PEPTIDES — design skeleton.
+ * UNDERSTANDING PEPTIDES — design skeleton, with one chapter written.
  *
- * Structure and page templates only. **No medical content.**
+ * Structure and page templates, plus chapter eight. **No medical content.**
  *
  * This publication is the patient- and new-staff-facing one, which makes it the
  * single most dangerous thing in the programme to draft speculatively: it will
@@ -28,6 +34,11 @@ import { colour, contentWidth, leading, sans, serif, type } from '../theme';
  * Nothing on these pages states anything about peptides that a reader could
  * mistake for a finding. The skeleton proves the design travels to a second
  * publication; the content waits for extraction and review.
+ *
+ * Chapter eight is the exception, and it is an exception for a reason that does
+ * not generalise: it is about how to read a claim rather than about any claim,
+ * so it rests on the editorial method — documented, implemented, tested —
+ * rather than on a peptide source. It is written. It is not yet reviewed.
  */
 
 const PUBLICATION = 'Understanding Peptides';
@@ -185,6 +196,14 @@ interface ChapterPlan {
   readonly needs: string;
   readonly illustration: string;
   readonly illustrationNote?: string;
+  /**
+   * Written rather than briefed.
+   *
+   * A chapter may only be set here if it can be written without stating
+   * anything about peptides — which in practice means the editorial method
+   * itself. Everything else waits for sources and review.
+   */
+  readonly written?: boolean;
 }
 
 const CHAPTERS: readonly ChapterPlan[] = [
@@ -286,8 +305,9 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'How to read a claim that has no source attached',
     ],
     needs:
-      'This chapter can be written earliest: it rests on the editorial method rather than on peptide science, and the method is already documented and tested.',
+      'Written from the editorial method. It states nothing about peptides, so it needed no peptide source; it still requires scientific and clinical review before publication.',
     illustration: 'A hierarchy of evidence, with the limits of each tier marked',
+    written: true,
   },
   {
     number: 'Nine',
@@ -330,12 +350,155 @@ const CHAPTERS: readonly ChapterPlan[] = [
   },
 ];
 
+/**
+ * Chapter eight, written.
+ *
+ * The only chapter in this volume that can be written before the peptide
+ * sources exist, because it is about how to read a claim rather than about any
+ * claim. Every statement here describes this index's own method, which is
+ * documented, implemented and tested — so there is nothing in it a reader
+ * could mistake for a finding about a peptide.
+ *
+ * The three classes and their definitions are the taxonomy the database
+ * enforces, not a hierarchy invented for the page.
+ */
+function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
+  return (
+    <>
+      <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <ChapterOpener
+          eyebrow={chapter.number}
+          title={chapter.title}
+          standfirst={chapter.standfirst}
+        />
+
+        <Lede>
+          Almost every disagreement about a peptide is really a disagreement about what counts as
+          evidence. This chapter is about that question, and it is the one chapter here that can be
+          written without saying anything about peptides at all.
+        </Lede>
+
+        <SectionHeading>Three kinds of thing get called evidence</SectionHeading>
+        <Body>
+          This index sorts every statement it holds into one of three classes before it does anything
+          else with it. The class is not a score. It describes where a statement came from, and
+          therefore what it is able to support.
+        </Body>
+
+        <Table
+          head={['Class', 'What it is', 'What it can support']}
+          rows={[
+            [
+              'Human',
+              'A study in people, or labelling authorised by a regulator',
+              'A statement about people, within the population studied',
+            ],
+            [
+              'Preclinical',
+              'Animals, tissue, cells, models, and analytical measurement of a substance',
+              'A statement about that model, or about what a substance is',
+            ],
+            [
+              'Reference and opinion',
+              'Textbooks, reviews, a named clinician’s described practice, reported experience',
+              'A statement about what a source says — attributed to it',
+            ],
+          ]}
+          widths={[1, 1.5, 1.6]}
+        />
+
+        <Body>
+          The third class is the one most often mistaken for the first. A practitioner handbook
+          describing a regimen is a reliable record of what that clinician recommends. It is not a
+          study, and no number of handbooks agreeing turns it into one.
+        </Body>
+
+        <SectionHeading>Animal evidence is not human evidence</SectionHeading>
+        <Comparison
+          left={{
+            title: 'What an animal study establishes',
+            items: [
+              'That something happened in that species, in that model, at that exposure',
+              'A reason to run a human study',
+              'A mechanism worth testing',
+            ],
+          }}
+          right={{
+            title: 'What it does not establish',
+            items: [
+              'That the same thing happens in a person',
+              'That the amount used translates to a human amount',
+              'That an absence of harm in the animals means safety in people',
+            ],
+          }}
+        />
+        <Body>
+          This is not a technicality. Most of what is written about peptides in public rests on
+          animal and laboratory work, and the step from that to a sentence about people is usually
+          taken silently. In this index it cannot be taken silently: a preclinical record is labelled
+          as one everywhere it appears.
+        </Body>
+      </PublicationPage>
+
+      <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <SectionHeading>What a study design can and cannot show</SectionHeading>
+        <Body>
+          Within human evidence, the design decides the question that can be answered. A study
+          without a comparison group can describe what happened to the people in it; it cannot
+          separate what the treatment did from what would have happened anyway. That matters most for
+          conditions that come and go on their own, which is exactly where peptides are most often
+          used.
+        </Body>
+        <Bullets
+          items={[
+            'A randomised trial with a comparison group can support a statement about effect.',
+            'An uncontrolled study can describe a group of people and generate a question.',
+            'A single case describes one person and settles nothing on its own.',
+            'A pharmacokinetic study answers what the body does to the substance, not whether it helps.',
+            'A safety study that found no harm in a small group has not shown that it is safe.',
+          ]}
+        />
+
+        <SectionHeading>A claim with no source attached</SectionHeading>
+        <Body>
+          The most useful habit this chapter can leave a reader with is to ask, of any claim, what it
+          is attached to. Not whether it sounds plausible, and not whether the person saying it seems
+          knowledgeable — what specific source says it, and what that source actually did.
+        </Body>
+        <EvidenceNote
+          supports="How this index classifies and attributes evidence: a documented method, implemented in the database and covered by automated tests."
+          doesNotSettle="Anything about any particular peptide. This chapter contains no peptide claims, and the chapters that will are not written yet."
+          status="Written from the editorial method · awaiting scientific and clinical review"
+        />
+
+        <Callout title="“Not established” is an answer">
+          <Body>
+            When this index says something is not established, it means it looked, recorded what it
+            found, and found nothing that supports the statement. That is different from saying the
+            statement is false, and different again from staying silent. Most of what is currently
+            known about most peptides is an absence of this kind, and a reference that hides its
+            absences is not a reference.
+          </Body>
+        </Callout>
+
+        <SourceNote
+          items={[
+            'The Tides Index evidence-type taxonomy: nineteen types in three classes, each with a recorded definition.',
+            'Editorial policy: every published statement resolves to an exact location in a named source, and every gap states what would resolve it.',
+            'No peptide source is cited in this chapter because no peptide claim is made in it.',
+          ]}
+        />
+      </PublicationPage>
+    </>
+  );
+}
+
 export function UnderstandingPeptides() {
   return (
     <Document
       title="Understanding Peptides — design skeleton"
       author="The Tides Index"
-      subject="Design skeleton. Structure and templates only; contains no medical content."
+      subject="Design skeleton with one written chapter. Contains no medical content and no reviewed content."
       creator="The Tides Index"
     >
       <Cover
@@ -344,8 +507,8 @@ export function UnderstandingPeptides() {
         title="Understanding Peptides"
         subtitle="A plain-language introduction"
         descriptor="Independent peptide science & clinical reference"
-        editionLine={`Design skeleton · issued ${ISSUED}`}
-        statusLine="Structure and page templates only. This document contains no medical content."
+        editionLine={`Design skeleton · one chapter written · issued ${ISSUED}`}
+        statusLine="Ten chapter briefs and one written chapter, awaiting review. This document contains no medical content."
         mark={<SeriesMark width={300} volume={1} />}
       />
 
@@ -354,7 +517,7 @@ export function UnderstandingPeptides() {
         <ChapterOpener
           eyebrow="Skeleton"
           title="What this document is"
-          standfirst="A layout, a structure and a set of briefs. Not a draft."
+          standfirst="A layout, a structure, ten briefs and one written chapter."
         />
 
         <Lede>
@@ -365,7 +528,9 @@ export function UnderstandingPeptides() {
 
         <Body>
           There is no medical content in it, and that is deliberate rather than a stage it has not
-          reached yet. This is the volume that will be read by the people least able to check it,
+          reached yet. Chapter eight is written, and it is written precisely because it makes no
+          claim about any peptide: it describes how this index classifies evidence, which is a
+          matter of method rather than of science. This is the volume that will be read by the people least able to check it,
           and a plausible paragraph written to fill a page is indistinguishable from a sourced one
           once it is set in the same typeface. So each chapter carries a brief — what it will cover
           and what has to exist before it can be written — and an illustration placeholder at the
@@ -374,10 +539,12 @@ export function UnderstandingPeptides() {
 
         <SectionHeading>What has to happen before it is written</SectionHeading>
         <Body>
-          Most of these chapters need sources this index does not yet hold. Two do not: the chapter
-          on understanding evidence rests on the editorial method rather than on peptide science,
-          and the chapter on quality can be drawn from the Peptide Quality material once its
-          scientific review is complete. Those are the two to write first.
+          Most of these chapters need sources this index does not yet hold. Two do not. The chapter
+          on understanding evidence rests on the editorial method rather than on peptide science, and
+          it is now written. The chapter on quality can be drawn from the Peptide Quality material,
+          but only once that volume’s scientific review is complete — drawing a
+          patient-facing chapter out of unreviewed material would put the least checkable text in
+          the programme on top of the least checked.
         </Body>
 
         <View
@@ -443,23 +610,27 @@ export function UnderstandingPeptides() {
       </PublicationPage>
 
       {/* --- One page per chapter --------------------------------------- */}
-      {CHAPTERS.map((chapter) => (
-        <PublicationPage key={chapter.title} publication={PUBLICATION} section={chapter.title}>
-          <ChapterOpener
-            eyebrow={chapter.number}
-            title={chapter.title}
-            standfirst={chapter.standfirst}
-          />
-          <IllustrationSlot
-            label={chapter.illustration}
-            height={170}
-            {...(chapter.illustrationNote === undefined
-              ? {}
-              : { note: chapter.illustrationNote })}
-          />
-          <ChapterBrief covers={chapter.covers} needs={chapter.needs} />
-        </PublicationPage>
-      ))}
+      {CHAPTERS.map((chapter) =>
+        chapter.written === true ? (
+          <UnderstandingEvidence key={chapter.title} chapter={chapter} />
+        ) : (
+          <PublicationPage key={chapter.title} publication={PUBLICATION} section={chapter.title}>
+            <ChapterOpener
+              eyebrow={chapter.number}
+              title={chapter.title}
+              standfirst={chapter.standfirst}
+            />
+            <IllustrationSlot
+              label={chapter.illustration}
+              height={170}
+              {...(chapter.illustrationNote === undefined
+                ? {}
+                : { note: chapter.illustrationNote })}
+            />
+            <ChapterBrief covers={chapter.covers} needs={chapter.needs} />
+          </PublicationPage>
+        ),
+      )}
 
       {/* --- Back matter ------------------------------------------------ */}
       <PublicationPage publication={PUBLICATION} section="Method">
@@ -481,7 +652,7 @@ export function UnderstandingPeptides() {
         <CurrentVersionBlock
           url="thetidesindex.com"
           version={`Understanding Peptides · design skeleton · issued ${ISSUED}`}
-          note="No content. No claims. No review."
+          note="One written chapter, on method. No peptide claims. No review yet."
         />
       </PublicationPage>
     </Document>
