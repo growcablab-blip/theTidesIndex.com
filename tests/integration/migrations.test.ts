@@ -134,6 +134,19 @@ describe('migrations', () => {
     }
   });
 
+  it('grants the public role read access to every public view', async () => {
+    // A view added by a later migration and never granted is invisible until a
+    // record is published, which is exactly when it must not fail.
+    const rows = await query<{ table_name: string }>(
+      db,
+      `select table_name from information_schema.views
+        where table_schema = 'public' and table_name like 'public\\_v\\_%'
+          and not has_table_privilege('anon', 'public.' || table_name, 'SELECT')
+        order by table_name`,
+    );
+    expect(rows.map((r) => r.table_name)).toEqual([]);
+  });
+
   it('refuses to mark a restricted source copy as publishable full text', async () => {
     await expect(
       query(

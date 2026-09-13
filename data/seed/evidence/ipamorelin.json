@@ -1,0 +1,590 @@
+{
+  "packetKey": "ipamorelin",
+  "peptideKey": "ipamorelin",
+  "note": "Extracted 13 September 2026 from a hand-adjudicated PubMed census of 50 records (ipamorelin-pubmed-2026-09), eleven journal abstracts (SRC-072, SRC-076 to SRC-085) and all five practitioner sources. Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's page numbers. Regimens that combine ipamorelin with modified GRF (1-29) as a single preparation are recorded once, on the modified GRF (1-29) record, and referenced here in combinations rather than duplicated. Amounts appear only in protocol fields.",
+  "compound": {
+    "shortDescription": "A five-amino-acid ghrelin-receptor agonist designed to release growth hormone selectively. Given to people intravenously in two studies; the injected-under-the-skin use practitioner books describe has not been studied in people.",
+    "simpleSummary": "Ipamorelin is a small lab-made peptide that switches on the ghrelin receptor, one of the signals that tells the pituitary gland to release growth hormone. It was developed by a pharmaceutical company in the 1990s because, in pigs, it released growth hormone without also raising stress hormones, which similar peptides did.\n\n**It has been given to people twice in published studies, both times into a vein.** In healthy men it caused a short burst of growth hormone and was cleared from the blood within hours. In a trial after bowel surgery it was well tolerated but did not speed up recovery compared with placebo.\n\n**The way it is usually described being used has not been studied in people.** Practitioner books describe injections under the skin one to three times a day, often combined with another peptide, for fat loss, muscle and sleep. No study in people tested any of that. In mice, repeated ipamorelin increased body fat and food intake. Seized black-market products have contained a slightly altered version of the peptide.",
+    "practitionerSummary": "Ipamorelin (NNC 26-0161; Aib-His-D-2-Nal-D-Phe-Lys-NH2) is a pentapeptide GH secretagogue acting through the GHRP (ghrelin) receptor. In the developer's pharmacology it matched GHRP-6 for GH release in rat pituitary cells, anaesthetised rats and conscious swine, and in swine did not raise ACTH or cortisol above GHRH-stimulated levels even at more than 200 times the GH ED50, nor alter FSH, LH, prolactin or TSH. In healthy men, 15-minute intravenous infusions across five dose levels gave dose-proportional pharmacokinetics, a terminal half-life of about 2 hours and a single GH episode peaking at about 40 minutes. A multicentre phase 2 RCT of intravenous ipamorelin twice daily after bowel resection (n = 114) found it well tolerated with no significant effect on time to tolerated meal or secondary endpoints. Animal work: dose-dependent longitudinal bone growth in rats (subcutaneous, three times daily), preservation of muscle strength and bone formation under glucocorticoid treatment, increased relative body fat and food intake in mice (twice daily, GH-independent), and roughly 20% intranasal bioavailability in rats. Anti-doping laboratories have identified N-terminally glycine-extended ipamorelin in black-market and seized products. No human study of subcutaneous administration, of body composition, or of the combination with a GHRH analogue was identified.",
+    "unknownsSummary": "Not established in people: the pharmacokinetics and effects of subcutaneous ipamorelin; whether its hormonal selectivity seen in swine holds in humans; any effect on body composition, sleep or recovery; the effect of combining it with a GHRH analogue; long-term safety, including appetite and body fat given the mouse findings; and the identity of products sold under the name.",
+    "aliases": [
+      { "alias": "NNC 26-0161", "note": "The developer's research code." },
+      { "alias": "Ipamorelin acetate", "note": "A salt form named in some studies; the peptide is the same." }
+    ],
+    "sequence": null,
+    "molecularDescription": "Pentapeptide Aib-His-D-2-Nal-D-Phe-Lys-NH2. Contains non-standard residues (aminoisobutyric acid, D-2-naphthylalanine), so no one-letter sequence is recorded.",
+    "naturalOrSynthetic": "Synthetic",
+    "nomenclatureNote": "One practitioner book calls ipamorelin a growth-hormone-releasing peptide in one chapter and a growth-hormone-releasing hormone in another, swapping it with tesamorelin; the pharmacology places it at the GHRP (ghrelin) receptor. Glycine-extended ipamorelin found in black-market products is a different molecule."
+  },
+  "locations": [
+    { "key": "raun-1998", "sourceKey": "SRC-076", "locatorText": "Abstract", "section": "Abstract (PMID 9849822)" },
+    { "key": "gobburu-1999", "sourceKey": "SRC-077", "locatorText": "Abstract", "section": "Abstract (PMID 10496658)" },
+    { "key": "beck-2014", "sourceKey": "SRC-078", "locatorText": "Abstract", "section": "Abstract (PMID 25331030)" },
+    { "key": "nasal-rat-1998", "sourceKey": "SRC-079", "locatorText": "Abstract", "section": "Abstract (PMID 9879640)" },
+    { "key": "bone-rat-1999", "sourceKey": "SRC-080", "locatorText": "Abstract", "section": "Abstract (PMID 10373343)" },
+    { "key": "gc-rat-2001", "sourceKey": "SRC-081", "locatorText": "Abstract", "section": "Abstract (PMID 11735244)" },
+    { "key": "fat-mice-2001", "sourceKey": "SRC-082", "locatorText": "Abstract", "section": "Abstract (PMID 11162489)" },
+    { "key": "blackmarket-2018", "sourceKey": "SRC-083", "locatorText": "Abstract", "section": "Abstract (PMID 29864719)" },
+    { "key": "denmark-2019-ipa", "sourceKey": "SRC-072", "locatorText": "Abstract", "section": "Abstract (PMID 30136411)" },
+    { "key": "nasal-human-2015", "sourceKey": "SRC-084", "locatorText": "Abstract", "section": "Abstract (PMID 25869809)" },
+    { "key": "ileus-rat-2009", "sourceKey": "SRC-085", "locatorText": "Abstract", "section": "Abstract (PMID 19289567)" },
+    { "key": "seeds-ipa-90", "sourceKey": "SRC-001", "locatorText": "file p. 90", "section": "Types of GHRP: ipamorelin" },
+    { "key": "lavalle-ipa-36", "sourceKey": "SRC-002", "locatorText": "file p. 36", "section": "Dosages: ipamorelin half-life" },
+    { "key": "lavalle-ipa-41", "sourceKey": "SRC-002", "locatorText": "file pp. 40-41", "section": "Benefits of combining CJC 1295 with ipamorelin" },
+    { "key": "lavalle-ipa-196", "sourceKey": "SRC-002", "locatorText": "file p. 196", "section": "Exercise recovery: peptide protocol" },
+    { "key": "campbell-ipa-58", "sourceKey": "SRC-003", "locatorText": "p. 58", "pageStart": 58, "section": "Ipamorelin (fat loss chapter)" },
+    { "key": "campbell-ipa-59", "sourceKey": "SRC-003", "locatorText": "pp. 59-60", "pageStart": 59, "pageEnd": 60, "section": "Ipamorelin recommended dosage" },
+    { "key": "campbell-ipa-100", "sourceKey": "SRC-003", "locatorText": "pp. 100-101", "pageStart": 100, "pageEnd": 101, "section": "Ipamorelin (longevity chapter)" },
+    { "key": "campbell-ipa-193", "sourceKey": "SRC-003", "locatorText": "p. 193", "pageStart": 193, "section": "Ipamorelin and tesamorelin" },
+    { "key": "campbell-ipa-199", "sourceKey": "SRC-003", "locatorText": "pp. 199-200", "pageStart": 199, "pageEnd": 200, "section": "The Wolverine protocol" },
+    { "key": "cheatsheet-ipa-2", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, Ipamorelin row" },
+    { "key": "cheatsheet-ipa-6", "sourceKey": "SRC-004", "locatorText": "file p. 6", "section": "Blends table, Tesamorelin / Ipamorelin row" },
+    { "key": "hacksmith-ipa", "sourceKey": "SRC-005", "locatorText": "file pp. 69-71", "section": "Ipamorelin" },
+    { "key": "hacksmith-persona-ipa", "sourceKey": "SRC-005", "locatorText": "file p. 186", "section": "Persona 1: bodybuilder regimen" }
+  ],
+  "claims": [
+    {
+      "claimKey": "IPA-001",
+      "claimText": "Ipamorelin is a pentapeptide (Aib-His-D-2-Nal-D-Phe-Lys-NH2) that releases GH through the GHRP receptor with potency and efficacy similar to GHRP-6 in rat pituitary cells, anaesthetised rats and conscious swine; in swine it did not raise ACTH or cortisol above GHRH-stimulated levels even at more than 200 times the dose for half-maximal GH release, and did not change FSH, LH, prolactin or TSH.",
+      "plainLanguageText": "Ipamorelin releases growth hormone through the ghrelin receptor. In pigs it did this without raising stress hormones.",
+      "claimCategory": "mechanism",
+      "importance": "critical",
+      "interpretationNotes": "The origin of the selectivity claim every practitioner source repeats. It was shown in pigs.",
+      "uncertaintyText": "Animal pharmacology from the developer. Human hormonal selectivity was not measured in any record held.",
+      "evidence": [
+        { "locationKey": "raun-1998", "evidenceTypeKey": "in_vitro", "interpretation": "GH release from rat pituitary cells and receptor profiling with antagonists." },
+        { "locationKey": "raun-1998", "evidenceTypeKey": "animal_in_vivo", "interpretation": "GH, ACTH, cortisol and other pituitary hormones in rats and swine." }
+      ]
+    },
+    {
+      "claimKey": "IPA-002",
+      "claimText": "In healthy men given 15-minute intravenous infusions at five dose levels, ipamorelin showed dose-proportional pharmacokinetics with a terminal half-life of about 2 hours, and produced a single episode of GH release peaking at about 40 minutes and falling to negligible levels.",
+      "plainLanguageText": "Given into a vein, ipamorelin caused one short burst of growth hormone and was cleared within hours.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "critical",
+      "interpretationNotes": "The only human pharmacokinetic study. The half-life practitioner sources quote matches it, but they describe injection under the skin, which this study did not test.",
+      "uncertaintyText": "Intravenous, single infusions, healthy men only.",
+      "evidence": [
+        { "locationKey": "gobburu-1999", "evidenceTypeKey": "human_pk_pd", "interpretation": "Dose-escalation PK/PD in healthy male volunteers." }
+      ]
+    },
+    {
+      "claimKey": "IPA-003",
+      "claimText": "In a multicentre phase 2 randomised, double-blind, placebo-controlled trial after bowel resection, intravenous ipamorelin twice daily for up to 7 days was well tolerated, and time to first tolerated meal did not differ significantly from placebo, nor did secondary efficacy measures.",
+      "plainLanguageText": "In a trial after bowel surgery, ipamorelin was well tolerated but did not speed recovery compared with placebo.",
+      "claimCategory": "efficacy-human",
+      "importance": "critical",
+      "interpretationNotes": "The only controlled efficacy trial in people, and a negative one. Rat models of the same condition were positive.",
+      "uncertaintyText": "A small proof-of-concept study with a broad range of underlying conditions.",
+      "evidence": [
+        { "locationKey": "beck-2014", "evidenceTypeKey": "human_rct", "interpretation": "Tolerability and efficacy endpoints versus placebo (NCT00672074)." }
+      ]
+    },
+    {
+      "claimKey": "IPA-004",
+      "claimText": "In GH-deficient and GH-intact mice, twice-daily subcutaneous ipamorelin increased body weight modestly, increased fat pad weight relative to body weight and relative body fat on DEXA, and increased food intake and serum leptin, through mechanisms independent of GH.",
+      "plainLanguageText": "In mice, repeated ipamorelin increased body fat and how much they ate.",
+      "claimCategory": "efficacy-animal",
+      "importance": "high",
+      "interpretationNotes": "Directly relevant to practitioner framing of ipamorelin as a fat-loss peptide. Mouse findings do not establish what happens in people; neither does the practitioner framing.",
+      "uncertaintyText": "Mice; not replicated in the held records.",
+      "evidence": [
+        { "locationKey": "fat-mice-2001", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Body fat, food intake and leptin with ipamorelin versus GH." }
+      ]
+    },
+    {
+      "claimKey": "IPA-005",
+      "claimText": "In adult female rats, subcutaneous ipamorelin three times daily dose-dependently increased longitudinal bone growth and body weight without changing total IGF-I; in rats given a glucocorticoid for three months, adding ipamorelin preserved muscle strength and increased periosteal bone formation.",
+      "plainLanguageText": "In rats, ipamorelin increased bone growth and protected muscle and bone from steroid damage.",
+      "claimCategory": "efficacy-animal",
+      "importance": "medium",
+      "interpretationNotes": "Two groups in Denmark, one the developer.",
+      "uncertaintyText": "Rats. No human bone or muscle study was identified.",
+      "evidence": [
+        { "locationKey": "bone-rat-1999", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Longitudinal bone growth, body weight, IGF-I." },
+        { "locationKey": "gc-rat-2001", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Muscle strength and bone formation with glucocorticoid." }
+      ]
+    },
+    {
+      "claimKey": "IPA-006",
+      "claimText": "In rats, intranasal ipamorelin had an estimated bioavailability of about 20%, lower than several related peptides; in an anti-doping study, ipamorelin given nasally to one volunteer was excreted as parent peptide and metabolites.",
+      "plainLanguageText": "Some ipamorelin is absorbed through the nose in rats, and it can be detected in urine after nasal use.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "low",
+      "interpretationNotes": "Route evidence that no practitioner source held here relies on; recorded for completeness.",
+      "uncertaintyText": "Rat bioavailability; a single human volunteer for metabolite identification only.",
+      "evidence": [
+        { "locationKey": "nasal-rat-1998", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Nasal bioavailability and excretion in rats." },
+        { "locationKey": "nasal-human-2015", "evidenceTypeKey": "human_pk_pd", "interpretation": "Urinary metabolites after nasal administration in one volunteer." }
+      ]
+    },
+    {
+      "claimKey": "IPA-007",
+      "claimText": "Anti-doping and forensic laboratories in Germany and Denmark have identified N-terminally glycine-extended ipamorelin in black-market and seized products, confirmed in one case by custom synthesis.",
+      "plainLanguageText": "Products sold on the black market have contained a slightly different version of ipamorelin.",
+      "claimCategory": "product-characterisation",
+      "importance": "high",
+      "interpretationNotes": "Two laboratories in two countries. Glycine-extended ipamorelin is a different molecule with unstudied properties.",
+      "uncertaintyText": "Seized and black-market material; not a survey of products.",
+      "evidence": [
+        { "locationKey": "blackmarket-2018", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Gly-ipamorelin identified by high-resolution MS and confirmed by synthesis." },
+        { "locationKey": "denmark-2019-ipa", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Glycine-extended ipamorelin among seized secretagogue analogues." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "route_not_established",
+      "statement": "The pharmacokinetics and effects of subcutaneous ipamorelin in people.",
+      "why": "Both human clinical studies used intravenous infusion. Every practitioner source describes subcutaneous injection.",
+      "whatWouldResolveIt": "A human pharmacokinetic and GH-response study of subcutaneous ipamorelin.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the bioavailability, half-life and GH response of subcutaneous ipamorelin in healthy adults?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any effect on body composition, sleep or recovery in people.",
+      "why": "No human study measured these outcomes. In mice, body fat increased.",
+      "whatWouldResolveIt": "A controlled human study with body-composition measurement.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does repeated ipamorelin change fat mass, lean mass or appetite in adults compared with placebo?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Whether ipamorelin's hormonal selectivity holds in humans.",
+      "why": "The absence of ACTH and cortisol release was shown in swine; the human PK/PD abstract reports GH only.",
+      "whatWouldResolveIt": "Measurement of ACTH, cortisol and prolactin after ipamorelin in people.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does ipamorelin raise cortisol or prolactin in humans at GH-releasing doses?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Ipamorelin combined with a GHRH analogue.",
+      "why": "The most common practitioner use; no study identified.",
+      "whatWouldResolveIt": "A controlled study of the combination against each component.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does ipamorelin with modified GRF (1-29) or tesamorelin produce a larger GH or IGF-I response than either alone in people?",
+      "opportunityType": "protocol_validation"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Safety of repeated daily use over weeks or months.",
+      "why": "The longest human exposure identified is up to 7 days intravenously in hospital.",
+      "whatWouldResolveIt": "A longer controlled study with IGF-I, glucose, appetite and adverse-event monitoring.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the metabolic and appetite effects of eight weeks of daily ipamorelin in adults?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "What products sold as ipamorelin contain.",
+      "why": "Glycine-extended ipamorelin has been found in black-market and seized products.",
+      "whatWouldResolveIt": "Analysis of purchased products against reference ipamorelin.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How often do products sold as ipamorelin contain the reference pentapeptide rather than a modified analogue?",
+      "opportunityType": "product_characterisation"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "intravenous",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "beck-2014",
+      "populationModel": "Healthy men (PK/PD); adults after bowel resection (phase 2 trial).",
+      "formulation": "Intravenous infusion.",
+      "pkNotes": "Terminal half-life about 2 hours in healthy men.",
+      "limitationsNotes": "The only route studied clinically in people, and not the route practitioner sources describe."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "campbell-ipa-59",
+      "populationModel": "Not specified by the sources.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Described by practitioner sources and used in rats and mice. No human study by this route was identified."
+    },
+    {
+      "routeKey": "intranasal",
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "nasal-rat-1998",
+      "populationModel": "Male rats.",
+      "formulation": null,
+      "pkNotes": "Bioavailability about 20% in rats.",
+      "limitationsNotes": "Rat pharmacokinetics; no practitioner source held here describes nasal use of ipamorelin."
+    }
+  ],
+  "pharmacokinetics": [
+    {
+      "observationKey": "IPA-PK-001",
+      "parameter": "Terminal half-life",
+      "valueText": "About 2 hours",
+      "doseContext": "Single 15-minute infusions at five dose levels",
+      "administration": "single_dose",
+      "population": "Healthy men, eight per dose level",
+      "routeKey": "intravenous",
+      "studyCondition": "Dose-escalation PK/PD study",
+      "evidenceTypeKey": "human_pk_pd",
+      "notes": "Pharmacokinetics were dose proportional; GH peaked at about 40 minutes.",
+      "locationKey": "gobburu-1999"
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "IPA-PR-STUDY-PKPD",
+      "objectiveContext": "Pharmacokinetics and GH response in healthy volunteers.",
+      "populationModel": "Healthy men, eight per dose level, USA.",
+      "routeKey": "intravenous",
+      "formulation": "15-minute intravenous infusion.",
+      "regulatoryContext": "A single-dose pharmacology study. Not a treatment schedule.",
+      "evidenceTypeKey": "human_pk_pd",
+      "amountReported": "4.21, 14.02, 42.13, 84.27 and 140.45 nmol/kg over 15 minutes",
+      "amountUnit": "nmol/kg",
+      "frequencyText": "Single infusion",
+      "durationText": null,
+      "monitoringText": "Plasma ipamorelin and GH",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "gobburu-1999"
+    },
+    {
+      "protocolKey": "IPA-PR-STUDY-ILEUS",
+      "objectiveContext": "Postoperative ileus after bowel resection (phase 2 proof of concept, NCT00672074).",
+      "populationModel": "Adults after open or laparoscopic small or large bowel resection; 114 analysed.",
+      "routeKey": "intravenous",
+      "formulation": "Intravenous infusion versus placebo.",
+      "regulatoryContext": "A phase 2 trial's regimen. It was well tolerated and did not show efficacy.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": "0.03 mg/kg",
+      "amountUnit": "mg/kg",
+      "frequencyText": "Twice daily",
+      "durationText": "Postoperative day 1 to 7, or discharge",
+      "monitoringText": "Adverse events and laboratory tests",
+      "contraindicationsText": null,
+      "safetyNotes": "Treatment-emergent adverse events in 87.5% with ipamorelin and 94.8% with placebo.",
+      "locationKey": "beck-2014"
+    },
+    {
+      "protocolKey": "IPA-PR-CAMPBELL",
+      "objectiveContext": "Fat loss, and muscle gain with surplus calories, as framed by the book.",
+      "populationModel": "Not specified by the source; a variant for women is described.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner book's schedule. No human study of subcutaneous ipamorelin was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "200-300 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "One to three times a day",
+      "timingText": "Variants quoted by the source: 30-45 minutes before training; for women, immediately before bed",
+      "durationText": null,
+      "cycleText": "No longer than 8 weeks, then an equal time off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-ipa-59"
+    },
+    {
+      "protocolKey": "IPA-PR-CAMPBELL-WOLVERINE",
+      "objectiveContext": "Injury healing, as the morning component of the book's multi-peptide 'Wolverine' protocol.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner combination protocol. No study of the combination was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "200-300 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Morning, in variation A",
+      "timingText": "Morning",
+      "durationText": null,
+      "combinationsText": "TB-500 and BPC-157 in the morning; tesamorelin, BPC-157 and topical GHK-Cu in the evening, per the source.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-ipa-199"
+    },
+    {
+      "protocolKey": "IPA-PR-HACKSMITH",
+      "objectiveContext": "Muscle growth, fat metabolism, recovery, skin and sleep, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner guide's schedule. No human study of subcutaneous ipamorelin was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "100-300 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "One to three times daily",
+      "timingText": "Fasted",
+      "durationText": null,
+      "combinationsText": "Often paired with modified GRF (1-29) or tesamorelin, per the source.",
+      "monitoringText": "IGF-1 testing for GH secretagogues (file p. 184).",
+      "contraindicationsText": null,
+      "safetyNotes": "Mild transient headaches; injection-site redness or irritation, per the source.",
+      "locationKey": "hacksmith-ipa"
+    },
+    {
+      "protocolKey": "IPA-PR-HACKSMITH-PERSONA",
+      "objectiveContext": "A worked example for a 35-year-old competitive bodybuilder, in the guide.",
+      "populationModel": "Hypothetical persona in the source.",
+      "routeKey": "other",
+      "formulation": "Route not stated in the persona.",
+      "regulatoryContext": "An illustrative persona in a practitioner guide, not a case and not a study.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "100 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "Before bed",
+      "durationText": "Started in weeks 1-4 of a 12-week plan",
+      "combinationsText": "CJC-1295 without DAC (modified GRF (1-29)) 300 mcg before bed, per the source.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "hacksmith-persona-ipa"
+    },
+    {
+      "protocolKey": "IPA-PR-LAVALLE-RECOVERY",
+      "objectiveContext": "Exercise recovery, as framed by the Peptide Handbook's protocol chapter.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "A combined CJC-1295 + ipamorelin preparation; the concentration and whether the CJC-1295 is with or without DAC are not stated on this page.",
+      "regulatoryContext": "A practitioner combination protocol with an unstated peptide form. No study of the combination was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.1 ml",
+      "amountUnit": "ml",
+      "frequencyText": "At bedtime; an additional dose before a workout up to 5 days a week",
+      "timingText": "Bedtime",
+      "durationText": null,
+      "combinationsText": "CJC-1295 in the same preparation.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "lavalle-ipa-196"
+    },
+    {
+      "protocolKey": "IPA-PR-CHEATSHEET",
+      "objectiveContext": "Fat loss, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "10 mg vial reconstituted with 3 ml bacteriostatic water; 9 units on a 1 ml insulin syringe. Route not named.",
+      "regulatoryContext": "A practitioner quick-reference schedule. No human study of repeated ipamorelin injection was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "300 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "AM/PM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-ipa-2"
+    },
+    {
+      "protocolKey": "IPA-PR-CHEATSHEET-TESA-BLEND",
+      "objectiveContext": "Fat loss and muscle building, as a blend with tesamorelin, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Tesamorelin 6 mg / ipamorelin 2 mg reconstituted with 2 ml; 10 units per dose. Route not named.",
+      "regulatoryContext": "A practitioner quick-reference blend. Tesamorelin's approved labelling does not include ipamorelin, and no study of the combination was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "300mcg/ 100mcg (tesamorelin / ipamorelin)",
+      "amountUnit": "mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "AM/PM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "combinationsText": "Tesamorelin in the same vial.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-ipa-6"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "IPA-D-001",
+      "topic": "Whether ipamorelin affects appetite and body fat.",
+      "plainLanguageText": "Practitioner books say ipamorelin leaves hunger alone and helps fat loss. In mice it increased food intake and body fat. No study in people measured either.",
+      "candidateExplanation": "population",
+      "explanationNotes": "Ipamorelin acts at the ghrelin receptor, the receptor of the body's hunger hormone. The mouse finding and the practitioner claim may both be about different species and settings; neither is a human measurement.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A controlled human study measuring appetite, food intake and body composition.",
+      "positions": [
+        { "locationKey": "campbell-ipa-100", "evidenceTypeKey": "practitioner_reference", "positionText": "Does not touch the hunger hormone ghrelin, so hunger is reduced; an excellent choice for fat loss." },
+        { "locationKey": "campbell-ipa-58", "evidenceTypeKey": "practitioner_reference", "positionText": "Recommended as the best introductory peptide for fat loss." },
+        { "locationKey": "fat-mice-2001", "evidenceTypeKey": "animal_in_vivo", "positionText": "Increased relative body fat, food intake and leptin in mice, independently of GH." },
+        { "locationKey": "beck-2014", "evidenceTypeKey": "human_rct", "positionText": "Describes ipamorelin as a ghrelin-receptor agonist." }
+      ]
+    },
+    {
+      "disagreementKey": "IPA-D-002",
+      "topic": "Whether ipamorelin raises cortisol and prolactin.",
+      "plainLanguageText": "Practitioner books say it does not. That was shown in pigs, not in people.",
+      "candidateExplanation": "population",
+      "explanationNotes": "The practitioner statements are accurate descriptions of the swine result presented without the species.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "Measurement of ACTH, cortisol and prolactin after ipamorelin in people.",
+      "positions": [
+        { "locationKey": "seeds-ipa-90", "evidenceTypeKey": "practitioner_reference", "positionText": "Does not create prolactin or cortisol." },
+        { "locationKey": "hacksmith-ipa", "evidenceTypeKey": "practitioner_reference", "positionText": "Does not stimulate cortisol or prolactin release." },
+        { "locationKey": "raun-1998", "evidenceTypeKey": "animal_in_vivo", "positionText": "In swine, no ACTH or cortisol release beyond GHRH levels, and no change in prolactin." }
+      ]
+    },
+    {
+      "disagreementKey": "IPA-D-003",
+      "topic": "Whether ipamorelin helps the gut recover.",
+      "plainLanguageText": "A practitioner book lists better gut health. Rat studies after surgery were positive. The human trial after bowel surgery found no significant benefit.",
+      "candidateExplanation": "population",
+      "explanationNotes": "The only human test of a gut effect was negative on its key and secondary endpoints; the practitioner claim is general and cites no study.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A larger adequately powered human trial, or a defined human gut outcome in another setting.",
+      "positions": [
+        { "locationKey": "campbell-ipa-100", "evidenceTypeKey": "practitioner_reference", "positionText": "Lists better gut health among its outcomes." },
+        { "locationKey": "ileus-rat-2009", "evidenceTypeKey": "animal_in_vivo", "positionText": "Improved bowel function and food intake after surgery in rats." },
+        { "locationKey": "beck-2014", "evidenceTypeKey": "human_rct", "positionText": "No significant difference from placebo in time to tolerated meal or secondary endpoints after bowel resection." }
+      ]
+    },
+    {
+      "disagreementKey": "IPA-D-004",
+      "topic": "Whether ipamorelin is a GHRP or a GHRH.",
+      "plainLanguageText": "One practitioner book calls ipamorelin a growth-hormone-releasing peptide in one chapter and a growth-hormone-releasing hormone in another.",
+      "candidateExplanation": "terminology",
+      "explanationNotes": "The later chapter swaps ipamorelin and tesamorelin. The developer's receptor profiling places ipamorelin at the GHRP receptor, and tesamorelin is a GHRH analogue.",
+      "resolution": "source_error_confirmed",
+      "resolutionBasis": "The developer's pharmacology (SRC-076) shows ipamorelin acts via a GHRP-like receptor, blocked by GHRP and not GHRH antagonists; the same book (SRC-003 p. 58) correctly calls it a GHRP.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None further.",
+      "positions": [
+        { "locationKey": "campbell-ipa-58", "evidenceTypeKey": "practitioner_reference", "positionText": "Ipamorelin is a GHRP." },
+        { "locationKey": "campbell-ipa-193", "evidenceTypeKey": "practitioner_reference", "positionText": "Ipamorelin is a GHRH and tesamorelin a GHRP." },
+        { "locationKey": "raun-1998", "evidenceTypeKey": "in_vitro", "positionText": "Stimulates GH release via a GHRP-like receptor, shown with GHRP and GHRH antagonists." }
+      ]
+    },
+    {
+      "disagreementKey": "IPA-D-005",
+      "topic": "How often ipamorelin is injected.",
+      "plainLanguageText": "Practitioner sources range from once before bed to three times a day, some in eight-week cycles.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "A 2-hour intravenous half-life is consistent with more than one daily dose, but no source cites a study for its schedule and no study examined any of them.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A human study of subcutaneous dosing frequency.",
+      "positions": [
+        { "locationKey": "campbell-ipa-59", "evidenceTypeKey": "practitioner_reference", "positionText": "One to three times a day, cycled for no more than 8 weeks." },
+        { "locationKey": "hacksmith-ipa", "evidenceTypeKey": "practitioner_reference", "positionText": "One to three times daily, fasted." },
+        { "locationKey": "cheatsheet-ipa-2", "evidenceTypeKey": "practitioner_reference", "positionText": "Morning or evening, five days on and two off, in eight-week cycles." },
+        { "locationKey": "gobburu-1999", "evidenceTypeKey": "human_pk_pd", "positionText": "Terminal half-life about 2 hours after intravenous infusion." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "beck-2014",
+      "checkedAt": "2026-09-13",
+      "notes": "No approval, authorisation or refusal is recorded. A phase 2 trial (NCT00672074) shows past clinical development for postoperative ileus. A practitioner source states it is prohibited in sport by the World Anti-Doping Agency; that is a sports rule, not a medicines status."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "IPA-ID-001",
+      "nameUsed": "Ipamorelin",
+      "chemicalForm": "Pentapeptide Aib-His-D-2-Nal-D-Phe-Lys-NH2",
+      "residueCount": 5,
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "The developer's pharmacology paper.",
+      "notes": "Non-standard residues; no one-letter sequence recorded.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "raun-1998"
+    },
+    {
+      "identityKey": "IPA-ID-002",
+      "nameUsed": "NNC 26-0161",
+      "chemicalForm": "Ipamorelin",
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "The developer's research code in rat pharmacokinetic work.",
+      "notes": null,
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "nasal-rat-1998"
+    },
+    {
+      "identityKey": "IPA-ID-003",
+      "nameUsed": "Gly-Ipamorelin",
+      "chemicalForm": "Ipamorelin with an additional N-terminal glycine",
+      "residueCount": 6,
+      "form": "analogue",
+      "verification": "analytically_characterised",
+      "usageContext": "Identified in black-market growth-promoting products and confirmed by synthesis.",
+      "notes": "A different molecule from ipamorelin.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "blackmarket-2018"
+    },
+    {
+      "identityKey": "IPA-ID-004",
+      "nameUsed": "Ipamorelin (as a GHRH)",
+      "chemicalForm": "Ipamorelin",
+      "form": "analogue",
+      "verification": "contradicted",
+      "usageContext": "A practitioner book's combined ipamorelin and tesamorelin section, which assigns ipamorelin the GHRH class.",
+      "notes": "The same book's earlier chapter, and the developer's pharmacology, place it at the GHRP receptor.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "campbell-ipa-193"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "IPA-REP-001",
+      "finding": "Ipamorelin releases GH without raising ACTH or cortisol.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Swine.",
+      "humanConfirmed": false,
+      "basis": "The developer's pharmacology paper; not repeated in the held records, and not measured in people.",
+      "limitations": "Species difference.",
+      "supportingRecords": "PMID 9849822"
+    },
+    {
+      "assessmentKey": "IPA-REP-002",
+      "finding": "Ipamorelin increases body weight and bone measures in rats.",
+      "state": "independent_multiple_countries",
+      "studyCount": 3,
+      "groupCount": 3,
+      "countryCount": 2,
+      "models": "Adult female rats; rats given glucocorticoid.",
+      "humanConfirmed": false,
+      "basis": "Novo Nordisk (Denmark, 1999), Sahlgrenska University Hospital (Sweden, 2000) and Aarhus University (Denmark, 2001), no shared institution. The Swedish study found bone mineral content rose in proportion to body weight rather than independently of it.",
+      "limitations": "The findings overlap rather than match: bone growth, mineral content scaled to weight, and protection under glucocorticoid are different measures.",
+      "supportingRecords": "PMID 10373343; PMID 10828840; PMID 11735244"
+    },
+    {
+      "assessmentKey": "IPA-REP-003",
+      "finding": "Ipamorelin speeds gut recovery after abdominal surgery.",
+      "state": "conflicting_replication",
+      "studyCount": 2,
+      "groupCount": 2,
+      "countryCount": 1,
+      "models": "Rats; adults after bowel resection.",
+      "humanConfirmed": false,
+      "basis": "Positive in a rat model (University of Oklahoma, 2009); not significant in a multicentre human phase 2 trial (2014).",
+      "limitations": "The human trial was small and heterogeneous.",
+      "supportingRecords": "PMID 19289567; PMID 25331030"
+    },
+    {
+      "assessmentKey": "IPA-REP-004",
+      "finding": "Effects of subcutaneous ipamorelin in people.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study exists to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ]
+}

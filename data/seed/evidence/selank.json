@@ -1,0 +1,524 @@
+{
+  "packetKey": "selank",
+  "peptideKey": "selank",
+  "note": "Extracted 13 September 2026 from a PubMed census of 72 records (selank-pubmed-2026-09), 32 of them in Russian; eleven journal abstracts (SRC-104, SRC-105, SRC-110 to SRC-118) and all five practitioner sources. TRANSLATION: every Russian-language source was read only through the English abstract PubMed indexes. No translation was performed, nothing is quoted from Russian text, and design details absent from an English abstract are recorded as not stated (owner decision D-07). Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's page numbers. Molecular weight was checked by summing average residue masses for the printed sequence. Amounts appear only in protocol fields.",
+  "compound": {
+    "shortDescription": "A seven-amino-acid peptide built from the immune peptide tuftsin, developed in Moscow as an anti-anxiety drug. Russian trials compared it with benzodiazepines; no placebo-controlled trial in patients was found.",
+    "simpleSummary": "Selank is a small lab-made peptide based on tuftsin, a natural fragment of an antibody involved in immune signalling, with three amino acids added for stability. It was developed at a Russian Academy of Sciences institute as a treatment for anxiety.\n\n**It has been tested in Russian patients with anxiety.** In one randomised study, Selank relieved anxiety about as well as a benzodiazepine tranquilliser, and had some energising effects. In another, adding Selank to a benzodiazepine seemed to reduce that drug's side effects. This index could read these studies only through short English summaries, and none compared Selank with a placebo in patients.\n\n**Several practitioner claims go further than the studies.** One book says Selank performs far better than benzodiazepines; the trial found them similar. Claims that it improves learning and memory in people rest, as one of those books itself admits, on rat studies and personal accounts. How much of a nasal dose reaches the body in people has not been measured in any study found.",
+    "practitionerSummary": "Selank (Thr-Lys-Pro-Arg-Pro-Gly-Pro; earlier TP-7) is a heptapeptide analogue of tuftsin (Thr-Lys-Pro-Arg) extended with Pro-Gly-Pro. It inhibits enkephalin-degrading enzymes of human plasma and serum in vitro at micromolar concentrations, and patients with generalised anxiety disorder showed shortened enkephalin half-life. In rats it changed expression of 45 of 84 neurotransmission genes in frontal cortex within 1 hour, correlating with GABA's effects, while in IMR-32 cells it had no direct effect on GABAergic gene mRNA but modified GABA's. Tritium-labelled Selank is degraded in plasma to TKPRP, TKP, RP and GP. Human studies (Russian-language, English abstracts): a randomised comparison with medazepam in 62 patients with GAD or neurasthenia (similar anxiolytic effect, additional antiasthenic and psychostimulant effects, enkephalin half-life changes); a comparison with phenazepam in 60 patients (anxiolytic effect persisting a week after the last dose); a randomised add-on to phenazepam in 70 patients (earlier response and fewer phenazepam adverse effects); serum Th1/Th2 cytokine changes after 14 days; and resting-state connectivity changes in healthy volunteers. No placebo-controlled patient trial, human pharmacokinetic study, dependence study or cognitive-outcome trial was identified. Seized preparations in Belgium contained Selank.",
+    "unknownsSummary": "Not established: efficacy against placebo in any anxiety disorder; replication outside Russia; human pharmacokinetics, including the nasal bioavailability figure a practitioner book attributes to the developers; absence of dependence or withdrawal, which is asserted but not studied in the records found; any cognitive benefit in people; the doses used in the clinical studies, which the English abstracts do not state; and anything about N-acetyl Selank amidate.",
+    "aliases": [
+      { "alias": "TP-7", "note": "Earlier designation in the 1990s literature." },
+      { "alias": "N-acetyl Selank amidate", "note": "NOT this molecule: a modified form sold as a nootropic. No study of it was identified." }
+    ],
+    "sequence": "TKPRPGP",
+    "molecularDescription": "Heptapeptide Thr-Lys-Pro-Arg-Pro-Gly-Pro: the tuftsin tetrapeptide followed by Pro-Gly-Pro.",
+    "naturalOrSynthetic": "Synthetic",
+    "nomenclatureNote": "Called TP-7 in early reports. N-acetyl Selank amidate, offered interchangeably by one quick-reference source, is a different molecule."
+  },
+  "locations": [
+    { "key": "zozulia-2008", "sourceKey": "SRC-110", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 18454096)" },
+    { "key": "medvedev-2014", "sourceKey": "SRC-111", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 25176261)" },
+    { "key": "medvedev-2015", "sourceKey": "SRC-112", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 26356395)" },
+    { "key": "uchakina-2008", "sourceKey": "SRC-113", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 18577961)" },
+    { "key": "vanhee-2020-sel", "sourceKey": "SRC-114", "locatorText": "Abstract", "section": "Abstract (PMID 31667971)" },
+    { "key": "volkova-2016", "sourceKey": "SRC-115", "locatorText": "Abstract", "section": "Abstract (PMID 26924987)" },
+    { "key": "filatova-2017", "sourceKey": "SRC-116", "locatorText": "Abstract", "section": "Abstract (PMID 28293190)" },
+    { "key": "zolotarev-2006", "sourceKey": "SRC-117", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 16637290)" },
+    { "key": "zozulya-2001", "sourceKey": "SRC-118", "locatorText": "Abstract", "section": "Abstract (PMID 11550013)" },
+    { "key": "kost-2001-sel", "sourceKey": "SRC-105", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 11443939)" },
+    { "key": "panikratova-2020-sel", "sourceKey": "SRC-104", "locatorText": "Abstract", "section": "Abstract (PMID 32342318)" },
+    { "key": "seeds-selank-225", "sourceKey": "SRC-001", "locatorText": "file p. 225", "section": "Selank: properties" },
+    { "key": "seeds-selank-227", "sourceKey": "SRC-001", "locatorText": "file p. 227", "section": "Selank: applications" },
+    { "key": "lavalle-selank-120", "sourceKey": "SRC-002", "locatorText": "file p. 120", "section": "Selank: category, names, sequence, indications" },
+    { "key": "lavalle-selank-121", "sourceKey": "SRC-002", "locatorText": "file p. 121", "section": "Selank: how supplied, dosage, warnings" },
+    { "key": "lavalle-selank-122", "sourceKey": "SRC-002", "locatorText": "file p. 122", "section": "Selank: summary" },
+    { "key": "campbell-selank-117", "sourceKey": "SRC-003", "locatorText": "pp. 117-118", "pageStart": 117, "pageEnd": 118, "section": "Selank" },
+    { "key": "campbell-selank-119", "sourceKey": "SRC-003", "locatorText": "pp. 119-121", "pageStart": 119, "pageEnd": 121, "section": "Selank recommended dosage" },
+    { "key": "cheatsheet-selank-5", "sourceKey": "SRC-004", "locatorText": "file p. 5", "section": "Cognition table, Selank or NA Selank Amidate row" },
+    { "key": "hacksmith-selank", "sourceKey": "SRC-005", "locatorText": "file pp. 100-102", "section": "Selank" }
+  ],
+  "claims": [
+    {
+      "claimKey": "SELANK-001",
+      "claimText": "Selank (Thr-Lys-Pro-Arg-Pro-Gly-Pro) dose-dependently inhibits enzymatic hydrolysis of enkephalin in human plasma and serum in vitro, more potently than bacitracin and puromycin, and patients with generalised anxiety disorder, but not panic disorder or agoraphobia, showed shortened enkephalin half-life and reduced total enkephalinase activity.",
+      "plainLanguageText": "In the laboratory, Selank slows the breakdown of the body's own calming peptides in human blood. People with generalised anxiety had faster breakdown of those peptides.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Proposed as the mechanism of its anxiolytic effect by the authors. A tube of plasma is not a person, and the patient measurement did not involve Selank.",
+      "uncertaintyText": "In vitro inhibition; association in patients; causal link not shown.",
+      "evidence": [
+        { "locationKey": "zozulya-2001", "evidenceTypeKey": "in_vitro", "interpretation": "Enkephalinase inhibition by Selank and enkephalin half-life in anxiety disorders." },
+        { "locationKey": "kost-2001-sel", "evidenceTypeKey": "in_vitro", "interpretation": "Sequence stated; serum enkephalinase inhibition alongside Semax." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-002",
+      "claimText": "In a randomised comparison in 62 patients with generalised anxiety disorder or neurasthenia, Selank (30 patients) and medazepam (32 patients) had similar anxiolytic effects on Hamilton, Zung and CGI scales, and Selank also showed antiasthenic and psychostimulant effects, with enkephalin half-life rising during Selank treatment.",
+      "plainLanguageText": "In a Russian trial, Selank reduced anxiety about as much as a benzodiazepine tranquilliser.",
+      "claimCategory": "efficacy-human",
+      "importance": "critical",
+      "interpretationNotes": "The strongest human evidence: randomised, active comparator, no placebo. Similar effect to a benzodiazepine is not the same as better.",
+      "uncertaintyText": "Blinding not stated in the English abstract; small; no placebo arm.",
+      "evidence": [
+        { "locationKey": "zozulia-2008", "evidenceTypeKey": "human_rct", "interpretation": "Anxiolytic outcomes versus medazepam and enkephalin measures." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-003",
+      "claimText": "In 60 patients with phobic-anxiety and somatoform disorders, Selank showed a pronounced anxiolytic effect lasting a week after the last dose, compared with phenazepam; in a randomised study of 70 patients, adding Selank to phenazepam produced an earlier response and fewer phenazepam adverse effects, including during withdrawal.",
+      "plainLanguageText": "Two more Russian studies found Selank helped anxiety, and that adding it to a benzodiazepine reduced that drug's side effects.",
+      "claimCategory": "efficacy-human",
+      "importance": "high",
+      "interpretationNotes": "Same clinical field; the add-on finding bears on practitioner claims of no dependence only indirectly, since it measured phenazepam's effects, not Selank's.",
+      "uncertaintyText": "Allocation stated only for the second study; blinding not stated; no placebo arm.",
+      "evidence": [
+        { "locationKey": "medvedev-2014", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Anxiolytic effect and tolerability compared with phenazepam." },
+        { "locationKey": "medvedev-2015", "evidenceTypeKey": "human_rct", "interpretation": "Phenazepam alone versus phenazepam with Selank: response timing and adverse effects." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-004",
+      "claimText": "Selank suppressed IL-6 gene expression in peripheral blood cells of patients with depression in vitro but not in healthy controls, and serum Th1/Th2 cytokine balance changed in patients with generalised anxiety disorder or neurasthenia after 14 days of Selank.",
+      "plainLanguageText": "Selank changed some immune signalling markers in patients' blood.",
+      "claimCategory": "human-pharmacodynamics",
+      "importance": "medium",
+      "interpretationNotes": "Supports practitioner immune claims at the level of biomarkers only.",
+      "uncertaintyText": "Small; clinical relevance of the cytokine changes not shown.",
+      "evidence": [
+        { "locationKey": "uchakina-2008", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "Serum cytokines after 14 days of treatment and cell-culture IL-6 findings." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-005",
+      "claimText": "In rats, Selank changed the expression of 45 of 84 neurotransmission genes in frontal cortex within 1 hour, in a pattern correlated with GABA's effects; in IMR-32 neuroblastoma cells it had no direct effect on GABAergic gene mRNA but largely suppressed the changes GABA produced.",
+      "plainLanguageText": "In rats and cells, Selank appears to interact with the brain's main calming signalling system, GABA, rather than acting on it directly.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Consistent with the authors' hypothesis of allosteric GABA modulation; not a demonstration of receptor binding.",
+      "uncertaintyText": "Gene expression in rat tissue and a cell line.",
+      "evidence": [
+        { "locationKey": "volkova-2016", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Frontal cortex gene expression after Selank or GABA." },
+        { "locationKey": "filatova-2017", "evidenceTypeKey": "in_vitro", "interpretation": "No direct GABAergic mRNA change; modification of GABA's effect." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-006",
+      "claimText": "Tritium-labelled Selank is degraded in blood plasma to the pentapeptide TKPRP, the tripeptide TKP and the dipeptides RP and GP, and its brain pharmacokinetics were studied after intranasal administration in vivo.",
+      "plainLanguageText": "Selank is broken down quickly into smaller pieces in blood.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "The only pharmacokinetic work identified; the species for the in vivo part is not stated in the English abstract.",
+      "uncertaintyText": "Not a human pharmacokinetic study.",
+      "evidence": [
+        { "locationKey": "zolotarev-2006", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Degradation products in plasma and intranasal brain pharmacokinetics by tritium labelling." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-007",
+      "claimText": "In 52 healthy participants, Selank and Semax each produced changes in resting-state functional connectivity between the right amygdala and right temporal cortex compared with placebo.",
+      "plainLanguageText": "Brain scans in healthy volunteers showed changes in how an anxiety-related brain region connects with others after Selank.",
+      "claimCategory": "human-pharmacodynamics",
+      "importance": "low",
+      "interpretationNotes": "An imaging signal in healthy people, not an anxiety or cognitive outcome.",
+      "uncertaintyText": "Single session; imaging endpoint.",
+      "evidence": [
+        { "locationKey": "panikratova-2020-sel", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Functional connectivity after Selank, Semax or placebo." }
+      ]
+    },
+    {
+      "claimKey": "SELANK-008",
+      "claimText": "Seized unknown preparations analysed in Belgium contained Selank and Semax, and online sale of such peptides as injectable powders or nasal sprays was documented.",
+      "plainLanguageText": "Seized products contained Selank, and it is sold online.",
+      "claimCategory": "product-characterisation",
+      "importance": "medium",
+      "interpretationNotes": "Product identity in two seized samples.",
+      "uncertaintyText": "Two preparations.",
+      "evidence": [
+        { "locationKey": "vanhee-2020-sel", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Identification of Selank in seized material." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Efficacy of Selank against placebo in any anxiety disorder.",
+      "why": "The controlled patient studies compare Selank with a benzodiazepine or add it to one.",
+      "whatWouldResolveIt": "A registered, randomised, placebo-controlled trial.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Is Selank more effective than placebo for generalised anxiety disorder in a registered, blinded trial?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Replication of any clinical finding outside Russia.",
+      "why": "All patient studies identified are Russian.",
+      "whatWouldResolveIt": "An independent trial in another country.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do the anxiolytic effects reported in Russian trials replicate in an independent population?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Human pharmacokinetics, including the nasal bioavailability figure one practitioner book attributes to the developers.",
+      "why": "No human pharmacokinetic study was identified; the figure was not traced to a primary source.",
+      "whatWouldResolveIt": "A human pharmacokinetic study, or the primary source for the figure.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the plasma exposure after intranasal Selank in humans?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "That Selank causes no dependence or withdrawal.",
+      "why": "Asserted by practitioner sources; no dependence or withdrawal study of Selank itself was identified.",
+      "whatWouldResolveIt": "A controlled study of discontinuation after repeated use.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does stopping Selank after weeks of use produce withdrawal symptoms or rebound anxiety?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any cognitive or learning benefit in people.",
+      "why": "One practitioner book states these effects are confirmed only in rats and anecdotes; no human cognitive-outcome study was identified.",
+      "whatWouldResolveIt": "A placebo-controlled cognitive study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does Selank change memory or attention in adults compared with placebo?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "formulation_unspecified",
+      "statement": "The doses and routes used in the clinical studies.",
+      "why": "The English abstracts of the patient studies do not state them.",
+      "whatWouldResolveIt": "The full texts, read in Russian by a qualified reader.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Anything about N-acetyl Selank amidate.",
+      "why": "Offered interchangeably with Selank by one source; no study identified.",
+      "whatWouldResolveIt": "Characterisation and any study of the modified molecule.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do end-group modifications change Selank's stability or activity?",
+      "opportunityType": "identity_clarification"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "intranasal",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-selank-121",
+      "populationModel": "Not specified by the sources.",
+      "formulation": "Nasal drops or spray.",
+      "pkNotes": "Pharmacokinetics after intranasal administration were studied in vivo by the developers (species not stated in the abstract).",
+      "limitationsNotes": "The route practitioner sources favour. The English abstracts of the patient studies do not state the route used."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-selank-121",
+      "populationModel": "Not specified by the sources.",
+      "formulation": "Lyophilised powder for injection.",
+      "pkNotes": null,
+      "limitationsNotes": "Described by practitioner sources only."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "SELANK-PR-STUDY-GAD",
+      "objectiveContext": "Generalised anxiety disorder and neurasthenia, compared with medazepam (randomised).",
+      "populationModel": "62 patients (30 Selank, 32 medazepam). Russia.",
+      "routeKey": "other",
+      "formulation": "Route not stated in the English abstract.",
+      "regulatoryContext": "A clinical trial arm. The English abstract gives no dose, frequency or duration; nothing is inferred.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": null,
+      "amountUnit": null,
+      "frequencyText": null,
+      "durationText": null,
+      "combinationsText": "Compared with medazepam, not combined.",
+      "monitoringText": "Hamilton, Zung and CGI scales; serum enkephalin activity",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "zozulia-2008"
+    },
+    {
+      "protocolKey": "SELANK-PR-STUDY-CYTOKINE",
+      "objectiveContext": "Immune effects in anxiety-asthenic disorders.",
+      "populationModel": "Patients with generalised anxiety disorder or neurasthenia. Russia.",
+      "routeKey": "other",
+      "formulation": "Route not stated in the English abstract.",
+      "regulatoryContext": "A clinical study regimen. Dose not stated in the English abstract.",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "amountReported": null,
+      "amountUnit": null,
+      "frequencyText": null,
+      "durationText": "14 days",
+      "monitoringText": "Serum Th1/Th2 cytokines",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "uchakina-2008"
+    },
+    {
+      "protocolKey": "SELANK-PR-LAVALLE-SQ",
+      "objectiveContext": "Anxiety, cognition and immune support, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "5 mg and 10 mg vials of lyophilised powder.",
+      "regulatoryContext": "A practitioner handbook's schedule. The clinical studies' doses are not available for comparison.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "300-1000 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily, or 2 times weekly alternating with Semax",
+      "durationText": null,
+      "combinationsText": "Alternating with Semax.",
+      "monitoringText": "Caution with other anti-anxiety or psychotropic drugs, per the source.",
+      "contraindicationsText": "Safety in paediatrics not established, per the source.",
+      "safetyNotes": "Injection-site erythema, rash, oedema, joint and muscle pain, per the source.",
+      "locationKey": "lavalle-selank-121"
+    },
+    {
+      "protocolKey": "SELANK-PR-LAVALLE-NASAL",
+      "objectiveContext": "Anxiety, including immediate relief, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intranasal",
+      "formulation": "Nasal drops 0.15%, 3 ml.",
+      "regulatoryContext": "A practitioner handbook's schedule.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "2-3 drops (400-600 mcg) each nostril",
+      "amountUnit": "mcg",
+      "frequencyText": "2-3 times daily",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "lavalle-selank-121"
+    },
+    {
+      "protocolKey": "SELANK-PR-CAMPBELL-SEEDS",
+      "objectiveContext": "Anxiety, as reported by Campbell from Dr William Seeds.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Subcutaneous injection, or intranasal spray as an alternative.",
+      "regulatoryContext": "A second-hand report of another handbook's schedule; the corresponding page in the Seeds handbook was not located by this index.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "100-300 mcg subcutaneously; or 750-1,000 mcg intranasally",
+      "amountUnit": "mcg",
+      "frequencyText": "Once a day; intranasal spread over several doses if needed",
+      "durationText": null,
+      "monitoringText": "The book advises not exceeding these amounts because of possible receptor attenuation.",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-selank-119"
+    },
+    {
+      "protocolKey": "SELANK-PR-HACKSMITH",
+      "objectiveContext": "Stress, anxiety and cognition, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intranasal",
+      "formulation": "Nasal spray, or subcutaneous injection as an alternative.",
+      "regulatoryContext": "A practitioner guide's schedule. No human study at these amounts was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "200-400 mcg daily",
+      "amountUnit": "mcg",
+      "frequencyText": "Often in divided doses",
+      "durationText": "2-4 weeks to assess effects",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Nasal irritation, mild drowsiness, rare headaches, per the source.",
+      "locationKey": "hacksmith-selank"
+    },
+    {
+      "protocolKey": "SELANK-PR-CHEATSHEET",
+      "objectiveContext": "Cognition, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Selank or N-acetyl Selank amidate, 30 mg vial with 3 ml bacteriostatic water; 10 units on a 1 ml insulin syringe. Route not named; two molecules offered interchangeably.",
+      "regulatoryContext": "A practitioner quick-reference schedule that does not distinguish two different molecules.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1mg",
+      "amountUnit": "mg",
+      "frequencyText": "2-3 days per week",
+      "timingText": "AM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-selank-5"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "SELANK-D-001",
+      "topic": "Whether Selank is better than benzodiazepines.",
+      "plainLanguageText": "One practitioner book says Selank performs far better than benzodiazepines. The randomised trial found its anti-anxiety effect similar to one.",
+      "candidateExplanation": "reporting_threshold",
+      "explanationNotes": "The trial reported similar anxiolytic effects with additional antiasthenic effects; a later study reported fewer benzodiazepine side effects when Selank was added. Neither shows superiority on anxiety.",
+      "resolution": "secondary_source_less_precise",
+      "resolutionBasis": "The randomised comparison with medazepam (SRC-110) reports similar anxiolytic effects. The handbook's 'far better' is not supported by the held trial abstracts; the Peptide Handbook's 'comparable' matches them.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None further for what the trials say; superiority would need a trial designed to show it.",
+      "positions": [
+        { "locationKey": "campbell-selank-117", "evidenceTypeKey": "practitioner_reference", "positionText": "Numerous human trials show it performs far better than benzodiazepines." },
+        { "locationKey": "lavalle-selank-122", "evidenceTypeKey": "practitioner_reference", "positionText": "Clinical studies report anxiolytic effects comparable to benzodiazepines." },
+        { "locationKey": "zozulia-2008", "evidenceTypeKey": "human_rct", "positionText": "The anxiolytic effects of Selank and medazepam were similar." }
+      ]
+    },
+    {
+      "disagreementKey": "SELANK-D-002",
+      "topic": "Whether Selank improves learning and memory in people.",
+      "plainLanguageText": "One guide describes Selank as improving focus and learning for professionals. Another practitioner book says those effects have only been confirmed in rats and anecdotes.",
+      "candidateExplanation": "population",
+      "explanationNotes": "The more cautious practitioner source matches the census: no human cognitive-outcome study was identified.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A placebo-controlled human cognitive study.",
+      "positions": [
+        { "locationKey": "hacksmith-selank", "evidenceTypeKey": "practitioner_reference", "positionText": "Improves focus, mental clarity and learning ability." },
+        { "locationKey": "campbell-selank-117", "evidenceTypeKey": "practitioner_reference", "positionText": "Learning and memory effects confirmed only by rat studies and anonymous testimonials." }
+      ]
+    },
+    {
+      "disagreementKey": "SELANK-D-003",
+      "topic": "How much intranasal Selank reaches the body.",
+      "plainLanguageText": "A practitioner book gives a precise nasal absorption figure and says the drug reaches the brain within minutes, attributing this to the developers. This index could not find the study.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "The developers published a tritium-labelled pharmacokinetic method with intranasal brain data; its English abstract gives no bioavailability figure and does not name the species.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "The primary pharmacokinetic study, or a human study.",
+      "positions": [
+        { "locationKey": "campbell-selank-119", "evidenceTypeKey": "practitioner_reference", "positionText": "High intranasal bioavailability and detection in plasma and brain within minutes, attributed to the developer institute." },
+        { "locationKey": "zolotarev-2006", "evidenceTypeKey": "analytical_characterisation", "positionText": "Brain pharmacokinetics after intranasal administration were studied; plasma degradation products identified; no bioavailability figure in the abstract." }
+      ]
+    },
+    {
+      "disagreementKey": "SELANK-D-004",
+      "topic": "Whether N-acetyl Selank amidate is the same as Selank.",
+      "plainLanguageText": "A cheat sheet lists 'Selank or NA Selank Amidate' as interchangeable. They are different molecules, and the studies used plain Selank.",
+      "candidateExplanation": "chemical_form",
+      "explanationNotes": "End-group modification creates a different molecule; a vendor quoted in a practitioner book prefers it without citing evidence.",
+      "resolution": "resolved_different_chemical_form",
+      "resolutionBasis": "Primary sources describe Selank as Thr-Lys-Pro-Arg-Pro-Gly-Pro (SRC-118, SRC-105); N-acetyl Selank amidate carries additional end groups; no study of the modified form was identified.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None for the chemistry.",
+      "positions": [
+        { "locationKey": "cheatsheet-selank-5", "evidenceTypeKey": "practitioner_reference", "positionText": "Selank or NA Selank Amidate, one schedule for both." },
+        { "locationKey": "zozulya-2001", "evidenceTypeKey": "in_vitro", "positionText": "Selank is Thr-Lys-Pro-Arg-Pro-Gly-Pro." }
+      ]
+    },
+    {
+      "disagreementKey": "SELANK-D-005",
+      "topic": "Whether Selank has been through clinical trials.",
+      "plainLanguageText": "Russian doctors have published controlled studies of Selank. A European drug-testing laboratory says, as far as it knows, it has not completed any clinical trials.",
+      "candidateExplanation": "reporting_threshold",
+      "explanationNotes": "As for Semax: small Russian-language studies exist; whether they count as the laboratory meant is not established.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A search of Russian trial registries and regulatory dossiers.",
+      "positions": [
+        { "locationKey": "zozulia-2008", "evidenceTypeKey": "human_rct", "positionText": "Reports a randomised comparison with medazepam." },
+        { "locationKey": "vanhee-2020-sel", "evidenceTypeKey": "analytical_characterisation", "positionText": "To the authors' knowledge, Selank and Semax have not completed any clinical trials." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Anxiety disorders",
+      "status": "unknown",
+      "authority": "No regulator's own record has been consulted",
+      "locationKey": "lavalle-selank-122",
+      "checkedAt": "2026-09-13",
+      "notes": "Practitioner sources describe Selank as developed in Russia by the Institute of Molecular Genetics; none held here documents a registration, and no regulator record was read. Regulatory position is secondary and says nothing about the evidence above."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "SELANK-ID-001",
+      "nameUsed": "Selank",
+      "chemicalForm": "Heptapeptide Thr-Lys-Pro-Arg-Pro-Gly-Pro",
+      "sequence": "TKPRPGP",
+      "residueCount": 7,
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "Enkephalinase inhibition study in anxiety disorders.",
+      "notes": "Analogue of tuftsin (TKPR).",
+      "evidenceTypeKey": "in_vitro",
+      "locationKey": "zozulya-2001"
+    },
+    {
+      "identityKey": "SELANK-ID-002",
+      "nameUsed": "Selank (TP-7)",
+      "chemicalForm": "Heptapeptide as printed by the handbook",
+      "sequence": "TKPRPGP",
+      "residueCount": 7,
+      "molecularWeight": 751.89,
+      "weightBasis": "As printed; agrees with the average mass of the printed sequence computed by this index.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's properties list, noting the earlier name TP-7.",
+      "notes": null,
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-selank-225"
+    },
+    {
+      "identityKey": "SELANK-ID-003",
+      "nameUsed": "N-acetyl Selank amidate",
+      "chemicalForm": "Selank with N-terminal acetyl and C-terminal amide groups",
+      "form": "analogue",
+      "verification": "asserted_without_detail",
+      "usageContext": "Offered interchangeably on a cheat sheet; preferred by a vendor quoted in a practitioner book.",
+      "notes": "A different molecule; no study identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "cheatsheet-selank-5"
+    },
+    {
+      "identityKey": "SELANK-ID-004",
+      "nameUsed": "Selank (seized preparation)",
+      "chemicalForm": "Identified in an unknown seized preparation",
+      "form": "analogue",
+      "verification": "analytically_characterised",
+      "usageContext": "Forensic identification in Belgium.",
+      "notes": null,
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "vanhee-2020-sel"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "SELANK-REP-001",
+      "finding": "Selank has an anxiolytic effect in anxiety disorders.",
+      "state": "repeated_same_group",
+      "studyCount": 3,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Adults with generalised anxiety disorder, neurasthenia, phobic-anxiety and somatoform disorders.",
+      "humanConfirmed": true,
+      "basis": "Three Moscow studies from 2008 to 2015. Lead authors differ between the 2008 and later studies, but institutional independence from the developer is not established from the abstracts, so the same-group state is recorded.",
+      "limitations": "No placebo arm; English abstracts only.",
+      "supportingRecords": "PMID 18454096; PMID 25176261; PMID 26356395"
+    },
+    {
+      "assessmentKey": "SELANK-REP-002",
+      "finding": "Selank inhibits enkephalin-degrading enzymes of human blood.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Human plasma and serum in vitro.",
+      "humanConfirmed": false,
+      "basis": "Two 2001 reports from the same Moscow research centre.",
+      "limitations": "In vitro.",
+      "supportingRecords": "PMID 11550013; PMID 11443939"
+    },
+    {
+      "assessmentKey": "SELANK-REP-003",
+      "finding": "Clinical effects of Selank outside Russia.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No human study outside Russia was identified.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ]
+}

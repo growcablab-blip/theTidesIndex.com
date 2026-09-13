@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { listPeptides, listRegisteredPeptides } from '@/server/public/queries';
+import { getDiscovery, listPeptides, listRegisteredPeptides } from '@/server/public/queries';
+import { previewDiscovery } from '@/server/public/preview';
+import type { DiscoveryRow } from '@/server/public/research-index';
 import { Container, EmptyState, EvidenceClassTag } from '@/components/public/primitives';
+import { REPLICATION_LABELS } from '@/components/public/research-figures';
 
 /**
  * Rendered on demand rather than at build time.
@@ -27,12 +30,63 @@ export const metadata: Metadata = {
  * deliberate: any ranking would be a judgement the underlying records do not
  * support, and readers arrive looking for a specific compound anyway.
  */
-export default async function PeptidesIndexPage() {
-  const [peptides, registered] = await Promise.all([listPeptides(), listRegisteredPeptides()]);
+type SearchParams = Promise<{ area?: string; human?: string; route?: string; regimen?: string; replication?: string }>;
+
+const TRIAL_KEYS = new Set([
+  'human_rct',
+  'human_controlled_nonrandomized',
+  'human_prospective_uncontrolled',
+  'human_observational',
+  'human_pk_pd',
+  'human_case_series',
+  'human_case_report',
+]);
+const HANDBOOK_KEYS = new Set(['practitioner_reference', 'expert_commentary', 'experiential_anecdotal']);
+const INDEPENDENT = new Set(['confirmed_in_humans', 'independent_multiple_countries', 'independent_group']);
+
+function regimenKinds(keys: readonly string[]): string[] {
+  const kinds: string[] = [];
+  if (keys.includes('approved_label_evidence')) kinds.push('Approved label');
+  if (keys.some((k) => TRIAL_KEYS.has(k))) kinds.push('Human study');
+  if (keys.some((k) => HANDBOOK_KEYS.has(k))) kinds.push('Handbook');
+  return kinds;
+}
+
+async function loadDiscovery(): Promise<{ rows: DiscoveryRow[]; preview: boolean }> {
+  const published = await getDiscovery();
+  if (published.length > 0) return { rows: published, preview: false };
+  const preview = await previewDiscovery();
+  return { rows: preview ?? [], preview: preview !== null && preview.length > 0 };
+}
+
+export default async function PeptidesIndexPage({ searchParams }: { searchParams: SearchParams }) {
+  const params = await searchParams;
+  const [peptides, registered, discovery] = await Promise.all([
+    listPeptides(),
+    listRegisteredPeptides(),
+    loadDiscovery(),
+  ]);
   const inPreparation = registered.filter((r) => !r.hasPublishedRecord);
 
+  const rows = discovery.rows;
+  const areas = [...new Map(rows.filter((r) => r.categoryKey).map((r) => [r.categoryKey!, r.categoryLabel ?? r.categoryKey!])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
+  const routes = [...new Map(rows.flatMap((r) => r.routes.map((x) => [x.key, x.name] as const))).entries()].sort((a, b) => a[1].localeCompare(b[1]));
+  const shown = rows.filter((r) => {
+    if (params.area && r.categoryKey !== params.area) return false;
+    if (params.human === 'yes' && r.humanRecords === 0) return false;
+    if (params.human === 'no' && r.humanRecords > 0) return false;
+    if (params.route && !r.routes.some((x) => x.key === params.route)) return false;
+    const kinds = regimenKinds(r.protocolEvidenceKeys);
+    if (params.regimen === 'study' && !kinds.includes('Human study') && !kinds.includes('Approved label')) return false;
+    if (params.regimen === 'handbook-only' && !(kinds.length === 1 && kinds[0] === 'Handbook')) return false;
+    if (params.regimen === 'none' && r.protocolCount > 0) return false;
+    if (params.replication === 'independent' && !(r.bestReplication && INDEPENDENT.has(r.bestReplication))) return false;
+    return true;
+  });
+  const filtering = Boolean(params.area || params.human || params.route || params.regimen || params.replication);
+
   return (
-    <Container className="py-10 sm:py-14">
+    <Container width="wide" className="py-10 sm:py-14">
       <header className="max-w-[60ch]">
         <h1 className="font-serif text-3xl text-ink sm:text-4xl">Compounds</h1>
         <p className="mt-3 text-lg text-ink-soft">
@@ -40,6 +94,114 @@ export default async function PeptidesIndexPage() {
           you can see before opening a page whether anything here rests on human studies.
         </p>
       </header>
+
+      {rows.length > 0 ? (
+        <section aria-labelledby="discover" className="mt-10">
+          <h2 id="discover" className="font-serif text-2xl text-ink">
+            Discover by evidence
+          </h2>
+          <p className="mt-1.5 max-w-[66ch] text-sm text-slate">
+            Filter by what the evidence looks like rather than by what a compound is claimed to do.
+            Counts come from each compound&rsquo;s literature screen and records; they describe the
+            literature, not how well anything works, and the list is alphabetical.
+            {discovery.preview ? ' Development preview: these records are not published.' : ''}
+          </p>
+
+          <form method="get" className="mt-5 flex flex-wrap items-end gap-4 rounded-md border border-rule bg-mist px-4 py-4">
+            <label className="text-sm">
+              <span className="meta-label block">Research area</span>
+              <select name="area" defaultValue={params.area ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+                <option value="">Any</option>
+                {areas.map(([key, label]) => (
+                  <option key={key} value={key}>{label}</option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm">
+              <span className="meta-label block">Given to people</span>
+              <select name="human" defaultValue={params.human ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+                <option value="">Either</option>
+                <option value="yes">At least one human record</option>
+                <option value="no">No human record found</option>
+              </select>
+            </label>
+            <label className="text-sm">
+              <span className="meta-label block">Route recorded</span>
+              <select name="route" defaultValue={params.route ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+                <option value="">Any</option>
+                {routes.map(([key, name]) => (
+                  <option key={key} value={key}>{name}</option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm">
+              <span className="meta-label block">Regimens from</span>
+              <select name="regimen" defaultValue={params.regimen ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+                <option value="">Any</option>
+                <option value="study">A label or human study</option>
+                <option value="handbook-only">Handbooks only</option>
+                <option value="none">None recorded</option>
+              </select>
+            </label>
+            <label className="text-sm">
+              <span className="meta-label block">Replication</span>
+              <select name="replication" defaultValue={params.replication ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
+                <option value="">Any</option>
+                <option value="independent">Repeated by an independent group</option>
+              </select>
+            </label>
+            <button type="submit" className="rounded border border-deep-tide bg-deep-tide px-3 py-1.5 text-sm text-warm-white">Show</button>
+            {filtering ? (
+              <Link href="/peptides" className="text-sm text-deep-tide underline-offset-2 hover:underline">Clear</Link>
+            ) : null}
+          </form>
+
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full min-w-[56rem] border-collapse text-sm">
+              <caption className="sr-only">Compounds by the shape of their evidence. Alphabetical; not a ranking.</caption>
+              <thead>
+                <tr className="border-b border-ink text-left align-bottom">
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Compound</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Area</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Human records</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Preclinical</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Routes</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Regimens from</span></th>
+                  <th scope="col" className="py-2 pr-4"><span className="meta-label">Replication at best</span></th>
+                  <th scope="col" className="py-2"><span className="meta-label">Open questions</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                {shown.map((r) => (
+                  <tr key={r.slug} className="border-b border-rule-soft align-top">
+                    <th scope="row" className="py-3 pr-4 text-left">
+                      <Link href={`/peptides/${r.slug}`} className="font-serif text-base text-ink hover:text-deep-tide">{r.name}</Link>
+                      {r.compoundTypeLabel ? <span className="block text-xs text-slate">{r.compoundTypeLabel}</span> : null}
+                    </th>
+                    <td className="py-3 pr-4 text-ink-soft">{r.categoryLabel ?? '—'}</td>
+                    <td className="py-3 pr-4 text-ink-soft">
+                      {r.hasScreen ? (r.humanRecords === 0 ? <span className="text-[var(--color-caution)]">None found</span> : r.humanRecords) : <span className="text-slate">No screen</span>}
+                      {r.nonEnglishHumanRecords > 0 ? <span className="block text-xs text-slate">{r.nonEnglishHumanRecords} not in English</span> : null}
+                    </td>
+                    <td className="py-3 pr-4 text-ink-soft">{r.hasScreen ? r.preclinicalRecords : '—'}</td>
+                    <td className="py-3 pr-4 text-ink-soft">{r.routes.length > 0 ? r.routes.map((x) => x.name).join(', ') : '—'}</td>
+                    <td className="py-3 pr-4 text-ink-soft">
+                      {r.protocolCount === 0 ? '—' : `${String(r.protocolCount)} · ${regimenKinds(r.protocolEvidenceKeys).join(', ')}`}
+                    </td>
+                    <td className="py-3 pr-4 text-ink-soft">{r.bestReplication ? (REPLICATION_LABELS[r.bestReplication] ?? r.bestReplication) : '—'}</td>
+                    <td className="py-3 text-ink-soft">
+                      {r.researchQuestions > 0 ? (
+                        <Link href={`/research?subject=${r.slug}`} className="text-deep-tide underline-offset-2 hover:underline">{r.researchQuestions}</Link>
+                      ) : '—'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {shown.length === 0 ? <p className="mt-3 text-sm text-slate">No compound matches every filter.</p> : null}
+          </div>
+        </section>
+      ) : null}
 
       <div className="mt-10">
         {peptides.length === 0 ? (

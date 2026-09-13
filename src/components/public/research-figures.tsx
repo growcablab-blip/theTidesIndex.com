@@ -86,7 +86,7 @@ export function NomenclatureMap({
 
       <div className="mt-4 space-y-6">
         {[...byName.entries()].map(([name, group]) => (
-          <section key={name} className="rounded-lg border border-rule bg-paper px-4 py-4">
+          <section key={name} className="rounded-lg border border-rule bg-warm-white px-4 py-4">
             <h3 className="font-serif text-lg text-deep-tide">“{name}”</h3>
             <p className="mt-0.5 text-xs text-slate">
               {group.length === 1
@@ -171,7 +171,7 @@ const REPLICATION_STEPS = [
   'confirmed_in_humans',
 ] as const;
 
-const REPLICATION_LABELS: Record<string, string> = {
+export const REPLICATION_LABELS: Record<string, string> = {
   not_assessed: 'Nothing found',
   single_study: 'One study',
   repeated_same_group: 'Repeated, same group',
@@ -213,7 +213,7 @@ export function ReplicationMap({
         return (
           <article
             key={assessment.id}
-            className="rounded-lg border border-rule bg-paper px-4 py-4"
+            className="rounded-lg border border-rule bg-warm-white px-4 py-4"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h3 className="max-w-[52ch] font-serif text-base text-ink">{assessment.finding}</h3>
@@ -295,7 +295,7 @@ export function ReplicationMap({
 
 // --- Research opportunities ---------------------------------------------------
 
-const OPPORTUNITY_LABELS: Record<string, string> = {
+export const OPPORTUNITY_LABELS: Record<string, string> = {
   identity_clarification: 'Identity',
   human_evidence: 'Human evidence',
   human_safety: 'Human safety',

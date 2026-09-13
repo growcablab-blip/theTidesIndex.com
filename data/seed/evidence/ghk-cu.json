@@ -1,0 +1,650 @@
+{
+  "packetKey": "ghk-cu",
+  "peptideKey": "ghk-cu",
+  "note": "Extracted 13 September 2026 from a PubMed census of 403 records (ghk-cu-pubmed-2026-09), eleven journal abstracts (SRC-055 to SRC-065) and all five practitioner sources (SRC-001 Seeds, SRC-002 Peptide Handbook, SRC-003 Campbell, SRC-004 cheat sheet, SRC-005 Hack Smith). Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's own page numbers. The shape of this record is the point of it: a large laboratory literature, an almost entirely topical human literature, and practitioner sources that describe injection, oral strips and blends that no identified human study has examined. Amounts and concentrations appear only in protocol fields, which are practitioner-view only.",
+  "compound": {
+    "shortDescription": "A three-amino-acid peptide the body already makes, usually met bound to copper. Decades of laboratory and animal work, human studies almost all on the skin, and injected use described only by practitioner sources.",
+    "simpleSummary": "GHK is a very small peptide — just three amino acids — found naturally in human blood. It holds on tightly to copper, and the copper-bound form is called GHK-Cu. In the laboratory it makes skin cells produce more collagen, and in animal wounds it increased the build-up of new tissue.\n\n**In people, it has almost only been studied on the skin.** One randomised trial from 1994 found that a GHK-Cu gel helped diabetic foot ulcers close. A small trial after laser skin treatment found no measurable difference in the skin, although people using the products were more satisfied. Most other human reports test cosmetic or clinic mixtures in which GHK-Cu is one ingredient among several, so they cannot show what GHK-Cu itself did.\n\n**Getting through skin is its own question.** In a laboratory test on human skin, almost none of the peptide passed through intact skin unless the skin was first punctured with microneedles.\n\n**Injected use has not been studied in people** in anything this index found. Practitioner books describe injections, under-the-tongue strips and blends with other peptides; none cites a human study of those uses, and one of them warns about copper build-up.",
+    "practitionerSummary": "GHK (glycyl-L-histidyl-L-lysine; historically GHL) is an endogenous plasma tripeptide that complexes transition metals, principally Cu(II), in vivo; GHK-Cu is the copper complex. The reproducible laboratory signal is extracellular-matrix synthesis: nanomolar GHK-Cu increased collagen and glycosaminoglycan synthesis in fibroblast culture, and injection into rat wound chambers increased connective-tissue accumulation — both from one French group. Human skin models show negligible permeation of the peptide through intact skin in 9 hours, increased markedly by microneedle pretreatment; copper itself permeates and is retained when applied as GHK cuprate. Controlled human evidence for GHK-Cu as the sole active is one 1994 multicentre vehicle-controlled trial of a topical gel in diabetic plantar ulcers (improved closure, fewer infections) and a 13-completer RCT after CO2 laser resurfacing (no objective difference; higher satisfaction), consistent with a 2026 systematic review counting 2 RCTs against 18 preclinical studies. Other human records are uncontrolled or multi-ingredient (including a 1,000-patient open-label intradermal scalp formulation with growth factors and thymosin beta-4). No human pharmacokinetic, injected, oral or sublingual study was identified. Practitioner sources describe subcutaneous and intramuscular injection, sublingual strips and multi-peptide blends; one advises monitoring for copper excess and zinc co-supplementation, without citing data.",
+    "unknownsSummary": "Not established: any effect or safety of injected, oral or sublingual GHK-Cu in people, including copper exposure; human pharmacokinetics by any route; whether the 1994 ulcer result has been replicated; what GHK-Cu contributes in the multi-ingredient products most human studies used; how much intact peptide reaches living skin from ordinary topical products; and the primary measurement behind the widely repeated claim that plasma GHK falls with age.",
+    "aliases": [
+      { "alias": "GHK", "note": "The tripeptide itself, without copper. Sources often use GHK and GHK-Cu interchangeably; chemically they are the free peptide and its copper complex." },
+      { "alias": "Glycyl-L-histidyl-L-lysine", "note": "The chemical name of GHK." },
+      { "alias": "GHL", "note": "The older abbreviation used in the 1980 characterisation of the plasma peptide." },
+      { "alias": "Copper tripeptide-1", "note": "The cosmetic ingredient name used on formulations containing GHK-Cu." }
+    ],
+    "sequence": "GHK",
+    "molecularDescription": "Tripeptide glycyl-L-histidyl-L-lysine, which binds Cu(II) with high affinity to form GHK-Cu.",
+    "naturalOrSynthetic": "Endogenous; synthetic for products",
+    "nomenclatureNote": "Two traps. First, GHK and GHK-Cu are the free peptide and its copper complex: one practitioner source gives them separate entries with different uses, others use the names interchangeably. Second, the letters GHK are also the Goldman-Hodgkin-Katz equation, a dental staging system and two childhood-obesity programmes, which is why 71 of 403 records in the literature search are false matches. Palmitoyl and biotinylated GHK derivatives are different molecules and are not this record."
+  },
+  "locations": [
+    { "key": "mulder-1994", "sourceKey": "SRC-055", "locatorText": "Abstract", "section": "Abstract (PMID 17147644)" },
+    { "key": "miller-2006", "sourceKey": "SRC-056", "locatorText": "Abstract", "section": "Abstract (PMID 16847171)" },
+    { "key": "maquart-1993", "sourceKey": "SRC-057", "locatorText": "Abstract", "section": "Abstract (PMID 8227353)" },
+    { "key": "maquart-1988", "sourceKey": "SRC-058", "locatorText": "Abstract", "section": "Abstract (PMID 3169264)" },
+    { "key": "li-2015", "sourceKey": "SRC-059", "locatorText": "Abstract", "section": "Abstract (PMID 25690343)" },
+    { "key": "hostynek-2010", "sourceKey": "SRC-060", "locatorText": "Abstract", "section": "Abstract (PMID 20703511)" },
+    { "key": "li-2016", "sourceKey": "SRC-061", "locatorText": "Abstract", "section": "Abstract (PMID 27892491)" },
+    { "key": "dou-2020", "sourceKey": "SRC-062", "locatorText": "Abstract", "section": "Abstract (PMID 35083444)" },
+    { "key": "mokhtar-2026", "sourceKey": "SRC-063", "locatorText": "Abstract", "section": "Abstract (PMID 42619529)" },
+    { "key": "kapoor-2018", "sourceKey": "SRC-064", "locatorText": "Abstract", "section": "Abstract (PMID 29482481)" },
+    { "key": "pickart-1980", "sourceKey": "SRC-065", "locatorText": "Abstract", "section": "Abstract (PMID 6246126)" },
+    { "key": "seeds-ghk-146", "sourceKey": "SRC-001", "locatorText": "file p. 146", "section": "GHK-Cu" },
+    { "key": "seeds-ghk-147", "sourceKey": "SRC-001", "locatorText": "file p. 147", "section": "GHK-Cu: properties and applications" },
+    { "key": "lavalle-ghk-59", "sourceKey": "SRC-002", "locatorText": "file p. 59", "section": "GHK-Cu: composition, indications, dosage" },
+    { "key": "lavalle-ghk-60", "sourceKey": "SRC-002", "locatorText": "file p. 60", "section": "GHK-Cu: topical use, warnings and cautions" },
+    { "key": "lavalle-ghk-61", "sourceKey": "SRC-002", "locatorText": "file pp. 61-62", "section": "GHK-Cu: summary" },
+    { "key": "campbell-ghk-90", "sourceKey": "SRC-003", "locatorText": "p. 90", "pageStart": 90, "section": "GHK-Cu" },
+    { "key": "campbell-ghk-91", "sourceKey": "SRC-003", "locatorText": "pp. 91-92", "pageStart": 91, "pageEnd": 92, "section": "GHK-Cu: topical use" },
+    { "key": "cheatsheet-ghk-3", "sourceKey": "SRC-004", "locatorText": "file p. 3", "section": "Longevity and healing table, GHK-CU row" },
+    { "key": "cheatsheet-ghk-6", "sourceKey": "SRC-004", "locatorText": "file p. 6", "section": "Blends table, BPC-157 / TB-500 / GHK-Cu row" },
+    { "key": "cheatsheet-ghk-7", "sourceKey": "SRC-004", "locatorText": "file p. 7", "section": "Oral sublingual peptide strips, GHK-Cu row" },
+    { "key": "hacksmith-ghkcu", "sourceKey": "SRC-005", "locatorText": "file pp. 55-57", "section": "GHK-Cu (copper peptide)" },
+    { "key": "hacksmith-ghkbase", "sourceKey": "SRC-005", "locatorText": "file pp. 57-58", "section": "GHK base (no Cu)" }
+  ],
+  "claims": [
+    {
+      "claimKey": "GHK-001",
+      "claimText": "GHK (glycyl-L-histidyl-L-lysine) is a human plasma constituent that associates with copper and iron in vivo, and in vitro binds several transition-metal ions but not calcium, potassium or sodium.",
+      "plainLanguageText": "GHK is a tiny peptide found in human blood that holds on to copper.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The 1980 characterisation, under the older abbreviation GHL. It is why GHK and GHK-Cu are two forms of one peptide rather than two compounds.",
+      "uncertaintyText": "An early study; how much circulating GHK is copper-bound at any moment is not stated in the abstract.",
+      "evidence": [
+        { "locationKey": "pickart-1980", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Association of GHL with Cu and Fe in plasma; metal-binding selectivity in vitro." }
+      ]
+    },
+    {
+      "claimKey": "GHK-002",
+      "claimText": "In fibroblast culture, GHK-Cu stimulated collagen synthesis beginning at picomolar and peaking at nanomolar concentrations, independently of cell number.",
+      "plainLanguageText": "In the laboratory, very small amounts of GHK-Cu made skin cells produce more collagen.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "The foundational laboratory finding behind the skin and wound claims. Culture concentrations are not doses.",
+      "uncertaintyText": "Cell culture. Whether any topical or injected product produces such concentrations in living tissue is not shown here.",
+      "evidence": [
+        { "locationKey": "maquart-1988", "evidenceTypeKey": "in_vitro", "interpretation": "Concentration-dependent stimulation of collagen synthesis in fibroblasts." }
+      ]
+    },
+    {
+      "claimKey": "GHK-003",
+      "claimText": "Injected into implanted wound chambers in rats, GHK-Cu produced a concentration-dependent increase in dry weight, DNA, protein, collagen and glycosaminoglycan content, with increased type I and III collagen mRNA; a control tripeptide had no effect.",
+      "plainLanguageText": "In rat wounds, GHK-Cu increased the build-up of new tissue.",
+      "claimCategory": "efficacy-animal",
+      "importance": "high",
+      "interpretationNotes": "Animal evidence, delivered directly into the wound space. The same laboratory reported the culture findings.",
+      "uncertaintyText": "Rats, local delivery. Says nothing about people or about systemic injection.",
+      "evidence": [
+        { "locationKey": "maquart-1993", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Wound-chamber extracellular-matrix accumulation with a control tripeptide." }
+      ]
+    },
+    {
+      "claimKey": "GHK-004",
+      "claimText": "In human skin models, almost no GHK-Cu peptide or copper permeated intact skin over 9 hours, while microneedle pretreatment allowed substantial permeation; separately, copper applied as GHK cuprate to dermatomed human skin permeated and was retained in the tissue.",
+      "plainLanguageText": "Very little GHK-Cu gets through intact skin in laboratory tests unless the skin is punctured first. Copper from it can get in.",
+      "claimCategory": "delivery",
+      "importance": "critical",
+      "interpretationNotes": "The central fact for a mostly topical compound. The two studies measured different things: the first the peptide and copper through intact versus microneedle-treated skin, the second copper alone through dermatomed skin, which is thinner than intact skin.",
+      "uncertaintyText": "Ex vivo skin. Real products, formulations and application conditions vary.",
+      "evidence": [
+        { "locationKey": "li-2015", "evidenceTypeKey": "ex_vivo", "interpretation": "Negligible peptide and copper permeation through intact human skin; marked increase after microneedle pretreatment." },
+        { "locationKey": "hostynek-2010", "evidenceTypeKey": "ex_vivo", "interpretation": "Copper from GHK cuprate permeated and was retained in dermatomed skin; the peptide itself was not measured." }
+      ]
+    },
+    {
+      "claimKey": "GHK-005",
+      "claimText": "In a multicentre randomised, evaluator-blinded, vehicle-controlled trial in diabetic neuropathic plantar ulcers managed with standardised wound care, a topical GHK-Cu gel increased ulcer closure and reduced infection incidence compared with vehicle.",
+      "plainLanguageText": "In one trial from 1994, a GHK-Cu gel helped diabetic foot ulcers close and become infected less often.",
+      "claimCategory": "efficacy-human",
+      "importance": "critical",
+      "interpretationNotes": "The strongest human evidence on this record and the only controlled human trial identified in which GHK-Cu was the sole investigational active on a wound.",
+      "uncertaintyText": "Published in 1994; sample size and sponsor are not stated in the abstract; no replication was identified in the screen.",
+      "evidence": [
+        { "locationKey": "mulder-1994", "evidenceTypeKey": "human_rct", "interpretation": "Closure of plantar ulcers and infection incidence versus vehicle." }
+      ]
+    },
+    {
+      "claimKey": "GHK-006",
+      "claimText": "In a randomised trial after CO2 laser resurfacing, skin-care products containing GHK-Cu did not reduce erythema or improve wrinkles or skin quality on objective or blinded assessment, while patient-rated satisfaction was higher; 13 participants completed.",
+      "plainLanguageText": "After laser skin treatment, GHK-Cu products made no measurable difference to the skin in a small trial, though users were happier with them.",
+      "claimCategory": "efficacy-human",
+      "importance": "high",
+      "interpretationNotes": "A negative objective result is as much evidence as a positive one and is recorded as such.",
+      "uncertaintyText": "Very small trial; products contained other ingredients.",
+      "evidence": [
+        { "locationKey": "miller-2006", "evidenceTypeKey": "human_rct", "interpretation": "No objective difference; higher patient satisfaction." }
+      ]
+    },
+    {
+      "claimKey": "GHK-007",
+      "claimText": "Most human records identified tested formulations in which GHK-Cu was one of several actives — for example a 1,000-patient open-label study of intradermal scalp injections combining growth factors, thymosin beta-4 and copper tripeptide-1 — so no effect in them can be attributed to GHK-Cu.",
+      "plainLanguageText": "Most human studies used mixtures, so they cannot show what GHK-Cu itself does.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "Ten human records in the census; one tested GHK-Cu alone on a wound, one tested GHK-Cu products after laser, and one tested GHK complexed with another compound. The rest are mixtures, uncontrolled, or both.",
+      "uncertaintyText": "Classification rests on abstracts.",
+      "evidence": [
+        { "locationKey": "kapoor-2018", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "A six-active injected formulation; single-arm." }
+      ]
+    },
+    {
+      "claimKey": "GHK-008",
+      "claimText": "A 2026 systematic review of GHK-Cu as a standalone aesthetic intervention included 20 studies, of which 18 were preclinical and 2 were randomised controlled trials, and described the clinical findings as constrained by methodological variability and few well-designed trials.",
+      "plainLanguageText": "A recent review found only two controlled trials of GHK-Cu on its own for skin appearance, against eighteen laboratory or animal studies.",
+      "claimCategory": "evidence-quality",
+      "importance": "medium",
+      "interpretationNotes": "An independent count that agrees with this index's screen on the shape of the evidence.",
+      "uncertaintyText": "The review's second trial on wrinkles was not identified by this index's search and is not described here.",
+      "evidence": [
+        { "locationKey": "mokhtar-2026", "evidenceTypeKey": "academic_reference", "interpretation": "Study counts and the review's own statement of limitations." }
+      ]
+    },
+    {
+      "claimKey": "GHK-009",
+      "claimText": "In a keratinocyte irritation model, GHK-Cu was not cytotoxic and did not change skin-irritation biomarkers, whereas copper chloride and copper acetate upregulated several at the same concentrations.",
+      "plainLanguageText": "In cell tests, GHK-Cu irritated skin cells less than simple copper salts.",
+      "claimCategory": "safety-preclinical",
+      "importance": "medium",
+      "interpretationNotes": "Relevant to topical use only, and only to irritation.",
+      "uncertaintyText": "A cell model; it establishes nothing about injection or systemic copper exposure.",
+      "evidence": [
+        { "locationKey": "li-2016", "evidenceTypeKey": "in_vitro", "interpretation": "Irritation biomarkers for GHK-Cu versus copper salts." }
+      ]
+    },
+    {
+      "claimKey": "GHK-010",
+      "claimText": "The statement that plasma GHK falls substantially between age 20 and age 60 is repeated by two practitioner handbooks and by a 2020 review; neither reports the underlying measurement, and no primary measurement was identified in the screen.",
+      "plainLanguageText": "A widely repeated claim that GHK levels in blood drop with age could not be traced to the study that measured it.",
+      "claimCategory": "provenance",
+      "importance": "medium",
+      "interpretationNotes": "Primary-source tracing: the figure travels from review to handbook with the same numbers, which is a sign of a shared citation rather than of repeated measurement.",
+      "uncertaintyText": "The measurement may exist in a source outside PubMed or in full text not held.",
+      "evidence": [
+        { "locationKey": "dou-2020", "evidenceTypeKey": "academic_reference", "relationship": "cites", "interpretation": "States the age-related plasma figures without reporting the measurement." },
+        { "locationKey": "seeds-ghk-147", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "Repeats the figures." },
+        { "locationKey": "lavalle-ghk-61", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "Repeats the figures with a reference marker." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "route_not_established",
+      "statement": "Any effect, or safety, of injected GHK-Cu in people.",
+      "why": "No human study of subcutaneous or intramuscular GHK-Cu was identified. The one injected human record used a six-active formulation injected into the scalp skin.",
+      "whatWouldResolveIt": "A human safety and pharmacokinetic study of injected GHK-Cu alone.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the pharmacokinetics, copper exposure and tolerability of subcutaneously injected GHK-Cu in healthy adults?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "route_not_established",
+      "statement": "Whether oral or sublingual GHK-Cu is absorbed or does anything.",
+      "why": "A practitioner source describes sublingual strips and another notes limited oral bioavailability; no study of either was identified.",
+      "whatWouldResolveIt": "A bioavailability study of oral or sublingual administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does intact GHK-Cu reach the circulation after sublingual or oral administration?",
+      "opportunityType": "route_comparison"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Copper exposure and copper-zinc balance with repeated GHK-Cu administration.",
+      "why": "One practitioner source advises monitoring for copper excess and zinc co-supplementation, and another advises zinc, without citing data. No study measuring copper status after administration was identified.",
+      "whatWouldResolveIt": "Measurement of serum copper, ceruloplasmin and zinc during repeated administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does repeated injected or topical GHK-Cu change systemic copper or zinc status?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Replication of the 1994 diabetic ulcer result.",
+      "why": "No second controlled trial of GHK-Cu alone in chronic wounds was identified.",
+      "whatWouldResolveIt": "An independent randomised trial in chronic wounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does topical GHK-Cu improve chronic wound closure in an independent, adequately powered randomised trial?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "formulation_unspecified",
+      "statement": "What GHK-Cu contributes in the multi-ingredient products most human studies used.",
+      "why": "Mixtures were compared with nothing, or with a vehicle lacking several actives at once.",
+      "whatWouldResolveIt": "Factorial or single-active controlled studies.",
+      "verificationIssueKey": null,
+      "researchQuestion": "In a controlled comparison, does adding GHK-Cu to a topical formulation change skin or hair outcomes?",
+      "opportunityType": "formulation_comparison"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The measurement behind the claim that plasma GHK falls with age.",
+      "why": "The figures are repeated by a review and two handbooks; the primary study was not identified.",
+      "whatWouldResolveIt": "The original plasma measurement study, or a new age-stratified measurement.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How do circulating GHK and GHK-Cu concentrations vary with age in a measured human cohort?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "The identity, copper content and purity of injectable GHK-Cu products.",
+      "why": "Practitioner sources describe injectable vials and blends; no analytical characterisation of such products was identified.",
+      "whatWouldResolveIt": "Independent analysis of purchased products for peptide identity, copper ratio and impurities.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do injectable products sold as GHK-Cu contain the stated peptide and copper ratio?",
+      "opportunityType": "product_characterisation"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "topical",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "mulder-1994",
+      "populationModel": "Adults with diabetic neuropathic plantar ulcers; adults after CO2 laser resurfacing.",
+      "formulation": "Gel (ulcer trial); skin-care products containing other ingredients (laser trial).",
+      "pkNotes": "Laboratory skin models show negligible permeation of the peptide through intact skin.",
+      "limitationsNotes": "The only route with controlled human evidence, and that evidence is two small or old trials. Wounded skin and intact skin are different barriers."
+    },
+    {
+      "routeKey": "intradermal",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "locationKey": "kapoor-2018",
+      "populationModel": "Adults with hair loss in a single-arm study, India.",
+      "formulation": "A six-active formulation including growth factors and thymosin beta-4.",
+      "pkNotes": null,
+      "limitationsNotes": "Uncontrolled and multi-ingredient; nothing is attributable to GHK-Cu."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ghk-59",
+      "populationModel": "Not specified by the sources.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Described by two practitioner sources. No human study of injected GHK-Cu was identified."
+    },
+    {
+      "routeKey": "intramuscular",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ghk-59",
+      "populationModel": "Not specified by the source.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "One practitioner source states it can be given intramuscularly. No study identified."
+    },
+    {
+      "routeKey": "sublingual-buccal",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "cheatsheet-ghk-7",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Oral dissolving strip.",
+      "pkNotes": null,
+      "limitationsNotes": "One quick-reference source. No absorption study identified."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "GHK-PR-STUDY-ULCER",
+      "objectiveContext": "Closure of diabetic neuropathic plantar ulcers (randomised vehicle-controlled trial, 1994).",
+      "populationModel": "Adults with diabetic neuropathic plantar ulcers at multiple centres, USA.",
+      "routeKey": "topical",
+      "formulation": "GHK-Cu gel, daily metered dose, within a standardised wound-care protocol of debridement, off-loading footwear and education.",
+      "regulatoryContext": "A trial's application schedule for a wound gel. Not an approved use and not a schedule for any other purpose or route.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": null,
+      "amountUnit": null,
+      "frequencyText": "Daily",
+      "timingText": "Starting immediately after initial debridement, which the authors state was needed for the full effect.",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Infection incidence lower than with vehicle.",
+      "locationKey": "mulder-1994"
+    },
+    {
+      "protocolKey": "GHK-PR-STUDY-LASER",
+      "objectiveContext": "Skin recovery after CO2 laser resurfacing (randomised trial).",
+      "populationModel": "Adults after circumoral CO2 laser resurfacing, USA; 13 completed.",
+      "routeKey": "topical",
+      "formulation": "Post-treatment skin-care regimen containing GHK-Cu, compared with a regimen without it.",
+      "regulatoryContext": "A small trial's post-procedure skin-care regimen. It showed no objective benefit.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": null,
+      "amountUnit": null,
+      "frequencyText": null,
+      "durationText": "12 weeks of follow-up",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "miller-2006"
+    },
+    {
+      "protocolKey": "GHK-PR-LAVALLE-INJECT",
+      "objectiveContext": "Anti-aging, skin, wound, hair and neuroprotective indications, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "The source adds that it can be administered intramuscularly.",
+      "regulatoryContext": "A practitioner handbook's injection schedule. No human study of injected GHK-Cu was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1-2 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Daily",
+      "durationText": "10-21 days",
+      "monitoringText": "Monitor for copper toxicity (the source describes a blue nail lunula that corrects 4-6 weeks after stopping).",
+      "contraindicationsText": "Safety in paediatrics and pregnancy not established, per the source.",
+      "combinationsText": "The source recommends zinc chelate 30 mg daily, or a multivitamin-mineral with zinc, for potential zinc/copper imbalance.",
+      "safetyNotes": "Injection-site redness and pain; rare erythema, transient muscle atrophy, polyarthralgia with hand oedema, and rash, as stated by the source.",
+      "locationKey": "lavalle-ghk-60"
+    },
+    {
+      "protocolKey": "GHK-PR-LAVALLE-TOPICAL",
+      "objectiveContext": "Scalp and facial use, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "topical",
+      "formulation": "Scalp foam 0.5% (50 ml); facial cream 0.5% (15 g).",
+      "regulatoryContext": "A practitioner handbook's topical preparations. Concentrations are the source's.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.5% preparation",
+      "amountUnit": "%",
+      "frequencyText": "Daily; massage into scalp, or apply sparingly to face",
+      "durationText": null,
+      "monitoringText": "Discontinue if irritation, redness or dermatitis develops.",
+      "contraindicationsText": null,
+      "safetyNotes": "Topical use may cause irritation, redness or itching, per the source.",
+      "locationKey": "lavalle-ghk-60"
+    },
+    {
+      "protocolKey": "GHK-PR-HACKSMITH-INJECT",
+      "objectiveContext": "Tissue regeneration or anti-aging, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner guide's injection schedule. No human study of injected GHK-Cu was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1-2 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Every 1-2 days",
+      "durationText": null,
+      "combinationsText": "A daily zinc supplement, taken at least 2 hours apart from GHK-Cu, per the source.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Generally well tolerated per the source; rare mild irritation or redness.",
+      "locationKey": "hacksmith-ghkcu"
+    },
+    {
+      "protocolKey": "GHK-PR-HACKSMITH-TOPICAL",
+      "objectiveContext": "Skin rejuvenation and hair growth, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "topical",
+      "formulation": "Serums or creams.",
+      "regulatoryContext": "A practitioner guide's topical concentrations. Concentrations are the source's.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1% (face), 2% (body), 3% (hair growth)",
+      "amountUnit": "%",
+      "frequencyText": null,
+      "durationText": null,
+      "monitoringText": "Monitor compatibility with other skincare products on sensitive skin.",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "hacksmith-ghkcu"
+    },
+    {
+      "protocolKey": "GHK-PR-CAMPBELL-TOPICAL",
+      "objectiveContext": "Slowing visible skin aging, and sun or age-related skin damage, as framed by the book.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "topical",
+      "formulation": "Cream or serum; the source's worked example is a 3% formulation.",
+      "regulatoryContext": "A practitioner book's topical instructions. The book presents topical use as the form in which GHK-Cu works best; it cites no trial for the amounts.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "Light amount; with a 3% formulation, 2-4 pumps (0.21-0.81 mL) per application",
+      "amountUnit": "mL",
+      "frequencyText": "More often for more severe damage, per the source",
+      "timingText": "After cleansing; massage in for 5-10 seconds",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-ghk-91"
+    },
+    {
+      "protocolKey": "GHK-PR-CHEATSHEET-INJECT",
+      "objectiveContext": "Healing, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "50 mg vial reconstituted with 3 ml bacteriostatic water; 10 units on a 1 ml insulin syringe per dose. The source does not name the injection route.",
+      "regulatoryContext": "A practitioner quick-reference schedule. No human study of injected GHK-Cu was identified, and the route is not named by the source.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1.7 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Every day",
+      "timingText": "AM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-ghk-3"
+    },
+    {
+      "protocolKey": "GHK-PR-CHEATSHEET-STRIP",
+      "objectiveContext": "Beauty and recovery, as framed by the cheat sheet.",
+      "populationModel": "Men and women, per the source's columns.",
+      "routeKey": "sublingual-buccal",
+      "formulation": "Oral sublingual strip, 20 strips per pack.",
+      "regulatoryContext": "A practitioner quick-reference product schedule. No absorption study of sublingual GHK-Cu was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "3 mg per strip",
+      "amountUnit": "mg",
+      "frequencyText": "1 strip per day",
+      "timingText": "First thing in the morning",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-ghk-7"
+    },
+    {
+      "protocolKey": "GHK-PR-CHEATSHEET-BLEND",
+      "objectiveContext": "Healing, as a three-peptide blend, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Blend of BPC-157 10 mg, TB-500 10 mg and GHK-Cu 50 mg reconstituted with 2 ml; 10 units per dose. Route not named by the source.",
+      "regulatoryContext": "A practitioner quick-reference blend. No study of this combination was identified, and the per-dose amounts as printed do not match the vial ratio.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "2.5mg/ 500mcg/ 500mcg, as printed for BPC-157 / TB-500 / GHK-Cu",
+      "amountUnit": "mg and mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "AM or PM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "combinationsText": "BPC-157 and TB-500 in the same vial.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-ghk-6"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "GHK-D-001",
+      "topic": "Whether GHK-Cu is a topical or an injected compound.",
+      "plainLanguageText": "One practitioner book says GHK-Cu works best on the skin. Two others describe injecting it. The human studies found are almost all on the skin.",
+      "candidateExplanation": "route",
+      "explanationNotes": "The sources are not describing the same use: the topical source is about visible skin aging, the injection sources list systemic indications. The evidence does not settle either position for injection, because no injected human study exists.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A human pharmacokinetic and safety study of injected GHK-Cu, and any controlled comparison of routes.",
+      "positions": [
+        { "locationKey": "campbell-ghk-91", "evidenceTypeKey": "practitioner_reference", "positionText": "The only peptide in the book that functions best as a transdermal cream or serum; recommended as the primary option for skin aging." },
+        { "locationKey": "lavalle-ghk-59", "evidenceTypeKey": "practitioner_reference", "positionText": "Given by subcutaneous injection, and can be given intramuscularly, for a list of systemic indications." },
+        { "locationKey": "hacksmith-ghkcu", "evidenceTypeKey": "practitioner_reference", "positionText": "Topical for skin and hair, and subcutaneous injection for tissue regeneration or anti-aging." },
+        { "locationKey": "mulder-1994", "evidenceTypeKey": "human_rct", "positionText": "Controlled human evidence is for a topical gel on wounds." }
+      ]
+    },
+    {
+      "disagreementKey": "GHK-D-002",
+      "topic": "How often and for how long injected GHK-Cu is used.",
+      "plainLanguageText": "Three practitioner sources give three different injection schedules: daily for a few weeks, every one to two days, and daily in eight-week cycles.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "None of the three cites a study for its schedule, and no identified study examined any of them.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A human study of injected GHK-Cu that defines a schedule.",
+      "positions": [
+        { "locationKey": "lavalle-ghk-59", "evidenceTypeKey": "practitioner_reference", "positionText": "Daily for 10-21 days." },
+        { "locationKey": "hacksmith-ghkcu", "evidenceTypeKey": "practitioner_reference", "positionText": "Every 1-2 days, no duration stated." },
+        { "locationKey": "cheatsheet-ghk-3", "evidenceTypeKey": "practitioner_reference", "positionText": "Every day, 8 weeks on and 8 weeks off." }
+      ]
+    },
+    {
+      "disagreementKey": "GHK-D-003",
+      "topic": "Whether GHK and GHK-Cu are the same thing.",
+      "plainLanguageText": "Some sources use the two names as if they were one substance. One gives them separate entries. They are the peptide with and without copper.",
+      "candidateExplanation": "chemical_form",
+      "explanationNotes": "GHK binds copper and other metals; in plasma it is found associated with copper and iron. Products labelled GHK-Cu and GHK base are different chemical forms, and a source that uses the names interchangeably is describing either one.",
+      "resolution": "resolved_different_chemical_form",
+      "resolutionBasis": "The 1980 characterisation (SRC-065) reports GHK complexed with copper and iron in vivo and binding several metals in vitro, so the free peptide and its copper complex are distinct forms. One practitioner source (SRC-005) already separates them.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None further for the chemistry. Which form a given product contains requires analysis of the product.",
+      "positions": [
+        { "locationKey": "hacksmith-ghkbase", "evidenceTypeKey": "practitioner_reference", "positionText": "GHK base, without the copper ion, is a separate entry with its own uses." },
+        { "locationKey": "lavalle-ghk-61", "evidenceTypeKey": "practitioner_reference", "positionText": "The summary moves between GHK and GHK-Cu when describing effects." },
+        { "locationKey": "pickart-1980", "evidenceTypeKey": "analytical_characterisation", "positionText": "The plasma tripeptide associates with copper and iron in vivo and forms complexes with several metals." }
+      ]
+    },
+    {
+      "disagreementKey": "GHK-D-004",
+      "topic": "Where the claim that GHK declines with age comes from.",
+      "plainLanguageText": "Several sources repeat the same figures for how much GHK is in the blood at 20 and at 60. None of them reports measuring it.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "Identical numbers in a review and two handbooks suggest one shared, untraced citation.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "The primary measurement study, or a new age-stratified measurement.",
+      "positions": [
+        { "locationKey": "seeds-ghk-147", "evidenceTypeKey": "practitioner_reference", "positionText": "States the plasma level at age 20 and at age 60, without a study." },
+        { "locationKey": "lavalle-ghk-61", "evidenceTypeKey": "practitioner_reference", "positionText": "States the same figures with a reference marker." },
+        { "locationKey": "dou-2020", "evidenceTypeKey": "academic_reference", "positionText": "Repeats the same figures in a review abstract." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any",
+      "status": "unknown",
+      "authority": "No regulator's own record has been consulted for this compound",
+      "locationKey": "hacksmith-ghkcu",
+      "checkedAt": "2026-09-13",
+      "notes": "No regulatory record was read. Practitioner sources describe wide cosmetic use and the cosmetic ingredient name copper tripeptide-1 appears in human studies; neither is a regulatory determination about injection or any medicinal use."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "GHK-ID-001",
+      "nameUsed": "GHL (glycylhistidyllysine)",
+      "chemicalForm": "Free tripeptide, found metal-associated in plasma",
+      "sequence": "GHK",
+      "residueCount": 3,
+      "form": "full_length",
+      "verification": "stated_by_primary_source",
+      "usageContext": "The 1980 characterisation of the plasma peptide.",
+      "notes": "The older abbreviation for the same tripeptide.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "pickart-1980"
+    },
+    {
+      "identityKey": "GHK-ID-002",
+      "nameUsed": "GHK-Cu",
+      "chemicalForm": "Copper complex of glycyl-L-histidyl-L-lysine",
+      "sequence": "GHK",
+      "residueCount": 3,
+      "molecularWeight": 403.9242,
+      "weightBasis": "The copper complex, as the handbook states it.",
+      "form": "preparation",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's properties list.",
+      "notes": null,
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-ghk-147"
+    },
+    {
+      "identityKey": "GHK-ID-003",
+      "nameUsed": "GHK Base (No Cu)",
+      "chemicalForm": "Free tripeptide without copper",
+      "sequence": "GHK",
+      "residueCount": 3,
+      "form": "full_length",
+      "verification": "asserted_without_detail",
+      "usageContext": "A separate guide entry with its own topical concentrations and injection amounts.",
+      "notes": "The only practitioner source that separates the two forms.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "hacksmith-ghkbase"
+    },
+    {
+      "identityKey": "GHK-ID-004",
+      "nameUsed": "Copper tripeptide-1",
+      "chemicalForm": "Cosmetic ingredient name for GHK-Cu",
+      "form": "preparation",
+      "verification": "stated_by_primary_source",
+      "usageContext": "Listed as one of six actives in an injected scalp formulation.",
+      "notes": "Ingredient names do not state concentration or purity.",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "locationKey": "kapoor-2018"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "GHK-REP-001",
+      "finding": "GHK-Cu increases collagen and extracellular-matrix synthesis in fibroblasts and wound tissue.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Fibroblast culture; rat wound chambers.",
+      "humanConfirmed": false,
+      "basis": "The culture and wound-chamber studies cited here come from the same laboratory in Reims, France. Other groups report related matrix effects in the screen, but their authorship was not adjudicated record by record, so independence is not claimed.",
+      "limitations": "Laboratory and animal models.",
+      "supportingRecords": "PMID 3169264; PMID 8227353"
+    },
+    {
+      "assessmentKey": "GHK-REP-002",
+      "finding": "Topical GHK-Cu improves chronic wound closure in people.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Adults with diabetic neuropathic plantar ulcers.",
+      "humanConfirmed": true,
+      "basis": "One 1994 multicentre vehicle-controlled trial; no second trial identified.",
+      "limitations": "Sample size and sponsor not stated in the abstract.",
+      "supportingRecords": "PMID 17147644"
+    },
+    {
+      "assessmentKey": "GHK-REP-003",
+      "finding": "Intact peptide barely permeates intact human skin.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Human skin in vitro.",
+      "humanConfirmed": false,
+      "basis": "One permeation study measuring the peptide; a second measured only copper through thinner, dermatomed skin, which is not the same question.",
+      "limitations": "Laboratory conditions.",
+      "supportingRecords": "PMID 25690343; PMID 20703511"
+    },
+    {
+      "assessmentKey": "GHK-REP-004",
+      "finding": "Wound-healing effects in animals.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "One hundred animal records are in the census, across species and preparations. Their authorship and countries were not adjudicated individually, so no replication state is claimed.",
+      "limitations": null,
+      "supportingRecords": null
+    },
+    {
+      "assessmentKey": "GHK-REP-005",
+      "finding": "Effects of injected GHK-Cu in people.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study exists to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ]
+}

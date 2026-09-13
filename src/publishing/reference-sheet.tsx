@@ -108,7 +108,7 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
             value={
               screen === undefined
                 ? `${String(countHumanClaims(peptide))} statements rest on human evidence`
-                : `${String(screen.humanPrimaryCount)} primary human studies identified`
+                : `${String(screen.humanPrimaryCount)} primary human records identified (substudies count separately)`
             }
           />
           <Fact

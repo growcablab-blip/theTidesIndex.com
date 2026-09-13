@@ -159,9 +159,9 @@ describe('editorial services', () => {
   it('reports a refused write instead of claiming success', async () => {
     // A reviewer cannot edit content. RLS excludes the row rather than raising,
     // so the service has to notice that nothing was affected.
-    const [peptide] = await query<{ id: string }>(
+    const [peptide] = await query<{ id: string; short_description: string | null }>(
       db,
-      `select id from peptides where slug = 'semax'`,
+      `select id, short_description from peptides where slug = 'semax'`,
     );
 
     const result = await updatePeptideSummaries(
@@ -186,7 +186,9 @@ describe('editorial services', () => {
       `select short_description from peptides where id = $1`,
       [peptide!.id],
     );
-    expect(row?.short_description).toBeNull();
+    // Unchanged, whatever the seeded record held: the assertion is about the
+    // refused write, not about which compounds have descriptions yet.
+    expect(row?.short_description).toBe(peptide!.short_description);
   });
 
   it('translates a duplicate key into a sentence an editor can act on', async () => {

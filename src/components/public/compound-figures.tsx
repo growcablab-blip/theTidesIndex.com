@@ -205,7 +205,7 @@ export function ProductDistinction({
         {products.map((product) => (
           <article
             key={product.id}
-            className="flex flex-col rounded-lg border border-rule bg-paper px-4 py-4"
+            className="flex flex-col rounded-lg border border-rule bg-warm-white px-4 py-4"
           >
             <h3 className="font-serif text-lg text-deep-tide">{product.productName}</h3>
             {product.applicationNumber ? (
@@ -364,8 +364,8 @@ export function EvidenceLandscape({ screen }: { screen: LiteratureScreen }) {
         />
         <Headline
           value={String(screen.humanPrimaryCount)}
-          label="studies in people"
-          note="Records in which the compound was given to people and an outcome in those people was reported. Human samples analysed in a laboratory are not counted here."
+          label="records in people"
+          note="Records in which the compound was given to people and an outcome in those people was reported. A substudy or follow-up analysis of one trial is its own record, so this is not a count of separate trials. Human samples analysed in a laboratory are not counted here."
           tone={screen.humanPrimaryCount === 0 ? 'absent' : 'present'}
         />
         <Headline

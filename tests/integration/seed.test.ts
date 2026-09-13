@@ -86,8 +86,14 @@ describe('seeding', () => {
      * seven-residue fragment of the 43-residue parent — so it became a record
      * of its own. The count changed because the chemistry was resolved, not
      * because the register grew.
+     *
+     * Twelve for the same reason. "CJC-1295" in the originator's paper and
+     * the human trials is an albumin-binding molecule; the 29-residue peptide
+     * sold as "CJC-1295 without DAC" lacks the group that defines it, and a
+     * seized product sold as CJC-1295 was analysed and found to be that
+     * shorter peptide. Modified GRF (1-29) is therefore its own record.
      */
-    expect(rows.length).toBe(11);
+    expect(rows.length).toBe(12);
 
     /*
      * Two compounds have been extracted from held sources and carry content;

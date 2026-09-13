@@ -135,3 +135,78 @@ decision.
 **Default if unanswered.** The four stages stay marked source needed. A test
 (`tests/unit/sequence-to-vial.test.ts`) pins them as unsourced so they cannot be
 quietly filled.
+
+## D-11 · A regimen table that names no route is recorded under "other"
+
+**What was done.** The Campbell cheat sheet (SRC-004) gives vial size, reconstitution
+volume and insulin-syringe units but never names a route. The TB-500 record had
+inferred subcutaneous from the syringe. That inference is now removed: the
+TB-500, retatrutide and GHK-Cu cheat-sheet regimens are recorded under route
+`other`, and each says the source names no route. The consequence is visible on
+`/protocols`: filtering by subcutaneous no longer shows regimens whose source
+never said subcutaneous.
+
+**Why it needs you.** An insulin syringe is used subcutaneously in ordinary
+practice, and a clinician may prefer the inference. It is still an inference.
+
+**Default if unanswered.** Keep `other`. Where a source names the route, the
+record uses it.
+
+## D-12 · "CJC-1295 without DAC" is a separate record: Modified GRF (1-29)
+
+**What was done.** The originator's CJC-1295 (ConjuChem, 2005) is hGRF(1-29)
+with an added maleimidopropionamide lysine that binds albumin; the 2006 human
+trials used that molecule. Handbooks and sellers use "CJC-1295 without DAC" for
+the 29-residue core peptide, which has no albumin-binding group, and a seized
+product sold as "CJC-1295" was analysed and found to be that shorter peptide.
+Following the TB-500 precedent, the register now holds two records —
+`cjc-1295` and `mod-grf-1-29` — and no evidence crosses between them. The
+cohort count moved from 11 to 12 for that reason.
+
+**Why it needs you.** Adding a record to the register is an editorial decision.
+Merging them would put the 2006 trial evidence behind vials that do not contain
+the trial molecule.
+
+**Default if unanswered.** Keep two records.
+
+## D-13 · Russian-language literature read through English abstracts only
+
+**What was done.** Semax (88 of 215 records) and Selank (32 of 72) have large
+Russian literatures. Applying the D-07 default: every Russian-language record
+was classified from the English abstract PubMed carries, or from its English
+title where there is no abstract, and every such source says so on its
+manifest entry and locator. No machine translation was used and nothing is
+quoted from Russian text. Where an English abstract omits a design detail
+(randomisation, blinding, dose, route) the record says "not stated" rather
+than inferring it. The Selank clinical doses, for example, are recorded as not
+stated because the abstracts do not give them.
+
+**Why it needs you.** The full texts would settle design and dosing questions
+that the abstracts leave open, and reading them requires a qualified Russian
+reader or professional translation.
+
+**Default if unanswered.** Keep abstract-level extraction and the not-stated
+markers.
+
+## D-14 · A public research agenda and an evidence-shaped compound index
+
+**What was done.** Two cross-register pages were added. `/research` lists
+every research question derived from a recorded gap (63 across 10 records),
+grouped by kind of question and alphabetical within each group, under the
+heading "Questions for research, not suggestions to try". The compound index
+gained a "Discover by evidence" table: research area, whether any human record
+was found in the literature screen, preclinical record count, routes recorded,
+where regimens come from (label, human study, handbook), the furthest any
+finding has been replicated, and open questions. It sorts alphabetically, has
+no score column, and selects no dosing fields. "Research" was added to the
+main navigation. Both pages stay noindex.
+
+**Why it needs you.** Putting a research agenda in the main navigation is a
+product-positioning choice. Showing screen counts next to each other invites
+comparison even without a ranking. Tesamorelin and BPC-157 predate the
+research-question field, so they show no questions yet; that means the field
+has not been filled in, not that nothing is open.
+
+**Default if unanswered.** Keep both pages, keep "Research" in the navigation,
+and fill in research questions for Tesamorelin and BPC-157 when those records
+are next revised.

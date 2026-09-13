@@ -245,8 +245,29 @@ const EXPLANATION_LABEL: Readonly<Record<string, string>> = {
   study_design: 'may come down to a difference in study design',
   terminology: 'may come down to the two sources using a name differently',
   date: 'may come down to the sources being written at different times',
+  chemical_form: 'may come down to the sources describing different chemical forms',
+  reporting_threshold: 'may come down to how a result was reported',
   unresolved: 'has no established explanation',
 };
+
+/** A settled disagreement says how it was settled, not just what might explain it. */
+const RESOLUTION_LABEL: Readonly<Record<string, string>> = {
+  resolved_different_formulation: 'is resolved: the sources describe different formulations',
+  resolved_different_population: 'is resolved: the sources describe different populations',
+  resolved_different_study_condition: 'is resolved: the sources describe different study conditions',
+  resolved_different_chemical_form: 'is resolved: the sources describe different chemical forms',
+  resolved_different_reporting_threshold: 'is resolved: the sources report against different thresholds',
+  source_error_confirmed: 'is resolved: an error in one source is confirmed',
+  secondary_source_less_precise: 'is resolved: the secondary source states the result less precisely than the primary one',
+  regulatory_source_more_specific: 'is resolved: the regulatory source is more specific',
+  index_error_confirmed: 'is resolved: the error was this index’s own',
+};
+
+function disagreementLead(d: Disagreement): string {
+  return (
+    RESOLUTION_LABEL[d.resolution] ?? EXPLANATION_LABEL[d.candidateExplanation] ?? 'is open'
+  );
+}
 
 export function DisagreementList({
   disagreements,
@@ -277,8 +298,11 @@ export function DisagreementList({
           ) : null}
 
           <p className="mt-2 text-sm text-slate">
-            This disagreement {EXPLANATION_LABEL[disagreement.candidateExplanation] ?? 'is open'}.
+            This disagreement {disagreementLead(disagreement)}.
             {disagreement.explanationNotes ? ` ${disagreement.explanationNotes}` : ''}
+            {disagreement.resolution !== 'unresolved' && disagreement.resolutionBasis
+              ? ` How it was settled: ${disagreement.resolutionBasis}`
+              : ''}
           </p>
 
           <ul className="mt-4 space-y-3">

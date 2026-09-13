@@ -113,7 +113,7 @@ export function EvidenceAtAGlance({
     screen !== undefined
       ? screen.humanPrimaryCount === 0
         ? 'None identified'
-        : `${String(screen.humanPrimaryCount)} ${screen.humanPrimaryCount === 1 ? 'study' : 'studies'} in people`
+        : `${String(screen.humanPrimaryCount)} ${screen.humanPrimaryCount === 1 ? 'record' : 'records'} in people`
       : humanClaims === 0
         ? 'None held'
         : `${String(humanClaims)} statements`;

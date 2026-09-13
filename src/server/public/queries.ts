@@ -25,6 +25,12 @@ import {
 import { readProtocols } from './protocol-reader';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
 import { readSpecimenCertificate, type CertificateReading } from './certificate';
+import {
+  readDiscovery,
+  readResearchQuestions,
+  type DiscoveryRow,
+  type ResearchQuestionEntry,
+} from './research-index';
 
 export type { QualityTopicReading } from './quality-topic';
 export type {
@@ -1574,3 +1580,11 @@ function toRegisteredPeptide(r: Record<string, unknown>): RegisteredPeptide {
       : [],
   };
 }
+
+export const getDiscovery = cache(async (): Promise<DiscoveryRow[]> =>
+  asPublic((tx) => readDiscovery(tx)),
+);
+
+export const getResearchQuestions = cache(async (): Promise<ResearchQuestionEntry[]> =>
+  asPublic((tx) => readResearchQuestions(tx)),
+);

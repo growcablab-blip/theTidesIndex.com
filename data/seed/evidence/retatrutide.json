@@ -1,0 +1,520 @@
+{
+  "packetKey": "retatrutide",
+  "peptideKey": "retatrutide",
+  "note": "Extracted 13 September 2026. The clinical-development archetype: almost all human evidence comes from one developer's registered trial programme, read here from PubMed abstracts (SRC-047 to SRC-053) and the ClinicalTrials.gov registry (SRC-054), with three practitioner sources alongside (SRC-003 Campbell, SRC-004 cheat sheet, SRC-005 Hack Smith). No full text is held for any trial; every trial location is an abstract and says so. Campbell locators are the book's own page numbers; the cheat sheet and Hack Smith use file pages. Amounts appear only in protocol fields, which are practitioner-view only: every other field in this packet describes dose groups without amounts, because patient payloads must not carry dosing merely because a component does not render it. Verification issue V-003 asked for trial publications and registry records before any retatrutide regimen was shown; both are now held at abstract and registry level.",
+  "compound": {
+    "shortDescription": "A single engineered peptide that activates three hormone receptors at once — GIP, GLP-1 and glucagon. In late-stage trials for obesity and type 2 diabetes, run almost entirely by the company developing it.",
+    "simpleSummary": "Retatrutide is an investigational medicine made as one peptide that acts on three hormone receptors the body uses to regulate appetite, blood sugar and energy use. It belongs to the same family as semaglutide and tirzepatide, which act on one and two of those receptors.\n\n**It has been studied in a lot of people.** Published trials have tested it in adults with obesity and in adults with type 2 diabetes, including one completed phase 3 trial. In those trials, people given it lost substantially more weight than people given placebo, and people with type 2 diabetes had larger falls in blood sugar. The most common side effects were stomach and bowel symptoms such as nausea and diarrhoea, more often at higher doses.\n\n**Almost all of that evidence comes from one source.** The company developing retatrutide sponsored every trial with published results found on 13 September 2026, and most were done in the United States. That is normal for a medicine in development, and it is still one programme rather than independent confirmation. Large trials of long-term outcomes, such as heart and kidney events, are registered and have not reported.\n\n**It is not an approved medicine** on the records this index holds, and products sold online under its name are not the product used in trials. A published case report describes a man who became seriously unwell after injecting an online-purchased product sold as retatrutide; what that product contained was never tested.",
+    "practitionerSummary": "Retatrutide (LY3437943) is a unimolecular triple agonist at the GIP, GLP-1 and glucagon receptors; in vitro its glucagon and GLP-1 receptor activity is described as balanced with greater GIP receptor activity. The first-in-human single-ascending-dose study and a 12-week phase 1b multiple-ascending-dose trial in type 2 diabetes reported dose-proportional pharmacokinetics with a half-life of about six days, supporting once-weekly subcutaneous dosing. Phase 2 trials in obesity (48 weeks) and type 2 diabetes (36 weeks) reported dose-dependent reductions in body weight and HbA1c versus placebo, with dose-related, mostly mild-to-moderate gastrointestinal adverse events that were partly mitigated by lower starting doses, and dose-dependent heart-rate increases that peaked at 24 weeks. A liver-fat substudy in MASLD reported large relative reductions at 24 weeks. The first published phase 3 trial (TRANSCEND-T2D-1: monotherapy in type 2 diabetes, USA, Mexico and India, 40 weeks) reported HbA1c and weight reductions at all three maintenance doses, adverse-event discontinuations of 2–5% and no severe hypoglycaemia. ClinicalTrials.gov lists 34 studies on 13 September 2026, 33 with the developer as lead sponsor, including a cardiovascular and kidney outcomes trial that has not reported. Every published efficacy result is developer-sponsored. Practitioner sources describe schedules that no identified trial used, including three-times-weekly administration and 8-weeks-on, 8-weeks-off cycling.",
+    "unknownsSummary": "Not established: any long-term clinical outcome (cardiovascular, kidney, mortality), since the outcomes trial has not reported; replication by anyone other than the developer; what happens to weight and metabolic measures after stopping, and whether on/off cycling as described by practitioner sources does anything; any schedule other than once weekly; effects in type 1 diabetes, where one case report of an unanalysed online product is the only human record; the composition of products sold outside trials; and head-to-head comparison with tirzepatide, which is registered and has not reported.",
+    "aliases": [
+      {
+        "alias": "LY3437943",
+        "note": "The developer's research code. Early publications use it alone; later ones give both names. Same molecule."
+      }
+    ],
+    "sequence": null,
+    "molecularDescription": "A single synthetic peptide with agonist activity at the GIP, GLP-1 and glucagon receptors. The held abstracts do not state its sequence or modifications, so neither is recorded here.",
+    "naturalOrSynthetic": "Synthetic",
+    "nomenclatureNote": "No naming conflict in the scientific record: LY3437943 and retatrutide denote the same molecule. The practical naming problem is elsewhere — products sold online under the name retatrutide are not the trial product, and nothing in the held records establishes what they contain."
+  },
+  "locations": [
+    { "key": "coskun-2022", "sourceKey": "SRC-047", "locatorText": "Abstract", "section": "Abstract (PMID 35985340)" },
+    { "key": "urva-2022", "sourceKey": "SRC-048", "locatorText": "Abstract", "section": "Abstract (PMID 36354040)" },
+    { "key": "rosenstock-2023", "sourceKey": "SRC-049", "locatorText": "Abstract", "section": "Abstract (PMID 37385280)" },
+    { "key": "jastreboff-2023", "sourceKey": "SRC-050", "locatorText": "Abstract", "section": "Abstract (PMID 37366315)" },
+    { "key": "sanyal-2024", "sourceKey": "SRC-051", "locatorText": "Abstract", "section": "Abstract (PMID 38858523)" },
+    { "key": "bajaj-2026", "sourceKey": "SRC-052", "locatorText": "Abstract", "section": "Abstract (PMID 42250575)" },
+    { "key": "case-2026", "sourceKey": "SRC-053", "locatorText": "Abstract", "section": "Abstract (PMID 42669023)" },
+    { "key": "ctgov-2026", "sourceKey": "SRC-054", "locatorText": "Registry summary fields, held at abstract level: search of 34 studies, read 13 September 2026", "section": "Intervention query: retatrutide OR LY3437943" },
+    { "key": "campbell-reta-227", "sourceKey": "SRC-003", "locatorText": "p. 227", "pageStart": 227, "section": "Retatrutide" },
+    { "key": "campbell-reta-228", "sourceKey": "SRC-003", "locatorText": "p. 228", "pageStart": 228, "section": "Retatrutide" },
+    { "key": "cheatsheet-reta", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, Retatrutide row" },
+    { "key": "hacksmith-reta", "sourceKey": "SRC-005", "locatorText": "file pp. 98-100", "section": "Retatrutide" },
+    { "key": "hacksmith-stacks", "sourceKey": "SRC-005", "locatorText": "file p. 176", "section": "Common peptide stacks: fat loss and metabolism" }
+  ],
+  "claims": [
+    {
+      "claimKey": "RETA-001",
+      "claimText": "Retatrutide (LY3437943) is a single peptide with agonist activity at the glucagon, GIP and GLP-1 receptors; in vitro it shows balanced glucagon and GLP-1 receptor activity with greater GIP receptor activity, and in obese mice it reduced body weight, with glucagon-receptor-mediated increases in energy expenditure adding to intake reduction.",
+      "plainLanguageText": "Retatrutide is one engineered peptide that switches on three hormone receptors involved in appetite, blood sugar and energy use.",
+      "claimCategory": "mechanism",
+      "importance": "critical",
+      "interpretationNotes": "The developer's discovery paper. The receptor profile is laboratory pharmacology and the energy-expenditure mechanism is from mice; neither is a human measurement.",
+      "uncertaintyText": "How the three receptor activities contribute in people is inferred from this profile and from trial outcomes, not measured directly in the held records.",
+      "evidence": [
+        { "locationKey": "coskun-2022", "evidenceTypeKey": "in_vitro", "interpretation": "Receptor activity profile in vitro." },
+        { "locationKey": "coskun-2022", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Body weight, glycaemic control and energy expenditure in obese mice." }
+      ]
+    },
+    {
+      "claimKey": "RETA-002",
+      "claimText": "In a phase 1b multiple-ascending-dose trial in type 2 diabetes, retatrutide's pharmacokinetics were dose proportional with a half-life of about six days, and the first-in-human single-dose study reported a pharmacokinetic profile supporting once-weekly dosing.",
+      "plainLanguageText": "It lasts about six days in the body, which is why trials give it once a week.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "high",
+      "interpretationNotes": "Two developer studies agree on the once-weekly rationale. The half-life figure is from the phase 1b abstract.",
+      "uncertaintyText": "Measured in the trial formulation given by subcutaneous injection. Says nothing about other schedules or about products sold outside trials.",
+      "evidence": [
+        { "locationKey": "urva-2022", "evidenceTypeKey": "human_pk_pd", "interpretation": "Dose-proportional pharmacokinetics, half-life approximately six days, suitability for once-weekly dosing." },
+        { "locationKey": "coskun-2022", "evidenceTypeKey": "human_pk_pd", "interpretation": "Single-ascending-dose phase 1 pharmacokinetics supporting once-weekly dosing." }
+      ]
+    },
+    {
+      "claimKey": "RETA-003",
+      "claimText": "In a 48-week phase 2 trial in 338 adults with obesity or overweight, least-squares mean body weight change ranged from about −9% in the lowest dose group to about −24% in the highest, against about −2% with placebo.",
+      "plainLanguageText": "In a year-long trial in adults with obesity, people on retatrutide lost much more weight than people on placebo, and more at higher doses.",
+      "claimCategory": "efficacy-human",
+      "importance": "critical",
+      "interpretationNotes": "The largest efficacy signal in the record and a randomised, placebo-controlled result. It is one developer-sponsored trial with a surrogate endpoint (weight), not a clinical outcome.",
+      "uncertaintyText": "48 weeks, 338 participants. Durability after stopping, and effects on clinical events, are not addressed.",
+      "evidence": [
+        { "locationKey": "jastreboff-2023", "evidenceTypeKey": "human_rct", "interpretation": "Percentage change in body weight at 24 and 48 weeks by dose group versus placebo." }
+      ]
+    },
+    {
+      "claimKey": "RETA-004",
+      "claimText": "In adults with type 2 diabetes, HbA1c fell more than with placebo in a 36-week phase 2 trial at all but the lowest dose, and in the 40-week phase 3 TRANSCEND-T2D-1 monotherapy trial at all three maintenance doses, with mean body weight change of about −12% to −15% against about −3% with placebo in phase 3.",
+      "plainLanguageText": "In people with type 2 diabetes, blood sugar and weight fell more than with placebo, in both a phase 2 and a phase 3 trial.",
+      "claimCategory": "efficacy-human",
+      "importance": "critical",
+      "interpretationNotes": "The phase 2 result was repeated in a phase 3 trial with a different population mix and countries (USA, Mexico, India), which is the strongest repetition on this record — within the same developer's programme.",
+      "uncertaintyText": "HbA1c and weight are surrogate endpoints. Both trials were developer-sponsored.",
+      "evidence": [
+        { "locationKey": "rosenstock-2023", "evidenceTypeKey": "human_rct", "interpretation": "HbA1c at 24 and 36 weeks and body weight at 36 weeks by dose group versus placebo and dulaglutide." },
+        { "locationKey": "bajaj-2026", "evidenceTypeKey": "human_rct", "interpretation": "HbA1c and body weight at 40 weeks versus placebo; phase 3." },
+        { "locationKey": "urva-2022", "evidenceTypeKey": "human_rct", "relationship": "contextualizes", "interpretation": "Glucose and HbA1c reductions in the higher-dose cohorts of the 12-week phase 1b study." }
+      ]
+    },
+    {
+      "claimKey": "RETA-005",
+      "claimText": "Across the published trials the most common adverse events were gastrointestinal (nausea, diarrhoea, vomiting, constipation), dose-related and mostly mild to moderate, partly mitigated by a lower starting dose; dose-dependent heart-rate increases peaked at 24 weeks in the obesity trial; no severe hypoglycaemia was reported in the type 2 diabetes trials, and adverse-event discontinuations were 2–5% in phase 3.",
+      "plainLanguageText": "The main side effects in trials were stomach and bowel symptoms, more common at higher doses and when doses were raised quickly. Heart rate also went up for a time.",
+      "claimCategory": "safety-human",
+      "importance": "critical",
+      "interpretationNotes": "Consistent across four trials. The starting-dose finding matters to anyone comparing trial schedules with practitioner schedules: how fast the dose rises changed tolerability.",
+      "uncertaintyText": "Trials of up to 48 weeks in selected populations. Rare or long-latency harms are not excluded by trials of this size and length.",
+      "evidence": [
+        { "locationKey": "jastreboff-2023", "evidenceTypeKey": "human_rct", "interpretation": "Gastrointestinal events dose-related and mitigated by lower starting dose; heart-rate increases peaked at 24 weeks." },
+        { "locationKey": "rosenstock-2023", "evidenceTypeKey": "human_rct", "interpretation": "Gastrointestinal adverse events by group; no severe hypoglycaemia; no deaths." },
+        { "locationKey": "bajaj-2026", "evidenceTypeKey": "human_rct", "interpretation": "Mild-to-moderate gastrointestinal events, 2–5% adverse-event discontinuation, no severe hypoglycaemia, two deaths judged unrelated." },
+        { "locationKey": "urva-2022", "evidenceTypeKey": "human_rct", "interpretation": "Gastrointestinal disorders the most frequent treatment-emergent adverse events in phase 1b." }
+      ]
+    },
+    {
+      "claimKey": "RETA-006",
+      "claimText": "In a 98-participant substudy of the phase 2 obesity trial in people with metabolic dysfunction-associated steatotic liver disease, mean relative liver fat change at 24 weeks ranged from about −43% in the lowest dose group to about −82% in the highest, against +0.3% with placebo, and reductions tracked weight loss.",
+      "plainLanguageText": "In people with fatty liver disease in one trial, liver fat fell sharply, alongside weight loss.",
+      "claimCategory": "efficacy-human",
+      "importance": "medium",
+      "interpretationNotes": "A substudy of the same trial as RETA-003, not an independent trial. Liver fat is an imaging measure, not liver outcomes.",
+      "uncertaintyText": "Single substudy; whether this changes fibrosis or clinical liver outcomes is not addressed. A phase 3 MASLD master protocol is registered and recruiting.",
+      "evidence": [
+        { "locationKey": "sanyal-2024", "evidenceTypeKey": "human_rct", "interpretation": "Relative change in liver fat at 24 weeks by dose group versus placebo." }
+      ]
+    },
+    {
+      "claimKey": "RETA-007",
+      "claimText": "On 13 September 2026 ClinicalTrials.gov listed 34 registered studies of retatrutide, 33 with the developer as lead sponsor: phase 1 pharmacology studies from 2019, phase 2 trials from 2021, a phase 3 programme from 2023 including a cardiovascular and kidney outcomes trial registered for about 10,000 participants that has not completed, an expanded-access programme, and one phase 2 obesity trial led by a different sponsor.",
+      "plainLanguageText": "Retatrutide is part way through a large development programme. The biggest trials, on heart and kidney outcomes, have not finished.",
+      "claimCategory": "development-programme",
+      "importance": "high",
+      "interpretationNotes": "Registry data describe what was registered and its status, not results. The shape of the programme is itself informative: the evidence record is growing quickly and is concentrated in one sponsor.",
+      "uncertaintyText": "Registry status is time-sensitive and sponsor-reported. Trials registered only elsewhere are not captured.",
+      "evidence": [
+        { "locationKey": "ctgov-2026", "evidenceTypeKey": "regulatory_reference", "interpretation": "Registry search results: phases, start dates, sponsors, statuses and enrolment targets. A trial registry, not a regulator's decision." }
+      ]
+    },
+    {
+      "claimKey": "RETA-008",
+      "claimText": "A 2026 case report describes a man with type 1 diabetes who developed severe vomiting, diarrhoea, hyperglycaemia, ketonaemia and acute kidney injury shortly after self-administering an online-purchased product marketed as retatrutide, with a concurrent Shigella infection; the authors state causation cannot be established.",
+      "plainLanguageText": "One published case describes a man with type 1 diabetes who became seriously unwell after injecting a product bought online as retatrutide. He also had a gut infection, and the product was never tested.",
+      "claimCategory": "safety-human",
+      "importance": "high",
+      "interpretationNotes": "The only human record of use outside trials. Two things are unknown and both matter: what the product contained, and how much of the illness was the infection.",
+      "uncertaintyText": "A single case with a confounding infection and an unanalysed product. It is a signal about unsupervised use, not evidence about the trial molecule.",
+      "evidence": [
+        { "locationKey": "case-2026", "evidenceTypeKey": "human_case_report", "interpretation": "Clinical course, confounding infection, and the authors' statement that causation cannot be established." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any effect of retatrutide on cardiovascular events, kidney outcomes or mortality.",
+      "why": "The outcomes trial is registered and had not completed on the search date. Every published efficacy result is on surrogate measures.",
+      "whatWouldResolveIt": "Results of the registered cardiovascular and kidney outcomes trial.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does retatrutide change the rate of cardiovascular and kidney events compared with placebo in people at elevated risk?",
+      "opportunityType": "long_term_outcomes"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Replication of the efficacy findings by anyone other than the developer.",
+      "why": "Every trial with published outcomes identified in the screen was sponsored by or affiliated with the developer.",
+      "whatWouldResolveIt": "An independently funded trial or pooled analysis with access to participant-level data.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do independent investigators, with no developer funding, reproduce the weight and glycaemic effects reported in the developer's trials?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Any schedule other than once-weekly administration, including three-times-weekly use described by a practitioner source.",
+      "why": "Every identified human study used once-weekly subcutaneous dosing, consistent with a half-life of about six days.",
+      "whatWouldResolveIt": "A pharmacokinetic and tolerability study of a non-weekly schedule.",
+      "verificationIssueKey": "V-003",
+      "researchQuestion": "Does splitting weekly exposure into more frequent administrations change pharmacokinetics or gastrointestinal tolerability?",
+      "opportunityType": "protocol_validation"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What happens after stopping, and whether on/off cycling as described by practitioner sources has any effect.",
+      "why": "No identified trial tested cycling. A maintenance trial is registered and had not reported in the screened literature.",
+      "whatWouldResolveIt": "Results of the registered weight-maintenance trial, or a randomised withdrawal study.",
+      "verificationIssueKey": "V-003",
+      "researchQuestion": "How much of the weight and metabolic change persists after stopping, and does intermittent treatment preserve it?",
+      "opportunityType": "long_term_outcomes"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "What products sold outside trials under the name retatrutide actually contain.",
+      "why": "The one human case involving such a product did not analyse it. A letter on composition and labelling of products sold in Australia was identified by title but has no abstract, so its findings are not recorded.",
+      "whatWouldResolveIt": "Analytical characterisation of purchased products against a reference standard, reported in full.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the identity, content and purity of products sold online as retatrutide, compared with the declared label?",
+      "opportunityType": "product_characterisation"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Safety or effect in type 1 diabetes.",
+      "why": "No trial identified included people with type 1 diabetes. The only record is one case report of an unanalysed online product with a confounding infection.",
+      "whatWouldResolveIt": "A controlled study in type 1 diabetes, or systematic adverse-event reporting that identifies the product.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the risks of ketosis and hypoglycaemia when a glucagon-receptor-active incretin agonist is used by people with type 1 diabetes?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "How much of the weight lost is fat rather than lean tissue, in people.",
+      "why": "A practitioner source describes the loss as almost entirely body fat on the strength of a mouse study figure. A body-composition substudy in type 2 diabetes exists; its results were not extracted into this record.",
+      "whatWouldResolveIt": "Extraction of the DXA substudy results, and body-composition data from the phase 3 trials.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What proportion of retatrutide-associated weight loss is lean mass, and does it differ from other incretin therapies?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "How retatrutide compares directly with tirzepatide or semaglutide.",
+      "why": "Comparisons in the literature and in practitioner sources are across different trials. A head-to-head trial against tirzepatide and one against semaglutide are registered and had not reported.",
+      "whatWouldResolveIt": "Results of the registered head-to-head trials.",
+      "verificationIssueKey": null,
+      "researchQuestion": "In a randomised head-to-head trial, how do weight, glycaemic and tolerability outcomes compare between retatrutide and tirzepatide?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "jastreboff-2023",
+      "populationModel": "Adults with obesity or overweight, and adults with type 2 diabetes, in developer-sponsored phase 1 to phase 3 trials.",
+      "formulation": "The developer's trial formulation, injected once weekly.",
+      "pkNotes": "Half-life about six days with dose-proportional exposure in phase 1b.",
+      "limitationsNotes": "The only route studied in people. Evidence for this route is evidence about the trial product on a once-weekly schedule."
+    }
+  ],
+  "pharmacokinetics": [
+    {
+      "observationKey": "RETA-PK-001",
+      "parameter": "Half-life",
+      "valueText": "Approximately 6 days",
+      "doseContext": "Repeat once-weekly dosing across five ascending cohorts",
+      "administration": "repeat_dose",
+      "population": "Adults with type 2 diabetes, four US centres",
+      "routeKey": "subcutaneous",
+      "studyCondition": "Phase 1b, 12 weeks",
+      "evidenceTypeKey": "human_pk_pd",
+      "notes": "Exposure was dose proportional.",
+      "locationKey": "urva-2022"
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "RETA-PR-STUDY-PHASE1B",
+      "objectiveContext": "Safety, tolerability, pharmacokinetics and pharmacodynamics in type 2 diabetes (phase 1b, NCT04143802).",
+      "populationModel": "72 adults with type 2 diabetes at four US centres.",
+      "routeKey": "subcutaneous",
+      "formulation": "Trial formulation, once-weekly injection; placebo and dulaglutide comparators.",
+      "regulatoryContext": "A phase 1b trial's dose cohorts, chosen to find tolerable doses. Not a treatment schedule and not an approved dose.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": "Cohorts of 0.5 mg, 1.5 mg and 3 mg, and stepwise escalations of 3/6 mg and 3/6/9/12 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Once weekly",
+      "durationText": "12 weeks",
+      "titrationText": "The two highest cohorts reached their top dose by stepwise escalation.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Gastrointestinal disorders were the most frequent treatment-emergent adverse events.",
+      "locationKey": "urva-2022"
+    },
+    {
+      "protocolKey": "RETA-PR-STUDY-PHASE2-T2D",
+      "objectiveContext": "Glycaemic control and body weight in type 2 diabetes (phase 2, NCT04867785).",
+      "populationModel": "281 adults with type 2 diabetes at 42 US centres, on diet and exercise alone or stable metformin.",
+      "routeKey": "subcutaneous",
+      "formulation": "Trial formulation, once-weekly injection; placebo and dulaglutide comparators, double-dummy.",
+      "regulatoryContext": "A phase 2 trial's dose-finding arms. Not a treatment schedule and not an approved dose.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": "Maintenance doses of 0.5 mg, 4 mg, 8 mg or 12 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Once weekly",
+      "durationText": "36 weeks",
+      "titrationText": "4 mg reached from a 2 mg start or with no escalation; 8 mg from a 2 mg (slow) or 4 mg (fast) start; 12 mg from a 2 mg start.",
+      "combinationsText": "Background diet and exercise, with or without stable metformin.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Mild-to-moderate gastrointestinal events in 35% across retatrutide groups, from 13% in the lowest-dose group to 50% in the 8 mg fast-escalation group. No severe hypoglycaemia and no deaths.",
+      "locationKey": "rosenstock-2023"
+    },
+    {
+      "protocolKey": "RETA-PR-STUDY-PHASE2-OBESITY",
+      "objectiveContext": "Body weight in obesity or overweight without diabetes (phase 2, NCT04881760).",
+      "populationModel": "338 adults with BMI 30 or more, or 27 to under 30 with a weight-related condition.",
+      "routeKey": "subcutaneous",
+      "formulation": "Trial formulation, once-weekly injection; placebo comparator.",
+      "regulatoryContext": "A phase 2 trial's dose-finding arms. Not a treatment schedule and not an approved dose.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": "1 mg, 4 mg, 8 mg or 12 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Once weekly",
+      "durationText": "48 weeks",
+      "titrationText": "4 mg from a 2 mg or 4 mg start; 8 mg from a 2 mg or 4 mg start; 12 mg from a 2 mg start.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Gastrointestinal events were dose-related, mostly mild to moderate, and partially mitigated by the lower starting dose. Dose-dependent heart-rate increases peaked at 24 weeks and declined thereafter.",
+      "locationKey": "jastreboff-2023"
+    },
+    {
+      "protocolKey": "RETA-PR-STUDY-PHASE3-T2D",
+      "objectiveContext": "Monotherapy in type 2 diabetes inadequately controlled by diet and exercise (phase 3 TRANSCEND-T2D-1, NCT06354660).",
+      "populationModel": "537 adults with type 2 diabetes at 48 sites in the USA, Mexico and India.",
+      "routeKey": "subcutaneous",
+      "formulation": "Trial formulation, once-weekly injection; placebo comparator.",
+      "regulatoryContext": "A phase 3 trial's arms. Not an approved dose: no approval is recorded for retatrutide in this index.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": "4 mg, 9 mg or 12 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Once weekly",
+      "durationText": "40 weeks",
+      "titrationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Mostly mild-to-moderate gastrointestinal events that subsided over time; 2–5% discontinued for adverse events; no severe hypoglycaemia; two deaths in one retatrutide group judged unrelated.",
+      "locationKey": "bajaj-2026"
+    },
+    {
+      "protocolKey": "RETA-PR-CHEATSHEET",
+      "objectiveContext": "Fat loss, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "10 mg vial reconstituted with 2 ml bacteriostatic water; 10 units on a 1 ml insulin syringe per dose, as stated by the source; injection route not named.",
+      "regulatoryContext": "A practitioner quick-reference schedule for an investigational compound. No identified trial used this frequency or cycling, and it is not an approved dose. The table does not name a route; it is recorded under route other, rather than inferring subcutaneous from a syringe.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Three times per week",
+      "timingText": "AM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off (or until goal weight is reached)",
+      "titrationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-reta"
+    },
+    {
+      "protocolKey": "RETA-PR-HACKSMITH-GUIDE",
+      "objectiveContext": "Obesity, type 2 diabetes and cardiovascular risk reduction, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner guide's description for an investigational compound. The guide cites no study for its amounts, and it is not an approved dose.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "Initial doses typically 1-2 mg weekly",
+      "amountUnit": "mg",
+      "frequencyText": "Weekly",
+      "durationText": null,
+      "titrationText": "Gradual titration based on clinical response and tolerance; higher doses within a structured dose-escalation protocol.",
+      "combinationsText": "Listed in a fat-loss stack with MOTS-c, tesamorelin and ipamorelin (file p. 176).",
+      "monitoringText": "People with a history of pancreatitis, gallbladder disease or severe gastrointestinal conditions should be monitored closely.",
+      "contraindicationsText": null,
+      "safetyNotes": "Gastrointestinal discomfort, particularly during dose escalation; potential gallbladder issues or pancreatitis as with other GLP-1-based therapies; transient fatigue or dizziness.",
+      "locationKey": "hacksmith-reta"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "RETA-D-001",
+      "topic": "How often retatrutide is given.",
+      "plainLanguageText": "Every trial gave retatrutide once a week. A practitioner cheat sheet lists it three times a week.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "The trial schedule rests on a measured half-life of about six days. The cheat sheet gives no reason for its frequency and cites no study. That does not show the cheat sheet is wrong about what anybody does; it shows no identified study examined that schedule.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A pharmacokinetic and tolerability study of a more frequent schedule.",
+      "positions": [
+        { "locationKey": "jastreboff-2023", "evidenceTypeKey": "human_rct", "positionText": "Once weekly, in every dose group, for 48 weeks." },
+        { "locationKey": "urva-2022", "evidenceTypeKey": "human_pk_pd", "positionText": "Pharmacokinetics with a half-life of about six days suggest suitability for once-weekly dosing." },
+        { "locationKey": "cheatsheet-reta", "evidenceTypeKey": "practitioner_reference", "positionText": "Three times per week, in the morning, 8 weeks on and 8 weeks off." }
+      ]
+    },
+    {
+      "disagreementKey": "RETA-D-002",
+      "topic": "How the phase 1 weight result is reported.",
+      "plainLanguageText": "A practitioner book reports the early trial's weight loss as a plain average. The trial reported it as the difference from placebo in its highest-dose group.",
+      "candidateExplanation": "reporting_threshold",
+      "explanationNotes": "The book's figure matches the trial abstract's largest placebo-adjusted reduction, which came from the smallest, highest-escalation cohort after 12 weeks. Presented without those qualifiers and set beside a 40-week tirzepatide trial, it reads as a like-for-like comparison, which it is not.",
+      "resolution": "secondary_source_less_precise",
+      "resolutionBasis": "The phase 1b abstract (SRC-048) reports the figure as a placebo-adjusted reduction in the top escalation cohort at 12 weeks. The book gives the same number without either qualifier.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None further: the primary abstract states the conditions.",
+      "positions": [
+        { "locationKey": "urva-2022", "evidenceTypeKey": "human_rct", "positionText": "Placebo-adjusted body-weight reduction appeared dose dependent, largest in the highest stepwise-escalation cohort at week 12." },
+        { "locationKey": "campbell-reta-228", "evidenceTypeKey": "practitioner_reference", "positionText": "Describes the phase 1 result as a mean body weight loss after 12 weeks and compares it with a tirzepatide phase 3 result at 40 weeks." }
+      ]
+    },
+    {
+      "disagreementKey": "RETA-D-003",
+      "topic": "Whether the weight lost is almost all fat.",
+      "plainLanguageText": "A practitioner book says most of the weight lost is pure body fat. The figure it points to is from mice.",
+      "candidateExplanation": "population",
+      "explanationNotes": "The book presents a mouse study comparison figure and draws a body-composition conclusion in the same passage about human use. Body composition in people is measured in a trial substudy whose results are not extracted into this record, so the human answer is recorded as not established rather than as contradicted.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "Human body-composition results (DXA or MRI) from the phase 2 substudy or phase 3 trials.",
+      "positions": [
+        { "locationKey": "campbell-reta-227", "evidenceTypeKey": "practitioner_reference", "positionText": "Points to an early preclinical study in mice as showing larger weight loss than tirzepatide." },
+        { "locationKey": "campbell-reta-228", "evidenceTypeKey": "practitioner_reference", "positionText": "States that most of the weight loss is pure body fat." },
+        { "locationKey": "coskun-2022", "evidenceTypeKey": "animal_in_vivo", "positionText": "Reports body-weight reduction and energy-expenditure effects in obese mice; the abstract makes no human body-composition statement." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Obesity, type 2 diabetes and related conditions",
+      "status": "investigational_clinical",
+      "authority": "No regulator's own record has been consulted for this compound",
+      "locationKey": "ctgov-2026",
+      "checkedAt": "2026-09-13",
+      "notes": "Recorded as investigational on the strength of the registered phase 3 programme and an expanded-access registration, which describe a medicine in development. A trial registry is not a regulator: no authority's own approval, authorisation or refusal has been read, and none is recorded here. Sale of products under this name outside trials is not evidence of any regulatory status."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "RETA-ID-001",
+      "nameUsed": "Retatrutide (LY3437943)",
+      "chemicalForm": "Single synthetic peptide, GIP/GLP-1/glucagon receptor agonist",
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "Developer trial reports use the name and the research code together for the trial product.",
+      "notes": "Sequence and modifications are not stated in the held abstracts.",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "jastreboff-2023"
+    },
+    {
+      "identityKey": "RETA-ID-002",
+      "nameUsed": "Online-purchased product marketed as retatrutide",
+      "form": "unspecified",
+      "verification": "asserted_without_detail",
+      "usageContext": "A case report of self-administration outside healthcare; the product was not analysed.",
+      "notes": "Recorded separately so that nothing about the trial product is read as describing this product, or the reverse.",
+      "evidenceTypeKey": "human_case_report",
+      "locationKey": "case-2026"
+    },
+    {
+      "identityKey": "RETA-ID-003",
+      "nameUsed": "Retatrutide",
+      "form": "unspecified",
+      "verification": "asserted_without_detail",
+      "usageContext": "A practitioner cheat sheet lists vial contents and a schedule under the name, with no manufacturer or characterisation.",
+      "notes": null,
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "cheatsheet-reta"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "RETA-REP-001",
+      "finding": "Retatrutide reduced body weight more than placebo.",
+      "state": "repeated_same_group",
+      "studyCount": 4,
+      "groupCount": 1,
+      "countryCount": 3,
+      "models": "Adults with obesity or overweight; adults with type 2 diabetes.",
+      "humanConfirmed": true,
+      "basis": "Phase 1b (USA), two phase 2 trials (USA) and one phase 3 trial (USA, Mexico, India), in different populations and durations, all sponsored by or affiliated with the developer. Repeated across trials and countries; not replicated by an independent group.",
+      "limitations": "One programme. Surrogate endpoint. Up to 48 weeks.",
+      "supportingRecords": "PMID 36354040; PMID 37385280; PMID 37366315; PMID 42250575"
+    },
+    {
+      "assessmentKey": "RETA-REP-002",
+      "finding": "Retatrutide lowered HbA1c more than placebo in type 2 diabetes.",
+      "state": "repeated_same_group",
+      "studyCount": 3,
+      "groupCount": 1,
+      "countryCount": 3,
+      "models": "Adults with type 2 diabetes.",
+      "humanConfirmed": true,
+      "basis": "Phase 1b and phase 2 in the USA, phase 3 in the USA, Mexico and India; all developer-sponsored.",
+      "limitations": "Surrogate endpoint; one programme.",
+      "supportingRecords": "PMID 36354040; PMID 37385280; PMID 42250575"
+    },
+    {
+      "assessmentKey": "RETA-REP-003",
+      "finding": "Gastrointestinal adverse events were the most common, and more frequent at higher doses or faster escalation.",
+      "state": "repeated_same_group",
+      "studyCount": 4,
+      "groupCount": 1,
+      "countryCount": 3,
+      "models": "Adults with obesity or type 2 diabetes.",
+      "humanConfirmed": true,
+      "basis": "Reported in each of the four trial abstracts; the starting-dose effect is stated in the obesity trial and visible by group in the type 2 diabetes trial.",
+      "limitations": "Adverse-event reporting in abstracts is summary-level.",
+      "supportingRecords": "PMID 36354040; PMID 37385280; PMID 37366315; PMID 42250575"
+    },
+    {
+      "assessmentKey": "RETA-REP-004",
+      "finding": "Retatrutide reduced liver fat in metabolic dysfunction-associated steatotic liver disease.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Adults with obesity and MASLD.",
+      "humanConfirmed": true,
+      "basis": "One substudy of the phase 2 obesity trial.",
+      "limitations": "Imaging endpoint; substudy of a larger trial.",
+      "supportingRecords": "PMID 38858523"
+    },
+    {
+      "assessmentKey": "RETA-REP-005",
+      "finding": "Pharmacokinetics support once-weekly dosing.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Healthy participants (single dose) and adults with type 2 diabetes (repeat dose).",
+      "humanConfirmed": true,
+      "basis": "The first-in-human single-dose study and the phase 1b repeat-dose trial, both developer-run.",
+      "limitations": "The trial formulation only.",
+      "supportingRecords": "PMID 35985340; PMID 36354040"
+    },
+    {
+      "assessmentKey": "RETA-REP-006",
+      "finding": "Effects and harms of products sold outside trials under the name.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "One case report with an unanalysed product and a confounding infection. There is nothing to replicate yet.",
+      "limitations": null,
+      "supportingRecords": "PMID 42669023"
+    }
+  ]
+}

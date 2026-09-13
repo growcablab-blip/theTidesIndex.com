@@ -1,0 +1,561 @@
+{
+  "packetKey": "mots-c",
+  "peptideKey": "mots-c",
+  "note": "Extracted 13 September 2026 from a PubMed census of 259 records (mots-c-pubmed-2026-09), eleven journal abstracts (SRC-086 to SRC-096) and all five practitioner sources. Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's page numbers. This record is built as an evidence ladder: discovery in cells, effects in mice, measurement of the body's own MOTS-c in people — and no identified study in which MOTS-c was given to a person. Each rung is labelled so that the lower ones are never read as the top one. Molecular weights were checked by this index by summing average residue masses for the sequences the handbooks print; that is arithmetic on printed sequences, not an analytical measurement. Amounts appear only in protocol fields.",
+  "compound": {
+    "shortDescription": "A 16-amino-acid peptide encoded in mitochondrial DNA. It changes metabolism and exercise capacity in mice. In people it has only been measured, never — in anything this index found — given.",
+    "simpleSummary": "MOTS-c is a very small peptide made from instructions in the mitochondria, the parts of cells that produce energy. It was discovered in 2015. In mice, giving it prevented weight gain and insulin resistance on a high-fat diet and improved physical performance, including in old mice.\n\n**It has never been given to people in any study this index found.** Hundreds of studies exist, but the human ones measure the MOTS-c people already have in their blood or muscle. Those measurements do not agree with each other: in some groups low levels went with worse health, in others high levels did. And when a drug-testing laboratory checked blood with a more exact method, it could not confirm the levels the usual test kits report.\n\n**Everything about using it comes from practitioner books.** They describe injections several times a week, and do not agree on how much or how often. One book is openly clear that it is the most experimental peptide it covers.",
+    "practitionerSummary": "MOTS-c (mitochondrial open reading frame of the 12S rRNA-c) is a 16-residue peptide encoded by a short open reading frame in mtDNA. Its discovery paper reports skeletal muscle as the primary target, inhibition of the folate cycle and de novo purine biosynthesis with AICAR accumulation and AMPK activation, and prevention of age-dependent and high-fat-diet-induced insulin resistance and diet-induced obesity with MOTS-c treatment in mice. The same group later reported improved physical performance in young, middle-aged and old mice, including with late-life intermittent treatment three times a week, and exercise-induced increases in endogenous MOTS-c in human muscle and plasma. Peripherally administered MOTS-c did not cross the blood-brain barrier in mice, and oral MOTS-c did not improve mouse colitis where intraperitoneal did. Every human record in the census measures endogenous MOTS-c or a genetic variant; the associations are inconsistent (insulin sensitivity in lean but not obese individuals; a trend only after acute endurance exercise; a rise after 16 weeks of training in one ethnic group but not another; low levels predicting cardiac events in diabetics, high levels predicting death and cardiovascular events in haemodialysis). A validated LC-MS method could not confirm the endogenous plasma levels a commercial ELISA reported in healthy subjects. No human pharmacokinetic, safety or efficacy study of administered MOTS-c was identified.",
+    "unknownsSummary": "Not established: anything about MOTS-c given to people — absorption, half-life, dose, safety, effect; whether human blood levels measured by immunoassay are real; which direction any human association runs; whether effects in mice translate; the effect of folate-cycle inhibition on folate or homocysteine in people; the stability of reconstituted peptide; and the correct residue at position 9 in products, since the two handbooks that print a sequence disagree.",
+    "aliases": [
+      { "alias": "MOTS-C", "note": "Capitalisation variant used by several practitioner sources." },
+      { "alias": "MOTSc", "note": "Spelling without the hyphen." },
+      { "alias": "Mitochondrial open reading frame of the 12S rRNA-c", "note": "The full name from the discovery paper." }
+    ],
+    "sequence": null,
+    "molecularDescription": "16-residue peptide encoded by a short open reading frame within the mitochondrial 12S rRNA gene. The two practitioner sources that print a sequence differ at position 9 (isoleucine or leucine), so no sequence is asserted here.",
+    "naturalOrSynthetic": "Endogenous; synthetic for products",
+    "nomenclatureNote": "No naming conflict with another molecule. Cell-penetrating MOTS-c conjugates developed for brain and oral delivery in mice are different molecules and are not this record. Two unrelated acronyms (MOTS) produce false matches in literature searches."
+  },
+  "locations": [
+    { "key": "lee-2015", "sourceKey": "SRC-086", "locatorText": "Abstract", "section": "Abstract (PMID 25738459)" },
+    { "key": "reynolds-2021", "sourceKey": "SRC-087", "locatorText": "Abstract", "section": "Abstract (PMID 33473109)" },
+    { "key": "fuku-2015", "sourceKey": "SRC-088", "locatorText": "Abstract", "section": "Abstract (PMID 26289118)" },
+    { "key": "cataldo-2018", "sourceKey": "SRC-089", "locatorText": "Abstract", "section": "Abstract (PMID 29593067)" },
+    { "key": "knoop-2019", "sourceKey": "SRC-090", "locatorText": "Abstract", "section": "Abstract (PMID 30394592)" },
+    { "key": "vonwalden-2021", "sourceKey": "SRC-091", "locatorText": "Abstract", "section": "Abstract (PMID 34351816)" },
+    { "key": "dieli-2021", "sourceKey": "SRC-092", "locatorText": "Abstract", "section": "Abstract (PMID 34413391)" },
+    { "key": "jiang-2021", "sourceKey": "SRC-093", "locatorText": "Abstract", "section": "Abstract (PMID 33861582)" },
+    { "key": "jiang-2023", "sourceKey": "SRC-094", "locatorText": "Abstract", "section": "Abstract (PMID 36528071)" },
+    { "key": "ikonomidis-2020", "sourceKey": "SRC-095", "locatorText": "Abstract", "section": "Abstract (PMID 32052315)" },
+    { "key": "bolignano-2024", "sourceKey": "SRC-096", "locatorText": "Abstract", "section": "Abstract (PMID 39111290)" },
+    { "key": "seeds-mots-214", "sourceKey": "SRC-001", "locatorText": "file p. 214", "section": "MOTS-c" },
+    { "key": "seeds-mots-215", "sourceKey": "SRC-001", "locatorText": "file p. 215", "section": "MOTS-c: sequence and applications" },
+    { "key": "seeds-mots-216", "sourceKey": "SRC-001", "locatorText": "file p. 216", "section": "MOTS-c: dosage" },
+    { "key": "lavalle-mots-102", "sourceKey": "SRC-002", "locatorText": "file p. 102", "section": "MOTS-c: sequence, composition, indications, dosage" },
+    { "key": "lavalle-mots-103", "sourceKey": "SRC-002", "locatorText": "file p. 103", "section": "MOTS-c: warnings and cautions" },
+    { "key": "lavalle-mots-104", "sourceKey": "SRC-002", "locatorText": "file pp. 104-106", "section": "MOTS-c: summary" },
+    { "key": "campbell-mots-81", "sourceKey": "SRC-003", "locatorText": "pp. 81-82", "pageStart": 81, "pageEnd": 82, "section": "MOTS-C" },
+    { "key": "campbell-mots-83", "sourceKey": "SRC-003", "locatorText": "p. 83", "pageStart": 83, "section": "MOTS-C recommended dosage" },
+    { "key": "campbell-mots-84", "sourceKey": "SRC-003", "locatorText": "p. 84", "pageStart": 84, "section": "MOTS-C timing and stability" },
+    { "key": "cheatsheet-mots-2", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, MOTS-C row" },
+    { "key": "cheatsheet-mots-6", "sourceKey": "SRC-004", "locatorText": "file p. 6", "section": "Blends table, NAD+ / MOTS-C / 5-Amino-1MQ row" },
+    { "key": "hacksmith-mots", "sourceKey": "SRC-005", "locatorText": "file pp. 90-91", "section": "MOTS-C" }
+  ],
+  "claims": [
+    {
+      "claimKey": "MOTS-001",
+      "claimText": "MOTS-c is a 16-amino-acid peptide encoded by a short open reading frame in the mitochondrial 12S rRNA; its primary target organ appears to be skeletal muscle, it inhibits the folate cycle and tethered de novo purine biosynthesis leading to AMPK activation, and MOTS-c treatment in mice prevented age-dependent and high-fat-diet-induced insulin resistance and diet-induced obesity.",
+      "plainLanguageText": "MOTS-c is a tiny peptide made from mitochondrial instructions. In mice it prevented weight gain and insulin resistance.",
+      "claimCategory": "mechanism",
+      "importance": "critical",
+      "interpretationNotes": "The first two rungs of the ladder: the molecule and its effects in mice.",
+      "uncertaintyText": "Cells and mice. Nothing here was done in people.",
+      "evidence": [
+        { "locationKey": "lee-2015", "evidenceTypeKey": "in_vitro", "interpretation": "Identification of the open reading frame and cellular mechanism." },
+        { "locationKey": "lee-2015", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Insulin resistance and obesity in treated mice." }
+      ]
+    },
+    {
+      "claimKey": "MOTS-002",
+      "claimText": "MOTS-c treatment improved physical performance in young, middle-aged and old mice, and intermittent treatment three times a week started late in life increased physical capacity and healthspan in mice; in humans, exercise increased endogenous MOTS-c in skeletal muscle and in circulation.",
+      "plainLanguageText": "In mice, MOTS-c improved physical performance, even in old age. In people, exercise raises the body's own MOTS-c.",
+      "claimCategory": "efficacy-animal",
+      "importance": "high",
+      "interpretationNotes": "Two different kinds of evidence in one paper: treatment effects in mice, and measurement of the body's own peptide in people. The second is not evidence that giving MOTS-c does what exercise does.",
+      "uncertaintyText": "Mouse treatment; human measurement only.",
+      "evidence": [
+        { "locationKey": "reynolds-2021", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Physical performance and healthspan in treated mice." },
+        { "locationKey": "reynolds-2021", "evidenceTypeKey": "human_observational", "interpretation": "Endogenous MOTS-c in human muscle and plasma after exercise." }
+      ]
+    },
+    {
+      "claimKey": "MOTS-003",
+      "claimText": "Human studies measuring endogenous MOTS-c report inconsistent associations: plasma MOTS-c was unaltered in obesity and associated with insulin sensitivity only in lean individuals; acute endurance exercise produced only a trend towards higher levels; 16 weeks of exercise raised levels in non-Hispanic White but not Hispanic breast cancer survivors; low levels predicted adverse cardiac events in revascularised type 2 diabetics, while high levels predicted death and cardiovascular events in haemodialysis patients.",
+      "plainLanguageText": "When scientists measure the MOTS-c people already have, the results point in different directions in different groups.",
+      "claimCategory": "human-biomarker",
+      "importance": "critical",
+      "interpretationNotes": "The third rung. These are associations with the body's own peptide, in five countries, and they do not add up to a single direction. None involved giving MOTS-c.",
+      "uncertaintyText": "Observational measurements, mostly by immunoassay, whose validity is itself in question (MOTS-004).",
+      "evidence": [
+        { "locationKey": "cataldo-2018", "evidenceTypeKey": "human_observational", "interpretation": "Plasma MOTS-c, obesity and insulin sensitivity." },
+        { "locationKey": "vonwalden-2021", "evidenceTypeKey": "human_observational", "interpretation": "Plasma MOTS-c after acute exercise; trend only." },
+        { "locationKey": "dieli-2021", "evidenceTypeKey": "human_observational", "interpretation": "MOTS-c after a 16-week exercise intervention, by ethnicity." },
+        { "locationKey": "ikonomidis-2020", "evidenceTypeKey": "human_observational", "interpretation": "Low MOTS-c as a predictor of cardiac events in diabetics." },
+        { "locationKey": "bolignano-2024", "evidenceTypeKey": "human_observational", "interpretation": "High MOTS-c associated with death and cardiovascular events in haemodialysis." }
+      ]
+    },
+    {
+      "claimKey": "MOTS-004",
+      "claimText": "A validated liquid chromatography-mass spectrometry method for MOTS-c in plasma could not confirm the endogenous levels a commercially available ELISA reported in a reference population of 20 healthy subjects, and the authors observed considerable differences between the two methods.",
+      "plainLanguageText": "A more exact laboratory method could not find the MOTS-c levels that common test kits report in healthy people.",
+      "claimCategory": "measurement-validity",
+      "importance": "critical",
+      "interpretationNotes": "Undercuts the human rung. If immunoassay values are not confirmed by mass spectrometry, the human associations may partly reflect what the assay detects rather than MOTS-c.",
+      "uncertaintyText": "One laboratory, one ELISA, 20 subjects. It does not show every immunoassay is wrong; it shows the question is open.",
+      "evidence": [
+        { "locationKey": "knoop-2019", "evidenceTypeKey": "analytical_characterisation", "interpretation": "LC-MS versus ELISA comparison in healthy subjects' plasma." }
+      ]
+    },
+    {
+      "claimKey": "MOTS-005",
+      "claimText": "In mice, peripherally administered MOTS-c did not cross the blood-brain barrier, and in a mouse colitis model oral MOTS-c produced no significant improvement while intraperitoneal MOTS-c did; the investigators attached a cell-penetrating peptide to create analogues for brain and oral delivery.",
+      "plainLanguageText": "In mice, injected MOTS-c did not reach the brain and swallowed MOTS-c did not work, so researchers built modified versions.",
+      "claimCategory": "delivery",
+      "importance": "medium",
+      "interpretationNotes": "Relevant to claims of cognitive benefit and to oral products. The analogues are different molecules.",
+      "uncertaintyText": "Mice; one research group.",
+      "evidence": [
+        { "locationKey": "jiang-2021", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Blood-brain barrier crossing of peripheral MOTS-c." },
+        { "locationKey": "jiang-2023", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Oral versus intraperitoneal MOTS-c in colitis." }
+      ]
+    },
+    {
+      "claimKey": "MOTS-006",
+      "claimText": "A practitioner handbook advises folate supplementation and checking homocysteine and folate during MOTS-c use because MOTS-c targets the folate cycle; the folate-cycle inhibition is described in the discovery paper, but no study of folate or homocysteine in people given MOTS-c was identified.",
+      "plainLanguageText": "One handbook warns MOTS-c might lower folate. That follows from how it works in cells, but it has never been checked in people.",
+      "claimCategory": "safety-human",
+      "importance": "medium",
+      "interpretationNotes": "A plausible, mechanism-based caution, recorded as a caution rather than a finding.",
+      "uncertaintyText": "Mechanistic inference; no human data.",
+      "evidence": [
+        { "locationKey": "lavalle-mots-103", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "Folate supplementation and homocysteine monitoring advice." },
+        { "locationKey": "lee-2015", "evidenceTypeKey": "in_vitro", "relationship": "contextualizes", "interpretation": "Folate-cycle inhibition as the cellular mechanism." }
+      ]
+    },
+    {
+      "claimKey": "MOTS-007",
+      "claimText": "The Northeast Asian m.1382A>C polymorphism in the MOTS-c coding region has been proposed as a possible contributor to Japanese longevity.",
+      "plainLanguageText": "A gene variant in the MOTS-c region has been suggested, not shown, to play a part in long life in Japan.",
+      "claimCategory": "human-genetics",
+      "importance": "low",
+      "interpretationNotes": "A hypothesis in a short report. Practitioner longevity framing often rests on this kind of association.",
+      "uncertaintyText": "Proposal only; no mechanism or intervention.",
+      "evidence": [
+        { "locationKey": "fuku-2015", "evidenceTypeKey": "human_observational", "interpretation": "Polymorphism and longevity hypothesis." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any effect, pharmacokinetics or safety of MOTS-c administered to people.",
+      "why": "In a census of 259 PubMed records, no study that gave MOTS-c to a human was identified.",
+      "whatWouldResolveIt": "A first-in-human safety and pharmacokinetic study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the pharmacokinetics, tolerability and metabolic effects of subcutaneous MOTS-c in healthy adults?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "Whether human blood levels of MOTS-c measured by immunoassay are accurate.",
+      "why": "A mass-spectrometry method could not confirm ELISA-reported endogenous levels.",
+      "whatWouldResolveIt": "Method comparison across several immunoassays and laboratories against mass spectrometry.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do commercially available MOTS-c immunoassays measure MOTS-c, as confirmed by mass spectrometry in the same samples?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "Which direction any association between endogenous MOTS-c and health runs.",
+      "why": "Low levels predicted harm in one population and high levels in another.",
+      "whatWouldResolveIt": "Replication in cohorts using a validated assay.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Using a mass-spectrometry-validated assay, how does circulating MOTS-c relate to cardiometabolic outcomes across populations?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Effects on folate and homocysteine in people.",
+      "why": "Suggested by the cellular mechanism and a practitioner caution; not measured.",
+      "whatWouldResolveIt": "Folate and homocysteine measurement in any human administration study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does repeated MOTS-c administration lower folate or raise homocysteine in humans?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Any dose or schedule for people.",
+      "why": "Practitioner schedules differ severalfold in amount and frequency, and none cites a human study.",
+      "whatWouldResolveIt": "A dose-ranging human study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What dose-response relationship, if any, does subcutaneous MOTS-c show for insulin sensitivity in adults?",
+      "opportunityType": "dose_response"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "Stability of reconstituted MOTS-c and the identity of products.",
+      "why": "A practitioner book relays unverified user claims of rapid degradation after reconstitution, and the two handbooks that print a sequence differ at one position.",
+      "whatWouldResolveIt": "Stability testing of reconstituted product, and sequence confirmation of purchased products.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How quickly does reconstituted MOTS-c degrade, and do products contain the sequence encoded by human mitochondrial DNA?",
+      "opportunityType": "product_characterisation"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-mots-216",
+      "populationModel": "Not specified by the sources.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Described by practitioner sources. No human study of administered MOTS-c by any route was identified."
+    },
+    {
+      "routeKey": "other",
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "jiang-2023",
+      "populationModel": "Mice (intraperitoneal injection).",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "The route used in much of the mouse literature. Intraperitoneal injection is not a human route of use."
+    },
+    {
+      "routeKey": "oral",
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "jiang-2023",
+      "populationModel": "Mice with induced colitis.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Oral MOTS-c produced no significant improvement in mice. One practitioner source notes oral products have limited bioavailability."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "MOTS-PR-SEEDS",
+      "objectiveContext": "Mitochondrial biogenesis, insulin resistance, athletic performance and weight loss, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook's schedule for a peptide never administered to people in an identified study. Not a trial regimen and not an approved dose.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Three times a week (Monday, Wednesday, Friday) for 4-6 weeks, then weekly for 4 weeks",
+      "durationText": "8-10 weeks in total",
+      "cycleText": "Can be cycled with other mitochondrial peptides in cycles of 2-3 months",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "seeds-mots-216"
+    },
+    {
+      "protocolKey": "MOTS-PR-LAVALLE",
+      "objectiveContext": "Obesity, type 2 diabetes, anti-aging, mitochondrial dysfunction and related uses, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook's schedule for a peptide never administered to people in an identified study. Not an approved dose.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "5 mg, up to 10 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Twice a week",
+      "durationText": null,
+      "combinationsText": "Folate as folinic acid or 5-MTHF, up to 1,200 mcg daily between injections, especially in those prone to deficiency, per the source.",
+      "monitoringText": "Check homocysteine and folate levels, per the source.",
+      "contraindicationsText": null,
+      "safetyNotes": "Injection-site redness and pain; possible depletion of intracellular 5-MTHF, per the source.",
+      "locationKey": "lavalle-mots-102"
+    },
+    {
+      "protocolKey": "MOTS-PR-HACKSMITH",
+      "objectiveContext": "Metabolic health, fat loss, longevity and endurance, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner guide's schedule for a peptide never administered to people in an identified study. Not an approved dose.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Three times per week",
+      "durationText": "4-6 weeks",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Mild injection-site discomfort; transient fatigue, per the source.",
+      "locationKey": "hacksmith-mots"
+    },
+    {
+      "protocolKey": "MOTS-PR-CAMPBELL-GREENFIELD",
+      "objectiveContext": "Endurance and mitochondrial benefit, as reported by Campbell from Ben Greenfield's book Boundless.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Injected; route not named in the report.",
+      "regulatoryContext": "A second-hand report of another author's protocol. No study of it was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "10 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Once a week",
+      "timingText": "Ideally right before endurance exercise",
+      "durationText": "Up to 10 weeks in a row each year",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-mots-83"
+    },
+    {
+      "protocolKey": "MOTS-PR-CAMPBELL-KOMINIAREK",
+      "objectiveContext": "General use, as reported by Campbell from Dr Rob Kominiarek.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Injected into the abdomen.",
+      "regulatoryContext": "A second-hand report of a clinician's protocol. No study of it was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "10 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Once a week",
+      "durationText": "4 weeks",
+      "cycleText": "A second 4-week cycle within a 12-month period",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-mots-83"
+    },
+    {
+      "protocolKey": "MOTS-PR-CAMPBELL-OWN",
+      "objectiveContext": "The author's own experimentation, as described in the book.",
+      "populationModel": "The author, one person.",
+      "routeKey": "other",
+      "formulation": "Route not stated.",
+      "regulatoryContext": "A personal account of self-experimentation. Recorded as experience, not as a protocol or evidence of effect.",
+      "evidenceTypeKey": "experiential_anecdotal",
+      "amountReported": "2 mg every third day for two weeks; and 5 mg all at once",
+      "amountUnit": "mg",
+      "frequencyText": "Every third day",
+      "timingText": "The book recommends morning use to avoid sleep disturbance",
+      "durationText": "Two weeks",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The book relays unverified user claims of rapid degradation after reconstitution and suggests injecting immediately after preparation.",
+      "locationKey": "campbell-mots-83"
+    },
+    {
+      "protocolKey": "MOTS-PR-CHEATSHEET",
+      "objectiveContext": "Fat loss, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "10 mg vial reconstituted with 2 ml bacteriostatic water; 20 units on a 1 ml insulin syringe. Route not named.",
+      "regulatoryContext": "A practitioner quick-reference schedule for a peptide never administered to people in an identified study.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1mg",
+      "amountUnit": "mg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "AM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-mots-2"
+    },
+    {
+      "protocolKey": "MOTS-PR-CHEATSHEET-BLEND",
+      "objectiveContext": "Fat loss, as a blend with NAD+ and 5-amino-1MQ, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "NAD+ 100 mg / MOTS-C 10 mg / 5-Amino-1MQ 10 mg reconstituted with 2 ml; 10 units per dose. Route not named.",
+      "regulatoryContext": "A practitioner quick-reference blend. No study of the combination was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "500mcg/1mg, as printed for the blend",
+      "amountUnit": "mcg and mg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "AM or PM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "combinationsText": "NAD+ and 5-amino-1MQ in the same vial.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-mots-6"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "MOTS-D-001",
+      "topic": "The molecular weight of MOTS-c.",
+      "plainLanguageText": "Two handbooks give different weights for the same 16-amino-acid peptide. One matches its printed sequence; the other does not.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "Summing average residue masses for either printed 16-residue sequence gives about 2174.6. The Peptide Handbook's figure agrees; the Seeds figure is about 114 higher, roughly one additional residue, and cannot be the weight of the sequence printed beside it.",
+      "resolution": "source_error_confirmed",
+      "resolutionBasis": "Arithmetic by this index on the handbooks' own printed sequences, using standard average residue masses. Leucine and isoleucine have identical mass, so the handbooks' difference at position 9 does not explain the weight difference. Not an analytical measurement.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "An analytical characterisation stating the mass of MOTS-c.",
+      "positions": [
+        { "locationKey": "seeds-mots-215", "evidenceTypeKey": "practitioner_reference", "positionText": "Prints a 16-residue sequence with a weight about 114 higher than that sequence computes to." },
+        { "locationKey": "lavalle-mots-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Prints a 16-residue sequence with a weight that matches it." }
+      ]
+    },
+    {
+      "disagreementKey": "MOTS-D-002",
+      "topic": "Whether position 9 is isoleucine or leucine.",
+      "plainLanguageText": "The two handbooks that print the sequence differ at one position. The two amino acids weigh the same, so only sequencing can tell them apart.",
+      "candidateExplanation": "chemical_form",
+      "explanationNotes": "The discovery abstract does not give the sequence. A peptide made with the wrong isomer would be a different molecule with the same mass, which a mass check alone would not catch.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "The sequence from the discovery paper's full text or the mitochondrial genome reference, and sequence confirmation of products.",
+      "positions": [
+        { "locationKey": "seeds-mots-215", "evidenceTypeKey": "practitioner_reference", "positionText": "Leucine at position 9." },
+        { "locationKey": "lavalle-mots-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Isoleucine at position 9." }
+      ]
+    },
+    {
+      "disagreementKey": "MOTS-D-003",
+      "topic": "Whether MOTS-c is an exercise mimetic in people.",
+      "plainLanguageText": "Practitioner books describe MOTS-c as giving the benefits of exercise and improving athletic performance. That was shown in mice. In people, exercise raises the body's own MOTS-c; nobody has given MOTS-c to a person and measured performance.",
+      "candidateExplanation": "population",
+      "explanationNotes": "The practitioner framing borrows the mouse result and the human exercise-measurement result and joins them into a human treatment claim that no study made.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A controlled human study of administered MOTS-c with performance or metabolic outcomes.",
+      "positions": [
+        { "locationKey": "campbell-mots-81", "evidenceTypeKey": "practitioner_reference", "positionText": "Studies in obese mice showed it could replicate the benefits of exercise without exercising; described as the most experimental fat-loss peptide in the book." },
+        { "locationKey": "seeds-mots-214", "evidenceTypeKey": "practitioner_reference", "positionText": "Used to increase performance in athletes; a potential exercise mimetic and insulin sensitizer." },
+        { "locationKey": "reynolds-2021", "evidenceTypeKey": "animal_in_vivo", "positionText": "Improved physical performance in treated mice; exercise raised endogenous MOTS-c in people." }
+      ]
+    },
+    {
+      "disagreementKey": "MOTS-D-004",
+      "topic": "Whether more MOTS-c in the blood is good or bad.",
+      "plainLanguageText": "In people with diabetes and heart disease, low MOTS-c went with more heart events. In people on dialysis, high MOTS-c went with more deaths and heart events.",
+      "candidateExplanation": "population",
+      "explanationNotes": "Different populations and possibly different assays. A level that rises in response to stress could mark illness in one setting and resilience in another. Measurement validity is also unsettled.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "Cohort studies with a validated assay across populations.",
+      "positions": [
+        { "locationKey": "ikonomidis-2020", "evidenceTypeKey": "human_observational", "positionText": "Low MOTS-c predicted adverse cardiac outcomes in revascularised type 2 diabetics." },
+        { "locationKey": "bolignano-2024", "evidenceTypeKey": "human_observational", "positionText": "MOTS-c was higher in haemodialysis patients and independently associated with death and cardiovascular events." },
+        { "locationKey": "lavalle-mots-104", "evidenceTypeKey": "practitioner_reference", "positionText": "MOTS-c levels are inversely correlated with markers of insulin resistance and obesity." }
+      ]
+    },
+    {
+      "disagreementKey": "MOTS-D-005",
+      "topic": "How much MOTS-c is used, and how often.",
+      "plainLanguageText": "Practitioner sources range from a small daily amount to a large weekly one, and do not agree on cycles.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "One book states plainly that the best dose is 'still up in the air' and lists four different expert protocols. None cites a human study.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A human dose-ranging study.",
+      "positions": [
+        { "locationKey": "seeds-mots-216", "evidenceTypeKey": "practitioner_reference", "positionText": "Three times a week, then weekly." },
+        { "locationKey": "lavalle-mots-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Twice a week." },
+        { "locationKey": "campbell-mots-83", "evidenceTypeKey": "practitioner_reference", "positionText": "Four different protocols from weekly to every third day." },
+        { "locationKey": "cheatsheet-mots-2", "evidenceTypeKey": "practitioner_reference", "positionText": "Mornings, five days on and two off, in eight-week cycles." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "knoop-2019",
+      "checkedAt": "2026-09-13",
+      "notes": "No approval, authorisation or refusal is recorded, and no clinical development in people was identified. An anti-doping laboratory developed a detection method to monitor possible use of synthetic MOTS-c in sport; that is surveillance, not a medicines status."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "MOTS-ID-001",
+      "nameUsed": "MOTS-c",
+      "chemicalForm": "16-residue peptide encoded in the mitochondrial 12S rRNA",
+      "residueCount": 16,
+      "form": "full_length",
+      "verification": "stated_by_primary_source",
+      "usageContext": "The discovery paper.",
+      "notes": "The abstract does not print the sequence.",
+      "evidenceTypeKey": "in_vitro",
+      "locationKey": "lee-2015"
+    },
+    {
+      "identityKey": "MOTS-ID-002",
+      "nameUsed": "MOTS-c (Peptide Handbook)",
+      "chemicalForm": "16-residue peptide",
+      "sequence": "MRWQEMGYIFYPRKLR",
+      "residueCount": 16,
+      "molecularWeight": 2174.64,
+      "weightBasis": "As printed by the handbook; agrees with the average mass of the printed sequence computed by this index.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's compound entry.",
+      "notes": "Isoleucine at position 9.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-mots-102"
+    },
+    {
+      "identityKey": "MOTS-ID-003",
+      "nameUsed": "MOTS-c (Seeds)",
+      "chemicalForm": "16-residue peptide",
+      "sequence": "MRWQEMGYLFYPRKLR",
+      "residueCount": 16,
+      "molecularWeight": 2288.6,
+      "weightBasis": "As printed by the handbook; about 114 higher than the average mass of the printed sequence.",
+      "form": "full_length",
+      "verification": "contradicted",
+      "usageContext": "The handbook's properties list.",
+      "notes": "Leucine at position 9; the weight does not match the sequence.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-mots-215"
+    },
+    {
+      "identityKey": "MOTS-ID-004",
+      "nameUsed": "(PRR)5-linked MOTS-c analogue",
+      "chemicalForm": "MOTS-c conjugated to a cell-penetrating peptide",
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "Developed to carry MOTS-c across the blood-brain barrier and for oral delivery in mice.",
+      "notes": "A different molecule; not this record.",
+      "evidenceTypeKey": "animal_in_vivo",
+      "locationKey": "jiang-2021"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "MOTS-REP-001",
+      "finding": "MOTS-c treatment improves insulin sensitivity, body weight and physical capacity in mice.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Diet-induced obese, aged and young mice.",
+      "humanConfirmed": false,
+      "basis": "The discovery paper (2015) and the exercise and ageing paper (2021) come from the same University of Southern California group. More than a hundred other animal records exist in the census; their groups and findings were classified by rule and not adjudicated individually, so independence is not claimed.",
+      "limitations": "Mouse findings.",
+      "supportingRecords": "PMID 25738459; PMID 33473109"
+    },
+    {
+      "assessmentKey": "MOTS-REP-002",
+      "finding": "Endogenous MOTS-c relates consistently to metabolic or cardiovascular health in people.",
+      "state": "conflicting_replication",
+      "studyCount": 5,
+      "groupCount": 5,
+      "countryCount": 5,
+      "models": "Lean and obese adults; exercising adults; breast cancer survivors; diabetics with coronary disease; haemodialysis patients.",
+      "humanConfirmed": false,
+      "basis": "Chile, Sweden, USA, Greece and Italy, no shared institution. Associations differ in presence and direction across populations.",
+      "limitations": "Mostly immunoassay measurement, whose validity is disputed.",
+      "supportingRecords": "PMID 29593067; PMID 34351816; PMID 34413391; PMID 32052315; PMID 39111290"
+    },
+    {
+      "assessmentKey": "MOTS-REP-003",
+      "finding": "Immunoassay measurements of endogenous plasma MOTS-c are confirmed by mass spectrometry.",
+      "state": "failed_replication",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Plasma from 20 healthy subjects.",
+      "humanConfirmed": false,
+      "basis": "The one method comparison identified (German Sport University Cologne) could not confirm ELISA-reported levels by LC-MS.",
+      "limitations": "One laboratory and one commercial ELISA.",
+      "supportingRecords": "PMID 30394592"
+    },
+    {
+      "assessmentKey": "MOTS-REP-004",
+      "finding": "Effects of MOTS-c administered to people.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study exists to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ]
+}

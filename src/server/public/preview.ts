@@ -10,6 +10,12 @@ import {
   type ProtocolLibrary,
   type ProtocolLibraryFilters,
 } from './protocol-library';
+import {
+  readDiscovery,
+  readResearchQuestions,
+  type DiscoveryRow,
+  type ResearchQuestionEntry,
+} from './research-index';
 
 /**
  * Looking at an unpublished record during development.
@@ -93,4 +99,16 @@ export async function previewProtocolLibrary(
 ): Promise<ProtocolLibrary | null> {
   if (!previewEnabled()) return null;
   return readProtocolLibrary(getStaffDb(), mode, filters, { preview: true });
+}
+
+/** The compound discovery index, read without the publication filter. */
+export async function previewDiscovery(): Promise<DiscoveryRow[] | null> {
+  if (!previewEnabled()) return null;
+  return readDiscovery(getStaffDb(), { preview: true });
+}
+
+/** Every research question derived from a recorded gap, read without the publication filter. */
+export async function previewResearchQuestions(): Promise<ResearchQuestionEntry[] | null> {
+  if (!previewEnabled()) return null;
+  return readResearchQuestions(getStaffDb(), { preview: true });
 }

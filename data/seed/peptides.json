@@ -78,10 +78,43 @@
     "aliases": [
       {
         "alias": "CJC-1295 with DAC",
+        "aliasType": "synonym",
+        "notes": "Practitioner name for this albumin-binding molecule; DAC (drug affinity complex) was the developer's term for the technology."
+      },
+      {
+        "alias": "DAC:GRF",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Modified GRF (1-29)",
         "aliasType": "related_but_distinct",
-        "notes": "Formulations with and without a drug affinity complex differ materially in duration. Sources are not always explicit about which is meant."
+        "notes": "The 29-residue core peptide without the albumin-binding lysine. A different molecule with its own record."
       }
-    ]
+    ],
+    "notes": "The albumin-binding GHRH analogue the originator defined (tetrasubstituted hGRF(1-29) plus a maleimidopropionamide lysine). Products and handbooks also use the name for modified GRF (1-29), which has its own record; evidence must not cross between the two."
+  },
+  {
+    "peptideKey": "mod-grf-1-29",
+    "canonicalName": "Modified GRF (1-29)",
+    "slug": "mod-grf-1-29",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "gh-endocrine",
+    "aliases": [
+      {
+        "alias": "Mod GRF 1-29",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Tetrasubstituted GRF (1-29)",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "CJC-1295 without DAC",
+        "aliasType": "common_misnomer",
+        "notes": "The usual market and handbook name, and misleading: CJC-1295 in the scientific literature is the albumin-binding molecule, which has its own record. Recorded as a misnomer so search surfaces the confusion."
+      }
+    ],
+    "notes": "Kept as a record of its own because the originator's CJC-1295 is a different molecule, and a product sold as CJC-1295 was analysed and found to be this 29-residue peptide. Evidence must not cross between the two."
   },
   {
     "peptideKey": "ipamorelin",
@@ -89,7 +122,12 @@
     "slug": "ipamorelin",
     "compoundTypeKey": "peptide_secretagogue",
     "primaryCategoryKey": "gh-endocrine",
-    "aliases": []
+    "aliases": [
+      {
+        "alias": "NNC 26-0161",
+        "aliasType": "research_code"
+      }
+    ]
   },
   {
     "peptideKey": "tesamorelin",
@@ -123,7 +161,22 @@
     "slug": "semax",
     "compoundTypeKey": "peptide",
     "primaryCategoryKey": "neuro-cognitive",
-    "aliases": []
+    "aliases": [
+      {
+        "alias": "ACTH(4-7)PGP",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "Semaks",
+        "aliasType": "synonym",
+        "notes": "Transliteration of the Russian name used in some journal titles."
+      },
+      {
+        "alias": "N-acetyl Semax amidate",
+        "aliasType": "related_but_distinct",
+        "notes": "A chemically modified form sold as a nootropic; not the registered heptapeptide, and not the molecule the human studies used."
+      }
+    ]
   },
   {
     "peptideKey": "selank",
@@ -131,7 +184,18 @@
     "slug": "selank",
     "compoundTypeKey": "peptide",
     "primaryCategoryKey": "neuro-cognitive",
-    "aliases": []
+    "aliases": [
+      {
+        "alias": "TP-7",
+        "aliasType": "research_code",
+        "notes": "Earlier designation used in the 1990s literature."
+      },
+      {
+        "alias": "N-acetyl Selank amidate",
+        "aliasType": "related_but_distinct",
+        "notes": "A chemically modified form sold as a nootropic; not the molecule the human studies used."
+      }
+    ]
   },
   {
     "peptideKey": "retatrutide",

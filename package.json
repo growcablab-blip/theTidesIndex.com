@@ -45,6 +45,8 @@
     "qa:doses": "tsx --tsconfig tsconfig.scripts.json scripts/qa/patient-dose-scan.ts",
     "shots:protocols": "tsx scripts/qa/protocols-shots.ts",
     "shots:manufacturing": "tsx scripts/qa/manufacturing-shots.ts",
+    "shots:record": "tsx scripts/qa/record-shots.ts",
+    "shots:index": "tsx scripts/qa/index-shots.ts",
     "pdf:protocols": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-protocol-book.ts"
   },
   "dependencies": {

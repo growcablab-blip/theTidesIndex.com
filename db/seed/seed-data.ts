@@ -722,6 +722,13 @@ const LITERATURE_SCREEN_FILES = [
   'literature/bpc-157-screen.json',
   'literature/thymosin-beta-4-screen.json',
   'literature/tb-500-screen.json',
+  'literature/retatrutide-screen.json',
+  'literature/ghk-cu-screen.json',
+  'literature/cjc-1295-screen.json',
+  'literature/ipamorelin-screen.json',
+  'literature/mots-c-screen.json',
+  'literature/semax-screen.json',
+  'literature/selank-screen.json',
 ] as const;
 
 const COMPOUND_PACKET_FILES = [
@@ -732,6 +739,17 @@ const COMPOUND_PACKET_FILES = [
   // and no evidence crosses between them.
   'evidence/thymosin-beta-4.json',
   'evidence/tb-500.json',
+  'evidence/retatrutide.json',
+  'evidence/ghk-cu.json',
+  'evidence/cjc-1295.json',
+  // Two records for what practitioner sources call one compound with and
+  // without DAC. The originator's CJC-1295 is the albumin-binding molecule;
+  // the 29-residue core sold as "without DAC" is a different peptide.
+  'evidence/mod-grf-1-29.json',
+  'evidence/ipamorelin.json',
+  'evidence/mots-c.json',
+  'evidence/semax.json',
+  'evidence/selank.json',
 ] as const;
 
 /**

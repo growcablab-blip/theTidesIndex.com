@@ -1,0 +1,537 @@
+{
+  "packetKey": "cjc-1295",
+  "peptideKey": "cjc-1295",
+  "note": "Extracted 13 September 2026 from a hand-adjudicated PubMed census of 38 records (cjc-1295-pubmed-2026-09), ten journal abstracts (SRC-066 to SRC-075) and the four practitioner sources that describe it (SRC-001 Seeds, SRC-002 Peptide Handbook, SRC-003 Campbell, SRC-004 cheat sheet, SRC-005 Hack Smith). Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's own page numbers. THIS RECORD IS THE ALBUMIN-BINDING MOLECULE the originator defined: tetrasubstituted hGRF(1-29) with an added reactive lysine. The 29-residue peptide sold as \"CJC-1295 without DAC\" is a different molecule and has its own record (mod-grf-1-29); no evidence crosses between them. Where a practitioner source says only \"CJC-1295\" without stating which, the regimen is recorded here and says the form was not stated. Amounts appear only in protocol fields.",
+  "compound": {
+    "shortDescription": "A long-acting growth-hormone-releasing hormone analogue built to latch on to albumin in the blood. Studied in healthy adults in 2006, then left. Most products sold under the name are a different peptide.",
+    "simpleSummary": "CJC-1295 is a lab-made version of the hormone that tells the pituitary gland to release growth hormone. It was engineered with an extra chemical hook that attaches it to albumin, the most common protein in blood, so it lasts days instead of minutes.\n\n**It has been given to people, but only healthy volunteers.** Trials published in 2006 found that one injection raised growth hormone and a related marker, IGF-I, for about a week and more, and that the natural daily rhythm of growth hormone release was kept. No serious side effects were reported in those short studies. No published study tested it as a treatment for any condition.\n\n**The name is used for two different things.** Scientists use CJC-1295 for the long-acting molecule with the albumin hook. Many sellers and handbooks use \"CJC-1295 without DAC\" for a shorter peptide that lacks the hook entirely, and a seized product sold as CJC-1295 turned out to be that shorter peptide. This index keeps them as two separate records.",
+    "practitionerSummary": "CJC-1295 is tetrasubstituted hGRF(1-29) with an added C-terminal Nε-3-maleimidopropionamide lysine that bioconjugates to Cys34 of serum albumin; the originator (ConjuChem) selected it from three maleimido derivatives for DPP-IV resistance and extended plasma presence in rats. Two randomised, placebo-controlled ascending-dose trials in healthy adults reported dose-dependent GH increases for 6 days or more and IGF-I increases for 9-11 days after a single subcutaneous injection, an estimated half-life of 5.8-8.1 days, IGF-I above baseline up to 28 days after multiple doses, a cumulative effect, and no serious adverse reactions. A single-injection study in healthy young men found trough GH markedly raised with pulse frequency and amplitude preserved. In GHRH-knockout mice, daily administration normalised growth, less so at 48- or 72-hour intervals. No published efficacy trial in any condition was identified. A practitioner source reports a phase II trial in HIV lipodystrophy with one death judged unrelated; it was not found in PubMed. Anti-doping laboratories list CJC-1295 and CJC-1295 with DAC as separate analytes, and a seized product sold as CJC-1295 contained a 29-residue amide — the modified GRF (1-29) molecule, recorded separately.",
+    "unknownsSummary": "Not established: any benefit or long-term safety in any condition; the phase II lipodystrophy trial reported by a practitioner source and its outcome; the effect of practitioner schedules (nightly, twice weekly, weekly) given a half-life of about a week; combination with ipamorelin; and whether products sold as CJC-1295 or CJC-1295 with DAC contain the albumin-binding molecule at all.",
+    "aliases": [
+      { "alias": "CJC-1295 with DAC", "note": "Practitioner name for this molecule; DAC (drug affinity complex) was the developer's term for the albumin-binding technology." },
+      { "alias": "DAC:GRF", "note": "A shorthand for the same albumin-binding GRF analogue." },
+      { "alias": "CJC-1295 without DAC", "note": "NOT this molecule. Used for modified GRF (1-29), which has its own record." }
+    ],
+    "sequence": null,
+    "molecularDescription": "Tetrasubstituted hGRF(1-29) with an added C-terminal lysine carrying a 3-maleimidopropionamide group that binds albumin covalently after injection.",
+    "naturalOrSynthetic": "Synthetic",
+    "nomenclatureNote": "The name is not reliable on its own. The originator, the human trials and equine anti-doping work use CJC-1295 for the albumin-binding molecule. Handbooks and sellers use \"CJC-1295 without DAC\" for a 29-residue peptide with no albumin-binding group, and one handbook assigns both molecules the same molecular weight. A seized product sold as CJC-1295 was analysed and found to be the 29-residue peptide."
+  },
+  "locations": [
+    { "key": "jette-2005", "sourceKey": "SRC-066", "locatorText": "Abstract", "section": "Abstract (PMID 15817669)" },
+    { "key": "teichman-2006", "sourceKey": "SRC-067", "locatorText": "Abstract", "section": "Abstract (PMID 16352683)" },
+    { "key": "ionescu-2006", "sourceKey": "SRC-068", "locatorText": "Abstract", "section": "Abstract (PMID 17018654)" },
+    { "key": "alba-2006", "sourceKey": "SRC-069", "locatorText": "Abstract", "section": "Abstract (PMID 16822960)" },
+    { "key": "proteomics-2009", "sourceKey": "SRC-070", "locatorText": "Abstract", "section": "Abstract (PMID 19386527)" },
+    { "key": "henninge-2010", "sourceKey": "SRC-071", "locatorText": "Abstract", "section": "Abstract (PMID 21204297)" },
+    { "key": "equine-2019", "sourceKey": "SRC-073", "locatorText": "Abstract", "section": "Abstract (PMID 30489688)" },
+    { "key": "kings-2021", "sourceKey": "SRC-074", "locatorText": "Abstract", "section": "Abstract (PMID 34665524)" },
+    { "key": "review-2026", "sourceKey": "SRC-075", "locatorText": "Abstract", "section": "Abstract (PMID 42395176)" },
+    { "key": "seeds-cjc-89", "sourceKey": "SRC-001", "locatorText": "file p. 89", "section": "Types of GHRH" },
+    { "key": "seeds-cjc-101", "sourceKey": "SRC-001", "locatorText": "file p. 101", "section": "CJC 1295: properties" },
+    { "key": "seeds-cjc-102", "sourceKey": "SRC-001", "locatorText": "file p. 102", "section": "CJC 1295: applications and dosage" },
+    { "key": "lavalle-cjc-34", "sourceKey": "SRC-002", "locatorText": "file p. 34", "section": "CJC-1295 and CJC-1295 + Ipamorelin: names, sequence, composition" },
+    { "key": "lavalle-cjc-36", "sourceKey": "SRC-002", "locatorText": "file p. 36", "section": "Dosages" },
+    { "key": "lavalle-cjc-37", "sourceKey": "SRC-002", "locatorText": "file p. 37", "section": "Warnings and cautions" },
+    { "key": "lavalle-cjc-38", "sourceKey": "SRC-002", "locatorText": "file pp. 38-39", "section": "Summary" },
+    { "key": "campbell-cjc-98", "sourceKey": "SRC-003", "locatorText": "p. 98", "pageStart": 98, "section": "CJC-1295 recommended dosage" },
+    { "key": "campbell-cjc-99", "sourceKey": "SRC-003", "locatorText": "p. 99", "pageStart": 99, "section": "What is DAC" },
+    { "key": "cheatsheet-cjc-7", "sourceKey": "SRC-004", "locatorText": "file p. 7", "section": "Oral sublingual peptide strips, CJC-1295 row" },
+    { "key": "hacksmith-cjc-dac", "sourceKey": "SRC-005", "locatorText": "file pp. 47-49", "section": "CJC-1295 with DAC" },
+    { "key": "hacksmith-monitoring", "sourceKey": "SRC-005", "locatorText": "file p. 184", "section": "Peptide monitoring and blood tests" }
+  ],
+  "claims": [
+    {
+      "claimKey": "CJC-001",
+      "claimText": "CJC-1295 was defined by its developer as a tetrasubstituted form of hGRF(1-29) with an added C-terminal Nε-3-maleimidopropionamide lysine; in rats it bound serum albumin within minutes, remained detectable on albumin beyond 24 hours and in plasma beyond 72 hours, and produced greater GH release than hGRF(1-29).",
+      "plainLanguageText": "CJC-1295 was designed with a chemical hook that attaches it to albumin in the blood, which is why it lasts so long.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The chemical definition of the name. Everything else on this record depends on which molecule a source means.",
+      "uncertaintyText": "The full sequence and substitutions are not given in the abstract.",
+      "evidence": [
+        { "locationKey": "jette-2005", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Chemical description of the selected maleimido derivative and albumin conjugate identification." },
+        { "locationKey": "jette-2005", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Rat pharmacokinetics and GH response." }
+      ]
+    },
+    {
+      "claimKey": "CJC-002",
+      "claimText": "In two randomised, placebo-controlled, double-blind ascending-dose trials in healthy adults, a single subcutaneous injection of CJC-1295 increased mean plasma GH 2- to 10-fold for 6 days or more and IGF-I 1.5- to 3-fold for 9-11 days, with an estimated half-life of 5.8-8.1 days; after multiple doses IGF-I stayed above baseline for up to 28 days, and no serious adverse reactions were reported.",
+      "plainLanguageText": "In healthy adults, one injection raised growth hormone for about a week and IGF-I for longer. The drug lasted about a week in the body.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "critical",
+      "interpretationNotes": "The core human evidence. It is pharmacology in healthy volunteers: hormone levels, not a health outcome.",
+      "uncertaintyText": "Short trials in healthy people. Says nothing about benefit, or about safety with long-term use.",
+      "evidence": [
+        { "locationKey": "teichman-2006", "evidenceTypeKey": "human_rct", "interpretation": "GH and IGF-I response, half-life, multiple-dose effect and safety." }
+      ]
+    },
+    {
+      "claimKey": "CJC-003",
+      "claimText": "One week after a single injection in healthy young men, CJC-1295 raised trough GH about 7.5-fold and mean GH and IGF-I by about 45%, while the frequency and magnitude of GH pulses were unchanged.",
+      "plainLanguageText": "The natural pulses of growth hormone release carried on as normal; the level between pulses went up.",
+      "claimCategory": "pharmacodynamics",
+      "importance": "high",
+      "interpretationNotes": "Directly relevant to a practitioner claim that the long-acting form causes a continuous \"GH bleed\" that blunts pulses; the measured pulses were preserved.",
+      "uncertaintyText": "Small study, one week after one injection. What happens to pulsatility with repeated dosing is not addressed.",
+      "evidence": [
+        { "locationKey": "ionescu-2006", "evidenceTypeKey": "human_pk_pd", "interpretation": "Overnight 20-minute GH sampling before and after injection." }
+      ]
+    },
+    {
+      "claimKey": "CJC-004",
+      "claimText": "In GHRH-knockout mice, CJC-1295 given every 24 hours normalised body weight and length, while the same dose every 48 or 72 hours improved growth without normalising it.",
+      "plainLanguageText": "In mice lacking the natural hormone, daily CJC-1295 restored normal growth; less frequent doses worked less well.",
+      "claimCategory": "efficacy-animal",
+      "importance": "medium",
+      "interpretationNotes": "Animal evidence in a deficiency model. Mice clear drugs far faster than people, so the interval finding does not translate to a human schedule.",
+      "uncertaintyText": "Mice without the hormone; not a model of healthy adults.",
+      "evidence": [
+        { "locationKey": "alba-2006", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Growth and body composition by dosing interval." }
+      ]
+    },
+    {
+      "claimKey": "CJC-005",
+      "claimText": "A preparation seized in Norway in 2009 was identified by mass spectrometry as a 29-amino-acid peptide with a C-terminal amide, consistent with a peptide marketed under the name CJC-1295 — a peptide lacking the added reactive lysine of the originator molecule.",
+      "plainLanguageText": "A product sold as CJC-1295 was tested and turned out to be a shorter peptide without the albumin hook.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The measurement that separates the two records. The comparison with the originator molecule is this index's reading of the two abstracts together.",
+      "uncertaintyText": "One preparation. It does not establish what any other product contains.",
+      "evidence": [
+        { "locationKey": "henninge-2010", "evidenceTypeKey": "analytical_characterisation", "interpretation": "29-residue C-terminal amide identified in a product marketed as CJC-1295." },
+        { "locationKey": "jette-2005", "evidenceTypeKey": "analytical_characterisation", "relationship": "contextualizes", "interpretation": "The originator molecule carries an additional C-terminal reactive lysine." }
+      ]
+    },
+    {
+      "claimKey": "CJC-006",
+      "claimText": "Anti-doping laboratories treat CJC-1295 and CJC-1295 with drug affinity complex as separate analytes, and an equine laboratory describes CJC-1295 as a 30-residue peptide carrying a maleimidopropionic group that links covalently to plasma proteins.",
+      "plainLanguageText": "Drug-testing laboratories test for the two names as two different substances.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Usage by laboratories that must identify the substance chemically. The two descriptions differ in how they apply the name, which is itself evidence that the name is unstable.",
+      "uncertaintyText": "The abstracts do not give the full structures they used for each analyte.",
+      "evidence": [
+        { "locationKey": "kings-2021", "evidenceTypeKey": "analytical_characterisation", "interpretation": "CJC-1295 and CJC-1295 with DAC as separate reference analytes." },
+        { "locationKey": "equine-2019", "evidenceTypeKey": "analytical_characterisation", "interpretation": "30-residue peptide with a maleimidopropionic group, conjugated to plasma proteins." },
+        { "locationKey": "review-2026", "evidenceTypeKey": "academic_reference", "interpretation": "Lists CJC-1295 with DAC and without DAC as distinct agents." }
+      ]
+    },
+    {
+      "claimKey": "CJC-007",
+      "claimText": "A practitioner handbook reports a 12-week phase II trial of CJC-1295 with DAC in 192 patients with HIV-associated lipodystrophy in which one participant died of myocardial infarction, judged by the attending physician to be unrelated to treatment; the trial was not found in the PubMed screen.",
+      "plainLanguageText": "One handbook describes a trial in people with HIV in which a participant died of a heart attack judged unrelated to the drug. This index could not find that trial.",
+      "claimCategory": "safety-human",
+      "importance": "high",
+      "interpretationNotes": "Recorded as what the handbook says, attributed, because it is the only mention of a trial in patients and of a serious event. It is not verified.",
+      "uncertaintyText": "Secondary account; no primary publication, registry record or regulatory document was identified.",
+      "evidence": [
+        { "locationKey": "lavalle-cjc-37", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "The handbook's account of the trial and the death." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Benefit of CJC-1295 in any condition.",
+      "why": "The three human records are pharmacological studies in healthy adults. No efficacy trial was published.",
+      "whatWouldResolveIt": "A controlled trial with clinical outcomes in a defined population.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does sustained GHRH-receptor stimulation with an albumin-binding analogue improve clinical outcomes in adults with GH deficiency or related conditions?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The phase II lipodystrophy trial and its safety findings.",
+      "why": "Reported by one handbook; not found in PubMed.",
+      "whatWouldResolveIt": "The trial registration, publication or a regulatory summary.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What did the phase II trial of CJC-1295 in HIV-associated lipodystrophy find, and why did development not continue?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Safety of repeated or long-term use.",
+      "why": "The longest human exposure identified is 49 days in healthy adults, with a cumulative IGF-I effect after multiple doses.",
+      "whatWouldResolveIt": "A longer controlled study with IGF-I, glucose and adverse-event monitoring.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the effects of months of CJC-1295 exposure on IGF-I, glucose tolerance and adverse events?",
+      "opportunityType": "long_term_outcomes"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What frequent schedules of a molecule with a week-long half-life do.",
+      "why": "Practitioner sources describe nightly or twice-weekly use of the long-acting form; the trials used single, weekly or every-other-week doses and reported accumulation.",
+      "whatWouldResolveIt": "A pharmacokinetic study of frequent dosing.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How much does CJC-1295 accumulate, and how far does IGF-I rise, when it is given nightly rather than weekly?",
+      "opportunityType": "protocol_validation"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "Whether products sold as CJC-1295 or CJC-1295 with DAC contain the albumin-binding molecule.",
+      "why": "The one analysed product sold as CJC-1295 was a different, shorter peptide.",
+      "whatWouldResolveIt": "Analysis of purchased products labelled with each name.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What proportion of products labelled CJC-1295 with DAC contain the maleimido-lysine molecule rather than modified GRF (1-29)?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "CJC-1295 in combination with ipamorelin.",
+      "why": "Widely described by practitioner sources as synergistic; no human study of the combination was identified.",
+      "whatWouldResolveIt": "A controlled study of the combination against each component.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does adding a ghrelin-receptor agonist to a GHRH analogue change GH, IGF-I or safety outcomes compared with either alone?",
+      "opportunityType": "protocol_validation"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "human_rct",
+      "locationKey": "teichman-2006",
+      "populationModel": "Healthy adults aged 21-61 in ascending-dose trials, USA.",
+      "formulation": "Investigational CJC-1295.",
+      "pkNotes": "Estimated half-life 5.8-8.1 days.",
+      "limitationsNotes": "The only route studied in people, in healthy volunteers."
+    },
+    {
+      "routeKey": "sublingual-buccal",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "cheatsheet-cjc-7",
+      "populationModel": "Men and women, per the source's columns.",
+      "formulation": "Oral dissolving strip; form (with or without DAC) not stated.",
+      "pkNotes": null,
+      "limitationsNotes": "One quick-reference source. No absorption study of any GRF analogue by this route was identified."
+    }
+  ],
+  "pharmacokinetics": [
+    {
+      "observationKey": "CJC-PK-001",
+      "parameter": "Half-life",
+      "valueText": "5.8-8.1 days (estimated)",
+      "doseContext": "Four ascending single doses, and two or three weekly or every-other-week doses",
+      "administration": "not_stated",
+      "population": "Healthy adults aged 21-61",
+      "routeKey": "subcutaneous",
+      "studyCondition": "Two randomised placebo-controlled ascending-dose trials, 28 and 49 days",
+      "evidenceTypeKey": "human_rct",
+      "notes": "Evidence of a cumulative effect after multiple doses.",
+      "locationKey": "teichman-2006"
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "CJC-PR-STUDY-ASCENDING",
+      "objectiveContext": "Pharmacokinetics, GH and IGF-I response and safety in healthy adults (two ascending-dose trials).",
+      "populationModel": "Healthy adults aged 21-61 at two investigational sites.",
+      "routeKey": "subcutaneous",
+      "formulation": "Investigational CJC-1295 or placebo.",
+      "regulatoryContext": "Dose-finding in healthy volunteers. Not a treatment schedule and not an approved dose.",
+      "evidenceTypeKey": "human_rct",
+      "amountReported": "Four ascending single doses; tolerability described as best at 30 or 60 microg/kg",
+      "amountUnit": "microg/kg",
+      "frequencyText": "Single dose; or two or three weekly or every-other-week doses",
+      "durationText": "28 and 49 days",
+      "monitoringText": "GH, IGF-I and pharmacokinetic sampling",
+      "contraindicationsText": null,
+      "safetyNotes": "No serious adverse reactions reported.",
+      "locationKey": "teichman-2006"
+    },
+    {
+      "protocolKey": "CJC-PR-STUDY-PULSATILITY",
+      "objectiveContext": "GH pulsatility after a single injection in healthy men.",
+      "populationModel": "Healthy men aged 20-40, USA.",
+      "routeKey": "other",
+      "formulation": "Single injection; the abstract does not name the route.",
+      "regulatoryContext": "A single-dose physiology study. Not a treatment schedule.",
+      "evidenceTypeKey": "human_pk_pd",
+      "amountReported": "60 or 90 microg/kg",
+      "amountUnit": "microg/kg",
+      "frequencyText": "Once",
+      "durationText": "Measured 1 week after injection",
+      "monitoringText": "20-minute GH sampling over 12 hours overnight",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "ionescu-2006"
+    },
+    {
+      "protocolKey": "CJC-PR-LAVALLE-DAC",
+      "objectiveContext": "GH support, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "The source says inject and does not name the route on this page.",
+      "regulatoryContext": "A practitioner handbook's schedule for the long-acting form. Not an approved dose; weekly is consistent with the trials' interval but the amount has no identified human study behind it.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "600 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Once weekly",
+      "timingText": "On an empty stomach, at least 2-3 hours after the last meal of the day",
+      "durationText": null,
+      "monitoringText": "Thyroid hormones (free and total T3, T4, TSH, thyroid antibodies), per the source.",
+      "contraindicationsText": "Caution if prone to or with cancer, as GH may be mitogenic, per the source.",
+      "safetyNotes": "Flushing, injection-site erythema, rash, oedema, joint and muscle pain, fatigue, per the source.",
+      "locationKey": "lavalle-cjc-36"
+    },
+    {
+      "protocolKey": "CJC-PR-SEEDS-DAC",
+      "objectiveContext": "Applications similar to modified GRF (1-29) with more potential to raise IGF-I, including burns or soft-tissue injury after surgery, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Route not stated by the source.",
+      "regulatoryContext": "A practitioner handbook's schedule. The source frames daily use as short-term elevation of IGF-I above physiological levels; no study of that schedule was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "100 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Twice a week, or daily",
+      "durationText": "Daily use described as for short-term treatment",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "seeds-cjc-102"
+    },
+    {
+      "protocolKey": "CJC-PR-HACKSMITH-DAC",
+      "objectiveContext": "Muscle growth, fat loss and anti-aging, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner guide's nightly schedule for the long-acting form. The trials used single or weekly doses of a molecule with a week-long half-life; no study of nightly dosing was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "100-200 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Nightly, 5 days on, 2 days off",
+      "durationText": "Cycles of 8-12 weeks",
+      "monitoringText": "Watch for GH-related effects (joint pain, carpal tunnel syndrome, insulin resistance); test IGF-1, cortisol and thyroid hormones (file p. 184).",
+      "contraindicationsText": null,
+      "safetyNotes": "Injection-site irritation, flushing or water retention in some users, per the source.",
+      "locationKey": "hacksmith-cjc-dac"
+    },
+    {
+      "protocolKey": "CJC-PR-CAMPBELL-UNSPECIFIED",
+      "objectiveContext": "General use, reported by the book from an integrative medicine specialist.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "2000 mcg/mL preparation. Whether the peptide was with or without DAC is not stated, so this regimen may concern modified GRF (1-29).",
+      "regulatoryContext": "A second-hand practitioner protocol with no stated form of the peptide. Recorded here only because the source uses the name CJC-1295.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.10 ml of a 2000 mcg/mL preparation",
+      "amountUnit": "ml",
+      "frequencyText": "5 of 7 nights",
+      "timingText": "Before bedtime on an empty stomach",
+      "durationText": null,
+      "cycleText": "6-8 week cycles",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-cjc-98"
+    },
+    {
+      "protocolKey": "CJC-PR-CHEATSHEET-STRIP",
+      "objectiveContext": "Performance, recovery and sleep, as framed by the cheat sheet.",
+      "populationModel": "Men and women, per the source's columns.",
+      "routeKey": "sublingual-buccal",
+      "formulation": "Oral sublingual strip, 20 per pack. Form (with or without DAC) not stated.",
+      "regulatoryContext": "A practitioner product schedule. No study of any GRF analogue by this route was identified, and the peptide form is not stated.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "150 mcg per strip",
+      "amountUnit": "mcg",
+      "frequencyText": "Men 1-2 strips per day; women 1 strip per day",
+      "timingText": "60 minutes before bed or pre-workout",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-cjc-7"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "CJC-D-001",
+      "topic": "What the name CJC-1295 refers to.",
+      "plainLanguageText": "Scientists use CJC-1295 for a long-acting molecule with an albumin hook. Handbooks and sellers also use it, with or without 'DAC', for a shorter peptide without the hook. A product sold as CJC-1295 was the shorter peptide.",
+      "candidateExplanation": "terminology",
+      "explanationNotes": "The originator defined CJC-1295 chemically, as hGRF(1-29) plus a reactive lysine. The market later attached the same name, qualified as 'without DAC', to the 29-residue core peptide, which cannot bind albumin because it lacks that group. An analysed seized product confirms the market usage.",
+      "resolution": "resolved_different_chemical_form",
+      "resolutionBasis": "The originator abstract (SRC-066) defines CJC-1295 as the maleimido-lysine derivative; mass spectrometry of a product sold as CJC-1295 (SRC-071) found a 29-residue amide without it. These are different molecules. This index keeps CJC-1295 and modified GRF (1-29) as two records and transfers no evidence between them.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None further for the chemistry. Which molecule a given product contains requires analysis of that product.",
+      "positions": [
+        { "locationKey": "jette-2005", "evidenceTypeKey": "analytical_characterisation", "positionText": "CJC-1295 is tetrasubstituted hGRF(1-29) with an added maleimidopropionamide lysine that binds albumin." },
+        { "locationKey": "henninge-2010", "evidenceTypeKey": "analytical_characterisation", "positionText": "A product marketed as CJC-1295 contained a 29-residue amide peptide." },
+        { "locationKey": "seeds-cjc-89", "evidenceTypeKey": "practitioner_reference", "positionText": "Modified GRF (1-29) is better known in the industry as CJC 1295 without DAC." },
+        { "locationKey": "kings-2021", "evidenceTypeKey": "analytical_characterisation", "positionText": "CJC-1295 and CJC-1295 with drug affinity complex are distinct analytes." }
+      ]
+    },
+    {
+      "disagreementKey": "CJC-D-002",
+      "topic": "The molecular weight of CJC-1295 with DAC.",
+      "plainLanguageText": "One handbook gives the long-acting molecule the same weight as the shorter peptide. Another gives it a higher weight that matches the added lysine and hook.",
+      "candidateExplanation": "chemical_form",
+      "explanationNotes": "A molecule with an extra lysine and a maleimidopropionyl group must weigh more than the 29-residue peptide. The Seeds handbook prints the same figure for both. The Peptide Handbook's higher figure exceeds the 29-residue weight by almost exactly the mass of a lysine residue plus a maleimidopropionyl group — arithmetic by this index on the two printed numbers, not an analytical measurement.",
+      "resolution": "source_error_confirmed",
+      "resolutionBasis": "Two different molecules cannot share one molecular weight. The Seeds handbook gives the same value on its modified GRF (1-29) page (file p. 97) and its CJC-1295 page (file p. 101), and labels a molecular formula as a sequence on the latter. Neither handbook's value has been checked against an analytical source.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "An analytical characterisation stating the molecular mass of the maleimido-lysine molecule.",
+      "positions": [
+        { "locationKey": "seeds-cjc-101", "evidenceTypeKey": "practitioner_reference", "positionText": "Gives CJC-1295 with DAC the same molecular weight as modified GRF (1-29)." },
+        { "locationKey": "lavalle-cjc-34", "evidenceTypeKey": "practitioner_reference", "positionText": "Gives a higher molecular weight and a sequence ending in an additional lysine." }
+      ]
+    },
+    {
+      "disagreementKey": "CJC-D-003",
+      "topic": "How often the long-acting form is given.",
+      "plainLanguageText": "Trials and one handbook give the long-acting form weekly or less. Another handbook gives it twice a week or daily, and a guide gives it nightly on five days out of seven.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "The trials measured a half-life of about a week and a cumulative effect with repeated doses. None of the more frequent schedules cites a study.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A pharmacokinetic and IGF-I study of frequent dosing of the albumin-binding molecule.",
+      "positions": [
+        { "locationKey": "teichman-2006", "evidenceTypeKey": "human_rct", "positionText": "Single doses, or doses weekly or every other week; half-life 5.8-8.1 days; cumulative effect after multiple doses." },
+        { "locationKey": "lavalle-cjc-36", "evidenceTypeKey": "practitioner_reference", "positionText": "Once weekly." },
+        { "locationKey": "seeds-cjc-102", "evidenceTypeKey": "practitioner_reference", "positionText": "Twice a week, or daily for short-term IGF-I elevation." },
+        { "locationKey": "hacksmith-cjc-dac", "evidenceTypeKey": "practitioner_reference", "positionText": "Nightly, five days on and two off, in 8-12 week cycles." }
+      ]
+    },
+    {
+      "disagreementKey": "CJC-D-004",
+      "topic": "Whether the long-acting form blunts natural growth hormone pulses.",
+      "plainLanguageText": "A handbook says the long-acting form causes a continuous 'bleed' of growth hormone that works worse than pulses. A study measured the pulses and found them preserved.",
+      "candidateExplanation": "study_design",
+      "explanationNotes": "The measured study looked one week after a single injection; the handbook's argument concerns ongoing weekly use and overall result. The specific claim that pulses are lost is not supported by the measurement; whether overall results differ between forms has not been compared.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A comparison of pulsatility and outcomes under repeated dosing of the two forms.",
+      "positions": [
+        { "locationKey": "lavalle-cjc-38", "evidenceTypeKey": "practitioner_reference", "positionText": "Weekly long-acting dosing can give ineffective stimulation at the time of the natural pulse, described as a GH bleed with an inferior overall result." },
+        { "locationKey": "ionescu-2006", "evidenceTypeKey": "human_pk_pd", "positionText": "After a single injection, GH pulse frequency and magnitude were unaltered while trough levels rose." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "henninge-2010",
+      "checkedAt": "2026-09-13",
+      "notes": "No approval, authorisation or refusal by a medicines regulator is recorded. CJC-1295 is described as prohibited in sport under the World Anti-Doping Agency list; that is a sports rule, not a medicines status, and not evidence about the compound."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "CJC-ID-001",
+      "nameUsed": "CJC-1295",
+      "chemicalForm": "Tetrasubstituted hGRF(1-29) with an added C-terminal Nε-3-maleimidopropionamide lysine",
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "The originator paper selecting and characterising the molecule.",
+      "notes": "The chemical definition this record follows.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "jette-2005"
+    },
+    {
+      "identityKey": "CJC-ID-002",
+      "nameUsed": "CJC-1295 (equine anti-doping)",
+      "chemicalForm": "30-residue peptide with a maleimidopropionic acid group that conjugates to plasma proteins",
+      "residueCount": 30,
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "An anti-doping laboratory's description of the analyte it detects after administration to horses.",
+      "notes": "Agrees with the originator definition.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "equine-2019"
+    },
+    {
+      "identityKey": "CJC-ID-003",
+      "nameUsed": "Peptide marketed as CJC-1295 (seized, Norway)",
+      "chemicalForm": "29-residue peptide with C-terminal amide",
+      "residueCount": 29,
+      "form": "analogue",
+      "verification": "analytically_characterised",
+      "usageContext": "Mass-spectrometric identification of an unknown seized preparation.",
+      "notes": "This is modified GRF (1-29), not the molecule this record describes. Recorded here because it was sold under this name.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "henninge-2010"
+    },
+    {
+      "identityKey": "CJC-ID-004",
+      "nameUsed": "CJC 1295 (MOD GRF (1-29) with DAC)",
+      "chemicalForm": "Stated as modified GRF (1-29) with DAC",
+      "molecularWeight": 3367.9,
+      "weightBasis": "As printed by the handbook, which prints the same value for modified GRF (1-29) without DAC.",
+      "form": "analogue",
+      "verification": "contradicted",
+      "usageContext": "The handbook's CJC 1295 properties list.",
+      "notes": "A molecule with an added lysine and maleimidopropionyl group cannot share the weight of the 29-residue peptide.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-cjc-101"
+    },
+    {
+      "identityKey": "CJC-ID-005",
+      "nameUsed": "CJC 1295 DAC",
+      "chemicalForm": "30-residue sequence ending in an added lysine",
+      "sequence": "YaDAIFTQSYRKVLAQLSARKLLQDILSRK",
+      "residueCount": 30,
+      "molecularWeight": 3647.15,
+      "weightBasis": "As printed by the handbook. Lower-case a in the sequence denotes D-alanine; the maleimidopropionyl group is not represented in a one-letter sequence.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's compound entry, which lists Modified GRF (1-29) and CJC 1295 DAC as other names for one entry.",
+      "notes": "Consistent in length and weight with the originator definition; the name list on the same page conflates the two molecules.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-cjc-34"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "CJC-REP-001",
+      "finding": "A single subcutaneous injection raises GH and IGF-I for about a week or more in healthy adults.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Healthy adults.",
+      "humanConfirmed": true,
+      "basis": "The ascending-dose trials and the pulsatility study, both in the USA in 2006, share investigators and the same investigational product.",
+      "limitations": "Hormone levels only; healthy volunteers.",
+      "supportingRecords": "PMID 16352683; PMID 17018654"
+    },
+    {
+      "assessmentKey": "CJC-REP-002",
+      "finding": "Daily administration normalises growth in GHRH-deficient mice.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "GHRH-knockout mice.",
+      "humanConfirmed": false,
+      "basis": "One study.",
+      "limitations": null,
+      "supportingRecords": "PMID 16822960"
+    },
+    {
+      "assessmentKey": "CJC-REP-003",
+      "finding": "Products sold as CJC-1295 contain a different, 29-residue peptide.",
+      "state": "single_study",
+      "studyCount": 1,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Seized preparation.",
+      "humanConfirmed": false,
+      "basis": "One analysed preparation in Norway. A Danish analysis identified modified GRF 1-29 analogues in seized powders but its abstract does not say what name they were sold under.",
+      "limitations": null,
+      "supportingRecords": "PMID 21204297"
+    },
+    {
+      "assessmentKey": "CJC-REP-004",
+      "finding": "Clinical benefit in any condition.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No efficacy study exists to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ]
+}

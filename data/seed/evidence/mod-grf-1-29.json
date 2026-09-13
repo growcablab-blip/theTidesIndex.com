@@ -1,0 +1,387 @@
+{
+  "packetKey": "mod-grf-1-29",
+  "peptideKey": "mod-grf-1-29",
+  "note": "Extracted 13 September 2026. A separate record from CJC-1295 for the same reason TB-500 is separate from thymosin beta-4: the name practitioner sources and sellers use for it — \"CJC-1295 without DAC\" — belongs chemically to a different molecule. Sources: the practitioner handbooks (SRC-001 Seeds, SRC-002 Peptide Handbook, SRC-003 Campbell, SRC-004 cheat sheet, SRC-005 Hack Smith), two analyses of seized products (SRC-071 Norway, SRC-072 Denmark) and the CJC-1295 originator paper for contrast (SRC-066). The PubMed ledger for both names is the CJC-1295 screen; no human study of this peptide was identified in it. Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's page numbers. Amounts appear only in protocol fields.",
+  "compound": {
+    "shortDescription": "A 29-amino-acid, short-acting version of growth-hormone-releasing hormone, sold and described as \"CJC-1295 without DAC\". Widely used according to practitioner books; no study in people identified.",
+    "simpleSummary": "Modified GRF (1-29) is a lab-made copy of the first 29 building blocks of the hormone that tells the pituitary gland to release growth hormone, with a few changes that make it last longer than the natural version — minutes rather than seconds, according to handbooks.\n\n**It is usually sold under someone else's name.** Handbooks and sellers call it \"CJC-1295 without DAC\". In the scientific literature, CJC-1295 is a different, long-acting molecule. When a product sold as CJC-1295 was tested, it turned out to be this shorter peptide.\n\n**No study in people was found.** Everything this index holds about how it is used comes from practitioner books, which describe nightly injections, often combined with another peptide called ipamorelin. Their claims about how long it lasts in the body could not be traced to a measurement. Seized products have also been found to contain slightly altered versions of it.",
+    "practitionerSummary": "Modified GRF (1-29) is described by practitioner sources as a tetrasubstituted 29-residue C-terminally amidated GHRH(1-29) analogue (Tyr-D-Ala2 …), the core peptide of CJC-1295 without the added maleimidopropionamide lysine, and therefore without covalent albumin binding. Handbooks give its half-life as about 30 minutes against 5-7 minutes for native GRF(1-29); no primary pharmacokinetic study was identified. Mass spectrometry of a preparation seized in Norway and sold as CJC-1295 found a 29-residue amide consistent with this peptide, and powders seized in Denmark contained N-terminally glycine-extended modified GRF 1-29 analogues. No human or animal administration study of this molecule specifically was identified in the screen. Practitioner regimens are nightly or multiple-daily subcutaneous injections, commonly combined with ipamorelin; none cites a study.",
+    "unknownsSummary": "Not established: any human pharmacokinetics, including the half-life every handbook repeats; any effect on GH, IGF-I or outcomes in people; safety; the combination with ipamorelin; and what purchased products labelled with this name or with CJC-1295 contain, given seized products with altered sequences.",
+    "aliases": [
+      { "alias": "Modified GRF (1-29)", "note": "The descriptive name." },
+      { "alias": "Mod GRF 1-29", "note": "Common abbreviation." },
+      { "alias": "Tetrasubstituted GRF (1-29)", "note": "Chemical description of the four substitutions." },
+      { "alias": "CJC-1295 without DAC", "note": "Market and handbook name. Misleading: CJC-1295 in the scientific literature is a different, albumin-binding molecule with its own record." }
+    ],
+    "sequence": "YaDAIFTQSYRKVLAQLSARKLLQDILSR",
+    "molecularDescription": "29-residue C-terminally amidated GHRH(1-29) analogue with four substitutions, as stated by practitioner sources; lower-case a denotes D-alanine.",
+    "naturalOrSynthetic": "Synthetic",
+    "nomenclatureNote": "This record exists because of a naming problem. \"CJC-1295 without DAC\" suggests CJC-1295 with a component removed. Chemically it is the 29-residue core; the originator's CJC-1295 is that core plus a reactive lysine. A product sold simply as \"CJC-1295\" was found to be this peptide. Evidence about CJC-1295, including its human trials, is not evidence about this molecule."
+  },
+  "locations": [
+    { "key": "jette-2005-mod", "sourceKey": "SRC-066", "locatorText": "Abstract", "section": "Abstract (PMID 15817669)" },
+    { "key": "henninge-2010-mod", "sourceKey": "SRC-071", "locatorText": "Abstract", "section": "Abstract (PMID 21204297)" },
+    { "key": "denmark-2019", "sourceKey": "SRC-072", "locatorText": "Abstract", "section": "Abstract (PMID 30136411)" },
+    { "key": "seeds-modgrf-89", "sourceKey": "SRC-001", "locatorText": "file p. 89", "section": "Types of GHRH" },
+    { "key": "seeds-modgrf-97", "sourceKey": "SRC-001", "locatorText": "file p. 97", "section": "MOD GRF (1-29): properties" },
+    { "key": "seeds-modgrf-98", "sourceKey": "SRC-001", "locatorText": "file pp. 98-99", "section": "MOD GRF (1-29): applications and dosage" },
+    { "key": "lavalle-modgrf-36", "sourceKey": "SRC-002", "locatorText": "file p. 36", "section": "Dosages: CJC 1295 alone, and CJC 1295 (w/o DAC) + Ipamorelin" },
+    { "key": "lavalle-modgrf-38", "sourceKey": "SRC-002", "locatorText": "file pp. 38-39", "section": "Summary: DAC and non-DAC forms" },
+    { "key": "hacksmith-modgrf", "sourceKey": "SRC-005", "locatorText": "file pp. 88-89", "section": "Mod-GRF (1-29) (aka CJC-1295 without DAC)" },
+    { "key": "hacksmith-persona-cjc", "sourceKey": "SRC-005", "locatorText": "file p. 186", "section": "Persona 1: bodybuilder regimen" },
+    { "key": "campbell-modgrf-98", "sourceKey": "SRC-003", "locatorText": "p. 98", "pageStart": 98, "section": "CJC-1295 recommended dosage: without DAC" },
+    { "key": "cheatsheet-modgrf-3", "sourceKey": "SRC-004", "locatorText": "file p. 3", "section": "Longevity table, CJC-1295 No DAC row" },
+    { "key": "cheatsheet-modgrf-2", "sourceKey": "SRC-004", "locatorText": "file p. 2", "section": "Fat loss table, Ipamorelin / CJC-1295 No DAC row" }
+  ],
+  "claims": [
+    {
+      "claimKey": "MGRF-001",
+      "claimText": "Practitioner sources describe modified GRF (1-29) as a 29-residue amidated GHRH analogue beginning Tyr-D-Ala, and identify it as CJC-1295 without DAC; the originator describes CJC-1295 as a tetrasubstituted hGRF(1-29) with an added reactive lysine, so the peptide these sources describe lacks the albumin-binding group that defines CJC-1295.",
+      "plainLanguageText": "Modified GRF (1-29) is the shorter peptide inside CJC-1295, without the hook that makes CJC-1295 long-acting.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The comparison of the two descriptions is this index's reading; neither source makes it explicitly.",
+      "uncertaintyText": "The handbook sequence has not been checked against an analytical reference for this peptide.",
+      "evidence": [
+        { "locationKey": "seeds-modgrf-97", "evidenceTypeKey": "practitioner_reference", "interpretation": "29-residue sequence, amide, also known as CJC 1295 without DAC." },
+        { "locationKey": "jette-2005-mod", "evidenceTypeKey": "analytical_characterisation", "relationship": "contextualizes", "interpretation": "CJC-1295 defined as the core plus an added maleimidopropionamide lysine." }
+      ]
+    },
+    {
+      "claimKey": "MGRF-002",
+      "claimText": "A preparation seized in Norway and analysed by mass spectrometry contained a 29-residue C-terminally amidated peptide consistent with a product marketed as CJC-1295.",
+      "plainLanguageText": "A product sold as CJC-1295 was tested and was this shorter peptide.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "The only analytical evidence identifying this molecule in a product, and it was sold under the other name.",
+      "uncertaintyText": "One preparation.",
+      "evidence": [
+        { "locationKey": "henninge-2010-mod", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Sequence proposal from high-resolution tandem mass spectrometry." }
+      ]
+    },
+    {
+      "claimKey": "MGRF-003",
+      "claimText": "Powders seized by Danish customs were identified against reference standards as analogues of modified GRF 1-29 (and of GHRP-2, GHRP-6 and ipamorelin) carrying an extra N-terminal glycine.",
+      "plainLanguageText": "Seized products have contained slightly altered versions of this peptide.",
+      "claimCategory": "product-characterisation",
+      "importance": "high",
+      "interpretationNotes": "A different molecule again, one residue longer. What name the powders were sold under is not stated in the abstract.",
+      "uncertaintyText": "Seized material; not a survey of products.",
+      "evidence": [
+        { "locationKey": "denmark-2019", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Glycine-extended analogues identified by LC-HRMS against reference standards." }
+      ]
+    },
+    {
+      "claimKey": "MGRF-004",
+      "claimText": "Two practitioner handbooks give the half-life of modified GRF (1-29) as about 30 minutes, compared with a few minutes for the native peptide; neither cites a pharmacokinetic study, and none was identified.",
+      "plainLanguageText": "Handbooks say it lasts about half an hour in the body. This index could not find the measurement.",
+      "claimCategory": "provenance",
+      "importance": "medium",
+      "interpretationNotes": "The figure underpins every practitioner schedule for this peptide.",
+      "uncertaintyText": "May exist outside PubMed or in full text not held.",
+      "evidence": [
+        { "locationKey": "seeds-modgrf-97", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "States a half-life of about 30 minutes." },
+        { "locationKey": "lavalle-modgrf-36", "evidenceTypeKey": "practitioner_reference", "relationship": "cites", "interpretation": "States a half-life of about 30 minutes for CJC 1295 without DAC." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any effect of modified GRF (1-29) in people.",
+      "why": "No human administration study of this molecule was identified. The human CJC-1295 trials used a different molecule.",
+      "whatWouldResolveIt": "A human study of modified GRF (1-29) measuring GH and IGF-I.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What GH and IGF-I response does modified GRF (1-29) produce in adults, and how does it compare with sermorelin?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The pharmacokinetics behind the half-life figure handbooks repeat.",
+      "why": "Stated without a source by two handbooks.",
+      "whatWouldResolveIt": "A pharmacokinetic study, or the primary source for the figure.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the plasma half-life of subcutaneous modified GRF (1-29) in humans?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Modified GRF (1-29) combined with ipamorelin.",
+      "why": "The most common practitioner use; no study identified.",
+      "whatWouldResolveIt": "A controlled study of the combination against each component.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does combining modified GRF (1-29) with ipamorelin produce a larger GH response than either alone, and with what side effects?",
+      "opportunityType": "protocol_validation"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "What products sold under this name, or as CJC-1295, contain.",
+      "why": "Seized products have contained this peptide under another name, and altered analogues of it.",
+      "whatWouldResolveIt": "Analysis of purchased products against reference standards.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What peptides do products labelled CJC-1295, CJC-1295 without DAC and Mod GRF 1-29 actually contain?",
+      "opportunityType": "product_characterisation"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Consistent naming in practitioner and commercial use.",
+      "why": "The same vial may be labelled with either name, and one handbook assigns both molecules one weight.",
+      "whatWouldResolveIt": "Labelling by sequence and mass rather than by trade name.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How often do practitioner references and product labels use CJC-1295 for a molecule other than the albumin-binding analogue?",
+      "opportunityType": "identity_clarification"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "hacksmith-modgrf",
+      "populationModel": "Not specified by the sources.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Described by practitioner sources only. No human study of this molecule by any route was identified."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "MGRF-PR-SEEDS",
+      "objectiveContext": "Improving GH levels, muscle growth, fat loss, slowing aging and sleep, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Route not stated by the source.",
+      "regulatoryContext": "A practitioner handbook's saturation dose. The printed per-kilogram figure does not match the fixed amount beside it; both are reproduced as printed.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "Saturation dose of 100 mcg (printed alongside: 1 mg/kg)",
+      "amountUnit": "mcg",
+      "frequencyText": null,
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states higher amounts add minimally to the GH pulse.",
+      "locationKey": "seeds-modgrf-98"
+    },
+    {
+      "protocolKey": "MGRF-PR-LAVALLE-ALONE",
+      "objectiveContext": "GH support, as framed by the Peptide Handbook (its non-DAC form).",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Supplied as 1 mg per ml. Route not named on the dosing page.",
+      "regulatoryContext": "A practitioner handbook's schedule. No human study of this molecule was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.05 ml to 0.1 ml of 1 mg/ml",
+      "amountUnit": "ml",
+      "frequencyText": "At bedtime, 5 days out of the week",
+      "timingText": "Empty stomach, at least 2-3 hours after the last meal",
+      "durationText": null,
+      "monitoringText": "Thyroid hormones, per the source's cautions.",
+      "contraindicationsText": "Caution if prone to or with cancer, per the source.",
+      "safetyNotes": "Flushing, injection-site erythema, rash, oedema, joint and muscle pain, fatigue, per the source.",
+      "locationKey": "lavalle-modgrf-36"
+    },
+    {
+      "protocolKey": "MGRF-PR-LAVALLE-IPAMORELIN",
+      "objectiveContext": "GH support and weight loss with ipamorelin, as framed by the Peptide Handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Supplied as 1 mg/1 mg, 2 mg/2 mg or 2 mg/1 mg per ml of CJC 1295 without DAC and ipamorelin. Route not named on the dosing page.",
+      "regulatoryContext": "A practitioner handbook's combination schedule. No study of the combination was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.05 ml to 0.1 ml of the combined preparation",
+      "amountUnit": "ml",
+      "frequencyText": "At bedtime, 5 days out of the week; for enhanced weight loss up to 4 times a day",
+      "timingText": "Empty stomach, at least 2-3 hours after the last meal",
+      "durationText": null,
+      "combinationsText": "Ipamorelin in the same preparation.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "lavalle-modgrf-36"
+    },
+    {
+      "protocolKey": "MGRF-PR-HACKSMITH",
+      "objectiveContext": "Muscle growth, fat loss, recovery and skin, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner guide's schedule. No human study of this molecule was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "100-200 mcg per injection",
+      "amountUnit": "mcg",
+      "frequencyText": "1-3 times daily",
+      "timingText": "Fasted; before sleep or post-workout",
+      "durationText": null,
+      "combinationsText": "Typically paired with a GH secretagogue such as ipamorelin.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Mild transient flushing, injection-site irritation, temporary water retention or numbness, per the source.",
+      "locationKey": "hacksmith-modgrf"
+    },
+    {
+      "protocolKey": "MGRF-PR-HACKSMITH-PERSONA",
+      "objectiveContext": "A worked example for a 35-year-old competitive bodybuilder, in the guide.",
+      "populationModel": "Hypothetical persona in the source.",
+      "routeKey": "other",
+      "formulation": "Route not stated in the persona.",
+      "regulatoryContext": "An illustrative persona in a practitioner guide, not a case and not a study.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "300 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "Before bed",
+      "durationText": "Started in weeks 1-4 of a 12-week plan",
+      "combinationsText": "Ipamorelin 100 mcg before bed; AOD-9604, IGF-1 LR3 and BPC-157 added in later weeks.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "hacksmith-persona-cjc"
+    },
+    {
+      "protocolKey": "MGRF-PR-CHEATSHEET",
+      "objectiveContext": "Longevity, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "10 mg vial reconstituted with 3 ml bacteriostatic water; 6 units on a 1 ml insulin syringe. Route not named.",
+      "regulatoryContext": "A practitioner quick-reference schedule. No human study of this molecule was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "200mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "PM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-modgrf-3"
+    },
+    {
+      "protocolKey": "MGRF-PR-CHEATSHEET-BLEND",
+      "objectiveContext": "Fat loss, as a blend with ipamorelin, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Ipamorelin 5 mg / CJC-1295 No DAC 5 mg reconstituted with 2 ml; 10 units per dose. Route not named.",
+      "regulatoryContext": "A practitioner quick-reference blend. No study of the combination was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "250mcg/ 250mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "5 days on, 2 days off",
+      "timingText": "AM/PM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "combinationsText": "Ipamorelin in the same vial.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-modgrf-2"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "MGRF-D-001",
+      "topic": "Whether this peptide is CJC-1295.",
+      "plainLanguageText": "Handbooks and sellers call it 'CJC-1295 without DAC'. The scientists who made CJC-1295 defined it as a longer molecule with a hook this peptide does not have.",
+      "candidateExplanation": "terminology",
+      "explanationNotes": "The market name implies one molecule in two versions. Chemically they are two molecules: the originator's CJC-1295 is this 29-residue core plus a reactive lysine.",
+      "resolution": "resolved_different_chemical_form",
+      "resolutionBasis": "The originator abstract (SRC-066) defines CJC-1295 by the added maleimidopropionamide lysine; practitioner sources describe this peptide as the 29-residue amide without it; a seized product sold as CJC-1295 (SRC-071) was the 29-residue amide. Two records are kept and no evidence crosses.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None further for the chemistry.",
+      "positions": [
+        { "locationKey": "seeds-modgrf-89", "evidenceTypeKey": "practitioner_reference", "positionText": "Better known in the industry as CJC 1295 without DAC." },
+        { "locationKey": "hacksmith-modgrf", "evidenceTypeKey": "practitioner_reference", "positionText": "Mod-GRF (1-29), also known as CJC-1295 without DAC." },
+        { "locationKey": "jette-2005-mod", "evidenceTypeKey": "analytical_characterisation", "positionText": "CJC-1295 is the tetrasubstituted core with an added reactive lysine." }
+      ]
+    },
+    {
+      "disagreementKey": "MGRF-D-002",
+      "topic": "How often it is injected.",
+      "plainLanguageText": "One handbook gives a nightly dose five days a week, with up to four a day for weight loss. A guide gives one to three a day. A cheat sheet gives once a day in eight-week cycles.",
+      "candidateExplanation": "unresolved",
+      "explanationNotes": "All rest on an untraced half-life figure; none cites a study.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A human pharmacokinetic and GH-response study.",
+      "positions": [
+        { "locationKey": "lavalle-modgrf-36", "evidenceTypeKey": "practitioner_reference", "positionText": "At bedtime five days a week; up to four times a day for weight loss." },
+        { "locationKey": "hacksmith-modgrf", "evidenceTypeKey": "practitioner_reference", "positionText": "One to three times daily, fasted." },
+        { "locationKey": "cheatsheet-modgrf-3", "evidenceTypeKey": "practitioner_reference", "positionText": "Evenings, five days on and two off, in eight-week cycles." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "henninge-2010-mod",
+      "checkedAt": "2026-09-13",
+      "notes": "No regulatory record was read. Handbooks state it is supplied by compounding pharmacies; that is not a regulatory determination."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "MGRF-ID-001",
+      "nameUsed": "MOD GRF (1-29)",
+      "chemicalForm": "29-residue amidated GHRH(1-29) analogue",
+      "sequence": "YaDAIFTQSYRKVLAQLSARKLLQDILSR",
+      "residueCount": 29,
+      "molecularWeight": 3367.89,
+      "weightBasis": "As printed by the handbook for the amidated peptide. Lower-case a denotes D-alanine.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's properties list, which adds that it is also known as CJC 1295 without DAC.",
+      "notes": null,
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-modgrf-97"
+    },
+    {
+      "identityKey": "MGRF-ID-002",
+      "nameUsed": "Peptide marketed as CJC-1295 (seized, Norway)",
+      "chemicalForm": "29-residue peptide with C-terminal amide",
+      "residueCount": 29,
+      "form": "analogue",
+      "verification": "analytically_characterised",
+      "usageContext": "Mass-spectrometric identification of a seized preparation.",
+      "notes": "Sold under the other record's name.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "henninge-2010-mod"
+    },
+    {
+      "identityKey": "MGRF-ID-003",
+      "nameUsed": "Glycine-modified modified GRF 1-29 (seized, Denmark)",
+      "chemicalForm": "Modified GRF 1-29 with an additional N-terminal glycine",
+      "residueCount": 30,
+      "form": "analogue",
+      "verification": "analytically_characterised",
+      "usageContext": "Seized powders identified against reference standards.",
+      "notes": "A different molecule again.",
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "denmark-2019"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "MGRF-REP-001",
+      "finding": "Any effect of modified GRF (1-29) in people.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study exists to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    },
+    {
+      "assessmentKey": "MGRF-REP-002",
+      "finding": "Products sold under GH-secretagogue names contain this peptide or altered analogues of it.",
+      "state": "independent_multiple_countries",
+      "studyCount": 2,
+      "groupCount": 2,
+      "countryCount": 2,
+      "models": "Seized preparations.",
+      "humanConfirmed": false,
+      "basis": "Norwegian doping-control laboratory (2010) and University of Copenhagen forensic chemistry (2019), no shared institution, each identified modified GRF (1-29) or an analogue of it in seized material.",
+      "limitations": "Two small sets of seized material; the Danish abstract does not state the names the powders were sold under.",
+      "supportingRecords": "PMID 21204297; PMID 30136411"
+    }
+  ]
+}

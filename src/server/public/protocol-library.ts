@@ -313,5 +313,11 @@ export async function readProtocolLibrary(
     sources: sourcesByProtocol.get(String(p.id)) ?? [],
   }));
 
+  // Alphabetical as a reader means it. The database collation sorts by code
+  // point, which put "MOTS-c" before "Modified GRF (1-29)"; an order that looks
+  // arbitrary invites a reader to look for a ranking in it. The sort is stable,
+  // so protocol-key order within a compound is kept.
+  protocols.sort((a, b) => a.peptideName.localeCompare(b.peptideName));
+
   return { ...library, protocols };
 }

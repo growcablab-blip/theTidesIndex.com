@@ -319,7 +319,7 @@ const FIELDS: readonly { label: string; get: (p: LibraryProtocol) => string | nu
 function ProtocolRecord({ protocol }: { protocol: LibraryProtocol }) {
   const source = protocol.sources[0];
   return (
-    <li className="flex flex-col rounded-lg border border-rule bg-paper px-4 py-4">
+    <li className="flex flex-col rounded-lg border border-rule bg-warm-white px-4 py-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <ProtocolContextBadge
           evidenceTypeKey={protocol.evidenceTypeKey}

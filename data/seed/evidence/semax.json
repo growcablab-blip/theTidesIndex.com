@@ -1,0 +1,542 @@
+{
+  "packetKey": "semax",
+  "peptideKey": "semax",
+  "note": "Extracted 13 September 2026 from a PubMed census of 215 records (semax-pubmed-2026-09), 88 of them in Russian; fourteen journal abstracts (SRC-097 to SRC-109, SRC-114) and all five practitioner sources. TRANSLATION: every Russian-language source here was read only through the English abstract PubMed indexes. No translation was performed by this index, nothing is quoted from Russian text, and where a design detail is not in the English abstract the record says it is not stated rather than inferring it (owner decision D-07). Seeds, the Peptide Handbook, the cheat sheet and Hack Smith are cited by file page; Campbell by the book's page numbers. Molecular weight was checked by summing average residue masses for the printed sequence. Amounts appear only in protocol fields.",
+  "compound": {
+    "shortDescription": "A seven-amino-acid peptide built from a fragment of the stress hormone ACTH, developed in Moscow and used clinically in Russia for stroke and nerve disorders. Its human studies are Russian, small and mostly not randomised; its use as a nootropic elsewhere rests on none of them.",
+    "simpleSummary": "Semax is a small lab-made peptide based on a piece of ACTH, a hormone involved in the stress response, with three amino acids added to make it last longer. It was developed at a Russian Academy of Sciences institute and has been used by Russian doctors, usually as nose drops, alongside standard treatment for stroke, optic nerve disease and other conditions.\n\n**There are human studies, and they have real limits.** Russian clinical reports describe better recovery after stroke, better healing of stubborn stomach ulcers and improved vision in optic nerve disease when Semax was added to usual care. Most compared patients who got Semax with patients who did not, without saying they were assigned by chance or that anyone was blinded, and this index could read them only through short English summaries. No large, randomised, independently run trial was found.\n\n**In rats, it raised a brain growth factor called BDNF.** That is the basis for its reputation as a brain booster. No study found in people tested memory or focus in the way practitioner books describe using it, and the amounts they suggest are far smaller than those used in stroke studies. One report advises watching the first injection because some patients showed unusual brain-wave activity.",
+    "practitionerSummary": "Semax (Met-Glu-His-Phe-Pro-Gly-Pro; ACTH(4-7)PGP) is a heptapeptide analogue of ACTH(4-10) in which a C-terminal Pro-Gly-Pro was added for stability. Preclinical work from the developer institute reports increased hippocampal BDNF protein, trkB phosphorylation and BDNF/trkB mRNA after a single intranasal dose in rats, with improved conditioned avoidance; tritium-labelled intranasal Semax reached rat brain within 2 minutes in a small fraction and was rapidly degraded, Pro-Gly-Pro predominating; the Pro-Gly-Pro fragment alone lacked the full peptide's neuroprotection in rat ischaemia. Semax and Selank inhibit enkephalin-degrading enzymes of human serum in vitro. Human evidence is Russian-language and add-on in design: acute ischaemic stroke (30 treated against 80 conventionally treated controls, non-randomised; later 110 rehabilitation patients with plasma BDNF and Barthel index, allocation not stated), optic nerve disease, glaucomatous optic neuropathy, refractory peptic ulcer, cerebrovascular insufficiency, diabetic retinopathy, psoriasis with metabolic syndrome, and an open-label motor neuron disease study; two small resting-state fMRI studies in healthy volunteers; and a report of paroxysmal EEG activity after some injections in posthypoxic encephalopathy. No human pharmacokinetic study, and no randomised blinded trial registered outside Russia, was identified. Practitioner amounts for nootropic use are one to two orders of magnitude below the stroke-study daily doses and cite no human study. Seized preparations in Belgium contained Semax.",
+    "unknownsSummary": "Not established: human pharmacokinetics by any route; whether any clinical benefit holds in a randomised, blinded, independently replicated trial; any cognitive effect in healthy people at the amounts practitioner sources describe; long-term safety, including the EEG finding; the regulatory position, which practitioner sources describe but no regulator record held here confirms; and anything about N-acetyl Semax amidate, a modified molecule sold interchangeably by some sources.",
+    "aliases": [
+      { "alias": "ACTH(4-7)PGP", "note": "Chemical shorthand: the ACTH 4-7 fragment with Pro-Gly-Pro." },
+      { "alias": "Semaks", "note": "Transliteration used in some Russian journal titles." },
+      { "alias": "N-acetyl Semax amidate", "note": "NOT this molecule: a modified form with added end groups, sold as a nootropic. No study of it was identified." }
+    ],
+    "sequence": "MEHFPGP",
+    "molecularDescription": "Heptapeptide Met-Glu-His-Phe-Pro-Gly-Pro: the ACTH 4-7 sequence followed by Pro-Gly-Pro.",
+    "naturalOrSynthetic": "Synthetic",
+    "nomenclatureNote": "Sometimes called an ACTH(4-10) analogue and sometimes ACTH(4-7)PGP; both describe the same seven residues. N-acetyl Semax amidate, offered interchangeably by one quick-reference source, is a different molecule."
+  },
+  "locations": [
+    { "key": "gusev-1997", "sourceKey": "SRC-097", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 11517472)" },
+    { "key": "gusev-2018", "sourceKey": "SRC-098", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 29798983)" },
+    { "key": "polunin-2000", "sourceKey": "SRC-099", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 10741256)" },
+    { "key": "ivanikov-2002", "sourceKey": "SRC-100", "locatorText": "Abstract", "section": "Abstract (PMID 12459874)" },
+    { "key": "gusev-2005", "sourceKey": "SRC-101", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 15792140)" },
+    { "key": "serdiuk-2007", "sourceKey": "SRC-102", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 18379501)" },
+    { "key": "lebedeva-2018", "sourceKey": "SRC-103", "locatorText": "Abstract", "section": "Abstract (PMID 30225715)" },
+    { "key": "panikratova-2020", "sourceKey": "SRC-104", "locatorText": "Abstract", "section": "Abstract (PMID 32342318)" },
+    { "key": "kost-2001", "sourceKey": "SRC-105", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 11443939)" },
+    { "key": "dolotov-2006", "sourceKey": "SRC-106", "locatorText": "Abstract", "section": "Abstract (PMID 16996037)" },
+    { "key": "shevchenko-2006", "sourceKey": "SRC-107", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 16523722)" },
+    { "key": "fadyukova-2005", "sourceKey": "SRC-108", "locatorText": "Abstract", "section": "Abstract (PMID 16027870)" },
+    { "key": "ashmarin-1997", "sourceKey": "SRC-109", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 9173745)" },
+    { "key": "posthypoxic-1999", "sourceKey": "SRC-119", "locatorText": "Abstract (English abstract of Russian article)", "section": "Abstract (PMID 10199046)" },
+    { "key": "vanhee-2020", "sourceKey": "SRC-114", "locatorText": "Abstract", "section": "Abstract (PMID 31667971)" },
+    { "key": "seeds-semax-231", "sourceKey": "SRC-001", "locatorText": "file p. 231", "section": "Semax (N-Acetyl): properties" },
+    { "key": "seeds-semax-233", "sourceKey": "SRC-001", "locatorText": "file p. 233", "section": "Semax: dosage" },
+    { "key": "lavalle-semax-123", "sourceKey": "SRC-002", "locatorText": "file p. 123", "section": "Semax: category, names, sequence, indications" },
+    { "key": "lavalle-semax-125", "sourceKey": "SRC-002", "locatorText": "file pp. 125-126", "section": "Semax: warnings, summary, Russian drug list" },
+    { "key": "campbell-semax-111", "sourceKey": "SRC-003", "locatorText": "pp. 111-112", "pageStart": 111, "pageEnd": 112, "section": "Semax" },
+    { "key": "campbell-semax-113", "sourceKey": "SRC-003", "locatorText": "pp. 113-116", "pageStart": 113, "pageEnd": 116, "section": "Semax recommended dosage" },
+    { "key": "campbell-semax-117", "sourceKey": "SRC-003", "locatorText": "p. 117", "pageStart": 117, "section": "Important note: N-acetyl Semax amidate" },
+    { "key": "cheatsheet-semax-5", "sourceKey": "SRC-004", "locatorText": "file p. 5", "section": "Cognition table, Semax OR NA Semax Amidate row" },
+    { "key": "hacksmith-semax", "sourceKey": "SRC-005", "locatorText": "file pp. 105-107", "section": "Semax" },
+    { "key": "hacksmith-persona-semax", "sourceKey": "SRC-005", "locatorText": "file pp. 188-189", "section": "Personas: cognitive function and sleep" }
+  ],
+  "claims": [
+    {
+      "claimKey": "SEMAX-001",
+      "claimText": "Semax is the heptapeptide Met-Glu-His-Phe-Pro-Gly-Pro, and together with Selank it inhibits the enkephalin-degrading enzymes of human serum in vitro more strongly than several standard peptidase inhibitors; its pentapeptide fragments share the effect while shorter fragments do not.",
+      "plainLanguageText": "Semax is a seven-amino-acid peptide. In the laboratory it slows the breakdown of the body's own pain-relieving peptides in human blood serum.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Confirms the sequence from a primary source and gives one mechanism. Serum enzymes in a tube are not a person.",
+      "uncertaintyText": "In vitro; clinical relevance not established.",
+      "evidence": [
+        { "locationKey": "kost-2001", "evidenceTypeKey": "in_vitro", "interpretation": "Sequence stated; dose-dependent inhibition of serum enkephalinases." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-002",
+      "claimText": "A single intranasal application of Semax in rats increased hippocampal BDNF protein about 1.4-fold, trkB phosphorylation about 1.6-fold, and BDNF and trkB mRNA, alongside more conditioned avoidance responses.",
+      "plainLanguageText": "In rats, one dose of Semax in the nose raised a brain growth factor linked to learning.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "The basis of practitioner claims about BDNF and cognition. The work is from the developer institute.",
+      "uncertaintyText": "Rats. No human study measured brain BDNF after Semax; one stroke study measured plasma BDNF.",
+      "evidence": [
+        { "locationKey": "dolotov-2006", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Hippocampal BDNF/trkB and avoidance learning after intranasal Semax." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-003",
+      "claimText": "After intranasal administration of tritium-labelled Semax to rats, a small fraction of the dose was found in the brain at 2 minutes, most of it as intact Semax, and the peptide was rapidly degraded with Pro-Gly-Pro predominating; the Pro-Gly-Pro fragment alone did not reproduce the neuroprotective effect of Semax in rat cerebral ischaemia.",
+      "plainLanguageText": "In rats, a little Semax reaches the brain quickly through the nose and is broken down fast. Its last three amino acids on their own did not protect the brain.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Animal pharmacokinetics; the only distribution data identified.",
+      "uncertaintyText": "Rats; no human pharmacokinetic study was identified.",
+      "evidence": [
+        { "locationKey": "shevchenko-2006", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Brain and blood kinetics and degradation after intranasal labelled Semax." },
+        { "locationKey": "fadyukova-2005", "evidenceTypeKey": "animal_in_vivo", "interpretation": "Pro-Gly-Pro lacks neuroprotection in incomplete global ischaemia." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-004",
+      "claimText": "Russian clinical studies report that adding Semax to therapy in acute ischaemic stroke improved recovery of neurological, especially motor, function compared with conventional therapy (30 treated against 80 controls, not randomised), and that in stroke rehabilitation Semax increased plasma BDNF and improved Barthel index outcomes (110 patients, allocation not stated).",
+      "plainLanguageText": "In Russian studies, patients recovering from stroke who were given Semax alongside usual treatment did better. The studies did not assign patients by chance.",
+      "claimCategory": "efficacy-human",
+      "importance": "critical",
+      "interpretationNotes": "The core clinical claim. Both studies come from the same Moscow group, read through English abstracts, with non-random or unstated allocation.",
+      "uncertaintyText": "Risk of bias is high: allocation, blinding and outcome assessment are not described in the abstracts. Not replicated outside this group.",
+      "evidence": [
+        { "locationKey": "gusev-1997", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Neurological recovery with Semax added to intensive therapy versus conventional therapy." },
+        { "locationKey": "gusev-2018", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Plasma BDNF, motor performance and Barthel index with and without Semax." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-005",
+      "claimText": "Further Russian add-on studies report benefit with Semax in optic nerve disease (improved visual acuity, fields and conduction), refractory peptic ulcer (healing by day 14 in 89.5% against 30.8% of controls), and cerebrovascular insufficiency (stabilisation and fewer strokes and transient ischaemic attacks), with few side effects reported.",
+      "plainLanguageText": "Other Russian studies report Semax helped eye nerve disease, stubborn stomach ulcers and poor blood flow to the brain when added to usual care.",
+      "claimCategory": "efficacy-human",
+      "importance": "high",
+      "interpretationNotes": "A broad spread of indications from small add-on studies. Breadth is not strength: none reports randomisation or blinding in its abstract.",
+      "uncertaintyText": "Design details largely absent from the abstracts; group sizes not always stated.",
+      "evidence": [
+        { "locationKey": "polunin-2000", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Visual function outcomes against a control group." },
+        { "locationKey": "ivanikov-2002", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Ulcer healing rates with and without intranasal Semax." },
+        { "locationKey": "gusev-2005", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "Progression and cerebrovascular events; comparison group not clearly stated." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-006",
+      "claimText": "In small resting-state fMRI studies in healthy volunteers, intranasal Semax compared with placebo was associated with a larger rostral default-mode-network component 20 minutes after administration, and Semax and Selank each altered functional connectivity between the right amygdala and temporal cortex.",
+      "plainLanguageText": "Brain scans in healthy volunteers showed small changes in brain network activity shortly after Semax. That is not the same as better memory or focus.",
+      "claimCategory": "human-pharmacodynamics",
+      "importance": "medium",
+      "interpretationNotes": "The only human studies in healthy people. They measure imaging signals, not cognition.",
+      "uncertaintyText": "Small groups; single sessions; imaging endpoints only.",
+      "evidence": [
+        { "locationKey": "lebedeva-2018", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Default mode network before and after intranasal Semax or placebo." },
+        { "locationKey": "panikratova-2020", "evidenceTypeKey": "human_controlled_nonrandomized", "interpretation": "Amygdala functional connectivity after Semax, Selank or placebo." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-007",
+      "claimText": "In 73 patients with posthypoxic encephalopathy, EEG showed episodes of paroxysmal activity after Semax injection in some cases, and the authors advised that the first injection be given with monitoring of brain electrical activity.",
+      "plainLanguageText": "In one study of patients with brain injury from lack of oxygen, some showed unusual brain-wave activity after Semax, and the doctors advised monitoring the first dose.",
+      "claimCategory": "safety-human",
+      "importance": "high",
+      "interpretationNotes": "A safety signal from a vulnerable population; it does not appear in any practitioner source held here, which describe Semax as well tolerated.",
+      "uncertaintyText": "Uncontrolled; frequency and clinical consequence not stated in the abstract.",
+      "evidence": [
+        { "locationKey": "posthypoxic-1999", "evidenceTypeKey": "human_prospective_uncontrolled", "interpretation": "Paroxysmal EEG activity after some injections and the advice to monitor the first injection." }
+      ]
+    },
+    {
+      "claimKey": "SEMAX-008",
+      "claimText": "Two unknown preparations seized in 2017 and 2018 contained Semax and Selank, which the analysing laboratory described as, to its knowledge, not having completed any clinical trials, and online sale of these research peptides as powders for injection or nasal sprays was documented.",
+      "plainLanguageText": "Seized products contained Semax, and similar products are sold online.",
+      "claimCategory": "product-characterisation",
+      "importance": "medium",
+      "interpretationNotes": "The laboratory's statement about trials sits against the Russian clinical literature; both are recorded and the difference is a disagreement below.",
+      "uncertaintyText": "Two preparations; the laboratory's statement is a background remark, not a literature review.",
+      "evidence": [
+        { "locationKey": "vanhee-2020", "evidenceTypeKey": "analytical_characterisation", "interpretation": "Identification of Semax and Selank in seized material." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Human pharmacokinetics of Semax by any route.",
+      "why": "Distribution data exist only for rats.",
+      "whatWouldResolveIt": "A human pharmacokinetic study of intranasal and subcutaneous Semax.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What fraction of intranasal Semax reaches human plasma intact, and how quickly is it degraded?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "A randomised, blinded, independently replicated trial of Semax in any condition.",
+      "why": "The human studies identified are Russian, small, mostly add-on, and do not report randomisation or blinding in their abstracts.",
+      "whatWouldResolveIt": "A registered, randomised, placebo-controlled trial run outside the developer's clinical network.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does Semax added to standard care improve functional recovery after ischaemic stroke in a registered, randomised, blinded trial?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any cognitive benefit in healthy people at the amounts practitioner sources describe.",
+      "why": "Human data in healthy people are imaging studies; no cognitive-outcome trial at nootropic amounts was identified.",
+      "whatWouldResolveIt": "A placebo-controlled study of cognitive performance in healthy adults.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does intranasal Semax improve attention or working memory in healthy adults compared with placebo?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Long-term safety, including the EEG paroxysmal activity reported after some injections.",
+      "why": "Reported once in posthypoxic encephalopathy; not followed up in the records identified.",
+      "whatWouldResolveIt": "EEG monitoring in any controlled human study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How often does Semax provoke paroxysmal EEG activity, and in whom?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The regulatory status of Semax in Russia.",
+      "why": "Practitioner sources describe approval in 1996 and inclusion on a national essential-drugs list in 2011; no regulator record was read.",
+      "whatWouldResolveIt": "The Russian State Register of Medicinal Products entry.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Anything about N-acetyl Semax amidate.",
+      "why": "Sold interchangeably with Semax by one source and preferred by a vendor quoted in another; no study of it was identified.",
+      "whatWouldResolveIt": "Characterisation and any study of the modified molecule.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do N-terminal acetylation and C-terminal amidation change Semax's stability, brain entry or activity?",
+      "opportunityType": "identity_clarification"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "intranasal",
+      "evidenceTypeKey": "human_controlled_nonrandomized",
+      "locationKey": "ivanikov-2002",
+      "populationModel": "Russian patients with peptic ulcer, optic nerve disease, motor neuron disease and other conditions; healthy volunteers in imaging studies.",
+      "formulation": "Nasal drops (1% or 0.1% solution, as stated by the studies).",
+      "pkNotes": "Rat data only: rapid brain entry of a small fraction and rapid degradation.",
+      "limitationsNotes": "The main clinical route. Human pharmacokinetics by this route are not established."
+    },
+    {
+      "routeKey": "other",
+      "evidenceTypeKey": "human_controlled_nonrandomized",
+      "locationKey": "polunin-2000",
+      "populationModel": "Patients with optic nerve disease or diabetic retinopathy.",
+      "formulation": "Endonasal electrophoresis.",
+      "pkNotes": null,
+      "limitationsNotes": "A physiotherapy delivery method used in Russian ophthalmology studies."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-semax-233",
+      "populationModel": "Not specified by the sources.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Described by practitioner sources. No human study by this route was identified."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "SEMAX-PR-STUDY-STROKE-1997",
+      "objectiveContext": "Acute hemispheric ischaemic stroke, added to intensive therapy (controlled, non-randomised).",
+      "populationModel": "30 patients with acute ischaemic stroke; 80 conventionally treated controls. Russia.",
+      "routeKey": "other",
+      "formulation": "Route not stated in the English abstract.",
+      "regulatoryContext": "A clinical study regimen in hospital stroke care. Not a nootropic schedule.",
+      "evidenceTypeKey": "human_controlled_nonrandomized",
+      "amountReported": "12 mg daily (moderate stroke); 18 mg daily (severe stroke)",
+      "amountUnit": "mg",
+      "frequencyText": "Daily",
+      "durationText": "Courses of 5 and 10 days",
+      "monitoringText": "EEG mapping and somatosensory evoked potentials",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "gusev-1997"
+    },
+    {
+      "protocolKey": "SEMAX-PR-STUDY-STROKE-2018",
+      "objectiveContext": "Rehabilitation after ischaemic stroke.",
+      "populationModel": "110 patients at early or late rehabilitation stages. Russia.",
+      "routeKey": "other",
+      "formulation": "Route not stated in the English abstract.",
+      "regulatoryContext": "A clinical study regimen. Not a nootropic schedule.",
+      "evidenceTypeKey": "human_controlled_nonrandomized",
+      "amountReported": "6000 mcg/day",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily during each course",
+      "durationText": "Two 10-day courses",
+      "cycleText": "20-day interval between courses",
+      "monitoringText": "Plasma BDNF, motor performance, Barthel index",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "gusev-2018"
+    },
+    {
+      "protocolKey": "SEMAX-PR-STUDY-ULCER",
+      "objectiveContext": "Refractory peptic ulcer, added to omeprazole, bismuth and solcoseryl.",
+      "populationModel": "Patients with refractory peptic ulcer against a control group. Russia.",
+      "routeKey": "intranasal",
+      "formulation": "1% solution, nasal drops.",
+      "regulatoryContext": "A clinical study regimen.",
+      "evidenceTypeKey": "human_controlled_nonrandomized",
+      "amountReported": "2-4 drops of 1% solution",
+      "amountUnit": "drops",
+      "frequencyText": "3 times a day",
+      "durationText": "10 days",
+      "combinationsText": "Standard antiulcer therapy.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "ivanikov-2002"
+    },
+    {
+      "protocolKey": "SEMAX-PR-STUDY-MND",
+      "objectiveContext": "Motor neuron disease (open-label).",
+      "populationModel": "27 patients with motor neuron disease. Russia.",
+      "routeKey": "intranasal",
+      "formulation": "1% solution.",
+      "regulatoryContext": "An open-label study regimen.",
+      "evidenceTypeKey": "human_prospective_uncontrolled",
+      "amountReported": "12 mg daily",
+      "amountUnit": "mg",
+      "frequencyText": "Daily",
+      "durationText": "Two 10-day courses",
+      "cycleText": "2-week break between courses",
+      "monitoringText": "Needle EMG; ALS functional and quality-of-life scales",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "serdiuk-2007"
+    },
+    {
+      "protocolKey": "SEMAX-PR-SEEDS",
+      "objectiveContext": "Neuroprotection and cognition, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intranasal",
+      "formulation": "Intranasal, or subcutaneous as an alternative.",
+      "regulatoryContext": "A practitioner handbook's amounts, far below the stroke-study doses and citing no human study.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "750-1000 mcg intranasally, or 100-300 mcg subcutaneously",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily",
+      "durationText": null,
+      "combinationsText": "Can be alternated with Selank.",
+      "monitoringText": "Dose by patient response; the source warns that more than these maximums can cause desensitisation.",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "seeds-semax-233"
+    },
+    {
+      "protocolKey": "SEMAX-PR-HACKSMITH",
+      "objectiveContext": "Cognition, stress and neurological recovery, as framed by the guide.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intranasal",
+      "formulation": "Intranasal spray, or subcutaneous injection as an alternative.",
+      "regulatoryContext": "A practitioner guide's amounts. No human study at these amounts was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "400-800 mcg daily intranasally; 100-300 mcg daily subcutaneously",
+      "amountUnit": "mcg",
+      "frequencyText": "Intranasal divided into 2-3 administrations; subcutaneous once",
+      "timingText": "Morning, to avoid evening overstimulation",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "Mild nasal irritation, headaches at higher doses, mild overstimulation late in the day, per the source.",
+      "locationKey": "hacksmith-semax"
+    },
+    {
+      "protocolKey": "SEMAX-PR-CAMPBELL-ANDREWS",
+      "objectiveContext": "Focus during very late working nights, as reported by Campbell from Nick Andrews.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intranasal",
+      "formulation": "Intranasal spray; the book's worked example is about 300 mcg per spray from a 30 mg / 10 mL bottle.",
+      "regulatoryContext": "A second-hand report of a formulator's use. No study was identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1.0-1.5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "When working very late nights",
+      "timingText": "The book separately recommends morning, fasted use",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "campbell-semax-113"
+    },
+    {
+      "protocolKey": "SEMAX-PR-CHEATSHEET",
+      "objectiveContext": "Cognition, as framed by the cheat sheet.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "other",
+      "formulation": "Semax OR N-acetyl Semax amidate, 30 mg vial with 3 ml bacteriostatic water; 10 units on a 1 ml insulin syringe. Route not named; the two molecules are offered interchangeably.",
+      "regulatoryContext": "A practitioner quick-reference schedule that does not distinguish two different molecules.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1mg",
+      "amountUnit": "mg",
+      "frequencyText": "2-3 days per week",
+      "timingText": "AM",
+      "durationText": null,
+      "cycleText": "8 weeks on, 8 weeks off",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "cheatsheet-semax-5"
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreementKey": "SEMAX-D-001",
+      "topic": "How much Semax is used.",
+      "plainLanguageText": "Russian stroke studies used daily amounts many times larger than practitioner books suggest for focus and memory.",
+      "candidateExplanation": "population",
+      "explanationNotes": "The two are different uses: hospital treatment of acute brain injury, and cognitive use in healthy people. One practitioner book says so explicitly. Neither amount is validated for the other use.",
+      "resolution": "resolved_different_population",
+      "resolutionBasis": "The stroke studies (SRC-097, SRC-098) treated hospital patients; the practitioner amounts (SRC-001, SRC-003, SRC-005) are for healthy users, and SRC-003 p. 116 states the nootropic amounts are entirely different from stroke treatment. The difference is explained by population, not reconciled by evidence.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "A dose-finding study in the population of interest.",
+      "positions": [
+        { "locationKey": "gusev-1997", "evidenceTypeKey": "human_controlled_nonrandomized", "positionText": "Daily doses in the milligram range for moderate and severe stroke, for 5-10 days." },
+        { "locationKey": "seeds-semax-233", "evidenceTypeKey": "practitioner_reference", "positionText": "Hundreds of micrograms daily for neuroprotection and cognition." },
+        { "locationKey": "campbell-semax-113", "evidenceTypeKey": "practitioner_reference", "positionText": "States that its dosing recommendations are entirely different from those for treating stroke." }
+      ]
+    },
+    {
+      "disagreementKey": "SEMAX-D-002",
+      "topic": "Whether Semax has been through clinical trials.",
+      "plainLanguageText": "Russian doctors have published clinical studies of Semax. A European drug-testing laboratory says, as far as it knows, Semax has not completed any clinical trials.",
+      "candidateExplanation": "reporting_threshold",
+      "explanationNotes": "Both statements can be sincere. The Russian studies are small, published in Russian, and not described as registered or randomised; a laboratory looking for trials of the kind used for approval in Europe may not count them. This index records the studies and their limits rather than choosing a definition.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "A systematic search of Russian trial registries and regulatory dossiers.",
+      "positions": [
+        { "locationKey": "gusev-1997", "evidenceTypeKey": "human_controlled_nonrandomized", "positionText": "Reports a controlled clinical study in acute ischaemic stroke." },
+        { "locationKey": "lavalle-semax-125", "evidenceTypeKey": "practitioner_reference", "positionText": "Semax has undergone extensive study in Russia." },
+        { "locationKey": "vanhee-2020", "evidenceTypeKey": "analytical_characterisation", "positionText": "To the authors' knowledge, Semax and Selank have not completed any clinical trials." }
+      ]
+    },
+    {
+      "disagreementKey": "SEMAX-D-003",
+      "topic": "Whether N-acetyl Semax amidate is the same as Semax.",
+      "plainLanguageText": "A cheat sheet lists 'Semax OR NA Semax Amidate' as if they were interchangeable. They are different molecules, and the studies used plain Semax.",
+      "candidateExplanation": "chemical_form",
+      "explanationNotes": "Acetylating one end and amidating the other changes the molecule. A vendor quoted in one book prefers the modified form for brain entry and half-life, a claim no study identified supports.",
+      "resolution": "resolved_different_chemical_form",
+      "resolutionBasis": "The primary sources describe Semax as Met-Glu-His-Phe-Pro-Gly-Pro (SRC-105, SRC-106); N-acetyl Semax amidate carries additional end groups. No study of the modified form was identified in the census.",
+      "resolvedAt": "2026-09-13",
+      "resolutionRequirement": "None for the chemistry; any claim about the modified form needs its own study.",
+      "positions": [
+        { "locationKey": "cheatsheet-semax-5", "evidenceTypeKey": "practitioner_reference", "positionText": "Semax OR NA Semax Amidate, one schedule for both." },
+        { "locationKey": "campbell-semax-117", "evidenceTypeKey": "practitioner_reference", "positionText": "A vendor prefers N-acetyl Semax amidate for brain entry and half-life." },
+        { "locationKey": "kost-2001", "evidenceTypeKey": "in_vitro", "positionText": "Semax is Met-Glu-His-Phe-Pro-Gly-Pro." }
+      ]
+    },
+    {
+      "disagreementKey": "SEMAX-D-004",
+      "topic": "When Semax was approved in Russia.",
+      "plainLanguageText": "One book says Russia approved Semax in 1996; another says it was put on a national essential-drugs list in 2011. These may both be true, and neither has been checked against a regulator's record.",
+      "candidateExplanation": "date",
+      "explanationNotes": "Approval and inclusion on an essential-drugs list are different events. Regulatory status is secondary on this record and is recorded as unverified.",
+      "resolution": "unresolved",
+      "resolutionRequirement": "The Russian State Register of Medicinal Products entry and the relevant government list.",
+      "positions": [
+        { "locationKey": "campbell-semax-111", "evidenceTypeKey": "practitioner_reference", "positionText": "Russia's pharmaceutical regulatory agency approved Semax in 1996." },
+        { "locationKey": "lavalle-semax-125", "evidenceTypeKey": "practitioner_reference", "positionText": "On the Russian List of Vital and Essential Drugs approved on 7 December 2011." }
+      ]
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Russian Federation",
+      "indicationContext": "Neurological and ophthalmic conditions, as described by practitioner sources",
+      "status": "unknown",
+      "authority": "No regulator's own record has been consulted",
+      "locationKey": "lavalle-semax-125",
+      "checkedAt": "2026-09-13",
+      "notes": "Practitioner sources state that Semax was approved in Russia and placed on a national essential-drugs list. The Russian clinical literature is consistent with clinical use there. Without the regulator's own record, status is recorded as unknown. Regulatory position is secondary: it says nothing about the quality of the evidence above, and non-approval elsewhere is not evidence of absence."
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "SEMAX-ID-001",
+      "nameUsed": "Semax",
+      "chemicalForm": "Heptapeptide Met-Glu-His-Phe-Pro-Gly-Pro",
+      "sequence": "MEHFPGP",
+      "residueCount": 7,
+      "form": "analogue",
+      "verification": "stated_by_primary_source",
+      "usageContext": "Russian biochemistry of serum enkephalinase inhibition.",
+      "notes": "Sequence also stated in the rat BDNF study (SRC-106).",
+      "evidenceTypeKey": "in_vitro",
+      "locationKey": "kost-2001"
+    },
+    {
+      "identityKey": "SEMAX-ID-002",
+      "nameUsed": "Semax (N-Acetyl)",
+      "chemicalForm": "Heptapeptide as printed by the handbook",
+      "sequence": "MEHFPGP",
+      "residueCount": 7,
+      "molecularWeight": 813.92,
+      "weightBasis": "As printed; agrees with the average mass of the unmodified sequence computed by this index. The heading says N-acetyl, which the printed weight does not include.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The handbook's properties list.",
+      "notes": "The 'N-Acetyl' label and the weight describe different molecules.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "seeds-semax-231"
+    },
+    {
+      "identityKey": "SEMAX-ID-003",
+      "nameUsed": "N-acetyl Semax amidate",
+      "chemicalForm": "Semax with N-terminal acetyl and C-terminal amide groups",
+      "form": "analogue",
+      "verification": "asserted_without_detail",
+      "usageContext": "A vendor preference relayed in a practitioner book; offered interchangeably on a cheat sheet.",
+      "notes": "A different molecule; no study identified.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "campbell-semax-117"
+    },
+    {
+      "identityKey": "SEMAX-ID-004",
+      "nameUsed": "Semax (seized preparation)",
+      "chemicalForm": "Identified in an unknown seized preparation",
+      "form": "analogue",
+      "verification": "analytically_characterised",
+      "usageContext": "Forensic identification in Belgium.",
+      "notes": null,
+      "evidenceTypeKey": "analytical_characterisation",
+      "locationKey": "vanhee-2020"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "SEMAX-REP-001",
+      "finding": "Semax added to care improves recovery after ischaemic stroke.",
+      "state": "repeated_same_group",
+      "studyCount": 2,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Adults with acute or subacute ischaemic stroke.",
+      "humanConfirmed": true,
+      "basis": "Two studies two decades apart share a lead investigator in Moscow. No study from another group or country was identified.",
+      "limitations": "Non-random or unstated allocation; English abstracts only.",
+      "supportingRecords": "PMID 11517472; PMID 29798983"
+    },
+    {
+      "assessmentKey": "SEMAX-REP-002",
+      "finding": "Semax increases BDNF in rat brain.",
+      "state": "repeated_same_group",
+      "studyCount": null,
+      "groupCount": 1,
+      "countryCount": 1,
+      "models": "Rats; glial cultures.",
+      "humanConfirmed": false,
+      "basis": "Several studies from the developer institute report neurotrophin effects; they were classified by rule in the census and not adjudicated individually, so a count is not claimed.",
+      "limitations": "One institute.",
+      "supportingRecords": "PMID 16996037"
+    },
+    {
+      "assessmentKey": "SEMAX-REP-003",
+      "finding": "Clinical effects of Semax outside Russia.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No human study outside Russia was identified.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ]
+}
