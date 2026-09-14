@@ -1,48 +1,77 @@
 import Link from 'next/link';
 import { getCoverageSnapshot } from '@/server/public/queries';
-import { ProvenanceFigure } from '@/components/public/provenance-figure';
-import { AudiencePaths, TaskGrid } from '@/components/public/entry-paths';
+import { AudiencePaths } from '@/components/public/entry-paths';
 import { Container } from '@/components/public/primitives';
+import { EditorialStateLegend } from '@/components/public/editorial-state';
+import { ProvenanceFigure } from '@/components/public/provenance-figure';
+import { JourneyIcon } from '@/components/illustrations/journey-icons';
+import { LEARNING_JOURNEY } from '@/domain/learn/journey';
 
 /**
  * Home.
  *
- * The previous version was credible and gave a reader nothing to do: it said
- * what the index is and left them to work out whether any of it was for them.
- * It also reported coverage as published counts, which — with the demonstration
- * fixture correctly excluded — is now zero across the board.
+ * Three questions, in the order a stranger asks them, and each has its own
+ * movement of the page:
  *
- * So the page answers three questions in order, and each has its own band:
+ *   what is this          the promise, the search box, and the depth it goes to
+ *   where do I start      the seven questions, as a path rather than a menu
+ *   why trust it          the three kinds of statement, the rules, the coverage
  *
- *   what is here        the promise, the search box, and how a statement is built
- *   who is it for       two ways in, patient and clinician, over one database
- *   what can I do next  six tasks, with the unwritten ones saying so
- *
- * Coverage is now stated as work in progress rather than as publication,
- * because that is what it is. Ten compounds in development and four quality
- * references written is true and useful; "zero published" is true and reads as
- * an empty site; "one published" was neither.
+ * The page states nothing about any peptide. Every scientific sentence a reader
+ * meets is one click away, on a record, with its source attached.
  */
 export const dynamic = 'force-dynamic';
+
+const DEPTHS = [
+  {
+    time: 'In 60 seconds',
+    title: 'Understand the subject',
+    body: 'A drawing and a few plain sentences per question. No jargon, no doses.',
+    href: '/learn',
+    cta: 'Start learning',
+  },
+  {
+    time: 'In 5 minutes',
+    title: 'Useful in a clinic',
+    body: 'What the sources actually report, side by side, with what remains unsettled.',
+    href: '/peptides',
+    cta: 'Open the register',
+  },
+  {
+    time: 'At depth',
+    title: 'Follow the trail',
+    body: 'Each statement to a passage in a named source, and how far it was checked.',
+    href: '/sources',
+    cta: 'See the sources',
+  },
+] as const;
+
+const RULES = [
+  ['Provenance, not assertion', 'Every statement points at a location in a source, and you can follow it back.'],
+  ['Human evidence kept separate', 'Animal and laboratory work is labelled wherever it appears. A result in mice never reads as a finding in people.'],
+  ['Protocols are never merged', 'Each regimen stays attributed to the source that published it. There is no averaged standard protocol, because no source stated one.'],
+  ['Uncertainty is a required field', 'A high-impact statement cannot be published without saying what remains unknown. “Not established” is an answer.'],
+  ['Two reading depths, one record', 'Plain language for patients, full evidence for clinicians — over the same reviewed data, with doses withheld in the query.'],
+  ['No scores, nothing to sell', 'No ratings out of ten, no vendor rankings, no affiliate links, no products.'],
+] as const;
 
 export default async function HomePage() {
   const snapshot = await getCoverageSnapshot();
 
   return (
     <>
-      {/* --- What is here ------------------------------------------------ */}
+      {/* --- What this is -------------------------------------------------- */}
       <section className="border-b border-rule bg-gradient-to-b from-mist to-warm-white">
         <Container width="page" className="py-14 sm:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
-            <div className="max-w-[54ch]">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+            <div className="max-w-[56ch]">
               <p className="meta-label">Independent peptide science &amp; clinical reference</p>
-              <h1 className="mt-3 font-serif text-4xl leading-tight text-ink">
+              <h1 className="mt-3 font-serif text-4xl leading-[1.06] text-ink sm:text-5xl">
                 What has actually been studied, what was found, and what nobody knows yet.
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-                A scientific and clinical reference for peptides. It records what named sources
-                report, keeps evidence from people separate from evidence from animals, shows
-                whether anybody has repeated a finding, and says plainly where the evidence runs
+              <p className="depth-body mt-5 text-lg leading-relaxed text-ink-soft">
+                A reference for peptides that records what named sources report, keeps evidence from
+                people separate from evidence from animals, and says plainly where the evidence runs
                 out — with every statement traceable to a source, a page and a review.
               </p>
 
@@ -59,7 +88,7 @@ export default async function HomePage() {
                 />
                 <button
                   type="submit"
-                  className="rounded-md bg-deep-tide px-6 py-3 font-medium text-warm-white sm:w-auto"
+                  className="rounded-md bg-deep-tide px-6 py-3 font-medium text-warm-white transition-colors hover:bg-ink sm:w-auto"
                 >
                   Search
                 </button>
@@ -71,21 +100,82 @@ export default async function HomePage() {
               <ProvenanceFigure />
             </div>
           </div>
+
+          {/* The progression the whole product is designed around. */}
+          <ol className="mt-12 grid gap-4 sm:grid-cols-3">
+            {DEPTHS.map((d) => (
+              <li key={d.time} className="flex flex-col rounded-xl border border-rule bg-warm-white px-5 py-5">
+                <p className="meta-label text-tide-teal">{d.time}</p>
+                <p className="mt-1.5 font-serif text-xl text-ink">{d.title}</p>
+                <p className="depth-body mt-1.5 flex-1 text-sm leading-relaxed text-ink-soft">{d.body}</p>
+                <Link
+                  href={d.href}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-deep-tide underline decoration-tide-teal/40 underline-offset-4 hover:decoration-tide-teal"
+                >
+                  {d.cta} <span aria-hidden="true">→</span>
+                </Link>
+              </li>
+            ))}
+          </ol>
         </Container>
         <hr className="tide-rule border-0" aria-hidden="true" />
       </section>
 
-      {/* --- Who is it for ----------------------------------------------- */}
-      <section className="border-b border-rule bg-warm-white">
+      {/* --- Where do I start ---------------------------------------------- */}
+      <section>
+        <Container width="page" className="py-14 sm:py-18">
+          <div className="max-w-[60ch]">
+            <h2 className="font-serif text-3xl text-ink sm:text-4xl">Start with a question</h2>
+            <p className="depth-body mt-3 text-ink-soft">
+              Seven questions, in the order understanding builds. Follow them through, or enter
+              wherever your question already is.
+            </p>
+          </div>
+
+          <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {LEARNING_JOURNEY.map((step, index) => (
+              <li key={step.key} className={index === 0 ? 'sm:col-span-2 lg:col-span-2' : ''}>
+                <Link
+                  href={step.start.href}
+                  className="group flex h-full items-start gap-4 rounded-xl border border-rule bg-warm-white px-5 py-4 transition-colors hover:border-tide-teal/60"
+                >
+                  <JourneyIcon kind={step.illustration} className="hidden shrink-0 sm:block" />
+                  <span className="min-w-0">
+                    <span className="meta-label">Step {index + 1}</span>
+                    <span className="mt-0.5 block font-serif text-lg leading-snug text-ink group-hover:text-deep-tide">
+                      {step.question}
+                    </span>
+                    {index === 0 ? (
+                      <span className="depth-body mt-1 block text-sm leading-relaxed text-ink-soft">
+                        {step.brief}
+                      </span>
+                    ) : null}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-8">
+            <Link
+              href="/learn#journey"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-deep-tide underline decoration-tide-teal/40 underline-offset-4 hover:decoration-tide-teal"
+            >
+              See the whole path, with what each step rests on <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* --- Two ways in ----------------------------------------------------- */}
+      <section className="border-y border-rule bg-mist">
         <Container width="page" className="py-14 sm:py-16">
           <div className="max-w-[62ch]">
-            <h2 className="font-serif text-2xl text-ink sm:text-3xl">
-              Two ways in. One set of records.
-            </h2>
-            <p className="mt-3 text-ink-soft">
-              The same reviewed evidence, read at two depths. Nothing is written for one audience
-              and hidden from the other — the plain-language view carries no doses, and that is
-              enforced in the query rather than by leaving them off the page.
+            <h2 className="font-serif text-3xl text-ink">Two ways in. One set of records.</h2>
+            <p className="depth-body mt-3 text-ink-soft">
+              The same reviewed evidence, read at two depths. Nothing is written for one audience and
+              hidden from the other — the plain-language view carries no doses, and that is enforced
+              in the query rather than by leaving them off the page.
             </p>
           </div>
           <div className="mt-9">
@@ -94,96 +184,65 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* --- What can I do next ------------------------------------------ */}
-      <section className="border-b border-rule bg-mist">
-        <Container width="page" className="py-14 sm:py-16">
-          <div className="max-w-[62ch]">
-            <h2 className="font-serif text-2xl text-ink sm:text-3xl">
-              What do you want to understand?
-            </h2>
-            <p className="mt-3 text-ink-soft">
-              Six ways to start. Where a subject is registered and not yet written, the card says
-              so rather than leading somewhere empty.
-            </p>
-          </div>
-          <div className="mt-9">
-            <TaskGrid />
-          </div>
-        </Container>
-      </section>
+      {/* --- Why trust it ---------------------------------------------------- */}
+      <Container width="page" className="py-14 sm:py-18">
+        <div className="max-w-[62ch]">
+          <h2 className="font-serif text-3xl text-ink sm:text-4xl">Every page tells you what it is telling you</h2>
+          <p className="depth-body mt-3 text-ink-soft">
+            Three kinds of statement, marked wherever they appear.
+          </p>
+        </div>
+        <div className="mt-8">
+          <EditorialStateLegend />
+        </div>
 
-      {/* --- What makes this different ------------------------------------ */}
-      <Container width="page" className="py-14 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1fr_18rem] lg:gap-16">
+        <div className="editorial-break mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
           <div>
-            <h2 className="font-serif text-2xl text-ink sm:text-3xl">What makes this different</h2>
-            <p className="mt-3 max-w-[62ch] text-ink-soft">
-              Six rules. Each is enforced by the database rather than by editorial habit, which is
-              why they hold on a bad day.
+            <h3 className="font-serif text-2xl text-ink">Six rules the database keeps</h3>
+            <p className="depth-body mt-2 max-w-[62ch] text-ink-soft">
+              Each is enforced in the schema rather than by editorial habit, which is why they hold
+              on a bad day.
             </p>
-
-            <div className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2">
-              <Point title="Provenance, not assertion">
-                Nothing is written straight onto a page. Every statement points at a specific
-                location in a specific source, and you can follow it back.
-              </Point>
-              <Point title="Human evidence kept separate">
-                Animal and laboratory work is labelled as such wherever it appears. A result in mice
-                never reads as a finding in people.
-              </Point>
-              <Point title="Protocols are never merged">
-                Where several sources describe a regimen differently, each is shown attributed to
-                the source that reported it. There is no averaged &ldquo;standard protocol&rdquo;,
-                because no source stated one.
-              </Point>
-              <Point title="Uncertainty is a required field">
-                A high-impact statement cannot be published without saying what remains unknown
-                about it. &ldquo;Not established&rdquo; is an answer.
-              </Point>
-              <Point title="Two reading depths, one record">
-                Plain language for patients, full evidence and source-reported regimens for
-                clinicians — over the same reviewed data.
-              </Point>
-              <Point title="No scores, nothing to sell">
-                No evidence ratings out of ten, no vendor rankings, no affiliate links, no products.
-              </Point>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-4">
+            <dl className="mt-7 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+              {RULES.map(([title, body]) => (
+                <div key={title} className="border-l-2 border-sea-glass pl-4">
+                  <dt className="font-serif text-base text-deep-tide">{title}</dt>
+                  <dd className="depth-body mt-1 text-sm leading-relaxed text-ink-soft">{body}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-9 flex flex-wrap gap-4">
               <Link
-                href="/learn"
+                href="/methodology"
                 className="rounded-md border border-deep-tide px-5 py-2.5 text-sm font-medium text-deep-tide transition-colors hover:bg-deep-tide hover:text-warm-white"
               >
                 How this works
               </Link>
               <Link
-                href="/sources"
+                href="/research"
                 className="rounded-md border border-rule px-5 py-2.5 text-sm text-ink-soft transition-colors hover:border-tide-teal hover:text-deep-tide"
               >
-                The source register
+                What nobody has shown yet
               </Link>
             </div>
           </div>
 
           <aside>
-            <div className="rounded-lg border border-rule bg-mist px-5 py-5">
+            <div className="rounded-xl border border-rule bg-mist px-5 py-5">
               <p className="meta-label">Where this has got to</p>
               <dl className="mt-4 space-y-4">
-                <Figure
-                  value={snapshot.compoundsInDevelopment}
-                  label="compounds in development"
-                />
-                <Figure
+                <Stat value={snapshot.compoundsInDevelopment} label="compounds in development" />
+                <Stat
                   value={snapshot.qualityReferencesWritten}
                   label={`quality references written, of ${String(snapshot.qualityTopicsRegistered)} registered`}
                 />
-                <Figure
+                <Stat
                   value={snapshot.statementsAwaitingReview}
                   label="statements extracted and awaiting scientific review"
                 />
-                <Figure value={snapshot.registeredSources} label="sources registered" />
+                <Stat value={snapshot.registeredSources} label="sources registered" />
               </dl>
-              <p className="mt-5 border-t border-rule pt-4 text-sm text-slate">
+              <p className="mt-5 border-t border-rule pt-4 text-sm leading-relaxed text-slate">
                 Nothing is published yet. A statement becomes public only after a named scientific
                 reviewer has approved it against the exact version they read.{' '}
                 <Link
@@ -203,20 +262,11 @@ export default async function HomePage() {
 }
 
 /** A number worth reading, sized so it is read before its label. */
-function Figure({ value, label }: { value: number; label: string }) {
+function Stat({ value, label }: { value: number; label: string }) {
   return (
     <div>
       <dt className="font-serif text-3xl leading-none text-deep-tide">{value}</dt>
       <dd className="mt-1.5 text-sm leading-snug text-ink-soft">{label}</dd>
-    </div>
-  );
-}
-
-function Point({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div>
-      <h3 className="font-serif text-base text-deep-tide">{title}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{children}</p>
     </div>
   );
 }

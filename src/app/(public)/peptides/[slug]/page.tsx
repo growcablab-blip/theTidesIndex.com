@@ -41,6 +41,12 @@ import { RecordInPreparation } from '@/components/public/record-in-preparation';
 import { previewPeptidePage } from '@/server/public/preview';
 import { PrintHeader } from '@/components/public/print-header';
 import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
+import {
+  MechanismAsReported,
+  RecordOpening,
+  SafetyContext,
+  summaryAfterBrief,
+} from '@/components/public/record-opening';
 import { ProtocolComparison } from '@/components/public/protocol-comparison';
 import { ProtocolProvenanceFigure } from '@/components/public/protocol-figures';
 import { Disclosure } from '@/components/public/disclosure';
@@ -60,32 +66,23 @@ import {
 } from '@/components/public/research-figures';
 
 /**
- * The four questions a record answers, in the order it answers them.
+ * Section titles, in two voices.
  *
- * A compound page is long because provenance is long, and a reader who only
- * wants to know whether anything has been shown in people should not have to
- * discover that by scrolling past a literature ledger. These are in-page
- * anchors rather than a summary: nothing is duplicated, and the depth is still
- * there for whoever wants it.
+ * Simple mode asks the questions a patient arrives with; practitioner mode
+ * names sections the way a reference does. The anchors and the records behind
+ * them are identical, so a link shared between the two lands in the same place.
  */
-const READING_GUIDE: readonly { href: string; title: string; body: string }[] = [
-  { href: '#overview', title: 'What it is', body: 'The molecule, and the names it goes by.' },
-  {
-    href: '#evidence',
-    title: 'What is known',
-    body: 'In people, in animals, and in practice — kept apart.',
-  },
-  {
-    href: '#research-questions',
-    title: 'What is not known',
-    body: 'Recorded as carefully as the findings.',
-  },
-  {
-    href: '#protocols',
-    title: 'What sources report',
-    body: 'Regimens, each attributed. Never averaged.',
-  },
-];
+const TITLES = {
+  overview: ['What is it?', 'What it is'],
+  evidence: ['What has been studied?', 'Evidence'],
+  mechanism: ['How sources say it works', 'Mechanism, as reported'],
+  safety: ['What is known about safety', 'Safety context'],
+  routes: ['How has it been given?', 'Administration routes'],
+  protocols: ['What sources have reported', 'Source-reported protocols'],
+  disagreements: ['Where sources disagree', 'Disagreements and unknowns'],
+  research: ['What nobody has shown yet', 'What would be useful to study'],
+  regulatory: ['Where it stands with regulators', 'Regulatory context'],
+} as const;
 
 /**
  * The canonical compound record.
@@ -153,7 +150,11 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
   }
 
   const simple = mode === 'simple';
+  const title = (key: keyof typeof TITLES): string => TITLES[key][simple ? 0 : 1];
   const path = `/peptides/${peptide.slug}`;
+  const hasMechanism = peptide.claims.some((c) => (c.claimCategory ?? '').startsWith('mechanism'));
+  // The opening shows the start of the summary; the overview continues from it.
+  const summaryRest = summaryAfterBrief(simple ? peptide.simpleSummary : peptide.practitionerSummary, simple);
   // Read with the record, in the same session: dose arms are withheld in simple
   // mode by the query, not here.
   const trials = peptide.trials;
@@ -182,7 +183,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
    * even when empty, because an empty "Evidence" heading is an answer.
    */
   const contents = [
-    { id: 'overview', label: 'What it is' },
+    { id: 'overview', label: title('overview') },
     // Practitioner depth only, like the section itself. A rail entry linking
     // to an anchor that is not on the page is worse than a shorter rail.
     ...(!simple && peptide.identities.length > 0
@@ -196,10 +197,12 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       : []),
     {
       id: 'evidence',
-      label: 'Evidence',
+      label: title('evidence'),
       count: peptide.claims.length,
       empty: peptide.claims.length === 0,
     },
+    ...(hasMechanism ? [{ id: 'mechanism', label: title('mechanism') }] : []),
+    { id: 'safety', label: title('safety') },
     ...(trials.length > 0
       ? [{ id: 'trials', label: 'The trials behind it', count: trials.length }]
       : []),
@@ -223,13 +226,13 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       : []),
     {
       id: 'routes',
-      label: 'Administration routes',
+      label: title('routes'),
       count: peptide.routes.length,
       empty: peptide.routes.length === 0,
     },
     {
       id: 'protocols',
-      label: 'Source-reported protocols',
+      label: title('protocols'),
       // Simple mode receives no protocol rows, so the rail counts what exists
       // rather than what is rendered. "none yet" beside a compound with five
       // recorded regimens is the rail telling a patient something untrue.
@@ -249,13 +252,13 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       : []),
     {
       id: 'disagreements',
-      label: 'Disagreements and unknowns',
+      label: title('disagreements'),
       count: peptide.disagreements.length,
       empty: peptide.disagreements.length === 0,
     },
     {
       id: 'research-questions',
-      label: 'What would be useful to study',
+      label: title('research'),
       count: peptide.gaps.filter((g) => g.researchQuestion !== null).length,
     },
     // The section simple mode ends on, and the only entry that exists solely
@@ -272,7 +275,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       : []),
     {
       id: 'regulatory',
-      label: 'Regulatory context',
+      label: title('regulatory'),
       count: peptide.regulatoryStatuses.length,
       empty: peptide.regulatoryStatuses.length === 0,
     },
@@ -357,48 +360,23 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
       <ReferenceLayout rail={<ContentsRail entries={contents} />}>
         {/*
-          Above everything, because the two failure modes this record has to
-          survive are both failures of proportion: taking a strong result out of
-          its indication, and mistaking a large literature for a settled one.
-          The shape of the evidence belongs before the evidence.
+          The first screen answers the question a reader actually arrived with —
+          has this been studied in people, and what don't we know — in a brief
+          and three evidence lanes, before any section begins. The fuller
+          six-part summary stays for practitioners, who use it to orient.
         */}
-        <div className="mb-10">
-          <EvidenceAtAGlance peptide={peptide} simple={simple} />
-        </div>
+        <RecordOpening peptide={peptide} simple={simple} />
+        {!simple ? (
+          <div className="mb-10">
+            <EvidenceAtAGlance peptide={peptide} simple={simple} />
+          </div>
+        ) : null}
 
-        {/*
-          Progressive disclosure. A reader should be able to answer the four
-          questions that matter and stop, without meeting a literature ledger,
-          a locator or a review state on the way. Everything deeper stays on the
-          page and stays traceable; it is just not in the path.
-        */}
-        <nav aria-label="Reading guide" className="mb-12">
-          <p className="meta-label">Read as far as you need</p>
-          <ol className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {READING_GUIDE.map((item, index) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="flex h-full flex-col rounded-md border border-rule bg-warm-white px-4 py-3 transition-colors hover:border-tide-teal"
-                >
-                  <span className="font-serif text-xl text-tide-teal">{index + 1}</span>
-                  <span className="mt-0.5 font-serif text-base text-ink">{item.title}</span>
-                  <span className="mt-1 text-xs leading-relaxed text-ink-soft">{item.body}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-3 max-w-[66ch] text-xs text-slate">
-            Everything past that — the literature ledger, the references, and the record&rsquo;s own
-            version history — stays on the page for anyone who wants it.
-          </p>
-        </nav>
-
-        <Section id="overview" title="What it is">
+        <Section id="overview" title={title('overview')}>
           <div className="space-y-5">
             {simple ? (
               peptide.simpleSummary ? (
-                <SummaryProse text={peptide.simpleSummary} />
+                summaryRest === null ? null : <SummaryProse text={summaryRest} />
               ) : (
                 <EmptyState
                   headline="A plain-language summary has not been written yet."
@@ -406,7 +384,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
                 />
               )
             ) : peptide.practitionerSummary ? (
-              <SummaryProse text={peptide.practitionerSummary} />
+              summaryRest === null ? null : <SummaryProse text={summaryRest} />
             ) : (
               <EmptyState
                 headline="A practitioner summary has not been written yet."
@@ -474,10 +452,24 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         <Section
           id="evidence"
-          title="Evidence"
+          title={title('evidence')}
           lede="Grouped by the kind of evidence behind each statement, so that what has been shown in people is never mixed with what has been shown in animals or described in practice."
         >
           <ClaimsByEvidenceClass claims={peptide.claims} simple={simple} />
+        </Section>
+
+        {hasMechanism ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section id="mechanism" title={title('mechanism')}>
+              <MechanismAsReported claims={peptide.claims} simple={simple} />
+            </Section>
+          </>
+        ) : null}
+
+        <hr className="tide-rule border-0" aria-hidden="true" />
+        <Section id="safety" title={title('safety')}>
+          <SafetyContext peptide={peptide} simple={simple} />
         </Section>
 
         {trials.length > 0 ? (
@@ -527,14 +519,24 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         <Section
           id="routes"
-          title="Administration routes"
+          title={title('routes')}
           lede="Route evidence is specific to this compound, in a stated formulation and population. Evidence that one peptide is absorbed by a route says nothing about another."
         >
           <div className="space-y-6">
             {/* The map first: which routes, on what kind of evidence, at a
                 glance. The table below carries the full record. */}
             <RouteMap peptide={peptide} />
-            <RouteEvidenceTable routes={peptide.routes} />
+            {simple ? (
+              <Disclosure
+                summary="The full route record"
+                detail="Each route with the kind of evidence behind it, the formulation and the population."
+                count={peptide.routes.length}
+              >
+                <RouteEvidenceTable routes={peptide.routes} />
+              </Disclosure>
+            ) : (
+              <RouteEvidenceTable routes={peptide.routes} />
+            )}
           </div>
         </Section>
 
@@ -542,7 +544,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         <Section
           id="protocols"
-          title="Source-reported protocols"
+          title={title('protocols')}
           lede={
             simple
               ? 'What named sources describe, and what they were aiming at. Amounts, frequency and duration are not shown in this reading mode.'
@@ -665,7 +667,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         <Section
           id="disagreements"
-          title="Disagreements and unknowns"
+          title={title('disagreements')}
           lede="Where sources conflict, both positions are shown with their attribution. Conflicts are not resolved by averaging them."
         >
           <DisagreementList disagreements={peptide.disagreements} simple={simple} />
@@ -675,7 +677,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         <Section
           id="research-questions"
-          title="What would be useful to study"
+          title={title('research')}
           lede="Derived from what this index has recorded as missing, and from the disagreements it has not resolved. These describe research that would be useful — not anything anybody should try."
         >
           <ResearchOpportunities peptide={peptide} />
@@ -737,7 +739,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         <Section
           id="regulatory"
-          title="Regulatory context"
+          title={title('regulatory')}
           lede="Secondary. What a regulator has said about a compound in one jurisdiction on one date is a useful fact and is not a measure of the science: this index records approval, non-approval and silence the same way, and ranks nothing by them."
         >
           <RegulatoryStatusList statuses={peptide.regulatoryStatuses} />

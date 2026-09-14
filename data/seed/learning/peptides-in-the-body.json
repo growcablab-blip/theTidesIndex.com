@@ -305,7 +305,12 @@
       "gapType": "source_missing",
       "statement": "That 'the body makes it' is not, by itself, an argument about safety or efficacy.",
       "why": "The facts it would rest on are sourced — effects depend on context, concentration and receptors, and hormone levels are held within range by feedback — but no source draws the conclusion, and this index does not draw it for them.",
-      "whatWouldResolveIt": "A source that states the inference, or a scientific reviewer's approval of it as an editorial conclusion labelled as such."
+      "whatWouldResolveIt": "A source that states the inference, or a scientific reviewer's approval of it as an editorial conclusion labelled as such.",
+      "resolution": {
+        "state": "resolved",
+        "checkedAt": "2026-09-14",
+        "note": "Answered as Tides synthesis SYN-BODY-01, drawn from claims END-10 to END-13. No external source states the conclusion, so it is recorded as a synthesis that names the claims it rests on, not as a sourced fact."
+      }
     }
   ]
 }

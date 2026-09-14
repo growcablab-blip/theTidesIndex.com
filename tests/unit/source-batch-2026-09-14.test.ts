@@ -265,9 +265,11 @@ describe('foundations from permissively licensed sources (D-26)', () => {
 
   it('marks what no source supports as SOURCE NEEDED instead of writing it', () => {
     const book = readFileSync('src/publishing/books/understanding-peptides.tsx', 'utf8');
-    // Chapter three's safety inference, chapter one's chain ends and chapter
-    // four's paracrine definitions are the points no held source states.
-    expect(book).toMatch(/<SourceNeeded\s+point="Why “the body makes it” is not, by itself, an argument about safety or efficacy\."/);
+    // Chapter one's chain ends and chapter four's paracrine definitions are
+    // points no held source states. Chapter three's "the body makes it" point
+    // follows from its claims and is printed as a named Tides synthesis instead.
+    expect(book).not.toMatch(/<SourceNeeded\s+point="Why “the body makes it”/);
+    expect(book).toMatch(/<TidesSynthesis\s+synthesisKey="SYN-BODY-01"/);
     expect(book).toMatch(/<SourceNeeded\s+point="What the two ends of a chain/);
     expect(book).toMatch(/<SourceNeeded\s+point="Plain definitions of the local forms of signalling/);
   });

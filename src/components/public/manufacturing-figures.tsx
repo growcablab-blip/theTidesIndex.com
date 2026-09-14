@@ -198,7 +198,18 @@ export function SequenceToVialFigure({
 }
 
 /** Figure 2 — the bulk peptide and the finished vial are different things. */
-export function ApiVersusVialFigure({ id = 'fig-api-vs-vial' }: { id?: string }) {
+export function ApiVersusVialFigure({
+  id = 'fig-api-vs-vial',
+  finishedSourced = false,
+}: {
+  id?: string;
+  /**
+   * Whether the finished-product stages loaded claims on the page using the
+   * figure. Passed in, never assumed: the vial side is drawn dashed and says
+   * "no held source" unless the page has the records to show otherwise.
+   */
+  finishedSourced?: boolean;
+}) {
   const { titleId, descId } = useIds(id);
   return (
     <figure className="my-2">
@@ -211,12 +222,11 @@ export function ApiVersusVialFigure({ id = 'fig-api-vs-vial' }: { id?: string })
         >
           <title id={titleId}>The bulk peptide and the finished vial</title>
           <desc id={descId}>
-            On the left, the bulk peptide, called the active pharmaceutical ingredient: the peptide
-            substance itself. The held manufacturing guideline, ICH Q7, covers this. On the right,
-            the finished vial: the peptide combined with other ingredients, filled, sealed and
-            sometimes freeze-dried. No source held by the index describes that part. Between them,
-            formulation, filling and finishing. A test result on one does not automatically
-            describe the other.
+            {`On the left, the bulk peptide, called the active pharmaceutical ingredient: the peptide substance itself. The held manufacturing guideline, ICH Q7, covers this. On the right, the finished vial: the peptide combined with other ingredients, filled, sealed and sometimes freeze-dried. ${
+              finishedSourced
+                ? 'ICH Q7 does not describe that part; the formulation, fill and finish, freeze-drying and release stages on this page rest on other held sources.'
+                : 'No source held by the index describes that part.'
+            } Between them, formulation, filling and finishing. A test result on one does not automatically describe the other.`}
           </desc>
           <Arrowhead id={`${id}-arrow`} />
 
@@ -229,9 +239,9 @@ export function ApiVersusVialFigure({ id = 'fig-api-vs-vial' }: { id?: string })
             rx="6"
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.2"
-            strokeDasharray="5 4"
-            opacity="0.7"
+            strokeWidth={finishedSourced ? 1.5 : 1.2}
+            strokeDasharray={finishedSourced ? undefined : '5 4'}
+            opacity={finishedSourced ? 1 : 0.7}
           />
           <line x1="268" y1="110" x2="452" y2="110" stroke="currentColor" strokeWidth="1.5" markerEnd={`url(#${id}-arrow)`} />
 
@@ -274,14 +284,17 @@ export function ApiVersusVialFigure({ id = 'fig-api-vs-vial' }: { id?: string })
               peptide plus other ingredients
             </text>
             <text x="585" y="172" fontSize="11" opacity="0.75">
-              no held source describes this
+              {finishedSourced ? 'described by other held sources' : 'no held source describes this'}
             </text>
           </g>
         </svg>
       </FigureScroller>
       <figcaption className="mt-3 max-w-[62ch] text-sm text-slate">
         Much of what is sold is bought as bulk material and put into vials later, sometimes by a
-        different company. The guideline held here stops at the bulk material.
+        different company.{' '}
+        {finishedSourced
+          ? 'The manufacturing guideline held here, ICH Q7, stops at the bulk material; the finished-vial stages rest on other sources.'
+          : 'The guideline held here stops at the bulk material.'}
       </figcaption>
     </figure>
   );

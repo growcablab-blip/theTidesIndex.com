@@ -207,6 +207,67 @@ p {
 }
 
 /* ==========================================================================
+   Reading depth
+
+   Simple and Practitioner are meant to feel like two editions, not one page
+   with fewer paragraphs. Simple mode gets more air, larger body text and fewer
+   dense metadata lines; Practitioner keeps the tighter reference rhythm.
+
+   Presentation only. What a simple reader receives is decided in the queries,
+   from views with no dosing columns — nothing here hides medical content.
+   ========================================================================== */
+
+[data-reading-mode='simple'] {
+  --rhythm: 1.875rem;
+}
+
+[data-reading-mode='simple'] .depth-body {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+[data-reading-mode='simple'] .depth-dense,
+[data-reading-mode='practitioner'] .depth-simple-only {
+  display: none;
+}
+
+/* An editorial section break: the page draws breath between movements. */
+.editorial-break {
+  position: relative;
+  padding-top: calc(var(--rhythm) * 2.5);
+}
+.editorial-break::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background-repeat: repeat-x;
+  background-size: 96px 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='10' viewBox='0 0 96 10'%3E%3Cpath d='M0 7c12 0 12-4 24-4s12 4 24 4 12-4 24-4 12 4 24 4' fill='none' stroke='%23d6e0e2' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.9;
+}
+
+/* The journey line: a quiet vertical thread joining numbered steps. */
+.journey-thread {
+  position: relative;
+}
+.journey-thread::before {
+  content: '';
+  position: absolute;
+  left: 1.375rem;
+  top: 2.75rem;
+  bottom: 2.75rem;
+  width: 1px;
+  background: linear-gradient(var(--color-rule), var(--color-sea-glass), var(--color-rule));
+}
+@media print {
+  .journey-thread::before,
+  .editorial-break::before {
+    display: none;
+  }
+}
+
+/* ==========================================================================
    Prose
    ========================================================================== */
 

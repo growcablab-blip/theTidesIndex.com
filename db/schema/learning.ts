@@ -1,4 +1,5 @@
 import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { publicationState } from './enums';
 
 /**
  * Foundational teaching — what a receptor is, what an agonist does.
@@ -17,6 +18,8 @@ export const learningTopics = pgTable('learning_topics', {
   publicationChapter: text(),
   summary: text(),
   notes: text(),
+  /** Whether the topic and its claims may be read publicly (migration 0027). */
+  publicationState: publicationState().notNull().default('unpublished'),
   createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
 });

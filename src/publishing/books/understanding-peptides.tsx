@@ -258,7 +258,7 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'Why “the body makes it” is not an argument about safety or efficacy',
     ],
     needs:
-      'Written from claims END-03 to END-13, extracted from CC BY-licensed reviews and a public-domain US government overview. The strictest sourcing in the book: three points no source held states are marked SOURCE NEEDED on the page.',
+      'Written from claims END-03 to END-13, extracted from CC BY-licensed reviews and a public-domain US government overview. The strictest sourcing in the book: two points no source held states are marked SOURCE NEEDED on the page, and one conclusion drawn from its claims is marked as a Tides synthesis.',
     illustration: 'Where endogenous peptides act',
     written: 'body',
   },
@@ -873,6 +873,64 @@ function Receptors({ chapter }: { chapter: ChapterPlan }) {
 }
 
 /**
+ * A Tides synthesis: a conclusion drawn from several sourced claims, naming
+ * them. Printed where a point follows from the sources on the page but no
+ * source states it — so it is neither passed off as a source fact nor left as
+ * a gap. Its text is the seeded synthesis (data/seed/syntheses), held equal to
+ * it by a unit test.
+ */
+function TidesSynthesis({
+  synthesisKey,
+  statement,
+  restsOn,
+  doesNotConclude,
+}: {
+  synthesisKey: string;
+  statement: string;
+  restsOn: string;
+  doesNotConclude: string;
+}) {
+  return (
+    <View
+      wrap={false}
+      style={{
+        borderLeftWidth: 2,
+        borderLeftColor: colour.deepTide,
+        backgroundColor: colour.seaGlass,
+        padding: 10,
+        marginVertical: 8,
+      }}
+    >
+      <Text
+        style={{
+          fontFamily: sans,
+          fontSize: type.micro,
+          letterSpacing: 1,
+          color: colour.deepTide,
+          marginBottom: 3,
+        }}
+      >
+        TIDES SYNTHESIS · {synthesisKey}
+      </Text>
+      <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.ink }}>
+        {statement}
+      </Text>
+      <Text
+        style={{
+          fontFamily: sans,
+          fontSize: type.micro,
+          lineHeight: leading.tight,
+          color: colour.slate,
+          marginTop: 3,
+        }}
+      >
+        Rests on claims {restsOn}. {doesNotConclude}
+      </Text>
+    </View>
+  );
+}
+
+/**
  * A point a chapter was planned to make and no held source supports.
  *
  * Printed in place of the point, in the chapter's own flow, so a gap is read
@@ -1213,9 +1271,11 @@ function PeptidesInTheBody({ chapter }: { chapter: ChapterPlan }) {
           brain’s hypothalamus and pituitary gland, a 1998 overview describes constant feedback that
           keeps the system’s activity within appropriate limits.
         </Body>
-        <SourceNeeded
-          point="Why “the body makes it” is not, by itself, an argument about safety or efficacy."
-          why="This chapter was planned to explain it. The facts such an explanation would rest on are on this page — effects depend on context, amount and receptors, and hormone levels are held in range by feedback — but no source held draws the conclusion, so this index does not draw it either."
+        <TidesSynthesis
+          synthesisKey="SYN-BODY-01"
+          statement="The body making a peptide is not, on its own, evidence about what a product containing it will do."
+          restsOn="END-10, END-11, END-12 and END-13"
+          doesNotConclude="It does not say that any peptide product is safe or unsafe, effective or ineffective. It says only that the fact the body makes a peptide is not the evidence that would show either."
         />
 
         <Callout title="What this chapter does not tell you">
@@ -1227,7 +1287,7 @@ function PeptidesInTheBody({ chapter }: { chapter: ChapterPlan }) {
 
         <EvidenceNote
           supports="Claims END-03 to END-13 (learning topic ‘Peptides the body makes’), from reviews licensed CC BY and a public-domain 1998 US government overview, each licence read in the retrieved full text."
-          doesNotSettle="Anything about a peptide product or treatment, and the three points marked source needed."
+          doesNotSettle="Anything about a peptide product or treatment, and the two points marked source needed. The synthesis names the claims it rests on and concludes nothing about safety or efficacy."
           status="Extracted; awaiting scientific review"
         />
         <SourceNote

@@ -31,3 +31,4 @@ export * from './identity-claims';
 export * from './publications';
 export * from './governance';
 export * from './search';
+export * from './syntheses';

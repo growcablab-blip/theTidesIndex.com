@@ -49,6 +49,7 @@
     "shots:index": "tsx scripts/qa/index-shots.ts",
     "shots:human": "tsx scripts/qa/human-scale-shots.ts",
     "review:owner": "tsx scripts/qa/owner-review.ts",
+    "shots:experience": "tsx scripts/qa/product-experience-shots.ts",
     "audit:patient": "tsx scripts/qa/patient-audit.ts",
     "readiness": "tsx --tsconfig tsconfig.scripts.json scripts/qa/readiness.ts",
     "pdf:protocols": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-protocol-book.ts",

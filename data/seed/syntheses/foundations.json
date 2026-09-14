@@ -1,0 +1,56 @@
+[
+  {
+    "synthesisKey": "SYN-PEP-01",
+    "subject": { "kind": "learning", "key": "what-is-a-peptide" },
+    "claimKeys": ["FND-01", "FND-02", "FND-04"],
+    "statement": "Whether a chain of amino acids is called a peptide or a protein is a matter of convention rather than a property the chain has: the sources held set the boundary at different lengths, and one describes the cut-off as arbitrary.",
+    "plainLanguageText": "Whether something is called a peptide or a protein is a naming choice. Sources draw the line in different places.",
+    "reasoning": "FND-01 describes the upper length limit of a peptide as an arbitrary cut-off. FND-02 reports that published definitions contradict one another. FND-04 shows a government glossary adopting one of those conventions. Taken together, they show the boundary is set by convention.",
+    "doesNotConclude": "It does not say where the boundary ought to be, or that length makes no difference to how a molecule behaves: chapter two describes differences that do follow from length."
+  },
+  {
+    "synthesisKey": "SYN-BODY-01",
+    "subject": { "kind": "learning", "key": "peptides-in-the-body" },
+    "claimKeys": ["END-10", "END-11", "END-12", "END-13"],
+    "statement": "That the body makes a peptide does not, by itself, show what that peptide does when it is given as a product: what a peptide does depends on where it acts, how much of it is present and which receptors are there, and the body holds its own hormone systems within limits.",
+    "plainLanguageText": "The body making a peptide is not, on its own, evidence about what a product containing it will do.",
+    "reasoning": "END-10 states that what human antimicrobial peptides do depends on biological context, concentration, proteases and metabolic state. END-11 argues that which receptors are present, where and when, is the chief determinant of what a messenger does. END-12 notes that one molecule is used in several signalling contexts. END-13 describes feedback keeping hormone systems within bounds. Each makes an effect depend on conditions, so the body's own use of a peptide cannot stand in for evidence about a product.",
+    "doesNotConclude": "It does not say that any peptide product is safe or unsafe, effective or ineffective. It says only that the fact the body makes a peptide is not the evidence that would show either."
+  },
+  {
+    "synthesisKey": "SYN-SIG-01",
+    "subject": { "kind": "learning", "key": "peptide-signalling" },
+    "claimKeys": ["SIG-01", "SIG-05", "SIG-06"],
+    "statement": "The same signal can have different effects in different parts of the body, because a cell responds only through the receptors it carries, different receptor subtypes can switch different cells on or off, and each cell combines the many signals reaching it.",
+    "plainLanguageText": "One signal can mean different things to different cells, depending on the receptors each one has.",
+    "reasoning": "SIG-01 states that a hormone acts only on target cells carrying its receptor. SIG-05 states that one paracrine signal can activate some cell types and inhibit others through different receptor subtypes. SIG-06 describes cells integrating many signals through groups of receptors. Together they explain why effects differ between tissues.",
+    "doesNotConclude": "It does not say which tissues any particular peptide acts in, or what it does there. Those are claims about a compound, and belong on its record."
+  },
+  {
+    "synthesisKey": "SYN-REC-01",
+    "subject": { "kind": "learning", "key": "receptor-pharmacology" },
+    "claimKeys": ["REC-03", "REC-06", "REC-13"],
+    "statement": "Words such as agonist and antagonist describe how a molecule behaved in a particular test system, not a fixed property of the molecule: affinity and efficacy are distinct but cannot simply be measured apart, and the same compound can appear as a partial agonist, a neutral antagonist or an inverse agonist in different models.",
+    "plainLanguageText": "Calling a molecule an ‘activator’ or a ‘blocker’ describes how it behaved in a particular test, not what it does everywhere.",
+    "reasoning": "REC-03 distinguishes affinity from efficacy. REC-06 shows that measured agonist binding depends on efficacy as well as affinity, so the two are not read off separately. REC-13 reports that measured inverse agonism depends partly on the experimental model, so one compound can carry different labels in different models.",
+    "doesNotConclude": "It does not say how any peptide in this index behaves at any receptor, and it does not make the labels meaningless: within a stated test system they describe real differences."
+  },
+  {
+    "synthesisKey": "SYN-PK-01",
+    "subject": { "kind": "learning", "key": "pharmacokinetic-concepts" },
+    "claimKeys": ["PKG-17", "PKG-18", "PKG-19", "PKG-20"],
+    "statement": "What is known about how small-molecule drugs move through the body does not transfer directly to peptides: most peptides are removed mainly by enzymes and can be filtered by the kidneys, their distribution is largely limited to the fluid outside cells, and how factors such as age or organ impairment change them is not well established.",
+    "plainLanguageText": "Peptides move through and leave the body differently from ordinary pills, and less is known about what changes that.",
+    "reasoning": "PKG-17 states that proteolysis is a major elimination pathway for most peptides. PKG-18 states that peptide renal clearance may reach the glomerular filtration rate. PKG-19 states that peptide volume of distribution is small and limited to the extracellular space. PKG-20 states that the impact of intrinsic and extrinsic factors, well known for small molecules, is not well established for macromolecules.",
+    "doesNotConclude": "It gives no half-life, clearance or exposure for any peptide, and does not say how any factor changes a particular peptide's behaviour."
+  },
+  {
+    "synthesisKey": "SYN-RTE-01",
+    "subject": { "kind": "learning", "key": "routes-of-administration" },
+    "claimKeys": ["PKG-13", "PKG-14", "RTE-14", "RTE-19"],
+    "statement": "How much of a substance reaches the circulation depends on how it is given: given into a vein it arrives completely, swallowed it passes through the gut and then the liver first, and injected under the skin or into a muscle it avoids the gut and liver but can still be broken down where it was injected.",
+    "plainLanguageText": "The way something is given decides how much of it gets into the blood.",
+    "reasoning": "PKG-13 states that intravenous administration gives complete bioavailability because there is no absorption phase. PKG-14 describes orally absorbed drug reaching the liver before the systemic circulation, and RTE-19 describes oral bioavailability as variable. RTE-14 states that subcutaneous or intramuscular injection avoids gastrointestinal and hepatic enzymes, while degradation at the injection site lowers bioavailability relative to intravenous administration.",
+    "doesNotConclude": "It does not say how much of any peptide is absorbed by any route, or which route suits any product. It describes routes, not how to use one."
+  }
+]

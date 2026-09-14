@@ -1186,6 +1186,28 @@ const LEARNING_PACKET_FILES = [
 const TRIAL_PACKET_FILES = ['trials/retatrutide-trials.json'] as const;
 const INTAKE_REGISTER_FILES = ['source-artifacts/intake-2026-09-14.json'] as const;
 
+/**
+ * A Tides synthesis: a conclusion drawn from several sourced claims (migration 0027).
+ * Numerals are refused here as well as in the database, and at least two claims
+ * are required, so a malformed synthesis fails at load rather than at insert.
+ */
+const NO_NUMERALS = /^[^0-9]*$/;
+const synthesisSchema = z.object({
+  synthesisKey: z.string().regex(/^SYN-[A-Z]+-\d{2}$/),
+  subject: z.object({
+    kind: z.enum(['learning', 'peptide', 'quality']),
+    key: z.string().min(1),
+  }),
+  claimKeys: z.array(z.string().min(1)).min(2),
+  statement: z.string().min(1).regex(NO_NUMERALS, 'A synthesis carries no numerals.'),
+  plainLanguageText: z.string().min(1).regex(NO_NUMERALS, 'A synthesis carries no numerals.'),
+  reasoning: z.string().min(1),
+  doesNotConclude: z.string().min(1),
+});
+export type SynthesisSeed = z.infer<typeof synthesisSchema>;
+
+const SYNTHESIS_FILES = ['syntheses/foundations.json'] as const;
+
 export const seedData = {
   sourceTypes: z.array(sourceTypeSchema).parse(loadJson('taxonomy/source_types.json')),
   evidenceTypes: z.array(evidenceTypeSchema).parse(loadJson('taxonomy/evidence_types.json')),
@@ -1205,6 +1227,7 @@ export const seedData = {
   compoundPackets: COMPOUND_PACKET_FILES.map((file) => parseCompoundPacket(file)),
   trialPackets: TRIAL_PACKET_FILES.map((file) => trialPacketSchema.parse(loadJson(file))),
   learningPackets: LEARNING_PACKET_FILES.map((file) => learningPacketSchema.parse(loadJson(file))),
+  syntheses: SYNTHESIS_FILES.flatMap((file) => z.array(synthesisSchema).parse(loadJson(file))),
   sourceArtifacts: INTAKE_REGISTER_FILES.flatMap((file) =>
     intakeRegisterSchema
       .parse(loadJson(file))

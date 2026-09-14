@@ -3,6 +3,7 @@ import {
   summariseEvidence,
   type EvidenceTypeDescriptor,
 } from '@/domain/evidence/evidence-types';
+import { EditorialStateChip } from './editorial-state';
 import type { EvidenceRecord, PublicClaim } from '@/server/public/queries';
 import { CitationLine } from './citation';
 import { Disclosure } from '@/components/public/disclosure';
@@ -233,8 +234,16 @@ export function ClaimCard({ claim, simple }: { claim: PublicClaim; simple: boole
   const hasPlainLanguage = claim.plainLanguageText !== null;
 
   return (
-    <article className="avoid-break border-t border-rule pt-5 first:border-t-0 first:pt-0">
-      <ScopeBadge scope={claim.certificateTypeScope} />
+    <article
+      id={`claim-${claim.claimKey}`}
+      className="avoid-break scroll-mt-28 border-t border-rule pt-5 first:border-t-0 first:pt-0"
+    >
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        {claim.evidence.length > 0 && !claim.isEditorialNonEvidentiary ? (
+          <EditorialStateChip kind="source-fact" />
+        ) : null}
+        <ScopeBadge scope={claim.certificateTypeScope} />
+      </div>
       <p className="font-serif text-lg leading-snug text-ink">{text}</p>
 
       {simple && !hasPlainLanguage ? (

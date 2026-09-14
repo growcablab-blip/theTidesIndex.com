@@ -2,6 +2,12 @@ import 'server-only';
 import { getStaffDb } from '../db/client';
 import { currentPreviewEnv, previewAllowed, previewRefusal } from './preview-gate';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
+import {
+  readLearningTopic,
+  readLearningTopics,
+  type LearningTopicReading,
+  type LearningTopicSummary,
+} from './learning';
 import { readPeptidePagePreview, type PeptidePage } from './queries';
 import type { ReadingMode } from '@/domain/presentation/reading-mode';
 import { readSpecimenCertificate, type CertificateReading } from './certificate';
@@ -59,6 +65,17 @@ export function previewRefusalReason(): string | null {
 export async function previewQualityTopic(slug: string): Promise<QualityTopicReading | null> {
   if (!previewEnabled()) return null;
   return readQualityTopic(getStaffDb(), slug, { preview: true });
+}
+
+/** Learning topics are unpublished until a reviewer approves their claims. */
+export async function previewLearningTopics(): Promise<readonly LearningTopicSummary[] | null> {
+  if (!previewEnabled()) return null;
+  return readLearningTopics(getStaffDb(), { preview: true });
+}
+
+export async function previewLearningTopic(slug: string): Promise<LearningTopicReading | null> {
+  if (!previewEnabled()) return null;
+  return readLearningTopic(getStaffDb(), slug, { preview: true });
 }
 
 /**

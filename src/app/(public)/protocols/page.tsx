@@ -6,12 +6,17 @@ import { previewProtocolLibrary } from '@/server/public/preview';
 import type { LibraryProtocol, ProtocolLibraryFilters } from '@/server/public/protocol-library';
 import { Callout, Container, EmptyState, Section } from '@/components/public/primitives';
 import { ModeSwitch } from '@/components/public/mode-switch';
+import { Disclosure } from '@/components/public/disclosure';
+import { ProtocolComparison, evidenceContextLabel } from '@/components/public/protocol-comparison';
+import { PractitionerProtocolCard } from '@/components/public/protocols';
+import { ProtocolProvenanceFigure } from '@/components/public/protocol-figures';
 import {
-  ProtocolComparison,
-  ProtocolContextBadge,
-  evidenceContextLabel,
-} from '@/components/public/protocol-comparison';
-import { CitationLine } from '@/components/public/citation';
+  CompoundChooser,
+  EvidenceContextKey,
+  LibraryFilters,
+  LibraryMethod,
+  SimpleCompoundIndex,
+} from '@/components/public/protocol-library';
 
 /**
  * Rendered on demand: the content changes when an editor publishes, not when
@@ -30,12 +35,18 @@ export const metadata: Metadata = {
  *
  * A clinic's question is rarely "what is the dose". It is "what has been
  * reported, by whom, on what basis, and how do the reports differ" — and the
- * honest answer to that is a table of attributed records, not a number. This
- * page is that table across the whole register.
+ * honest answer to that is a comparison of attributed records, not a number.
  *
- * Every record carries its evidence context as the first thing on it, because
- * the single most dangerous misreading available here is taking "a practitioner
- * handbook reports this" for "a controlled human study validated this".
+ * Three editions of one page:
+ *
+ *   - **Practitioner, no compound chosen** — a chooser. Per compound: how many
+ *     records, from how many sources, by which routes, on what evidence, and
+ *     which key fields are worded differently. The path in is the comparison.
+ *   - **Practitioner, one compound** — the comparison matrix is the page, with
+ *     the provenance figure before it and each full record behind disclosure.
+ *   - **Simple** — the library receives no regimen at all. It explains what the
+ *     library is and why nothing is merged, and lists which compounds have
+ *     records, from how many sources, on what kind of evidence.
  */
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
@@ -46,42 +57,17 @@ function one(value: string | string[] | undefined): string | undefined {
 }
 
 /**
- * The questions a clinician arrives with, and where each is answered.
- *
- * Not a feature list. Each line points at something already on the page, so
- * the band cannot drift from what the library actually does — and none of
- * them is "what should I give", which this index does not answer.
+ * The questions a clinician arrives with, and where each is answered. Each
+ * points at something the page does — none of them is "what should I give",
+ * which this index does not answer.
  */
 const ANSWERS: readonly (readonly [string, string])[] = [
-  ['What do different sources report?', 'Every regimen below, as the named source published it.'],
-  ['Where do they agree?', 'The comparison names the fields every source states the same way.'],
-  ['Where do they differ?', 'The same comparison names the fields that vary, and by how much.'],
-  ['What is trial-derived?', 'Filter by evidence context: approved label, or human trial regimen.'],
-  ['What is practitioner-derived?', 'Filter by practitioner handbook. Most of this register is here.'],
+  ['What do different sources report?', 'Choose a compound: every record is a column, in its source’s words.'],
+  ['Where do they agree, and where not?', 'Each row is marked as worded the same, differing, or stated by only some.'],
+  ['What is trial-derived?', 'The evidence label heads every column. Filter by evidence context to see only one kind.'],
+  ['What is practitioner-derived?', 'Practitioner handbooks are labelled as such, and most of this register is here.'],
   ['What is preclinical?', 'Animal schedules are labelled, and never shown as human regimens.'],
-];
-
-const CONTEXT_EXPLAINED: readonly { label: string; body: string }[] = [
-  {
-    label: 'Approved-label regimen',
-    body: 'Specified in labelling a medicines regulator authorised, for that product and indication only.',
-  },
-  {
-    label: 'Human trial regimen',
-    body: 'The schedule used in a study in people. What the trial tested, not what it proved beyond its population.',
-  },
-  {
-    label: 'Human observational',
-    body: 'What was given to people outside a controlled study, reported afterwards.',
-  },
-  {
-    label: 'Preclinical',
-    body: 'An animal or laboratory dosing schedule. Not a human regimen, and never presented as one.',
-  },
-  {
-    label: 'Practitioner handbook',
-    body: 'What a clinician or author reports using. It carries no study behind it unless the record says so.',
-  },
+  ['What does no source support?', 'Unanswered questions are kept on the research agenda.'],
 ];
 
 export default async function ProtocolsPage({ searchParams }: { searchParams: SearchParams }) {
@@ -101,15 +87,218 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
       ? publicLibrary
       : ((await previewProtocolLibrary(mode, filters)) ?? publicLibrary);
 
-  const filtering = Object.values(filters).some((v) => v !== undefined);
-  const selectedCompound = library.facets.peptides.find((p) => p.value === filters.peptide);
+  const sourceCount = library.facets.sources.length;
+  const stats = (
+    <p className="text-sm text-slate">
+      <span className="font-serif text-lg text-ink">{library.totalCount}</span> records ·{' '}
+      <span className="font-serif text-lg text-ink">{library.compounds.length}</span> compounds ·{' '}
+      <span className="font-serif text-lg text-ink">{sourceCount}</span> sources
+    </p>
+  );
 
-  // Grouped by compound for reading; the order is alphabetical and means nothing.
-  const grouped = new Map<string, LibraryProtocol[]>();
-  for (const protocol of library.protocols) {
-    const list = grouped.get(protocol.peptideSlug) ?? [];
-    list.push(protocol);
-    grouped.set(protocol.peptideSlug, list);
+  if (simple) {
+    const compounds = library.compounds.filter(
+      (c) => filters.peptide === undefined || c.slug === filters.peptide,
+    );
+    return (
+      <Container className="py-10 sm:py-14">
+        <header className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
+          <div className="max-w-[60ch]">
+            <p className="meta-label">Protocol library</p>
+            <h1 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">
+              Which sources have described regimens, and on what evidence
+            </h1>
+            <p className="depth-body mt-3 text-lg text-ink-soft">
+              Books, studies and product labels sometimes describe how a compound was given. This
+              library keeps a record of each one, attributed to the source that published it. In
+              this reading mode it shows who reported what kind of regimen, and how strong the
+              evidence behind it is — without amounts or schedules.
+            </p>
+            <div className="mt-4">{stats}</div>
+          </div>
+          <ModeSwitch mode={mode} path="/protocols" />
+        </header>
+
+        <div className="mt-8 max-w-[70ch]">
+          <Callout title="Why there are no doses on this page">
+            <p>
+              Amounts, frequency and duration are kept for the practitioner view, which is written
+              for clinicians. A regimen a source reported is not advice for any one person, and The
+              Tides Index never turns what sources report into a dose of its own. If a compound here
+              matters to you, the useful next step is a conversation with a clinician who knows
+              your history.
+            </p>
+          </Callout>
+        </div>
+
+        <section aria-labelledby="how-built" className="editorial-break mt-12">
+          <h2 id="how-built" className="font-serif text-2xl text-ink">
+            What this library is
+          </h2>
+          <p className="depth-body mt-2 max-w-[60ch] text-ink-soft">
+            Different sources often describe the same compound in different ways. Rather than
+            blending them into one answer, the library keeps each one separate, so the differences
+            stay visible.
+          </p>
+          <div className="mt-6">
+            <LibraryMethod />
+          </div>
+        </section>
+
+        <section aria-labelledby="by-compound" className="editorial-break mt-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <h2 id="by-compound" className="font-serif text-2xl text-ink">
+              Compounds with regimens on record
+            </h2>
+            {filters.peptide !== undefined ? (
+              <Link href="/protocols" className="text-sm underline decoration-rule underline-offset-2">
+                Show every compound
+              </Link>
+            ) : null}
+          </div>
+          <p className="depth-body mt-2 mb-6 max-w-[60ch] text-ink-soft">
+            Each card says how many sources have described a regimen for the compound, how it was
+            given, and what kind of source each is.
+          </p>
+          {compounds.length === 0 ? (
+            <EmptyState
+              headline="No regimen is recorded for that compound."
+              detail="An empty result means nothing is recorded here — not that nothing has ever been reported anywhere."
+            />
+          ) : (
+            <SimpleCompoundIndex compounds={compounds} />
+          )}
+        </section>
+
+        <section aria-labelledby="labels" className="editorial-break mt-6">
+          <h2 id="labels" className="font-serif text-2xl text-ink">
+            What the labels mean
+          </h2>
+          <p className="depth-body mt-2 mb-6 max-w-[60ch] text-ink-soft">
+            The label says where a regimen came from. A study in people and a handbook author&rsquo;s
+            own practice are very different kinds of evidence.
+          </p>
+          <EvidenceContextKey />
+        </section>
+      </Container>
+    );
+  }
+
+  /* --- Practitioner ------------------------------------------------------ */
+
+  const selected =
+    filters.peptide === undefined
+      ? undefined
+      : library.facets.peptides.find((p) => p.value === filters.peptide);
+  const narrowed =
+    filters.source !== undefined || filters.route !== undefined || filters.evidence !== undefined;
+
+  if (filters.peptide !== undefined) {
+    const protocols = library.protocols;
+    const name = selected?.label ?? protocols[0]?.peptideName ?? filters.peptide;
+    return (
+      <Container className="py-10 sm:py-14">
+        <nav aria-label="Protocol library" className="no-print text-sm">
+          <Link href="/protocols" className="text-deep-tide underline decoration-rule underline-offset-2">
+            <span aria-hidden="true">← </span>All compounds in the protocol library
+          </Link>
+        </nav>
+
+        <header className="mt-4 flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
+          <div className="max-w-[62ch]">
+            <p className="meta-label">Protocol library · {name}</p>
+            <h1 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">
+              {name}: what each source reports
+            </h1>
+            <p className="mt-3 text-lg text-ink-soft">
+              Every recorded regimen as one column, attributed to its source and labelled with the
+              evidence it rests on. Read across a row to see where the sources differ.
+            </p>
+          </div>
+          <ModeSwitch mode={mode} path="/protocols" />
+        </header>
+
+        <p className="mt-6 max-w-[72ch] border-l-2 border-[var(--color-caution-rule)] pl-4 text-sm text-ink-soft">
+          <span className="font-medium text-ink">The Tides Index issues no dose.</span> A record
+          says that a source reported a regimen, and where. It does not say the regimen works, is
+          safe, or suits anyone. Nothing below is combined, averaged or ranked.
+        </p>
+
+        {protocols.length === 0 ? (
+          <div className="mt-10">
+            <EmptyState
+              headline="No recorded regimen matches."
+              detail="An empty result means nothing is recorded for that combination — not that nothing has ever been reported anywhere."
+            />
+          </div>
+        ) : (
+          <>
+            <Section id="provenance" title="Where these regimens come from">
+              <ProtocolProvenanceFigure protocols={protocols} compoundName={name} />
+            </Section>
+
+            <div className="editorial-break">
+              <Section id="comparison" title="Side by side">
+                {protocols.length > 1 ? (
+                  <ProtocolComparison protocols={protocols} compoundName={name} />
+                ) : (
+                  <EmptyState
+                    headline="One record, so nothing to compare it with."
+                    detail="A single source reports a regimen for this selection. It is shown in full below; no second source is held to set beside it."
+                  />
+                )}
+              </Section>
+            </div>
+
+            <div className="editorial-break">
+              <Section id="records" title="Each record in full">
+                <p className="mb-5 max-w-[62ch] text-slate">
+                  Everything the record holds, including safety notes and outcomes that do not fit a
+                  comparison row.
+                </p>
+                <RecordList protocols={protocols} openAll={protocols.length === 1} />
+              </Section>
+            </div>
+          </>
+        )}
+
+        <div className="editorial-break">
+          <Section id="refine" title="Refine or switch compound">
+            <LibraryFilters
+              filters={filters}
+              facets={library.facets}
+              filteredCount={library.filteredCount}
+              totalCount={library.totalCount}
+            />
+            <p className="mt-4 text-sm text-ink-soft">
+              The compound&rsquo;s full evidence is on its{' '}
+              <Link
+                href={`/peptides/${filters.peptide}`}
+                className="text-deep-tide underline underline-offset-2"
+              >
+                reference page
+              </Link>
+              . What no source supports is on the{' '}
+              <Link
+                href="/research?type=protocol_validation"
+                className="text-deep-tide underline underline-offset-2"
+              >
+                research agenda
+              </Link>
+              .
+            </p>
+            <div className="mt-6">
+              <Disclosure
+                summary="How this comparison is built"
+                detail="Recorded as published, kept with its source, never merged."
+              >
+                <LibraryMethod />
+              </Disclosure>
+            </div>
+          </Section>
+        </div>
+      </Container>
+    );
   }
 
   return (
@@ -122,55 +311,95 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
           </h1>
           <p className="mt-3 text-lg text-ink-soft">
             Every regimen recorded in the index, exactly as one named source published it, with the
-            kind of evidence it rests on stated first. Compare them; nothing here is combined,
-            averaged or recommended.
+            kind of evidence it rests on stated first. Choose a compound to compare its records side
+            by side; nothing is combined, averaged or recommended.
           </p>
+          <div className="mt-4">{stats}</div>
         </div>
         <ModeSwitch mode={mode} path="/protocols" />
       </header>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="mt-8 max-w-[72ch]">
         <Callout tone="caution" title="The Tides Index issues no dose">
           <p>
             A record here says that a source reported a regimen, and where. It does not say the
             regimen works, is safe, or suits anyone. For most compounds in the register every
-            recorded regimen comes from a practitioner handbook that cites no study for its amounts
-            — and the label on each record says so.
+            recorded regimen comes from a practitioner handbook that cites no study for its amounts —
+            and the label on each record says so.
           </p>
         </Callout>
-        <div className="rounded-md border border-rule bg-mist px-4 py-3.5 text-sm text-ink-soft">
-          <p className="font-serif text-2xl text-ink">{library.totalCount}</p>
-          <p>
-            regimen{library.totalCount === 1 ? '' : 's'} recorded, for {library.compounds.length}{' '}
-            compound{library.compounds.length === 1 ? '' : 's'}, from {library.facets.sources.length}{' '}
-            source{library.facets.sources.length === 1 ? '' : 's'}.
-          </p>
-        </div>
       </div>
 
-      {/*
-        What the library is for, in the questions a clinician actually brings
-        to it. A page of eighty-four regimens is a database until it tells a
-        reader what it can answer and where to look; this band is that, and
-        it answers nothing itself — every line points at a part of the page or
-        at the research agenda.
-      */}
-      <section aria-labelledby="answers" className="mt-12">
+      <Section id="compounds" title={narrowed ? 'Compounds matching these filters' : 'Choose a compound to compare'}>
+        <p className="mb-5 max-w-[66ch] text-slate">
+          For each compound: how many records, from how many sources, by which routes and on what
+          evidence — and whether the sources word the key fields differently.
+        </p>
+        <div className="mb-8">
+          <LibraryFilters
+            filters={filters}
+            facets={library.facets}
+            filteredCount={library.filteredCount}
+            totalCount={library.totalCount}
+          />
+        </div>
+        {library.protocols.length === 0 ? (
+          <EmptyState
+            headline="No recorded regimen matches."
+            detail="An empty result means nothing is recorded for that combination — not that nothing has ever been reported anywhere."
+          />
+        ) : (
+          <CompoundChooser protocols={library.protocols} filters={filters} />
+        )}
+      </Section>
+
+      {narrowed && library.protocols.length > 0 ? (
+        <div className="editorial-break">
+          <Section id="records" title="Matching records">
+            <p className="mb-5 max-w-[62ch] text-slate">
+              Grouped by compound. Open a group to read each record in full.
+            </p>
+            <div className="space-y-3">
+              {groupBySlug(library.protocols).map(([slug, protocols]) => (
+                <Disclosure
+                  key={slug}
+                  summary={protocols[0]!.peptideName}
+                  detail={protocols
+                    .map((p) => evidenceContextLabel(p.evidenceTypeLabel, p.evidenceTypeKey))
+                    .filter((label, i, all) => all.indexOf(label) === i)
+                    .join(' · ')}
+                  count={protocols.length}
+                >
+                  <RecordList protocols={protocols} openAll />
+                </Disclosure>
+              ))}
+            </div>
+          </Section>
+        </div>
+      ) : null}
+
+      <div className="editorial-break">
+        <Section id="method" title="How this library is built">
+          <LibraryMethod />
+        </Section>
+      </div>
+
+      <section aria-labelledby="answers" className="mt-4">
         <h2 id="answers" className="font-serif text-2xl text-ink">
           What this library can tell you
         </h2>
         <p className="mt-2 max-w-[66ch] text-ink-soft">
-          It cannot tell you what anyone should take. It can tell you what the sources say, and how
-          far apart they are.
+          It cannot tell you what anyone should take. It can tell you what the sources say, and where
+          they part.
         </p>
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <dl className="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
           {ANSWERS.map(([question, where]) => (
-            <li key={question} className="rounded-md border border-rule bg-warm-white px-4 py-3">
-              <p className="font-serif text-base text-ink">{question}</p>
-              <p className="mt-1 text-sm text-ink-soft">{where}</p>
-            </li>
+            <div key={question} className="border-t border-rule pt-3">
+              <dt className="font-serif text-base text-ink">{question}</dt>
+              <dd className="mt-1 text-sm text-ink-soft">{where}</dd>
+            </div>
           ))}
-        </ul>
+        </dl>
         <p className="mt-4 text-sm text-ink-soft">
           What no source supports is on the{' '}
           <Link href="/research?type=protocol_validation" className="text-deep-tide underline underline-offset-2">
@@ -180,228 +409,69 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
         </p>
       </section>
 
-      <Section id="evidence-context" title="Reading the evidence label on a regimen">
-        <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {CONTEXT_EXPLAINED.map((entry) => (
-            <div key={entry.label} className="rounded-md border border-rule-soft px-4 py-3">
-              <dt className="text-xs font-medium tracking-wide text-deep-tide uppercase">
-                {entry.label}
-              </dt>
-              <dd className="mt-1 text-sm text-ink-soft">{entry.body}</dd>
-            </div>
-          ))}
-        </dl>
-      </Section>
-
-      {/* --- Filters -------------------------------------------------------- */}
-      <form method="get" action="/protocols" className="mt-10 rounded-md border border-rule px-4 py-4">
-        <p className="meta-label">Browse by</p>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Filter name="peptide" label="Compound" value={filters.peptide} options={library.facets.peptides} />
-          <Filter name="source" label="Source" value={filters.source} options={library.facets.sources} />
-          <Filter name="route" label="Route" value={filters.route} options={library.facets.routes} />
-          <Filter
-            name="evidence"
-            label="Evidence context"
-            value={filters.evidence}
-            // The regimen wording, not the taxonomy's: a filter offering
-            // "Randomised human trial" beside cards badged "Human trial regimen"
-            // is two names for one thing.
-            options={library.facets.evidence.map((o) => ({
-              ...o,
-              label: evidenceContextLabel(o.label, o.value),
-            }))}
-          />
-        </div>
-        <div className="mt-4 flex flex-wrap items-center gap-4">
-          <button type="submit" className="rounded-md bg-deep-tide px-5 py-2 text-sm font-medium text-warm-white">
-            Show regimens
-          </button>
-          {filtering ? (
-            <Link href="/protocols" className="text-sm underline decoration-rule underline-offset-2">
-              Clear filters
-            </Link>
-          ) : null}
-          {filtering ? (
-            <span className="text-sm text-slate">
-              {library.filteredCount} of {library.totalCount} match.
-            </span>
-          ) : null}
-        </div>
-      </form>
-
-      {simple ? (
-        <Section id="by-compound" title="Regimens recorded, by compound">
-          <p className="max-w-[62ch] text-ink-soft">
-            In this reading mode the amounts, schedules and durations are not shown — they belong
-            in a conversation with a clinician who knows your history. What you can see here is which
-            compounds have regimens on record, how many sources reported them, and what kind of
-            evidence those sources are.
-          </p>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {library.compounds
-              .filter((c) => filters.peptide === undefined || c.slug === filters.peptide)
-              .map((compound) => (
-                <li key={compound.slug} className="rounded-md border border-rule px-4 py-3.5">
-                  <Link
-                    href={`/peptides/${compound.slug}#protocols`}
-                    className="font-serif text-lg text-deep-tide underline decoration-rule underline-offset-2"
-                  >
-                    {compound.name}
-                  </Link>
-                  <p className="mt-1 text-sm text-ink-soft">
-                    {compound.protocolCount} regimen{compound.protocolCount === 1 ? '' : 's'} from{' '}
-                    {compound.sourceCount} source{compound.sourceCount === 1 ? '' : 's'}
-                    {compound.routes.length > 0 ? ` · ${compound.routes.join(', ')}` : ''}
-                  </p>
-                  <p className="mt-1 text-xs text-slate">Evidence: {compound.evidenceLabels.join(', ')}</p>
-                </li>
-              ))}
-          </ul>
+      <div className="editorial-break mt-10">
+        <Section id="evidence-context" title="Reading the evidence label on a regimen">
+          <EvidenceContextKey />
         </Section>
-      ) : library.protocols.length === 0 ? (
-        <div className="mt-10">
-          <EmptyState
-            headline="No recorded regimen matches."
-            detail="An empty result means nothing is recorded for that combination — not that nothing has ever been reported anywhere."
-          />
-        </div>
-      ) : (
-        <>
-          {selectedCompound !== undefined && library.protocols.length > 1 ? (
-            <Section
-              id="comparison"
-              title={`${selectedCompound.label}: side by side`}
-              lede="Every recorded regimen for this compound in one table. The rows that differ are named; missing fields say so."
-            >
-              <ProtocolComparison protocols={library.protocols} compoundName={selectedCompound.label} />
-            </Section>
-          ) : null}
-
-          <Section id="records" title={filtering ? 'Matching regimens' : 'All recorded regimens'}>
-            <div className="space-y-10">
-              {[...grouped.entries()].map(([slug, protocols]) => (
-                <div key={slug}>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-ink pb-2">
-                    <h2 className="font-serif text-2xl text-ink">
-                      <Link href={`/peptides/${slug}`} className="hover:text-deep-tide">
-                        {protocols[0]!.peptideName}
-                      </Link>
-                    </h2>
-                    {protocols.length > 1 && filters.peptide === undefined ? (
-                      <Link
-                        href={`/protocols?peptide=${slug}`}
-                        className="text-sm underline decoration-rule underline-offset-2"
-                      >
-                        Compare these {protocols.length} side by side
-                      </Link>
-                    ) : null}
-                  </div>
-                  <ul className="mt-4 grid gap-4 lg:grid-cols-2">
-                    {protocols.map((protocol) => (
-                      <ProtocolRecord key={protocol.id} protocol={protocol} />
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </Section>
-        </>
-      )}
+      </div>
     </Container>
   );
 }
 
-function Filter({
-  name,
-  label,
-  value,
-  options,
-}: {
-  name: string;
-  label: string;
-  value: string | undefined;
-  options: readonly { value: string; label: string; count: number }[];
-}) {
-  return (
-    <label className="block text-sm">
-      <span className="text-xs tracking-wide text-slate uppercase">{label}</span>
-      <select
-        name={name}
-        defaultValue={value ?? 'all'}
-        className="mt-1 w-full rounded-md border border-rule bg-warm-white px-2.5 py-2 text-ink"
-      >
-        <option value="all">All</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label} ({option.count})
-          </option>
-        ))}
-      </select>
-    </label>
-  );
+function groupBySlug(protocols: readonly LibraryProtocol[]): [string, LibraryProtocol[]][] {
+  const grouped = new Map<string, LibraryProtocol[]>();
+  for (const protocol of protocols) {
+    const list = grouped.get(protocol.peptideSlug) ?? [];
+    list.push(protocol);
+    grouped.set(protocol.peptideSlug, list);
+  }
+  return [...grouped.entries()];
 }
 
-/** Fields shown on a record card, in reading order. Missing is printed as missing. */
-const FIELDS: readonly { label: string; get: (p: LibraryProtocol) => string | null; always?: boolean }[] = [
-  { label: 'Population or model', get: (p) => p.populationModel },
-  { label: 'Route', get: (p) => p.routeName, always: true },
-  { label: 'Formulation', get: (p) => p.formulation },
-  {
-    label: 'Amount as reported',
-    get: (p) => (p.amountReported === null ? null : `${p.amountReported}`),
-    always: true,
-  },
-  { label: 'Frequency', get: (p) => p.frequencyText, always: true },
-  { label: 'Timing', get: (p) => p.timingText },
-  { label: 'Duration', get: (p) => p.durationText, always: true },
-  { label: 'Cycle / off period', get: (p) => p.cycleText },
-  { label: 'Titration', get: (p) => p.titrationText },
-  { label: 'Combinations', get: (p) => p.combinationsText },
-  { label: 'Monitoring', get: (p) => p.monitoringText, always: true },
-  { label: 'Cautions', get: (p) => p.contraindicationsText },
-  { label: 'Side effects reported', get: (p) => p.safetyNotes },
-];
-
-function ProtocolRecord({ protocol }: { protocol: LibraryProtocol }) {
-  const source = protocol.sources[0];
+/**
+ * Full records. Each behind its own disclosure where there are several, so the
+ * comparison stays the centre of the page; printing opens every one.
+ */
+function RecordList({
+  protocols,
+  openAll,
+}: {
+  protocols: readonly LibraryProtocol[];
+  openAll: boolean;
+}) {
+  if (openAll) {
+    return (
+      <ul className="space-y-5">
+        {protocols.map((protocol) => (
+          <PractitionerProtocolCard key={protocol.id} protocol={protocol} />
+        ))}
+      </ul>
+    );
+  }
   return (
-    <li className="flex flex-col rounded-lg border border-rule bg-warm-white px-4 py-4">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <ProtocolContextBadge
-          evidenceTypeKey={protocol.evidenceTypeKey}
-          evidenceTypeLabel={protocol.evidenceTypeLabel}
-        />
-        <span className="text-xs text-slate">{source?.sourceKey ?? protocol.protocolKey}</span>
-      </div>
-      <p className="mt-2 font-serif text-base leading-snug text-ink">
-        {source?.authors?.[0] ?? 'Author not recorded'}
-        {source?.year ? ` (${String(source.year)})` : ''}
-      </p>
-      <p className="text-sm text-slate">{source?.sourceTitle}</p>
-      <p className="mt-2 text-sm text-ink-soft">{protocol.objectiveContext}</p>
-
-      <dl className="mt-3 space-y-1.5 text-sm">
-        {FIELDS.map((field) => {
-          const value = field.get(protocol);
-          if (value === null && field.always !== true) return null;
-          return (
-            <div key={field.label} className="grid grid-cols-[9.5rem_1fr] gap-3">
-              <dt className="text-xs tracking-wide text-slate uppercase">{field.label}</dt>
-              <dd className={value === null ? 'text-slate italic' : 'text-ink-soft'}>
-                {value ?? 'Not stated by this source'}
-              </dd>
-            </div>
-          );
-        })}
-      </dl>
-
-      {protocol.regulatoryContext === null ? null : (
-        <p className="mt-3 border-t border-rule-soft pt-2.5 text-xs text-slate">
-          {protocol.regulatoryContext}
-        </p>
-      )}
-      <div className="mt-auto pt-3">{source === undefined ? null : <CitationLine citation={source} />}</div>
-    </li>
+    <ol className="space-y-3">
+      {protocols.map((protocol, index) => {
+        const source = protocol.sources[0];
+        const author = source?.authors[0] ?? 'Author not recorded';
+        return (
+          <li key={protocol.id}>
+            <Disclosure
+              summary={`Column ${String(index + 1)} · ${author}${source?.year ? ` (${String(source.year)})` : ''}`}
+              detail={[
+                evidenceContextLabel(protocol.evidenceTypeLabel, protocol.evidenceTypeKey),
+                protocol.routeName ?? 'Route not stated',
+                source?.sourceTitle,
+              ]
+                .filter((part): part is string => part !== undefined)
+                .join(' · ')}
+            >
+              <ul>
+                <PractitionerProtocolCard protocol={protocol} />
+              </ul>
+            </Disclosure>
+          </li>
+        );
+      })}
+    </ol>
   );
 }

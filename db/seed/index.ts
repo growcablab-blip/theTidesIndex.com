@@ -4,6 +4,7 @@ import * as schema from '../schema';
 import { loadEvidencePackets } from './evidence-packets';
 import { loadCompoundPackets } from './compound-packets';
 import { loadLearningPackets } from './learning';
+import { loadSyntheses } from './syntheses';
 import { loadSourceArtifacts, loadTrialPackets } from './trials';
 import { loadLiteratureScreens } from './literature-screens';
 import { loadQualityMap } from './quality-map';
@@ -70,6 +71,7 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
   // compound packets created, so both follow them.
   await loadSourceArtifacts(db);
   await loadLearningPackets(db);
+  await loadSyntheses(db);
   await loadTrialPackets(db);
   // Screens load after the compounds they belong to, and before nothing:
   // they are a record of what a search returned, not an input to anything else.

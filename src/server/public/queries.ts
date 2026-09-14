@@ -30,6 +30,12 @@ import {
   type PublicSourceArtifact,
 } from './trials';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
+import {
+  readLearningTopic,
+  readLearningTopics,
+  type LearningTopicReading,
+  type LearningTopicSummary,
+} from './learning';
 import { readSpecimenCertificate, type CertificateReading } from './certificate';
 import {
   readDiscovery,
@@ -1677,3 +1683,19 @@ export const getDiscovery = cache(async (): Promise<DiscoveryRow[]> =>
 export const getResearchQuestions = cache(async (): Promise<ResearchQuestionEntry[]> =>
   asPublic((tx) => readResearchQuestions(tx)),
 );
+
+/**
+ * Foundational learning topics, as the public may read them: only topics whose
+ * publication state is published, through the `public_v_*` views (0027).
+ */
+export const listLearningTopics = cache(
+  async (): Promise<readonly LearningTopicSummary[]> => asPublic((tx) => readLearningTopics(tx)),
+);
+
+export const getLearningTopic = cache(
+  async (slug: string): Promise<LearningTopicReading | null> =>
+    asPublic((tx) => readLearningTopic(tx, slug)),
+);
+
+export type { LearningTopicReading, LearningTopicSummary };
+
