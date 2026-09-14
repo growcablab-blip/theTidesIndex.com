@@ -164,7 +164,10 @@ export default function LearnPage() {
             ['Peptide Science & Applications', 'The general science behind the records, for clinicians and scientifically confident readers.'],
             ['The Peptide Reference Guide', 'The twelve compound monographs, bound.'],
             ['Peptide Protocols & Clinical Quick Reference', 'Every source-reported regimen, attributed. No recommended protocol.'],
-            ['Peptide Quality', 'Purity, identity, content, certificates, and how a vial is made.'],
+            [
+              'Peptide Quality: From Manufacturing to the Final Vial',
+              'Purity, identity, content, certificates, and how a vial is made.',
+            ],
           ].map(([title, body]) => (
             <div key={title} className="border-l-2 border-rule pl-4">
               <dt className="font-serif text-base text-ink">{title}</dt>

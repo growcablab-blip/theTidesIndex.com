@@ -5,6 +5,8 @@ import { previewResearchQuestions } from '@/server/public/preview';
 import type { ResearchQuestionEntry } from '@/server/public/research-index';
 import { Callout, Container, EmptyState } from '@/components/public/primitives';
 import {
+  GAP_FAMILY,
+  GAP_FAMILY_STYLE,
   GAP_TYPE_LABELS,
   OPPORTUNITY_LABELS,
   SOURCE_THAT_WOULD_HELP,
@@ -264,11 +266,10 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
                           {q.subjectName}
                         </Link>
                         <span
-                          className={
-                            OURS_TO_CLOSE.has(q.gapType)
-                              ? 'rounded-sm border border-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] px-1.5 py-0.5 text-2xs text-[var(--color-caution)]'
-                              : 'rounded-sm border border-rule px-1.5 py-0.5 text-2xs text-slate'
-                          }
+                          className={`rounded-sm border px-1.5 py-0.5 text-2xs ${
+                            GAP_FAMILY_STYLE[GAP_FAMILY[q.gapType] ?? 'method'] ??
+                            'border-rule text-slate'
+                          }`}
                         >
                           {GAP_TYPE_LABELS[q.gapType] ?? q.gapType}
                         </span>

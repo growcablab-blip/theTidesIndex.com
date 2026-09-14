@@ -140,6 +140,7 @@ export async function readQualityTopic(
       select ce.id, ce.claim_id, ce.evidence_type_key, ce.relationship,
              ce.population_model, ce.route_key, null::text as route_name,
              ce.formulation, ce.interpretation, ce.primary_source_verified,
+             ce.primary_trace,
              et.public_label as evidence_type_label, et.evidence_class,
              et.is_human_evidence, et.is_interpretive,
              ${CITATION_SELECT}
@@ -175,6 +176,7 @@ export async function readQualityTopic(
       formulation: str(row.formulation),
       interpretation: str(row.interpretation),
       primarySourceVerified: Boolean(row.primary_source_verified),
+      primaryTrace: String(row.primary_trace),
       citation: toCitation(row),
     });
     evidenceByClaim.set(claimId, list);

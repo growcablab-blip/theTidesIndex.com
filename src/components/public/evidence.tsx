@@ -77,8 +77,33 @@ function CountItem({ label, value }: { label: string; value: number }) {
   );
 }
 
+/**
+ * How close this citation gets to the research, in words.
+ *
+ * Four states a clinician actually cares about, and no score. "Secondary
+ * source" is not a criticism of the source — a handbook is a legitimate record
+ * of what its author does — it is a statement about what standing between this
+ * index and a study means for the claim.
+ */
+const TRACE_LABEL: Record<string, string> = {
+  primary_source_is_cited: 'Primary source cited directly',
+  abstract_only: 'Abstract reviewed; full text not obtained',
+  cited_not_obtained: 'Secondary source; its citations not obtained',
+  not_attempted: 'Primary source not yet traced',
+  full_text_supports: 'Full text reviewed — supports this',
+  full_text_partially_supports: 'Full text reviewed — supports this in part',
+  full_text_does_not_support: 'Full text reviewed — does not support this',
+  full_text_different_context: 'Full text reviewed — different context',
+};
+
 /** One evidence link: the source, what kind of evidence it is, and its reading. */
-export function EvidenceCard({ evidence }: { evidence: EvidenceRecord }) {
+export function EvidenceCard({
+  evidence,
+  simple = false,
+}: {
+  evidence: EvidenceRecord;
+  simple?: boolean;
+}) {
   const contradicts = evidence.relationship === 'contradicts';
 
   return (
@@ -125,6 +150,18 @@ export function EvidenceCard({ evidence }: { evidence: EvidenceRecord }) {
 
       <div className="mt-3 border-t border-rule-soft pt-2.5">
         <CitationLine citation={evidence.citation} />
+        {/*
+          Practitioner only. A patient reading "abstract reviewed" has more to
+          be confused by than to gain; a clinician deciding how much weight to
+          put on a line needs it, and it is the honest answer to "have you
+          actually read this?".
+        */}
+        {simple ? null : (
+          <p className="mt-1.5 text-xs text-slate">
+            <span className="tracking-wide uppercase">Primary source status:</span>{' '}
+            {TRACE_LABEL[evidence.primaryTrace] ?? 'Not recorded'}
+          </p>
+        )}
       </div>
     </li>
   );
@@ -249,7 +286,7 @@ export function ClaimCard({ claim, simple }: { claim: PublicClaim; simple: boole
           >
             <ul className="space-y-2.5">
               {claim.evidence.map((evidence) => (
-                <EvidenceCard key={evidence.id} evidence={evidence} />
+                <EvidenceCard key={evidence.id} evidence={evidence} simple={simple} />
               ))}
             </ul>
           </Disclosure>

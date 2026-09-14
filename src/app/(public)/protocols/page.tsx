@@ -45,6 +45,22 @@ function one(value: string | string[] | undefined): string | undefined {
   return v === undefined || v === '' || v === 'all' ? undefined : v;
 }
 
+/**
+ * The questions a clinician arrives with, and where each is answered.
+ *
+ * Not a feature list. Each line points at something already on the page, so
+ * the band cannot drift from what the library actually does — and none of
+ * them is "what should I give", which this index does not answer.
+ */
+const ANSWERS: readonly (readonly [string, string])[] = [
+  ['What do different sources report?', 'Every regimen below, as the named source published it.'],
+  ['Where do they agree?', 'The comparison names the fields every source states the same way.'],
+  ['Where do they differ?', 'The same comparison names the fields that vary, and by how much.'],
+  ['What is trial-derived?', 'Filter by evidence context: approved label, or human trial regimen.'],
+  ['What is practitioner-derived?', 'Filter by practitioner handbook. Most of this register is here.'],
+  ['What is preclinical?', 'Animal schedules are labelled, and never shown as human regimens.'],
+];
+
 const CONTEXT_EXPLAINED: readonly { label: string; body: string }[] = [
   {
     label: 'Approved-label regimen',
@@ -132,7 +148,38 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
         </div>
       </div>
 
-      {/* --- What the labels mean ------------------------------------------ */}
+      {/*
+        What the library is for, in the questions a clinician actually brings
+        to it. A page of eighty-four regimens is a database until it tells a
+        reader what it can answer and where to look; this band is that, and
+        it answers nothing itself — every line points at a part of the page or
+        at the research agenda.
+      */}
+      <section aria-labelledby="answers" className="mt-12">
+        <h2 id="answers" className="font-serif text-2xl text-ink">
+          What this library can tell you
+        </h2>
+        <p className="mt-2 max-w-[66ch] text-ink-soft">
+          It cannot tell you what anyone should take. It can tell you what the sources say, and how
+          far apart they are.
+        </p>
+        <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {ANSWERS.map(([question, where]) => (
+            <li key={question} className="rounded-md border border-rule bg-warm-white px-4 py-3">
+              <p className="font-serif text-base text-ink">{question}</p>
+              <p className="mt-1 text-sm text-ink-soft">{where}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-sm text-ink-soft">
+          What no source supports is on the{' '}
+          <Link href="/research?type=protocol_validation" className="text-deep-tide underline underline-offset-2">
+            research agenda
+          </Link>
+          .
+        </p>
+      </section>
+
       <Section id="evidence-context" title="Reading the evidence label on a regimen">
         <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CONTEXT_EXPLAINED.map((entry) => (

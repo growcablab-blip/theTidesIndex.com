@@ -1,4 +1,5 @@
 import type { PractitionerProtocol } from '@/server/public/queries';
+import { amountAsReported } from '@/domain/protocols/amount';
 
 /**
  * Source-reported regimens, side by side.
@@ -132,7 +133,7 @@ const ROWS: readonly { label: string; get: (p: PractitionerProtocol) => string |
   { label: 'Formulation', get: (p) => p.formulation },
   // The source's own wording, which already carries its unit. `amountUnit` is a
   // normalisation hint for filtering; appending it printed "500 mcg mcg".
-  { label: 'Amount as reported', get: (p) => p.amountReported },
+  { label: 'Amount as reported', get: (p) => amountAsReported(p) },
   { label: 'Frequency', get: (p) => p.frequencyText },
   { label: 'Timing', get: (p) => p.timingText ?? null },
   { label: 'Duration', get: (p) => p.durationText },
@@ -150,6 +151,16 @@ function differingRows(protocols: readonly PractitionerProtocol[]): string[] {
   return ROWS.filter((row) => {
     const values = protocols.map((p) => row.get(p) ?? '');
     return new Set(values).size > 1;
+  }).map((row) => row.label);
+}
+
+/** Rows every source states, and states identically. */
+function agreeingRows(protocols: readonly PractitionerProtocol[]): string[] {
+  if (protocols.length < 2) return [];
+  return ROWS.filter((row) => {
+    const values = protocols.map((p) => row.get(p));
+    if (values.some((value) => value === null || value === '')) return false;
+    return new Set(values).size === 1;
   }).map((row) => row.label);
 }
 
@@ -179,6 +190,18 @@ export function ProtocolComparison({
         {differs.length > 0 ? (
           <p className="mt-2.5 text-sm text-[var(--color-caution)]">
             <span className="font-medium">Differs between sources:</span> {differs.join(' · ')}
+          </p>
+        ) : null}
+        {/*
+          Agreement is worth naming too. A reader told only what differs will
+          assume the rest was never reported; in fact these are the fields
+          every source here states the same way, which is a different and
+          genuinely useful fact — and still not an endorsement of the value.
+        */}
+        {agreeingRows(protocols).length > 0 ? (
+          <p className="mt-1.5 text-sm text-ink-soft">
+            <span className="font-medium text-ink">Reported the same by every source here:</span>{' '}
+            {agreeingRows(protocols).join(' · ')}
           </p>
         ) : null}
       </div>

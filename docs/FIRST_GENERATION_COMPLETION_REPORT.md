@@ -51,7 +51,7 @@ plans to carry is written; rendering is not completion.
 | Peptide Science & Applications | `tides-index-peptide-science-and-applications.pdf` | 13 | **Partial draft** — 2 chapters marked source needed; modifications, formulation and research design not yet written |
 | The Peptide Reference Guide | `tides-index-peptide-reference-guide.pdf` | 87 | **Complete first draft** — all 12 monographs, every section present |
 | Peptide Protocols & Clinical Quick Reference | `tides-index-peptide-protocols-quick-reference.pdf` | 72 | **Complete first draft** — all 84 regimens, per-compound comparison |
-| Peptide Quality | `tides-index-peptide-quality.pdf` | 15 | **Complete first draft** — twelve chapters from the quality records |
+| Peptide Quality: From Manufacturing to the Final Vial | `tides-index-peptide-quality.pdf` | 15 | **Complete first draft** — twelve chapters from the quality records |
 
 Rebuild: `npm run pdf` (Understanding Peptides, Quality), `npm run pdf:science`,
 `npm run pdf:guide`, `npm run pdf:protocols`, `npm run sheets`.

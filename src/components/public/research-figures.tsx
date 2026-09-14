@@ -323,6 +323,45 @@ export const GAP_TYPE_LABELS: Record<string, string> = {
 };
 
 /**
+ * Which family an absence belongs to, for visual grouping only.
+ *
+ * Colour here separates kinds of problem, not degrees of importance: a gap in
+ * what this index can reach ("access") is a different job from a gap in what
+ * anybody has measured ("human"), and a reader scanning the agenda should be
+ * able to see which is which without reading every card. Nothing is ordered by
+ * these families and nothing is scored by them.
+ */
+export const GAP_FAMILY: Record<string, 'access' | 'human' | 'method' | 'identity' | 'product'> = {
+  source_missing: 'access',
+  source_inaccessible: 'access',
+  source_corrupted: 'access',
+  primary_source_missing: 'access',
+  no_current_reviewed_evidence: 'access',
+  human_evidence_not_established: 'human',
+  safety_not_established: 'human',
+  route_not_established: 'method',
+  scope_not_established: 'method',
+  numerical_threshold_not_established: 'method',
+  conflicting_sources: 'method',
+  terminology_unresolved: 'identity',
+  formulation_unspecified: 'product',
+  chain_of_custody_unknown: 'product',
+  regulatory_status_unverified: 'product',
+};
+
+/** Tailwind classes per family. Distinguishable in greyscale as well as colour. */
+export const GAP_FAMILY_STYLE: Record<string, string> = {
+  access:
+    'border-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] text-[var(--color-caution)]',
+  human:
+    'border-[var(--color-evidence-human)] bg-[var(--color-evidence-human-bg)] text-[var(--color-evidence-human)]',
+  method: 'border-rule bg-mist text-ink-soft',
+  identity: 'border-tide-teal bg-warm-white text-deep-tide',
+  product:
+    'border-[var(--color-evidence-preclinical)] bg-[var(--color-evidence-preclinical-bg)] text-[var(--color-evidence-preclinical)]',
+};
+
+/**
  * The kind of work that would answer a question of each type.
  *
  * Describes the study a researcher would run, never a procedure and never

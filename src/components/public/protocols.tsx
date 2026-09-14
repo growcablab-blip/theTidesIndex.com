@@ -3,6 +3,7 @@ import type {
   SimpleProtocol,
 } from '@/server/public/queries';
 import { CitationLine } from './citation';
+import { amountAsReported } from '@/domain/protocols/amount';
 import { Callout, EmptyState, NotRecorded, TableScroller } from './primitives';
 
 /**
@@ -88,9 +89,10 @@ export function SimpleProtocolCard({ protocol }: { protocol: SimpleProtocol }) {
 
 /** The regimen exactly as the named source reported it. Practitioner mode only. */
 export function PractitionerProtocolCard({ protocol }: { protocol: PractitionerProtocol }) {
-  // Verbatim, which already carries its unit. Appending `amountUnit` printed
-  // "500 mcg mcg" once records started stating units in their own wording.
-  const amount = protocol.amountReported ?? '';
+  // Verbatim where the source's wording carries its own unit — appending
+  // `amountUnit` to "500 mcg" printed "500 mcg mcg". Where it does not, the
+  // unit is added, because a bare "250" in a dosing table is unreadable.
+  const amount = amountAsReported(protocol) ?? '';
 
   return (
     <li className="avoid-break rounded-md border border-rule bg-warm-white">

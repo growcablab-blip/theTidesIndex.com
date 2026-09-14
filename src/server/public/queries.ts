@@ -541,6 +541,12 @@ async function readPeptidePage(
                   */
                  ${simple ? sql`null::text as formulation, null::text as interpretation` : sql`ce.formulation, ce.interpretation`},
                  ce.primary_source_verified,
+                 -- How far this citation has been traced back to the research.
+                 -- Not a dose and not a score, so it is selected in both modes;
+                 -- what differs is whether the page renders it, because a
+                 -- patient reading "abstract reviewed" learns less than a
+                 -- clinician does and has more to be confused by.
+                 ce.primary_trace,
                  et.public_label as evidence_type_label, et.evidence_class,
                  et.is_human_evidence, et.is_interpretive,
                  ${CITATION_SELECT}
@@ -574,6 +580,7 @@ async function readPeptidePage(
           formulation: str(row.formulation),
           interpretation: str(row.interpretation),
           primarySourceVerified: Boolean(row.primary_source_verified),
+          primaryTrace: String(row.primary_trace),
           citation: toCitation(row),
         });
         evidenceByClaim.set(claimId, list);
@@ -762,7 +769,14 @@ async function readPeptidePage(
         await tx.execute(sql`
           select cp.id, cp.product_key, cp.product_name, cp.proprietary_name,
                  cp.manufacturer, cp.authority, cp.jurisdiction,
-                 cp.application_number, cp.marketing_status, cp.presentation,
+                 cp.application_number, cp.marketing_status,
+                 -- Presentation is free text off a label, and a label describes
+                 -- how a product is given: the tesamorelin presentation names
+                 -- the diluent and the injection site. No amount, but it is
+                 -- administration detail, and patient mode is not an
+                 -- administration guide. Found by the patient presentation
+                 -- audit rather than by the dose scan, which looks for numbers.
+                 ${simple ? sql`null::text` : sql`cp.presentation`} as presentation,
                  -- Strength, reconstitution and labelled dose reconstruct a dose
                  -- between them, so they go the way protocol dosing goes.
                  ${simple
@@ -1302,6 +1316,53 @@ export const getSource = cache(async (sourceKey: string): Promise<PublicSource |
     `);
     const row = rows<Record<string, unknown>>(result)[0];
     return row ? toPublicSource(row) : null;
+  }),
+);
+
+/**
+ * Who paid for the study behind a source, as the source discloses it.
+ *
+ * Context, never a verdict. A reader weighing a result is entitled to know
+ * that the manufacturer ran the trial, and equally entitled to know that
+ * nobody reported the funding at all — and those are different answers, which
+ * is why "not checked" is stored and rendered rather than being left blank.
+ * Nothing here scores a study by its sponsor.
+ */
+export interface SourceFunding {
+  readonly fundingKey: string;
+  readonly funderKind: string;
+  readonly sponsorName: string | null;
+  readonly manufacturerInvolved: boolean | null;
+  readonly institution: string | null;
+  readonly grantReference: string | null;
+  readonly disclosureText: string | null;
+  readonly notes: string | null;
+}
+
+export const getSourceFunding = cache(async (sourceKey: string): Promise<SourceFunding[]> =>
+  asPublic(async (tx) => {
+    const result = await tx.execute(sql`
+      select f.funding_key, f.funder_kind::text as funder_kind, f.sponsor_name,
+             f.manufacturer_involved, f.institution, f.grant_reference,
+             f.disclosure_text, f.notes
+        from public_v_study_funding f
+        join public_v_sources s on s.id = f.source_id
+       where s.source_key = ${sourceKey}
+       order by f.funding_key
+    `);
+    return rows<Record<string, unknown>>(result).map((row) => ({
+      fundingKey: String(row.funding_key),
+      funderKind: String(row.funder_kind),
+      sponsorName: str(row.sponsor_name),
+      manufacturerInvolved:
+        row.manufacturer_involved === null || row.manufacturer_involved === undefined
+          ? null
+          : Boolean(row.manufacturer_involved),
+      institution: str(row.institution),
+      grantReference: str(row.grant_reference),
+      disclosureText: str(row.disclosure_text),
+      notes: str(row.notes),
+    }));
   }),
 );
 

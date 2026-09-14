@@ -52,13 +52,23 @@ import { colour, contentWidth, leading, sans, serif, type } from '../theme';
  *   is on the cover, it is on the status line, and it is in the back matter.
  */
 
+/**
+ * The full title, and the short form.
+ *
+ * `TITLE` is the volume's name and belongs on the cover, in the file
+ * metadata, in the version block and anywhere the volume is referred to.
+ * `PUBLICATION` is the running header printed at the top of every page in
+ * letter-spaced capitals, where the full title would run into the section
+ * name and clip. A running head is a locator, not a citation.
+ */
+const TITLE = 'Peptide Quality: From Manufacturing to the Final Vial';
 const PUBLICATION = 'Peptide Quality';
 const ISSUED = '12 September 2026';
 
 export function PeptideQuality() {
   return (
     <Document
-      title="Peptide Quality — From Manufacturing to the Final Vial"
+      title={TITLE}
       author="The Tides Index"
       subject="What analytical tests establish about a peptide preparation, and what they do not"
       creator="The Tides Index"
@@ -68,7 +78,7 @@ export function PeptideQuality() {
       <Cover
         imprint="The Tides Index"
         series="Reference series · Volume three"
-        title="Peptide Quality"
+        title="Peptide Quality:"
         subtitle="From Manufacturing to the Final Vial"
         descriptor="Independent peptide science & clinical reference"
         editionLine={`First edition excerpt · prototype · issued ${ISSUED}`}
@@ -767,7 +777,7 @@ export function PeptideQuality() {
 
         <CurrentVersionBlock
           url="thetidesindex.com/quality"
-          version={`Peptide Quality · first edition excerpt · issued ${ISSUED}`}
+          version={`${TITLE} · first edition excerpt · issued ${ISSUED}`}
           note="QR placeholder. The published code will resolve to the current version of each record cited here."
         />
 

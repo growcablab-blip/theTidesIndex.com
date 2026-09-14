@@ -101,6 +101,15 @@ export interface EvidenceRecord {
   readonly formulation: string | null;
   readonly interpretation: string | null;
   readonly primarySourceVerified: boolean;
+  /**
+   * How far this citation has been traced back to the research itself:
+   * `primary_source_is_cited`, `abstract_only`, `cited_not_obtained`,
+   * `not_attempted`, or one of the four full-text verdicts.
+   *
+   * A string rather than a union because the vocabulary lives in the database
+   * enum, and a second copy of it here would be a second thing to keep in step.
+   */
+  readonly primaryTrace: string;
   readonly citation: Citation;
 }
 

@@ -12,6 +12,7 @@ import {
   SubHeading,
 } from './primitives';
 import type { PeptidePage, PractitionerProtocol } from '@/server/public/queries';
+import { amountAsReported } from '@/domain/protocols/amount';
 
 /**
  * A practitioner reference sheet, built from the record.
@@ -259,7 +260,7 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
                     ['Population', protocol.populationModel],
                     ['Route', protocol.routeName],
                     ['Formulation', protocol.formulation],
-                    ['Amount as reported', protocol.amountReported],
+                    ['Amount as reported', amountAsReported(protocol)],
                     ['Frequency', protocol.frequencyText],
                     ['Duration', protocol.durationText],
                     ['Monitoring', protocol.monitoringText],

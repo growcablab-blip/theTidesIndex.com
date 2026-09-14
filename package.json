@@ -47,6 +47,8 @@
     "shots:manufacturing": "tsx scripts/qa/manufacturing-shots.ts",
     "shots:record": "tsx scripts/qa/record-shots.ts",
     "shots:index": "tsx scripts/qa/index-shots.ts",
+    "shots:human": "tsx scripts/qa/human-scale-shots.ts",
+    "audit:patient": "tsx scripts/qa/patient-audit.ts",
     "readiness": "tsx --tsconfig tsconfig.scripts.json scripts/qa/readiness.ts",
     "pdf:protocols": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-protocol-book.ts",
     "pdf:guide": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-reference-guide.ts",

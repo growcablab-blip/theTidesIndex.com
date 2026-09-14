@@ -17,6 +17,7 @@ import {
 } from './primitives';
 import { SeriesMark } from './figures';
 import type { LibraryProtocol, ProtocolLibrary } from '@/server/public/protocol-library';
+import { amountAsReported } from '@/domain/protocols/amount';
 import type { PeptidePage } from '@/server/public/queries';
 
 /**
@@ -108,7 +109,7 @@ const FIELDS: readonly [string, (p: LibraryProtocol) => string | null][] = [
   ['Population or model', (p) => p.populationModel],
   ['Route', (p) => p.routeName],
   ['Formulation', (p) => p.formulation],
-  ['Amount as reported', (p) => p.amountReported],
+  ['Amount as reported', (p) => amountAsReported(p)],
   ['Frequency', (p) => p.frequencyText],
   ['Timing', (p) => p.timingText],
   ['Duration', (p) => p.durationText],
@@ -282,7 +283,7 @@ function CompoundSection({
             sourceOf(protocol),
             contextOf(protocol).label,
             protocol.routeName ?? 'Not stated',
-            protocol.amountReported ?? 'Not stated',
+            amountAsReported(protocol) ?? 'Not stated',
             protocol.frequencyText ?? 'Not stated',
             protocol.durationText ?? 'Not stated',
           ])}

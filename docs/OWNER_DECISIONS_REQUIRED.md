@@ -73,9 +73,9 @@ decision. The brief prohibits buying services without authorisation.
 
 **Answered, 13 September 2026.** The owner will obtain a source when it is
 named specifically. This is no longer a blocked decision but a queue: the
-priority list is in `docs/FIRST_GENERATION_COMPLETION_REPORT.md` under source
-needs, headed by full texts for the retatrutide trials and the three BPC-157
-human studies. Until a full text arrives the record stays at abstract level
+exact acquisition targets, with titles, journals, years and PubMed
+identifiers, are in `docs/OWNER_SOURCE_ACQUISITION_QUEUE.md`, headed by full
+texts for the five retatrutide trials and the three BPC-157 human studies. Until a full text arrives the record stays at abstract level
 and says so.
 
 ## D-06 · SRC-016, Tremblay / CanLab, is not held
@@ -222,8 +222,12 @@ behind a paywall, an archived label, which study a figure belongs to) rather
 than gaps in knowledge. Those are work for this index, not questions for
 researchers.
 
-**Default if unanswered.** Keep both pages and keep "Research" in the
-navigation.
+**Answered, 13 September 2026.** Keep Research in the primary navigation.
+Both pages stay, and the directory no longer compares records by paper count:
+the owner's second decision of the same date rules out raw literature counts
+as a side-by-side comparison mechanism, so the directory describes each
+dimension in words and the counts remain on the records, next to the database
+and search date that produced them.
 
 ## D-15 · Funding absent from a PubMed record is recorded as "not checked"
 
@@ -311,3 +315,30 @@ it is now one click further away. The reasoning is that navigation should
 reflect what a reader arrived to do, and nobody arrives to read a methodology.
 
 **Default if unanswered.** Keep the current arrangement.
+
+## D-20 · Reviewer identity: the data model is ready, the entry form is not
+
+**What was checked, 13 September 2026.** The owner has a reviewer available and
+asked that the system be prepared so identity and credentials can be entered
+cleanly later, without onboarding anyone yet.
+
+Nothing needed building. `profiles` already carries display name, email, staff
+role, an active flag that preserves audit history rather than deleting people,
+and a reviewer-standing block: professional role, review domain, organisation,
+a one-or-two-line credential summary, and a three-state conflicts-disclosed
+field with notes and a date. The three states are the point — null means
+nobody asked, which is not the same as a reviewer stating they have none.
+
+`reviews` enforces the rest: a human review must name a person, an automated
+check must name a tool, never both and never neither, and automation is
+barred at the database level from recording a scientific, clinical or
+compliance approval. It can only ever record a source check or a primary
+verification.
+
+**What is missing.** There is no admin screen. Entering a reviewer today means
+a seed file or SQL. That is a small form over an existing table, and it is the
+only work between here and a named reviewer approving a record.
+
+**Recommendation.** Build the form when the reviewer is ready to start, not
+before — it is an hour of work and it would otherwise sit unused while the
+schema it writes to is already correct.

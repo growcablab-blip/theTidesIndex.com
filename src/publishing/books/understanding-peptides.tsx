@@ -704,7 +704,7 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
             'SRC-006 — Synthetic Peptides: A User’s Guide, 2nd edition.',
             'SRC-011 — Peptide Characterization and Application Protocols.',
             'SRC-017 — ICH Q7, Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients.',
-            'The fuller treatment is in the Peptide Quality volume, from the same records.',
+            'The fuller treatment is in Peptide Quality: From Manufacturing to the Final Vial, from the same records.',
           ]}
         />
       </PublicationPage>

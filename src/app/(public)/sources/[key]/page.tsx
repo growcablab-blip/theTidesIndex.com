@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getSource } from '@/server/public/queries';
+import { getSource, getSourceFunding } from '@/server/public/queries';
 import { formatAuthors } from '@/components/public/citation';
 import {
   Callout,
@@ -42,9 +42,21 @@ export async function generateMetadata({
   return { title: source.title, description: source.primaryRole ?? undefined };
 }
 
+const FUNDER_LABEL: Record<string, string> = {
+  industry: 'Industry',
+  government: 'Government or public research funder',
+  academic_institution: 'Academic institution',
+  foundation_or_charity: 'Foundation or charity',
+  mixed: 'Mixed — industry and public or academic',
+  none_declared: 'None declared by the study',
+  not_reported_in_source: 'Not reported in the source',
+  not_checked: 'Not checked',
+};
+
 export default async function SourcePage({ params }: { params: Promise<{ key: string }> }) {
   const { key } = await params;
   const source = await getSource(key);
+  const funding = await getSourceFunding(key);
 
   if (!source) notFound();
 
@@ -124,6 +136,58 @@ export default async function SourcePage({ params }: { params: Promise<{ key: st
           <DefinitionRow term="Statements resting on it">{source.citedByCount}</DefinitionRow>
         </dl>
       </Section>
+
+      {/*
+        Who paid for it, where the source says so.
+
+        Context and nothing else. Industry funding does not invalidate a trial
+        and public funding does not sanctify one, so there is no score here, no
+        badge, and no ordering by sponsor — just the disclosure as written, and
+        an explicit statement when nobody has checked.
+      */}
+      {funding.length > 0 ? (
+        <Section
+          id="funding"
+          title="Funding and declared interests"
+          lede="What the source discloses about who paid for the work. This is context for reading a result, not a measure of whether the result is right."
+        >
+          <div className="max-w-[68ch] space-y-4">
+            {funding.map((record) => (
+              <div key={record.fundingKey} className="rounded-md border border-rule bg-warm-white px-5 py-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <p className="font-serif text-base text-ink">
+                    {FUNDER_LABEL[record.funderKind] ?? record.funderKind}
+                  </p>
+                  {record.manufacturerInvolved === true ? (
+                    <span className="rounded-sm border border-rule px-1.5 py-0.5 text-2xs tracking-wide text-ink-soft uppercase">
+                      A maker or seller of the compound was involved
+                    </span>
+                  ) : null}
+                </div>
+
+                {record.sponsorName ? (
+                  <p className="mt-1.5 text-sm text-ink-soft">
+                    <span className="text-slate">Named funder: </span>
+                    {record.sponsorName}
+                  </p>
+                ) : null}
+                {record.grantReference ? (
+                  <p className="mt-1 text-sm text-ink-soft">
+                    <span className="text-slate">Grants: </span>
+                    {record.grantReference}
+                  </p>
+                ) : null}
+                {record.disclosureText ? (
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {record.disclosureText}
+                  </p>
+                ) : null}
+                {record.notes ? <p className="mt-2 text-xs text-slate">{record.notes}</p> : null}
+              </div>
+            ))}
+          </div>
+        </Section>
+      ) : null}
 
       <Section
         id="scope"
