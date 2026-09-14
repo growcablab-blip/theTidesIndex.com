@@ -1,0 +1,305 @@
+{
+  "packetKey": "what-is-a-peptide",
+  "note": "Extracted 14 September 2026 from CC BY reviews and the public-domain NHGRI Talking Glossary ('Courtesy: National Human Genome Research Institute'), each licence read in the retrieved text, with no AI restriction found. OpenStax is excluded (D-26). A passage giving the smallest and largest proteins was not used: its superlatives are the review's cited claims and were not checked. Every quote was checked word for word.",
+  "topic": {
+    "topicKey": "what-is-a-peptide",
+    "slug": "what-is-a-peptide",
+    "title": "What a peptide is",
+    "publicationChapter": "Understanding Peptides — One: What is a peptide?",
+    "summary": "A peptide is a chain of amino acids joined by peptide bonds; where a peptide ends and a protein begins is a convention that sources set differently; and the difference in size matters for how molecules are made, stored and tested.",
+    "notes": "What the two ends of a chain (N- and C-terminus) and a 'residue' are, and how measurement changes with chain size, are not stated by any permissive source held."
+  },
+  "locations": [
+    {
+      "key": "fnd-01",
+      "sourceKey": "SRC-160",
+      "locatorText": "The size of the chemical space of peptides > paragraph 2",
+      "section": "The size of the chemical space of peptides > paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-02",
+      "sourceKey": "SRC-161",
+      "locatorText": "3. Short Peptides: Definition > paragraph 1",
+      "section": "3. Short Peptides: Definition > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-03",
+      "sourceKey": "SRC-145",
+      "locatorText": "1. Introduction > paragraph 3",
+      "section": "1. Introduction > paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-04",
+      "sourceKey": "SRC-164",
+      "locatorText": "genetics-glossary/Peptide > Definition",
+      "section": "genetics-glossary/Peptide > Definition",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-05",
+      "sourceKey": "SRC-145",
+      "locatorText": "1. Introduction > paragraph 3",
+      "section": "1. Introduction > paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-06",
+      "sourceKey": "SRC-162",
+      "locatorText": "2.1. Activation of Carboxylic Groups to Active Esters > paragraph 1",
+      "section": "2.1. Activation of Carboxylic Groups to Active Esters > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-07",
+      "sourceKey": "SRC-162",
+      "locatorText": "2.1. Activation of Carboxylic Groups to Active Esters > paragraph 1",
+      "section": "2.1. Activation of Carboxylic Groups to Active Esters > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-16",
+      "sourceKey": "SRC-145",
+      "locatorText": "3. Strategies to Optimize Peptide Stability in Aqueous Formulations > paragraph 2",
+      "section": "3. Strategies to Optimize Peptide Stability in Aqueous Formulations > paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-17",
+      "sourceKey": "SRC-143",
+      "locatorText": "Chemical synthesis of peptides > paragraph 5",
+      "section": "Chemical synthesis of peptides > paragraph 5",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-18",
+      "sourceKey": "SRC-163",
+      "locatorText": "Introduction > paragraph 3",
+      "section": "Introduction > paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-19",
+      "sourceKey": "SRC-145",
+      "locatorText": "1. Introduction > paragraph 6",
+      "section": "1. Introduction > paragraph 6",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "FND-01",
+      "claimText": "A 2026 review in Chemical Science states that a peptide starts at two amino acids and that its upper length limit is an arbitrary cut-off, typically set below 50 or 100 residues.",
+      "plainLanguageText": "A peptide can be as short as two amino acids. There is no natural point where a peptide becomes a protein; scientists choose a cut-off, often 50 or 100.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Review-level definitional statement citing refs 57-59 (not obtained). Supports 'convention, not a fact of nature'.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Review-level definitional statement citing refs 57-59 (not obtained). Supports 'convention, not a fact of nature'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-02",
+      "claimText": "A 2021 review in Molecules notes that published definitions contradict each other, giving upper limits of fewer than 30, 50, or up to 100 residues.",
+      "plainLanguageText": "Different scientific papers draw the line in different places: 30, 50 or 100 building blocks.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Context is the definition of 'short peptides' (section 3). Cited definitions not obtained.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Context is the definition of 'short peptides' (section 3). Cited definitions not obtained.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-03",
+      "claimText": "A 2023 review in Pharmaceutics states that peptides and proteins are both made of amino acids: peptides are smaller molecules of two or more amino acids linked by peptide bonds, proteins are long chains that may contain many more.",
+      "plainLanguageText": "Peptides and proteins are made of the same building blocks. The main difference is size: peptides are short chains, proteins are long ones.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Same paragraph then cites competing numeric thresholds (Malavolta; Forbes) - supports 'convention'.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Same paragraph then cites competing numeric thresholds (Malavolta; Forbes) - supports 'convention'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-04",
+      "claimText": "The US National Human Genome Research Institute's glossary defines a peptide as a short chain of typically 2 to 50 amino acids linked by peptide bonds, and a chain of 51 or more as a polypeptide.",
+      "plainLanguageText": "A US government science glossary uses 50 as its dividing line. Other sources use different numbers, which shows the line is a convention.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Public-domain government glossary. SRC-145 reports a different convention (Malavolta: polypeptides 40-49 residues, proteins 50+). Present as one convention among several.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Public-domain government glossary. SRC-145 reports a different convention (Malavolta: polypeptides 40-49 residues, proteins 50+). Present as one convention among several.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-05",
+      "claimText": "A 2023 review states that, unlike proteins, peptides generally lack a defined three-dimensional structure, while noting that some peptides have one because of disulfide bridges, hydrogen bonds and hydrophobic interactions.",
+      "plainLanguageText": "Most short peptides are floppy and have no fixed shape, while proteins usually fold into a definite shape. There are exceptions: some peptides are held in shape by internal links.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Carries its own exception; keep both sentences together to avoid overstatement.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Carries its own exception; keep both sentences together to avoid overstatement.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-06",
+      "claimText": "A 2023 review in Molecules states that amino acids in a peptide are linked by amide bonds between the carboxyl group of one amino acid and the alpha-amino group of another, and that Emil Fischer called this a peptide bond.",
+      "plainLanguageText": "A peptide bond joins the acid end of one amino acid to the amino end of the next. The chemist Emil Fischer gave it its name.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Historical attribution to Fischer is cited [15], not obtained.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Historical attribution to Fischer is cited [15], not obtained.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-07",
+      "claimText": "The same 2023 review describes peptide bond formation as a condensation reaction between the carboxyl group of one amino acid and the amino group of another, releasing a water molecule.",
+      "plainLanguageText": "When two amino acids join by a peptide bond, a molecule of water is released.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Next sentence in source notes an activating reagent is usually needed in laboratory synthesis - do not imply the reaction proceeds readily on its own.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Next sentence in source notes an activating reagent is usually needed in laboratory synthesis - do not imply the reaction proceeds readily on its own.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-16",
+      "claimText": "A 2023 review states that peptides, because of their shorter length, lack tertiary and quaternary structure, so their side chains are predominantly exposed to the surrounding solution.",
+      "plainLanguageText": "Because peptides are short, they usually don't fold into a compact shape, so most of their side chains are exposed to the liquid around them.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "More absolute than FND-05 from the same review (which allows exceptions). Use together.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "More absolute than FND-05 from the same review (which allows exceptions). Use together.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-17",
+      "claimText": "A 2022 review in Signal Transduction and Targeted Therapy states that chemical synthesis of peptides under 50 residues is relatively routine, but longer peptides remain challenging to make chemically, especially at large scale.",
+      "plainLanguageText": "Short peptides can usually be built chemically, one amino acid at a time. Longer chains are much harder to make this way, especially in large amounts.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Fmoc-SPPS = a solid-phase chemical synthesis method; explain or omit. Status as of 2022.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Fmoc-SPPS = a solid-phase chemical synthesis method; explain or omit. Status as of 2022.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-18",
+      "claimText": "A 2025 review in the Journal of Peptide Science states that physical and chemical characterization of peptides and proteins, and their formulations, is crucial to ensure quality in terms of identity, purity and activity.",
+      "plainLanguageText": "For medicines, testing a peptide or protein is how makers confirm it is the right molecule, that it is pure, and that it works.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Pharmaceutical-quality context; does not say how methods differ with size.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-18",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Pharmaceutical-quality context; does not say how methods differ with size.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-19",
+      "claimText": "A 2023 review states that, because of potential instability, most peptide drugs require storage and transportation at low temperatures (the cold chain).",
+      "plainLanguageText": "Many peptide medicines break down easily, so they are usually kept cold from factory to patient.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "General statement about peptide drugs; not storage advice for any product.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review or a US government glossary. Definitions of 'peptide' are conventions and differ between sources; none describes any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-19",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General statement about peptide drugs; not storage advice for any product.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "What the N-terminus and C-terminus of a chain are, and what 'residue' means.",
+      "why": "No permissively licensed source retrieved defines them.",
+      "whatWouldResolveIt": "A CC BY-type biochemistry review or public-domain glossary entry that defines them."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "How the way a molecule is measured changes with chain length.",
+      "why": "The sources state that identity, purity and activity are characterised for peptides and proteins, but not how methods differ with size.",
+      "whatWouldResolveIt": "A permissively licensed analytical review comparing peptide and protein characterisation."
+    }
+  ]
+}

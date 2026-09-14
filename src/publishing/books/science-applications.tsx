@@ -385,12 +385,12 @@ export function ScienceAndApplications({
         />
       </PublicationPage>
 
-      {/* --- 4. Receptors and signalling: receptor half sourced ---------------- */}
+      {/* --- 4. Receptors and signalling ------------------------------------- */}
       <PublicationPage publication={PUBLICATION} section="Receptors and signalling">
         <ChapterOpener
           eyebrow="Four"
           title="Receptors, signalling and modulation"
-          standfirst="Half of this chapter can now be written. The half inside the cell cannot."
+          standfirst="Both halves of this chapter can now be written, from different sources. One step inside the cell cannot."
         />
         <Body>
           A clinician reading a compound record meets mechanism language constantly: receptor
@@ -428,10 +428,44 @@ export function ScienceAndApplications({
           supports="Claims RECEPT-001 to RECEPT-016, extracted from chapter 2 (printed pp. 6–22) of Rang and Dale’s Pharmacology, 10th edition, held as a Spanish-language publisher sample (SRC-121). Paraphrases of the Spanish text, awaiting re-checking against the English edition (SRC-122, not held)."
           doesNotSettle="Which receptor any compound in the register acts on, or how strongly: those are claims about a compound and are sourced, or not, on its record."
         />
+        <Body>
+          English-language open-access sources corroborate that account, and in one place qualify
+          it. Higham and Colquhoun (2024) show that measured agonist binding depends on efficacy as
+          well as affinity: the two are distinct properties, but cannot simply be read off separately
+          from equilibrium binding data. A systematic review of inverse agonism at adrenoceptors
+          (Michel et al. 2020) adds that measured inverse agonism is partly a property of the test
+          system, so one compound can appear as a partial agonist, a neutral antagonist or an inverse
+          agonist in different models.
+        </Body>
+        <SectionHeading>Inside the cell</SectionHeading>
+        <Body>
+          For G-protein-coupled receptors, ligand binding causes conformational rearrangement of the
+          seven-transmembrane domain, which activates the G protein on the cytoplasmic side (Culhane
+          et al. 2015). Receptor groups couple to distinct G-protein subunits and second-messenger
+          pathways, and one receptor can activate different G-protein subtypes or arrestin signalling
+          depending on the ligand (Cho et al. 2025). Preferential coupling to distinct transducers is
+          what the receptor literature calls biased agonism (Liu et al. 2024), and a practical guide
+          cautions that biased agonists’ effects often cannot be predicted from their pharmacological
+          profiles and must be tested in a physiological context (Gundry et al. 2017).
+        </Body>
+        <Body>
+          Tissue differences follow partly from receptor distribution: one paracrine signal can
+          activate some cell types and inhibit others through different receptor subtypes, and a
+          cell’s output reflects the integration of the many receptors it expresses (Tse and Wong
+          2019). Signals are terminated as well as started. After an active receptor is phosphorylated,
+          arrestins outcompete G proteins and shut down G-protein signalling; arrestin binding also
+          promotes internalisation and initiates signalling of its own (Seyedabadi et al. 2021). With
+          prolonged stimulation, receptors are downregulated through lysosomal destruction and reduced
+          expression (Liu et al. 2024).
+        </Body>
+        <EvidenceNote
+          supports="Claims SIG-05 to SIG-07, SIG-09, SIG-12 and SIG-13 (learning topic ‘How peptide signalling works’) and REC-06, REC-13, REC-16, REC-17 and REC-20 (learning topic ‘Receptors, agonists and antagonists (English sources)’), from reviews licensed CC BY 4.0, each licence read in the retrieved full text."
+          doesNotSettle="Which pathway any peptide in the register activates, in which tissue, or with what result."
+          status="Extracted and awaiting scientific review."
+        />
         <SourceNeeded
-          question="How does an activated receptor pass its signal into the cell — G-protein coupling, second messengers, kinase cascades — and why does that make one receptor produce different effects in different tissues?"
-          whatIsMissing="Rang and Dale cover this in chapter 3, which is not in the sample held. The complete English edition (SRC-122) is not held and, on owner direction, no further copy is being sought; no other source held explains intracellular signalling, so the question stays open rather than being answered from general knowledge."
-          whatExists="What the register does hold is every mechanism statement its compound records make, each attributed to the source that made it, with the evidence class attached. Those are reports of mechanism, not an account of how mechanisms work."
+          question="What happens downstream of the second messenger — the kinase cascades that carry a signal on — in terms general enough to apply across receptors?"
+          whatIsMissing="The only permissively licensed passage retrieved on this describes the key enzyme incompletely, so it was not used, and the Rang and Dale chapter that covers it (SRC-122) is not held. The question stays open rather than being answered from general knowledge."
         />
         <InTheRecords
           title="How mechanism claims appear in the register"
@@ -496,9 +530,73 @@ export function ScienceAndApplications({
           doesNotSettle="Anything about a particular peptide in the register, including whether an oral product reports any bioavailability. Neither review gives a class-wide bioavailability figure, and the only figures they give are for single products, so none is used."
           status="Extracted and awaiting scientific review. These reviews are cited as themselves; they are not the pharmacology textbook this chapter was planned around."
         />
+        <SectionHeading>The terms, defined</SectionHeading>
+        <Body>
+          Pharmacokinetics is classically described as the quantitative study of absorption,
+          distribution, metabolism and elimination, each influenced by the drug’s chemistry, its
+          administration (dose, route and schedule) and host factors (Straehla and Warren 2020).
+          Metabolism is often defined as enzymatic breakdown into less active components that aids
+          elimination, though it can also yield more active compounds; elimination is movement out of
+          the body, which can occur in several ways. Plotting blood concentration against time gives
+          Cmax and Tmax for a given dose and route (Straehla and Warren 2020), and the area under that
+          curve quantifies overall exposure after a single dose; clearance is the aggregate of all
+          elimination processes (Yousef et al. 2024).
+        </Body>
+        <Body>
+          The NCI Thesaurus defines volume of distribution as the apparent volume a compound occupies,
+          assuming uniform distribution at the concentration measured in plasma or another tissue, and
+          elimination half-life as the time for half of a substance to be removed from the plasma or
+          the body. US regulation (21 CFR 314.3, 2025 edition) defines bioavailability as the rate and
+          extent to which the active ingredient or moiety is absorbed from a product and becomes
+          available at the site of action; intravenous administration, the thesaurus states, gives
+          complete bioavailability because there is no absorption phase. Orally absorbed drug crosses
+          the intestinal wall into the portal vein and reaches the liver before the systemic
+          circulation, and individual differences in this pre-systemic metabolism by gut and liver make
+          oral bioavailability vary (Lin and Wong 2017).
+        </Body>
+
+        <SectionHeading>How peptides differ</SectionHeading>
+        <Body>
+          Mahmood and Pettinato (2021) state that proteolysis is a major elimination pathway for most
+          peptides, with clearance able to exceed cardiac output because peptides are degraded in
+          blood; that because peptides are generally smaller than 10 kDa their renal clearance may
+          reach the glomerular filtration rate; and that their volume of distribution is small and
+          limited to the extracellular space. After subcutaneous or intramuscular injection, peptides
+          reach the circulation through blood capillaries or the lymphatic system; injection avoids
+          gastrointestinal and hepatic enzymes, but degradation at the injection site and in lymph
+          lowers bioavailability relative to intravenous administration. The same authors note that
+          the intrinsic and extrinsic factors known to change small-molecule pharmacokinetics
+          substantially have effects on macromolecules that are not well established. For the approved
+          toxin-derived peptide drugs Stepensky (2018) reviews, proteolysis acts at the sites of
+          administration and distribution whatever the volume of distribution.
+        </Body>
+
+        <SectionHeading>Routes</SectionHeading>
+        <Body>
+          Subcutaneous injection deposits drug in the interstitial space of the hypodermis — adipose
+          tissue with blood and lymph vessels and resident cells — whose negative charge gives low
+          hydraulic conductivity and limits injection volume (Pitiot et al. 2022). The NCI Thesaurus
+          describes subcutaneous absorption as relatively slow and sustained, perfusion-limited and
+          proportional to the amount at the site, and intramuscular absorption, delay and duration of
+          effect as perfusion-limited and dependent on molecular size, solution volume and osmolarity,
+          local fat content and physical activity. Nasal administration often gives systemic action
+          through the nasal mucosa (NCI Thesaurus), but large hydrophilic macromolecules may permeate
+          the nasal epithelium and the stratum corneum poorly (Kirkby et al. 2020), and the mechanisms
+          of nose-to-brain delivery are still debated (Bose et al. 2022). Sublingual and buccal
+          absorption lets certain drugs bypass first-pass metabolism, but earlier macromolecules failed
+          on permeability, size and degradation, and retention at the site is complicated by saliva,
+          eating and speaking (Bahraminejad and Almoazen 2025). For lung-targeted therapy, barriers
+          include the cough reflex, low regional delivery efficiency and rapid loss by degradation,
+          clearance or systemic absorption (Plaunt et al. 2022).
+        </Body>
+        <EvidenceNote
+          supports="Claims PKG-01 to PKG-08, PKG-12 to PKG-15 and PKG-17 to PKG-21 (learning topic ‘Pharmacokinetic concepts’) and RTE-11 to RTE-14, RTE-16, RTE-17 and RTE-20 to RTE-27 (learning topic ‘Routes of administration’), from reviews licensed CC BY 4.0, the NCI Thesaurus (CC BY 4.0) and 21 CFR 314.3 (public domain), each licence or terms statement read at the source."
+          doesNotSettle="Any parameter for any peptide in the register, or how any product should be given. Several route statements come from reviews written about antibodies or macromolecules generally."
+          status="Extracted and awaiting scientific review."
+        />
         <SourceNeeded
-          question="What do half-life, bioavailability, first-pass metabolism, clearance and volume of distribution mean, and how are they measured?"
-          whatIsMissing="The pharmacology textbook held (SRC-121) is a sample that stops before its pharmacokinetics chapters, and the complete English edition (SRC-122) is not held. The reviews held do not define these terms. Open textbooks that do were not used because their pages forbid ingestion into AI systems without permission (owner decision D-26)."
+          question="How long repeated administration takes to reach steady state; what a half-life does not tell you — its dependence on clearance and volume of distribution, and why an effect can outlast the substance; and plasma protein binding in general."
+          whatIsMissing="Not stated in general terms by any permissively licensed source retrieved. The one review that states the steady-state rule is a single-author review that also discusses products and dosing intervals, and was not used; the only protein-binding statement retrieved is limited to the blood–brain barrier."
         />
       </PublicationPage>
 

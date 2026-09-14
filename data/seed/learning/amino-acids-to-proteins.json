@@ -1,0 +1,224 @@
+{
+  "packetKey": "amino-acids-to-proteins",
+  "note": "Extracted 14 September 2026 from CC BY reviews in Essays in Biochemistry, Biochemical Journal, Life and Antibiotics, each licence read in the retrieved full text, with no AI restriction found. OpenStax is excluded (D-26). Every quote was checked word for word.",
+  "topic": {
+    "topicKey": "amino-acids-to-proteins",
+    "slug": "amino-acids-to-proteins",
+    "title": "Amino acids, peptides, proteins",
+    "publicationChapter": "Understanding Peptides — Two: Amino acids, peptides, proteins",
+    "summary": "Amino acids share a common backbone and differ by their side chains; twenty make up the standard set; the sequence is the primary structure, and it carries the information for folding into secondary and tertiary structure.",
+    "notes": "What else changes as a chain gets longer — stability, immune recognition — is not stated by any permissive source held."
+  },
+  "locations": [
+    {
+      "key": "fnd-08",
+      "sourceKey": "SRC-167",
+      "locatorText": "Classifying protein function > paragraph 1",
+      "section": "Classifying protein function > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-09",
+      "sourceKey": "SRC-165",
+      "locatorText": "1. Introduction > paragraph 5",
+      "section": "1. Introduction > paragraph 5",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-10",
+      "sourceKey": "SRC-165",
+      "locatorText": "1. Introduction > paragraph 2",
+      "section": "1. Introduction > paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-11",
+      "sourceKey": "SRC-166",
+      "locatorText": "7. Amino Acids as Solubility Enhancing Agents > paragraph 13",
+      "section": "7. Amino Acids as Solubility Enhancing Agents > paragraph 13",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-12",
+      "sourceKey": "SRC-167",
+      "locatorText": "Classifying protein function > paragraph 1",
+      "section": "Classifying protein function > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-13",
+      "sourceKey": "SRC-167",
+      "locatorText": "Classifying protein function > paragraph 1",
+      "section": "Classifying protein function > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-14",
+      "sourceKey": "SRC-168",
+      "locatorText": "BACKGROUND > paragraph 1",
+      "section": "BACKGROUND > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-15",
+      "sourceKey": "SRC-168",
+      "locatorText": "Hydrophobic collapse > paragraph 1",
+      "section": "Hydrophobic collapse > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "FND-08",
+      "claimText": "A 2022 Essays in Biochemistry review defines secondary structure as regular, recurring elements (alpha-helices and beta-sheets) formed by interactions between atoms of the peptide backbone - the chain excluding the variable side chains.",
+      "plainLanguageText": "The backbone is the repeating spine of the chain, without the side chains that hang off it. Stretches of backbone can coil into helices or line up into sheets.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Supplies a backbone definition (ch1 b) and the secondary-structure level (ch2 b).",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-08",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Supplies a backbone definition (ch1 b) and the secondary-structure level (ch2 b).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-09",
+      "claimText": "A 2023 review in Life states that each genetically encoded amino acid has a constant backbone - an amine at one end, a carboxyl at the other and an alpha carbon between them - and that the variable side chain on that carbon distinguishes one amino acid from another.",
+      "plainLanguageText": "Every amino acid shares the same core: an amino group, an acid group and a central carbon. What makes each one different is the side chain attached to that carbon.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Box 1 text within the Introduction; '(A)', '(B)' refer to figure panels.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Box 1 text within the Introduction; '(A)', '(B)' refer to figure panels.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-10",
+      "claimText": "The same review describes the genetically encoded set of 20 amino acids, often called the canonical set, as an 'alphabet' established early in biological evolution.",
+      "plainLanguageText": "Living things build proteins from a standard 'alphabet' of 20 amino acids.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Evolutionary-history clause is the authors' interpretation; the alphabet framing can be used without it.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-10",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Evolutionary-history clause is the authors' interpretation; the alphabet framing can be used without it.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-11",
+      "claimText": "A 2020 review in Antibiotics states that an amino acid's side chain determines whether it is hydrophilic or hydrophobic and whether it exists as a charged or neutral molecule.",
+      "plainLanguageText": "The side chain gives each amino acid its character - for example, whether it mixes with water or avoids it, and whether it carries an electric charge.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Charge also depends on pH (not stated in this quote - do not add without a source).",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Charge also depends on pH (not stated in this quote - do not add without a source).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-12",
+      "claimText": "The 2022 Essays in Biochemistry review defines primary structure as the amino acid sequence making up a protein's polypeptide chain.",
+      "plainLanguageText": "The order of amino acids along the chain is called the primary structure.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "A definitional statement, taken as the source states it.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "A definitional statement, taken as the source states it.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-13",
+      "claimText": "The same review defines tertiary structure as the overall structure of the whole protein, mediated mainly by interactions between amino acid side chains - including hydrogen bonds, ionic interactions, van der Waals interactions, disulfide bonds and hydrophobic interactions that induce folding.",
+      "plainLanguageText": "The complete folded shape of a protein is its tertiary structure. It is held together mostly by different kinds of contacts between side chains.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "The quaternary-structure sentence that follows was left out to keep the quote under 60 words; the brief only covers primary to tertiary structure.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The quaternary-structure sentence that follows was left out to keep the quote under 60 words; the brief only covers primary to tertiary structure.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-14",
+      "claimText": "A 2016 Biochemical Journal review states that, as Anfinsen proposed, the way proteins fold into their functional structures is dictated by information encoded in their amino acid sequence.",
+      "plainLanguageText": "The order of amino acids carries the instructions for how a protein folds into its working shape.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Secondary attribution to Anfinsen. Cellular folding can involve helper proteins - not covered here; avoid 'always folds on its own'.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Secondary attribution to Anfinsen. Cellular folding can involve helper proteins - not covered here; avoid 'always folds on its own'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-15",
+      "claimText": "The same review states that one key event in folding is the collapse of the unfolded chain so that hydrophobic side chains are excluded from the surrounding solvent.",
+      "plainLanguageText": "Part of folding is the chain curling up so that its water-avoiding side chains are tucked away from the surrounding water.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "'One of the key events', not the whole mechanism.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "'One of the key events', not the whole mechanism.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "What else changes as a chain gets longer, such as stability or recognition by the immune system.",
+      "why": "The sources cover folding and structure; none states these length effects in general terms.",
+      "whatWouldResolveIt": "A permissively licensed review addressing length-dependent properties."
+    }
+  ]
+}

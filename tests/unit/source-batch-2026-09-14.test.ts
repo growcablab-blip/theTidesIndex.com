@@ -186,6 +186,93 @@ describe('sources not held, and what answers their questions instead', () => {
   });
 });
 
+describe('foundations from permissively licensed sources (D-26)', () => {
+  interface LearningPacket {
+    locations: { key: string; sourceKey: string }[];
+    claims: {
+      claimKey: string;
+      claimText: string;
+      plainLanguageText: string | null;
+      uncertaintyText: string;
+      evidence: { locationKey: string }[];
+    }[];
+  }
+  const PACKETS = [
+    'what-is-a-peptide',
+    'amino-acids-to-proteins',
+    'peptides-in-the-body',
+    'peptide-signalling',
+    'receptor-pharmacology',
+    'pharmacokinetic-concepts',
+    'routes-of-administration',
+  ] as const;
+  const packets = PACKETS.map((name) => read<LearningPacket>(`data/seed/learning/${name}.json`));
+  // Chapter seven also cites the earlier review-based packet on peptides as medicines.
+  const claimKeys = new Set(
+    [...packets, read<LearningPacket>('data/seed/learning/peptides-as-medicines.json')].flatMap((p) =>
+      p.claims.map((c) => c.claimKey),
+    ),
+  );
+  const records = read<{ sources: Record<string, unknown>[] }>('SOURCE_MANIFEST.json').sources;
+
+  it('rests every claim on a usable source whose licence was read and permits this use', () => {
+    for (const packet of packets) {
+      for (const loc of packet.locations) {
+        const s = records.find((r) => r.source_key === loc.sourceKey);
+        expect(s, loc.key).toBeDefined();
+        expect(s?.qc_status, loc.key).toBe('usable');
+        expect(s?.access_status, loc.key).toBe('held');
+        const text = (v: unknown): string => (typeof v === 'string' ? v : '');
+        const notes = `${text(s?.integrity_notes)} ${text(s?.limitations_notes)}`;
+        // Held reviews registered earlier record their licence in limitations_notes.
+        expect(notes, loc.sourceKey).toMatch(/CC BY|Creative Commons|public domain|Licence as stated/i);
+        expect(notes, loc.sourceKey).not.toMatch(/NonCommercial|NoDerivatives|CC BY-NC|CC BY-ND/i);
+        const identity = [s?.title, s?.publisher, s?.canonical_url]
+          .map((v) => (typeof v === 'string' ? v : ''))
+          .join(' ');
+        expect(identity, loc.sourceKey).not.toMatch(/openstax/i);
+      }
+    }
+  });
+
+  it('keeps amounts out of every foundational claim and gives each a plain version', () => {
+    for (const packet of packets) {
+      for (const claim of packet.claims) {
+        for (const text of [claim.claimText, claim.plainLanguageText ?? '', claim.uncertaintyText]) {
+          expect(text, claim.claimKey).not.toMatch(AMOUNT);
+        }
+        expect(claim.plainLanguageText, claim.claimKey).toBeTruthy();
+      }
+    }
+  });
+
+  it('names only claims that exist in the chapters written from them', () => {
+    const book = readFileSync('src/publishing/books/understanding-peptides.tsx', 'utf8');
+    for (const name of [
+      'CHAPTER_ONE_CLAIMS',
+      'CHAPTER_TWO_CLAIMS',
+      'CHAPTER_THREE_CLAIMS',
+      'CHAPTER_FOUR_CLAIMS',
+      'CHAPTER_FIVE_ENGLISH_CLAIMS',
+      'CHAPTER_SEVEN_CLAIMS',
+    ]) {
+      const block = new RegExp(`${name} = \\[([\\s\\S]*?)\\] as const`).exec(book)?.[1] ?? '';
+      const named = [...block.matchAll(/'([A-Z]{2,3}-\d{2})'/g)].map((m) => m[1] ?? '');
+      expect(named.length, name).toBeGreaterThan(0);
+      for (const key of named) expect(claimKeys.has(key), `${name}: ${key}`).toBe(true);
+    }
+  });
+
+  it('marks what no source supports as SOURCE NEEDED instead of writing it', () => {
+    const book = readFileSync('src/publishing/books/understanding-peptides.tsx', 'utf8');
+    // Chapter three's safety inference, chapter one's chain ends and chapter
+    // four's paracrine definitions are the points no held source states.
+    expect(book).toMatch(/<SourceNeeded\s+point="Why “the body makes it” is not, by itself, an argument about safety or efficacy\."/);
+    expect(book).toMatch(/<SourceNeeded\s+point="What the two ends of a chain/);
+    expect(book).toMatch(/<SourceNeeded\s+point="Plain definitions of the local forms of signalling/);
+  });
+});
+
 describe('Understanding Peptides chapter five', () => {
   it('names only receptor claims that exist in the learning-topic packet', () => {
     const chapter = readFileSync('src/publishing/books/understanding-peptides.tsx', 'utf8');

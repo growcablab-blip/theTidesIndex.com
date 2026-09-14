@@ -1,0 +1,274 @@
+{
+  "packetKey": "peptide-signalling",
+  "note": "Extracted 14 September 2026 from permissively licensed reviews (CC BY 4.0, or public domain for the 1998 US government overview), each licence read in the retrieved full text, with no AI restriction found. OpenStax is excluded (D-26). Two GLP-1-receptor statements from a metabolism review were not used, to keep a patient chapter free of compound-adjacent detail. Every quote was checked word for word.",
+  "topic": {
+    "topicKey": "peptide-signalling",
+    "slug": "peptide-signalling",
+    "title": "How peptide signalling works",
+    "publicationChapter": "Understanding Peptides — Four: How peptide signalling works; Peptide Science & Applications — Four (signalling half)",
+    "summary": "Hormones and other messengers act only on cells carrying their receptor; peptide hormones act at the cell surface; binding starts a chain of reactions inside the receiving cell; the same signal can have different effects through different receptor subtypes; and signals are switched off. General cell biology.",
+    "notes": "Definitions of paracrine and autocrine signalling are not stated explicitly by any source held. The statement that peptide hormones cannot enter cells comes from a 1998 general overview and is worded categorically."
+  },
+  "locations": [
+    {
+      "key": "sig-01",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones?, paragraph 1",
+      "section": "What Are Hormones?, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-02",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones?, paragraph 1",
+      "section": "What Are Hormones?, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-03",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones? > Mechanisms of Action, paragraph 3",
+      "section": "What Are Hormones? > Mechanisms of Action, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-04",
+      "sourceKey": "SRC-155",
+      "locatorText": "Introduction, paragraph 1",
+      "section": "Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-05",
+      "sourceKey": "SRC-155",
+      "locatorText": "GPCRs for Bridging the Autocrine/Paracrine Network and for Signal Integration, paragraph 1",
+      "section": "GPCRs for Bridging the Autocrine/Paracrine Network and for Signal Integration, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-06",
+      "sourceKey": "SRC-155",
+      "locatorText": "GPCRs for Bridging the Autocrine/Paracrine Network and for Signal Integration, paragraph 1",
+      "section": "GPCRs for Bridging the Autocrine/Paracrine Network and for Signal Integration, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-07",
+      "sourceKey": "SRC-157",
+      "locatorText": "Introduction, paragraph 1",
+      "section": "Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-09",
+      "sourceKey": "SRC-158",
+      "locatorText": "1. Introduction, paragraph 2",
+      "section": "1. Introduction, paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-12",
+      "sourceKey": "SRC-159",
+      "locatorText": "Abstract, paragraph 1",
+      "section": "Abstract, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-13",
+      "sourceKey": "SRC-159",
+      "locatorText": "1. Introduction, paragraph 1",
+      "section": "1. Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "SIG-01",
+      "claimText": "Hiller-Sturmhöfel and Bartke (1998) explain that a hormone's target cells are those carrying receptors for it, located on the cell surface or inside the cell.",
+      "plainLanguageText": "A hormone only affects cells that have the matching receptor, which works like a docking point.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "General hormone statement (all classes).",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General hormone statement (all classes).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-02",
+      "claimText": "Hiller-Sturmhöfel and Bartke (1998) describe hormone-receptor binding as triggering a cascade of reactions in the target cell that modifies the cell's function or activity.",
+      "plainLanguageText": "When a hormone binds its receptor, a chain of reactions starts inside the receiving cell, and that cell changes what it is doing.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Supports \"the response is produced by the receiving cell\" only implicitly; the source does not state that the messenger merely carries information.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Supports \"the response is produced by the receiving cell\" only implicitly; the source does not state that the messenger merely carries information.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-03",
+      "claimText": "Hiller-Sturmhöfel and Bartke (1998) state that, because of their chemical structure, polypeptide and protein hormones cannot enter cells and instead act on cell-surface receptors.",
+      "plainLanguageText": "An overview of hormones states that peptide hormones cannot get inside cells, so they pass their message through receptors on the cell's outer surface.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Source says \"cannot enter cells\" categorically for hormones in a 1998 general overview; for a patient book consider softening to \"generally\" only if a second source supports it (Wang 2022 lists membrane impermeability as a drawback of therapeutic peptides). Do not apply to cell-penetrating or antimicrobial peptides.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Source says \"cannot enter cells\" categorically for hormones in a 1998 general overview; for a patient book consider softening to \"generally\" only if a second source supports it (Wang 2022 lists membrane impermeability as a drawback of therapeutic peptides). Do not apply to cell-penetrating or antimicrobial peptides.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-04",
+      "claimText": "Tse and Wong (2019) describe classical endocrine signalling as hormones released into the blood acting on distant target cells, and note these processes are also regulated by autocrine, paracrine, intracrine and juxtacrine communication.",
+      "plainLanguageText": "Some hormones travel in the blood to reach distant cells. Cells also send local signals to their neighbours and even to themselves.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Source defines endocrine explicitly but does not define autocrine/paracrine in this sentence; the plain-language gloss of autocrine/paracrine is SOURCE NEEDED unless another source is found.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Source defines endocrine explicitly but does not define autocrine/paracrine in this sentence; the plain-language gloss of autocrine/paracrine is SOURCE NEEDED unless another source is found.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-05",
+      "claimText": "Tse and Wong (2019) state that a single paracrine signal can activate some cell types and inhibit others through different GPCR subtypes.",
+      "plainLanguageText": "The same signal can switch one kind of cell on and another off, depending on which version of the receptor each cell has.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "\"could\" is hedged in source; keep hedge.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "\"could\" is hedged in source; keep hedge.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-06",
+      "claimText": "Tse and Wong (2019) describe cells as expressing many GPCRs and integrating circulating and local signals, so a cell's final response is shaped by groups of receptors.",
+      "plainLanguageText": "A cell receives many signals at once, and its response depends on how it combines them.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Supports \"the receiving cell produces the response\"; stated for GPCR signalling.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Supports \"the receiving cell produces the response\"; stated for GPCR signalling.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-07",
+      "claimText": "Culhane et al. (2015) describe the general GPCR activation mechanism: ligand binding causes shape changes in the receptor's transmembrane region that activate a G protein inside the cell.",
+      "plainLanguageText": "When the messenger binds the receptor, the receptor changes shape and switches on a partner protein (a G protein) on the inside of the cell.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "General mechanism; structural detail beyond this not needed for patients.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General mechanism; structural detail beyond this not needed for patients.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-09",
+      "claimText": "Cho et al. (2025) state that GPCR groups use distinct G-protein subunits linked to specific second-messenger pathways, and that one receptor can activate different pathways depending on the ligand.",
+      "plainLanguageText": "Different receptors connect to different internal relay systems (\"second messengers\"), and even one receptor can send different internal signals depending on what binds it.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "MDPI review; statement is textbook-level and cited.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "MDPI review; statement is textbook-level and cited.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-12",
+      "claimText": "Seyedabadi et al. (2021) state that arrestin binding to a GPCR blocks further G-protein coupling, helps pull the receptor into the cell, and starts separate arrestin-mediated signalling.",
+      "plainLanguageText": "Signals are also switched off: proteins called arrestins attach to the used receptor, stop it from activating more G proteins, and help remove it from the cell surface.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Third function (arrestin signalling) means \"switching off\" is not the whole story; keep in plain text if space allows.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Third function (arrestin signalling) means \"switching off\" is not the whole story; keep in plain text if space allows.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-13",
+      "claimText": "Seyedabadi et al. (2021) state that after a receptor is phosphorylated, arrestins outcompete G proteins and shut down G-protein-mediated signalling.",
+      "plainLanguageText": "Once an active receptor has been chemically tagged, arrestins take the G protein's place and the signal stops.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Preceding sentence in source names GRKs as the kinases that phosphorylate the active receptor (\"classical paradigm of homologous desensitization\").",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Preceding sentence in source names GRKs as the kinases that phosphorylate the active receptor (\"classical paradigm of homologous desensitization\").",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Plain definitions of paracrine and autocrine signalling.",
+      "why": "The sources name these modes and define endocrine signalling, but do not define the other two explicitly.",
+      "whatWouldResolveIt": "A permissively licensed source defining them."
+    }
+  ]
+}

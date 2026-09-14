@@ -1,0 +1,680 @@
+{
+  "packetKey": "routes-of-administration",
+  "note": "Extracted 14 September 2026 from the FDA CDER Data Standards Manual route monograph (US government work, public domain; page current as of 14 November 2017), the NCI Thesaurus (CC BY 4.0) and CC BY 4.0 reviews, each licence or terms statement read at the source, with no AI restriction found. OpenStax is excluded (D-26). Not used: a subcutaneous absorption model's simulated size thresholds, and an injectable dosage-form definition that the thesaurus takes from another terminology. Every quote was checked word for word.",
+  "topic": {
+    "topicKey": "routes-of-administration",
+    "slug": "routes-of-administration",
+    "title": "Routes of administration",
+    "publicationChapter": "Understanding Peptides — Seven: Routes of administration; Peptide Science & Applications — Five (routes)",
+    "summary": "What each route is, as the FDA's data standards define it, and what each demands: subcutaneous and intramuscular absorption through blood and lymph, breakdown at the injection site, limits on injection volume, and the barriers facing nasal, transdermal, inhaled, sublingual and buccal delivery of large molecules.",
+    "notes": "Sterility as a requirement of injectable products, systemic absorption of inhaled peptides, and route-specific stability demands in general are not stated by any permissive source held, and are recorded as gaps."
+  },
+  "locations": [
+    {
+      "key": "rte-01",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row PARENTERAL",
+      "section": "Data Values table, row PARENTERAL",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-02",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row INTRAVENOUS",
+      "section": "Data Values table, row INTRAVENOUS",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-03",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row SUBCUTANEOUS",
+      "section": "Data Values table, row SUBCUTANEOUS",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-04",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row INTRAMUSCULAR",
+      "section": "Data Values table, row INTRAMUSCULAR",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-05",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row ORAL",
+      "section": "Data Values table, row ORAL",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-06",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row NASAL",
+      "section": "Data Values table, row NASAL",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-07",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row TRANSDERMAL",
+      "section": "Data Values table, row TRANSDERMAL",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-08",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row RESPIRATORY (INHALATION)",
+      "section": "Data Values table, row RESPIRATORY (INHALATION)",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-09",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row SUBLINGUAL",
+      "section": "Data Values table, row SUBLINGUAL",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-10",
+      "sourceKey": "SRC-193",
+      "locatorText": "Data Values table, row BUCCAL",
+      "section": "Data Values table, row BUCCAL",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-11",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C38299 Subcutaneous Route of Administration, source NCI",
+      "section": "NCIt C38299 Subcutaneous Route of Administration, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-12",
+      "sourceKey": "SRC-188",
+      "locatorText": "section: 2.1.1. Fundamentals Related to the SC Route",
+      "section": "section: 2.1.1. Fundamentals Related to the SC Route",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-13",
+      "sourceKey": "SRC-185",
+      "locatorText": "section: 2.1. Absorption",
+      "section": "section: 2.1. Absorption",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-14",
+      "sourceKey": "SRC-185",
+      "locatorText": "section: 2.1. Absorption",
+      "section": "section: 2.1. Absorption",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-16",
+      "sourceKey": "SRC-188",
+      "locatorText": "section: 2.1.2. Abs Approved for Subcutaneous Delivery",
+      "section": "section: 2.1.2. Abs Approved for Subcutaneous Delivery",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-17",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C28161 Intramuscular Route of Administration, source NCI",
+      "section": "NCIt C28161 Intramuscular Route of Administration, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-19",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C38288 Oral Route of Administration, source NCI",
+      "section": "NCIt C38288 Oral Route of Administration, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-20",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C38284 Nasal Route of Administration, source NCI",
+      "section": "NCIt C38284 Nasal Route of Administration, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-21",
+      "sourceKey": "SRC-189",
+      "locatorText": "Table: advantages/disadvantages of administration routes, nasal row",
+      "section": "Table: advantages/disadvantages of administration routes, nasal row",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-22",
+      "sourceKey": "SRC-190",
+      "locatorText": "section: 1. Introduction",
+      "section": "section: 1. Introduction",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-23",
+      "sourceKey": "SRC-189",
+      "locatorText": "Table: advantages/disadvantages of administration routes, transdermal row",
+      "section": "Table: advantages/disadvantages of administration routes, transdermal row",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-24",
+      "sourceKey": "SRC-191",
+      "locatorText": "section: 2. Biological Barriers",
+      "section": "section: 2. Biological Barriers",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-25",
+      "sourceKey": "SRC-192",
+      "locatorText": "section: 1. Introduction",
+      "section": "section: 1. Introduction",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-26",
+      "sourceKey": "SRC-192",
+      "locatorText": "section: 1.1. The Early Phase of Sublingual and Buccal Drug Delivery (1950–1982)",
+      "section": "section: 1.1. The Early Phase of Sublingual and Buccal Drug Delivery (1950–1982)",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-27",
+      "sourceKey": "SRC-192",
+      "locatorText": "section: 1.2. Exploratory Growth Phase (1983–1993)",
+      "section": "section: 1.2. Exploratory Growth Phase (1983–1993)",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rte-28",
+      "sourceKey": "SRC-184",
+      "locatorText": "section: 4. Concluding Remarks and Perspectives",
+      "section": "section: 4. Concluding Remarks and Perspectives",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "RTE-01",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the parenteral route as: 'Administration by injection, infusion, or implantation.'",
+      "plainLanguageText": "Parenteral means given by injection, drip or implant rather than through the gut.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-01",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-02",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the intravenous route as: 'Administration within or into a vein or veins.'",
+      "plainLanguageText": "Intravenous means into a vein.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-02",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-03",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the subcutaneous route as: 'Administration beneath the skin; hypodermic. Synonymous with the term SUBDERMAL.'",
+      "plainLanguageText": "Subcutaneous means injected just under the skin.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-03",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-04",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the intramuscular route as: 'Administration within a muscle.'",
+      "plainLanguageText": "Intramuscular means injected into a muscle.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-04",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-05",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the oral route as: 'Administration to or by way of the mouth.'",
+      "plainLanguageText": "Oral means taken by mouth.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-05",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-06",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the nasal route as: 'Administration to the nose; administered by way of the nose.'",
+      "plainLanguageText": "Nasal means given into the nose.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-06",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-07",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the transdermal route as: 'Administration through the dermal layer of the skin to the systemic circulation by diffusion.'",
+      "plainLanguageText": "Transdermal means the drug passes through the skin into the bloodstream.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-07",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-08",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the respiratory (inhalation) route as: 'Administration within the respiratory tract by inhaling orally or nasally for local or systemic effect.'",
+      "plainLanguageText": "Inhaled drugs are breathed in through the mouth or nose, to act in the lungs or the whole body.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-08",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-09",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the sublingual route as: 'Administration beneath the tongue.'",
+      "plainLanguageText": "Sublingual means placed under the tongue.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-09",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-10",
+      "claimText": "The FDA CDER Data Standards Manual (Route of Administration, v004; page current as of 11/14/2017) defines the buccal route as: 'Administration directed toward the cheek, generally from within the mouth.'",
+      "plainLanguageText": "Buccal means held against the inside of the cheek.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-10",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Regulatory data-standard definition; describes the route only, not what it demands of a molecule.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-11",
+      "claimText": "The NCI Thesaurus (Subcutaneous Route of Administration, C38299) describes subcutaneous administration as providing relatively slow, sustained release, with absorption into blood that is perfusion-limited, proportional to the amount of drug at the site, and enhanceable by stimulating blood flow.",
+      "plainLanguageText": "Drugs injected under the skin enter the blood fairly slowly; how fast depends on local blood flow and how much drug is there.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Generic (blood-absorption) description; does not mention lymphatic uptake, which matters for larger molecules (see RTE-13, RTE-15).",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Generic (blood-absorption) description; does not mention lymphatic uptake, which matters for larger molecules (see RTE-13, RTE-15).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-12",
+      "claimText": "Pitiot et al. (2022) describe that after subcutaneous injection the drug reaches the interstitial space of the hypodermis, between the dermis and the fascia over muscle, a layer composed of adipose tissue, blood and lymph vessels and resident cells.",
+      "plainLanguageText": "An under-the-skin injection deposits the drug in the fatty layer beneath the skin, which contains small blood vessels, lymph vessels and immune cells.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Anatomical description written in the context of antibodies; the anatomy is generic.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Anatomical description written in the context of antibodies; the anatomy is generic.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-13",
+      "claimText": "Mahmood and Pettinato (2021) state that after subcutaneous or intramuscular administration peptides reach the systemic circulation through blood capillaries or the lymphatic system, and that peptides of 1-10 kDa are absorbed by both.",
+      "plainLanguageText": "After an injection under the skin or into muscle, peptides get into the bloodstream either directly through small blood vessels or indirectly through lymph vessels.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Size band is a generalisation from cited literature.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Size band is a generalisation from cited literature.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-14",
+      "claimText": "Mahmood and Pettinato (2021) state that subcutaneous or intramuscular injection avoids gastrointestinal and hepatic enzymes, but degradation at the injection site and in the lymphatic system leads to lower bioavailability than intravenous administration.",
+      "plainLanguageText": "Injecting under the skin avoids the gut and liver, but enzymes at the injection site and in lymph can still break down some peptide, so less reaches the blood than with an IV injection.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "General statement about peptides; magnitude varies by molecule and is not given here.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General statement about peptides; magnitude varies by molecule and is not given here.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-16",
+      "claimText": "Pitiot et al. (2022) state that the negative charge of the hypodermis interstitial space leads to low hydraulic conductivity, which limits subcutaneous injection volume.",
+      "plainLanguageText": "The tissue under the skin does not easily accept large fluid volumes, which limits how much can be injected there.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Injection-site factor. The source's separate example volume figure is not used.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Injection-site factor. The source's separate example volume figure is not used.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-17",
+      "claimText": "The NCI Thesaurus (Intramuscular Route of Administration, C28161) states that absorption rate, delay to systemic availability and duration of effect after intramuscular injection are perfusion-limited and depend on molecular size, solution volume and osmolarity, fat content at the injection site, and physical activity.",
+      "plainLanguageText": "How quickly a drug injected into muscle gets into the blood depends on blood flow, the size of the molecule, the injected liquid, how much fat is at the site, and how active the person is.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Terminology definition; lists factors without magnitudes.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Terminology definition; lists factors without magnitudes.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-19",
+      "claimText": "The NCI Thesaurus (Oral Route of Administration, C38288) describes the oral route as the most common and convenient and usually the safest and least expensive route, but one that uses the most complicated pathway to the tissues, with variable bioavailability.",
+      "plainLanguageText": "Swallowing a medicine is the easiest way to take it, but the drug has the hardest journey, so how much gets absorbed varies.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "General route description; peptide-specific oral barriers are already held (SRC-143/146) and not duplicated.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-19",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General route description; peptide-specific oral barriers are already held (SRC-143/146) and not duplicated.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-20",
+      "claimText": "The NCI Thesaurus (Nasal Route of Administration, C38284) states that nasal administration often results in systemic action through absorption across the nasal mucosa.",
+      "plainLanguageText": "A nasal spray can act on the whole body because the drug can be absorbed through the lining of the nose.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "The same NCIt entry goes on to call the route 'attractive' for peptides - not used (promotional framing, uncited).",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-20",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The same NCIt entry goes on to call the route 'attractive' for peptides - not used (promotional framing, uncited).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-21",
+      "claimText": "A 2020 review of microneedle delivery (Pharmaceutical Research) lists, as a disadvantage of the nasal route, potential poor permeability of large hydrophilic macromolecules across the nasal epithelium.",
+      "plainLanguageText": "Large, water-loving molecules such as many peptides may not pass easily through the lining of the nose.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Table entry (route comparison table); the same table also lists 'Only small amounts of drug can be administered via the nasal route'.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-21",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Table entry (route comparison table); the same table also lists 'Only small amounts of drug can be administered via the nasal route'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-22",
+      "claimText": "A 2022 review of intranasal peptide therapeutics (Cells) states that the exact mechanisms, sites and pathways of action of CNS-targeted intranasal therapeutics are still under debate.",
+      "plainLanguageText": "Scientists do not yet fully agree on how drugs sprayed in the nose reach the brain.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Supports an explicit 'not established' statement for nose-to-brain delivery claims.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-22",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Supports an explicit 'not established' statement for nose-to-brain delivery claims.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-23",
+      "claimText": "A 2020 review of microneedle delivery (Pharmaceutical Research) lists, as a disadvantage of the transdermal route, potential poor permeability of large hydrophilic molecules across the stratum corneum.",
+      "plainLanguageText": "The skin's outer layer blocks large, water-loving molecules, which makes it hard for peptides to pass through intact skin.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Table entry. Microneedle approaches discussed in the source are investigational technologies - no product claims.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-23",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Table entry. Microneedle approaches discussed in the source are investigational technologies - no product claims.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-24",
+      "claimText": "A 2022 review of pulmonary delivery (Pharmaceutics), writing about therapy aimed at the lung, lists major barriers including the cough reflex after inhalation, low delivery efficiency to target lung regions, and rapid loss of active molecules from the lung by degradation, clearance or systemic absorption.",
+      "plainLanguageText": "For medicines meant to act in the lung, a review lists coughing, difficulty reaching the right part of the lung, and quick breakdown or removal as barriers.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Framed for lung-targeted therapy; for systemically intended inhaled peptides, 'systemic absorption' is the goal rather than a barrier - scope accordingly. Fourth barrier (intracellular targets) omitted.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-24",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Framed for lung-targeted therapy; for systemically intended inhaled peptides, 'systemic absorption' is the goal rather than a barrier - scope accordingly. Fourth barrier (intracellular targets) omitted.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-25",
+      "claimText": "A 2025 review of sublingual and buccal delivery (Pharmaceutics) states that the oral mucosa's extensive vascularisation and direct connection to the systemic circulation allow certain drugs to avoid gastrointestinal and hepatic first-pass metabolism.",
+      "plainLanguageText": "Drugs absorbed under the tongue or through the cheek can enter the blood directly, skipping the gut and liver.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "'certain drugs' must be retained; does not say peptides are well absorbed by this route (see RTE-26).",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-25",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "'certain drugs' must be retained; does not say peptides are well absorbed by this route (see RTE-26).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-26",
+      "claimText": "The same 2025 review reports that sublingual delivery of investigated macromolecules such as heparins and alpha-amylase was hampered by poor mucosal permeability, high molecular weight and degradation in the sublingual environment.",
+      "plainLanguageText": "Big molecules placed under the tongue often do not get through the lining well and can be broken down there.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Historical examples (not peptides specifically, but large molecules).",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-26",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Historical examples (not peptides specifically, but large molecules).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-27",
+      "claimText": "The 2025 review notes that buccal/sublingual delivery requires not only permeability but also prolonged retention of the dosage form at the absorption site, which is complicated by salivary flow, eating and speaking.",
+      "plainLanguageText": "A tablet or film in the mouth has to stay put long enough to work, which saliva, eating and talking make difficult.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Product-design demand of the route; historical context in source.",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-27",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Product-design demand of the route; historical context in source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "RTE-28",
+      "claimText": "Stepensky (2018) notes that the peptide nature of toxin-derived peptide drugs challenges manufacture, limits drug-product stability (shelf-life) and necessitates specific shipment and storage conditions.",
+      "plainLanguageText": "Peptide medicines can be fragile, so they need careful manufacturing, shipping and storage.",
+      "claimCategory": "routes-of-administration",
+      "importance": "medium",
+      "interpretationNotes": "Scoped to the review's approved toxin-derived peptides; mentioned by the author as outside the review's scope (not analysed in depth).",
+      "uncertaintyText": "Route definitions from the FDA's data standards (public domain) and the NCI Thesaurus (CC BY 4.0), and route characteristics from peer-reviewed open-access reviews, several written for antibodies or other macromolecules. Describes routes; says nothing about how any product should be given.",
+      "evidence": [
+        {
+          "locationKey": "rte-28",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Scoped to the review's approved toxin-derived peptides; mentioned by the author as outside the review's scope (not analysed in depth).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "Sterility as a requirement of products given by injection, stated as a route demand.",
+      "why": "The only definition retrieved is one the NCI Thesaurus takes from another terminology; sterility expectations for licensed sterile products are held on the quality pages from EU GMP Annex 1 and USP <71>, which describe manufacturing, not routes.",
+      "whatWouldResolveIt": "A permissively licensed source stating that parenteral routes require sterile products."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "Whether, and how well, inhaled peptides are absorbed into the body.",
+      "why": "The pulmonary review retrieved is written about therapy aimed at the lung.",
+      "whatWouldResolveIt": "A permissively licensed review of systemic pulmonary peptide delivery."
+    }
+  ]
+}

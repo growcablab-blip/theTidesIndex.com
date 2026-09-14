@@ -1,0 +1,311 @@
+{
+  "packetKey": "peptides-in-the-body",
+  "note": "Extracted 14 September 2026 from permissively licensed reviews (CC BY, or public domain for the 1998 US government overview), each licence read in the retrieved full text, with no text-and-data-mining or AI restriction found. OpenStax is excluded (D-26). Elphick et al. 2018 was not used: it carries a published correction whose text could not be obtained. Every quote was checked word for word against the retrieved text. Endogenous examples are the sources' own; none is a statement about treatment.",
+  "topic": {
+    "topicKey": "peptides-in-the-body",
+    "slug": "peptides-in-the-body",
+    "title": "Peptides the body makes",
+    "publicationChapter": "Understanding Peptides — Three: Peptides in the human body",
+    "summary": "What reviews of physiology say about the body's own peptides: the classes they fall into, how they are made from larger precursors, stored and released, how they are broken down, and why what a peptide does depends on context. General biology, not statements about any peptide product.",
+    "notes": "Growth factors as a class, a general statement that the body's peptides are short-lived, and the inference that 'the body makes it' is not an argument about safety or efficacy are not stated by any source held, and are recorded as gaps."
+  },
+  "locations": [
+    {
+      "key": "end-03",
+      "sourceKey": "SRC-152",
+      "locatorText": "Neuropeptide Metabolism: The Classical Concepts, paragraph 1",
+      "section": "Neuropeptide Metabolism: The Classical Concepts, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-04",
+      "sourceKey": "SRC-152",
+      "locatorText": "Neuropeptide Metabolism: The Classical Concepts, paragraph 3",
+      "section": "Neuropeptide Metabolism: The Classical Concepts, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-05",
+      "sourceKey": "SRC-151",
+      "locatorText": "How does secretion of placental peptide hormones happen?, paragraph 1",
+      "section": "How does secretion of placental peptide hormones happen?, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-06",
+      "sourceKey": "SRC-153",
+      "locatorText": "1. Introduction, paragraph 1",
+      "section": "1. Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-07",
+      "sourceKey": "SRC-153",
+      "locatorText": "2. Identification of Human Antimicrobial Peptides > 2.1. Human Defensins, paragraph 1",
+      "section": "2. Identification of Human Antimicrobial Peptides > 2.1. Human Defensins, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-08",
+      "sourceKey": "SRC-154",
+      "locatorText": "Regulation of Cathelicidin Expression, paragraph 1",
+      "section": "Regulation of Cathelicidin Expression, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-09",
+      "sourceKey": "SRC-143",
+      "locatorText": "Therapeutic peptides in the treatment of diabetes mellitus, paragraph 1",
+      "section": "Therapeutic peptides in the treatment of diabetes mellitus, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-10",
+      "sourceKey": "SRC-153",
+      "locatorText": "3. Antimicrobial and Anticancer Activities of Human Antimicrobial Peptides > 3.7. Other Biological Functions of Human AMPs, paragraph 5",
+      "section": "3. Antimicrobial and Anticancer Activities of Human Antimicrobial Peptides > 3.7. Other Biological Functions of Human AMPs, paragraph 5",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-11",
+      "sourceKey": "SRC-152",
+      "locatorText": "Neuropeptide Receptors: GPCRs With Many Modalities, paragraph 1",
+      "section": "Neuropeptide Receptors: GPCRs With Many Modalities, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-12",
+      "sourceKey": "SRC-155",
+      "locatorText": "GPCRs and the Hierarchy of Endocrine, Autocrine and Paracrine Signaling, paragraph 1",
+      "section": "GPCRs and the Hierarchy of Endocrine, Autocrine and Paracrine Signaling, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-13",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones? > Regulation of Hormone Activity, paragraph 2",
+      "section": "What Are Hormones? > Regulation of Hormone Activity, paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "END-03",
+      "claimText": "Hevesi, Hökfelt and Harkany (2025) describe the classical view that neuropeptides are made as long prepropeptides, processed by enzymes into active peptides, stored in large dense-core vesicles and released in an activity-dependent way.",
+      "plainLanguageText": "Neuropeptides are first made as longer chains. Enzymes trim them into their active form, and they are stored until the nerve cell is active enough to release them.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Authors label this \"classical concepts\" and note newer findings (dendritic release, local synthesis) challenge parts of it; do not present as complete.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Authors label this \"classical concepts\" and note newer findings (dendritic release, local synthesis) challenge parts of it; do not present as complete.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-04",
+      "claimText": "Hevesi et al. (2025) state that neuropeptide degradation is enzymatic and occurs mostly in lysosomes.",
+      "plainLanguageText": "The body breaks neuropeptides down using enzymes.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Specific to neuropeptides in the nervous system; do not generalise the \"lysosomes\" location to all peptide hormones.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Specific to neuropeptides in the nervous system; do not generalise the \"lysosomes\" location to all peptide hormones.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-05",
+      "claimText": "Ahmadi, Perez and Guardia (2025) describe specialised cells, such as pituitary lactotrophs and pancreatic beta cells, storing specific proteins in secretory granules and releasing them on stimulation.",
+      "plainLanguageText": "Some hormone-making cells keep their products packed in storage granules and release them when they receive the right signal.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Statement is about secreted proteins generally (the next sentence lists hormones and neuropeptides among them). Examples are the source's own.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Statement is about secreted proteins generally (the next sentence lists hormones and neuropeptides among them). Examples are the source's own.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-06",
+      "claimText": "Wang (2014) describes host defence antimicrobial peptides as key components of the innate immune system in invertebrates and vertebrates.",
+      "plainLanguageText": "Some of the body's own peptides are part of its built-in defence against germs.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Class description only. No claim about therapeutic use.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Class description only. No claim about therapeutic use.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-07",
+      "claimText": "Wang (2014) states that host defence peptides are usually made as precursor proteins, with the mature form released by protease processing.",
+      "plainLanguageText": "Defence peptides are also made as larger proteins first, then cut to release the working peptide.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "\"usually\" must be kept.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "\"usually\" must be kept.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-08",
+      "claimText": "Alford et al. (2020) give the example of human cathelicidin: a precursor protein (hCAP18) cleaved by proteases to generate the active peptide LL-37.",
+      "plainLanguageText": "One example: the body makes a protein called hCAP18, which is cut to produce an active defence peptide called LL-37.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Illustrative endogenous example as given by the source; no therapeutic or product claims.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-08",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Illustrative endogenous example as given by the source; no therapeutic or product claims.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-09",
+      "claimText": "Wang et al. (2022) state that endogenous GLP-1 is degraded by the enzyme dipeptidyl peptidase-4 (DPP-4) and rapidly inactivated.",
+      "plainLanguageText": "One example given in a review: the body's own GLP-1 is quickly broken down by an enzyme.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Single illustrative example from a drug-development review; surrounding text concerns drugs and contains an error (see problems). Do not quote neighbouring sentences; do not generalise half-life figures.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Single illustrative example from a drug-development review; surrounding text concerns drugs and contains an error (see problems). Do not quote neighbouring sentences; do not generalise half-life figures.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-10",
+      "claimText": "Wang (2014) states that what human antimicrobial peptides do can depend on biological context, peptide concentration, proteases and metabolic state.",
+      "plainLanguageText": "What one of the body's own peptides does can change with where it is, how much of it there is, and the state of the surrounding tissue.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Stated for human AMPs only. Supports context-dependence; it does not itself say anything about safety of taking peptides.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-10",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Stated for human AMPs only. Supports context-dependence; it does not itself say anything about safety of taking peptides.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-11",
+      "claimText": "Hevesi et al. (2025) argue that the diversity of receptors, in location and over time, is the chief determinant of what any chemical messenger does.",
+      "plainLanguageText": "What a signalling molecule does depends mostly on which receptors are present, where, and when.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Authors' interpretive statement in a review; attribute, do not present as settled law.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Authors' interpretive statement in a review; attribute, do not present as settled law.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-12",
+      "claimText": "Tse and Wong (2019) note that the same chemical molecules can be used in endocrine, paracrine, autocrine or synaptic signalling contexts.",
+      "plainLanguageText": "The same molecule can act as a long-distance hormone in one setting and a local signal in another.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "General statement; source does not name a peptide example in this sentence.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General statement; source does not name a peptide example in this sentence.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-13",
+      "claimText": "Hiller-Sturmhöfel and Bartke (1998) describe feedback from target glands to the hypothalamus and pituitary keeping hormone-system activity within appropriate boundaries.",
+      "plainLanguageText": "The body uses feedback loops to keep hormone activity within a normal range.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Describes hypothalamic-pituitary hormone cascades specifically, not all peptides. Does not by itself make a safety argument; editorial bridge to \"the body makes it is not a safety argument\" is SOURCE NEEDED.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Describes hypothalamic-pituitary hormone cascades specifically, not all peptides. Does not by itself make a safety argument; editorial bridge to \"the body makes it is not a safety argument\" is SOURCE NEEDED.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "Growth factors as a class of signals made by the body.",
+      "why": "No permissively licensed source retrieved describes them as a class.",
+      "whatWouldResolveIt": "A CC BY-type review of growth factors, obtained and read."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "That the body's own peptides are, as a general rule, short-lived and cleared by peptidases.",
+      "why": "The sources held describe enzymatic breakdown of neuropeptides and give one hormone example; none states the general rule.",
+      "whatWouldResolveIt": "A permissively licensed review of peptide hormone clearance."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "That 'the body makes it' is not, by itself, an argument about safety or efficacy.",
+      "why": "The facts it would rest on are sourced — effects depend on context, concentration and receptors, and hormone levels are held within range by feedback — but no source draws the conclusion, and this index does not draw it for them.",
+      "whatWouldResolveIt": "A source that states the inference, or a scientific reviewer's approval of it as an editorial conclusion labelled as such."
+    }
+  ]
+}

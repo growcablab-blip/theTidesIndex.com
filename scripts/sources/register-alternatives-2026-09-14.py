@@ -123,10 +123,8 @@ ICH = [
 ]
 
 NOT_HELD = {
-    "SRC-120": ("Understanding Peptides chapters One to Four (what a peptide is; amino acids, peptides and proteins; peptides in the body; signalling)",
-                "no source yet: the accessible open textbooks considered (OpenStax) state that they may not be ingested into large language models without the publisher's permission, so that route is paused pending an owner decision (D-26); the chapters stay unwritten"),
-    "SRC-122": ("Receptor signalling beyond chapter 2, and pharmacokinetics (absorption, distribution, metabolism, elimination, half-life, bioavailability, routes)",
-                "SRC-146 (why oral peptide delivery is hard) and SRC-143 (why most peptides are injected, and short half-lives) in part; general pharmacokinetic definitions have no accessible source yet, for the licensing reason recorded under D-26"),
+    "SRC-120": ('Understanding Peptides chapters One to Four (what a peptide is; amino acids, peptides and proteins; peptides in the body; signalling)', "permissively licensed sources registered as themselves: CC BY reviews SRC-143, SRC-145, SRC-151 to SRC-163 and SRC-165 to SRC-168, the public-domain NHGRI glossary (SRC-164) and a public-domain 1998 US government overview (SRC-156); OpenStax is excluded (owner decision D-26, closed). Points no source held states — chain termini and 'residue', growth factors as a class, a general rule on peptide half-life, paracrine and autocrine definitions, and whether 'the body makes it' bears on safety — stay SOURCE NEEDED"),
+    "SRC-122": ('Receptor signalling beyond chapter 2, and pharmacokinetics (absorption, distribution, metabolism, elimination, half-life, bioavailability, routes)', 'SRC-146 and SRC-143 (why oral peptide delivery is hard; short half-lives), CC BY receptor and signalling reviews SRC-155, SRC-157 to SRC-159 and SRC-169 to SRC-180, CC BY pharmacokinetics and route reviews SRC-181 to SRC-185 and SRC-188 to SRC-192, the NCI Thesaurus (SRC-187, CC BY 4.0), 21 CFR 314.3 (SRC-186) and the FDA route data standard (SRC-193), both public domain; OpenStax is excluded (D-26). Steady state, what half-life does not tell you, general protein binding, and kinase cascades stay SOURCE NEEDED'),
     "SRC-014": ("Peptide formulation: degradation pathways, excipients, pH and buffers, stability testing",
                 "SRC-145 (open-access formulation and stability review), SRC-147 (ICH Q5C) and SRC-148 (ICH Q1A(R2)); SRC-144 was read and supports none of these questions"),
 }
@@ -174,8 +172,10 @@ def main() -> None:
                 f"no further copies are to be sought). The questions it was meant to answer — {questions} — "
                 f"are answered instead from {answered_by}. Those are different works, cited as themselves; "
                 f"none is presented as this source.")
-        if "SOURCE NOT HELD (owner direction" not in (s.get("limitations_notes") or ""):
-            s["limitations_notes"] = (s.get("limitations_notes") or "").rstrip() + note
+        existing = s.get("limitations_notes") or ""
+        # Replace an earlier version of the note rather than appending a second one.
+        cut = existing.find(" SOURCE NOT HELD (owner direction")
+        s["limitations_notes"] = (existing[:cut] if cut >= 0 else existing).rstrip() + note
 
     b = by_key["SRC-014"]
     # "Held" described the advertisement, not the book. The file record stays

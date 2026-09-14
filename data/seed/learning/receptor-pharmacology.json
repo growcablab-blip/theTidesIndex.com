@@ -1,0 +1,636 @@
+{
+  "packetKey": "receptor-pharmacology",
+  "note": "Extracted 14 September 2026 from fourteen CC BY 4.0 articles, each licence read in the retrieved full text, with no text-and-data-mining or AI restriction found. OpenStax is excluded (D-26). Not used: two passages on the occupancy equation from a lower-selectivity venue; an opioid-specific, largely preclinical account of pharmacokinetic tolerance; and a structural review that discloses an AI-drafted summary. The selectivity statements come from anaesthetic pharmacology and carry that label; a published comment on that article was not read. Every quote was checked word for word.",
+  "topic": {
+    "topicKey": "receptor-pharmacology",
+    "slug": "receptor-pharmacology",
+    "title": "Receptors, agonists and antagonists (English sources)",
+    "publicationChapter": "Understanding Peptides — Five: Receptors; Peptide Science & Applications — Four: Receptors, signalling and modulation",
+    "summary": "Kinds of drug target; binding as the basis of action; affinity and efficacy and why they cannot simply be measured apart; full, partial and inverse agonists; antagonists; spare receptors; constitutive activity; biased agonism; allosteric modulation; desensitisation, tachyphylaxis and tolerance; and why selectivity is relative. Corroborates, and in one place qualifies, the claims read from the Spanish sample of Rang and Dale.",
+    "notes": "Tolerance from mediator depletion, a clean definition of surmountable competitive antagonism, and a statement that most peptide hormones act through GPCRs are not in any permissive source held."
+  },
+  "locations": [
+    {
+      "key": "rec-01",
+      "sourceKey": "SRC-171",
+      "locatorText": "PMC13480412, section: Introduction to the Concise Guide 2025/26",
+      "section": "PMC13480412, section: Introduction to the Concise Guide 2025/26",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-02",
+      "sourceKey": "SRC-172",
+      "locatorText": "PMC10941088, section: Affinity: common ground for drugs",
+      "section": "PMC10941088, section: Affinity: common ground for drugs",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-03",
+      "sourceKey": "SRC-173",
+      "locatorText": "PMC11192237, section: Early history of receptor biology",
+      "section": "PMC11192237, section: Early history of receptor biology",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-04",
+      "sourceKey": "SRC-172",
+      "locatorText": "PMC10941088, section: Agonism: EFFICACY",
+      "section": "PMC10941088, section: Agonism: EFFICACY",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-05",
+      "sourceKey": "SRC-172",
+      "locatorText": "PMC10941088, section: Antagonism",
+      "section": "PMC10941088, section: Antagonism",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-06",
+      "sourceKey": "SRC-169",
+      "locatorText": "PMC11267233, section: A simple agonist mechanism",
+      "section": "PMC11267233, section: A simple agonist mechanism",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-09",
+      "sourceKey": "SRC-169",
+      "locatorText": "PMC11267233, section: Stephenson’s mistake",
+      "section": "PMC11267233, section: Stephenson’s mistake",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-10",
+      "sourceKey": "SRC-179",
+      "locatorText": "PMC6928742, section: 3. The Concept of Receptor Reserve and the Specific Case of Adenosine Receptors",
+      "section": "PMC6928742, section: 3. The Concept of Receptor Reserve and the Specific Case of Adenosine Receptors",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-11",
+      "sourceKey": "SRC-176",
+      "locatorText": "PMC12204005, section: GPCRs activation and signaling, a general overview",
+      "section": "PMC12204005, section: GPCRs activation and signaling, a general overview",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-12",
+      "sourceKey": "SRC-177",
+      "locatorText": "PMC7564766, section: 1. Introduction",
+      "section": "PMC7564766, section: 1. Introduction",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-13",
+      "sourceKey": "SRC-177",
+      "locatorText": "PMC7564766, section: 1. Introduction",
+      "section": "PMC7564766, section: 1. Introduction",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-14",
+      "sourceKey": "SRC-172",
+      "locatorText": "PMC10941088, section: Antagonism",
+      "section": "PMC10941088, section: Antagonism",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-15",
+      "sourceKey": "SRC-172",
+      "locatorText": "PMC10941088, section: Agonism: POTENCY",
+      "section": "PMC10941088, section: Agonism: POTENCY",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-16",
+      "sourceKey": "SRC-173",
+      "locatorText": "PMC11192237, section: Biased Agonism",
+      "section": "PMC11192237, section: Biased Agonism",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-17",
+      "sourceKey": "SRC-174",
+      "locatorText": "PMC5258729, section: Abstract",
+      "section": "PMC5258729, section: Abstract",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-18",
+      "sourceKey": "SRC-173",
+      "locatorText": "PMC11192237, section: Allosteric Modulators",
+      "section": "PMC11192237, section: Allosteric Modulators",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-19",
+      "sourceKey": "SRC-173",
+      "locatorText": "PMC11192237, section: Allosteric Modulators",
+      "section": "PMC11192237, section: Allosteric Modulators",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-20",
+      "sourceKey": "SRC-173",
+      "locatorText": "PMC11192237, section: β-adrenergic receptors as the prototype for GPCRs",
+      "section": "PMC11192237, section: β-adrenergic receptors as the prototype for GPCRs",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-21",
+      "sourceKey": "SRC-176",
+      "locatorText": "PMC12204005, section: Tachyphylaxis in GPCRs’ signaling",
+      "section": "PMC12204005, section: Tachyphylaxis in GPCRs’ signaling",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-22",
+      "sourceKey": "SRC-175",
+      "locatorText": "PMC4270172, section: Desensitization",
+      "section": "PMC4270172, section: Desensitization",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-24",
+      "sourceKey": "SRC-180",
+      "locatorText": "PMC13280687, section: Neurobiology underpinning tapering",
+      "section": "PMC13280687, section: Neurobiology underpinning tapering",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-25",
+      "sourceKey": "SRC-178",
+      "locatorText": "PMC13155216, section: Abstract",
+      "section": "PMC13155216, section: Abstract",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-26",
+      "sourceKey": "SRC-178",
+      "locatorText": "PMC13155216, section: CONCLUSIONS: SINGLE- VS MULTISITE THEORIES",
+      "section": "PMC13155216, section: CONCLUSIONS: SINGLE- VS MULTISITE THEORIES",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "rec-27",
+      "sourceKey": "SRC-170",
+      "locatorText": "PMC13242166, section: Introduction:",
+      "section": "PMC13242166, section: Introduction:",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "REC-01",
+      "claimText": "Alexander et al. (2025, Concise Guide to PHARMACOLOGY) group human drug targets into GPCRs, ion channels, catalytic receptors, nuclear hormone receptors, enzymes, transporters and other protein targets.",
+      "plainLanguageText": "Drugs act on a handful of broad kinds of protein target, and receptors are only one of them.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Classification scheme of a curated guide; says nothing about how often each class is targeted.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Classification scheme of a curated guide; says nothing about how often each class is targeted.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-02",
+      "claimText": "Watts et al. (2023 review) state that drug action rests on a drug binding to, i.e. having affinity for, its target.",
+      "plainLanguageText": "A molecule has to attach to its target before it can do anything there.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Review-level principle; the same passage lists covalent/irreversible binding among binding types.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Review-level principle; the same passage lists covalent/irreversible binding among binding types.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-03",
+      "claimText": "Liu et al. (2024 review) describe affinity as how tightly a drug binds its receptor and efficacy as how effectively the drug–receptor complex promotes a physiological response.",
+      "plainLanguageText": "Sticking to a receptor and switching it on are two different properties.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Historical framing (1950s receptor theory). Pair with REC-06, which qualifies whether the two can be measured separately.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Historical framing (1950s receptor theory). Pair with REC-06, which qualifies whether the two can be measured separately.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-04",
+      "claimText": "Watts et al. define a full agonist as giving a full response in a system, and partial agonists as producing less than the full agonist's response.",
+      "plainLanguageText": "Some molecules switch a receptor fully on; others only partly, even when bound.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Definition is relative to 'a system'; maximal response depends on tissue/assay.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Definition is relative to 'a system'; maximal response depends on tissue/assay.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-05",
+      "claimText": "Watts et al. describe antagonists as lacking the ability to activate a receptor while blocking activation by agonists.",
+      "plainLanguageText": "A blocker sits on the receptor without switching it on, which stops activators from working.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Does not distinguish competitive, irreversible and non-competitive mechanisms (see REC-15, REC-19 and coverage).",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Does not distinguish competitive, irreversible and non-competitive mechanisms (see REC-15, REC-19 and coverage).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-06",
+      "claimText": "Higham and Colquhoun (2024) show, using a two-step binding–activation mechanism, that measured agonist binding depends on efficacy as well as microscopic affinity.",
+      "plainLanguageText": "How strongly an activating molecule seems to bind is partly shaped by how well it switches the receptor on, so the two can't simply be read off separately.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Qualifies a simple 'binding then activation as independent steps' framing: conceptually distinct steps, but not separable from equilibrium binding/response data alone. Theoretical argument (del Castillo–Katz scheme).",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Qualifies a simple 'binding then activation as independent steps' framing: conceptually distinct steps, but not separable from equilibrium binding/response data alone. Theoretical argument (del Castillo–Katz scheme).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-09",
+      "claimText": "Higham and Colquhoun explain that when a response is limited by factors other than receptor saturation, a maximal response may come from activating a small fraction of receptors, which are then termed spare receptors.",
+      "plainLanguageText": "Sometimes a cell gives its full response when only a few of its receptors are switched on; the rest are called 'spare'.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Illustrated with the muscle endplate (ion channels); 'spare' reflects the response system, not a special receptor type.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Illustrated with the muscle endplate (ion channels); 'spare' reflects the response system, not a special receptor type.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-10",
+      "claimText": "Fenouillet et al. (2019 review) note that receptor reserve was originally defined as the fraction of receptors not required for a full agonist's maximal response.",
+      "plainLanguageText": "Receptor reserve is the share of receptors a full activator doesn't need to produce its biggest effect.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Adenosine-receptor review; general definition only. Corroborates REC-09.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-10",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Adenosine-receptor review; general definition only. Corroborates REC-09.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-11",
+      "claimText": "Costa-Neto and Parreiras-E-Silva (2025 review) state that several GPCRs show constitutive activity without a ligand, affecting baseline signalling in physiology and disease.",
+      "plainLanguageText": "Some receptors are partly 'on' even when nothing is bound to them.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Says 'several GPCRs', not all receptors.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Says 'several GPCRs', not all receptors.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-12",
+      "claimText": "Michel et al. (2020 systematic review) describe inverse agonism as the ability of some compounds conventionally called antagonists to reduce receptor activity in the absence of agonists.",
+      "plainLanguageText": "Some 'blockers' actually turn down a receptor's background activity, not just stop activators.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "The paper stresses that measured inverse agonism depends on the experimental system (high expression / constitutively active mutants).",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The paper stresses that measured inverse agonism depends on the experimental system (high expression / constitutively active mutants).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-13",
+      "claimText": "Michel et al. state that measured inverse agonism depends partly on the experimental model, so one compound may appear as a partial agonist, neutral antagonist or inverse agonist in different models.",
+      "plainLanguageText": "The same molecule can look like an activator, a blocker or a 'turner-down' depending on where it is tested.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Caveat against treating ligand labels as fixed; based on adrenoceptor literature.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Caveat against treating ligand labels as fixed; based on adrenoceptor literature.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-14",
+      "claimText": "Watts et al. define a neutral antagonist as neither reducing constitutive activity nor activating the receptor.",
+      "plainLanguageText": "A 'neutral' blocker neither switches the receptor on nor turns down its background activity.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Source sentence is ungrammatical ('lacks ... nor can'); meaning is clear. Paraphrase carefully.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Source sentence is ungrammatical ('lacks ... nor can'); meaning is clear. Paraphrase carefully.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-15",
+      "claimText": "Watts et al. note that reversible-equilibrium receptor theory does not apply to irreversible or covalently bound drugs, whose drug–receptor complexes do not dissociate.",
+      "plainLanguageText": "Some drugs lock onto a receptor permanently, so the usual on-and-off binding picture doesn't fit them.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Named drug (phenoxybenzamine) is the source's illustration only; no clinical claim to be drawn.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Named drug (phenoxybenzamine) is the source's illustration only; no clinical claim to be drawn.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-16",
+      "claimText": "Liu et al. describe biased agonism as a GPCR selectively or preferentially coupling to distinct transducers.",
+      "plainLanguageText": "A receptor can send different messages inside the cell depending on what activates it.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "GPCR framing; the Am J Hypertens review notes bias data are less developed for ion-channel receptors.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "GPCR framing; the Am J Hypertens review notes bias data are less developed for ion-channel receptors.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-17",
+      "claimText": "Gundry et al. (2017) caution that biased agonists' effects often cannot be predicted from pharmacological profiles and must be tested in a physiological (in vivo) context.",
+      "plainLanguageText": "A lab-test label of 'biased' doesn't reliably predict what happens in a living body.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Brief report / methods guide (PubMed type Journal Article). Source typo 'in the vivo'.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Brief report / methods guide (PubMed type Journal Article). Source typo 'in the vivo'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-18",
+      "claimText": "Liu et al. state that allosteric modulators, binding at sites distinct from orthosteric ligands, can alter orthosteric ligand potency and signalling efficacy.",
+      "plainLanguageText": "Molecules binding elsewhere on a receptor can change how strongly or how well the main signal works.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Same section notes 'probe dependence': effects can differ with the orthosteric ligand bound.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-18",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Same section notes 'probe dependence': effects can differ with the orthosteric ligand bound.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-19",
+      "claimText": "Liu et al. classify allosteric modulators as positive, negative, silent or biased.",
+      "plainLanguageText": "Side-site molecules can boost, dampen, do nothing to, or reshape the main signal.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Negative modulators relate conceptually to allosteric inhibition, but the source does not use Rang's 'non-competitive antagonist' term.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-19",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Negative modulators relate conceptually to allosteric inhibition, but the source does not use Rang's 'non-competitive antagonist' term.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-20",
+      "claimText": "Liu et al. describe GPCRs rapidly desensitising after activation and, with prolonged signalling, downregulating via lysosomal destruction and decreased receptor expression.",
+      "plainLanguageText": "Receptors that are stimulated quickly become less responsive, and with long stimulation the cell removes some of them.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Described for beta-adrenergic receptors as the GPCR prototype; elsewhere the review attributes desensitisation to kinase phosphorylation, beta-arrestin recruitment and internalisation.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-20",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Described for beta-adrenergic receptors as the GPCR prototype; elsewhere the review attributes desensitisation to kinase phosphorylation, beta-arrestin recruitment and internalisation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-21",
+      "claimText": "Costa-Neto and Parreiras-E-Silva define tachyphylaxis as a rapid decrease in receptor responsiveness after repeated stimulation.",
+      "plainLanguageText": "Repeated stimulation in quick succession can produce smaller and smaller effects.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "The same review reports AT1-receptor tachyphylaxis governed mainly by ligand dissociation rate rather than beta-arrestin desensitisation: mechanisms vary by receptor.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-21",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The same review reports AT1-receptor tachyphylaxis governed mainly by ligand dissociation rate rather than beta-arrestin desensitisation: mechanisms vary by receptor.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-22",
+      "claimText": "Allouche et al. (2014) define receptor desensitisation as reduced signalling after acute agonist activation that recovers in agonist-free conditions, distinguishing it from tolerance.",
+      "plainLanguageText": "Desensitisation is a short-term dulling of the receptor signal that recovers once the drug is removed.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Opioid-receptor (OR) wording; same passage defines tolerance as 'a decrease of the drug response' with chronic use and describes cellular tolerance not reversing within hours.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-22",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Opioid-receptor (OR) wording; same passage defines tolerance as 'a decrease of the drug response' with chronic use and describes cellular tolerance not reversing within hours.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-24",
+      "claimText": "Horowitz et al. (2026), reviewing benzodiazepine pharmacology, state that adaptations to a substance cause tolerance during exposure and predict withdrawal when it is removed.",
+      "plainLanguageText": "A review of one group of medicines explains that the body adapts to a substance over time, which blunts its effect and can cause problems when it is stopped.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Benzodiazepine-context review; general principle only; same section says benzodiazepine tolerance mechanisms remain uncertain. No dosing/taper content extracted.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-24",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Benzodiazepine-context review; general principle only; same section says benzodiazepine tolerance mechanisms remain uncertain. No dosing/taper content extracted.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-25",
+      "claimText": "Kale et al. (2026) argue that most general anaesthetic agents bind several targets, with far less selectivity than common terminology implies; this is evidence about anaesthetics, and applying it to other molecules is an extrapolation.",
+      "plainLanguageText": "Research on anaesthetics finds that drugs described as acting on one receptor often act on several.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Concerns general anaesthetics only; any generalisation to peptides must be labelled.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-25",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Concerns general anaesthetics only; any generalisation to peptides must be labelled.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-26",
+      "claimText": "Kale et al. (2026) suggest that effects seen at high doses of anaesthetic agents may involve receptors other than an agent's most potent target.",
+      "plainLanguageText": "Researchers suggest that, at higher amounts, a drug may start acting on receptors beyond its main one.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Hedged ('may be due'); anaesthetic context; no numbers extracted.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-26",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Hedged ('may be due'); anaesthetic context; no numbers extracted.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "REC-27",
+      "claimText": "Alexander et al. (2025, Concise Guide to PHARMACOLOGY) state that ligands for the secretin-family (class B) GPCRs are polypeptide hormones of 27–141 amino acid residues.",
+      "plainLanguageText": "A whole family of receptors exists to recognise hormone-sized peptides.",
+      "claimCategory": "pharmacology",
+      "importance": "medium",
+      "interpretationNotes": "Secretin family only. Same introduction: class A includes receptors for peptides; non-sensory GPCR ligands range from small molecules to peptides to large proteins. Does NOT say most peptide hormones act via GPCRs.",
+      "uncertaintyText": "General receptor pharmacology from peer-reviewed English-language sources. Several illustrate a principle with one drug class; applying the principle to peptides is an extrapolation and is labelled as one. Nothing here says which receptor any peptide acts on.",
+      "evidence": [
+        {
+          "locationKey": "rec-27",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Secretin family only. Same introduction: class A includes receptors for peptides; non-sensory GPCR ligands range from small molecules to peptides to large proteins. Does NOT say most peptide hormones act via GPCRs.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "That most peptide hormones act through G-protein-coupled receptors.",
+      "why": "The nomenclature guide states that one GPCR family binds polypeptide hormones and that class A includes peptide receptors; no permissive source held states the general proportion.",
+      "whatWouldResolveIt": "A permissively licensed source stating it."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "Tolerance arising from depletion of a mediator, and a definition of competitive antagonism as surmountable.",
+      "why": "Not stated by any permissive source retrieved; the Spanish sample of Rang and Dale states both but is not permissively licensed and is a translation.",
+      "whatWouldResolveIt": "A permissively licensed pharmacology review covering them."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "The concentration–occupancy relation from a strong source.",
+      "why": "The only permissive account retrieved is in a lower-selectivity venue and was not used.",
+      "whatWouldResolveIt": "A CC BY-type pharmacology tutorial deriving or stating it."
+    }
+  ]
+}

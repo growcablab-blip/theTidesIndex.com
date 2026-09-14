@@ -1174,6 +1174,14 @@ export type LearningPacket = z.infer<typeof learningPacketSchema>;
 const LEARNING_PACKET_FILES = [
   'learning/pharmacology-receptors.json',
   'learning/peptides-as-medicines.json',
+  // Foundations from permissively licensed sources (D-26: OpenStax excluded).
+  'learning/what-is-a-peptide.json',
+  'learning/amino-acids-to-proteins.json',
+  'learning/peptides-in-the-body.json',
+  'learning/peptide-signalling.json',
+  'learning/receptor-pharmacology.json',
+  'learning/pharmacokinetic-concepts.json',
+  'learning/routes-of-administration.json',
 ] as const;
 const TRIAL_PACKET_FILES = ['trials/retatrutide-trials.json'] as const;
 const INTAKE_REGISTER_FILES = ['source-artifacts/intake-2026-09-14.json'] as const;

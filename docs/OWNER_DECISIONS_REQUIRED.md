@@ -435,13 +435,18 @@ general pharmacokinetic definitions (half-life, bioavailability, clearance and
 related terms) and the individual routes of administration. Each is a recorded
 gap, and none is filled in from general knowledge.
 
-**Why it needs you.** Either permission from OpenStax, or an accessible source
-whose terms allow this use (for example CC BY peer-reviewed reviews or tutorial
-articles covering the basics). The NCBI Bookshelf's own terms would need checking
-title by title.
-
-**Default if unanswered.** Those chapters and definitions stay unwritten and
-marked as needing a source. No OpenStax material is used.
+**Closed by the owner, 14 September 2026.** OpenStax permission is not to be
+pursued. OpenStax is excluded from the source pipeline because its current terms
+conflict with this index's AI-assisted extraction workflow: it is not used,
+registered or cited, and no content extracted from it is retained. The remaining
+foundational questions are to be answered from several permissive sources rather
+than one textbook, in this order of preference: peer-reviewed open-access
+articles under CC BY or a similarly permissive licence; public-domain
+government or standards material where appropriate; lawfully held academic
+sources whose permitted use is compatible with the workflow. Every candidate goes
+through normal source QC (licence, bibliographic record, full-text availability,
+provenance), and only the claims a publication needs are extracted. Unsupported
+subsections stay marked SOURCE NEEDED.
 
 ---
 

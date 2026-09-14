@@ -1,0 +1,461 @@
+{
+  "packetKey": "pharmacokinetic-concepts",
+  "note": "Extracted 14 September 2026 from CC BY 4.0 reviews, the NCI Thesaurus (CC BY 4.0, NCI-authored definitions only) and 21 CFR 314.3 (US federal regulation, public domain; 2025 edition via govinfo.gov). Each licence or terms statement was read at the source, with no AI restriction found. OpenStax is excluded (D-26). Not used: a single-author review of oral peptide pharmacokinetics that discusses products and dosing intervals; an illustration drawn from specific anti-diabetic products; and a protein-binding statement limited to the blood-brain barrier. Every quote was checked word for word. No dose, interval or product figure is carried.",
+  "topic": {
+    "topicKey": "pharmacokinetic-concepts",
+    "slug": "pharmacokinetic-concepts",
+    "title": "Pharmacokinetic concepts",
+    "publicationChapter": "Peptide Science & Applications — Five: Interpreting pharmacokinetics; Understanding Peptides — Seven (in part)",
+    "summary": "Absorption, distribution, metabolism and elimination; Cmax, Tmax and AUC; half-life, volume of distribution, clearance and bioavailability as defined terms; first-pass metabolism; and how the pharmacokinetics of peptides differ from small molecules — proteolysis, renal filtration, a small volume of distribution, and factors whose effect on peptides is not well established.",
+    "notes": "Time to steady state, what half-life does and does not tell you, general plasma protein binding, and absolute versus relative bioavailability are not stated by any permissive source held, and are recorded as gaps."
+  },
+  "locations": [
+    {
+      "key": "pkg-01",
+      "sourceKey": "SRC-181",
+      "locatorText": "section: Abstract",
+      "section": "section: Abstract",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-02",
+      "sourceKey": "SRC-181",
+      "locatorText": "section: 3.3. Metabolism",
+      "section": "section: 3.3. Metabolism",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-03",
+      "sourceKey": "SRC-181",
+      "locatorText": "section: 3.4. Elimination",
+      "section": "section: 3.4. Elimination",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-04",
+      "sourceKey": "SRC-181",
+      "locatorText": "section: 3.1. Absorption",
+      "section": "section: 3.1. Absorption",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-05",
+      "sourceKey": "SRC-182",
+      "locatorText": "section: Law of Superposition",
+      "section": "section: Law of Superposition",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-06",
+      "sourceKey": "SRC-182",
+      "locatorText": "section: Law of Superposition",
+      "section": "section: Law of Superposition",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-07",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C70917 Distribution Volume, source NCI",
+      "section": "NCIt C70917 Distribution Volume, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-08",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C70915 Elimination Half Life, source NCI",
+      "section": "NCIt C70915 Elimination Half Life, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-12",
+      "sourceKey": "SRC-186",
+      "locatorText": "21 CFR 314.3(b) Definitions, 'Bioavailability'",
+      "section": "21 CFR 314.3(b) Definitions, 'Bioavailability'",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-13",
+      "sourceKey": "SRC-187",
+      "locatorText": "NCIt C38276 Intravenous Route of Administration, source NCI",
+      "section": "NCIt C38276 Intravenous Route of Administration, source NCI",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-14",
+      "sourceKey": "SRC-183",
+      "locatorText": "section: 2. Fundamental Processes for Oral Absorption",
+      "section": "section: 2. Fundamental Processes for Oral Absorption",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-15",
+      "sourceKey": "SRC-183",
+      "locatorText": "section: 1. Introduction",
+      "section": "section: 1. Introduction",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-17",
+      "sourceKey": "SRC-185",
+      "locatorText": "section: 2.3. Metabolism or Degradation and Elimination of Peptides",
+      "section": "section: 2.3. Metabolism or Degradation and Elimination of Peptides",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-18",
+      "sourceKey": "SRC-185",
+      "locatorText": "section: 2.3.3. Kidney",
+      "section": "section: 2.3.3. Kidney",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-19",
+      "sourceKey": "SRC-185",
+      "locatorText": "section: 2.2. Distribution",
+      "section": "section: 2.2. Distribution",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-20",
+      "sourceKey": "SRC-185",
+      "locatorText": "section: Abstract",
+      "section": "section: Abstract",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pkg-21",
+      "sourceKey": "SRC-184",
+      "locatorText": "section: 4. Concluding Remarks and Perspectives",
+      "section": "section: 4. Concluding Remarks and Perspectives",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "PKG-01",
+      "claimText": "Straehla and Warren (2020) describe pharmacokinetics as the quantitative study of absorption, distribution, metabolism and elimination, and state that a drug's chemical properties, its administration (dose, route, schedule) and host factors influence all four phases.",
+      "plainLanguageText": "Pharmacokinetics tracks four things: how a drug gets in, where it goes, how the body changes it, and how it leaves. The molecule, how it is given, and the person all affect each step.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "General framework; source is a CNS-tumour review but this passage is generic.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General framework; source is a CNS-tumour review but this passage is generic.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-02",
+      "claimText": "Straehla and Warren (2020) note metabolism is often defined as enzymatic breakdown into less active components that aids elimination, but that it can also produce more active compounds (pro-drugs, active metabolites).",
+      "plainLanguageText": "The body usually breaks drugs down into less active pieces so they can be removed, but sometimes the breakdown product is the active form.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Generic definition. The source's following sentences on CYP enzymes concern small molecules; peptides are mainly degraded by proteolysis (see PKG-17).",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Generic definition. The source's following sentences on CYP enzymes concern small molecules; peptides are mainly degraded by proteolysis (see PKG-17).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-03",
+      "claimText": "Straehla and Warren (2020) state that in classical pharmacokinetics elimination refers to drug movement out of the body and can occur in several ways.",
+      "plainLanguageText": "Elimination means the drug leaving the body, which can happen by more than one route.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Sentence begins 'This is analogous...' referring to CNS elimination; quote only supports the classical definition.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Sentence begins 'This is analogous...' referring to CNS elimination; quote only supports the classical definition.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-04",
+      "claimText": "Straehla and Warren (2020) explain that plotting blood drug concentration over time yields the maximal concentration (Cmax) and the time of maximal concentration (Tmax) for a given dose and route.",
+      "plainLanguageText": "If you graph drug levels in the blood over time, the highest point is Cmax and the time it happens is Tmax; both depend on the dose and how the drug was given.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Definition of Cmax/Tmax. Located in the source's CNS 'Absorption' subsection but the sentence describes traditional plasma PK.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Definition of Cmax/Tmax. Located in the source's CNS 'Absorption' subsection but the sentence describes traditional plasma PK.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-05",
+      "claimText": "Yousef et al. (2024) state that after a single dose, overall drug exposure over time can be quantified by the area under the concentration-time curve from zero to infinity (AUC0-inf).",
+      "plainLanguageText": "The area under the blood-level-over-time curve (AUC) summarises how much total exposure the body had to a drug.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Definition of AUC as an exposure measure. Not from the erratum-corrected Section 2.2 example.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Definition of AUC as an exposure measure. Not from the erratum-corrected Section 2.2 example.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-06",
+      "claimText": "Yousef et al. (2024) describe clearance as the aggregate of all the elimination processes, and state that when clearance stays constant, exposure over a dosing interval at steady state equals total exposure after a single dose.",
+      "plainLanguageText": "Clearance sums up all the ways the body removes a drug.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Only holds for linear (concentration-independent) pharmacokinetics; the source itself discusses where this breaks down (saturable processes).",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Only holds for linear (concentration-independent) pharmacokinetics; the source itself discusses where this breaks down (saturable processes).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-07",
+      "claimText": "The NCI Thesaurus defines volume of distribution (C70917) as the apparent volume occupied by an administered compound, assuming uniform distribution at the concentration measured in plasma or another tissue.",
+      "plainLanguageText": "Volume of distribution is a calculated, imaginary volume: how big the body would have to be if the drug were spread evenly at the level measured in the blood.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Terminology definition; does not explain interpretation (e.g. tissue binding).",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Terminology definition; does not explain interpretation (e.g. tissue binding).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-08",
+      "claimText": "The NCI Thesaurus defines elimination half-life (C70915) as the time required for half of an administered substance to be removed from the plasma or from all or part of the body.",
+      "plainLanguageText": "Half-life is the time it takes for half of a substance to be removed from the blood or the body.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Terminology definition only; does not by itself address time to steady state or duration of effect (see PKG-09 to PKG-11).",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-08",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Terminology definition only; does not by itself address time to steady state or duration of effect (see PKG-09 to PKG-11).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-12",
+      "claimText": "US FDA regulations (21 CFR 314.3, revised as of April 1, 2025) define bioavailability as the rate and extent to which the active ingredient or active moiety is absorbed from a drug product and becomes available at the site of drug action.",
+      "plainLanguageText": "Bioavailability describes how fast and how much of a drug actually gets absorbed and reaches where it acts.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "US regulatory definition; date-stamp. The regulation adds a provision for products not intended to be absorbed into the bloodstream.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-12",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "US regulatory definition; date-stamp. The regulation adds a provision for products not intended to be absorbed into the bloodstream.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-13",
+      "claimText": "The NCI Thesaurus (Intravenous Route of Administration, C38276) states that introducing a drug directly into venous circulation results in 100% bioavailability because there is no absorption phase.",
+      "plainLanguageText": "A drug injected into a vein skips absorption, so all of it reaches the bloodstream.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Definitional statement (bioavailability relative to IV).",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Definitional statement (bioavailability relative to IV).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The issuing body's own document, retrieved from it and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-14",
+      "claimText": "Lin and Wong (2017) describe how an orally absorbed drug crosses the intestinal wall into the portal vein and is carried to the liver before reaching the systemic circulation.",
+      "plainLanguageText": "Swallowed drugs absorbed from the gut go to the liver first, before reaching the rest of the body.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Explains the anatomical basis of first-pass exposure; the source's later text names gut and liver first-pass metabolism.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Explains the anatomical basis of first-pass exposure; the source's later text names gut and liver first-pass metabolism.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-15",
+      "claimText": "Lin and Wong (2017) state that oral bioavailability can vary between individuals because of differences in pre-systemic (first-pass) metabolism by the gut and liver.",
+      "plainLanguageText": "People differ in how much of a swallowed drug their gut and liver break down before it reaches the blood, so the amount absorbed varies.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "General (small-molecule oriented) statement.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General (small-molecule oriented) statement.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-17",
+      "claimText": "Mahmood and Pettinato (2021) state that proteolysis is a major elimination pathway for most peptides and that peptide clearance can exceed cardiac output because peptides are degraded in blood.",
+      "plainLanguageText": "Most peptides are cut apart by enzymes; some are broken down in the blood itself, so they can be cleared very fast.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Peptide vs small molecule contrast. Overlaps held claim (short half-life from proteolysis); the new element is degradation in blood/clearance exceeding cardiac output.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Peptide vs small molecule contrast. Overlaps held claim (short half-life from proteolysis); the new element is degradation in blood/clearance exceeding cardiac output.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-18",
+      "claimText": "Mahmood and Pettinato (2021) state that because peptides are generally smaller than 10 kDa, their renal clearance may reach the glomerular filtration rate.",
+      "plainLanguageText": "Because peptides are small, the kidneys can filter them out of the blood efficiently.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Size-based renal filtration contrast with larger proteins. 'may' must be retained.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-18",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Size-based renal filtration contrast with larger proteins. 'may' must be retained.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-19",
+      "claimText": "Mahmood and Pettinato (2021) state that the volume of distribution of peptides is small and limited to the extracellular space.",
+      "plainLanguageText": "Peptides mostly stay in the blood and the fluid around cells rather than spreading into cells and fat.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Generalisation; the source's next sentence gives numbers (not used) and notes protein binding can influence volume of distribution. Lipidated/albumin-binding peptides may differ - not addressed by this quote.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-19",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Generalisation; the source's next sentence gives numbers (not used) and notes protein binding can influence volume of distribution. Lipidated/albumin-binding peptides may differ - not addressed by this quote.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-20",
+      "claimText": "Mahmood and Pettinato (2021) state that intrinsic and extrinsic factors (e.g. age, organ impairment, drug interactions, food) are known to affect small-molecule PK substantially, but their impact on macromolecules is not well established.",
+      "plainLanguageText": "For ordinary small-molecule drugs we know age, kidney or liver disease, food and other drugs can change drug levels; for larger molecules like peptides this is much less clear.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Supports an explicit 'not established' output.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-20",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Supports an explicit 'not established' output.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PKG-21",
+      "claimText": "Stepensky (2018) states that, for the approved toxin-derived peptide drugs reviewed, proteolysis is a major elimination pathway that acts at the sites of administration and distribution, regardless of volume of distribution.",
+      "plainLanguageText": "Enzymes that break peptides down are found around the body, including where the drug is injected, so breakdown can begin before the drug reaches the blood.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Scoped to the ten approved toxin-derived peptide drugs in the review.",
+      "uncertaintyText": "General pharmacokinetic definitions and peptide-specific generalisations from peer-reviewed open-access reviews, the NCI Thesaurus (CC BY 4.0) and US federal regulation (public domain). Nothing here is a statement about any peptide product, and nothing here is dosing guidance.",
+      "evidence": [
+        {
+          "locationKey": "pkg-21",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Scoped to the ten approved toxin-derived peptide drugs in the review.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "How long repeated administration takes to reach steady state, expressed in half-lives, and how long a substance takes to be eliminated.",
+      "why": "The only permissive statement retrieved is in a single-author review that discusses products and dosing intervals, and was not used.",
+      "whatWouldResolveIt": "A permissively licensed pharmacokinetics tutorial stating it."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "What half-life does not tell you: its dependence on clearance and volume of distribution, and why an effect can outlast a substance's presence in the blood.",
+      "why": "Not stated in general terms by any permissive source retrieved.",
+      "whatWouldResolveIt": "A permissively licensed pharmacokinetics tutorial stating it."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "Plasma protein binding in general, and absolute versus relative bioavailability.",
+      "why": "The protein-binding statement retrieved is limited to the blood-brain barrier; no permissive source distinguishes absolute and relative bioavailability.",
+      "whatWouldResolveIt": "A permissively licensed pharmacokinetics source covering both."
+    }
+  ]
+}
