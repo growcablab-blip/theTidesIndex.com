@@ -621,10 +621,10 @@ export function PeptideQuality() {
             ['Chain assembly, cleavage, crude peptide', 'Grant, ch. 3'],
             ['Purification and characterisation', 'Kruger & Albericio, ch. 3; Grant, chs 3–4'],
             ['Bulk peptide (API) and batch record', 'ICH Q7 §§6.5, 8.3, 10.2'],
-            ['Formulation', 'Source needed'],
-            ['Fill and finish', 'Source needed'],
-            ['Lyophilisation as a process', 'Source needed'],
-            ['Finished-product release testing', 'Source needed'],
+            ['Formulation', 'Nugrahadi et al. 2023; ICH Q1A(R2); ICH Q5C'],
+            ['Fill and finish', 'EU GMP Annex 1 §§8.21–8.25, 8.79, 8.87, 9.1–9.32'],
+            ['Lyophilisation as a process', 'Pardeshi et al. 2023; EU GMP Annex 1 §8.121'],
+            ['Finished-product release testing', 'EU GMP Annex 1 §§10.3–10.6; USP <71>, <85> (research copies); FDA ORA.007'],
             ['Storage', 'Grant, ch. 4; ICH Q7 §§10.1, 17.5'],
             ['Transport and repackaging', 'ICH Q7 §§10.2, 17.4, 17.6'],
           ]}
@@ -676,11 +676,12 @@ export function PeptideQuality() {
         </Callout>
 
         <InPreparation>
-          No source held by this index describes formulation, fill and finish, sterile processing,
-          lyophilisation as a manufacturing process, or release testing of a finished peptide
-          product. Nor does any held source quantify what a temperature excursion does to any
-          peptide, or how long material remains suitable after it is mixed. These stages are named
-          and left unwritten.
+          No source held by this index quantifies what a temperature excursion does to any peptide
+          or how long material remains suitable after it is mixed. Formulation, fill and finish,
+          freeze-drying and release testing are now described on the next page, from regulatory,
+          compendial and review sources — as general principles and expectations for licensed
+          medicines, not as a description of any product. What any product contains is not
+          knowable from general literature.
         </InPreparation>
 
         <EvidenceNote
@@ -692,6 +693,84 @@ export function PeptideQuality() {
           items={[
             'Grant GA (ed.). Synthetic Peptides, 2nd edition, 2002 — ch. 3, p. 165; ch. 4, p. 283.',
             'ICH Q7 — §§6.3, 6.5, 8.3, 10.1, 10.2, 17.4, 17.5, 17.6.',
+          ]}
+        />
+      </PublicationPage>
+
+      {/* ====== 10b. THE FINISHED VIAL: FORMULATION, STERILITY, ENDOTOXIN ====== */}
+      <PublicationPage publication={PUBLICATION} section="Sequence to vial">
+        <SectionHeading>The finished vial: formulating, filling, sealing and freeze-drying</SectionHeading>
+        <Body>
+          European manufacturing guidance for sterile medicines expects a product that cannot be
+          sterilised in its final container to be passed through a sterilising-grade filter and
+          filled into sterilised containers under aseptic conditions, with the filter’s integrity
+          tested. Containers are to be closed by validated methods and checked for integrity — and
+          the same guidance states that looking at a vial is not an acceptable integrity test.
+          Storage and shipping are expected not to compromise the sealed product.
+        </Body>
+        <Body>
+          Before any of that, a peptide is usually formulated. In regulatory language an excipient
+          is everything in the dosage form other than the active substance. A 2023 review of
+          peptide formulation describes the ways a peptide in solution changes — chemically, by
+          oxidation, hydrolysis, deamidation and related reactions, and physically, by clumping,
+          sticking to surfaces or falling out of solution — and the ingredients used against them:
+          buffers because degradation depends strongly on acidity, antioxidants and metal-binding
+          agents against oxidation, sugars as stabilisers, surfactants against clumping from
+          shaking. The same review reports that some of those ingredients can cause damage
+          themselves, and concludes that each peptide’s formulation has to be assessed against the
+          stresses it will meet. International stability guidelines for registered medicines treat
+          stability — including after the product is mixed, where that applies — as something shown
+          by testing the actual product over time.
+        </Body>
+        <Body>
+          Freeze-drying removes water from a frozen product under low pressure. A 2023 review
+          describes how much depends on doing it well: temperatures, pressures and drying times
+          affect the finished product, and uncontrolled drying can damage it or collapse the dried
+          cake. For sterile medicines, the guidance treats everything during freeze-drying that could
+          affect sterility as part of aseptic processing.
+        </Body>
+
+        <SectionHeading>What a sterility result means</SectionHeading>
+        <Body>
+          The guidance states that monitoring or testing alone does not give assurance of sterility,
+          and that the finished-product test is only the last in a series of control measures. The
+          compendial sterility chapter says the same from its side: its procedures are not by
+          themselves designed to ensure that a batch is sterile, and a satisfactory result only
+          indicates that no contaminating microorganism was found in the sample examined. A result
+          means something only if the method was shown to work in the presence of that product.
+        </Body>
+
+        <SectionHeading>What an endotoxin result means</SectionHeading>
+        <Body>
+          Endotoxin, from the outer wall of certain bacteria, can remain when no living organism
+          does, and in an injection can cause reactions ranging from fever to death. The compendial
+          test detects it with a reagent from horseshoe-crab blood cells, and its result is
+          meaningful only against a limit set for each product according to its dose — and only
+          where the laboratory has shown the product does not interfere with the test.
+        </Body>
+
+        <Callout title="Expectations, not descriptions">
+          Everything on this page is what regulators and compendia expect of licensed sterile
+          medicines. None of it shows how any peptide product was made or tested, and the existence
+          of an expectation is not evidence that anybody met it.
+        </Callout>
+
+        <EvidenceNote
+          supports="Claims FORM-01 to FORM-28, STER-001 to STER-011, ENDO-001 to ENDO-005 and LYO-001 to LYO-005, extracted from Nugrahadi et al. 2023, ICH Q1A(R2) and Q5C, EU GMP Annex 1 (2022), FDA ORA.007 (Revision 02), USP <71> and <85>, and Pardeshi et al. 2023."
+          doesNotSettle="What any product contains or whether it was made or tested this way, what endotoxin limit applies to any peptide without a monograph, how any peptide should be formulated or freeze-dried, or how long anything remains suitable after mixing. ICH Q5C’s stated scope does not cover chemically synthesised peptides."
+          status="Extracted and awaiting scientific review. The USP chapters are held research copies whose distribution provenance is unverified."
+        />
+
+        <SourceNote
+          items={[
+            'European Commission. EudraLex Volume 4, GMP Annex 1: Manufacture of Sterile Medicinal Products, C(2022) 5938 final — §§2.2, 2.7, 3.1, 8.21–8.25, 8.79, 8.87, 8.121, 9.1–9.32, 10.3–10.6, glossary.',
+            'USP <71> Sterility Tests — held research copy printed 15 October 2020; distribution provenance unverified; not obtained from USP.',
+            'USP <85> Bacterial Endotoxins Test — held research copy printed 21 November 2024; distribution provenance unverified; not obtained from USP.',
+            'U.S. FDA. ORA.007 Pharmaceutical Microbiology Manual, Revision 02, 2020 — chapters 3–5.',
+            'Pardeshi SR et al. Future J Pharm Sci 2023;9:99 — pp. 2–3, 6, 8, 20.',
+            'Nugrahadi PP, Hinrichs WLJ, Frijlink HW, Schöneich C, Avanti C. Pharmaceutics 2023;15:935 — §§1, 2, 3.1.1, 3.2.3–3.2.5, 3.4, 4.',
+            'ICH Q1A(R2) Stability Testing of New Drug Substances and Products, Step 4, 2003 — §§1.2, 1.3, 2.1.2, 2.2.5, 2.2.7, 3.',
+            'ICH Q5C Stability Testing of Biotechnological/Biological Products, Step 4, 1995 — §§1, 2, 5.3, 5.4, 6.6.',
           ]}
         />
       </PublicationPage>
@@ -715,8 +794,8 @@ export function PeptideQuality() {
               { label: 'Identity', written: true },
               { label: 'Content', written: true },
               { label: 'Certificates', written: true },
-              { label: 'Sterility', written: false },
-              { label: 'Endotoxin', written: false },
+              { label: 'Sterility', written: true },
+              { label: 'Endotoxin', written: true },
               { label: 'Residual solvents', written: false },
               { label: 'Water content', written: false },
               { label: 'Heavy metals', written: false },
@@ -728,17 +807,17 @@ export function PeptideQuality() {
         </Figure>
 
         <InPreparation>
-          Sterility, bacterial endotoxin, residual solvents and water content cannot be written
-          until this index holds the compendial chapters they depend on. Obtaining lawful access is
-          in progress. Until then these subjects are named and left unwritten rather than filled in
-          from general knowledge — an index that wrote them from memory would be exactly the kind of
-          source it exists to be an alternative to.
+          Residual solvents, water content and heavy metals cannot be written until this index
+          holds the chapters they depend on, and are named and left unwritten rather than filled in
+          from general knowledge. Sterility and bacterial endotoxin are now written from EU GMP
+          Annex 1, FDA’s laboratory manual and copies of the USP chapters held for research whose
+          distribution provenance is unverified; licensed USP–NF copies would replace those.
         </InPreparation>
 
         <Body>
           The analytical subjects are the ones a test report raises. Manufacturing, storage and
-          transport are now written as far as the held sources reach, which stops short of the
-          finished vial. None of this is the whole of quality, and this publication does not present
+          transport are now written as far as the held sources reach, which now includes the
+          finished vial as regulatory expectation — though never as a description of any product. None of this is the whole of quality, and this publication does not present
           it as such.
         </Body>
       </PublicationPage>

@@ -183,6 +183,13 @@
       "when": 1789180965681,
       "tag": "0025_primary_tracing_and_funding",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1789181025681,
+      "tag": "0026_trials_artifacts_resolution",
+      "breakpoints": true
     }
   ]
 }

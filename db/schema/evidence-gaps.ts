@@ -1,9 +1,27 @@
 import { sql } from 'drizzle-orm';
-import { check, index, integer, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import {
+  check,
+  date,
+  index,
+  integer,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
 import { evidenceGapType } from './enums';
+import { learningTopics } from './learning';
 import { peptides } from './peptides';
 import { qualityTopics } from './quality';
 import { verificationIssues } from './governance';
+
+export const gapResolutionState = pgEnum('gap_resolution_state', [
+  'open',
+  'partially_resolved',
+  'resolved',
+  'superseded',
+]);
 
 /**
  * A statement the platform would make if it held a source for it, and does not.
@@ -68,6 +86,19 @@ export const evidenceGaps = pgTable(
      */
     researchQuestion: text(),
     opportunityType: text(),
+
+    learningTopicId: uuid().references(() => learningTopics.id, { onDelete: 'cascade' }),
+
+    /**
+     * Whether later evidence closed this absence (migration 0026).
+     *
+     * A gap is never deleted when evidence arrives: a reader who saw it is owed
+     * the record of what changed it. Any state other than `open` must carry the
+     * note that justifies it and the date it was checked.
+     */
+    resolutionState: gapResolutionState().notNull().default('open'),
+    resolutionNote: text(),
+    resolutionCheckedAt: date(),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
   },
@@ -89,9 +120,14 @@ export const evidenceGaps = pgTable(
     ),
     check(
       'evidence_gaps_subject_present',
-      sql`${t.qualityTopicId} is not null or ${t.peptideId} is not null`,
+      sql`${t.qualityTopicId} is not null or ${t.peptideId} is not null or ${t.learningTopicId} is not null`,
+    ),
+    check(
+      'evidence_gaps_resolution_explained',
+      sql`${t.resolutionState} = 'open' or (${t.resolutionNote} is not null and ${t.resolutionCheckedAt} is not null)`,
     ),
     index('evidence_gaps_quality_topic_idx').on(t.qualityTopicId),
     index('evidence_gaps_peptide_idx').on(t.peptideId),
+    index('evidence_gaps_learning_topic_idx').on(t.learningTopicId),
   ],
 );

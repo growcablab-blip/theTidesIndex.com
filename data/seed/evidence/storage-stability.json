@@ -159,13 +159,23 @@
       "statement": "Stability of any peptide after reconstitution, and how long mixed material remains suitable.",
       "why": "No held source addresses reconstituted or finished peptide products.",
       "whatWouldResolveIt": "Product-specific stability data, approved labelling for comparable products, or a formulation stability reference.",
-      "gapType": "source_missing"
+      "gapType": "source_missing",
+      "resolution": {
+        "state": "open",
+        "checkedAt": "2026-09-14",
+        "note": "Checked 14 September 2026 and still open. ICH Q5C and Q1A(R2) now establish that, for registered products, stability after reconstitution is a separate property that has to be shown for the labelled conditions and period (FORM-22, FORM-28). That explains why the gap matters; it does not answer it for any peptide."
+      }
     },
     {
       "statement": "Lyophilisation as a manufacturing process: cycle design, excipients and cake quality.",
       "why": "SRC-013 is a contents listing only.",
       "whatWouldResolveIt": "A complete copy of SRC-013 (Costantino & Pikal).",
-      "gapType": "source_corrupted"
+      "gapType": "source_corrupted",
+      "resolution": {
+        "state": "partially_resolved",
+        "checkedAt": "2026-09-14",
+        "note": "Checked 14 September 2026. The process itself is now sourced on the lyophilisation page from an open-access review (SRC-123): its stages, critical process parameters, cake collapse and quality attributes. Cycle design and excipients for any peptide remain unsourced, and SRC-013 is still an index-only source."
+      }
     }
   ]
 }

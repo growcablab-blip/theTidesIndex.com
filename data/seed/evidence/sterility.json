@@ -1,0 +1,198 @@
+{
+  "packetKey": "sterility",
+  "qualityKey": "sterility",
+  "note": "Extracted 14 September 2026 from three sources acquired in the owner's intake batch: EudraLex Volume 4 GMP Annex 1 (SRC-124, byte-identical to the European Commission's file), the FDA ORA.007 Pharmaceutical Microbiology Manual (SRC-125, byte-identical to FDA's file) and USP <71> Sterility Tests (SRC-022). The USP copy is a HELD RESEARCH COPY: its content appears to reproduce the USP-NF chapter as printed from USP-NF Online on 15 October 2020, it was obtained by the owner from a document-sharing site rather than from USP, and its distribution provenance is unverified. It is used on the owner's explicit instruction of 14 September 2026, which supersedes the earlier refusal recorded under V-017; every claim resting on it says so, and it is never redistributed. All three are regulatory or compendial context for licensed sterile medicines. None describes how any research-use peptide product was made or tested, and nothing here may be read as a statement about a product or vendor. Annex 1 locators are the document's printed pages (printed + 1 = file page); USP <71> and ORA.007 locators are file pages.",
+  "topic": {
+    "shortDescription": "What a sterility result can and cannot tell you, and why sterility is built into a process rather than tested into a product.",
+    "simpleSummary": "A medicine that is injected has to be sterile: free of living microorganisms. The regulators and standards bodies whose documents this page draws on agree on something that surprises many people — sterility cannot be proved by testing the finished product. A sterility test takes a sample of containers from a batch, puts their contents into growth media, and waits at least fourteen days to see whether anything grows. If nothing grows, the only thing that has been shown is that no microorganisms were found in the containers that were sampled, under the conditions of that test.\n\nSo sterility is assured by how a product is made: sterilising the solution, filling it into sterile containers under controlled conditions, sealing them properly, and checking every one of those steps. The finished-product test is the last check in that chain, not the proof.\n\nThese documents describe what is expected of manufacturers of licensed sterile medicines. They say nothing about how any particular peptide product, or any product sold for research use, was actually made.",
+    "practitionerSummary": "EU GMP Annex 1 frames sterility as an outcome of contamination-control design — facility, equipment, process, personnel and monitoring — and states that monitoring or testing alone does not give assurance of sterility; the finished-product sterility test is the last of a series of critical control measures and cannot assure sterility of a product outside its validated parameters. For products that cannot be terminally sterilised, Annex 1 expects sterilising-grade filtration with filter integrity testing and aseptic filling into sterilised containers, validated container closure with integrity testing (visual inspection is not acceptable), bioburden control before the final filter, representative sterility sampling including the start and end of fills and each lyophilisation load, and environmental monitoring and aseptic process simulation, none of which is individually an indicator of asepsis. USP <71>, as held in a research copy of unverified distribution provenance, specifies membrane filtration or direct inoculation with method suitability, minimum quantities and article numbers by batch size, and at least 14 days' incubation, and states that a satisfactory result only indicates that no contaminating microorganism was found in the sample examined. FDA's laboratory manual adds that every product needs method suitability because products can inhibit growth without a preservative, and that growth makes a product non-sterile pending investigation.",
+    "whatItProves": "A passing compendial sterility test shows that no contaminating microorganisms were found in the units sampled, under the conditions of the test, where the method had been shown suitable for that product.",
+    "whatItDoesNotProve": "It does not show that a batch is sterile: USP <71> states that its procedures are not by themselves designed to ensure that, and EU GMP Annex 1 treats the test as only the last of many control measures. A sterility result says nothing about bacterial endotoxin, chemical purity, identity or content, and a regulatory expectation for licensed sterile medicines says nothing about how any research-use product was made.",
+    "commonMisinterpretations": "Reading 'sterility: pass' on a certificate as a guarantee that every vial is sterile. Assuming that a product was made under the sterile-manufacturing expectations described here because those expectations exist. Treating a sterility result as if it also covered endotoxin or purity."
+  },
+  "locations": [
+    { "key": "annex1-p3", "sourceKey": "SRC-124", "locatorText": "§1 Scope, p. 3", "pageStart": 3, "section": "1. Scope" },
+    { "key": "annex1-p4", "sourceKey": "SRC-124", "locatorText": "§2.2, p. 4", "pageStart": 4, "section": "2. Principle" },
+    { "key": "annex1-p5", "sourceKey": "SRC-124", "locatorText": "§2.7, p. 5", "pageStart": 5, "section": "2. Principle" },
+    { "key": "annex1-p6", "sourceKey": "SRC-124", "locatorText": "§3.1(vi), p. 6", "pageStart": 6, "section": "3. Pharmaceutical quality system" },
+    { "key": "annex1-p24", "sourceKey": "SRC-124", "locatorText": "§8.21–8.23, p. 24", "pageStart": 24, "section": "8. Processes: closure and container integrity" },
+    { "key": "annex1-p25", "sourceKey": "SRC-124", "locatorText": "§8.25, p. 25", "pageStart": 25, "section": "8. Processes: container closure integrity validation" },
+    { "key": "annex1-p31", "sourceKey": "SRC-124", "locatorText": "§8.79, pp. 31–32", "pageStart": 31, "pageEnd": 32, "section": "8. Processes: filter sterilisation of products which cannot be sterilised in their final container" },
+    { "key": "annex1-p33", "sourceKey": "SRC-124", "locatorText": "§8.87, p. 33", "pageStart": 33, "section": "8. Processes: filter integrity testing" },
+    { "key": "annex1-p42", "sourceKey": "SRC-124", "locatorText": "§9.1 and §9.3, p. 42", "pageStart": 42, "section": "9. Environmental and process monitoring" },
+    { "key": "annex1-p47", "sourceKey": "SRC-124", "locatorText": "§9.32, p. 47", "pageStart": 47, "section": "9. Aseptic process simulation" },
+    { "key": "annex1-p51", "sourceKey": "SRC-124", "locatorText": "§10.3, p. 51", "pageStart": 51, "section": "10. Quality control: bioburden" },
+    { "key": "annex1-p52", "sourceKey": "SRC-124", "locatorText": "§10.5–10.6, p. 52", "pageStart": 52, "section": "10. Quality control: sterility test and sampling" },
+    { "key": "usp71-p1", "sourceKey": "SRC-022", "locatorText": "USP <71>, introduction, file p. 1 (research copy)", "pageStart": 1, "section": "Introduction; precautions against microbial contamination" },
+    { "key": "usp71-p3", "sourceKey": "SRC-022", "locatorText": "USP <71>, method suitability test, file p. 3 (research copy)", "pageStart": 3, "section": "Method suitability test" },
+    { "key": "usp71-p5", "sourceKey": "SRC-022", "locatorText": "USP <71>, test for sterility of the product; Tables 2–3, file pp. 4–5 (research copy)", "pageStart": 4, "pageEnd": 5, "section": "Test for sterility of the product to be examined" },
+    { "key": "usp71-p6", "sourceKey": "SRC-022", "locatorText": "USP <71>, membrane filtration and direct inoculation, file pp. 6–7 (research copy)", "pageStart": 6, "pageEnd": 7, "section": "Membrane filtration; direct inoculation" },
+    { "key": "usp71-p7", "sourceKey": "SRC-022", "locatorText": "USP <71>, observation and interpretation of results, file pp. 7–8 (research copy)", "pageStart": 7, "pageEnd": 8, "section": "Observation and interpretation of results" },
+    { "key": "ora007-p15", "sourceKey": "SRC-125", "locatorText": "ORA.007 Chapter 3, method suitability test, p. 15", "pageStart": 15, "section": "Chapter 3: Sterility testing" },
+    { "key": "ora007-p28", "sourceKey": "SRC-125", "locatorText": "ORA.007 Chapter 4, introduction, p. 28", "pageStart": 28, "section": "Chapter 4: Investigating USP sterility testing failure" }
+  ],
+  "claims": [
+    {
+      "claimKey": "STER-001",
+      "claimText": "EU GMP Annex 1 (2022) is European Commission guidance on the design and control of facilities, equipment, systems and procedures for manufacturing sterile medicinal products, and it states that monitoring or testing alone does not give assurance of sterility.",
+      "plainLanguageText": "European rules for making sterile medicines say that you cannot simply test your way to a sterile product.",
+      "claimCategory": "sterility-principle",
+      "importance": "critical",
+      "interpretationNotes": "Sets the scope for every Annex 1 claim on this page: licensed sterile medicinal products under EU GMP. It is a design principle, not a statement that testing is pointless.",
+      "uncertaintyText": "Regulatory guidance for the EU; other jurisdictions express the same expectation in their own documents, which are not held here. It says nothing about research-use products.",
+      "evidence": [
+        { "locationKey": "annex1-p3", "evidenceTypeKey": "regulatory_reference", "interpretation": "Scope: general guidance for the design and control of facilities, equipment, systems and procedures used to manufacture sterile products.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "annex1-p4", "evidenceTypeKey": "regulatory_reference", "interpretation": "Principle: monitoring or testing alone does not give assurance of sterility.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    },
+    {
+      "claimKey": "STER-002",
+      "claimText": "Annex 1 states that a manufacturer should not rely solely on any terminal process or finished-product test for sterility, and describes the finished-product sterility test as only the last in a series of critical control measures, which cannot assure the sterility of a product that does not meet its design, procedural or validation parameters.",
+      "plainLanguageText": "The sterility test on a finished batch is the last check in a long chain, not proof on its own.",
+      "claimCategory": "sterility-principle",
+      "importance": "critical",
+      "interpretationNotes": "The reason a 'sterility: pass' line on a certificate cannot carry the weight readers give it: the regulator's own position is that the test depends on everything before it.",
+      "uncertaintyText": "Guidance for licensed sterile products. It does not quantify how much the finished-product test can or cannot detect.",
+      "evidence": [
+        { "locationKey": "annex1-p5", "evidenceTypeKey": "regulatory_reference", "interpretation": "Sole reliance for sterility should not be placed on any terminal process or finished-product test.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "annex1-p52", "evidenceTypeKey": "regulatory_reference", "interpretation": "The finished-product sterility test is the last in a series of critical control measures and cannot assure sterility of a product outside its design, procedural or validation parameters.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    },
+    {
+      "claimKey": "STER-003",
+      "claimText": "USP <71>, as held in a research copy, states that its sterility test procedures are not by themselves designed to ensure that a batch is sterile or has been sterilised — that is accomplished primarily by validating the sterilisation or aseptic process — and that a satisfactory result only indicates that no contaminating microorganism has been found in the sample examined under the conditions of the test.",
+      "plainLanguageText": "The standard sterility test itself says that a pass only means nothing grew from the containers that were tested.",
+      "claimCategory": "sterility-test-meaning",
+      "importance": "critical",
+      "interpretationNotes": "The compendial chapter's own statement of what a pass means, and the most important sentence for anyone reading a certificate. It agrees with Annex 1 (STER-002) from a different authority.",
+      "uncertaintyText": "Read from a held research copy printed from USP-NF Online on 15 October 2020, obtained by the owner from a document-sharing site; its distribution provenance is unverified and it is not an official USP artifact obtained from USP. The chapter may have been revised since. A licensed USP-NF copy would replace it.",
+      "evidence": [
+        { "locationKey": "usp71-p1", "evidenceTypeKey": "regulatory_reference", "interpretation": "Introduction: the procedures are not by themselves designed to ensure batch sterility; a satisfactory result only indicates no contaminating microorganism was found in the sample examined.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read from page images." }
+      ]
+    },
+    {
+      "claimKey": "STER-004",
+      "claimText": "USP <71> requires a method suitability test showing that microorganisms can grow in the presence of the product, and FDA's Pharmaceutical Microbiology Manual instructs its laboratories that every product should undergo method suitability testing because a product may inhibit microbial growth even without a preservative.",
+      "plainLanguageText": "Before a sterility test means anything, the lab has to show that germs could still grow in the presence of that particular product.",
+      "claimCategory": "sterility-test-meaning",
+      "importance": "high",
+      "interpretationNotes": "A sterility result obtained without suitability being shown for that product cannot be read the same way: an antimicrobial product can produce 'no growth' because it suppresses growth, not because it is sterile.",
+      "uncertaintyText": "USP <71> is read from a held research copy of unverified distribution provenance. The FDA manual is an internal laboratory manual for FDA analysts, not a requirement on industry; neither says how often suitability is omitted in practice.",
+      "evidence": [
+        { "locationKey": "usp71-p3", "evidenceTypeKey": "regulatory_reference", "interpretation": "If clearly visible growth is not obtained with the product present, the product has antimicrobial activity that has not been eliminated and the conditions must be modified.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read from page images." },
+        { "locationKey": "ora007-p15", "evidenceTypeKey": "regulatory_reference", "interpretation": "Even without a preservative a product may inhibit growth, so all products should undergo method suitability testing.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The FDA manual itself, byte-identical to FDA's published file, read." }
+      ]
+    },
+    {
+      "claimKey": "STER-005",
+      "claimText": "USP <71> specifies two test techniques, membrane filtration and direct inoculation of culture media, with negative controls; sets minimum quantities per container and minimum numbers of articles to test in relation to batch size; and requires incubation for not less than 14 days.",
+      "plainLanguageText": "The standard test either filters the product or adds it straight to growth media, tests a set number of containers depending on batch size, and waits at least two weeks.",
+      "claimCategory": "sterility-test-method",
+      "importance": "medium",
+      "interpretationNotes": "Structure of the compendial method only. The minimum numbers in its tables apply to compendial articles and are not transcribed here as claims about any product; the 14-day incubation is relevant to how soon a certificate could honestly report a result.",
+      "uncertaintyText": "Read from a held research copy of unverified distribution provenance, printed in 2020; the tables may have been revised since.",
+      "evidence": [
+        { "locationKey": "usp71-p5", "evidenceTypeKey": "regulatory_reference", "interpretation": "Membrane filtration or direct inoculation with negative controls; Tables 2 and 3 give minimum quantities and minimum numbers of articles by batch size.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read from page images." },
+        { "locationKey": "usp71-p6", "evidenceTypeKey": "regulatory_reference", "interpretation": "Incubate the media for not less than 14 days, for both techniques.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read from page images." }
+      ]
+    },
+    {
+      "claimKey": "STER-006",
+      "claimText": "Under USP <71>, evidence of microbial growth means the product does not comply unless the test is clearly shown to be invalid for listed causes unrelated to the product, such as a fault in facility monitoring, a procedural fault or growth in negative controls; FDA's laboratory manual directs that a product showing growth is considered non-sterile pending an investigation.",
+      "plainLanguageText": "If something grows, the batch fails unless the lab can show the test itself went wrong for specific reasons.",
+      "claimCategory": "sterility-test-meaning",
+      "importance": "medium",
+      "interpretationNotes": "A failed result cannot be waved away by simply retesting: invalidity must be demonstrated on stated grounds. 'Complies' remains a statement about the units examined (STER-003).",
+      "uncertaintyText": "USP <71> is read from a held research copy of unverified distribution provenance. Neither source says how often positive results turn out to be laboratory contamination.",
+      "evidence": [
+        { "locationKey": "usp71-p7", "evidenceTypeKey": "regulatory_reference", "interpretation": "No growth: complies; growth: does not comply unless the test is clearly shown invalid on the listed grounds.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read from page images." },
+        { "locationKey": "ora007-p28", "evidenceTypeKey": "regulatory_reference", "interpretation": "When growth is detected the product is considered non-sterile, pending an investigation.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The FDA manual itself, byte-identical to FDA's published file, read." }
+      ]
+    },
+    {
+      "claimKey": "STER-007",
+      "claimText": "Annex 1 expects sterility test samples to represent the whole batch while including the parts most at risk of contamination — such as containers filled at the beginning and end of an aseptic fill and, for freeze-dried products, samples from different loads — and expects a bioburden assay on each batch before the final sterilising-grade filter or terminal sterilisation, considered in the final batch review.",
+      "plainLanguageText": "Which containers are tested matters: the rules expect samples from the riskiest points in a batch, and a count of microbes before the final sterilising step.",
+      "claimCategory": "sterility-release",
+      "importance": "high",
+      "interpretationNotes": "Sampling decides what a sterility result can speak for. A result from containers chosen without regard to risk says less than one taken where contamination is most likely.",
+      "uncertaintyText": "Expectations for licensed sterile products under EU GMP. No sample numbers or bioburden limits are given in the passages cited.",
+      "evidence": [
+        { "locationKey": "annex1-p52", "evidenceTypeKey": "regulatory_reference", "interpretation": "Sterility samples representative of the batch, including start and end of aseptic filling and different lyophilisation loads.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "annex1-p51", "evidenceTypeKey": "regulatory_reference", "interpretation": "Bioburden assay on each batch, before the final sterilising filter or terminal sterilisation, considered in final batch review.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    },
+    {
+      "claimKey": "STER-008",
+      "claimText": "Annex 1 provides that a sterile product which cannot be sterilised in its final container should be sterilised by filtration through a sterile sterilising-grade filter and aseptically filled into previously sterilised containers, and expects the filter to be integrity-tested after use before removal from its housing, and the sterilised filter assembly to be tested before use unless a documented risk assessment justifies otherwise.",
+      "plainLanguageText": "Products that cannot be sterilised after filling are passed through a sterilising filter and then filled under sterile conditions, and the filter itself has to be checked.",
+      "claimCategory": "sterile-processing",
+      "importance": "high",
+      "interpretationNotes": "Describes the expected route for licensed sterile products that cannot be terminally sterilised, which is the route relevant to many peptides. It does not state that any peptide product is made this way.",
+      "uncertaintyText": "EU GMP guidance; the same section allows the pre-use filter test to be omitted on a documented risk basis.",
+      "evidence": [
+        { "locationKey": "annex1-p31", "evidenceTypeKey": "regulatory_reference", "interpretation": "Filter sterilisation followed by aseptic filling into previously sterilised containers.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "annex1-p33", "evidenceTypeKey": "regulatory_reference", "interpretation": "Post-use integrity test before removal from the housing; pre-use post-sterilisation integrity test unless justified by risk assessment.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    },
+    {
+      "claimKey": "STER-009",
+      "claimText": "Annex 1 expects final containers of sterile products to be closed by validated methods, containers not sealed by fusion — such as stoppered vials — to be sampled and checked for integrity by validated methods, and states that visual inspection is not considered an acceptable integrity test method.",
+      "plainLanguageText": "A vial that looks sealed has not been shown to be sealed: the rules say looking at it is not an acceptable test.",
+      "claimCategory": "sterile-processing",
+      "importance": "high",
+      "interpretationNotes": "Container closure is where a sterile product can stop being sterile after it has been made. The statement about visual inspection appears in the paragraph on fusion-sealed containers and is a general statement about integrity testing.",
+      "uncertaintyText": "EU GMP guidance for licensed sterile products; it sets no test method or sample size and says nothing about any particular vial.",
+      "evidence": [
+        { "locationKey": "annex1-p24", "evidenceTypeKey": "regulatory_reference", "interpretation": "Validated closure; integrity sampling for non-fused containers; visual inspection not an acceptable integrity test.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    },
+    {
+      "claimKey": "STER-010",
+      "claimText": "Annex 1 expects the quality system to ensure that finishing, storage and transport do not compromise a sterile product, considering container integrity, contamination risk and degradation, and expects container closure integrity validation to take into account transport conditions such as decompression or extreme temperatures.",
+      "plainLanguageText": "Making a sterile product properly is not the end: storage and shipping can also break a container's seal, and the rules expect that to be tested for.",
+      "claimCategory": "sterile-processing",
+      "importance": "medium",
+      "interpretationNotes": "Links the sterility question to the transport stage. It does not show that shipping damaged any container and does not quantify any effect.",
+      "uncertaintyText": "Guidance for licensed sterile products with registered storage conditions; research-use products have none.",
+      "evidence": [
+        { "locationKey": "annex1-p6", "evidenceTypeKey": "regulatory_reference", "interpretation": "Finishing, storage and transport should not compromise the sterile product.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "annex1-p25", "evidenceTypeKey": "regulatory_reference", "interpretation": "Container closure integrity validation should consider transport or shipping stresses.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    },
+    {
+      "claimKey": "STER-011",
+      "claimText": "Annex 1 states that each element of environmental and process monitoring — viable, non-viable and aseptic process simulation — has limited reliability in isolation and should not individually be considered an indicator of asepsis, and that periodic aseptic process simulation (media fill) is not the primary means of validating an aseptic process.",
+      "plainLanguageText": "No single check shows that a sterile process works; the rules expect many kinds of monitoring to be read together.",
+      "claimCategory": "sterile-processing",
+      "importance": "medium",
+      "interpretationNotes": "The same principle as STER-002 applied to monitoring: confidence in sterility is cumulative, never a single number or test.",
+      "uncertaintyText": "EU GMP guidance; it does not quantify the reliability of any monitoring element.",
+      "evidence": [
+        { "locationKey": "annex1-p42", "evidenceTypeKey": "regulatory_reference", "interpretation": "Monitoring elements have limited reliability in isolation and are used in routine batch certification.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "annex1-p47", "evidenceTypeKey": "regulatory_reference", "interpretation": "Aseptic process simulation should not be considered the primary means of validating the aseptic process.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "scope_not_established",
+      "statement": "Whether any particular peptide product, or any product sold for research use, was made under sterile processing or tested for sterility.",
+      "why": "Every source on this page describes expectations for licensed sterile medicines. None describes any product in the market, and the existence of an expectation is not evidence that anybody met it.",
+      "whatWouldResolveIt": "Product-specific documentation: a batch record, a validated sterile process, and a sterility result with its method, sampling and suitability stated."
+    },
+    {
+      "gapType": "source_inaccessible",
+      "statement": "The current official text of USP <71>.",
+      "why": "The copy held is a research copy printed in October 2020, obtained by the owner from a document-sharing site, with distribution provenance unverified. It shows the chapter as official on that date only.",
+      "whatWouldResolveIt": "A licensed USP-NF subscription copy of <71>, compared against the research copy.",
+      "verificationIssueKey": "V-017"
+    },
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "How likely a finished-product sterility test is to detect contamination present at a given level in a batch.",
+      "why": "Annex 1 and USP <71> both state that the test cannot assure sterility, and neither quantifies its detection capability. Supplying a figure would be inventing one.",
+      "whatWouldResolveIt": "A peer-reviewed or compendial statistical treatment of sterility-test sampling, acquired and audited."
+    }
+  ]
+}

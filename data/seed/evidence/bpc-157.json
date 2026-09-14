@@ -1,7 +1,7 @@
 {
   "packetKey": "bpc-157",
   "peptideKey": "bpc-157",
-  "note": "Extracted from three practitioner sources held by this index: SRC-002 (LaValle et al., Peptide Handbook, 2022), SRC-003 (Campbell, Optimize Your Health with Therapeutic Peptides, 2023) and SRC-005 (Hack Smith, The Complete Guide to Peptides, 2025). BPC-157 is the deliberately harder half of this pair. There is no approved product, no human trial in anything held here, and three sources that describe three different regimens. The architecture's job on this record is to keep all of that visible at once without letting volume of discussion read as weight of evidence.",
+  "note": "Extracted from three practitioner sources held by this index: SRC-002 (LaValle et al., Peptide Handbook, 2022), SRC-003 (Campbell, Optimize Your Health with Therapeutic Peptides, 2023) and SRC-005 (Hack Smith, The Complete Guide to Peptides, 2025). BPC-157 is the deliberately harder half of this pair. There is no approved product, no human trial in anything held here, and three sources that describe three different regimens. The architecture's job on this record is to keep all of that visible at once without letting volume of discussion read as weight of evidence. Updated 14 September 2026: the interstitial cystitis study (SRC-030) is now held in full and read; the intravenous pilot (SRC-029) is held only as an owner transcription whose body is unverified, so it stays at abstract level; the file supplied for the knee-pain study (SRC-031) was a different article, so that study also stays at abstract level.",
   "compound": {
     "shortDescription": "A synthetic fifteen-amino-acid peptide, described by the sources held here as derived from a protein found in human gastric juice. Very widely discussed, almost entirely on animal research: a literature screen identified three small uncontrolled human studies and no approved product anywhere.",
     "simpleSummary": "BPC-157 is a short synthetic peptide. The sources held here describe it as a fragment of a larger protein found in stomach fluid, which is where the name comes from: body protection compound.\n\nIt is discussed more than almost any other compound in this field, largely in the context of healing — tendons, ligaments, muscle, gut lining, skin. There is a considerable body of laboratory and animal work behind those claims, and the practitioner sources held here are careful about how they say it: one describes the effects as observed \"in laboratory studies\".\n\n**Research in people is very limited.** A search of the PubMed medical literature database on 13 September 2026 returned 230 records mentioning the compound. Reading through them, three were studies in people: two people given it intravenously, twelve women given it for a bladder condition, and a review of the records of seventeen patients given it in the knee. Thirty-one people in total, across three studies, none of which had a comparison group. That last point matters more than the numbers. Without a comparison group, a study cannot tell whether the people who got better did so because of the treatment.\n\nAlmost everything else is animal research. No medicines regulator has approved BPC-157 anywhere, and the reason two independent reviews give is that the clinical research needed to assess it has not been done.",
@@ -100,14 +100,14 @@
       "sourceKey": "SRC-029",
       "locatorText": "Abstract, PMID 40131143",
       "section": "Design, participants and findings",
-      "notes": "Read at abstract level. Full text not obtained."
+      "notes": "Abstract re-verified against PubMed on 14 September 2026. An owner transcription of the article body is held as a working artifact and is unverified; no location cites it."
     },
     {
       "key": "bpc-cystitis-abstract",
       "sourceKey": "SRC-030",
       "locatorText": "Abstract, PMID 39325560",
       "section": "Design, participants and findings",
-      "notes": "Read at abstract level. Full text not obtained."
+      "notes": "Abstract verified against the PubMed record and against the held full text."
     },
     {
       "key": "bpc-knee-abstract",
@@ -136,6 +136,34 @@
       "locatorText": "Abstract, PMID 41155565",
       "section": "Response on angiogenesis and tumorigenesis",
       "notes": "Read at abstract level. Full text not obtained."
+    },
+    {
+      "key": "bpc-cystitis-methods",
+      "sourceKey": "SRC-030",
+      "locatorText": "pp. 13–14, Methods",
+      "pageStart": 13,
+      "pageEnd": 14,
+      "section": "Study design / chart review and data analysis; inclusion; patients; procedure",
+      "notes": null
+    },
+    {
+      "key": "bpc-cystitis-results",
+      "sourceKey": "SRC-030",
+      "locatorText": "p. 14, Results; Table 1",
+      "pageStart": 14,
+      "pageEnd": null,
+      "section": "Results; Global Response Assessment",
+      "tableNumber": "1",
+      "notes": null
+    },
+    {
+      "key": "bpc-cystitis-limitations-coi",
+      "sourceKey": "SRC-030",
+      "locatorText": "p. 16, Limitations; Conflict of interest",
+      "pageStart": 16,
+      "pageEnd": null,
+      "section": "Limitations; conflict of interest",
+      "notes": null
     }
   ],
   "claims": [
@@ -174,8 +202,8 @@
       "plainLanguageText": "Most of what is said about BPC-157 comes from laboratory and animal research. A search of the medical literature found three studies in people, together involving thirty-one participants. None of them had a comparison group, so none can show that an effect was caused by the compound rather than by anything else.",
       "claimCategory": "evidence-base",
       "importance": "critical",
-      "interpretationNotes": "This claim replaces one that said no human study was recorded in the sources held here. That was true of the library and said nothing about the literature, which is why the screen was run. The answer it returned is not the one the register implied: human studies exist. They are also not the kind of evidence that would support any of the uses attributed to this compound — two participants, twelve participants and a seventeen-patient chart review, none controlled, are hypothesis-generating at best. A systematic review published in 2025 searched three databases independently to June 2024 and included 36 studies, of which it classified one as clinical, and reported that it found no clinical safety data. Two independent screens reaching the same shape of answer is worth more than either alone.",
-      "uncertaintyText": "This is a statement about one database on one date under one set of criteria, and it is bounded to that. PubMed is not the whole of the scientific literature: it indexes neither conference abstracts nor most regulatory submissions, and a 2006 review asserts that clinical trials for inflammatory bowel disease were conducted under the development codes PL 10, PLD 116 and PL 14736 — no report of which appears in this search. Those trials are recorded as a gap, not as evidence and not as absence. All three human studies were read at abstract level; the full texts are not held.",
+      "interpretationNotes": "This claim replaces one that said no human study was recorded in the sources held here. That was true of the library and said nothing about the literature, which is why the screen was run. The answer it returned is not the one the register implied: human studies exist. They are also not the kind of evidence that would support any of the uses attributed to this compound — a two-participant infusion pilot and two retrospective chart reviews of twelve and seventeen patients, none controlled, are hypothesis-generating at best. A systematic review published in 2025 searched three databases independently to June 2024 and included 36 studies, of which it classified one as clinical, and reported that it found no clinical safety data. Two independent screens reaching the same shape of answer is worth more than either alone.",
+      "uncertaintyText": "This is a statement about one database on one date under one set of criteria, and it is bounded to that. PubMed is not the whole of the scientific literature: it indexes neither conference abstracts nor most regulatory submissions, and a 2006 review asserts that clinical trials for inflammatory bowel disease were conducted under the development codes PL 10, PLD 116 and PL 14736 — no report of which appears in this search. Those trials are recorded as a gap, not as evidence and not as absence. The interstitial cystitis study has been read in full. The intravenous study is verified at abstract level; an owner transcription of its body is held but unverified. The knee study is held at abstract level only.",
       "evidence": [
         {
           "locationKey": "bpc-iv-safety-abstract",
@@ -187,13 +215,13 @@
           "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
         },
         {
-          "locationKey": "bpc-cystitis-abstract",
-          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "locationKey": "bpc-cystitis-methods",
+          "evidenceTypeKey": "human_observational",
           "relationship": "supports",
-          "interpretation": "Twelve women with interstitial cystitis who had not responded to pentosan polysulfate, treated during a single cystoscopy with injections around the area of inflammation, with outcome assessed by a self-reported global response questionnaire.",
-          "populationModel": "Twelve women aged 39 to 76 at a single private clinic.",
-          "primaryTrace": "abstract_only",
-          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+          "interpretation": "A retrospective chart review of twelve women with moderate to severe interstitial cystitis, all of whom had previously tried pentosan polysulfate, each treated with injections into the bladder wall during a single cystoscopy at a urogynaecology practice. The outcome was a single five-point Global Response Assessment, collected when patients were contacted afterwards; the report gives both six weeks and, for most patients, four to six months. Cystoscopic change is illustrated for one patient only.",
+          "populationModel": "Twelve women aged 39 to 76 at one urogynaecology practice where a co-author practises; participants paid for the material.",
+          "primaryTrace": "full_text_partially_supports",
+          "primaryTraceNote": "Full text held and read (Altern Ther Health Med 2024;30(10):12-17). It confirms the population, the single procedure and the self-rated outcome recorded from the abstract, and shows that the study was a retrospective chart review rather than a prospective one, with outcome timing reported inconsistently."
         },
         {
           "locationKey": "bpc-knee-abstract",
@@ -362,21 +390,30 @@
     },
     {
       "claimKey": "BPC-008",
-      "claimText": "None of the three identified human studies had a control group, a randomisation procedure, or blinding, and all three were conducted at private clinics and published in the same journal. Two of the three used material whose identity and purity are not established in the report: one names a 503A compounding pharmacy as the manufacturer, and one gave a second peptide to part of the cohort.",
+      "claimText": "None of the three identified human studies had a control group, a randomisation procedure or blinding; all three were conducted at private clinics and published in the same journal, and two of the three were retrospective chart reviews. In at least two, what was administered is not established by the report: in one the material came from a 503A compounding pharmacy the authors do not name, with no certificate of analysis or identity or purity testing reported, and another gave a second peptide to part of the cohort. The interstitial cystitis report states no ethics committee approval for the study it reports.",
       "plainLanguageText": "The human studies that exist are small and have no comparison group. That means that if the people in them improved, the study cannot show whether the compound caused it. It is the kind of research that suggests what to test next, not the kind that settles anything.",
       "claimCategory": "evidence-quality",
       "importance": "critical",
       "interpretationNotes": "Recorded as a claim of its own rather than as a caveat on the one above, because it is the part that a reader will otherwise skip. 'There are human studies' and 'there is human evidence for this use' are different statements, and the distance between them is this claim. Uncontrolled studies of a condition that fluctuates — interstitial cystitis, knee pain — cannot separate a treatment effect from regression to the mean, from the procedure itself, or from expectation. The knee study gave some patients two peptides, so even its uncontrolled result cannot be attributed to this one.",
-      "uncertaintyText": "All three were read at abstract level. A full text might report design detail the abstract omits; it cannot supply a control group that was not there.",
+      "uncertaintyText": "The interstitial cystitis study has now been read in full. It confirmed the absence of a control group and added that the study was retrospective, that no ethics approval is stated, and that the timing of the outcome is reported inconsistently. The intravenous study is verified at abstract level only, and the knee study is held at abstract level only.",
       "evidence": [
         {
-          "locationKey": "bpc-cystitis-abstract",
-          "evidenceTypeKey": "human_prospective_uncontrolled",
+          "locationKey": "bpc-cystitis-methods",
+          "evidenceTypeKey": "human_observational",
           "relationship": "supports",
-          "interpretation": "The abstract states that the material was manufactured by a 503A compounding pharmacy, that all twelve participants had failed prior treatment, and that the outcome was a self-rated global response after a single procedure.",
+          "interpretation": "The full text states that the peptide came from a US 503A compounding pharmacy that does not wish to disclose its name, and reports no certificate of analysis, lot, identity or purity testing for it. It describes the study as a retrospective chart review of patients who had received an experimental treatment, and states no ethics committee approval for it.",
           "populationModel": "Twelve women.",
-          "primaryTrace": "abstract_only",
-          "primaryTraceNote": "The cited source is the research itself, held at abstract level: design, setting and size are reliable at this depth and the detail of how outcomes were collected is not."
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Full text held and read (Altern Ther Health Med 2024;30(10):12-17). Each element read at printed pp. 13–14."
+        },
+        {
+          "locationKey": "bpc-cystitis-limitations-coi",
+          "evidenceTypeKey": "human_observational",
+          "relationship": "contextualizes",
+          "interpretation": "The authors' stated limitations are sample size, ethnic variation and the lack of a sham control group, with biopsies not performed because of cost. They do not name the retrospective design, self-rated outcome or unnamed supplier as limitations.",
+          "populationModel": "Twelve women.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Full text held and read (Altern Ther Health Med 2024;30(10):12-17). Read at printed p. 16."
         },
         {
           "locationKey": "bpc-knee-abstract",
@@ -461,11 +498,16 @@
     {
       "gapType": "human_evidence_not_established",
       "statement": "That BPC-157 produces any effect in humans.",
-      "why": "Three human studies were identified by the screen of 13 September 2026, and none of them is capable of establishing an effect. All three are uncontrolled: two participants given intravenous infusions, twelve women treated in a single procedure with outcomes self-rated afterwards, and a retrospective telephone survey of seventeen patients, some of whom received a second peptide as well. A study without a comparison group cannot separate what a treatment did from what would have happened anyway, and the conditions involved — interstitial cystitis, chronic knee pain — are exactly the kind that fluctuate.",
+      "why": "Three human studies were identified by the screen of 13 September 2026, and none of them is capable of establishing an effect. All three are uncontrolled: two participants given intravenous infusions, twelve women treated in a single procedure and reviewed retrospectively from charts, with outcomes self-rated weeks to months afterwards, and a retrospective telephone survey of seventeen patients, some of whom received a second peptide as well. A study without a comparison group cannot separate what a treatment did from what would have happened anyway, and the conditions involved — interstitial cystitis, chronic knee pain — are exactly the kind that fluctuate.",
       "whatWouldResolveIt": "A randomised controlled trial. Nothing smaller answers this question, and the existence of uncontrolled studies does not narrow the gap.",
       "researchQuestion": "Does BPC-157 produce any measurable effect in people, in a trial with a comparison group?",
       "opportunityType": "human_evidence",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026. The interstitial cystitis full text confirms it had no comparison group; nothing supplied could establish an effect.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "route_not_established",
@@ -474,7 +516,12 @@
       "whatWouldResolveIt": "A pharmacokinetic study comparing oral and parenteral administration, in any species, reporting plasma concentrations of intact peptide.",
       "researchQuestion": "What proportion of an oral amount of BPC-157 reaches the circulation intact, and how does that compare with injection?",
       "opportunityType": "human_pharmacokinetics",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "no_current_reviewed_evidence",
@@ -483,7 +530,12 @@
       "whatWouldResolveIt": "A dose-finding study, or any source that states the basis for the amounts it recommends.",
       "researchQuestion": "Is there any amount of BPC-157 at which a measurable effect appears in people, and does the effect change with the amount given?",
       "opportunityType": "dose_response",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "safety_not_established",
@@ -492,7 +544,12 @@
       "whatWouldResolveIt": "Human safety data from a trial or a registry.",
       "researchQuestion": "What harms occur in people given BPC-157, including with repeated and prolonged use?",
       "opportunityType": "human_safety",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "conflicting_sources",
@@ -501,7 +558,12 @@
       "whatWouldResolveIt": "In vivo tumour model reports read in full, which would establish what was observed in what model at what exposure; and, for the clinical question anyone actually has, a study in people with cancer, which does not exist.",
       "researchQuestion": "Does BPC-157 promote or inhibit tumour growth in a comparable in vivo model, and at what exposure?",
       "opportunityType": "mechanism_confirmation",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "regulatory_status_unverified",
@@ -510,14 +572,24 @@
       "whatWouldResolveIt": "A statement from a named authority in a named jurisdiction, with a date.",
       "researchQuestion": "What position has each named medicines regulator taken on BPC-157, and on what date?",
       "opportunityType": "regulatory_position",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "primary_source_missing",
       "statement": "What the laboratory studies behind every mechanism on this page actually did and found.",
       "why": "Both practitioner sources cite their primary literature by superscript or by a link to the author's own website. None of those citations has been obtained or opened by this index.",
       "whatWouldResolveIt": "The primary publications, obtained and read, with each mechanism checked against the paper reporting it.",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "primary_source_missing",
@@ -526,14 +598,24 @@
       "whatWouldResolveIt": "A trial report, a registry entry, or a regulatory submission under any of those codes.",
       "researchQuestion": "Were the inflammatory bowel disease trials reported under PL 10, PLD 116 and PL 14736 conducted, and what did they find?",
       "opportunityType": "human_evidence",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "no_current_reviewed_evidence",
       "statement": "What the full texts of the three identified human studies report.",
       "why": "All three were read at abstract level through the NCBI interface. Full texts are behind publisher access and have not been obtained. An abstract carries design, setting and size reliably; it does not carry the detail that would let anyone judge how the outcomes were collected.",
       "whatWouldResolveIt": "Access to the three full texts.",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "partially_resolved",
+        "note": "Checked 14 September 2026. The interstitial cystitis full text was obtained and read. The file supplied for the knee-pain study was a different article, and the intravenous study is held only as an unverified owner transcription, so two of the three remain at abstract level.",
+        "checkedAt": "2026-09-14"
+      }
     },
     {
       "gapType": "scope_not_established",
@@ -542,7 +624,32 @@
       "whatWouldResolveIt": "A certificate of analysis or product characterisation reported in the study, or an investigational product with a defined specification.",
       "researchQuestion": "What do products sold as BPC-157 contain, and what was the material given in the identified human studies?",
       "opportunityType": "product_characterisation",
-      "verificationIssueKey": null
+      "verificationIssueKey": null,
+      "resolution": {
+        "state": "open",
+        "note": "Checked 14 September 2026. The interstitial cystitis full text confirms the material came from an unnamed 503A compounding pharmacy with no characterisation reported.",
+        "checkedAt": "2026-09-14"
+      }
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "What the full text of the intra-articular knee-pain study reports (Lee and Padgett, 2021).",
+      "why": "The file supplied under this title on 14 September 2026 was a different article, on nitric oxide and carotid intima-media thickness, with no BPC-157 content. SOURCE REPLACEMENT REQUIRED.",
+      "whatWouldResolveIt": "The publisher's version of Lee E, Padgett B, Altern Ther Health Med 2021;27(4):8-13 (PMID 34324435).",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null,
+      "resolution": null
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "Whether the owner transcription of the intravenous safety pilot faithfully reproduces the published article's body, including its tables and disclosures.",
+      "why": "The transcription's abstract matches PubMed, but its body cannot be checked: one participant's table is missing, another is labelled for the wrong participant, and passages are out of order. Nothing is cited from it.",
+      "whatWouldResolveIt": "The publisher's version of Lee E, Burgess K, Altern Ther Health Med 2025;31(5):20-24 (PMID 40131143), compared page by page.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null,
+      "resolution": null
     }
   ],
   "routes": [
@@ -675,7 +782,7 @@
       "cycleText": null,
       "titrationText": null,
       "combinationsText": null,
-      "monitoringText": "Fasting blood work and vital signs before and after each infusion; side effects asked about at each appointment.",
+      "monitoringText": "Baseline blood work and vital signs, and before and after each infusion; fasting blood work repeated on days 2 and 3; participants asked about side effects at each appointment.",
       "contraindicationsText": null,
       "safetyNotes": "No measurable effect on the biomarkers tested and no side effects reported.",
       "patientVisibility": false,
@@ -688,26 +795,26 @@
       "locationKey": "bpc-iv-safety-abstract"
     },
     {
-      "formulation": "BPC-157 compounded by a 503A pharmacy.",
+      "formulation": "Solution at 2 mg/mL from a US 503A compounding pharmacy the authors do not name; no certificate of analysis or identity testing reported.",
       "amountReported": "10 mg total",
       "amountUnit": "mg",
-      "frequencyText": "Once, during a single procedure",
-      "timingText": null,
+      "frequencyText": "Once, during a single procedure. The two participants reporting partial improvement were later scheduled for a second injection, with no outcome reported.",
+      "timingText": "Ten injections into the bladder wall (dome and trigone) through a cystoscope during one procedure, as reported. The authors call this intravesical; it is injection into the wall, not instillation.",
       "durationText": "A single procedure",
       "cycleText": null,
       "titrationText": null,
       "combinationsText": null,
-      "monitoringText": null,
+      "monitoringText": "Baseline cystoscopy; follow-up cystoscopy at six weeks; Global Response Assessment when patients were contacted, most four to six months after treatment. No laboratory monitoring or adverse-event instrument is described.",
       "contraindicationsText": null,
-      "safetyNotes": null,
+      "safetyNotes": "The report states no post-procedural haematuria or acute cystitis and no fever, rash, nausea, vomiting, irritative urinary symptoms or dyspareunia; how adverse events were collected is not described. Twelve participants, retrospective: not a safety establishment.",
       "patientVisibility": false,
       "protocolKey": "BPC-PR-STUDY-CYSTITIS",
       "objectiveContext": "Symptoms of interstitial cystitis in women who had not responded to pentosan polysulfate.",
-      "populationModel": "Twelve women aged 39 to 76 at a single private clinic.",
+      "populationModel": "Twelve women aged 39 to 76 with moderate to severe interstitial cystitis at one urogynaecology practice where a co-author practises; participants paid for the material.",
       "routeKey": "other",
-      "regulatoryContext": "The schedule an uncontrolled human study used. No comparison group, so it cannot show that anything observed was caused by the compound. Not a recommendation. Injected around the area of bladder inflammation during a single cystoscopy; outcome self-rated. Material from a 503A compounding pharmacy.",
-      "evidenceTypeKey": "human_prospective_uncontrolled",
-      "locationKey": "bpc-cystitis-abstract"
+      "regulatoryContext": "What a retrospective chart review reports twelve women received. No comparison group, no stated ethics approval and an unnamed supplier, so it cannot show that anything observed was caused by the compound, or establish what was given. Not a recommendation.",
+      "evidenceTypeKey": "human_observational",
+      "locationKey": "bpc-cystitis-methods"
     },
     {
       "formulation": null,
@@ -829,19 +936,19 @@
       "institution": null,
       "grantReference": null,
       "disclosureText": null,
-      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed. An owner transcription of the full text is held but unverified; its funding and conflict statements are not recorded here until the publisher's version is checked."
     },
     {
       "fundingKey": "FUND-SRC-030",
       "sourceKey": "SRC-030",
-      "locationKey": null,
-      "funderKind": "not_checked",
+      "locationKey": "bpc-cystitis-limitations-coi",
+      "funderKind": "not_reported_in_source",
       "sponsorName": null,
       "manufacturerInvolved": null,
       "institution": null,
       "grantReference": null,
-      "disclosureText": null,
-      "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+      "disclosureText": "The authors declare there is no conflict of interest in the authorship or publication of this manuscript.",
+      "notes": "Full text read (printed pp. 12-17). It carries this conflict-of-interest declaration and no funding statement. Participants paid for the peptide and received no honorarium (p. 14); treatment was given at the practice where a co-author works; the supplying pharmacy is not named; and the article argues for regulatory reclassification of BPC-157 (p. 16). The declaration is the authors' statement and is recorded as such."
     },
     {
       "fundingKey": "FUND-SRC-031",

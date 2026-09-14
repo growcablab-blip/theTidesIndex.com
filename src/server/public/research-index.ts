@@ -108,6 +108,9 @@ export interface ResearchQuestionEntry {
   readonly statement: string;
   readonly why: string;
   readonly whatWouldResolveIt: string | null;
+  /** Open, partially resolved, resolved or superseded — never silently dropped. */
+  readonly resolutionState: string;
+  readonly resolutionNote: string | null;
   readonly subjectKind: 'compound' | 'quality';
   readonly subjectSlug: string;
   readonly subjectName: string;
@@ -245,6 +248,7 @@ export async function readResearchQuestions(
     await tx.execute(sql`
       select g.gap_key, g.research_question, g.opportunity_type, g.gap_type::text as gap_type,
              g.statement, g.why_not_supported, g.what_would_resolve_it,
+             g.resolution_state::text as resolution_state, g.resolution_note,
              pe.slug as peptide_slug, pe.canonical_name as peptide_name,
              q.slug as topic_slug, q.name as topic_name
         from ${rel('public_v_evidence_gaps')} g
@@ -267,6 +271,8 @@ export async function readResearchQuestions(
         statement: String(r.statement),
         why: String(r.why_not_supported),
         whatWouldResolveIt: str(r.what_would_resolve_it),
+        resolutionState: str(r.resolution_state) ?? 'open',
+        resolutionNote: str(r.resolution_note),
         subjectKind: compound ? ('compound' as const) : ('quality' as const),
         subjectSlug: String(compound ? r.peptide_slug : r.topic_slug),
         subjectName: String(compound ? r.peptide_name : r.topic_name),

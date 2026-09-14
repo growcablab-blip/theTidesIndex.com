@@ -37,9 +37,15 @@ describe('From sequence to final vial', () => {
     }
   });
 
-  it('keeps the unsourced stages unsourced — nothing here describes the finished vial', () => {
+  it('leaves no stage unsourced, and every stage now rests on claims that exist', () => {
+    // Fill and finish, lyophilisation and release gained claims on 14 September
+    // 2026 from EU GMP Annex 1, USP <71>/<85> research copies and an open-access
+    // freeze-drying review. Formulation followed the same day, from an
+    // open-access formulation review and ICH Q1A(R2), because the registered
+    // formulation book is not held. A stage leaves this list only because
+    // claims arrived; the existence of those claims is checked above.
     const unsourced = SEQUENCE_TO_VIAL_STAGES.filter((s) => s.claimKeys.length === 0).map((s) => s.key);
-    expect(unsourced).toEqual(['formulation', 'fill-finish', 'lyophilisation', 'release']);
+    expect(unsourced).toEqual([]);
   });
 
   it('cites no source the registry marks for replacement', () => {

@@ -127,9 +127,37 @@ export function EvidenceGapList({ gaps }: { gaps: readonly EvidenceGap[] }) {
               Tracked as {gap.verificationIssueKey}
             </p>
           ) : null}
+          <GapResolutionNote gap={gap} />
         </li>
       ))}
     </ul>
+  );
+}
+
+const RESOLUTION_LABEL: Record<string, string> = {
+  partially_resolved: 'Partly closed by later evidence',
+  resolved: 'Closed by later evidence',
+  superseded: 'Superseded',
+};
+
+/**
+ * What later evidence did to a gap, shown on the gap itself.
+ *
+ * An open gap renders nothing extra: that is the default a reader already
+ * assumes. A gap that moved says so, with the note that justifies the move and
+ * the date it was checked, so a closed absence is never simply missing.
+ */
+export function GapResolutionNote({
+  gap,
+}: {
+  gap: Pick<EvidenceGap, 'resolutionState' | 'resolutionNote'>;
+}) {
+  const label = RESOLUTION_LABEL[gap.resolutionState];
+  if (label === undefined || gap.resolutionNote === null) return null;
+  return (
+    <p className="mt-2 border-l-2 border-tide-teal pl-3 text-sm text-ink-soft">
+      <span className="font-medium text-deep-tide">{label}.</span> {gap.resolutionNote}
+    </p>
   );
 }
 

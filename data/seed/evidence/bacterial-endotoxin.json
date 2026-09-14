@@ -1,0 +1,107 @@
+{
+  "packetKey": "bacterial-endotoxin",
+  "qualityKey": "bacterial-endotoxin",
+  "note": "Extracted 14 September 2026 from EU GMP Annex 1 (SRC-124, byte-identical to the European Commission's file), the FDA ORA.007 Pharmaceutical Microbiology Manual (SRC-125, byte-identical to FDA's file) and USP <85> Bacterial Endotoxins Test (SRC-023). The USP copy is a HELD RESEARCH COPY: its content appears to reproduce the USP-NF chapter as current on 21 November 2024, it was obtained by the owner from a document-sharing site rather than from USP, it carries the notice 'Do not distribute', and its distribution provenance is unverified. It is used on the owner's explicit instruction of 14 September 2026, which supersedes the earlier refusal recorded under V-018; every claim resting on it says so, and it is never redistributed. Regulatory and compendial context only: nothing here describes any product or vendor, and no endotoxin limit for any product is calculated by this index. USP <85> and ORA.007 locators are file pages; the Annex 1 locator is the printed page (printed + 1 = file page).",
+  "topic": {
+    "shortDescription": "What an endotoxin result measures, why it is a different question from sterility and purity, and why it means nothing without a limit tied to the product.",
+    "simpleSummary": "Endotoxin is a substance from the outer wall of certain bacteria. It can remain in a product even when no living bacteria are left, and in an injection it can cause reactions ranging from fever to, in the regulator's words, death. That is why sterile medicines are tested for it separately from sterility.\n\nThe standard test uses a reagent made from horseshoe crab blood cells, which reacts to endotoxin. Two things decide whether a result means anything. First, the laboratory has to show that the product itself does not interfere with the reaction. Second, the result has to be compared with a limit, and that limit is set for each product according to how much of it a person receives. A number with no limit beside it, or a 'pass' against a limit nobody has tied to the product's use, does not tell you what it appears to.\n\nThese documents describe what is expected of licensed sterile medicines. They say nothing about whether any particular peptide product was tested.",
+    "practitionerSummary": "USP <85>, as held in a research copy of unverified distribution provenance, detects or quantifies Gram-negative bacterial endotoxin with amoebocyte lysate by gel-clot, turbidimetric or chromogenic technique; any may be used, but in doubt or dispute the gel-clot limit test decides unless the monograph says otherwise. The endotoxin limit for a parenteral drug is dose-based (a threshold pyrogenic dose divided by the maximum recommended dose, K/M) and is specified in the individual monograph; compliance in photometric assays means the corrected mean endotoxin concentration of the sample is below that product's limit. Preparatory testing must show the sample neither inhibits nor enhances the reaction, repeated when conditions change. EU GMP Annex 1 defines endotoxin as a pyrogenic lipopolysaccharide that can cause reactions from fever to death in patients receiving injections. FDA's laboratory manual states that sterile drugs, devices and combination products must meet endotoxin specifications, and warns that compositing units can dilute a single contaminated container below the detectable level.",
+    "whatItProves": "A compliant bacterial endotoxins test shows that endotoxin in the sample tested, measured by a method shown free of interference for that product, was below the limit set for that product.",
+    "whatItDoesNotProve": "It says nothing about sterility — whether living microorganisms are present — nor about chemical purity, identity or content. A result reported without a limit, or against a limit not derived from the product's dose, is not something the compendial chapter defines, and a result on pooled units may not reveal a single contaminated container.",
+    "commonMisinterpretations": "Treating 'endotoxin: pass' as meaningful without asking what limit it passed and how that limit was set. Assuming an endotoxin result also answers the sterility question, or the reverse. Assuming a limit that applies to one product applies to another."
+  },
+  "locations": [
+    { "key": "annex1-p55-glossary", "sourceKey": "SRC-124", "locatorText": "§11 Glossary, 'Endotoxin', p. 55", "pageStart": 55, "section": "11. Glossary" },
+    { "key": "usp85-p1", "sourceKey": "SRC-023", "locatorText": "USP <85>, introduction, file p. 1 (research copy)", "pageStart": 1, "section": "Introduction" },
+    { "key": "usp85-p2", "sourceKey": "SRC-023", "locatorText": "USP <85>, determination of maximum valid dilution: endotoxin limit, file p. 2 (research copy)", "pageStart": 2, "section": "Determination of maximum valid dilution" },
+    { "key": "usp85-p3", "sourceKey": "SRC-023", "locatorText": "USP <85>, gel-clot technique: test for interfering factors, file p. 3 (research copy)", "pageStart": 3, "section": "Gel-clot technique: preparatory testing" },
+    { "key": "usp85-p7", "sourceKey": "SRC-023", "locatorText": "USP <85>, photometric quantitative techniques: interpretation, file p. 7 (research copy)", "pageStart": 7, "section": "Photometric quantitative techniques: interpretation of results" },
+    { "key": "ora007-p30", "sourceKey": "SRC-125", "locatorText": "ORA.007 Chapter 5, introduction, p. 30", "pageStart": 30, "section": "Chapter 5: Bacterial endotoxin testing" },
+    { "key": "ora007-p34", "sourceKey": "SRC-125", "locatorText": "ORA.007 Chapter 5, §A.7 compositing samples, p. 34", "pageStart": 34, "section": "Chapter 5: Bacterial endotoxin testing — compositing samples" }
+  ],
+  "claims": [
+    {
+      "claimKey": "ENDO-001",
+      "claimText": "EU GMP Annex 1 defines endotoxin as a pyrogenic lipopolysaccharide present in the Gram-negative bacterial cell wall that can lead to reactions in patients receiving injections ranging from fever to death, and FDA's Pharmaceutical Microbiology Manual states that sterile drugs, medical devices and combination products must meet bacterial endotoxin specifications.",
+      "plainLanguageText": "Endotoxin comes from bacteria, can cause serious reactions when injected, and is tested for separately in sterile medicines.",
+      "claimCategory": "endotoxin-principle",
+      "importance": "critical",
+      "interpretationNotes": "Why endotoxin is its own quality question: it is a property of a preparation that remains when no living organism does. Both sources are regulatory context for licensed products.",
+      "uncertaintyText": "Neither source gives the frequency of reactions or the amount at which they occur for any product. The FDA manual is an internal laboratory manual, not a requirement on industry in its own right.",
+      "evidence": [
+        { "locationKey": "annex1-p55-glossary", "evidenceTypeKey": "regulatory_reference", "interpretation": "Glossary definition of endotoxin and its possible consequences in patients receiving injections.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The guidance itself, obtained from the issuing body and read." },
+        { "locationKey": "ora007-p30", "evidenceTypeKey": "regulatory_reference", "interpretation": "Endotoxin as a Gram-negative lipopolysaccharide that may cause adverse events such as fever; sterile drugs, devices and combination products must meet endotoxin specifications.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The FDA manual itself, byte-identical to FDA's published file, read." }
+      ]
+    },
+    {
+      "claimKey": "ENDO-002",
+      "claimText": "USP <85>, as held in a research copy, describes the bacterial endotoxins test as detecting or quantifying Gram-negative bacterial endotoxin with horseshoe-crab amoebocyte lysate by a gel-clot, turbidimetric or chromogenic technique, any of which may be used, with the gel-clot limit test deciding in doubt or dispute unless the product's monograph indicates otherwise.",
+      "plainLanguageText": "The standard endotoxin test uses a reagent from horseshoe crab blood cells, and there are three versions of it.",
+      "claimCategory": "endotoxin-test-method",
+      "importance": "high",
+      "interpretationNotes": "Defines the method a certificate's endotoxin line should correspond to. It is a different test from chromatographic purity; this chapter does not mention chromatography at all.",
+      "uncertaintyText": "Read from a held research copy printed from USP-NF Online on 21 November 2024, obtained by the owner from a document-sharing site; distribution provenance unverified; not an official USP artifact obtained from USP. Later revisions are not reflected.",
+      "evidence": [
+        { "locationKey": "usp85-p1", "evidenceTypeKey": "regulatory_reference", "interpretation": "The three techniques, and the gel-clot limit test as the decider in doubt or dispute.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read." }
+      ]
+    },
+    {
+      "claimKey": "ENDO-003",
+      "claimText": "USP <85> defines the endotoxin limit for a parenteral drug on the basis of dose — a threshold pyrogenic dose divided by the maximum recommended dose — and states that the limit is specified in the individual monograph; in photometric assays a preparation complies if its corrected mean endotoxin concentration is below the endotoxin limit for the product.",
+      "plainLanguageText": "An endotoxin result only means something next to a limit, and that limit is set for each product according to how much of it a person receives.",
+      "claimCategory": "endotoxin-test-meaning",
+      "importance": "critical",
+      "interpretationNotes": "The central point for a reader of a certificate: a 'pass' is always a pass against a product-specific, dose-derived limit. This index calculates no limit for any product and records the absence of one as a gap.",
+      "uncertaintyText": "Read from a held research copy of unverified distribution provenance. The chapter gives no limit for material that has no monograph.",
+      "evidence": [
+        { "locationKey": "usp85-p2", "evidenceTypeKey": "regulatory_reference", "interpretation": "The endotoxin limit is dose-based (K/M) and specified in the individual monograph.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read." },
+        { "locationKey": "usp85-p7", "evidenceTypeKey": "regulatory_reference", "interpretation": "Photometric compliance: corrected mean endotoxin concentration below the product's endotoxin limit.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read." }
+      ]
+    },
+    {
+      "claimKey": "ENDO-004",
+      "claimText": "USP <85> requires preparatory testing to show that a sample neither inhibits nor enhances the lysate reaction, repeated when any condition likely to influence the result changes; a sample that interferes may be retested at greater dilution, up to the maximum valid dilution, or after a treatment shown not to lose endotoxin.",
+      "plainLanguageText": "The lab has to show that the product itself does not interfere with the endotoxin test, or the result cannot be trusted.",
+      "claimCategory": "endotoxin-test-meaning",
+      "importance": "high",
+      "interpretationNotes": "The endotoxin counterpart of method suitability in sterility testing (STER-004): a low reading from a sample that suppresses the reaction is not a low endotoxin level.",
+      "uncertaintyText": "Read from a held research copy of unverified distribution provenance. The chapter does not say how often interference testing is omitted in practice.",
+      "evidence": [
+        { "locationKey": "usp85-p3", "evidenceTypeKey": "regulatory_reference", "interpretation": "Test for interfering factors, to be repeated when conditions change; dilution or validated treatment where interference is found.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The compendial text as reproduced in a held research copy of unverified distribution provenance, read." }
+      ]
+    },
+    {
+      "claimKey": "ENDO-005",
+      "claimText": "FDA's Pharmaceutical Microbiology Manual warns that compositing units for endotoxin testing risks diluting a single contaminated container with endotoxin-free units below the detectable level or the monograph limit, and that the maximum valid dilution must be adjusted when composites are tested.",
+      "plainLanguageText": "If samples from several vials are pooled before testing, one contaminated vial can be diluted enough to go unnoticed.",
+      "claimCategory": "endotoxin-test-meaning",
+      "importance": "medium",
+      "interpretationNotes": "Shows that how units were sampled affects what an endotoxin result can reveal. It does not say that any reported result was pooled.",
+      "uncertaintyText": "Guidance for FDA laboratory analysts; it does not quantify the risk.",
+      "evidence": [
+        { "locationKey": "ora007-p34", "evidenceTypeKey": "regulatory_reference", "interpretation": "Risk of unit composites masking one contaminated unit; maximum valid dilution to be adjusted for composites.", "primaryTrace": "primary_source_is_cited", "primaryTraceNote": "The FDA manual itself, byte-identical to FDA's published file, read." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "An endotoxin limit for any peptide product that has no compendial monograph, including any product sold for research use.",
+      "why": "USP <85> states that the limit is dose-based and specified in the product's monograph. None of the held sources gives a limit for material without one, and calculating one would require a dose this index does not state and a judgement it cannot make.",
+      "whatWouldResolveIt": "A monograph or regulatory specification for the product, stating its endotoxin limit and the dose it is based on."
+    },
+    {
+      "gapType": "source_inaccessible",
+      "statement": "The current official text of USP <85>.",
+      "why": "The copy held is a research copy printed in November 2024, obtained by the owner from a document-sharing site, marked 'Do not distribute', with distribution provenance unverified.",
+      "whatWouldResolveIt": "A licensed USP-NF subscription copy of <85>, compared against the research copy.",
+      "verificationIssueKey": "V-018"
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "Whether any particular peptide product, or any product sold for research use, was tested for bacterial endotoxin, by which method and against which limit.",
+      "why": "The sources describe the test and the expectation for licensed sterile products. None describes any product in the market.",
+      "whatWouldResolveIt": "A product-specific result stating the method, evidence of interference testing, whether units were composited, and the limit applied with its basis."
+    }
+  ]
+}

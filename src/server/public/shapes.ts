@@ -194,6 +194,14 @@ export interface EvidenceGap {
    */
   readonly researchQuestion: string | null;
   readonly opportunityType: string | null;
+  /**
+   * What later evidence did to this absence: open, partially resolved,
+   * resolved or superseded. A gap is never deleted when evidence arrives; a
+   * reader who saw it is owed the record of what changed it, and when.
+   */
+  readonly resolutionState: string;
+  readonly resolutionNote: string | null;
+  readonly resolutionCheckedAt: string | null;
 }
 
 /**

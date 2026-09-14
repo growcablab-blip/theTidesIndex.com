@@ -1,0 +1,744 @@
+{
+  "packetKey": "formulation-excipients",
+  "qualityKey": "formulation-excipients",
+  "note": "Extracted 14 September 2026. The formulation text registered for this topic (Banga, SRC-014) is not held: three files received under its title were download-site advertisements. Per owner direction the questions are answered instead from an open-access review of peptide formulation in aqueous solution (Nugrahadi et al., Pharmaceutics 2023; SRC-145) and two ICH stability guidelines (Q1A(R2), SRC-148; Q5C, SRC-147), each cited as itself and none presented as the missing book. A second review (SRC-144) was read and not used: its 'stability' is stability in the body. The review names approved medicines as examples throughout; none is carried into a claim, and none of its numeric pH ranges is carried as guidance. Every quote was checked word for word against the held text. SRC-145 is a web full text located by section; ICH Q5C printed page + 2 = file page; ICH Q1A(R2) printed page + 6 = file page.",
+  "topic": {
+    "shortDescription": "What is added to a peptide besides the peptide, why each kind of ingredient is used, and why the finished combination has to be tested rather than assumed stable.",
+    "simpleSummary": "A peptide medicine is rarely just the peptide. Other ingredients, called excipients, are added to keep it stable. A 2023 review of peptide formulation describes the main ways peptides break down in solution — chemical changes such as oxidation, deamidation and chain cleavage, and physical changes such as clumping or sticking to surfaces — and the kinds of ingredients used against them: buffers to hold the acidity steady, antioxidants and metal-binding agents against oxidation, sugars and sugar alcohols as stabilisers, and surfactants against clumping from shaking.\n\nThe same review is clear that none of this is a recipe. Some added ingredients can themselves cause damage, methods that help one peptide may not help another, and each formulation has to be assessed against the stresses it will meet. International guidelines for registering new medicines treat stability as something shown by testing the actual product over time, including after it is mixed where that applies. Those guidelines cover medicines submitted for registration; they say nothing about what any research-use product contains.",
+    "practitionerSummary": "Nugrahadi et al. (Pharmaceutics 2023) classify peptide instability in aqueous solution as chemical (oxidation, hydrolysis, β-elimination, deamidation, racemisation, isomerisation, disulfide exchange) and physical (secondary-structure change, adsorption, aggregation, precipitation), describe hydrolysis as strongly pH-dependent, and present pH control with buffers as a common strategy, with pH-dependent degradation evaluated early in development. They describe antioxidants, chelators, polyols (sucrose, trehalose, mannitol and others) and polysorbates by purpose, while reporting that chelators may accelerate oxidation, surfactants can introduce peroxide, and methods may not work for all peptides. ICH Q1A(R2) (2003) defines the purpose of stability testing for registration applications — including preservative content and in-use testing after constitution — and ICH Q5C (1995) adds expectations for well-characterised proteins and polypeptides from biological sources or rDNA, including degradation-product detection, excipient degradation and post-reconstitution stability. Q5C's stated scope does not cover chemically synthesised peptides as such. Review statements are narrative generalisations; no excipient, pH or concentration is proposed for any peptide.",
+    "whatItProves": "That excipients are added for identifiable purposes against known degradation routes, that their effects are peptide-specific and can be harmful, and that for registered medicines stability — including after mixing where applicable — has to be demonstrated by testing the actual formulation over time.",
+    "whatItDoesNotProve": "It does not show what any product contains, whether any product's formulation is appropriate for its peptide, how stable any peptide is in any formulation, or how long any mixed product remains suitable. It gives no freeze-drying cycle and no lyoprotectant or tonicity-agent guidance. The ICH guidelines describe what registration applicants must submit; they do not describe, and are not evidence about, research-use products, and Q5C is not automatically applicable to synthetic peptides.",
+    "commonMisinterpretations": "Treating a list of excipients as evidence of stability. Assuming an excipient that helps one peptide helps another, or that stabilisers are inert. Reading ICH stability conditions as storage instructions for any vial, or assuming a guideline for registered biological products governs research-use synthetic peptides. Confusing a peptide's stability in the body (resistance to enzymes, half-life) with its stability on the shelf."
+  },
+  "locations": [
+    {
+      "key": "form-01",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2 'Instability of Peptide and the Possible Causes of Degradation', opening paragraph",
+      "section": "§2 'Instability of Peptide and the Possible Causes of Degradation', opening paragraph",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-02",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2 opening paragraph",
+      "section": "§2 opening paragraph",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-03",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.1.1 'Chain Cleavage of the Peptide Backbone'",
+      "section": "§2.1.1 'Chain Cleavage of the Peptide Backbone'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-04",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.1.2 'Deamidation of Asn and Gln Residues'",
+      "section": "§2.1.2 'Deamidation of Asn and Gln Residues'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-05",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.1.3 'Isomerization of Asp Residues' (text refers to Figure 2, not held)",
+      "section": "§2.1.3 'Isomerization of Asp Residues' (text refers to Figure 2, not held)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-06",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.2 'Oxidative Pathways'",
+      "section": "§2.2 'Oxidative Pathways'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-07",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.4 'Disulfide Exchange'",
+      "section": "§2.4 'Disulfide Exchange'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-08",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.5 'Dimerization, Aggregation, and Precipitation'",
+      "section": "§2.5 'Dimerization, Aggregation, and Precipitation'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-09",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §3.1.1 'pH Optimization'",
+      "section": "§3.1.1 'pH Optimization'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-10",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §3.2.3 'Antioxidants'",
+      "section": "§3.2.3 'Antioxidants'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-11",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §3.2.4 'Chelating Agents'",
+      "section": "§3.2.4 'Chelating Agents'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-12",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §2.2.4 'Peroxide Oxidation'",
+      "section": "§2.2.4 'Peroxide Oxidation'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-13",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §3.2.5 'Polyols'",
+      "section": "§3.2.5 'Polyols'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-14",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §3.4 'Inhibition of Aggregation, Dimerization, and Precipitation'",
+      "section": "§3.4 'Inhibition of Aggregation, Dimerization, and Precipitation'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-15",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §4 'Conclusions'",
+      "section": "§4 'Conclusions'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-16",
+      "sourceKey": "SRC-145",
+      "locatorText": "Nugrahadi et al. 2023, §1 'Introduction' (final two paragraphs)",
+      "section": "§1 'Introduction' (final two paragraphs)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading."
+    },
+    {
+      "key": "form-17",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §1.2 Scope of the Guideline, p. 1",
+      "pageStart": 1,
+      "section": "§1.2 Scope of the Guideline"
+    },
+    {
+      "key": "form-18",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §1.3 General Principles, p. 1",
+      "pageStart": 1,
+      "section": "§1.3 General Principles"
+    },
+    {
+      "key": "form-19",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §2.1.2 Stress Testing, p. 2",
+      "pageStart": 2,
+      "section": "§2.1.2 Stress Testing"
+    },
+    {
+      "key": "form-20",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §2.2.5 Specification (drug product), p. 7",
+      "pageStart": 7,
+      "section": "§2.2.5 Specification (drug product)"
+    },
+    {
+      "key": "form-21",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §2.2.7 Storage Conditions (drug product), opening and closing sentences before §2.2.7.1, p. 8",
+      "pageStart": 8,
+      "section": "§2.2.7 Storage Conditions (drug product), opening and closing sentences before §2.2.7.1"
+    },
+    {
+      "key": "form-22",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §2.2.7 Storage Conditions (drug product), second paragraph, p. 8",
+      "pageStart": 8,
+      "section": "§2.2.7 Storage Conditions (drug product), second paragraph"
+    },
+    {
+      "key": "form-23",
+      "sourceKey": "SRC-148",
+      "locatorText": "ICH Q1A(R2) §3 Glossary, entries 'Drug substance' and 'Excipient', p. 14",
+      "pageStart": 14,
+      "section": "§3 Glossary, entries 'Drug substance' and 'Excipient'"
+    },
+    {
+      "key": "form-24",
+      "sourceKey": "SRC-147",
+      "locatorText": "ICH Q5C §2 Scope of the Annex, p. 1",
+      "pageStart": 1,
+      "section": "§2 Scope of the Annex"
+    },
+    {
+      "key": "form-25",
+      "sourceKey": "SRC-147",
+      "locatorText": "ICH Q5C §1 Preamble, p. 1",
+      "pageStart": 1,
+      "section": "§1 Preamble"
+    },
+    {
+      "key": "form-26",
+      "sourceKey": "SRC-147",
+      "locatorText": "ICH Q5C §5.3 Purity and Molecular Characterisation, p. 5",
+      "pageStart": 5,
+      "section": "§5.3 Purity and Molecular Characterisation"
+    },
+    {
+      "key": "form-27",
+      "sourceKey": "SRC-147",
+      "locatorText": "ICH Q5C §5.4 Other Product Characteristics, p. 5–6",
+      "pageStart": 5,
+      "pageEnd": 6,
+      "section": "§5.4 Other Product Characteristics"
+    },
+    {
+      "key": "form-28",
+      "sourceKey": "SRC-147",
+      "locatorText": "ICH Q5C §6.6 Stability after Reconstitution of Freeze-Dried Product, p. 7",
+      "pageStart": 7,
+      "section": "§6.6 Stability after Reconstitution of Freeze-Dried Product"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "FORM-01",
+      "claimText": "A 2023 narrative review of peptide formulation describes chemical instability as changes that make or break covalent bonds and create new chemical entities, and names oxidation, hydrolysis, β-elimination, deamidation, racemisation, isomerisation and disulfide exchange as examples.",
+      "plainLanguageText": "A peptide in solution can change chemically into something that is no longer the same molecule, by several known routes.",
+      "claimCategory": "degradation-pathways",
+      "importance": "high",
+      "interpretationNotes": "General classification from a narrative review of peptides under ~50 residues in aqueous solution. Says which routes exist, not which ones affect any given peptide or how fast.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General classification from a narrative review of peptides under ~50 residues in aqueous solution. Says which routes exist, not which ones affect any given peptide or how fast.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-02",
+      "claimText": "The review describes physical instability as changes in non-covalent interactions, including changes in secondary structure, adsorption, aggregation and precipitation.",
+      "plainLanguageText": "A peptide can also go wrong without its chemistry changing: it can clump together, stick to surfaces or fall out of solution.",
+      "claimCategory": "degradation-pathways",
+      "importance": "high",
+      "interpretationNotes": "Adsorption is named only; the review gives no mechanism or mitigation for adsorption, so no further claim about it is supportable from this source.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Adsorption is named only; the review gives no mechanism or mitigation for adsorption, so no further claim about it is supportable from this source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-03",
+      "claimText": "The review describes hydrolysis as one of the main degradation pathways of peptides, generally catalysed by acids and bases and strongly pH-dependent.",
+      "plainLanguageText": "Water can split a peptide chain, and how quickly that happens depends heavily on how acidic or alkaline the solution is.",
+      "claimCategory": "degradation-pathways",
+      "importance": "medium",
+      "interpretationNotes": "General statement. The same section illustrates it with named approved medicines; those examples are deliberately not carried into this index.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "General statement. The same section illustrates it with named approved medicines; those examples are deliberately not carried into this index.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-04",
+      "claimText": "The review states that peptides containing asparagine or glutamine residues are susceptible to deamidation (forming aspartic or glutamic acid), and that the amino-acid sequence can affect the rate.",
+      "plainLanguageText": "Some building blocks in a peptide (asparagine and glutamine) can slowly convert into different ones, and the neighbouring sequence affects how fast.",
+      "claimCategory": "degradation-pathways",
+      "importance": "medium",
+      "interpretationNotes": "Two non-adjacent sentences from the same subsection, joined by an ellipsis. Susceptibility is residue- and sequence-dependent; no rate for any peptide is given or implied.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Two non-adjacent sentences from the same subsection, joined by an ellipsis. Susceptibility is residue- and sequence-dependent; no rate for any peptide is given or implied.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-05",
+      "claimText": "The review states that aspartic acid can convert to isoaspartate through the same succinimide (cyclic imide) intermediate as asparagine deamidation, and that racemisation of that intermediate can yield D-Asp and D-isoAsp forms.",
+      "plainLanguageText": "Aspartic acid can rearrange into a look-alike form, and can also flip into its mirror-image form, via the same ring-shaped intermediate.",
+      "claimCategory": "degradation-pathways",
+      "importance": "medium",
+      "interpretationNotes": "The source says 'succinimide'/'cyclic imide', not 'aspartimide'; use the source's term or label any equivalence as an editorial gloss. This is the only racemisation mechanism the review explains outside product examples.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The source says 'succinimide'/'cyclic imide', not 'aspartimide'; use the source's term or label any equivalence as an editorial gloss. This is the only racemisation mechanism the review explains outside product examples.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-06",
+      "claimText": "The review states that sulfur-containing residues (methionine, cysteine) are particularly susceptible to oxidation, and that oxidation can be induced by contaminating oxidants, trace redox-active metals and light.",
+      "plainLanguageText": "Peptides containing certain sulfur-bearing building blocks are especially prone to oxidation, which can be triggered by trace contaminants, metals or light.",
+      "claimCategory": "degradation-pathways",
+      "importance": "medium",
+      "interpretationNotes": "Truncated quotation from one paragraph. The paragraph also names His, Trp and Tyr as oxidation-prone and says oxidation may be affected by pH, temperature and buffer composition; those can be added if quoted.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Truncated quotation from one paragraph. The paragraph also names His, Trp and Tyr as oxidation-prone and says oxidation may be affected by pH, temperature and buffer composition; those can be added if quoted.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-07",
+      "claimText": "The review states that disulfide exchange can occur in peptides, scrambling disulfide bonds and contributing to dimers and larger aggregates.",
+      "plainLanguageText": "In peptides held together by sulfur-sulfur bridges, those bridges can swap partners, which can link molecules together.",
+      "claimCategory": "degradation-pathways",
+      "importance": "medium",
+      "interpretationNotes": "Relevant only to peptides containing disulfide bonds. The subsection's closing sentences are generic and are not used.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Relevant only to peptides containing disulfide bonds. The subsection's closing sentences are generic and are not used.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-08",
+      "claimText": "The review states that freezing, heating or agitation may induce peptide aggregation, and that aggregation is faster at higher peptide concentrations.",
+      "plainLanguageText": "Freezing, heat, shaking and higher concentrations can all make peptide molecules clump together.",
+      "claimCategory": "degradation-pathways",
+      "importance": "medium",
+      "interpretationNotes": "Two sentences from different paragraphs of §2.5. Qualitative; no threshold concentration or stress level is given.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-08",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Two sentences from different paragraphs of §2.5. Qualitative; no threshold concentration or stress level is given.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-09",
+      "claimText": "The review states that using buffers is a common strategy to prevent peptide degradation in solution, and that pH-dependent degradation of a peptide should be evaluated at the start of formulation development.",
+      "plainLanguageText": "Buffers are added to hold a solution at a chosen acidity, because acidity strongly affects how fast a peptide breaks down; the right acidity has to be found by testing each peptide.",
+      "claimCategory": "excipient-purpose",
+      "importance": "high",
+      "interpretationNotes": "Do not publish the numeric screening range as guidance: it is a review's generalisation. The same section's pH 3–5 preference for minimising deamidation is also a generalisation and conflicts with acid-catalysed routes described in §2.1.1–2.1.2; it is not proposed as a claim.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Do not publish the numeric screening range as guidance: it is a review's generalisation. The same section's pH 3–5 preference for minimising deamidation is also a generalisation and conflicts with acid-catalysed routes described in §2.1.1–2.1.2; it is not proposed as a claim.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-10",
+      "claimText": "The review describes antioxidants as excipients that protect peptides from oxidation during processing and storage by scavenging reactive oxygen species, and states that the chosen antioxidant must be compatible with the peptide and not interfere with its activity or stability.",
+      "plainLanguageText": "Antioxidants are added to soak up reactive oxygen before it damages the peptide, but a given antioxidant has to be checked against the specific peptide.",
+      "claimCategory": "excipient-purpose",
+      "importance": "medium",
+      "interpretationNotes": "Purpose of an excipient class. The same subsection reports antioxidants that can react with or even accelerate oxidation of some peptides; the claim must keep the compatibility caveat.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-10",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Purpose of an excipient class. The same subsection reports antioxidants that can react with or even accelerate oxidation of some peptides; the claim must keep the compatibility caveat.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-11",
+      "claimText": "The review describes chelating agents as protecting peptides from oxidation by binding metal ions that catalyse it, but also states that adding specific chelating agents may accelerate peptide oxidation.",
+      "plainLanguageText": "Chelators are added to lock up trace metals that speed oxidation — though in some cases they can make oxidation worse.",
+      "claimCategory": "excipient-purpose",
+      "importance": "medium",
+      "interpretationNotes": "The subsection's list of chelators mixes agricultural and clinical uses and is not used. No chelator is endorsed for any peptide.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The subsection's list of chelators mixes agricultural and clinical uses and is not used. No chelator is endorsed for any peptide.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-12",
+      "claimText": "The review states that peroxide may be present in formulations through surfactants or other excipients, and that some surfactants such as polysorbate 20 and 80 can produce peroxide.",
+      "plainLanguageText": "Ingredients added to protect a peptide can themselves carry or produce substances that damage it.",
+      "claimCategory": "excipient-purpose",
+      "importance": "medium",
+      "interpretationNotes": "Supports the general point that excipients are not inert; says nothing about any product's excipients or peroxide levels.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Supports the general point that excipients are not inert; says nothing about any product's excipients or peroxide levels.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-13",
+      "claimText": "The review names maltose, sucrose, trehalose, raffinose and mannitol as polyols commonly used to protect therapeutic peptides from oxidation, and reports a cited study in which sucrose's stabilising effect was attributed mainly to slowing aggregation, oxidation and deamidation.",
+      "plainLanguageText": "Sugars and sugar alcohols such as sucrose, trehalose and mannitol are used as stabilisers in peptide solutions.",
+      "claimCategory": "excipient-purpose",
+      "importance": "medium",
+      "interpretationNotes": "Aqueous-solution context only: the review does not discuss sugars as lyoprotectants in freeze-drying, so no lyoprotectant claim is supportable. The sucrose finding comes from one cited study on two peptides at high sucrose concentration; the review's radical-scavenging mechanism for polyols is stated generally and should not be carried.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Aqueous-solution context only: the review does not discuss sugars as lyoprotectants in freeze-drying, so no lyoprotectant claim is supportable. The sucrose finding comes from one cited study on two peptides at high sucrose concentration; the review's radical-scavenging mechanism for polyols is stated generally and should not be carried.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-14",
+      "claimText": "The review states that polysorbate surfactants can reduce agitation-induced peptide aggregation, presumably by limiting exposure to the air/liquid interface, but that some reports suggest they are less effective against heat-induced aggregation.",
+      "plainLanguageText": "Surfactants are added to reduce clumping caused by shaking, though they may help less with clumping caused by heat.",
+      "claimCategory": "excipient-purpose",
+      "importance": "medium",
+      "interpretationNotes": "Mechanism is hedged ('presumably') in the source; keep the hedge. Read with FORM-12: the same surfactants can introduce peroxide.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Mechanism is hedged ('presumably') in the source; keep the hedge. Read with FORM-12: the same surfactants can introduce peroxide.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-15",
+      "claimText": "The review concludes that the formulation for a particular peptide has to be assessed against each distinct stress it may encounter, and that stabilisation methods may not work for all peptides or under all stress conditions.",
+      "plainLanguageText": "There is no universal recipe: each peptide's formulation has to be tested against the conditions it will face.",
+      "claimCategory": "formulation-principle",
+      "importance": "high",
+      "interpretationNotes": "The strongest statement in the source against generalising formulation choices across peptides. Supports why stability testing of the actual formulation is needed.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The strongest statement in the source against generalising formulation choices across peptides. Supports why stability testing of the actual formulation is needed.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-16",
+      "claimText": "The review states that reconstituting a dried product poses a risk of contamination.",
+      "plainLanguageText": "Adding liquid to a dried peptide introduces a chance of contamination.",
+      "claimCategory": "formulation-principle",
+      "importance": "medium",
+      "interpretationNotes": "The preference for liquid formulations is the authors' pharmaco-economic position for licensed injectables, not a quality judgement on any product. Says nothing about how stable anything is after reconstitution.",
+      "uncertaintyText": "A narrative review of therapeutic peptides in aqueous solution, not a systematic review; it characterises literature this index has not read. Its tables and figures were not in the held text and nothing is taken from them.",
+      "evidence": [
+        {
+          "locationKey": "form-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The preference for liquid formulations is the authors' pharmaco-economic position for licensed injectables, not a quality judgement on any product. Says nothing about how stable anything is after reconstitution.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-17",
+      "claimText": "ICH Q1A(R2) addresses the stability information to be submitted in registration applications for new molecular entities and associated drug products, and states that it does not cover abbreviated applications, variations or clinical trial applications.",
+      "plainLanguageText": "This international guideline sets out what stability evidence a company must submit when applying to register a new medicine.",
+      "claimCategory": "regulatory-scope",
+      "importance": "medium",
+      "interpretationNotes": "Scope anchor for every Q1A claim: registration of new medicines in the EC, Japan and the US (§1.1). It says nothing about research-use products, compounding, or products never submitted for registration. Q1A §1.2 points to Q5C for biotechnological/biological products.",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-17",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Scope anchor for every Q1A claim: registration of new medicines in the EC, Japan and the US (§1.1). It says nothing about research-use products, compounding, or products never submitted for registration. Q1A §1.2 points to Q5C for biotechnological/biological products.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-18",
+      "claimText": "ICH Q1A(R2) states that the purpose of stability testing is to provide evidence on how the quality of a drug substance or product varies with time under environmental factors such as temperature, humidity and light, and to establish a re-test period or shelf life and recommended storage conditions.",
+      "plainLanguageText": "Stability testing measures how a medicine changes over time under heat, moisture and light, so that a shelf life and storage conditions can be set from evidence.",
+      "claimCategory": "stability-testing",
+      "importance": "high",
+      "interpretationNotes": "Quote is the first part of a longer sentence; the remainder ('and to establish a re-test period for the drug substance or a shelf life for the drug product and recommended storage conditions') is verified on the same page. Scoped to registration applications (FORM-17).",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-18",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Quote is the first part of a longer sentence; the remainder ('and to establish a re-test period for the drug substance or a shelf life for the drug product and recommended storage conditions') is verified on the same page. Scoped to registration applications (FORM-17).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-19",
+      "claimText": "ICH Q1A(R2) states that stress testing of a drug substance can help identify likely degradation products, establish degradation pathways and intrinsic stability, and validate that analytical procedures are stability-indicating.",
+      "plainLanguageText": "Deliberately harsh conditions are used to find out how a molecule breaks down, and to check that the tests can actually detect that breakdown.",
+      "claimCategory": "stability-testing",
+      "importance": "medium",
+      "interpretationNotes": "The same section says stress testing should include temperature, humidity where appropriate, oxidation, photolysis and hydrolysis across a wide pH range; specific temperatures and humidity levels are not proposed for publication. Registration scope.",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-19",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "The same section says stress testing should include temperature, humidity where appropriate, oxidation, photolysis and hydrolysis across a wide pH range; specific temperatures and humidity levels are not proposed for publication. Registration scope.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-20",
+      "claimText": "ICH Q1A(R2) states that drug-product stability testing should cover, as appropriate, physical, chemical, biological and microbiological attributes, preservative content (such as antioxidant or antimicrobial preservative) and functionality tests.",
+      "plainLanguageText": "For a registered medicine, stability testing checks not just the active ingredient but also added preservatives and antioxidants, which can themselves be used up over time.",
+      "claimCategory": "stability-testing",
+      "importance": "medium",
+      "interpretationNotes": "Preceding sentence limits testing to attributes 'susceptible to change during storage and are likely to influence quality, safety, and/or efficacy'. The section also requires antimicrobial preservative effectiveness testing on one primary batch at proposed shelf life. Registration scope only; the guideline does not explain why a preservative is added.",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-20",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Preceding sentence limits testing to attributes 'susceptible to change during storage and are likely to influence quality, safety, and/or efficacy'. The section also requires antimicrobial preservative effectiveness testing on one primary batch at proposed shelf life. Registration scope only; the guideline does not explain why a preservative is added.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-21",
+      "claimText": "ICH Q1A(R2) states that a drug product should be evaluated under storage conditions that test its thermal stability and, where applicable, sensitivity to moisture or solvent loss, and defines long-term, accelerated and, where appropriate, intermediate storage conditions, with separate conditions for refrigerated and frozen products (§2.2.7.1–2.2.7.6).",
+      "plainLanguageText": "Registration stability studies use defined long-term and speeded-up storage conditions, with separate sets for products kept refrigerated or frozen.",
+      "claimCategory": "stability-testing",
+      "importance": "medium",
+      "interpretationNotes": "The long-term/intermediate/accelerated, refrigerator and freezer categories are the headings of the tables in §2.2.7.1–2.2.7.6 (file pp. 14–18), not part of the quote. Condition values in the §2.2.7 tables are the guideline's for registration studies and should be quoted only with that scope; they are not storage advice for any product. The section says alternative conditions can be used if justified. Q5C §6.3 cautions that these accelerated/stress conditions may not be appropriate for biotechnological/biological products.",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-21",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "The long-term/intermediate/accelerated, refrigerator and freezer categories are the headings of the tables in §2.2.7.1–2.2.7.6 (file pp. 14–18), not part of the quote. Condition values in the §2.2.7 tables are the guideline's for registration studies and should be quoted only with that scope; they are not storage advice for any product. The section says alternative conditions can be used if justified. Q5C §6.3 cautions that these accelerated/stress conditions may not be appropriate for biotechnological/biological products.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-22",
+      "claimText": "ICH Q1A(R2) states that, where applicable, stability testing of the drug product after constitution or dilution should be conducted to support labelling on preparation, storage condition and in-use period of the constituted or diluted product.",
+      "plainLanguageText": "For a registered medicine that is mixed before use, how long it stays suitable after mixing is something that has to be tested, not assumed.",
+      "claimCategory": "stability-testing",
+      "importance": "high",
+      "interpretationNotes": "Establishes that in-use stability after constitution is a separate, product-specific evidence requirement for registration. Gives no in-use period for any product.",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-22",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Establishes that in-use stability after constitution is a separate, product-specific evidence requirement for registration. Gives no in-use period for any product.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-23",
+      "claimText": "ICH Q1A(R2) defines the drug substance as the unformulated substance that may be formulated with excipients to produce the dosage form, and defines an excipient as anything other than the drug substance in the dosage form.",
+      "plainLanguageText": "In regulatory language, an excipient is simply everything in the finished medicine that is not the active ingredient.",
+      "claimCategory": "definitions",
+      "importance": "high",
+      "interpretationNotes": "Definitions for the purpose of the guideline. First part is the 'Drug substance' entry; second is the 'Excipient' entry.",
+      "uncertaintyText": "ICH guidance for registration applications for new medicines (Step 4, 6 February 2003). It describes what applicants submit, not how any research-use product was made or tested. Time-sensitive: current ICH status re-checked before publication.",
+      "evidence": [
+        {
+          "locationKey": "form-23",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Definitions for the purpose of the guideline. First part is the 'Drug substance' entry; second is the 'Excipient' entry.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-24",
+      "claimText": "ICH Q5C applies to well-characterised proteins and polypeptides, their derivatives and products containing them, that are isolated from tissues, body fluids or cell cultures or produced using rDNA technology.",
+      "plainLanguageText": "This guideline is written for biological medicines made from living sources or by genetic engineering.",
+      "claimCategory": "regulatory-scope",
+      "importance": "high",
+      "interpretationNotes": "Scope anchor for every Q5C claim. Chemically synthesised peptides are not within the stated scope; the annex neither lists nor explicitly excludes them, so Q5C must not be presented as applying automatically to synthetic peptides. It is also guidance for marketing applications (FORM-25), not for research-use products.",
+      "uncertaintyText": "ICH guidance for marketing applications for well-characterised proteins and polypeptides from biological sources or rDNA (Step 4, 30 November 1995). Chemically synthesised peptides are not within its stated scope, and it describes nothing about research-use products.",
+      "evidence": [
+        {
+          "locationKey": "form-24",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Scope anchor for every Q5C claim. Chemically synthesised peptides are not within the stated scope; the annex neither lists nor explicitly excludes them, so Q5C must not be presented as applying automatically to synthetic peptides. It is also guidance for marketing applications (FORM-25), not for research-use products.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-25",
+      "claimText": "ICH Q5C states that its purpose is to guide applicants on the type of stability studies to be provided in support of marketing applications.",
+      "plainLanguageText": "The guideline tells companies what stability studies to include when applying to market a biological medicine.",
+      "claimCategory": "regulatory-scope",
+      "importance": "medium",
+      "interpretationNotes": "Registration scope. Read with FORM-24.",
+      "uncertaintyText": "ICH guidance for marketing applications for well-characterised proteins and polypeptides from biological sources or rDNA (Step 4, 30 November 1995). Chemically synthesised peptides are not within its stated scope, and it describes nothing about research-use products.",
+      "evidence": [
+        {
+          "locationKey": "form-25",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Registration scope. Read with FORM-24.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-26",
+      "claimText": "ICH Q5C expects the analytical methods in a stability programme for biotechnological/biological products to permit accurate detection of degradation changes that may result from deamidation, oxidation, sulfoxidation, aggregation or fragmentation during storage.",
+      "plainLanguageText": "Stability testing of biological medicines has to be able to detect the same kinds of chemical and physical breakdown that affect peptides in solution.",
+      "claimCategory": "stability-testing",
+      "importance": "medium",
+      "interpretationNotes": "Fragment of a longer sentence beginning 'The use of relevant physicochemical, biochemical and immunochemical analytical methodologies should permit…'. Independent regulatory corroboration of the pathways in FORM-04, 06 and 08 for in-scope products only.",
+      "uncertaintyText": "ICH guidance for marketing applications for well-characterised proteins and polypeptides from biological sources or rDNA (Step 4, 30 November 1995). Chemically synthesised peptides are not within its stated scope, and it describes nothing about research-use products.",
+      "evidence": [
+        {
+          "locationKey": "form-26",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Fragment of a longer sentence beginning 'The use of relevant physicochemical, biochemical and immunochemical analytical methodologies should permit…'. Independent regulatory corroboration of the pathways in FORM-04, 06 and 08 for in-scope products only.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-27",
+      "claimText": "ICH Q5C states that additives such as stabilisers and preservatives, or other excipients, may degrade during a product's dating period, and that where preliminary studies indicate this adversely affects quality they may need to be monitored in the stability programme.",
+      "plainLanguageText": "The added ingredients can break down too, so they may need to be tracked during stability testing.",
+      "claimCategory": "stability-testing",
+      "importance": "medium",
+      "interpretationNotes": "First sentence is on file page 7; the conditional clause between the two segments ('If there is any indication during preliminary stability studies that reaction or degradation of such materials adversely affect the quality of the drug product,') runs onto file page 8, where the second segment is. Scoped to in-scope biotechnological/biological products.",
+      "uncertaintyText": "ICH guidance for marketing applications for well-characterised proteins and polypeptides from biological sources or rDNA (Step 4, 30 November 1995). Chemically synthesised peptides are not within its stated scope, and it describes nothing about research-use products.",
+      "evidence": [
+        {
+          "locationKey": "form-27",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "First sentence is on file page 7; the conditional clause between the two segments ('If there is any indication during preliminary stability studies that reaction or degradation of such materials adversely affect the quality of the drug product,') runs onto file page 8, where the second segment is. Scoped to in-scope biotechnological/biological products.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    },
+    {
+      "claimKey": "FORM-28",
+      "claimText": "ICH Q5C states that the stability of freeze-dried products after reconstitution should be demonstrated for the conditions and maximum storage period specified in the labelling.",
+      "plainLanguageText": "For a licensed biological medicine that is freeze-dried, how long it lasts after mixing has to be shown by data for the stated conditions.",
+      "claimCategory": "stability-testing",
+      "importance": "high",
+      "interpretationNotes": "In-scope products only. Establishes the requirement, not any reconstituted stability period. Parallels Q1A §2.2.7 (FORM-22).",
+      "uncertaintyText": "ICH guidance for marketing applications for well-characterised proteins and polypeptides from biological sources or rDNA (Step 4, 30 November 1995). Chemically synthesised peptides are not within its stated scope, and it describes nothing about research-use products.",
+      "evidence": [
+        {
+          "locationKey": "form-28",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "In-scope products only. Establishes the requirement, not any reconstituted stability period. Parallels Q1A §2.2.7 (FORM-22).",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guideline itself, retrieved from the issuing body and read."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "What tonicity agents, lyoprotectants and bulking agents, adsorption controls and antimicrobial preservatives are for in a peptide formulation.",
+      "why": "None of the held sources explains them. The formulation review names adsorption without mechanism or mitigation and does not discuss freeze-drying excipients; ICH Q1A(R2) requires preservative content to be tested but does not say why a preservative is added.",
+      "whatWouldResolveIt": "A pharmaceutics source on parenteral and freeze-dried formulation excipients, obtained and read."
+    },
+    {
+      "gapType": "formulation_unspecified",
+      "statement": "What any particular product contains besides the peptide, and whether that formulation suits the peptide.",
+      "why": "General literature explains why excipients are used; what a product contains, and whether it was tested, is product-specific. The review itself states that methods may not work for all peptides (FORM-15).",
+      "whatWouldResolveIt": "A product's own composition and the stability data for that formulation."
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "Whether ICH Q5C's expectations apply to chemically synthesised peptides.",
+      "why": "Q5C's stated scope is well-characterised proteins and polypeptides isolated from biological sources or made by rDNA technology. It neither names nor excludes synthetic peptides, so this index does not apply it to them.",
+      "whatWouldResolveIt": "Regulatory guidance that states which stability guideline governs synthetic peptides."
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "Whether ICH Q1A(R2) and Q5C are still the current ICH stability guidelines.",
+      "why": "ICH has been consolidating its stability guidelines into a revised Q1. The held files are the Step 4 texts of 2003 and 1995; their current status was not checked.",
+      "whatWouldResolveIt": "The ICH guideline register checked on a stated date."
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import type {
   ReplicationAssessment,
 } from '@/server/public/queries';
 import { CitationLine } from '@/components/public/citation';
+import { GapResolutionNote } from '@/components/public/quality-evidence';
 
 /**
  * Identity, replication and research opportunity.
@@ -460,6 +461,7 @@ export function ResearchOpportunities({ peptide }: { peptide: PeptidePage }) {
                       {gap.whatWouldResolveIt}
                     </p>
                   )}
+                  <GapResolutionNote gap={gap} />
                 </li>
               ))}
             </ul>

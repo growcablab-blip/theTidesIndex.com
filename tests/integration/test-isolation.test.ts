@@ -55,12 +55,16 @@ describe('the suite is deterministic under a shared worker', () => {
     // would otherwise look like growth nobody notices.
     expect(counts).toEqual({
       sources: seedData.sourceManifest.sources.length,
+      // Learning-topic packets (migration 0026) seed claims and gaps too, and are
+      // counted like every other packet so the pin stays exact.
       claims:
         seedData.evidencePackets.reduce((n, p) => n + p.claims.length, 0) +
-        seedData.compoundPackets.reduce((n, p) => n + p.claims.length, 0),
+        seedData.compoundPackets.reduce((n, p) => n + p.claims.length, 0) +
+        seedData.learningPackets.reduce((n, p) => n + p.claims.length, 0),
       gaps:
         seedData.evidencePackets.reduce((n, p) => n + p.notYetSupported.length, 0) +
-        seedData.compoundPackets.reduce((n, p) => n + p.notYetSupported.length, 0),
+        seedData.compoundPackets.reduce((n, p) => n + p.notYetSupported.length, 0) +
+        seedData.learningPackets.reduce((n, p) => n + p.notYetSupported.length, 0),
       relationships: seedData.qualityMap.edges.length,
       certificates: 1,
     });

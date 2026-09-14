@@ -23,6 +23,12 @@ import {
   type SimpleProtocol,
 } from './shapes';
 import { readProtocols } from './protocol-reader';
+import {
+  readPeptideTrials,
+  readSourceArtifacts,
+  type ClinicalTrialRecord,
+  type PublicSourceArtifact,
+} from './trials';
 import { readQualityTopic, type QualityTopicReading } from './quality-topic';
 import { readSpecimenCertificate, type CertificateReading } from './certificate';
 import {
@@ -417,6 +423,13 @@ export interface PeptidePage {
   readonly gaps: readonly EvidenceGap[];
   readonly protocols: readonly SimpleProtocol[] | readonly PractitionerProtocol[];
   readonly protocolCountAll: number;
+  /**
+   * The registered trials behind the record, read in the same session as the
+   * rest of it. Reading them through a separate loader opened two more
+   * database sessions per render, which on the single-process development
+   * database was enough to make record pages fail intermittently.
+   */
+  readonly trials: readonly ClinicalTrialRecord[];
 }
 
 /**
@@ -723,7 +736,8 @@ async function readPeptidePage(
         await tx.execute(sql`
           select id, gap_type, statement, why_not_supported, what_would_resolve_it,
                  verification_issue_key, sort_order, research_question,
-                 opportunity_type
+                 opportunity_type, resolution_state::text as resolution_state,
+                 resolution_note, resolution_checked_at::text as resolution_checked_at
           from ${sql.raw(rel('public_v_evidence_gaps'))}
           where peptide_id = ${peptideId}
           order by sort_order
@@ -739,6 +753,9 @@ async function readPeptidePage(
         verificationIssueKey: str(row.verification_issue_key),
         researchQuestion: str(row.research_question),
         opportunityType: str(row.opportunity_type),
+        resolutionState: str(row.resolution_state) ?? 'open',
+        resolutionNote: str(row.resolution_note),
+        resolutionCheckedAt: str(row.resolution_checked_at),
       }));
 
       const disagreements: Disagreement[] = disagreementRows.map((d) => ({
@@ -1081,6 +1098,10 @@ async function readPeptidePage(
         `),
       );
 
+      // Same transaction, same relation switch, same mode rule: dose arms and
+      // dose-specific comparisons are withheld in simple mode by the query.
+      const trials = await readPeptideTrials(tx, slug, mode, { preview });
+
       return {
         id: peptideId,
         slug: String(peptide.slug),
@@ -1129,6 +1150,7 @@ async function readPeptidePage(
         gaps,
         protocols,
         protocolCountAll: countRow?.n ?? 0,
+        trials,
       };
     }
   }
@@ -1364,6 +1386,12 @@ export const getSourceFunding = cache(async (sourceKey: string): Promise<SourceF
       notes: str(row.notes),
     }));
   }),
+);
+
+/** What kind of copy of a source is held, and how far it was verified. */
+export const getSourceArtifacts = cache(
+  async (sourceKey: string): Promise<PublicSourceArtifact[]> =>
+    asPublic((tx) => readSourceArtifacts(tx, sourceKey)),
 );
 
 function toPublicSource(r: Record<string, unknown>): PublicSource {

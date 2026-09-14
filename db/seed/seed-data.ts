@@ -287,6 +287,18 @@ const packetGapSchema = z.object({
     ])
     .nullable()
     .default(null),
+  /**
+   * What later evidence did to this absence (migration 0026). A gap is never
+   * deleted when evidence arrives; it changes state and says why.
+   */
+  resolution: z
+    .object({
+      state: z.enum(['open', 'partially_resolved', 'resolved', 'superseded']),
+      note: z.string().min(1),
+      checkedAt: z.string().min(1),
+    })
+    .nullable()
+    .default(null),
 });
 
 const packetTopicSchema = z.object({
@@ -694,6 +706,15 @@ function parseCompoundPacket(file: string): CompoundPacket {
 /** Packets are listed explicitly: adding one is an editorial decision. */
 const EVIDENCE_PACKET_FILES = [
   'evidence/hplc-purity.json',
+  // Sterility, endotoxin and lyophilisation: added from the 14 September 2026
+  // intake, resting on EU GMP Annex 1, FDA ORA.007, USP research copies and an
+  // open-access freeze-drying review.
+  'evidence/sterility.json',
+  'evidence/bacterial-endotoxin.json',
+  'evidence/lyophilization.json',
+  // Formulation: the registered book is not held; answered from an open-access
+  // formulation review and ICH Q1A(R2)/Q5C, each cited as itself.
+  'evidence/formulation-excipients.json',
   'evidence/coa-literacy.json',
   'evidence/identity-testing.json',
   'evidence/peptide-content-assay.json',
@@ -971,6 +992,13 @@ const manifestSourceSchema = z.object({
   integrity_notes: z.string().nullable().default(null),
   verified_at: z.string().nullable().default(null),
   verified_by: z.string().nullable().default(null),
+  // Identifiers. Recorded in the manifest since the literature screens, and not
+  // carried to the database until trials needed to resolve a registry number
+  // to the sources that report it.
+  doi: z.string().nullable().default(null),
+  pmid: z.string().nullable().default(null),
+  trial_registry_id: z.string().nullable().default(null),
+  canonical_url: z.string().nullable().default(null),
 });
 
 const manifestSchema = z.object({
@@ -985,6 +1013,170 @@ const evidenceTaxonomySchema = z.object({
   evidence_types: z.array(z.string()),
   verification_statuses: z.array(z.string()),
 });
+
+// --- Trials, artifacts and learning topics (migration 0026) -----------------
+
+const trialDocumentSchema = z.object({
+  sourceKey: z.string().min(1),
+  role: z.enum([
+    'primary_publication',
+    'substudy_publication',
+    'post_hoc_publication',
+    'secondary_publication',
+    'registry_record',
+    'posted_results',
+    'protocol',
+    'statistical_analysis_plan',
+    'supplement',
+    'conference_material',
+  ]),
+  linkBasis: z.enum([
+    'registry_and_publication',
+    'stated_in_registry',
+    'stated_in_publication',
+    'posted_to_registry',
+    'unconfirmed',
+  ]),
+  depth: z.enum(['full_text_held', 'abstract_only', 'structured_record_held', 'not_held']),
+  versionLabel: z.string().nullable().default(null),
+  // A calendar date: the column is `date`, so a month alone fails at insert.
+  documentDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .nullable()
+    .default(null),
+  answers: z.string().nullable().default(null),
+  notes: z.string().nullable().default(null),
+});
+
+const trialComparisonSchema = z.object({
+  comparisonKey: z.string().min(1),
+  topic: z.string().min(1),
+  locationAKey: z.string().min(1),
+  aReports: z.string().min(1),
+  locationBKey: z.string().min(1),
+  bReports: z.string().min(1),
+  state: z.enum(['agree', 'differ', 'only_one_reports', 'not_comparable']),
+  knownExplanation: z.string().min(1),
+  whyItMatters: z.string().nullable().default(null),
+  doseSpecific: z.boolean().default(false),
+});
+
+const trialSchema = z.object({
+  trialKey: z.string().min(1),
+  registryName: z.string().min(1),
+  registryId: z.string().min(1),
+  sponsorProtocolId: z.string().nullable().default(null),
+  acronym: z.string().nullable().default(null),
+  officialTitle: z.string().min(1),
+  phase: z.string().min(1),
+  design: z.string().min(1),
+  population: z.string().min(1),
+  comparator: z.string().nullable().default(null),
+  enrolmentText: z.string().nullable().default(null),
+  countries: z.string().nullable().default(null),
+  siteCount: z.number().int().nullable().default(null),
+  durationText: z.string().nullable().default(null),
+  primaryOutcome: z.string().nullable().default(null),
+  secondaryOutcomes: z.string().nullable().default(null),
+  analysisPopulations: z.string().nullable().default(null),
+  statisticalPlan: z.string().nullable().default(null),
+  oversight: z.string().nullable().default(null),
+  doseArmsText: z.string().nullable().default(null),
+  sponsor: z.string().min(1),
+  registryStatus: z.string().min(1),
+  startDate: z.string().nullable().default(null),
+  primaryCompletionDate: z.string().nullable().default(null),
+  completionDate: z.string().nullable().default(null),
+  resultsPostedDate: z.string().nullable().default(null),
+  registryLastUpdate: z.string().nullable().default(null),
+  registryCheckedAt: z.string().min(1),
+  notes: z.string().nullable().default(null),
+  documents: z.array(trialDocumentSchema).min(1),
+  comparisons: z.array(trialComparisonSchema).default([]),
+});
+
+const trialPacketSchema = z.object({
+  packetKey: z.string().min(1),
+  peptideKey: z.string().min(1),
+  note: z.string().min(1),
+  trials: z.array(trialSchema).min(1),
+});
+export type TrialPacket = z.infer<typeof trialPacketSchema>;
+
+const sourceArtifactSchema = z.object({
+  artifactKey: z.string().min(1),
+  sourceKey: z.string().min(1),
+  artifactKind: z.enum([
+    'publisher_version',
+    'issuer_download',
+    'registry_document',
+    'registry_snapshot',
+    'research_copy_unverified_distribution',
+    'owner_transcription',
+    'partial_translated_copy',
+    'machine_translated_derivative',
+    'index_only',
+    'advertisement',
+    'mislabelled_file',
+    'duplicate',
+    'supplementary_material',
+  ]),
+  disposition: z.enum(['working_copy', 'retained_reference', 'not_retained', 'rejected']),
+  verification: z.enum([
+    'matched_to_issuer',
+    'title_page_verified',
+    'abstract_verified_body_unverified',
+    'transcription_unverified',
+    'not_verified',
+    'identity_refuted',
+  ]),
+  filename: z.string().min(1),
+  sha256: z.string().regex(/^[0-9a-f]{64}$/),
+  bytes: z.number().int().nullable().default(null),
+  pageCount: z.number().int().nullable().default(null),
+  language: z.string().nullable().default(null),
+  acquiredFrom: z.string().min(1),
+  acquiredAt: z.string().nullable().default(null),
+  duplicateOfArtifactKey: z.string().nullable().default(null),
+  distributionProvenance: z.string().nullable().default(null),
+  notes: z.string().nullable().default(null),
+  publicNote: z.string().nullable().default(null),
+});
+export type SourceArtifactSeed = z.infer<typeof sourceArtifactSchema>;
+
+const intakeRegisterSchema = z.object({
+  intakeDate: z.string(),
+  files: z.array(
+    z
+      .object({ file: z.string(), artifact: sourceArtifactSchema.optional() })
+      .passthrough(),
+  ),
+});
+
+const learningPacketSchema = z.object({
+  packetKey: z.string().min(1),
+  note: z.string().min(1),
+  topic: z.object({
+    topicKey: z.string().min(1),
+    slug: z.string().min(1),
+    title: z.string().min(1),
+    publicationChapter: z.string().nullable().default(null),
+    summary: z.string().nullable().default(null),
+    notes: z.string().nullable().default(null),
+  }),
+  locations: z.array(packetLocationSchema).min(1),
+  claims: z.array(packetClaimSchema).min(1),
+  notYetSupported: z.array(packetGapSchema).default([]),
+});
+export type LearningPacket = z.infer<typeof learningPacketSchema>;
+
+const LEARNING_PACKET_FILES = [
+  'learning/pharmacology-receptors.json',
+  'learning/peptides-as-medicines.json',
+] as const;
+const TRIAL_PACKET_FILES = ['trials/retatrutide-trials.json'] as const;
+const INTAKE_REGISTER_FILES = ['source-artifacts/intake-2026-09-14.json'] as const;
 
 export const seedData = {
   sourceTypes: z.array(sourceTypeSchema).parse(loadJson('taxonomy/source_types.json')),
@@ -1003,6 +1195,13 @@ export const seedData = {
   evidenceTaxonomy: evidenceTaxonomySchema.parse(loadJson('evidence_taxonomy.json')),
   evidencePackets: EVIDENCE_PACKET_FILES.map((file) => parsePacket(file)),
   compoundPackets: COMPOUND_PACKET_FILES.map((file) => parseCompoundPacket(file)),
+  trialPackets: TRIAL_PACKET_FILES.map((file) => trialPacketSchema.parse(loadJson(file))),
+  learningPackets: LEARNING_PACKET_FILES.map((file) => learningPacketSchema.parse(loadJson(file))),
+  sourceArtifacts: INTAKE_REGISTER_FILES.flatMap((file) =>
+    intakeRegisterSchema
+      .parse(loadJson(file))
+      .files.flatMap((row) => (row.artifact === undefined ? [] : [row.artifact])),
+  ),
   literatureScreens: LITERATURE_SCREEN_FILES.map((file) =>
     literatureScreenSchema.parse(loadJson(file)),
   ),

@@ -206,7 +206,7 @@ interface ChapterPlan {
    * same typeface as a sourced one, and this is the volume whose readers can
    * least afford that.
    */
-  readonly written?: 'evidence' | 'safety' | 'quality' | 'clinician' | 'using';
+  readonly written?: 'evidence' | 'safety' | 'quality' | 'clinician' | 'using' | 'receptors';
 }
 
 const CHAPTERS: readonly ChapterPlan[] = [
@@ -220,7 +220,7 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'Why the distinction matters for how something is made, stored and measured',
     ],
     needs:
-      'A biochemistry reference held and verified by this index. Nothing in the current register defines a peptide.',
+      'A biochemistry reference held and verified by this index. Lehninger Principles of Biochemistry (SRC-120) is registered and not held: the only file received under that title was a download-site advertisement. Nothing in the current register defines a peptide.',
     illustration: 'The peptide bond, and a chain of three residues',
     illustrationNote: 'Deterministic vector diagram, drawn from a located source',
   },
@@ -257,7 +257,8 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'Why specificity matters',
       'What a signalling molecule does not do',
     ],
-    needs: 'A physiology or pharmacology source held and verified.',
+    needs:
+      'The cell-signalling chapter of a pharmacology textbook. The Rang and Dale sample held (SRC-121) stops at chapter 2; its chapter 3, on how receptors pass on a signal, is in the complete edition (SRC-122), which is not held.',
     illustration: 'Signal, receptor, response — schematic',
   },
   {
@@ -268,8 +269,10 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'Receptor binding as recognition',
       'Selectivity, and what follows from a molecule binding more than one target',
     ],
-    needs: 'A pharmacology source.',
+    needs:
+      'Written from sixteen claims extracted from chapter 2 of Rang and Dale’s Pharmacology, 10th edition, held only as a Spanish-language publisher sample (SRC-121). Each is a paraphrase of the Spanish text, to be re-checked against the English edition, and none is yet scientifically reviewed.',
     illustration: 'Binding and selectivity',
+    written: 'receptors',
   },
   {
     number: 'Six',
@@ -294,7 +297,7 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'What a route implies for stability and handling',
     ],
     needs:
-      'A pharmaceutics source. The existing route taxonomy in the database carries the structure; none of it is yet backed by a located source.',
+      'Why oral administration is hard for peptides is now sourced from two open-access reviews (SRC-143, SRC-146; claims PK-01 to PK-18). A description of the individual routes, and what each demands of a molecule and a product, is still needed: neither review gives one, and the pharmacokinetics chapters of Rang and Dale (SRC-122) are not held.',
     illustration: 'Routes, and the barrier each must cross',
   },
   {
@@ -392,6 +395,8 @@ function WrittenChapter({ chapter }: { chapter: ChapterPlan }) {
       return <QuestionsToAsk chapter={chapter} />;
     case 'using':
       return <HowToUseTheIndex chapter={chapter} />;
+    case 'receptors':
+      return <Receptors chapter={chapter} />;
     default:
       return <UnderstandingEvidence chapter={chapter} />;
   }
@@ -713,6 +718,124 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
 }
 
 /**
+ * The claims chapter five rests on. Exported so a test can hold the chapter to
+ * the learning-topic packet: a renamed or removed claim fails the build rather
+ * than leaving a paragraph with nothing under it.
+ */
+export const CHAPTER_FIVE_CLAIMS = [
+  'RECEPT-001',
+  'RECEPT-002',
+  'RECEPT-003',
+  'RECEPT-004',
+  'RECEPT-005',
+  'RECEPT-006',
+  'RECEPT-007',
+  'RECEPT-014',
+  'RECEPT-016',
+] as const;
+
+/**
+ * Chapter five, written.
+ *
+ * The first chapter in this volume that states anything about how molecules
+ * act, so the sourcing is stated on the page as plainly as the content: a
+ * pharmacology textbook, held only as a partial Spanish-language sample, read
+ * and paraphrased. Every paragraph corresponds to a claim listed above. Nothing
+ * here says which receptor any peptide acts on — that is a claim about a
+ * compound and belongs to its record.
+ */
+function Receptors({ chapter }: { chapter: ChapterPlan }) {
+  return (
+    <>
+      <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <ChapterOpener
+          eyebrow={chapter.number}
+          title={chapter.title}
+          standfirst={chapter.standfirst}
+        />
+
+        <Lede>
+          For most medicines, a molecule has to attach to something specific in the body before it
+          can do anything at all. That something is usually a protein, and one kind of protein — a
+          receptor — exists to pick up the body’s own chemical messages.
+        </Lede>
+
+        <IllustrationSlot
+          label="A molecule, a receptor, and the difference between attaching and switching on"
+          height={150}
+          note="Vector diagram, to be drawn from the located source"
+        />
+
+        <SectionHeading>Something has to be listening</SectionHeading>
+        <Body>
+          A standard pharmacology textbook describes four main kinds of protein that medicines act
+          on: receptors, enzymes, transporters and ion channels. In its strict sense, a receptor is
+          the kind that recognises one of the body’s own signals and responds to it. The word is
+          sometimes used loosely for anything a molecule sticks to; this index uses the narrower
+          meaning.
+        </Body>
+
+        <SectionHeading>Switching on, and getting in the way</SectionHeading>
+        <Body>
+          A molecule that switches a receptor on is called an agonist. A molecule that sits in the
+          same place without switching it on — and so stops the switching-on molecule from working —
+          is called an antagonist. Those two words properly describe receptors, not the other kinds
+          of target.
+        </Body>
+        <Body>
+          Attaching and switching on are two different properties. How readily a molecule sticks to
+          a receptor is its affinity; how well it switches the receptor on once it is there is its
+          efficacy. A partial agonist switches a receptor only part of the way on, so even when it
+          fills every receptor the response stays below the maximum — and how strong a molecule
+          looks can depend on the tissue it is tested in.
+        </Body>
+      </PublicationPage>
+
+      <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <SectionHeading>Choosy, but never perfectly</SectionHeading>
+        <Body>
+          Molecules and their targets are choosy about each other, but the same textbook states that
+          no medicine is perfectly choosy, and that at higher amounts many begin to act on targets
+          other than the main one — which is one way side effects arise. Recognition can also be
+          very precise: the book’s own example is a natural peptide whose activity can be lost when a
+          single one of its building blocks is changed.
+        </Body>
+
+        <SectionHeading>Why an effect can fade</SectionHeading>
+        <Body>
+          The body’s response to a substance can weaken with repeated exposure, sometimes within
+          minutes and sometimes over weeks, and there are several different reasons it can happen.
+          What a molecule does in the first minutes can also differ from what long exposure does
+          over days or weeks, and the longer-term changes are often not well understood.
+        </Body>
+
+        <Callout title="What this chapter does not tell you">
+          <Text>
+            It does not say which receptor any particular peptide acts on, how strongly, or with what
+            result. Those are statements about a compound, and each has to be sourced on that
+            compound’s own record. How a receptor passes its message into the cell, and how a
+            molecule moves through the body, belong to chapters this index cannot yet write.
+          </Text>
+        </Callout>
+
+        <EvidenceNote
+          supports="Claims extracted into this index from chapter 2 of Rang and Dale’s Pharmacology, 10th edition, held as a Spanish-language publisher sample (SRC-121). Each statement is a paraphrase of the Spanish text."
+          doesNotSettle="Anything about a specific peptide, and anything about signalling inside the cell or pharmacokinetics, whose chapters are not in the sample held."
+          status="Extracted from a partial translated source; awaiting scientific review and re-checking against the English edition"
+        />
+
+        <SourceNote
+          items={[
+            'SRC-121 — Rang y Dale. Farmacología, décima edición (Spanish translation of Rang and Dale’s Pharmacology, 10th edition), chapter 2, printed pp. 6–22. Claims RECEPT-001 to RECEPT-007, RECEPT-014 and RECEPT-016.',
+            'SRC-122 — Rang and Dale’s Pharmacology, 10th edition (English). Not held; on owner direction no further copy is being sought. Every statement above would be re-checked against it if it is obtained.',
+          ]}
+        />
+      </PublicationPage>
+    </>
+  );
+}
+
+/**
  * Chapter eleven, written.
  *
  * A prompt sheet. It asks and answers nothing, which is what keeps it on the
@@ -847,7 +970,7 @@ export function UnderstandingPeptides() {
     <Document
       title="Understanding Peptides — first draft"
       author="The Tides Index"
-      subject="Patient-facing first draft. Five written chapters, seven briefs. No dosing and no reviewed content."
+      subject="Patient-facing first draft. Six written chapters, six briefs. No dosing and no reviewed content."
       creator="The Tides Index"
     >
       <Cover
@@ -856,8 +979,8 @@ export function UnderstandingPeptides() {
         title="Understanding Peptides"
         subtitle="A plain-language introduction"
         descriptor="Independent peptide science & clinical reference"
-        editionLine={`First draft · five chapters written · issued ${ISSUED}`}
-        statusLine="Five written chapters and seven briefs, all awaiting review. No dosing, no administration instructions, no treatment advice."
+        editionLine={`First draft · six chapters written · issued ${ISSUED}`}
+        statusLine="PARTIAL DRAFT. Six written chapters and six briefs, all awaiting review. No dosing, no administration instructions, no treatment advice."
         mark={<SeriesMark width={300} volume={1} />}
       />
 
@@ -866,7 +989,7 @@ export function UnderstandingPeptides() {
         <ChapterOpener
           eyebrow="Skeleton"
           title="What this document is"
-          standfirst="Five chapters written, seven still briefs — and the difference is where the sources run out."
+          standfirst="Six chapters written, six still briefs — and the difference is where the sources run out."
         />
 
         <Lede>
@@ -888,16 +1011,18 @@ export function UnderstandingPeptides() {
 
         <SectionHeading>What has to happen before it is written</SectionHeading>
         <Body>
-          Five chapters are written. Four of them — understanding evidence, safety and uncertainty,
+          Six chapters are written. Four of them — understanding evidence, safety and uncertainty,
           questions to ask your clinician, and how to use this index — rest on the editorial method
           and on the product rather than on peptide science, so they could be written without a
-          peptide source. The fifth, on quality and testing, rests on claims extracted into this
-          index from a peptide chemistry textbook and from a manufacturing standard, both held in
-          full.
+          peptide source. The chapter on quality and testing rests on claims extracted from a
+          peptide chemistry textbook and a manufacturing standard, both held in full. The chapter on
+          receptors rests on claims extracted from a pharmacology textbook held only as a partial
+          Spanish-language sample, and says so on its own pages.
         </Body>
         <Body>
-          The remaining seven need sources this index does not hold: a biochemistry reference, a
-          physiology source, a pharmacology source. Those chapters stay briefs rather than being
+          The remaining six need sources this index does not hold: a biochemistry reference, a
+          physiology source, and the complete pharmacology textbook whose signalling and
+          pharmacokinetics chapters are missing from the sample. Those chapters stay briefs rather than being
           written from general knowledge, because a paragraph written to fill a page sets in the
           same typeface as a sourced one and this is the volume whose readers can least afford
           that.

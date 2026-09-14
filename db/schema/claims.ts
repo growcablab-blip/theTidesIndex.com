@@ -18,6 +18,7 @@ import {
   publicationState,
   reviewState,
 } from './enums';
+import { learningTopics } from './learning';
 import { peptides } from './peptides';
 import { qualityTopics } from './quality';
 import { sourceLocations, sources } from './sources';
@@ -40,6 +41,8 @@ export const claims = pgTable(
     /** Subject. A claim addresses a compound, a quality topic, or both. */
     peptideId: uuid().references(() => peptides.id, { onDelete: 'restrict' }),
     qualityTopicId: uuid().references(() => qualityTopics.id, { onDelete: 'restrict' }),
+    /** Foundational teaching that serves a publication chapter (migration 0026). */
+    learningTopicId: uuid().references(() => learningTopics.id, { onDelete: 'restrict' }),
 
     /** The proposition as the platform states it. */
     claimText: text().notNull(),
@@ -144,9 +147,10 @@ export const claims = pgTable(
     ),
     check(
       'claims_subject_present',
-      sql`${t.peptideId} is not null or ${t.qualityTopicId} is not null or ${t.isEditorialNonEvidentiary}`,
+      sql`${t.peptideId} is not null or ${t.qualityTopicId} is not null or ${t.learningTopicId} is not null or ${t.isEditorialNonEvidentiary}`,
     ),
     index('claims_peptide_idx').on(t.peptideId),
+    index('claims_learning_topic_idx').on(t.learningTopicId),
     index('claims_quality_topic_idx').on(t.qualityTopicId),
     index('claims_review_state_idx').on(t.reviewState),
     index('claims_publication_state_idx').on(t.publicationState),

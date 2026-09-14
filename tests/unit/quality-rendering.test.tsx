@@ -43,6 +43,9 @@ const GAP: EvidenceGap = {
   researchQuestion: null,
   opportunityType: null,
   verificationIssueKey: 'V-015',
+  resolutionState: 'open',
+  resolutionNote: null,
+  resolutionCheckedAt: null,
 };
 
 function relationship(overrides: Partial<TopicRelationship> = {}): TopicRelationship {

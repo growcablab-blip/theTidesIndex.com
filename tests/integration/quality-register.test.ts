@@ -205,11 +205,13 @@ describe('the quality register', () => {
   // --- The unwritten topics read from the queue -----------------------------
 
   it('derives an unwritten topic’s recorded question from the queue', async () => {
-    // Sterility reads "open question recorded" because the verification queue
-    // names it — not because a component holds a list of blocked subjects.
-    const sterility = await entry('sterility');
-    expect(sterility.open_issue_key).not.toBeNull();
-    expect(sterility.claim_count).toBe(0);
+    // Residual solvents reads "open question recorded" because the verification
+    // queue names it — not because a component holds a list of blocked subjects.
+    // Sterility was the example until 14 September 2026, when it gained claims
+    // from EU GMP Annex 1, FDA ORA.007 and USP <71>; it is no longer unwritten.
+    const solvents = await entry('residual-solvents');
+    expect(solvents.open_issue_key).not.toBeNull();
+    expect(solvents.claim_count).toBe(0);
   });
 
   it('stops naming an issue once every issue for that topic is resolved', async () => {
@@ -221,9 +223,9 @@ describe('the quality register', () => {
       db,
       `update verification_issues set status = 'resolved', resolved_at = current_date,
               resolution_notes = 'Subscription obtained.'
-         where related_keys ? 'quality_topic:sterility'`,
+         where related_keys ? 'quality_topic:residual-solvents'`,
     );
-    expect((await entry('sterility')).open_issue_key).toBeNull();
+    expect((await entry('residual-solvents')).open_issue_key).toBeNull();
   });
 
   it('reports an open question against a written topic too, and the page ignores it', async () => {

@@ -1,0 +1,498 @@
+{
+  "packetKey": "peptides-as-medicines",
+  "note": "Extracted 14 September 2026 from two open-access (CC BY) narrative reviews: Wang et al., Signal Transduction and Targeted Therapy 2022 (SRC-143) and Chen et al., Theranostics 2022 (SRC-146). They answer part of what the English Rang and Dale (SRC-122, not held) was registered for — why peptides are studied as a class, why most are injected and why many are short-lived — and are cited as themselves. They do not define general pharmacokinetic terms, and none of that is written from them. Both reviews name approved and investigational compounds; none is carried into a claim, and neither review's approval count is used (they conflict and neither is primary). OpenStax textbooks were read and set aside before extraction because their pages prohibit ingestion into large language models without permission (D-26); nothing here draws on them. Every quote was checked word for word against the held text.",
+  "topic": {
+    "topicKey": "peptides-as-medicines",
+    "slug": "peptides-as-medicines",
+    "title": "Peptides as medicines: strengths, weaknesses and why most are injected",
+    "publicationChapter": "Understanding Peptides — Six: Why peptides are studied (in part); Seven: Routes (in part); Peptide Science & Applications — Five: half-life and clearance points only",
+    "summary": "What reviews of the field say peptides do well as medicines, the two weaknesses they share as a class, why swallowing them rarely works, and why many are short-lived in the blood. Class-level statements from narrative reviews, not statements about any peptide in this index.",
+    "notes": "General pharmacokinetic definitions and descriptions of the individual routes are not in these sources and are recorded below as gaps."
+  },
+  "locations": [
+    {
+      "key": "pk-01",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, Abstract",
+      "section": "Abstract",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-02",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Physical and biochemical barriers and mechanism of intestinal drug absorption', paragraph 1 (cites ref. 8; ref. 9 for intestinal trypsin/α-chymotrypsin)",
+      "section": "'Physical and biochemical barriers and mechanism of intestinal drug absorption', paragraph 1 (cites ref. 8; ref. 9 for intestinal trypsin/α-chymotrypsin)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-03",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Physical and biochemical barriers and mechanism of intestinal drug absorption', paragraph 2 (Figure 2; cites refs. 10–13)",
+      "section": "'Physical and biochemical barriers and mechanism of intestinal drug absorption', paragraph 2 (Figure 2; cites refs. 10–13)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-04",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Strategies to enhance oral bioavailability of PPDs', subsection 'Chemical modification', first sentence (no citation attached)",
+      "section": "'Strategies to enhance oral bioavailability of PPDs', subsection 'Chemical modification', first sentence (no citation attached)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-05",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Strategies to enhance oral bioavailability of PPDs', subsection 'Addition of effective agents' > 'Absorption enhancers', paragraph 2 (cites ref. 80)",
+      "section": "'Strategies to enhance oral bioavailability of PPDs', subsection 'Addition of effective agents' > 'Absorption enhancers', paragraph 2 (cites ref. 80)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-06",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Strategies to enhance oral bioavailability of PPDs', subsection 'Drug carrier systems' > 'Microparticulate carrier systems', final sentence (cites ref. 66)",
+      "section": "'Strategies to enhance oral bioavailability of PPDs', subsection 'Drug carrier systems' > 'Microparticulate carrier systems', final sentence (cites ref. 66)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-07",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Conclusions and future perspectives', paragraph 1 (Table 1)",
+      "section": "'Conclusions and future perspectives', paragraph 1 (Table 1)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-08",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Therapeutic peptides: advantages and drawbacks', paragraph 1 (refs. 29–32 at end of paragraph)",
+      "section": "'Therapeutic peptides: advantages and drawbacks', paragraph 1 (refs. 29–32 at end of paragraph)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-09",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Therapeutic peptides: advantages and drawbacks', paragraphs 1–2 (refs. 29–32; ref. 38 for PPIs)",
+      "section": "'Therapeutic peptides: advantages and drawbacks', paragraphs 1–2 (refs. 29–32; ref. 38 for PPIs)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-10",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Therapeutic peptides: advantages and drawbacks', paragraph 3 (Fig. 2; refs. 2, 29); restated in 'Conclusion and perspective'",
+      "section": "'Therapeutic peptides: advantages and drawbacks', paragraph 3 (Fig. 2; refs. 2, 29); restated in 'Conclusion and perspective'",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-11",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Synthesis and modification of therapeutic peptides' > 'Developments in peptide drug delivery', paragraph 1 (sentence uncited; ref. 275 follows)",
+      "section": "'Synthesis and modification of therapeutic peptides' > 'Developments in peptide drug delivery', paragraph 1 (sentence uncited; ref. 275 follows)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-12",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Synthesis and modification of therapeutic peptides' > 'PEGylation of peptides and proteins', paragraph 1 (ref. 245–246)",
+      "section": "'Synthesis and modification of therapeutic peptides' > 'PEGylation of peptides and proteins', paragraph 1 (ref. 245–246)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-13",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Synthesis and modification of therapeutic peptides' > 'Covalent peptide/protein drugs', paragraph 3 (refs. 270–274)",
+      "section": "'Synthesis and modification of therapeutic peptides' > 'Covalent peptide/protein drugs', paragraph 3 (refs. 270–274)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-14",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Synthesis and modification of therapeutic peptides' > 'Chemical modification of peptide and peptidomimetics' > 'Backbone modification of peptides' (refs. 136–145 in paragraph)",
+      "section": "'Synthesis and modification of therapeutic peptides' > 'Chemical modification of peptide and peptidomimetics' > 'Backbone modification of peptides' (refs. 136–145 in paragraph)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-15",
+      "sourceKey": "SRC-143",
+      "locatorText": "Wang et al. 2022, 'Developments in peptide drug delivery', paragraph 2, final sentences (refs. 282–283)",
+      "section": "'Developments in peptide drug delivery', paragraph 2, final sentences (refs. 282–283)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-16",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Introduction', paragraph 2 (ref. 3 on the preceding sentence; ref. 4 follows)",
+      "section": "'Introduction', paragraph 2 (ref. 3 on the preceding sentence; ref. 4 follows)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-17",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Physical and biochemical barriers and mechanism of intestinal drug absorption', paragraph 3 (Figure 3; refs. 14-17)",
+      "section": "'Physical and biochemical barriers and mechanism of intestinal drug absorption', paragraph 3 (Figure 3; refs. 14-17)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "pk-18",
+      "sourceKey": "SRC-146",
+      "locatorText": "Chen et al. 2022, 'Strategies to enhance oral bioavailability of PPDs' > 'Addition of effective agents' > 'Mucolytic agents' (final sentence, uncited) and 'Cell-penetrating peptides' (ref. 56)",
+      "section": "'Strategies to enhance oral bioavailability of PPDs' > 'Addition of effective agents' > 'Mucolytic agents' (final sentence, uncited) and 'Cell-penetrating peptides' (ref. 56)",
+      "notes": "Web full text (Europe PMC); no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "PK-01",
+      "claimText": "A 2022 narrative review states that parenteral injection is the most common route for protein and peptide drugs and that oral delivery, though sought, is hindered by the harsh gastrointestinal environment and the intestinal epithelial barrier.",
+      "plainLanguageText": "Reviewers of the field say most peptide and protein medicines are injected, and that getting them to work by mouth is blocked by the gut's harsh conditions and its protective lining.",
+      "claimCategory": "oral-delivery-barriers",
+      "importance": "high",
+      "interpretationNotes": "Abstract sentences (uncited). Preceding abstract sentences: parenteral route most commonly employed; short plasma half-life requires repetitive injections. Review-level characterisation; see problems for this review's reliability caveats.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Abstract sentences (uncited). Preceding abstract sentences: parenteral route most commonly employed; short plasma half-life requires repetitive injections. Review-level characterisation; see problems for this review's reliability caveats.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-02",
+      "claimText": "The review describes a sequence of enzymatic barriers for swallowed protein and peptide drugs: stomach acid with pepsin and cathepsin, which it says degrade most such drugs, followed by trypsin and α-chymotrypsin in the intestinal lumen; gastric pH may also alter drug structure or function.",
+      "plainLanguageText": "Swallowed peptide medicines meet acid and protein-cutting enzymes in the stomach and more enzymes in the intestine, which break most of them down.",
+      "claimCategory": "oral-delivery-barriers",
+      "importance": "medium",
+      "interpretationNotes": "'Degrades most' is the review's characterisation (ref. 8, not obtained), not a measured class-wide figure. PPDs = protein and peptide drugs.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "'Degrades most' is the review's characterisation (ref. 8, not obtained), not a measured class-wide figure. PPDs = protein and peptide drugs.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-03",
+      "claimText": "Beyond enzymes, the review names physical barriers to oral absorption: a negatively charged mucus layer, then an epithelial cell layer sealed by tight junctions, plus metabolism and efflux in intestinal cells and post-absorptive clearance.",
+      "plainLanguageText": "Even if a peptide survives digestion, it must get through a mucus coat and a tightly sealed layer of gut cells to reach the blood.",
+      "claimCategory": "oral-delivery-barriers",
+      "importance": "medium",
+      "interpretationNotes": "Quote reproduced with the source's grammar. Mucus 'first physical barrier' is the preceding sentence group; CYP3A4 metabolism, P-gp efflux and post-absorptive clearance are the next sentence (ref. 13). Review-level.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Quote reproduced with the source's grammar. Mucus 'first physical barrier' is the preceding sentence group; CYP3A4 metabolism, P-gp efflux and post-absorptive clearance are the next sentence (ref. 13). Review-level.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-04",
+      "claimText": "According to the review, the properties that commonly limit oral bioavailability of protein and peptide drugs are hydrophilicity, large molecular weight, and sensitivity to enzymes and pH.",
+      "plainLanguageText": "Peptide medicines tend to be water-loving, large, and easily damaged by enzymes and acid — all of which make absorption by mouth poor.",
+      "claimCategory": "oral-delivery-barriers",
+      "importance": "high",
+      "interpretationNotes": "Uncited summary sentence. 'Often' is the review's hedge; it is not a rule for every peptide. Related: the review's barriers section says permeation mechanism depends on molar mass, polarity, lipophilicity and hydrophilicity (refs. 15–16). Directly answers 'what determines it' at review level.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Uncited summary sentence. 'Often' is the review's hedge; it is not a rule for every peptide. Related: the review's barriers section says permeation mechanism depends on molar mass, polarity, lipophilicity and hydrophilicity (refs. 15–16). Directly answers 'what determines it' at review level.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review's own summary sentence, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-05",
+      "claimText": "Approaches that improve oral peptide absorption carry trade-offs: the review notes that some absorption enhancers can disrupt membrane integrity, and that sustained opening of tight junctions can damage the mucosa and let toxic molecules across.",
+      "plainLanguageText": "Tricks that loosen the gut lining to let a peptide through can also let harmful things through and damage the lining.",
+      "claimCategory": "delivery-trade-offs",
+      "importance": "medium",
+      "interpretationNotes": "Preceding sentence says some enhancers 'may cause the disruption of membrane integrity and systemic toxicity'. Ref. 80 is also cited for microemulsion definitions later in the review — possible citation misplacement; verify before relying on the trace.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Preceding sentence says some enhancers 'may cause the disruption of membrane integrity and systemic toxicity'. Ref. 80 is also cited for microemulsion definitions later in the review — possible citation misplacement; verify before relying on the trace.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-06",
+      "claimText": "Delivery formulations built to protect peptides bring their own stability problems; the review lists physical and chemical instability on storage among the general limitations of microparticle carriers, and poor stability, leakage and short shelf life for liposomes.",
+      "plainLanguageText": "Packaging a peptide in a special carrier so it survives the gut can make the product itself less stable on the shelf.",
+      "claimCategory": "delivery-trade-offs",
+      "importance": "medium",
+      "interpretationNotes": "Liposome limitations are in the 'Liposomes' subsection ('poor stability, drug leakage of liposomes and short shelf life', uncited). Illustrates that a route choice implies formulation and storage demands; not a statement about any product.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Liposome limitations are in the 'Liposomes' subsection ('poor stability, drug leakage of liposomes and short shelf life', uncited). Illustrates that a route choice implies formulation and storage demands; not a statement about any product.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-07",
+      "claimText": "A 2022 review of oral protein and peptide delivery notes that oral insulin was first attempted in the 1920s, that very few marketed oral formulations of such large molecules exist, and that moving the approaches it describes from bench to bedside faces many challenges.",
+      "plainLanguageText": "Scientists have tried to make protein and peptide medicines work as pills for about a hundred years, and very few have succeeded.",
+      "claimCategory": "research-status",
+      "importance": "medium",
+      "interpretationNotes": "Bench-to-bedside wording is the next sentences of the same paragraph ('more research is required given that the transition of these approaches from the bench to the bedside is associated with many challenges'). Useful for Six's 'less certain, not more'. Insulin is mentioned only historically; no claim about insulin is proposed.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Bench-to-bedside wording is the next sentences of the same paragraph ('more research is required given that the transition of these approaches from the bench to the bedside is associated with many challenges'). Useful for Six's 'less certain, not more'. Insulin is mentioned only historically; no claim about insulin is proposed.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review's own summary sentence, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-08",
+      "claimText": "A 2022 review characterises therapeutic peptides as commonly acting as hormones, growth factors, neurotransmitters, ion-channel ligands or anti-infectives, binding cell-surface receptors with high affinity and specificity.",
+      "plainLanguageText": "Peptide medicines often work like the body's own messengers, attaching precisely to receptors on the outside of cells.",
+      "claimCategory": "peptides-as-a-class",
+      "importance": "medium",
+      "interpretationNotes": "Class-level generalisation by a narrative review; it does not establish receptor, affinity or specificity for any individual peptide, each of which needs its own source. Does not duplicate RECEPT claims (which define receptor terms).",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-08",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Class-level generalisation by a narrative review; it does not establish receptor, affinity or specificity for any individual peptide, each of which needs its own source. Does not duplicate RECEPT claims (which define receptor terms).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-09",
+      "claimText": "The review positions peptides between small molecules and large biologics: compared with biologics it describes lower immunogenicity and production cost, and compared with small molecules it describes greater specificity and ability to inhibit large protein–protein interaction surfaces, while small molecules keep the advantages of oral use and membrane penetration.",
+      "plainLanguageText": "Peptides sit between ordinary pills and large protein medicines: reviewers say they are often more precise than pills and cheaper and less likely to provoke the immune system than big biologics, but they lose the pill's ease of swallowing.",
+      "claimCategory": "peptides-as-a-class",
+      "importance": "medium",
+      "interpretationNotes": "Relative, class-level comparisons by a review; 'less immunogenicity' is not 'no immunogenicity', and none applies automatically to an individual peptide. PPI point: 'enable them to act as potent inhibitors of PPIs' (ref. 38). Small-molecule advantages listed in paragraph 2 (ref. 33).",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Relative, class-level comparisons by a review; 'less immunogenicity' is not 'no immunogenicity', and none applies automatically to an individual peptide. PPI point: 'enable them to act as potent inhibitors of PPIs' (ref. 38). Small-molecule advantages listed in paragraph 2 (ref. 33).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-10",
+      "claimText": "The review identifies two intrinsic drawbacks of peptides as a class — poor membrane permeability and poor stability in the body — as major obstacles to peptide drug development.",
+      "plainLanguageText": "Peptides generally have two built-in problems: they do not pass easily through cell membranes, and they do not last long in the body.",
+      "claimCategory": "peptides-as-a-class",
+      "importance": "high",
+      "interpretationNotes": "Class-level; modified peptides may differ, which the review itself discusses. Conclusion restates: 'they often suffer from membrane impermeability and poor stability in vivo'.",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-10",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Class-level; modified peptides may differ, which the review itself discusses. Conclusion restates: 'they often suffer from membrane impermeability and poor stability in vivo'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-11",
+      "claimText": "Because peptides are readily hydrolysed by digestive enzymes in the stomach and intestine, the review states that most peptide drugs are given by injection.",
+      "plainLanguageText": "Digestive enzymes break peptides apart, which is why most peptide medicines are injected rather than swallowed.",
+      "claimCategory": "peptides-as-a-class",
+      "importance": "high",
+      "interpretationNotes": "'Most' is the review's description of approved peptide drugs, not a rule that no peptide can be oral (the same section describes permeation-enhancer co-formulation approaches; compound examples deliberately not extracted).",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "'Most' is the review's description of approved peptide drugs, not a rule that no peptide can be oral (the same section describes permeation-enhancer co-formulation approaches; compound examples deliberately not extracted).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review's own summary sentence, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-12",
+      "claimText": "The review states that short protein and peptide therapeutics produced by genetic code expansion have a short half-life because of fast serum degradation and quick elimination, and that increasing their size reduces renal clearance by kidney filtration.",
+      "plainLanguageText": "Some small engineered peptides disappear from the blood quickly, both because they are broken down and because the kidneys filter them out.",
+      "claimCategory": "half-life-and-clearance",
+      "importance": "medium",
+      "interpretationNotes": "Caution: the quoted sentence's grammatical subject is products 'produced by genetic code expansion'; the renal-filtration mechanism is from the next sentences ('reduce their renal clearance by kidney filtration'). Generalisation to peptides as a class is supported more directly by PK-13. Review-level.",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Caution: the quoted sentence's grammatical subject is products 'produced by genetic code expansion'; the renal-filtration mechanism is from the next sentences ('reduce their renal clearance by kidney filtration'). Generalisation to peptides as a class is supported more directly by PK-13. Review-level.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-13",
+      "claimText": "The review describes a general design principle: peptide circulation time can be extended by conjugating fatty acids or larger plasma proteins, which increases molecular weight above the kidney's glomerular filtration cut-off and reduces degradation during elimination.",
+      "plainLanguageText": "Drug designers can make a peptide last longer by attaching it to something bigger, so the kidneys cannot filter it out as quickly.",
+      "claimCategory": "half-life-and-clearance",
+      "importance": "medium",
+      "interpretationNotes": "The paragraph names approved compounds as examples; they are deliberately not carried into the claim. Implies (without stating a number) that unmodified peptides fall below the filtration cut-off. No cut-off value is given.",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The paragraph names approved compounds as examples; they are deliberately not carried into the claim. Implies (without stating a number) that unmodified peptides fall below the filtration cut-off. No cut-off value is given.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-14",
+      "claimText": "Susceptibility to protease cleavage limits peptide plasma half-life; the review describes substituting non-natural amino acids (such as D-amino acids) at cleavage sites as a strategy to extend it.",
+      "plainLanguageText": "Enzymes cut peptides at particular spots; swapping in unusual building blocks at those spots can help a peptide last longer.",
+      "claimCategory": "half-life-and-clearance",
+      "importance": "medium",
+      "interpretationNotes": "Paragraph opens: 'One of the main reasons for backbone modification is to improve the proteolytic stability of the peptide.' Does not imply that any peptide in the index is modified or stable.",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Paragraph opens: 'One of the main reasons for backbone modification is to improve the proteolytic stability of the peptide.' Does not imply that any peptide in the index is modified or stable.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-15",
+      "claimText": "Alternative routes for peptides — pulmonary, transdermal and implantable pumps — were described in 2022 as under investigation for specific peptide drugs, not as established general options.",
+      "plainLanguageText": "Other ways of giving peptides, such as inhaling them, skin patches or implanted pumps, are still being researched.",
+      "claimCategory": "research-status",
+      "importance": "medium",
+      "interpretationNotes": "Date-stamp to 2022; status is time-sensitive. 'For specific peptide drugs' — no generalisation to all peptides. The authors' following sentence is an expectation, not evidence.",
+      "uncertaintyText": "A narrative review of therapeutic peptides; class-level generalisations that do not establish anything for an individual peptide. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Date-stamp to 2022; status is time-sensitive. 'For specific peptide drugs' — no generalisation to all peptides. The authors' following sentence is an expectation, not evidence.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-16",
+      "claimText": "The review frames the route problem as a trade-off: parenteral administration is the most common route for protein and peptide drugs but is associated with poor patient compliance, while oral routes are described as advantageous for compliance, safety, long-term use and manufacturing cost.",
+      "plainLanguageText": "Injections are the usual way peptide and protein medicines are given, but people find them harder to keep up than pills, which is why researchers keep trying to make oral versions.",
+      "claimCategory": "delivery-trade-offs",
+      "importance": "medium",
+      "interpretationNotes": "'Parental' is the source's misspelling of parenteral. Preceding sentence: parenteral administration 'is the most commonly employed administration route for PPDs, it often associates with poor patient compliance' (ref. 3). The advantages are general statements about oral delivery, not evidence that any oral peptide product achieves them.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "'Parental' is the source's misspelling of parenteral. Preceding sentence: parenteral administration 'is the most commonly employed administration route for PPDs, it often associates with poor patient compliance' (ref. 3). The advantages are general statements about oral delivery, not evidence that any oral peptide product achieves them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-17",
+      "claimText": "The review describes two main ways drugs cross the intestinal lining — passive diffusion through or between cells, and carrier-mediated transport — and states that which mechanism applies depends on properties such as molar mass, polarity, lipophilicity and hydrophilicity, with lipophilic non-ionised drugs generally more permeable.",
+      "plainLanguageText": "Whether a molecule can get through the gut wall, and how, depends on its size and on whether it prefers water or fat.",
+      "claimCategory": "oral-delivery-barriers",
+      "importance": "medium",
+      "interpretationNotes": "The two mechanisms are in the preceding sentence (ref. 14); the lipophilicity point follows (ref. 17). The same paragraph's hydrogen-bond donor/acceptor limits appear reversed relative to the usual convention and were NOT used (see problems). General drug-absorption statement, not peptide-specific.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The two mechanisms are in the preceding sentence (ref. 14); the lipophilicity point follows (ref. 17). The same paragraph's hydrogen-bond donor/acceptor limits appear reversed relative to the usual convention and were NOT used (see problems). General drug-absorption statement, not peptide-specific.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PK-18",
+      "claimText": "Many strategies for oral peptide delivery remained clinically unvalidated as of 2022: the review states that mucus-penetrating strategies had not been validated for efficacy and safety in large clinical trials, and that cell-penetrating peptides had not been validated in the clinic for improving oral bioavailability.",
+      "plainLanguageText": "Several of the clever ideas for making peptides work by mouth looked promising in the lab but had not been proven in large human trials.",
+      "claimCategory": "research-status",
+      "importance": "medium",
+      "interpretationNotes": "Cell-penetrating peptide wording: 'has not yet been validated in the clinic' (ref. 56). Date-stamp to 2022. Supports distinguishing research approaches from established treatment; says nothing about any specific product.",
+      "uncertaintyText": "A narrative review, unevenly edited: elsewhere it misnames non-peptides as peptide drugs and misstates a permeability rule, and its citations may be misplaced in places. Used only where its general statement is plain and, for the core oral-delivery difficulty, corroborated by SRC-143. As of 2022.",
+      "evidence": [
+        {
+          "locationKey": "pk-18",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Cell-penetrating peptide wording: 'has not yet been validated in the clinic' (ref. 56). Date-stamp to 2022. Supports distinguishing research approaches from established treatment; says nothing about any specific product.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A narrative review's own summary sentence, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "General pharmacokinetic concepts: absorption, distribution, metabolism and elimination; half-life; bioavailability; first-pass metabolism; clearance; volume of distribution; steady state.",
+      "why": "The pharmacology textbook registered for these (SRC-122) is not held, and the reviews held define none of them. The open textbooks considered state that they may not be ingested into large language models without permission, so they were not used (D-26).",
+      "whatWouldResolveIt": "A pharmacokinetics source whose terms permit this use, obtained and read."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "The individual routes by which peptides are given — subcutaneous, intramuscular, intravenous, nasal and others — and what each demands of a product.",
+      "why": "The reviews explain why oral delivery is difficult and say most peptide drugs are injected; neither describes the routes themselves or their sterility and handling implications.",
+      "whatWouldResolveIt": "A pharmaceutics or pharmacology source describing routes of administration, obtained and read."
+    },
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "A typical oral bioavailability for peptides as a class.",
+      "why": "The only figures in the held reviews are for single products or preclinical devices, and cannot be generalised.",
+      "whatWouldResolveIt": "A systematic source reporting oral bioavailability across peptides, with its methods."
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "How often peptide candidates fail in development, and how approved peptide medicines differ from research-only peptides.",
+      "why": "Both reviews lean towards advocacy and neither quantifies attrition or separates approved from unapproved peptides.",
+      "whatWouldResolveIt": "A systematic analysis of peptide clinical development, and dated regulatory sources."
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "How many peptide medicines have been approved.",
+      "why": "One review gives more than 240 protein and peptide drugs approved by the FDA; the other gives more than 80 peptide drugs worldwide. The scopes differ and neither is a primary regulatory source, so neither count is used.",
+      "whatWouldResolveIt": "A dated count from regulators' own approval databases, with the definition used."
+    }
+  ]
+}

@@ -186,6 +186,9 @@ export async function loadEvidencePacket(
     whatWouldResolveIt: gap.whatWouldResolveIt,
     verificationIssueKey: gap.verificationIssueKey,
     sortOrder: (i + 1) * 10,
+    resolutionState: gap.resolution?.state ?? ('open' as const),
+    resolutionNote: gap.resolution?.note ?? null,
+    resolutionCheckedAt: gap.resolution?.checkedAt ?? null,
   }));
 
   if (gapRows.length > 0) {
@@ -201,6 +204,9 @@ export async function loadEvidencePacket(
           whatWouldResolveIt: sql`excluded.what_would_resolve_it`,
           verificationIssueKey: sql`excluded.verification_issue_key`,
           sortOrder: sql`excluded.sort_order`,
+          resolutionState: sql`excluded.resolution_state`,
+          resolutionNote: sql`excluded.resolution_note`,
+          resolutionCheckedAt: sql`excluded.resolution_checked_at`,
         },
       });
   }

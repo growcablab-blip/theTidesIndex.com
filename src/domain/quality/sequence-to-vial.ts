@@ -34,6 +34,10 @@ export const SEQUENCE_TO_VIAL_TOPICS = [
   'storage-stability',
   'batch-traceability',
   'transport-excursions',
+  'sterility',
+  'bacterial-endotoxin',
+  'lyophilization',
+  'formulation-excipients',
 ] as const;
 
 export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
@@ -112,9 +116,10 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     lines: ['Formulation'],
     question: 'What else was added, and why?',
     handsOn: 'The peptide with whatever else the product contains.',
-    claimKeys: [],
-    missing:
-      'The formulation text registered for this (SRC-014) is not the registered work, and no other held source covers peptide formulation.',
+    // Why excipients are added and why the combination has to be tested, from
+    // an open-access formulation review and ICH Q1A(R2). What any product
+    // contains is product-specific and stays a recorded gap.
+    claimKeys: ['FORM-23', 'FORM-01', 'FORM-09', 'FORM-15'],
   },
   {
     key: 'fill-finish',
@@ -122,8 +127,9 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     lines: ['Fill and finish'],
     question: 'How was the material put into vials and sealed?',
     handsOn: 'Material in its final container, sealed.',
-    claimKeys: [],
-    missing: 'No held source describes filling, sealing or sterile processing of peptide products.',
+    // EU GMP expectations for licensed sterile products. They describe how
+    // this stage is meant to work, not how any product was made.
+    claimKeys: ['STER-008', 'STER-009', 'STER-011'],
   },
   {
     key: 'lyophilisation',
@@ -131,9 +137,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     lines: ['Lyophilisation'],
     question: 'Was it freeze-dried, and how?',
     handsOn: 'A dried cake in a vial.',
-    claimKeys: [],
-    missing:
-      'The lyophilisation text registered for this (SRC-013) is a two-page contents listing. The storage stage below records what the held textbook says about freeze-drying research peptides for storage, which is not a manufacturing process.',
+    claimKeys: ['LYO-001', 'LYO-002', 'LYO-003', 'LYO-005'],
   },
   {
     key: 'release',
@@ -141,9 +145,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     lines: ['Release testing'],
     question: 'What was tested on the finished vial, not just the bulk peptide?',
     handsOn: 'A batch either released or not, and the tests that decided.',
-    claimKeys: [],
-    missing:
-      'No held source states release testing for finished peptide products. Sterility and bacterial endotoxin topics are blocked on compendial access.',
+    claimKeys: ['STER-002', 'STER-003', 'STER-007', 'ENDO-003'],
     related: [{ href: '/quality/certificate-of-analysis', label: 'Reading a certificate' }],
   },
   {

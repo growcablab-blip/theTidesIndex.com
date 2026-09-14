@@ -185,7 +185,8 @@ export async function readQualityTopic(
   const gapRows = rows<Record<string, unknown>>(
     await tx.execute(sql`
       select id, gap_type, statement, why_not_supported, what_would_resolve_it,
-             verification_issue_key, sort_order
+             verification_issue_key, sort_order, resolution_state::text as resolution_state,
+             resolution_note, resolution_checked_at::text as resolution_checked_at
       from ${r.gaps}
       where quality_topic_id = ${topicId}
       order by sort_order
@@ -265,6 +266,9 @@ export async function readQualityTopic(
       // with compounds, so the fields are present and null rather than absent.
       researchQuestion: null,
       opportunityType: null,
+      resolutionState: str(g.resolution_state) ?? 'open',
+      resolutionNote: str(g.resolution_note),
+      resolutionCheckedAt: str(g.resolution_checked_at),
     })),
 
     relationships: relationshipRows.map((rel) => ({

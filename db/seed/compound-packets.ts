@@ -164,6 +164,19 @@ export async function loadCompoundPacket(
       })
       .returning({ id: schema.claims.id });
 
+    // Evidence the packet no longer lists is removed. When a citation is
+    // re-pointed from an abstract to the page of a full text, the abstract row
+    // must not survive in the database as a second reading nobody asserts.
+    const packetLocationIds = claim.evidence.map((evidence) => locationId(evidence.locationKey));
+    await db.execute(sql`
+      delete from claim_evidence
+       where claim_id = ${claimRow!.id}
+         and source_location_id <> all(${sql`array[${sql.join(
+           packetLocationIds.map((id) => sql`${id}::uuid`),
+           sql`, `,
+         )}]`})
+    `);
+
     for (const evidence of claim.evidence) {
       await db.execute(sql`
         insert into claim_evidence (
@@ -184,6 +197,9 @@ export async function loadCompoundPacket(
         )
         on conflict (claim_id, source_location_id) do update
           set interpretation = excluded.interpretation,
+              evidence_type_key = excluded.evidence_type_key,
+              relationship = excluded.relationship,
+              population_model = excluded.population_model,
               primary_trace = excluded.primary_trace,
               primary_trace_note = excluded.primary_trace_note,
               primary_source_verified = excluded.primary_source_verified
@@ -231,12 +247,15 @@ export async function loadCompoundPacket(
       insert into evidence_gaps (
         gap_key, peptide_id, gap_type, statement, why_not_supported,
         what_would_resolve_it, verification_issue_key, sort_order,
-        research_question, opportunity_type
+        research_question, opportunity_type,
+        resolution_state, resolution_note, resolution_checked_at
       ) values (
         ${`${packet.packetKey}-gap-${String(index + 1).padStart(2, '0')}`},
         ${peptide.id}, ${gap.gapType}::evidence_gap_type, ${gap.statement}, ${gap.why},
         ${gap.whatWouldResolveIt}, ${gap.verificationIssueKey}, ${index},
-        ${gap.researchQuestion}, ${gap.opportunityType}
+        ${gap.researchQuestion}, ${gap.opportunityType},
+        ${gap.resolution?.state ?? 'open'}::gap_resolution_state,
+        ${gap.resolution?.note ?? null}, ${gap.resolution?.checkedAt ?? null}
       )
       on conflict (gap_key) do update set
         gap_type = excluded.gap_type,
@@ -246,7 +265,10 @@ export async function loadCompoundPacket(
         verification_issue_key = excluded.verification_issue_key,
         sort_order = excluded.sort_order,
         research_question = excluded.research_question,
-        opportunity_type = excluded.opportunity_type
+        opportunity_type = excluded.opportunity_type,
+        resolution_state = excluded.resolution_state,
+        resolution_note = excluded.resolution_note,
+        resolution_checked_at = excluded.resolution_checked_at
     `);
   }
 

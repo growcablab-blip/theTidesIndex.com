@@ -330,7 +330,15 @@ describe('certificates', () => {
        where source_key in ('SRC-021','SRC-022','SRC-023','SRC-024','SRC-025','SRC-026')`,
     );
     expect(usp).toHaveLength(6);
+    // USP <71> and <85> became held research copies on 14 September 2026, on the
+    // owner's instruction (D-21); their provenance labelling is asserted in the
+    // unit suite. The other four chapters are still not held.
+    const RESEARCH_COPIES = new Set(['SRC-022', 'SRC-023']);
     for (const source of usp) {
+      if (RESEARCH_COPIES.has(source.source_key)) {
+        expect(source.access_status, source.source_key).toBe('held');
+        continue;
+      }
       expect(source.qc_status, source.source_key).toBe('pending');
       expect(source.access_status, source.source_key).toBe('subscription_required');
     }

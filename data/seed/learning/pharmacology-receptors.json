@@ -1,0 +1,250 @@
+{
+  "packetKey": "pharmacology-receptors",
+  "note": "Extracted 14 September 2026 from SRC-121, the Spanish-language publisher sample of Rang and Dale's Pharmacology, 10th edition, which holds chapter 2 (how drugs act: general principles) and nothing after it. Every claim is a paraphrase checked against the Spanish text; none is presented as the English edition's wording, and each should be re-checked against the English edition (SRC-122) when it is obtained. Locators are the book's own printed pages; printed page + 14 = file page. Two passages in the held text were not used because they are wrong as printed: the summary box on p. 22 calls occupancy 'proportional' to concentration (the body text on p. 20 gives the correct hyperbolic relation, which is what RECEPT-012 cites), and an online answer on p. 23.e2 writes 'antagonist' where agonist is meant. General pharmacology only: no drug-specific statement, no dosing, and none of the book's drug examples are carried into a claim.",
+  "topic": {
+    "topicKey": "pharmacology-receptors",
+    "slug": "receptors-agonists-antagonists",
+    "title": "Receptors, agonists and antagonists",
+    "publicationChapter": "Understanding Peptides — Five: Receptors; Peptide Science & Applications — Four: Receptors, signalling and modulation",
+    "summary": "How a molecule acts at a receptor: binding and activation as separate steps, what agonists, partial agonists, inverse agonists and antagonists are, how antagonism can be overcome or not, and why responses fade with repeated exposure. General principles from a pharmacology textbook, not statements about any peptide in this index.",
+    "notes": "Rests on a partial, translated sample. Cell signalling beyond the receptor (Rang and Dale chapter 3) and every pharmacokinetic concept (chapters 9–11) are absent from the held file and recorded below as gaps."
+  },
+  "locations": [
+    { "key": "rang-es-p6", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 6 (Spanish edition)", "pageStart": 6, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Introducción" },
+    { "key": "rang-es-p7", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 7 (Spanish edition)", "pageStart": 7, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Dianas de la acción farmacológica; Receptores en sistemas fisiológicos; Especificidad de los fármacos" },
+    { "key": "rang-es-p8", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 8 (Spanish edition)", "pageStart": 8, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Interacciones fármaco-receptor" },
+    { "key": "rang-es-p10", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 10 (Spanish edition)", "pageStart": 10, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Relación entre concentración y efecto de un agonista; Receptores de reserva" },
+    { "key": "rang-es-p11", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 11 (Spanish edition)", "pageStart": 11, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Antagonismo competitivo" },
+    { "key": "rang-es-p12", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 12 (Spanish edition)", "pageStart": 12, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Antagonismo competitivo irreversible" },
+    { "key": "rang-es-p13", "sourceKey": "SRC-121", "locatorText": "ch. 2, pp. 13–14 (Spanish edition)", "pageStart": 13, "pageEnd": 14, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Agonistas parciales y concepto de eficacia" },
+    { "key": "rang-es-p14", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 14 (Spanish edition)", "pageStart": 14, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Agonistas parciales como antagonistas; Activación constitutiva del receptor y agonistas inversos" },
+    { "key": "rang-es-p16", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 16 (Spanish edition)", "pageStart": 16, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "El modelo de los dos estados del receptor; Agonismo sesgado" },
+    { "key": "rang-es-p17", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 17 (Spanish edition)", "pageStart": 17, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Modulación alostérica" },
+    { "key": "rang-es-p19", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 19 (Spanish edition)", "pageStart": 19, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Tipos de antagonismos farmacológicos; Desensibilización y tolerancia" },
+    { "key": "rang-es-p20", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 20 (Spanish edition)", "pageStart": 20, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Aspectos cuantitativos de las interacciones fármaco-receptor: reacción de unión" },
+    { "key": "rang-es-p22", "sourceKey": "SRC-121", "locatorText": "ch. 2, p. 22 (Spanish edition)", "pageStart": 22, "chapter": "2. Cómo actúan los fármacos: principios generales", "section": "Naturaleza de los efectos de los fármacos" }
+  ],
+  "claims": [
+    {
+      "claimKey": "RECEPT-001",
+      "claimText": "Rang and Dale state, as a general principle, that for most drugs an effect requires the drug molecule to bind to particular constituents of cells or tissues, with a small number of named exceptions such as osmotic agents, antacids and chelators.",
+      "plainLanguageText": "For most medicines, a molecule has to attach to something specific in the body before it can do anything.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "high",
+      "interpretationNotes": "The starting premise of receptor pharmacology, stated as a general rule with exceptions. It says nothing about which constituent any particular peptide binds.",
+      "uncertaintyText": "Paraphrased from the Spanish translation of the 10th edition; the exceptions are given in a footnote on the same page.",
+      "evidence": [
+        { "locationKey": "rang-es-p6", "evidenceTypeKey": "academic_reference", "interpretation": "Opening section of chapter 2: drug molecules must bind to cell or tissue components to act, with footnoted exceptions.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-002",
+      "claimText": "Rang and Dale describe four main classes of protein drug target — receptors, enzymes, transporters and ion channels — and reserve 'receptor', in its pharmacological sense, for proteins whose role is to recognise and respond to the body's own chemical signals.",
+      "plainLanguageText": "Most medicines act on one of four kinds of protein, and a 'receptor' is specifically the kind built to pick up the body's own chemical messages.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "high",
+      "interpretationNotes": "Defines the vocabulary the rest of the topic uses. The book notes that 'receptor' is sometimes used loosely for any binding target; this index uses the narrower sense.",
+      "uncertaintyText": "Paraphrased from a summary box and adjacent text in the Spanish translation.",
+      "evidence": [
+        { "locationKey": "rang-es-p7", "evidenceTypeKey": "academic_reference", "interpretation": "Summary box 'Dianas de la acción farmacológica' and the section on receptors in physiological systems.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-003",
+      "claimText": "Rang and Dale define an agonist as a ligand that activates a receptor and an antagonist as one that can occupy the same site without activating it, thereby blocking the agonist's effect, and state that this agonist–antagonist vocabulary applies properly only to receptors.",
+      "plainLanguageText": "An agonist switches a receptor on; an antagonist sits in the same place without switching it on, which stops the switching-on molecule from working.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "critical",
+      "interpretationNotes": "The core definitions. Calling a peptide an 'agonist' at a receptor is a claim about activation at that receptor, which must itself be sourced for each peptide.",
+      "uncertaintyText": "Paraphrased from the Spanish translation.",
+      "evidence": [
+        { "locationKey": "rang-es-p7", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Receptores en sistemas fisiológicos': agonists activate receptors; antagonists bind the same site without activation; the distinction applies to receptors.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-004",
+      "claimText": "Rang and Dale describe drug–target specificity as reciprocal but never absolute: no drug acts with complete specificity, and in many cases a higher dose leads a drug to act on targets other than its principal one, which can produce side effects.",
+      "plainLanguageText": "Molecules and their targets are choosy about each other, but no medicine is perfectly choosy, and at higher amounts many start acting on other targets too.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "high",
+      "interpretationNotes": "A general caution against reading 'selective for receptor X' as 'acts only on receptor X'. It gives no threshold for any compound.",
+      "uncertaintyText": "Paraphrased from the Spanish translation. The Spanish term for off-target effects ('efectos colaterales o inespecíficos') has no single exact English equivalent; the paraphrase keeps the general sense.",
+      "evidence": [
+        { "locationKey": "rang-es-p7", "evidenceTypeKey": "academic_reference", "interpretation": "Summary box and section 'Especificidad de los fármacos': specificity is reciprocal; no drug is completely specific; higher doses engage other targets.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-005",
+      "claimText": "Illustrating receptor specificity with the peptide mediator angiotensin, Rang and Dale state that a very small structural change — converting one amino acid from the L to the D form, or removing one residue — can abolish activity because the receptor no longer recognises the altered molecule.",
+      "plainLanguageText": "Receptors can be so precise that changing a single building block of a peptide can stop it working altogether.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "An illustration of how precise receptor recognition can be, using one peptide. It supports the general point that near-identical sequences can be different molecules for a receptor; it is not a rule that every single-residue change abolishes activity.",
+      "uncertaintyText": "The book says such a change 'can' inactivate angiotensin; it is an example, not a generalisation. Paraphrased from the Spanish translation.",
+      "evidence": [
+        { "locationKey": "rang-es-p7", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Especificidad de los fármacos': the angiotensin example of a single L-to-D change or residue deletion inactivating the molecule.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement, read in Spanish translation. The angiotensin research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-006",
+      "claimText": "Rang and Dale treat binding and activation as distinct: a drug's affinity governs how readily it binds a receptor, and its efficacy governs how readily the bound receptor adopts an active state; in the simplest case an antagonist has zero efficacy.",
+      "plainLanguageText": "How well something sticks to a receptor, and how well it switches the receptor on once stuck, are two different properties.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "critical",
+      "interpretationNotes": "'Efficacy' here is receptor efficacy — a property of a molecule at a receptor — not clinical effectiveness in patients. Mixing the two senses is a common source of overstatement.",
+      "uncertaintyText": "Paraphrased from the Spanish translation; 'eficacia' is rendered in its pharmacological sense.",
+      "evidence": [
+        { "locationKey": "rang-es-p8", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Interacciones fármaco-receptor': affinity determines binding, efficacy determines activation; antagonists have zero efficacy in the simplest case.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-007",
+      "claimText": "Rang and Dale define a partial agonist as a drug of intermediate efficacy that gives less than the maximal tissue response even when it occupies all receptors, and state that efficacy has both drug-dependent and tissue-dependent components, so the same drug can behave as a full agonist, a partial agonist or an antagonist depending on receptor expression — the term being meaningful only for a specified tissue or cell type.",
+      "plainLanguageText": "A partial agonist switches a receptor only part-way on, and how 'strong' a molecule looks can depend on the tissue it is tested in.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "high",
+      "interpretationNotes": "Relevant whenever a peptide is described as a 'full' or 'partial' agonist on the strength of a cell-line experiment: the label is tied to the system in which it was measured.",
+      "uncertaintyText": "Paraphrased from the Spanish translation across two passages (pp. 8 and 13–14).",
+      "evidence": [
+        { "locationKey": "rang-es-p8", "evidenceTypeKey": "academic_reference", "interpretation": "Definition of partial agonists as intermediate-efficacy drugs giving a submaximal response at full occupancy.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." },
+        { "locationKey": "rang-es-p13", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Agonistas parciales y concepto de eficacia': efficacy depends on drug and tissue; the same drug can appear full, partial or antagonist; the term applies to a specified tissue.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-008",
+      "claimText": "Rang and Dale explain that a partial agonist, while producing some response of its own, competes with a higher-efficacy agonist for the same receptors and can therefore reduce that agonist's effect in the manner of a competitive antagonist.",
+      "plainLanguageText": "A weak switch sitting in a receptor can get in the way of a stronger one, so the same molecule can add a little effect and block a bigger one.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "General mechanism only; the book's clinical example is drug-specific and is not carried into this index.",
+      "uncertaintyText": "Paraphrased from the Spanish translation.",
+      "evidence": [
+        { "locationKey": "rang-es-p14", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Agonistas parciales como antagonistas'.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-009",
+      "claimText": "Rang and Dale describe a concentration–effect (or dose–response) curve as giving a maximal effect, the concentration or dose producing half of it, and a slope, and state that such curves cannot measure an agonist's affinity because response is generally not proportional to receptor occupancy; in some tissues a maximal response occurs with only a small fraction of receptors occupied ('spare receptors').",
+      "plainLanguageText": "A graph of response against amount shows how strong and how potent something is, but it cannot show how tightly it binds, because response and binding do not rise in step.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "high",
+      "interpretationNotes": "Explains why a potency figure (EC50) from one experiment is not a binding constant and does not transfer between tissues. Spare receptors mean a pool larger than a full response needs, not a functionally different set of receptors.",
+      "uncertaintyText": "Paraphrased from the Spanish translation. The English term 'spare receptors' renders 'receptores de reserva'.",
+      "evidence": [
+        { "locationKey": "rang-es-p10", "evidenceTypeKey": "academic_reference", "interpretation": "Sections on the concentration–effect relation and on spare receptors.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-010",
+      "claimText": "Rang and Dale state that reversible competitive antagonism can be overcome by raising the agonist concentration and shows as a parallel rightward shift of the agonist's log concentration–effect curve with an unchanged maximum, whereas irreversible competitive antagonism, in which the antagonist dissociates very slowly or not at all, cannot be overcome by more agonist and can depress the maximal response.",
+      "plainLanguageText": "When a blocker and an activator compete for the same spot, more activator can win it back — unless the blocker attaches and essentially does not let go.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "The book notes that irreversible antagonism is sometimes loosely called 'non-competitive', a term it treats as ambiguous; this index avoids it.",
+      "uncertaintyText": "Paraphrased from the Spanish translation. Where spare receptors exist, partial irreversible block may at first look like a parallel shift, as the book itself notes.",
+      "evidence": [
+        { "locationKey": "rang-es-p11", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Antagonismo competitivo': surmountable, parallel shift, unchanged maximum.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." },
+        { "locationKey": "rang-es-p12", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Antagonismo competitivo irreversible': slow or no dissociation, not surmountable, maximum can fall.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-011",
+      "claimText": "Rang and Dale state that some receptors are active with no ligand bound (constitutive activation); a ligand that lowers activity below that baseline is an inverse agonist, distinct from a neutral antagonist, and receptors can adopt more than two conformations, so agonists acting at the same receptor may favour different downstream responses ('biased agonism'), probably by stabilising different active states.",
+      "plainLanguageText": "Some receptors are a little 'on' by themselves, and two molecules can switch on the same receptor yet push the cell towards different responses.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "One reason 'acts on receptor X' does not fully describe what a molecule does. The book's hedge ('probably') is kept.",
+      "uncertaintyText": "Paraphrased from the Spanish translation across two sections. The downstream signalling that bias acts through is in chapter 3, which is not held.",
+      "evidence": [
+        { "locationKey": "rang-es-p14", "evidenceTypeKey": "academic_reference", "interpretation": "Section on constitutive receptor activation and inverse agonists.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." },
+        { "locationKey": "rang-es-p16", "evidenceTypeKey": "academic_reference", "interpretation": "Two-state model and biased agonism.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-012",
+      "claimText": "Rang and Dale describe allosteric modulators as ligands binding sites on a receptor distinct from the agonist site, which can raise or lower agonist affinity or efficacy or produce a response directly.",
+      "plainLanguageText": "Some molecules do not sit in a receptor's main slot but attach elsewhere on it and turn its response up or down.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "Defines 'modulation' in its receptor sense, which is narrower than the loose use of 'modulates' in practitioner material.",
+      "uncertaintyText": "Paraphrased from the Spanish translation; a related online answer (p. 23.e2) omits a word and is not cited.",
+      "evidence": [
+        { "locationKey": "rang-es-p17", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Modulación alostérica'.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-013",
+      "claimText": "Rang and Dale classify the ways one drug can reduce another's effect as chemical, pharmacokinetic, competitive (reversible or irreversible), interruption of receptor–effector coupling, and physiological antagonism, the last meaning two agents producing opposing effects by different mechanisms.",
+      "plainLanguageText": "One substance can weaken another in several quite different ways, only one of which is blocking the same receptor.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "low",
+      "interpretationNotes": "Useful when a source says one compound 'counteracts' another: the kind of antagonism is a separate question that the source must answer.",
+      "uncertaintyText": "Paraphrased from a summary box in the Spanish translation.",
+      "evidence": [
+        { "locationKey": "rang-es-p19", "evidenceTypeKey": "academic_reference", "interpretation": "Summary box 'Tipos de antagonismos farmacológicos'.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-014",
+      "claimText": "Rang and Dale describe desensitisation (tachyphylaxis) as a waning effect with continued or repeated exposure, often within minutes, and tolerance as a slower decline over hours to weeks, while noting the distinction is not strict; mechanisms include receptor changes, loss of receptors by internalisation after prolonged agonist exposure, mediator depletion, increased metabolic degradation and physiological adaptation.",
+      "plainLanguageText": "The body's response to a substance can fade with repeated exposure, sometimes within minutes and sometimes over weeks, for several different reasons.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "high",
+      "interpretationNotes": "A general explanation of why sustained exposure can behave differently from a single exposure. It does not show that any peptide in this index produces tolerance.",
+      "uncertaintyText": "Paraphrased from the Spanish translation; the book's own qualification that the distinction is not strict is kept.",
+      "evidence": [
+        { "locationKey": "rang-es-p19", "evidenceTypeKey": "academic_reference", "interpretation": "Sections on desensitisation, tolerance and receptor translocation.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-015",
+      "claimText": "Rang and Dale explain from the law of mass action that a drug–receptor pair's equilibrium dissociation constant equals the concentration occupying half the receptors at equilibrium, that a lower constant means higher affinity, and that occupancy rises with concentration as a rectangular hyperbola, which appears sigmoid on a logarithmic concentration scale.",
+      "plainLanguageText": "How tightly a molecule binds is described by the concentration at which it fills half the receptors — the lower that number, the tighter the binding.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "Cites the body text on p. 20. The summary box on p. 22 of the held Spanish text describes occupancy as 'proportional' to concentration, which contradicts the body text, and is not cited.",
+      "uncertaintyText": "Paraphrased from the Spanish translation. The contradiction in the summary box is a reason to re-check against the English edition.",
+      "evidence": [
+        { "locationKey": "rang-es-p20", "evidenceTypeKey": "academic_reference", "interpretation": "Section 'Reacción de unión': dissociation constant, half-occupancy, Hill–Langmuir relation.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    },
+    {
+      "claimKey": "RECEPT-016",
+      "claimText": "Rang and Dale distinguish a drug's immediate effects at its target from delayed, longer-term effects of sustained receptor activation — such as receptor down-regulation, tissue remodelling, tolerance and dependence — which they attribute to changes in gene expression while noting the linking mechanisms are often unknown.",
+      "plainLanguageText": "What a molecule does in the first minutes can differ from what sustained exposure does over days or weeks, and the longer-term changes are often not well understood.",
+      "claimCategory": "pharmacology-principle",
+      "importance": "medium",
+      "interpretationNotes": "Supports the general caution that short studies do not describe long-term exposure. It is not a statement about any compound's long-term effects.",
+      "uncertaintyText": "Paraphrased from the Spanish translation.",
+      "evidence": [
+        { "locationKey": "rang-es-p22", "evidenceTypeKey": "academic_reference", "interpretation": "Section on the nature of drug effects: immediate versus delayed long-term effects.", "primaryTrace": "cited_not_obtained", "primaryTraceNote": "A textbook statement of an established principle, read in Spanish translation. The research it summarises has not been obtained or read by this index." }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "source_missing",
+      "statement": "What a peptide is, how amino acids join into peptides and proteins, and where peptides act in the body (Understanding Peptides chapters One to Three).",
+      "why": "These chapters need a biochemistry textbook. The only file received for Lehninger Principles of Biochemistry (SRC-120) was a download-site advertisement, and no copy is held.",
+      "whatWouldResolveIt": "A genuine copy of Lehninger Principles of Biochemistry, 8th edition, with its title page read."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "How a receptor passes its signal into the cell: G-protein-coupled receptors, second messengers and other signalling pathways (Understanding Peptides chapter Four; Science & Applications chapter Four, signalling part).",
+      "why": "Rang and Dale cover this in chapter 3, which is absent from the held 40-page Spanish sample (SRC-121). Chapter 2 names signalling only in passing.",
+      "whatWouldResolveIt": "The complete 10th edition (SRC-122), chapter 3."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "Absorption, distribution, metabolism, elimination, half-life and bioavailability, and why route of administration changes them (Understanding Peptides chapter Seven; Science & Applications chapter Five).",
+      "why": "Rang and Dale's pharmacokinetics chapters (9 to 11) are absent from the held sample, so nothing about pharmacokinetics may rest on it.",
+      "whatWouldResolveIt": "The complete 10th edition (SRC-122), chapters 9 to 11."
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "The exact English wording of the receptor definitions above, as the English edition gives them.",
+      "why": "Every claim in this topic is a paraphrase of a Spanish translation whose own front matter disclaims responsibility for the translation, and two passages in the held text are wrong as printed.",
+      "whatWouldResolveIt": "Re-checking each claim against the English 10th edition (SRC-122) and recording its printed page."
+    }
+  ]
+}

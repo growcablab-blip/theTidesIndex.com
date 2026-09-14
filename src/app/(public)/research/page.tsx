@@ -4,6 +4,7 @@ import { getResearchQuestions } from '@/server/public/queries';
 import { previewResearchQuestions } from '@/server/public/preview';
 import type { ResearchQuestionEntry } from '@/server/public/research-index';
 import { Callout, Container, EmptyState } from '@/components/public/primitives';
+import { GapResolutionNote } from '@/components/public/quality-evidence';
 import {
   GAP_FAMILY,
   GAP_FAMILY_STYLE,
@@ -293,6 +294,7 @@ export default async function ResearchPage({ searchParams }: { searchParams: Sea
                           </div>
                         )}
                       </dl>
+                      <GapResolutionNote gap={q} />
                     </li>
                   ))}
                 </ul>

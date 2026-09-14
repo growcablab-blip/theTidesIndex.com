@@ -37,10 +37,12 @@ import type { PeptidePage } from '@/server/public/queries';
  * Second, it says only what this index can source. The register holds
  * extracted claims on synthesis, purification, characterisation, stability and
  * good-manufacturing expectations, and those chapters are written from them.
- * It holds nothing extracted on receptor pharmacology or absorption
- * physiology, so those chapters state the question, state that the index
- * cannot yet answer it, and stop. A chapter written from general knowledge
- * would read exactly like the sourced ones, which is the danger.
+ * Since 14 September 2026 it also holds general receptor pharmacology from a
+ * partial, translated textbook sample, so the receptor half of chapter four is
+ * written and labelled as such. It holds nothing on intracellular signalling or
+ * absorption physiology, so those parts state the question, state that the
+ * index cannot yet answer it, and stop. A chapter written from general
+ * knowledge would read exactly like the sourced ones, which is the danger.
  */
 
 export interface ScienceApplicationsProps {
@@ -383,21 +385,52 @@ export function ScienceAndApplications({
         />
       </PublicationPage>
 
-      {/* --- 4. Receptors and signalling: source needed ------------------------ */}
+      {/* --- 4. Receptors and signalling: receptor half sourced ---------------- */}
       <PublicationPage publication={PUBLICATION} section="Receptors and signalling">
         <ChapterOpener
           eyebrow="Four"
           title="Receptors, signalling and modulation"
-          standfirst="The chapter this index cannot yet write."
+          standfirst="Half of this chapter can now be written. The half inside the cell cannot."
         />
         <Body>
           A clinician reading a compound record meets mechanism language constantly: receptor
           agonism, selectivity, downstream signalling, modulation rather than stimulation. Those
-          words do real work, and a volume like this one ought to define them against a source.
+          words do real work, and the receptor half of them is now defined against a pharmacology
+          textbook — held only as a Spanish-language sample of its chapter 2, and paraphrased.
         </Body>
+        <SectionHeading>Binding is not activation</SectionHeading>
+        <Body>
+          Rang and Dale treat affinity — how readily a drug binds a receptor — and efficacy — how
+          readily the bound receptor adopts an active state — as separate properties; an antagonist,
+          in the simplest case, has affinity and no efficacy. A partial agonist gives less than the
+          maximal response even at full occupancy, and because efficacy has tissue-dependent
+          components, the same drug can look like a full agonist, a partial agonist or an antagonist
+          depending on receptor expression. “Partial agonist” is therefore a statement about a
+          tissue or cell system, not about a molecule in general.
+        </Body>
+        <Body>
+          A concentration–effect curve gives a maximum and a half-maximal concentration, but cannot
+          measure affinity, because response is generally not proportional to occupancy — in some
+          tissues a full response needs only a small fraction of receptors (“spare receptors”). An
+          EC50 from one experiment is not a binding constant and does not transfer between systems.
+        </Body>
+        <SectionHeading>Antagonism, inverse agonism and modulation</SectionHeading>
+        <Bullets
+          items={[
+            'Reversible competitive antagonism can be overcome with more agonist, and shifts the curve without lowering its maximum; irreversible competitive antagonism cannot, and can lower the maximum.',
+            'A partial agonist competing with a fuller one reduces its effect, behaving as a competitive antagonist.',
+            'Some receptors are active unoccupied; an inverse agonist lowers that baseline, which a neutral antagonist does not. Agonists at one receptor can also favour different downstream responses (“biased agonism”), probably by stabilising different active states.',
+            'Allosteric modulators bind away from the agonist site and can raise or lower affinity or efficacy — a narrower meaning of “modulates” than practitioner material usually intends.',
+            'Responses can wane with repeated exposure — desensitisation within minutes, tolerance over longer periods — by receptor change, receptor internalisation, mediator depletion, faster metabolism or physiological adaptation.',
+          ]}
+        />
+        <EvidenceNote
+          supports="Claims RECEPT-001 to RECEPT-016, extracted from chapter 2 (printed pp. 6–22) of Rang and Dale’s Pharmacology, 10th edition, held as a Spanish-language publisher sample (SRC-121). Paraphrases of the Spanish text, awaiting re-checking against the English edition (SRC-122, not held)."
+          doesNotSettle="Which receptor any compound in the register acts on, or how strongly: those are claims about a compound and are sourced, or not, on its record."
+        />
         <SourceNeeded
-          question="What does receptor agonism, antagonism or modulation mean, and what follows from a molecule binding more than one target?"
-          whatIsMissing="No pharmacology source has been extracted into this index. The textbooks held here cover synthesis, purification, characterisation, formulation and manufacture — not receptor pharmacology."
+          question="How does an activated receptor pass its signal into the cell — G-protein coupling, second messengers, kinase cascades — and why does that make one receptor produce different effects in different tissues?"
+          whatIsMissing="Rang and Dale cover this in chapter 3, which is not in the sample held. The complete English edition (SRC-122) is not held and, on owner direction, no further copy is being sought; no other source held explains intracellular signalling, so the question stays open rather than being answered from general knowledge."
           whatExists="What the register does hold is every mechanism statement its compound records make, each attributed to the source that made it, with the evidence class attached. Those are reports of mechanism, not an account of how mechanisms work."
         />
         <InTheRecords
@@ -443,9 +476,29 @@ export function ScienceAndApplications({
           supports="Computed from the pharmacokinetic observations in the records as they stand on the generation date."
           doesNotSettle="Whether the absent measurements exist in literature this index has not screened. An absence here is an absence in the register."
         />
+        <SectionHeading>Why swallowing a peptide rarely works</SectionHeading>
+        <Body>
+          Two open-access reviews of the field answer the qualitative question. A swallowed peptide
+          meets stomach acid and protein-cutting enzymes, then more enzymes in the intestine; if it
+          survives, it has to cross a mucus layer and a lining of cells sealed by tight junctions.
+          The reviews describe peptides as commonly large, water-loving and sensitive to enzymes and
+          acidity — properties that limit absorption by mouth — and describe poor membrane
+          permeability and poor stability in the body as the two built-in drawbacks of peptides as
+          a class, which is why most peptide drugs are injected. Approaches that loosen the gut lining
+          can also damage it, and several oral strategies had not been validated in large clinical
+          trials as of 2022. On time in the blood, one review states that cleavage by proteases
+          limits a peptide’s plasma half-life, and describes two design responses: unnatural building
+          blocks at cleavage sites, and attached fatty acids or plasma proteins that take the molecule
+          above the size the kidneys filter.
+        </Body>
+        <EvidenceNote
+          supports="Claims PK-01 to PK-05, PK-10 to PK-14 and PK-18, from Chen et al., Theranostics 2022 (SRC-146) and Wang et al., Signal Transduction and Targeted Therapy 2022 (SRC-143), both open-access narrative reviews read in full. Class-level statements as of 2022."
+          doesNotSettle="Anything about a particular peptide in the register, including whether an oral product reports any bioavailability. Neither review gives a class-wide bioavailability figure, and the only figures they give are for single products, so none is used."
+          status="Extracted and awaiting scientific review. These reviews are cited as themselves; they are not the pharmacology textbook this chapter was planned around."
+        />
         <SourceNeeded
-          question="Why is oral bioavailability hard for a peptide, and what determines it?"
-          whatIsMissing="No absorption-physiology source has been extracted. The question recurs across the register — several records report an oral route with no bioavailability figure — and this index can state that gap without being able to explain the underlying physiology from a source."
+          question="What do half-life, bioavailability, first-pass metabolism, clearance and volume of distribution mean, and how are they measured?"
+          whatIsMissing="The pharmacology textbook held (SRC-121) is a sample that stops before its pharmacokinetics chapters, and the complete English edition (SRC-122) is not held. The reviews held do not define these terms. Open textbooks that do were not used because their pages forbid ingestion into AI systems without permission (owner decision D-26)."
         />
       </PublicationPage>
 

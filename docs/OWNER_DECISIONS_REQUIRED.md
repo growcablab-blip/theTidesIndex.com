@@ -343,6 +343,106 @@ only work between here and a named reviewer approving a record.
 before — it is an hour of work and it would otherwise sit unused while the
 schema it writes to is already correct.
 
+## D-21 · USP <71> and <85> research copies are now used, on your instruction
+
+**What was done, 14 September 2026.** Your batch brief asked for the Scribd
+copies of USP <71> and <85> to be ingested with their provenance recorded.
+That reverses the 11 September refusal under V-017 and V-018, which held that
+only a licensed USP-NF copy could be used. The copies are registered as held
+research copies: content appears to reproduce the USP-NF chapter, distribution
+provenance unverified, not an official artifact obtained from USP, never
+redistributed. Every claim resting on them says so, and a unit test fails if
+any record describes them as official.
+
+**Why it needs you.** The <85> print names the subscriber who printed it and
+says "Do not distribute"; both were printed from someone else's subscription.
+Using them is your call, and it is recorded as yours.
+
+**Default if unanswered.** Keep using them as labelled; replace both with
+licensed USP-NF copies when a subscription is available.
+
+## D-22 · Rang and Dale is a 40-page Spanish proof sample
+
+**What was done.** The file is the 10th edition in Spanish translation, but
+only its front matter and chapter 2. Sixteen general receptor claims were
+extracted from chapter 2 as paraphrases of the Spanish text, each marked for
+re-checking against the English edition. Nothing on signalling or
+pharmacokinetics may rest on it, because those chapters are absent.
+
+**Why it needs you.** The English 10th edition (ISBN 9780323873956) would
+materially improve extraction: it holds the missing chapters, and the Spanish
+sample carries at least two printing errors and a publisher disclaimer of the
+translation.
+
+**Default if unanswered.** Keep chapter Five of Understanding Peptides resting
+on the Spanish sample, labelled; leave chapters on signalling and routes as
+briefs.
+
+## D-23 · Journal and registry figures are shown side by side, not reconciled
+
+**What was done.** For both phase 2 retatrutide trials, the article, registry
+record, posted results, protocol and statistical plan are separate sources
+under one trial. Where they differ — four 24-week weight values in the obesity
+trial, the 24-week placebo HbA1c in the diabetes trial, the number of sites —
+both figures are recorded with their exact locations and neither is preferred.
+
+**Why it needs you.** A reviewer may prefer a policy such as "the article's
+figure is quoted, the registry's is shown as a difference". The current rule
+quotes neither over the other.
+
+**Default if unanswered.** Keep both, and keep the difference visible.
+
+## D-24 · Documents this index tried and could not obtain
+
+- **NEJM Supplementary Appendix and protocol for the obesity trial.** Refused
+  by nejm.org (HTTP 403). They hold the 24-week secondary results and the
+  estimand analyses that might explain the article–registry differences.
+- **NCT04867785.csv.** Not present in the intake folder. The protocol and
+  statistical plan links quoted in the brief were used directly instead.
+- **Full texts** of Rosenstock 2023, Urva 2022, Bajaj 2026, Coskun 2022 and
+  Coskun 2025 (body composition). Each gap names what it would settle.
+
+**Default if unanswered.** Records stay at their current depth.
+
+## D-25 · Learning topics are a new kind of claim subject
+
+**What was done.** Foundational teaching claims (what a receptor is) now attach
+to a `learning_topics` row rather than to a compound or a quality topic. No
+public page renders them yet; the books cite them.
+
+**Why it needs you.** A future Learn page could render them the way quality
+topics are rendered. That is a product decision, not an evidence one.
+
+**Default if unanswered.** Books only, for now.
+
+## D-26 · Open textbooks that forbid AI ingestion were not used
+
+**What was done.** Following your source-hunting direction, OpenStax textbooks
+(Biology 2e, Anatomy and Physiology 2e, Pharmacology for Nurses) were considered
+as accessible sources for the foundational chapters and general
+pharmacokinetics. Their pages carry a CC BY-NC-SA 4.0 licence and a notice that
+the book may not be used to train, or be otherwise ingested into, large language
+models or generative AI offerings without OpenStax's permission. This index is
+built with an AI assistant, so the route was stopped as soon as the notice was
+found. Nothing extracted from them was kept: no source record, no claim. The
+private text snapshots were deleted.
+
+**What that leaves.** Formulation and "why most peptides are injected" are now
+answered from CC BY open-access reviews and ICH guidelines, which carry no such
+restriction. Three questions stay unanswered: Understanding Peptides chapters
+One to Four (what a peptide is; amino acids; peptides in the body; signalling),
+general pharmacokinetic definitions (half-life, bioavailability, clearance and
+related terms) and the individual routes of administration. Each is a recorded
+gap, and none is filled in from general knowledge.
+
+**Why it needs you.** Either permission from OpenStax, or an accessible source
+whose terms allow this use (for example CC BY peer-reviewed reviews or tutorial
+articles covering the basics). The NCBI Bookshelf's own terms would need checking
+title by title.
+
+**Default if unanswered.** Those chapters and definitions stay unwritten and
+marked as needing a source. No OpenStax material is used.
+
 ---
 
 # Closed by the owner, 13 September 2026

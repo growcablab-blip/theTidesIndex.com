@@ -3,6 +3,8 @@ import type { PgDatabase, PgQueryResultHKT } from 'drizzle-orm/pg-core';
 import * as schema from '../schema';
 import { loadEvidencePackets } from './evidence-packets';
 import { loadCompoundPackets } from './compound-packets';
+import { loadLearningPackets } from './learning';
+import { loadSourceArtifacts, loadTrialPackets } from './trials';
 import { loadLiteratureScreens } from './literature-screens';
 import { loadQualityMap } from './quality-map';
 import { loadSpecimenCertificate } from './certificates';
@@ -64,6 +66,11 @@ export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
   // Compounds load after the quality packets: both write source_locations, and
   // a compound packet cites the same source registry.
   const compoundPackets = await loadCompoundPackets(db);
+  // Artifacts describe copies of registered sources; trials cite locations the
+  // compound packets created, so both follow them.
+  await loadSourceArtifacts(db);
+  await loadLearningPackets(db);
+  await loadTrialPackets(db);
   // Screens load after the compounds they belong to, and before nothing:
   // they are a record of what a search returned, not an input to anything else.
   const literatureScreens = await loadLiteratureScreens(db);
@@ -241,6 +248,10 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
       integrityNotes: source.integrity_notes,
       verifiedAt: source.verified_at,
       verifiedBy: source.verified_by,
+      doi: source.doi,
+      pmid: source.pmid,
+      trialRegistryId: source.trial_registry_id,
+      canonicalUrl: source.canonical_url,
     }));
 
   if (rows.length === 0) return 0;
@@ -279,6 +290,10 @@ export async function seedSourceRegistry(db: SeedDb): Promise<number> {
         integrityNotes: sql`excluded.integrity_notes`,
         verifiedAt: sql`excluded.verified_at`,
         verifiedBy: sql`excluded.verified_by`,
+        doi: sql`excluded.doi`,
+        pmid: sql`excluded.pmid`,
+        trialRegistryId: sql`excluded.trial_registry_id`,
+        canonicalUrl: sql`excluded.canonical_url`,
       },
     });
 

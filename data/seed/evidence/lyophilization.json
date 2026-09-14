@@ -1,0 +1,168 @@
+{
+  "packetKey": "lyophilization",
+  "qualityKey": "lyophilization",
+  "note": "Extracted 14 September 2026 from Pardeshi et al., Future Journal of Pharmaceutical Sciences 2023;9:99 (SRC-123), an open-access review downloaded from the publisher, and EU GMP Annex 1 (SRC-124). The Costantino and Pikal volume (SRC-013) remains a bibliographic and index source only: the held file is its contents listing and supports nothing. The review is a narrative synthesis covering pharmaceuticals, biologics and nanomedicines generally, is unevenly edited, and is used only for general process description; no number is taken from it, and nothing in it is specific to any peptide in this index or to any product. Printed page = file page for SRC-123; Annex 1 printed page + 1 = file page.",
+  "topic": {
+    "shortDescription": "What freeze-drying does, what can go wrong during it, and why 'lyophilised' is a description of a process rather than a statement of quality.",
+    "simpleSummary": "Many peptide products arrive as a dry powder or 'cake' in a vial. That is usually the result of freeze-drying, also called lyophilisation: the solution is frozen and the water is then removed as vapour under low pressure, without the product passing back through a liquid.\n\nA review of the process describes why it is used — many protein and peptide medicines keep better as a solid than in solution — and how much depends on doing it well. The temperatures, pressures and timings used during drying affect the finished product, and when they are not controlled the dried material can collapse or be damaged. The review lists several separate qualities a freeze-dried product has, including how the cake looks, how much moisture is left, how it dissolves, its potency, its impurities and whether it is sterile. Each of those is its own measurement.\n\nFor sterile medicines, European manufacturing guidance treats everything that happens during freeze-drying as part of keeping the product sterile. None of these sources describes how any particular peptide product was dried.",
+    "practitionerSummary": "Pardeshi et al. (2023) describe lyophilisation as freezing, primary drying and secondary drying, removing water by sublimation below the triple point, and state that heating-fluid temperature, chamber pressure and the duration of both drying stages strongly affect finished-product quality, with uncontrolled variables risking denaturation, melting or cake collapse. They list probable critical quality attributes of freeze-dried products — cake appearance, reconstitution time, pH, residual moisture, potency, particulate matter, content uniformity, drug impurity and sterility — and state that enzyme, protein and peptide medicines are far more durable as solids than in solution. EU GMP Annex 1 treats lyophilisation as a critical process step whose sterility-affecting activities, from filling to completion of the cycle, are extensions of aseptic processing, and expects sterility sampling across lyophilisation loads (STER-007). The review is general and unevenly edited; no cycle, excipient system or shelf life for any peptide is sourced here.",
+    "whatItProves": "That a product was lyophilised means water was removed by freezing and sublimation — a process the held review describes as used because many protein and peptide medicines are more durable as solids.",
+    "whatItDoesNotProve": "It does not show that the drying cycle was controlled, that the product was not damaged during drying, that it remained sterile, what moisture remains, or how stable it is once reconstituted. Each of those is a separate quality attribute with its own result, and no held source gives a cycle, excipient or shelf life for any peptide product.",
+    "commonMisinterpretations": "Treating 'lyophilised' as a mark of quality or stability in itself. Assuming a dry cake is sterile, or stays stable after water is added."
+  },
+  "locations": [
+    {
+      "key": "pardeshi-p2",
+      "sourceKey": "SRC-123",
+      "locatorText": "Background, pp. 2–3",
+      "pageStart": 2,
+      "pageEnd": 3,
+      "section": "Background"
+    },
+    {
+      "key": "pardeshi-p6",
+      "sourceKey": "SRC-123",
+      "locatorText": "Implementation of QbD in freeze-dried product development, p. 6",
+      "pageStart": 6,
+      "section": "Implementation of quality by design in freeze-dried product development"
+    },
+    {
+      "key": "pardeshi-p8",
+      "sourceKey": "SRC-123",
+      "locatorText": "Table 1, p. 8",
+      "pageStart": 8,
+      "section": "Probable CMAs, CPPs and CQAs of freeze-dried product development",
+      "tableNumber": "1"
+    },
+    {
+      "key": "pardeshi-p20",
+      "sourceKey": "SRC-123",
+      "locatorText": "Freeze-dried injectables, p. 20",
+      "pageStart": 20,
+      "section": "Freeze-dried injectables"
+    },
+    {
+      "key": "annex1-p39",
+      "sourceKey": "SRC-124",
+      "locatorText": "§8.121 Lyophilization, p. 39",
+      "pageStart": 39,
+      "section": "8. Processes: lyophilization"
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "LYO-001",
+      "claimText": "A 2023 review describes freeze-drying as three steps — freezing, primary drying and secondary drying — in which water is removed from the frozen product by sublimation at reduced temperature and pressure.",
+      "plainLanguageText": "Freeze-drying freezes a product and then removes the water as vapour under low pressure.",
+      "claimCategory": "process-principle",
+      "importance": "high",
+      "interpretationNotes": "General process description from a secondary review. It describes the technique, not how any product was made.",
+      "uncertaintyText": "A narrative review of pharmaceuticals, biologics and nanomedicines generally; not peptide-specific.",
+      "evidence": [
+        {
+          "locationKey": "pardeshi-p2",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The three steps of freeze-drying and removal of water by sublimation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. Where it cites primary literature, none of those citations has been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LYO-002",
+      "claimText": "The review states that heating-fluid temperature, drying-chamber pressure and the duration of the primary and secondary drying stages have a major impact on the quality of the finished freeze-dried product, and that if these variables are not controlled they can cause denaturation, melting or collapse of the product.",
+      "plainLanguageText": "How a product is freeze-dried matters: poorly controlled drying can damage it.",
+      "claimCategory": "process-principle",
+      "importance": "high",
+      "interpretationNotes": "Why 'lyophilised' is not itself a quality claim: the process has parameters, and getting them wrong damages the product. No cycle for any product is given or implied.",
+      "uncertaintyText": "General review statement; the control limits it reproduces from other work are an example and are not taken into this index.",
+      "evidence": [
+        {
+          "locationKey": "pardeshi-p6",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Critical process parameters of freeze-drying and the consequences of failing to control them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. Where it cites primary literature, none of those citations has been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LYO-003",
+      "claimText": "The review lists cake appearance, reconstitution time, pH, residual moisture content, potency, concentration of solution, particulate matter, content uniformity, drug impurity and sterility as probable critical quality attributes of a freeze-dried product.",
+      "plainLanguageText": "A freeze-dried product has many separate qualities — how it looks, how much moisture is left, how it dissolves, its strength, its impurities and whether it is sterile — and each needs its own check.",
+      "claimCategory": "quality-attributes",
+      "importance": "medium",
+      "interpretationNotes": "Supports the general point that a lyophilised product has several distinct quality attributes, each with its own test. The table is labelled 'probable' and is an illustration, not a specification.",
+      "uncertaintyText": "A review's illustrative table; it sets no limits for any attribute.",
+      "evidence": [
+        {
+          "locationKey": "pardeshi-p8",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Table 1: probable critical quality attributes of freeze-dried products.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. Where it cites primary literature, none of those citations has been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LYO-004",
+      "claimText": "The review states that enzyme-, protein- and peptide-based medications are much more durable in solid form than in solution, and gives this as a reason freeze-drying is used for injectables.",
+      "plainLanguageText": "Protein and peptide medicines generally keep better dry than dissolved, which is why they are often freeze-dried.",
+      "claimCategory": "process-principle",
+      "importance": "medium",
+      "interpretationNotes": "An unquantified generalisation, consistent with the storage chapter already extracted from the peptide chemistry textbook. It gives no rate, shelf life or storage condition for any peptide.",
+      "uncertaintyText": "General statement in a secondary review; says nothing about stability after reconstitution.",
+      "evidence": [
+        {
+          "locationKey": "pardeshi-p20",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Solid-state durability of enzyme, protein and peptide medications as a rationale for freeze-dried injectables.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. Where it cites primary literature, none of those citations has been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LYO-005",
+      "claimText": "EU GMP Annex 1 treats lyophilisation of sterile products as a critical process step, and states that all activities that can affect the sterility of the product, from filling through to completion of the cycle, are to be regarded as extensions of the aseptic processing of the sterilised product.",
+      "plainLanguageText": "For sterile medicines, European rules treat freeze-drying as part of keeping the product sterile, not a separate step after it.",
+      "claimCategory": "sterile-processing",
+      "importance": "high",
+      "interpretationNotes": "Connects lyophilisation to sterility: a dried cake is only as sterile as the handling that produced it. Addresses sterility during drying, not cycle design or excipients.",
+      "uncertaintyText": "EU GMP guidance for licensed sterile products; says nothing about any research-use product.",
+      "evidence": [
+        {
+          "locationKey": "annex1-p39",
+          "evidenceTypeKey": "regulatory_reference",
+          "interpretation": "Lyophilisation as a critical process step; sterility-affecting activities are extensions of aseptic processing.",
+          "primaryTrace": "primary_source_is_cited",
+          "primaryTraceNote": "The guidance itself, obtained from the issuing body and read."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "primary_source_missing",
+      "statement": "How a freeze-drying cycle and excipient system is designed for any particular peptide.",
+      "why": "The held review is general and discusses excipients mainly for proteins and nanoformulations. The specialist text registered for this (SRC-013) is held only as its contents listing, and the owner is not required to obtain it this sprint.",
+      "whatWouldResolveIt": "A peptide-specific formulation and lyophilisation source, or the complete Costantino and Pikal volume, acquired and audited.",
+      "resolution": {
+        "state": "partially_resolved",
+        "checkedAt": "2026-09-14",
+        "note": "Checked 14 September 2026. The general logic of choosing excipients is now sourced on the formulation page (FORM-01 to FORM-15): start from a peptide's degradation routes, test pH early, and expect each excipient to help one peptide and not another. The formulation review is about liquid formulations; freeze-drying cycle design, lyoprotectants and design for any particular peptide remain unsourced."
+      }
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "How stable any peptide is after a freeze-dried product is reconstituted.",
+      "why": "The review lists reconstitution time as a quality attribute, which is not stability. No held source gives reconstituted stability for any peptide.",
+      "whatWouldResolveIt": "Product- or peptide-specific stability data after reconstitution, reported with conditions and methods.",
+      "resolution": {
+        "state": "open",
+        "checkedAt": "2026-09-14",
+        "note": "Checked 14 September 2026 and still open. ICH Q5C and Q1A(R2) now establish that, for registered products, stability after reconstitution is a separate property that has to be shown for the labelled conditions and period (FORM-22, FORM-28). That explains why the gap matters; it does not answer it for any peptide."
+      }
+    }
+  ]
+}

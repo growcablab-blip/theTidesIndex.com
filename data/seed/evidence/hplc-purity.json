@@ -227,14 +227,24 @@
       "why": "This is almost certainly true and the register does not support it. SRC-006 is a synthetic chemistry text: it addresses the evaluation of a synthetic product, not the release testing of a finished injectable, and sterility appears nowhere in the chapters extracted. No compendial or regulatory source on sterility testing is held at all.",
       "whatWouldResolveIt": "A current compendial sterility chapter or the equivalent regulatory guidance, acquired and put through the source audit.",
       "verificationIssueKey": "V-017",
-      "gapType": "source_missing"
+      "gapType": "source_missing",
+      "resolution": {
+        "state": "partially_resolved",
+        "checkedAt": "2026-09-14",
+        "note": "Checked 14 September 2026. Sterility is now sourced as its own topic: a separate microbiological test (USP <71>, held research copy of unverified distribution provenance) whose pass only means no organism was found in the units examined, with sterility assured by process design rather than testing (EU GMP Annex 1). No held source states the comparison with chromatographic purity directly, so the sentence itself stays unmade; the two facts are made separately on the sterility page."
+      }
     },
     {
       "statement": "A chromatographic purity result says nothing about bacterial endotoxin content.",
       "why": "The same gap. Endotoxin is a microbiological attribute of a finished preparation, tested by a method this register holds no source for.",
       "whatWouldResolveIt": "A current compendial bacterial endotoxins chapter, or the equivalent regulatory guidance.",
       "verificationIssueKey": "V-018",
-      "gapType": "source_missing"
+      "gapType": "source_missing",
+      "resolution": {
+        "state": "partially_resolved",
+        "checkedAt": "2026-09-14",
+        "note": "Checked 14 September 2026. Bacterial endotoxin is now sourced as its own topic: a lysate-based test with a dose-based, product-specific limit (USP <85>, held research copy of unverified distribution provenance; FDA ORA.007). No held source states the comparison with chromatographic purity directly, so the sentence itself stays unmade; the facts are made separately on the endotoxin page."
+      }
     },
     {
       "statement": "A purity figure on a certificate of analysis is calculated as the main peak's area as a percentage of total integrated peak area.",

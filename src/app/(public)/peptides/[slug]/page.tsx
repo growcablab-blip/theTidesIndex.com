@@ -7,6 +7,7 @@ import {
   type Citation,
   type PractitionerProtocol,
 } from '@/server/public/queries';
+import { TrialsSection } from '@/components/public/trials';
 import { getReadingMode } from '@/server/public/reading-mode';
 import {
   Callout,
@@ -153,6 +154,9 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
   const simple = mode === 'simple';
   const path = `/peptides/${peptide.slug}`;
+  // Read with the record, in the same session: dose arms are withheld in simple
+  // mode by the query, not here.
+  const trials = peptide.trials;
 
   const humanClaims = peptide.claims.filter((c) => c.evidence.some((e) => e.isHumanEvidence));
 
@@ -196,6 +200,9 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       count: peptide.claims.length,
       empty: peptide.claims.length === 0,
     },
+    ...(trials.length > 0
+      ? [{ id: 'trials', label: 'The trials behind it', count: trials.length }]
+      : []),
     ...(peptide.replication.length > 0
       ? [
           {
@@ -472,6 +479,19 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
         >
           <ClaimsByEvidenceClass claims={peptide.claims} simple={simple} />
         </Section>
+
+        {trials.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="trials"
+              title="The trials behind this record"
+              lede="Every registered trial the evidence above comes from, with the documents that describe it and how much of each this index holds. A substudy or later analysis is listed under its trial, not counted as another one."
+            >
+              <TrialsSection trials={trials} simple={simple} />
+            </Section>
+          </>
+        ) : null}
 
 
         {peptide.replication.length > 0 ? (

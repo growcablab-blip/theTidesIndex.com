@@ -88,12 +88,15 @@ describe('the extraction workflow, enforced', () => {
   });
 
   it('does not treat a first acquisition as a replacement', async () => {
-    // SRC-022 has never had a file. Nothing rests on it, so acquiring it flags
-    // nothing — the trigger fires only when a copy is exchanged for another.
+    // SRC-024 (USP <467>) has never had a file. Nothing rests on it, so acquiring
+    // it flags nothing — the trigger fires only when a copy is exchanged for
+    // another. This test used SRC-022 until 14 September 2026, when USP <71>
+    // gained a held copy and sterility claims resting on it: from then on,
+    // changing its hash is a genuine exchange and flagging those claims is right.
     await query(
       db,
       `update sources set local_file_sha256 = repeat('a', 64), access_status = 'held'
-       where source_key = 'SRC-022'`,
+       where source_key = 'SRC-024'`,
     );
 
     const flagged = await query<{ n: number }>(

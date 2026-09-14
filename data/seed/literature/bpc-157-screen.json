@@ -843,14 +843,14 @@
       "publicationTypes": [
         "Journal Article"
       ],
-      "studyType": "human_interventional",
+      "studyType": "human_observational",
       "evidenceClass": "human",
       "included": true,
       "primaryOrSecondary": "primary",
       "peptideIdentityCertainty": "stated",
-      "fullTextStatus": "abstract_only",
+      "fullTextStatus": "full_text_held",
       "classifiedBy": "manual",
-      "reason": "BPC-157 (10 mg total) injected around the bladder in 12 women with interstitial cystitis during a single cystoscopy, outcome by Global Response Assessment questionnaire. Original human observations. Uncontrolled, unblinded, single arm, single clinic, self-reported outcome, and the material was compounded by a 503A pharmacy rather than a characterised investigational product."
+      "reason": "BPC-157 (10 mg total) injected around the bladder in 12 women with interstitial cystitis during a single cystoscopy, outcome by Global Response Assessment questionnaire. Original human observations. Uncontrolled, unblinded, single arm, single clinic, self-reported outcome, and the material was compounded by a 503A pharmacy rather than a characterised investigational product. Full text read 14 September 2026: the authors describe a retrospective chart review of patients who had received an experimental treatment, so the study type is observational."
     },
     {
       "pmid": "36200148",

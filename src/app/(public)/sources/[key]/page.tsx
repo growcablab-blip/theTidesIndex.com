@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getSource, getSourceFunding } from '@/server/public/queries';
+import { getSource, getSourceArtifacts, getSourceFunding } from '@/server/public/queries';
 import { formatAuthors } from '@/components/public/citation';
 import {
   Callout,
@@ -53,10 +53,43 @@ const FUNDER_LABEL: Record<string, string> = {
   not_checked: 'Not checked',
 };
 
+const ARTIFACT_KIND_LABEL: Record<string, string> = {
+  publisher_version: 'Publisher’s version',
+  issuer_download: 'Issued by the authority itself',
+  registry_document: 'Posted to the trial registry',
+  registry_snapshot: 'Registry record as retrieved',
+  research_copy_unverified_distribution: 'Held research copy — distribution provenance unverified',
+  owner_transcription: 'Transcription made by the owner — not the publisher’s version',
+  partial_translated_copy: 'Partial copy of a translated edition',
+  machine_translated_derivative: 'Machine-translated derivative — never used for wording',
+  index_only: 'Contents listing only',
+  advertisement: 'Advertisement — not the work',
+  mislabelled_file: 'A different work under this title',
+  duplicate: 'Duplicate copy',
+  supplementary_material: 'Supplementary material',
+};
+
+const VERIFICATION_LABEL: Record<string, string> = {
+  matched_to_issuer: 'Byte-identical to the issuing body’s own file',
+  title_page_verified: 'Title page read and matched to the record',
+  abstract_verified_body_unverified: 'Abstract checked; body unverified',
+  transcription_unverified: 'Transcription unverified',
+  not_verified: 'Not verified',
+  identity_refuted: 'Identity refuted on inspection',
+};
+
+const DISPOSITION_LABEL: Record<string, string> = {
+  working_copy: 'Citations resolve to this copy',
+  retained_reference: 'Kept for reference; nothing cited from it',
+  not_retained: 'Recorded, not retained',
+  rejected: 'Rejected',
+};
+
 export default async function SourcePage({ params }: { params: Promise<{ key: string }> }) {
   const { key } = await params;
   const source = await getSource(key);
   const funding = await getSourceFunding(key);
+  const artifacts = await getSourceArtifacts(key);
 
   if (!source) notFound();
 
@@ -136,6 +169,49 @@ export default async function SourcePage({ params }: { params: Promise<{ key: st
           <DefinitionRow term="Statements resting on it">{source.citedByCount}</DefinitionRow>
         </dl>
       </Section>
+
+      {/*
+        The copy held, as distinct from the work.
+
+        A transcription is not the article it transcribes, a file named for a
+        textbook can be an advertisement, and a standard obtained from a
+        document-sharing site is not the same artefact as one obtained from its
+        publisher. What kind of copy this index holds is part of what a reader
+        needs to weigh a citation — never its filename or location.
+      */}
+      {artifacts.length > 0 ? (
+        <Section
+          id="copies"
+          title="The copies this index has handled"
+          lede="What each file received for this work turned out to be, and how far it was verified. Only a verified working copy can support a citation."
+        >
+          <ul className="max-w-[68ch] space-y-3">
+            {artifacts.map((artifact) => (
+              <li
+                key={artifact.artifactKey}
+                className="rounded-md border border-rule bg-warm-white px-5 py-4"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <p className="font-serif text-base text-ink">
+                    {ARTIFACT_KIND_LABEL[artifact.artifactKind] ?? artifact.artifactKind}
+                  </p>
+                  <span className="rounded-sm border border-rule px-1.5 py-0.5 text-2xs tracking-wide text-ink-soft uppercase">
+                    {DISPOSITION_LABEL[artifact.disposition] ?? artifact.disposition}
+                  </span>
+                </div>
+                <p className="mt-1 text-sm text-slate">
+                  {VERIFICATION_LABEL[artifact.verification] ?? artifact.verification}
+                  {artifact.language ? ` · language: ${artifact.language}` : ''}
+                  {artifact.pageCount ? ` · ${String(artifact.pageCount)} pages` : ''}
+                </p>
+                {artifact.publicNote ? (
+                  <p className="mt-2 text-sm text-ink-soft">{artifact.publicNote}</p>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
 
       {/*
         Who paid for it, where the source says so.
