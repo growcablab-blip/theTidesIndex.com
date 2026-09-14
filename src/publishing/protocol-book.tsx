@@ -386,13 +386,13 @@ export function ProtocolBook({
     >
       <Cover
         imprint="The Tides Index"
-        series="Reference series"
+        series="Reference series · Volume five"
         title="Peptide Protocols"
         subtitle="& Clinical Quick Reference"
         descriptor="Independent peptide science & clinical reference"
         editionLine={`Second version · generated ${generatedAt}`}
         statusLine={`${String(library.totalCount)} regimens, each as one named source published it. Nothing here is recommended, averaged, or reviewed.`}
-        mark={<SeriesMark width={300} volume={4} />}
+        mark={<SeriesMark width={300} volume={5} />}
       />
 
       {/* --- How to read this book ------------------------------------------ */}

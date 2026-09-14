@@ -186,7 +186,7 @@ export function ScienceAndApplications({
     >
       <Cover
         imprint="The Tides Index"
-        series="Reference series"
+        series="Reference series · Volume two"
         title="Peptide Science & Applications"
         subtitle="How to read the evidence behind a peptide"
         descriptor="Independent peptide science & clinical reference"

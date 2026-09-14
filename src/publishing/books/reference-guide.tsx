@@ -661,13 +661,13 @@ export function ReferenceGuide({
     >
       <Cover
         imprint="The Tides Index"
-        series="Reference series"
+        series="Reference series · Volume four"
         title="The Peptide Reference Guide"
         subtitle={`${String(peptides.length)} compound monographs`}
         descriptor="Independent peptide science & clinical reference"
         editionLine={`First edition · generated ${generatedAt}`}
         statusLine="Generated from structured records. Every monograph is awaiting human scientific review, and says so."
-        mark={<SeriesMark width={300} volume={3} />}
+        mark={<SeriesMark width={300} volume={4} />}
       />
 
       {/* --- How to read it --------------------------------------------------- */}

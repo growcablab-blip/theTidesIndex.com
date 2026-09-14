@@ -342,3 +342,38 @@ only work between here and a named reviewer approving a record.
 **Recommendation.** Build the form when the reviewer is ready to start, not
 before — it is an hour of work and it would otherwise sit unused while the
 schema it writes to is already correct.
+
+---
+
+# Closed by the owner, 13 September 2026
+
+The decisions below are settled. Each records the ruling and what it now
+constrains; none needs revisiting unless a source contradicts it.
+
+- **D-03 · Evidence classes.** No fourth class until source material requires
+  one. `analytical_characterisation` stays under preclinical.
+- **D-04 · Route taxonomy.** Add a route such as ophthalmic or
+  intraperitoneal when a source actually uses it; do not promote it to a
+  prominent general category without need.
+- **D-06 · Tremblay / CanLab dossier.** Remains unavailable. Source needed
+  until legitimate material is obtained; nothing is attributed to it.
+- **D-07 · Machine translation.** May support discovery and extraction. It
+  must stay labelled machine-assisted and unverified, and may never be
+  presented as verified translation.
+- **D-11 · Route `other`.** Kept for genuinely uncategorised source-reported
+  material.
+- **D-12 · Modified GRF (1-29).** Remains a separate canonical record from
+  CJC-1295.
+- **D-13 · Russian and Eastern European evidence.** May be represented from
+  English abstracts where that is all this index holds, and must stay
+  explicitly abstract-level.
+- **D-15 · Funding states.** "Not checked" and "none declared" remain
+  different states. Absence of metadata is never read as absence of conflict.
+- **D-16 · Understanding Peptides.** Stays PARTIAL DRAFT until the missing
+  evidence-backed chapters are written.
+- **D-17 · Readiness wording.** The phrase is "mechanically ready for
+  scientific review". Mechanical readiness never implies review.
+- **D-18 · Derived trace states.** Acceptable while the derivation is
+  deterministic and its rule is recorded on every row.
+- **D-20 · Reviewer onboarding.** Not built yet. The admin form is written
+  when the reviewer is ready to enter the workflow.

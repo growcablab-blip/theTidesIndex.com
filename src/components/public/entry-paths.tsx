@@ -106,34 +106,34 @@ interface TaskCard {
  */
 const TASKS: readonly TaskCard[] = [
   {
-    title: 'Explore a compound',
-    body: 'What it is, what has been studied, what was found, and what nobody has established yet.',
+    title: 'Understand a peptide',
+    body: 'What it is, what has been studied in people, what only in animals, and what nobody has established yet.',
     href: '/peptides',
   },
   {
-    title: 'Compare the evidence',
-    body: 'Human, preclinical, practitioner and regulatory evidence kept apart — and what changes when you stop treating them as one pile.',
+    title: 'Compare protocols',
+    body: 'Regimens exactly as each source published them — side by side, attributed, never merged into a recommendation.',
+    href: '/protocols',
+  },
+  {
+    title: 'Explore the evidence',
+    body: 'Human, preclinical and practitioner evidence kept apart, and what changes once you stop treating them as one pile.',
     href: '/evidence',
   },
   {
-    title: 'See what named sources report',
-    body: 'Regimens exactly as each source published them, attributed, never merged into a single recommendation.',
-    href: '/peptides',
-  },
-  {
-    title: 'Explore routes',
-    body: 'Which routes have been studied for which compound, in what population, and which are only reported.',
-    href: '/routes',
-  },
-  {
-    title: 'Understand quality and production',
-    body: 'Purity, identity, content, and what a certificate of analysis does and does not establish.',
+    title: 'Understand quality',
+    body: 'Purity, identity and content are three different questions. What a certificate answers, and what it does not.',
     href: '/quality',
   },
   {
-    title: 'See what is still unknown',
-    body: 'Every compound record carries what this index cannot tell you, and the research questions that follow from it.',
-    href: '/coverage',
+    title: 'See how peptides are made',
+    body: 'From a sequence on paper to material in a vial, and which step each test actually speaks to.',
+    href: '/quality/sequence-to-vial',
+  },
+  {
+    title: 'Explore open research questions',
+    body: 'What nobody has shown yet, why it matters, and the kind of study that would settle it.',
+    href: '/research',
   },
 ];
 

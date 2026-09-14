@@ -210,6 +210,24 @@ export default async function SequenceToVialPage() {
                       }
                     />
                   )}
+
+                  {/*
+                    What leaves this stage. It turns a list of topics into a
+                    journey, and it says nothing about the material beyond
+                    naming it — everything a stage establishes is in the
+                    claims above.
+                  */}
+                  {stage.handsOn === undefined ? null : (
+                    <p className="flex gap-2.5 text-sm text-slate">
+                      <span aria-hidden="true" className="text-tide-teal">
+                        ↓
+                      </span>
+                      <span>
+                        <span className="tracking-wide uppercase">Hands on: </span>
+                        {stage.handsOn}
+                      </span>
+                    </p>
+                  )}
                 </div>
               </li>
             );

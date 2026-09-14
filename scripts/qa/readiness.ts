@@ -8,7 +8,7 @@
  * people cites the research or only a handbook's account of it, whether every
  * regimen names the source that published it. A record can pass all of them
  * and still be wrong about the science, which is exactly why the last column
- * says "ready for review" rather than "good".
+ * says "mechanically ready for scientific review" rather than "good".
  *
  * The point is to stop a reviewer's first hour being spent finding missing
  * locators. Needs a database; start one with `npm run tides`.
@@ -115,7 +115,7 @@ try {
 
   console.log('');
   console.log(
-    '  RECORD              LOCATORS  HUMAN TRACED  SAFETY TRACED  PROTOCOLS  GAPS  FUNDING   READY',
+    '  RECORD              LOCATORS  HUMAN TRACED  SAFETY TRACED  PROTOCOLS  GAPS  FUNDING   MECHANICAL',
   );
   console.log('  ' + '-'.repeat(92));
 
@@ -137,15 +137,18 @@ try {
         `${String(row.protocols_attributed)}/${String(row.protocols)}`.padEnd(11) +
         `${String(row.questions)}/${String(row.gaps)}`.padEnd(6) +
         `${String(row.funded_sources)}/${String(row.cited_sources)}`.padEnd(10) +
-        (all ? 'ready' : 'not yet'),
+        (all ? 'ready for review' : 'not yet'),
     );
   }
 
   console.log('');
-  console.log(`  ${String(ready)} of ${String(rows.length)} records pass every mechanical check.`);
+  console.log(
+    `  ${String(ready)} of ${String(rows.length)} records are mechanically ready for scientific review.`,
+  );
   console.log('');
   console.log('  What these columns do not mean:');
-  console.log('    - Passing is not review. No record here has been read by a scientific reviewer.');
+  console.log('    - Mechanically ready is not reviewed. No record here has been read and');
+  console.log('      approved by a scientific reviewer.');
   console.log('    - "Human traced" counts claims whose evidence cites the research itself or an');
   console.log('      abstract of it, rather than a handbook’s account of a study. It does not mean');
   console.log('      a full text was read: that state is set by hand, by whoever read it.');

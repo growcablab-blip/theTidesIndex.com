@@ -41,6 +41,7 @@ import { previewPeptidePage } from '@/server/public/preview';
 import { PrintHeader } from '@/components/public/print-header';
 import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
 import { ProtocolComparison } from '@/components/public/protocol-comparison';
+import { ProtocolProvenanceFigure } from '@/components/public/protocol-figures';
 import { Disclosure } from '@/components/public/disclosure';
 import {
   ChemicalForms,
@@ -178,7 +179,9 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
    */
   const contents = [
     { id: 'overview', label: 'What it is' },
-    ...(peptide.identities.length > 0
+    // Practitioner depth only, like the section itself. A rail entry linking
+    // to an anchor that is not on the page is worse than a shorter rail.
+    ...(!simple && peptide.identities.length > 0
       ? [
           {
             id: 'nomenclature',
@@ -193,15 +196,6 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       count: peptide.claims.length,
       empty: peptide.claims.length === 0,
     },
-    ...(peptide.literatureScreens.length > 0
-      ? [
-          {
-            id: 'literature',
-            label: 'What a literature search returns',
-            count: peptide.literatureScreens[0]?.resultCount ?? 0,
-          },
-        ]
-      : []),
     ...(peptide.replication.length > 0
       ? [
           {
@@ -235,6 +229,17 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       count: peptide.protocolCountAll,
       empty: peptide.protocolCountAll === 0,
     },
+    // After the protocols, because that is where the section now sits: the
+    // ledger is how the evidence was assembled, not what a reader came for.
+    ...(!simple && peptide.literatureScreens.length > 0
+      ? [
+          {
+            id: 'literature',
+            label: 'What a literature search returns',
+            count: peptide.literatureScreens[0]?.resultCount ?? 0,
+          },
+        ]
+      : []),
     {
       id: 'disagreements',
       label: 'Disagreements and unknowns',
@@ -246,6 +251,9 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
       label: 'What would be useful to study',
       count: peptide.gaps.filter((g) => g.researchQuestion !== null).length,
     },
+    // The section simple mode ends on, and the only entry that exists solely
+    // for a patient.
+    ...(simple ? [{ id: 'ask', label: 'Questions worth asking a clinician' }] : []),
     ...(peptide.products.length > 0 || peptide.forms.length > 0
       ? [
           {
@@ -434,7 +442,15 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           </div>
         </Section>
 
-        {peptide.identities.length > 0 ? (
+        {/*
+          Nomenclature is practitioner depth. What a name denotes across
+          sources, with sequences and masses, is the single most consequential
+          thing on a record for somebody buying or prescribing — and for a
+          patient reading in plain language it is four analytical tables
+          between them and what is known. Simple mode says the compound is
+          sold under other names in its summary; this is the evidence for it.
+        */}
+        {!simple && peptide.identities.length > 0 ? (
           <>
             <hr className="tide-rule border-0" aria-hidden="true" />
             <Section
@@ -457,40 +473,6 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           <ClaimsByEvidenceClass claims={peptide.claims} simple={simple} />
         </Section>
 
-        {peptide.literatureScreens.length > 0 ? (
-          <>
-            <hr className="tide-rule border-0" aria-hidden="true" />
-            <Section
-              id="literature"
-              title="What a literature search returns"
-              lede="A search result is a list of things somebody still has to read. This is what one search returned, what each record turned out to be, and what that does and does not establish."
-            >
-              <div className="space-y-6">
-                {peptide.literatureScreens.map((screen) => (
-                  <div key={screen.id} className="space-y-6">
-                    <EvidenceLandscape screen={screen} />
-
-                    <Disclosure
-                      summary="Every human record the screen identified"
-                      detail="Including the ones that carry a human sample but gave nobody the compound, with the reason each was counted or was not."
-                      count={screen.humanRecords.length}
-                      defaultOpen
-                    >
-                      <HumanRecords screen={screen} />
-                    </Disclosure>
-
-                    <Disclosure
-                      summary="How this search was run"
-                      detail="The query, the date, and the criteria — so that anyone can repeat it and check the answer."
-                    >
-                      <ScreenMethod screen={screen} />
-                    </Disclosure>
-                  </div>
-                ))}
-              </div>
-            </Section>
-          </>
-        ) : null}
 
         {peptide.replication.length > 0 ? (
           <>
@@ -557,6 +539,18 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
               which is the only reason this view exists. Practitioner mode only —
               the rows are amounts.
             */}
+            {/*
+              Provenance before detail. The table answers "what does each
+              source say"; this answers the question asked before that one —
+              is any of this from a trial, or is all of it practice?
+            */}
+            {!simple && peptide.protocols.length > 0 ? (
+              <ProtocolProvenanceFigure
+                protocols={peptide.protocols as readonly PractitionerProtocol[]}
+                compoundName={peptide.canonicalName}
+              />
+            ) : null}
+
             {!simple && peptide.protocols.length > 1 ? (
               <Disclosure
                 summary="Compare what each source reports"
@@ -600,6 +594,53 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           </div>
         </Section>
 
+        {/*
+          The literature ledger sits after the practical sections rather than
+          before them.
+
+          It is the most database-like thing on the page — a screen of 230
+          records, their study types and the reason each was counted — and it
+          was the second thing a reader met. A clinician arriving for routes,
+          pharmacokinetics or what sources report had to scroll past a ledger
+          to reach them; the ledger is how the evidence section was built, not
+          what a reader came for. It stays in full, further down, where
+          somebody interrogating the screen will look for it.
+        */}
+        {!simple && peptide.literatureScreens.length > 0 ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="literature"
+              title="What a literature search returns"
+              lede="A search result is a list of things somebody still has to read. This is what one search returned, what each record turned out to be, and what that does and does not establish."
+            >
+              <div className="space-y-6">
+                {peptide.literatureScreens.map((screen) => (
+                  <div key={screen.id} className="space-y-6">
+                    <EvidenceLandscape screen={screen} />
+
+                    <Disclosure
+                      summary="Every human record the screen identified"
+                      detail="Including the ones that carry a human sample but gave nobody the compound, with the reason each was counted or was not."
+                      count={screen.humanRecords.length}
+                      defaultOpen
+                    >
+                      <HumanRecords screen={screen} />
+                    </Disclosure>
+
+                    <Disclosure
+                      summary="How this search was run"
+                      detail="The query, the date, and the criteria — so that anyone can repeat it and check the answer."
+                    >
+                      <ScreenMethod screen={screen} />
+                    </Disclosure>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          </>
+        ) : null}
+
         <hr className="tide-rule border-0" aria-hidden="true" />
 
         <Section
@@ -619,6 +660,43 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
         >
           <ResearchOpportunities peptide={peptide} />
         </Section>
+
+        {/*
+          Simple mode ends by handing the reader somewhere useful.
+          A patient-facing record that stops at "this is not established"
+          leaves somebody with a worry and nothing to do with it. These are
+          questions, not advice: the page answers none of them, and none of
+          them is about what to take or how much.
+        */}
+        {simple ? (
+          <>
+            <hr className="tide-rule border-0" aria-hidden="true" />
+            <Section
+              id="ask"
+              title="Questions worth asking a clinician"
+              lede="If this compound has come up in a conversation about your health, these are the questions this record suggests. It cannot answer them for you."
+            >
+              <ul className="max-w-[66ch] space-y-3">
+                {[
+                  'Has this been studied in people for my situation, or only in animals and laboratories?',
+                  'If there are human studies, did they have a comparison group — and were the people in them like me?',
+                  'What would we be watching to know whether it is working, and by when?',
+                  'What would make you stop?',
+                  'What is simply unknown here, as opposed to known and reassuring?',
+                ].map((question) => (
+                  <li key={question} className="flex gap-3 text-ink-soft">
+                    <span aria-hidden="true" className="mt-[0.6rem] h-px w-3 shrink-0 bg-tide-teal" />
+                    <span>{question}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 max-w-[66ch] text-sm text-slate">
+                The full evidence behind everything above — every source, the exact page, and how
+                far each citation has been traced — is in the practitioner view.
+              </p>
+            </Section>
+          </>
+        ) : null}
 
         <hr className="tide-rule border-0" aria-hidden="true" />
 

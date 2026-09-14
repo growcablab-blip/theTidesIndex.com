@@ -13,6 +13,15 @@ export interface VialStage {
   readonly name: string;
   readonly lines: readonly [string] | readonly [string, string];
   readonly question: string;
+  /**
+   * What leaves this stage and arrives at the next one.
+   *
+   * Structure, not content: it names the material handed on, which is what
+   * turns a list of topics into a journey. It states no property of the
+   * material and cites nothing, because everything a stage *establishes* comes
+   * from its claims.
+   */
+  readonly handsOn?: string;
   readonly claimKeys: readonly string[];
   /** Why a stage has no claims, where that is known. Status, not content. */
   readonly missing?: string;
@@ -33,6 +42,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Sequence and process design',
     lines: ['Sequence and', 'process design'],
     question: 'How will this sequence be made, and at what scale?',
+    handsOn: 'A sequence and a plan for making it.',
     claimKeys: ['SPPS-006', 'SPPS-007'],
   },
   {
@@ -40,6 +50,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Raw materials',
     lines: ['Raw materials'],
     question: 'Were the ingredients specified, tested and released before use?',
+    handsOn: 'Resin, protected amino acids, reagents and solvents, each specified.',
     claimKeys: ['SPPS-008', 'TRACE-001'],
   },
   {
@@ -47,6 +58,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Chain assembly (solid-phase synthesis)',
     lines: ['Chain assembly', '(SPPS)'],
     question: 'How is the chain built, and where do errors enter?',
+    handsOn: 'A protected chain, still attached to the resin.',
     claimKeys: ['SPPS-001', 'SPPS-002', 'SPPS-005'],
   },
   {
@@ -54,6 +66,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Cleavage and deprotection',
     lines: ['Cleavage and', 'deprotection'],
     question: 'What can the step that frees the peptide do to it?',
+    handsOn: 'The peptide, free of the resin and its protecting groups.',
     claimKeys: ['SPPS-003'],
   },
   {
@@ -61,6 +74,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Crude peptide',
     lines: ['Crude peptide'],
     question: 'What else is in the material at this point?',
+    handsOn: 'Crude material: the intended peptide among the by-products of making it.',
     claimKeys: ['SPPS-004', 'PUR-001'],
   },
   {
@@ -68,6 +82,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Purification',
     lines: ['Purification'],
     question: 'How far was it purified, and for what purpose?',
+    handsOn: 'A purified fraction, at whatever level the intended use asked for.',
     claimKeys: ['PUR-002', 'PUR-003', 'PUR-004'],
   },
   {
@@ -75,6 +90,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Analytical characterisation',
     lines: ['Analytical', 'characterisation'],
     question: 'Do independent tests agree that this is the intended peptide?',
+    handsOn: 'The same material, now with measurements attached to it.',
     claimKeys: ['PUR-005'],
     related: [
       { href: '/quality/hplc-purity', label: 'HPLC purity' },
@@ -87,6 +103,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Bulk peptide (API) and batch record',
     lines: ['Bulk peptide', '(API)'],
     question: 'Is there a batch record, with in-process checks and a formal release?',
+    handsOn: 'Bulk peptide with a batch record behind it.',
     claimKeys: ['TRACE-002', 'TRACE-004', 'TRACE-005'],
   },
   {
@@ -94,6 +111,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Formulation',
     lines: ['Formulation'],
     question: 'What else was added, and why?',
+    handsOn: 'The peptide with whatever else the product contains.',
     claimKeys: [],
     missing:
       'The formulation text registered for this (SRC-014) is not the registered work, and no other held source covers peptide formulation.',
@@ -103,6 +121,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Fill and finish',
     lines: ['Fill and finish'],
     question: 'How was the material put into vials and sealed?',
+    handsOn: 'Material in its final container, sealed.',
     claimKeys: [],
     missing: 'No held source describes filling, sealing or sterile processing of peptide products.',
   },
@@ -111,6 +130,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Lyophilisation',
     lines: ['Lyophilisation'],
     question: 'Was it freeze-dried, and how?',
+    handsOn: 'A dried cake in a vial.',
     claimKeys: [],
     missing:
       'The lyophilisation text registered for this (SRC-013) is a two-page contents listing. The storage stage below records what the held textbook says about freeze-drying research peptides for storage, which is not a manufacturing process.',
@@ -120,6 +140,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Finished-product release testing',
     lines: ['Release testing'],
     question: 'What was tested on the finished vial, not just the bulk peptide?',
+    handsOn: 'A batch either released or not, and the tests that decided.',
     claimKeys: [],
     missing:
       'No held source states release testing for finished peptide products. Sterility and bacterial endotoxin topics are blocked on compendial access.',
@@ -130,6 +151,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Storage',
     lines: ['Storage'],
     question: 'Could the material have changed since it was tested?',
+    handsOn: 'The same vials, older, under recorded conditions or unrecorded ones.',
     claimKeys: ['STAB-001', 'STAB-004', 'STAB-002', 'STAB-003', 'STAB-005', 'STAB-006'],
   },
   {
@@ -137,6 +159,7 @@ export const SEQUENCE_TO_VIAL_STAGES: readonly VialStage[] = [
     name: 'Transport and repackaging',
     lines: ['Transport and', 'repackaging'],
     question: 'Who handled it between the maker and you, and under what conditions?',
+    handsOn: 'A vial that has arrived somewhere, having been handled by somebody.',
     claimKeys: ['TRANS-001', 'TRANS-002', 'TRACE-006'],
   },
   {
