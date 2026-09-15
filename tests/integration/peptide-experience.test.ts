@@ -229,7 +229,7 @@ describe('peptide experience', () => {
     );
 
     expect(html).toContain('No column is recommended');
-    expect(html).toContain('Differs between sources');
+    expect(html).toContain('Difference between sources');
     for (const forbidden of ['Recommended', 'Best', 'Preferred', 'Consensus', 'Typical dose']) {
       expect(html, `comparison implies ${forbidden}`).not.toContain(forbidden);
     }
@@ -252,7 +252,9 @@ describe('peptide experience', () => {
     const html = renderToStaticMarkup(
       createElement(ProtocolComparison, { protocols, compoundName: 'BPC-157' }),
     );
-    expect(html).toContain('Not stated by this source');
+    // Owner decision: absence reads as "Not reported", never as a conflict.
+    expect(html).toContain('Not reported');
+    expect(html).not.toContain('Not stated by this source');
   });
 
   it('never merges two sources into one regimen', async () => {

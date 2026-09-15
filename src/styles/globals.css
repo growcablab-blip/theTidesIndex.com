@@ -318,17 +318,44 @@ p {
 }
 
 /* ==========================================================================
-   Print
+   Print — the public website on paper (browser print and Save as PDF)
 
    Reference pages are printed and taken into consultations, so print is a
    supported output rather than an afterthought. Citations are expanded, chrome
    is dropped, and the patient view stays patient-safe on paper — it is rendered
    from the same dose-free relation as the screen.
+
+   Owner decision (closed): printed material never hides content merely because
+   the web interface uses progressive disclosure. Every collapsed section is
+   expanded here, and again by <PrintExpander /> on beforeprint. What a reading
+   mode withholds was never sent to the page, so nothing crosses modes.
+
+   Sections:  1 page · 2 chrome · 3 disclosures · 4 page flow ·
+              5 wide drawings and tables · 6 links · 7 legibility
+   Checked by: npm run qa:print  (scripts/qa/print-web-pages.ts)
    ========================================================================== */
 
+.print-only {
+  display: none;
+}
+
 @media print {
+  /* --- 1. Page --------------------------------------------------------- */
   @page {
     margin: 18mm 16mm 20mm;
+
+    @bottom-left {
+      content: 'The Tides Index · thetidesindex.com';
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 7.5pt;
+      color: #333;
+    }
+    @bottom-right {
+      content: counter(page) ' / ' counter(pages);
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 7.5pt;
+      color: #333;
+    }
   }
 
   html {
@@ -340,9 +367,15 @@ p {
     color: #000;
   }
 
+  /* --- 2. Chrome: interactive-only controls and instructions ----------- */
   .no-print,
   nav[aria-label='Primary'],
-  .tide-rule {
+  .tide-rule,
+  .skip-link,
+  [data-reading-mode] form,
+  [data-reading-mode] button,
+  [data-reading-mode] input,
+  [data-reading-mode] select {
     display: none !important;
   }
 
@@ -350,62 +383,219 @@ p {
     display: block !important;
   }
 
-  a {
-    color: #000;
-    text-decoration: none;
+  /* A record page prints its own fuller header; the site masthead steps aside. */
+  [data-reading-mode]:has(.print-record-header) .print-site-masthead {
+    display: none !important;
   }
 
-  /* Expand citation targets so a printed page remains traceable. */
-  .print-url::after {
-    content: ' (' attr(data-print-url) ')';
-    font-size: 9pt;
-    color: #333;
-    word-break: break-all;
+  /* Sticky steppers and rails would repeat or overlap on every page. */
+  .sticky {
+    position: static !important;
   }
 
+  /* --- 3. Disclosures: expanded, their summary kept as a plain label ---- */
+  details::details-content {
+    content-visibility: visible !important;
+    display: block !important;
+  }
+
+  details > summary {
+    list-style: none;
+    cursor: auto;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .tides-disclosure {
+    border: 0 !important;
+    background: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .tides-disclosure > summary {
+    padding: 0 !important;
+    margin-top: 0.75rem;
+    border: 0 !important;
+    color: #000 !important;
+    font-weight: 600;
+  }
+  /* The open/closed chevron means nothing on paper. */
+  .tides-disclosure > summary > [aria-hidden='true'] {
+    display: none !important;
+  }
+  .tides-disclosure > div {
+    padding: 0.35rem 0 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* --- 4. Page flow ---------------------------------------------------- */
   h1,
   h2,
-  h3 {
+  h3,
+  h4,
+  h5 {
     break-after: avoid;
     page-break-after: avoid;
   }
 
-  table,
+  p,
+  li,
+  dd {
+    orphans: 3;
+    widows: 3;
+  }
+
   figure,
-  .avoid-break {
+  .avoid-break,
+  tr,
+  img,
+  svg {
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  /* Small bordered cards (tallies, entry cards) stay whole. */
+  a[class*='rounded'][class*='border'],
+  li[class*='rounded'][class*='border'] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * A block that holds an expanded disclosure is as tall as everything that was
+   * folded into it. Kept whole it jumps to the next page and strands its heading
+   * above a blank half-page, so it may break; the evidence cards inside it,
+   * each marked .avoid-break, still do not.
+   */
+  .avoid-break:has(.tides-disclosure) {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  figcaption {
+    break-before: avoid;
+    page-break-before: avoid;
   }
 
   thead {
     display: table-header-group;
   }
+  tfoot {
+    display: table-footer-group;
+  }
 
   .print-full-width {
     max-width: none !important;
   }
-}
 
-.print-only {
-  display: none;
-}
-
-/* ==========================================================================
-   Progressive disclosure
-
-   Depth is optional on screen and mandatory on paper. A printed reference with
-   a collapsed section on it is a printed reference with a hole in it, and the
-   whole argument for this section is that nothing was removed.
-   ========================================================================== */
-
-@media print {
-  .tides-disclosure > summary {
-    display: none;
+  /* --- 5. Wide drawings and tables: scale to the page, never clip ------ */
+  .overflow-x-auto,
+  .scroll-x,
+  .print-fit {
+    overflow: visible !important;
   }
-  .tides-disclosure {
-    border: 0;
+
+  /*
+   * Responsive swaps print their narrow version. Chromium applies breakpoints
+   * at the sheet width (A4 = 794px, past `md`), so a wide-screen layout such as
+   * the side-by-side protocol matrix (`hidden md:block`) printed at full width
+   * and shrank every page of the document to fit it. Its narrow counterpart
+   * (`md:hidden`, "narrow screens and print") holds the same comparison field by
+   * field. Hidden chrome keeps its .no-print.
+   */
+  .hidden.md\:block:not(.no-print) {
+    display: none !important;
   }
-  .tides-disclosure > div {
-    padding: 0;
+  .md\:hidden:not(.no-print) {
+    display: block !important;
+  }
+
+  /*
+   * A sideways-scrolling row of cards cannot scroll on paper, and left to spill
+   * it widens the document until Chromium shrinks every page to fit. It wraps.
+   */
+  .scroll-x.flex,
+  .overflow-x-auto.flex {
+    flex-wrap: wrap !important;
+  }
+  .scroll-x.flex > *,
+  .overflow-x-auto.flex > * {
+    flex-shrink: 1 !important;
+    max-width: 100%;
+  }
+
+  /* Screen minimum widths exist to make a drawing scroll; paper cannot scroll. */
+  [class*='min-w-'],
+  .print-fit {
+    min-width: 0 !important;
+  }
+
+  svg.print-fit,
+  svg[class*='min-w-'] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 230mm;
+  }
+
+  /* --- 6. Links -------------------------------------------------------- */
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* Citation targets carry an explicit print URL (a DOI, a registry record). */
+  .print-url::after {
+    content: ' (' attr(data-print-url) ')';
+    font-size: 8.5pt;
+    color: #222;
+    word-break: break-all;
+  }
+
+  /* Any other external link prints its address; internal navigation does not. */
+  main a[href^='http']:not(.print-url):not(.print-url-none)::after {
+    content: ' (' attr(href) ')';
+    font-size: 8.5pt;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: #222;
+    word-break: break-all;
+  }
+
+  /* --- 7. Legibility: near-black text, no meaning carried by a tint ---- */
+  .text-slate,
+  .text-slate-light,
+  .text-ink-soft,
+  .meta-label {
+    color: #222 !important;
+  }
+
+  .text-ink,
+  .text-deep-tide,
+  .text-tide-teal {
+    color: #000 !important;
+  }
+
+  /* White-on-teal on screen; backgrounds are not printed by default. */
+  .text-warm-white {
+    color: #000 !important;
+  }
+
+  .text-2xs {
+    font-size: 7.5pt !important;
+  }
+  .text-xs {
+    font-size: 8.5pt !important;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  [class*='backdrop-blur'] {
+    backdrop-filter: none !important;
   }
 }

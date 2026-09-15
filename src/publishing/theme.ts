@@ -69,6 +69,8 @@ export const colour = {
   cautionRule: '#e6d4ad',
   evidenceHuman: '#1f6b73',
   evidenceHumanBg: '#e4f0f1',
+  evidencePreclinical: '#7a6420',
+  evidencePreclinicalBg: '#f6f1e2',
   evidenceReference: '#5d6470',
   evidenceReferenceBg: '#eef0f3',
   white: '#ffffff',

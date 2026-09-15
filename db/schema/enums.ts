@@ -144,6 +144,22 @@ export const reviewableEntityType = pgEnum('reviewable_entity_type', [
   'disagreement',
   'publication',
   'publication_section',
+  // Migration 0028: a Tides synthesis carries human scientific review.
+  'editorial_synthesis',
+]);
+
+/**
+ * What a Tides synthesis interprets (migration 0028). Anything but `general`, and
+ * any synthesis about a compound, requires an approved human scientific review
+ * at its current version before it is published.
+ */
+export const synthesisInterpretationKind = pgEnum('synthesis_interpretation_kind', [
+  'general',
+  'mechanism',
+  'efficacy',
+  'safety',
+  'clinical_interpretation',
+  'protocol_interpretation',
 ]);
 
 /** Whether a source originated a protocol or is repeating/commenting on one. */

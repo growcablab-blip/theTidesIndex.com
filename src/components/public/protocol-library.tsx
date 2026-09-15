@@ -8,11 +8,10 @@ import type {
 import { ProtocolComparisonIllustration } from '@/components/illustrations';
 import {
   KEY_COMPARISON_FIELDS,
-  ProtocolContextBadge,
-  StatusShape,
-  compareProtocols,
-  evidenceContextLabel,
-} from './protocol-comparison';
+  compareProtocolFields,
+  type ProtocolFieldComparison,
+} from '@/domain/protocols/protocol-comparison';
+import { FieldStateMark, ProtocolContextBadge, evidenceContextLabel } from './protocol-comparison';
 
 /**
  * The protocol library's own presentation pieces.
@@ -121,12 +120,13 @@ function ChooserRow({ entry, filters }: { entry: ChooserEntry; filters: Protocol
     e.count += 1;
     evidence.set(label, e);
   }
-  const comparisons = protocols.length > 1 ? compareProtocols(protocols) : [];
-  const keyDiffers = comparisons.filter(
-    (c) => c.status === 'differs' && KEY_COMPARISON_FIELDS.includes(c.field.key),
-  );
-  const otherDiffers = comparisons.filter(
-    (c) => c.status === 'differs' && !KEY_COMPARISON_FIELDS.includes(c.field.key),
+  // Classified by the same module as the matrix. A field one record reports and
+  // another leaves unspecified is "reported by one", never a difference.
+  const comparisons = protocols.length > 1 ? compareProtocolFields(protocols) : [];
+  const key = comparisons.filter((c) => KEY_COMPARISON_FIELDS.includes(c.field.key));
+  const keyOf = (state: ProtocolFieldComparison['state']) => key.filter((c) => c.state === state);
+  const otherDifferences = comparisons.filter(
+    (c) => c.state === 'difference' && !KEY_COMPARISON_FIELDS.includes(c.field.key),
   ).length;
   const href = hrefFor(entry.slug, filters);
 
@@ -166,29 +166,14 @@ function ChooserRow({ entry, filters }: { entry: ChooserEntry; filters: Protocol
             </li>
           ))}
         </ul>
-        {protocols.length === 1 ? null : keyDiffers.length > 0 ? (
-          <p className="text-sm text-ink-soft">
-            <span className="mr-1.5 inline-flex items-center gap-1.5 font-medium text-[var(--color-caution)]">
-              <StatusShape status="differs" />
-              {keyDiffers.some((c) => c.acrossSources)
-                ? 'Differs between sources'
-                : 'Differs within one source’s records'}
-              :
-            </span>
-            {keyDiffers.map((c) => c.field.label.replace(' as reported', '')).join(' · ')}
-            {otherDiffers > 0 ? (
-              <span className="text-slate">
-                {' '}
-                · and {otherDiffers} further field{otherDiffers === 1 ? '' : 's'}
-              </span>
-            ) : null}
-          </p>
-        ) : (
-          <p className="inline-flex items-center gap-1.5 text-sm text-ink-soft">
-            <StatusShape status="same" />
-            No difference in wording on route, population, amount, frequency, duration or monitoring
-            {otherDiffers > 0 ? ` (${String(otherDiffers)} other field${otherDiffers === 1 ? '' : 's'} differ)` : ''}
-          </p>
+        {protocols.length === 1 ? null : (
+          <ChooserStates
+            difference={keyOf('difference')}
+            agreement={keyOf('agreement')}
+            single={keyOf('single')}
+            none={keyOf('none')}
+            otherDifferences={otherDifferences}
+          />
         )}
       </div>
 
@@ -202,6 +187,76 @@ function ChooserRow({ entry, filters }: { entry: ChooserEntry; filters: Protocol
         </Link>
       </div>
     </li>
+  );
+}
+
+const shortLabel = (c: ProtocolFieldComparison) => c.field.label.replace(' as reported', '');
+
+/**
+ * The key fields, sorted by state. Difference comes first because it is what a
+ * clinic most needs to see before opening the comparison; the other states are
+ * named so a reader told "no difference" cannot take it for "all agree".
+ */
+function ChooserStates({
+  difference,
+  agreement,
+  single,
+  none,
+  otherDifferences,
+}: {
+  difference: readonly ProtocolFieldComparison[];
+  agreement: readonly ProtocolFieldComparison[];
+  single: readonly ProtocolFieldComparison[];
+  none: readonly ProtocolFieldComparison[];
+  otherDifferences: number;
+}) {
+  const line = (
+    state: ProtocolFieldComparison['state'],
+    title: string,
+    list: readonly ProtocolFieldComparison[],
+    tone: string,
+  ) =>
+    list.length === 0 ? null : (
+      <li className="text-sm text-ink-soft" data-chooser-state={state}>
+        <span className={`mr-1.5 inline-flex items-center gap-1.5 ${tone}`}>
+          <FieldStateMark state={state} />
+          {title}:
+        </span>
+        {list.map(shortLabel).join(' · ')}
+      </li>
+    );
+
+  return (
+    <ul className="space-y-1">
+      {difference.length > 0 ? (
+        <li className="text-sm text-ink-soft" data-chooser-state="difference">
+          <span className="mr-1.5 inline-flex items-center gap-1.5 font-medium text-[var(--color-caution)]">
+            <FieldStateMark state="difference" />
+            {difference.some((c) => c.acrossSources)
+              ? 'Difference between sources'
+              : 'Difference within one source’s records'}
+            :
+          </span>
+          {difference.map(shortLabel).join(' · ')}
+          {otherDifferences > 0 ? (
+            <span className="text-slate">
+              {' '}
+              · and {otherDifferences} further field{otherDifferences === 1 ? '' : 's'}
+            </span>
+          ) : null}
+        </li>
+      ) : (
+        <li className="text-sm text-ink-soft" data-chooser-state="no-difference">
+          No difference on route, population, amount, frequency, duration or monitoring
+          {otherDifferences > 0
+            ? ` (${String(otherDifferences)} other field${otherDifferences === 1 ? '' : 's'} differ)`
+            : ''}
+        </li>
+      )}
+      {line('agreement', 'Agreement', agreement, 'text-tide-teal')}
+      {line('single', 'Reported by one only', single, 'text-slate')}
+      {line('none', 'Not reported', none, 'text-slate')}
+    </ul>
   );
 }
 

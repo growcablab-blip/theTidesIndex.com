@@ -44,8 +44,11 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   footer: {
+    // Anchored from the top, like the running head. Measured from the bottom, the
+    // renderer occasionally placed it off the sheet on a page that began with an
+    // element carried over from the page before.
     position: 'absolute',
-    bottom: 26,
+    top: page.height - 36,
     left: page.margin.inner,
     right: page.margin.outer,
     flexDirection: 'row',
@@ -363,36 +366,42 @@ export function ChapterOpener({
 
 export function SectionHeading({ children }: { children: ReactNode }) {
   return (
-    <Text
-      style={{
-        fontFamily: serif,
-        fontSize: type.section,
-        lineHeight: leading.section,
-        marginTop: RHYTHM,
-        marginBottom: 5,
-        color: colour.deepTide,
-      }}
-    >
-      {children}
-    </Text>
+    // The rule lives on a container, where the renderer honours it: a heading is
+    // never the last thing on a page, and carries a few lines of its section.
+    <View minPresenceAhead={72}>
+      <Text
+        style={{
+          fontFamily: serif,
+          fontSize: type.section,
+          lineHeight: leading.section,
+          marginTop: RHYTHM,
+          marginBottom: 5,
+          color: colour.deepTide,
+        }}
+      >
+        {children}
+      </Text>
+    </View>
   );
 }
 
 export function SubHeading({ children }: { children: ReactNode }) {
   return (
-    <Text
-      style={{
-        fontFamily: sans,
-        fontSize: type.micro,
-        letterSpacing: 1.2,
-        textTransform: 'uppercase',
-        color: colour.slate,
-        marginTop: RHYTHM,
-        marginBottom: 4,
-      }}
-    >
-      {children}
-    </Text>
+    <View minPresenceAhead={48}>
+      <Text
+        style={{
+          fontFamily: sans,
+          fontSize: type.micro,
+          letterSpacing: 1.2,
+          textTransform: 'uppercase',
+          color: colour.slate,
+          marginTop: RHYTHM,
+          marginBottom: 4,
+        }}
+      >
+        {children}
+      </Text>
+    </View>
   );
 }
 
@@ -432,7 +441,7 @@ export function Bullets({ items }: { items: readonly string[] }) {
   return (
     <View style={{ marginBottom: 8 }}>
       {items.map((item) => (
-        <View key={item} style={{ flexDirection: 'row', marginBottom: 4 }}>
+        <View key={item} style={{ flexDirection: 'row', marginBottom: 4 }} wrap={false}>
           <Text style={{ width: 14, color: colour.tideTeal, fontSize: type.body }}>—</Text>
           <Text
             style={{
@@ -651,9 +660,10 @@ export function EvidenceNote({
 
 export function SourceNote({ items }: { items: readonly string[] }) {
   return (
-    <View style={{ marginTop: 10 }} wrap={false}>
+    <View style={{ marginTop: 10 }} wrap={items.length > 6}>
       <View style={{ height: 0.75, backgroundColor: colour.rule, width: columns(4) }} />
       <Text
+        minPresenceAhead={40}
         style={{
           fontFamily: sans,
           fontSize: type.micro,
@@ -669,12 +679,13 @@ export function SourceNote({ items }: { items: readonly string[] }) {
       {items.map((item) => (
         <Text
           key={item}
+          wrap={false}
           style={{
             fontFamily: sans,
-            fontSize: type.micro,
+            fontSize: type.micro + 0.4,
             lineHeight: leading.tight,
-            color: colour.slate,
-            marginBottom: 2.5,
+            color: colour.inkSoft,
+            marginBottom: 3,
           }}
         >
           {item}
@@ -821,15 +832,20 @@ export function Table({
   widths?: readonly number[];
 }) {
   const flex = (index: number): number => widths?.[index] ?? 1;
+  // A short table is read as one object and never split. A long one may run
+  // across pages, repeating its header on each, with no row cut in half.
+  const long = rows.length > 12;
 
   return (
-    <View style={{ marginVertical: 9 }} wrap={false}>
+    <View style={{ marginVertical: 9 }} wrap={long}>
       <View
+        fixed={long}
         style={{
           flexDirection: 'row',
           borderBottomWidth: 1,
           borderBottomColor: colour.ink,
           paddingBottom: 5,
+          backgroundColor: colour.warmWhite,
         }}
       >
         {head.map((cell, index) => (
@@ -852,6 +868,7 @@ export function Table({
       {rows.map((row) => (
         <View
           key={row.join('|')}
+          wrap={false}
           style={{
             flexDirection: 'row',
             borderBottomWidth: 0.5,
@@ -891,8 +908,8 @@ export function Table({
  * honest response is to say so on the page and point at the live record rather
  * than to pretend a PDF is permanent.
  *
- * The square is a placeholder, drawn rather than imported: the real code points
- * at a per-publication URL that does not exist until the site is public.
+ * It carries no code yet: the real code points at a per-publication URL that
+ * does not exist until the site is public.
  */
 export function CurrentVersionBlock({
   url,
@@ -911,41 +928,16 @@ export function CurrentVersionBlock({
         borderTopColor: colour.rule,
         paddingTop: 14,
         marginTop: RHYTHM * 2,
+        maxWidth: columns(9),
       }}
       wrap={false}
     >
       {/*
-        No QR code, and no drawing of one.
-        A square of finder patterns that cannot be scanned is worse than nothing:
-        a reader points a phone at it, gets no result, and concludes the document
-        is broken. The real code needs a public URL, which does not exist yet, so
-        until it does the block says where to look in words.
+        No QR code, no drawing of one, and no empty box where one will go. A
+        square that cannot be scanned is worse than nothing, and a labelled hole
+        reads as unfinished. The real code needs a public URL, which does not
+        exist yet; until it does, the block says where to look in words.
       */}
-      <View
-        style={{
-          marginRight: 16,
-          width: 64,
-          height: 64,
-          borderWidth: 1,
-          borderColor: colour.rule,
-          borderStyle: 'dashed',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: colour.mist,
-        }}
-      >
-        <Text
-          style={{
-            fontFamily: sans,
-            fontSize: 5.6,
-            letterSpacing: 0.6,
-            color: colour.slate,
-            textAlign: 'center',
-          }}
-        >
-          CODE{'\n'}WHEN{'\n'}PUBLISHED
-        </Text>
-      </View>
       <View style={{ flex: 1 }}>
         <Text
           style={{

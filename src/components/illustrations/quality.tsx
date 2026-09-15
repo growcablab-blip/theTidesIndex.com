@@ -371,3 +371,377 @@ export function ChainOfCustodyIllustration({ id = 'ill-chain-of-custody' }: { id
     </Illustration>
   );
 }
+
+// ---------------------------------------------------------------------------
+// Purity ≠ identity ≠ content ≠ sterility ≠ endotoxin
+// ---------------------------------------------------------------------------
+
+type QuestionKey = 'purity' | 'identity' | 'content' | 'sterility' | 'endotoxin';
+
+function QuestionGlyph({ cx, cy, kind }: { cx: number; cy: number; kind: QuestionKey }) {
+  switch (kind) {
+    case 'purity':
+      return (
+        <g className="text-tide-teal">
+          <line x1={cx - 40} y1={cy + 14} x2={cx + 40} y2={cy + 14} className="text-slate" stroke="currentColor" strokeWidth={STROKE.hairline} />
+          <path d={`M ${String(cx - 38)} ${String(cy + 14)} L ${String(cx - 16)} ${String(cy + 14)} C ${String(cx - 8)} ${String(cy + 14)}, ${String(cx - 7)} ${String(cy - 16)}, ${String(cx)} ${String(cy - 16)} C ${String(cx + 7)} ${String(cy - 16)}, ${String(cx + 8)} ${String(cy + 14)}, ${String(cx + 16)} ${String(cy + 14)} L ${String(cx + 38)} ${String(cy + 14)}`} fill="none" stroke="currentColor" strokeWidth={STROKE.line} />
+        </g>
+      );
+    case 'identity':
+      return (
+        <g>
+          <circle cx={cx - 20} cy={cy} r={8} className="fill-deep-tide" />
+          <Label x={cx} y={cy + 6} lines={['≈']} size="md" tone="teal" weight={600} />
+          <circle cx={cx + 20} cy={cy} r={8} className="fill-warm-white text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} strokeDasharray="3 2" />
+        </g>
+      );
+    case 'content':
+      return (
+        <g className="text-tide-teal">
+          <line x1={cx - 22} y1={cy + 14} x2={cx + 22} y2={cy + 14} className="text-slate" stroke="currentColor" strokeWidth={STROKE.hairline} />
+          <rect x={cx - 14} y={cy - 2} width={10} height={16} rx={2} className="fill-tide-teal" />
+          <rect x={cx + 4} y={cy - 14} width={10} height={28} rx={2} className="fill-sea-glass" stroke="currentColor" strokeWidth={STROKE.hairline} />
+        </g>
+      );
+    case 'sterility':
+      return (
+        <g>
+          {[-16, 0, 16].map((dx, i) => (
+            <path
+              key={dx}
+              d={`M ${String(cx + dx - 6)} ${String(cy - 14)} h 12 v 22 q 0 5 -5 5 h -2 q -5 0 -5 -5 z`}
+              className={i === 0 ? 'fill-sea-glass text-tide-teal' : 'fill-warm-white text-slate'}
+              stroke="currentColor"
+              strokeWidth={STROKE.hairline}
+              strokeDasharray={i === 0 ? undefined : '3 2'}
+            />
+          ))}
+        </g>
+      );
+    case 'endotoxin':
+      return (
+        <g>
+          <line x1={cx - 24} y1={cy + 14} x2={cx + 24} y2={cy + 14} className="text-slate" stroke="currentColor" strokeWidth={STROKE.hairline} />
+          <line x1={cx - 24} y1={cy - 10} x2={cx + 24} y2={cy - 10} className="text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.line} strokeDasharray="4 3" />
+          <rect x={cx - 6} y={cy} width={12} height={14} rx={2} className="fill-tide-teal" />
+        </g>
+      );
+  }
+}
+
+export function SeparateQuestionsIllustration({ id = 'ill-separate-questions' }: { id?: string }) {
+  const questions: readonly { key: QuestionKey; title: string; asks: readonly string[]; not: readonly string[] }[] = [
+    { key: 'purity', title: 'Purity', asks: ['how mixed is', 'the sample?'], not: ['what the', 'substance is'] },
+    { key: 'identity', title: 'Identity', asks: ['is it the', 'intended molecule?'], not: ['how much of it', 'there is'] },
+    { key: 'content', title: 'Content', asks: ['how much peptide', 'is present?'], not: ['how pure', 'the sample is'] },
+    { key: 'sterility', title: 'Sterility', asks: ['did anything grow', 'in what was tested?'], not: ['that every', 'container is sterile'] },
+    { key: 'endotoxin', title: 'Endotoxin', asks: ['is it within the', 'product’s own limit?'], not: ['anything, without', 'that limit beside it'] },
+  ];
+  return (
+    <Illustration
+      id={id}
+      title="Five questions a vial raises, and five different tests"
+      description="Five tiles separated by not-equal signs. Purity asks how mixed the sample is, and does not show what the substance is. Identity asks whether it is the intended molecule, and does not show how much of it there is. Content asks how much peptide is present, and does not show how pure the sample is. Sterility asks whether anything grew in what was tested, and does not show that every container is sterile. Endotoxin asks whether the result is within the product's own limit, and means nothing without that limit beside it."
+      viewBox="0 0 800 290"
+      minWidth={640}
+      basis={{ kind: 'claims', claimKeys: ['HPLC-001', 'HPLC-002', 'HPLC-005', 'HPLC-006', 'HPLC-007', 'ID-002', 'STER-003', 'ENDO-003'] }}
+      caption="Purity, identity, content, sterility and endotoxin are separate questions, each answered by its own kind of test. A good answer to one is not an answer to any other, and each answers less than its name suggests."
+    >
+      {questions.map((q, i) => {
+        const x = 20 + i * 156;
+        const cx = x + 68;
+        return (
+          <g key={q.key}>
+            <rect x={x} y={30} width={136} height={220} rx={14} className="fill-warm-white text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} />
+            <Label x={cx} y={60} lines={[q.title]} serif size="md" weight={600} />
+            <QuestionGlyph cx={cx} cy={94} kind={q.key} />
+            <Label x={cx} y={132} lines={['asks']} size="xs" tone="slate" caps />
+            <Label x={cx} y={150} lines={q.asks} size="xs" tone="deep" weight={500} />
+            <line x1={x + 16} y1={184} x2={x + 120} y2={184} className="text-rule" stroke="currentColor" strokeWidth={STROKE.hairline} />
+            <Label x={cx} y={204} lines={['does not show']} size="xs" tone="caution" caps />
+            <Label x={cx} y={222} lines={q.not} size="xs" tone="soft" />
+            {i < questions.length - 1 ? <Label x={x + 146} y={146} lines={['≠']} size="lg" tone="slate" weight={600} /> : null}
+          </g>
+        );
+      })}
+      <Label x={400} y={276} lines={['Each test answers its own question. None of them answers another.']} size="xs" tone="slate" />
+    </Illustration>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// A chromatogram: one peak is not one substance
+// ---------------------------------------------------------------------------
+
+function peakPath(mu: number, sigma: number, height: number, base: number): string {
+  const pts: string[] = [];
+  for (let x = mu - 4 * sigma; x <= mu + 4 * sigma; x += 3) {
+    const y = base - height * Math.exp(-((x - mu) ** 2) / (2 * sigma * sigma));
+    pts.push(`${pts.length === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
+  }
+  return pts.join(' ');
+}
+
+export function ChromatogramIllustration({ id = 'ill-chromatogram' }: { id?: string }) {
+  const base = 180;
+  return (
+    <Illustration
+      id={id}
+      title="One symmetrical peak is not one substance"
+      description="Two chromatograms side by side, with no values. On the left, a single symmetrical peak that looks like one substance. On the right, the same sample under conditions that separate it: two overlapping peaks, the second a different species that had been hidden inside the first. Whether the two separate depends on the method and on the condition of the column."
+      viewBox="0 0 800 250"
+      minWidth={600}
+      basis={{ kind: 'claims', claimKeys: ['HPLC-002', 'HPLC-003', 'HPLC-004'] }}
+      caption="A purity test separates what is in a sample; it does not say what anything is. Peptides that differ by a single amino acid can come out as one clean peak, and a worn column can hide a difference a good one would show."
+    >
+      {[
+        { x0: 60, title: 'One symmetrical peak' },
+        { x0: 440, title: 'The same sample, separated' },
+      ].map((panel) => (
+        <g key={panel.x0}>
+          <Label x={panel.x0 + 150} y={36} lines={[panel.title]} serif size="md" weight={600} />
+          <line x1={panel.x0} y1={base} x2={panel.x0 + 300} y2={base} className="text-slate" stroke="currentColor" strokeWidth={STROKE.line} markerEnd={softArrowUrl(id)} />
+          <line x1={panel.x0} y1={base} x2={panel.x0} y2={56} className="text-slate" stroke="currentColor" strokeWidth={STROKE.line} />
+          <Label x={panel.x0 + 300} y={base + 22} lines={['time on the column']} size="xs" tone="slate" anchor="end" />
+        </g>
+      ))}
+      <path d={peakPath(210, 22, 110, base)} fill="none" className="text-tide-teal" stroke="currentColor" strokeWidth={STROKE.emphasis} />
+      <Label x={244} y={80} lines={['looks like one substance']} size="xs" tone="teal" anchor="start" weight={500} />
+
+      <path d={peakPath(572, 19, 104, base)} fill="none" className="text-tide-teal" stroke="currentColor" strokeWidth={STROKE.emphasis} />
+      <path d={peakPath(618, 19, 78, base)} fill="none" className="text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.emphasis} strokeDasharray="6 3" />
+      <Label x={646} y={102} lines={['a second species,', 'hidden in the first']} size="xs" tone="caution" anchor="start" weight={500} />
+
+      <Label x={400} y={238} lines={['Whether two species separate depends on the method and the column, not on the material.']} size="xs" tone="slate" />
+    </Illustration>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// The quality spine: sequence to final vial, with every check in its place
+// ---------------------------------------------------------------------------
+
+export type SpineStageKey =
+  | 'sequence'
+  | 'synthesis'
+  | 'purification'
+  | 'identity'
+  | 'content'
+  | 'sterility'
+  | 'fill'
+  | 'freeze-drying'
+  | 'batch'
+  | 'vial';
+
+/** The stages of the spine, shared with the print volume's chapter rail. */
+export const QUALITY_SPINE_STAGES: readonly { key: SpineStageKey; title: readonly string[]; note: string }[] = [
+  { key: 'sequence', title: ['Sequence'], note: 'the intended order' },
+  { key: 'synthesis', title: ['Synthesis'], note: 'built on beads' },
+  { key: 'purification', title: ['Purification'], note: 'purity checked' },
+  { key: 'identity', title: ['Identity'], note: 'mass compared' },
+  { key: 'content', title: ['Content'], note: 'amount measured' },
+  { key: 'sterility', title: ['Sterility and', 'endotoxin'], note: 'controlled, then tested' },
+  { key: 'fill', title: ['Fill and finish'], note: 'filled and sealed' },
+  { key: 'freeze-drying', title: ['Freeze-drying'], note: 'where it is used' },
+  { key: 'batch', title: ['Batch record'], note: 'documented, released' },
+  { key: 'vial', title: ['Final vial'], note: 'then stored and shipped' },
+];
+
+function SpineGlyph({ cx, cy, kind }: { cx: number; cy: number; kind: SpineStageKey }) {
+  switch (kind) {
+    case 'sequence':
+      return <JourneyGlyph cx={cx} cy={cy} glyph="sequence" />;
+    case 'synthesis':
+      return <JourneyGlyph cx={cx - 4} cy={cy + 2} glyph="beads" />;
+    case 'purification':
+      return <JourneyGlyph cx={cx} cy={cy} glyph="column" />;
+    case 'identity':
+      return (
+        <g>
+          <circle cx={cx - 13} cy={cy} r={6} className="fill-deep-tide" />
+          <Label x={cx} y={cy + 5} lines={['≈']} size="sm" tone="teal" weight={600} />
+          <circle cx={cx + 13} cy={cy} r={6} className="fill-warm-white text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} strokeDasharray="3 2" />
+        </g>
+      );
+    case 'content':
+      return (
+        <g className="text-tide-teal">
+          <line x1={cx - 16} y1={cy + 13} x2={cx + 16} y2={cy + 13} className="text-slate" stroke="currentColor" strokeWidth={STROKE.hairline} />
+          <rect x={cx - 11} y={cy - 1} width={8} height={14} rx={2} className="fill-tide-teal" />
+          <rect x={cx + 3} y={cy - 13} width={8} height={26} rx={2} className="fill-sea-glass" stroke="currentColor" strokeWidth={STROKE.hairline} />
+        </g>
+      );
+    case 'sterility':
+      return (
+        <g>
+          <path d={`M ${String(cx - 8)} ${String(cy - 14)} h 16 v 22 q 0 6 -6 6 h -4 q -6 0 -6 -6 z`} className="fill-sea-glass text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} />
+          <circle cx={cx} cy={cy} r={20} fill="none" className="text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.hairline} strokeDasharray="3 3" />
+        </g>
+      );
+    case 'fill':
+      return (
+        <g className="text-tide-teal">
+          <rect x={cx - 3} y={cy - 24} width={6} height={10} rx={1} className="fill-deep-tide" />
+          <circle cx={cx} cy={cy - 9} r={2} className="fill-tide-teal" />
+          <path d={`M ${String(cx - 10)} ${String(cy - 4)} h 20 v 20 q 0 6 -6 6 h -8 q -6 0 -6 -6 z`} className="fill-warm-white" stroke="currentColor" strokeWidth={STROKE.line} />
+          <rect x={cx - 7} y={cy + 8} width={14} height={9} rx={2} className="fill-sea-glass" />
+        </g>
+      );
+    case 'freeze-drying':
+      return (
+        <g>
+          {[-11, 0, 11].map((dx) => (
+            <path key={dx} d={`M ${String(cx + dx)} ${String(cy - 7)} l 5 7 l -5 7 l -5 -7 z`} className="fill-tide-teal" opacity={0.7} />
+          ))}
+        </g>
+      );
+    case 'batch':
+      return (
+        <g className="text-tide-teal">
+          <rect x={cx - 12} y={cy - 16} width={24} height={32} rx={2} className="fill-warm-white" stroke="currentColor" strokeWidth={STROKE.line} />
+          {[0, 1, 2].map((i) => (
+            <line key={i} x1={cx - 7} y1={cy - 8 + i * 8} x2={cx + 7} y2={cy - 8 + i * 8} stroke="currentColor" strokeWidth={STROKE.hairline} />
+          ))}
+        </g>
+      );
+    case 'vial':
+      return <JourneyGlyph cx={cx} cy={cy + 2} glyph="vial" />;
+  }
+}
+
+export function QualitySpineIllustration({
+  id = 'ill-quality-spine',
+  highlight = [],
+}: {
+  id?: string;
+  /** Stages to emphasise; the rest are drawn quietly. Empty draws every stage alike. */
+  highlight?: readonly SpineStageKey[];
+}) {
+  const xs = [80, 240, 400, 560, 720];
+  const isOn = (key: SpineStageKey) => highlight.length === 0 || highlight.includes(key);
+  const isMarked = (key: SpineStageKey) => highlight.includes(key);
+  return (
+    <Illustration
+      id={id}
+      title="From sequence to final vial, with each check in its place"
+      description="Ten stages in reading order across two rows. Sequence, the intended order of amino acids. Synthesis, built on beads. Purification, where purity is checked. Identity, where a measured mass is compared with the expected one. Content, where the amount is measured. Sterility and endotoxin, controlled along the way and tested on the finished product. Fill and finish, filled and sealed. Freeze-drying, where it is used. Batch record, documented and released. Final vial, then stored and shipped."
+      viewBox="0 0 800 290"
+      minWidth={640}
+      basis={{ kind: 'claims', claimKeys: ['SPPS-001', 'PUR-001', 'HPLC-002', 'ID-002', 'HPLC-005', 'STER-002', 'STER-008', 'STER-009', 'ENDO-003', 'LYO-001', 'TRACE-002', 'TRACE-005', 'TRANS-001'] }}
+      caption="The path from a sequence to a vial. Each check sits at a particular point along it, and a result describes the material at that point — not before it, and not after."
+    >
+      {QUALITY_SPINE_STAGES.map((stage, i) => {
+        const row = i < 5 ? 0 : 1;
+        const cx = xs[i % 5] ?? 0;
+        const cy = row === 0 ? 64 : 196;
+        const on = isOn(stage.key);
+        const marked = isMarked(stage.key);
+        return (
+          <g key={stage.key}>
+            <circle
+              cx={cx}
+              cy={cy}
+              r={34}
+              className={marked ? 'fill-sea-glass text-deep-tide' : on ? 'fill-warm-white text-tide-teal' : 'fill-warm-white text-rule'}
+              stroke="currentColor"
+              strokeWidth={marked || stage.key === 'vial' ? STROKE.emphasis : STROKE.line}
+            />
+            {on ? <SpineGlyph cx={cx} cy={cy} kind={stage.key} /> : <circle cx={cx} cy={cy} r={4} className="fill-rule" />}
+            <Label x={cx} y={cy + 50} lines={stage.title} size="sm" weight={600} tone={on ? 'ink' : 'slate'} lineHeight={1.2} />
+            <Label x={cx} y={cy + 50 + stage.title.length * 16} lines={[stage.note]} size="xs" tone={on ? 'soft' : 'slate'} />
+            {i % 5 < 4 ? (
+              <line x1={cx + 38} y1={cy} x2={cx + 120} y2={cy} stroke="currentColor" className="text-deep-tide" strokeWidth={STROKE.line} markerEnd={arrowUrl(id)} />
+            ) : null}
+          </g>
+        );
+      })}
+      <path d="M 756 64 C 792 64, 792 150, 752 150 L 112 150 Q 80 150 80 158" fill="none" stroke="currentColor" className="text-deep-tide" strokeWidth={STROKE.line} markerEnd={arrowUrl(id)} />
+    </Illustration>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Formulation: what else is in the vial, and why
+// ---------------------------------------------------------------------------
+
+export function FormulationIllustration({ id = 'ill-formulation' }: { id?: string }) {
+  const stresses = [
+    ['oxidation'],
+    ['breakdown by water,', 'strongly tied to acidity'],
+    ['clumping, from freezing,', 'heat or shaking'],
+    ['sticking to surfaces'],
+  ];
+  const answers = [
+    ['buffers, against', 'acidity-driven breakdown'],
+    ['antioxidants and', 'metal-binding agents'],
+    ['sugars, as stabilisers', 'against oxidation'],
+    ['surfactants, against', 'clumping from shaking'],
+  ];
+  return (
+    <Illustration
+      id={id}
+      title="What else is in a peptide product, and why"
+      description="A vial holding a peptide chain and several added ingredients. On the left, ways a peptide in solution can change: oxidation, breakdown by water that depends strongly on acidity, clumping from freezing, heat or shaking, and sticking to surfaces. On the right, ingredients formulations add against them: buffers, antioxidants and metal-binding agents, sugars, and surfactants. Beneath, a caution: some added ingredients can cause damage themselves, so each formulation has to be tested against the stresses it will meet."
+      viewBox="0 0 800 330"
+      minWidth={640}
+      basis={{ kind: 'claims', claimKeys: ['FORM-01', 'FORM-02', 'FORM-03', 'FORM-08', 'FORM-09', 'FORM-10', 'FORM-11', 'FORM-13', 'FORM-14', 'FORM-15', 'FORM-23'] }}
+      caption="Everything in a product besides the active substance is an excipient. Each is there against a way peptides change — and some can do harm of their own, so every formulation has to be tested against the stresses it will meet."
+    >
+      <Label x={24} y={36} lines={['How a peptide can change']} size="xs" tone="slate" anchor="start" caps />
+      <Label x={776} y={36} lines={['What formulations add']} size="xs" tone="slate" anchor="end" caps />
+
+      {/* The vial */}
+      <path d="M 364 58 h 72 v 14 h 8 v 158 q 0 14 -14 14 h -60 q -14 0 -14 -14 v -158 h 8 z" className="fill-warm-white text-tide-teal" stroke="currentColor" strokeWidth={STROKE.emphasis} />
+      <rect x={364} y={52} width={72} height={10} rx={3} className="fill-deep-tide" />
+      <rect x={362} y={126} width={76} height={110} rx={10} className="fill-sea-glass" />
+      <BeadChainLite points={[[378, 168], [396, 158], [414, 168], [432, 158]]} />
+      {(
+        [
+          [382, 206],
+          [412, 198],
+          [424, 222],
+        ] as const
+      ).map(([x, y]) => (
+        <path key={`${String(x)}-${String(y)}`} d={`M ${String(x)} ${String(y - 6)} l 6 10 h -12 z`} className="fill-deep-tide" opacity={0.6} />
+      ))}
+      <rect x={394} y={214} width={9} height={9} rx={1} className="fill-slate" opacity={0.6} />
+      <Label x={400} y={262} lines={['peptide, and excipients:']} size="xs" tone="deep" weight={500} />
+      <Label x={400} y={276} lines={['everything else in the product']} size="xs" tone="deep" weight={500} />
+
+      {stresses.map((lines, i) => {
+        const y = 80 + i * 46;
+        return (
+          <g key={lines[0]}>
+            <circle cx={30} cy={y - 4} r={5} className="fill-warm-white text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.line} />
+            <Label x={44} y={y} lines={lines} size="xs" tone="soft" anchor="start" />
+            <line x1={224} y1={y - 4} x2={350} y2={y - 4} className="text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.hairline} strokeDasharray={DASH} markerEnd={softArrowUrl(id)} />
+          </g>
+        );
+      })}
+      {answers.map((lines, i) => {
+        const y = 80 + i * 46;
+        return (
+          <g key={lines[0]}>
+            <line x1={590} y1={y - 4} x2={454} y2={y - 4} className="text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} markerEnd={arrowUrl(id)} />
+            <rect x={598} y={y - 10} width={12} height={12} rx={2} className="fill-tide-teal" />
+            <Label x={620} y={y} lines={lines} size="xs" tone="soft" anchor="start" />
+          </g>
+        );
+      })}
+
+      <rect x={96} y={292} width={608} height={30} rx={10} className="fill-caution-bg text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.hairline} />
+      <Label x={400} y={311} lines={['Some added ingredients can do harm themselves, so each formulation is tested against its own stresses.']} size="xs" tone="caution" />
+    </Illustration>
+  );
+}
+
+function BeadChainLite({ points }: { points: readonly (readonly [number, number])[] }) {
+  return (
+    <g className="text-deep-tide">
+      <polyline points={points.map(([x, y]) => `${String(x)},${String(y)}`).join(' ')} fill="none" stroke="currentColor" strokeWidth={STROKE.line} />
+      {points.map(([x, y]) => (
+        <circle key={`${String(x)}-${String(y)}`} cx={x} cy={y} r={6} className="fill-warm-white" stroke="currentColor" strokeWidth={STROKE.line} />
+      ))}
+    </g>
+  );
+}

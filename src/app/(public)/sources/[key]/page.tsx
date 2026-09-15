@@ -159,8 +159,7 @@ export default async function SourcePage({ params }: { params: Promise<{ key: st
               <a
                 href={source.canonicalUrl}
                 rel="noreferrer noopener"
-                className="print-url break-all underline decoration-rule underline-offset-2"
-                data-print-url={source.canonicalUrl}
+                className="print-url-none break-all underline decoration-rule underline-offset-2"
               >
                 {source.canonicalUrl}
               </a>

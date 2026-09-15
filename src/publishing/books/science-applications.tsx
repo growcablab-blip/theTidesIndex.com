@@ -18,6 +18,7 @@ import {
   Table,
 } from '../primitives';
 import { SeriesMark } from '../figures';
+import { IllustrationPlate } from '../illustration-print';
 import { colour, contentWidth, serif, type } from '../theme';
 import type { PeptidePage } from '@/server/public/queries';
 
@@ -108,6 +109,7 @@ function SourceNeeded({
 }) {
   return (
     <View
+      wrap={false}
       style={{
         borderWidth: 0.75,
         borderColor: colour.caution,
@@ -230,12 +232,22 @@ export function ScienceAndApplications({
         <Callout title="Why some chapters are short">
           <Text>
             The register holds extracted claims on synthesis, purification, characterisation,
-            stability and manufacturing expectation, and those chapters are written from them. It
-            holds nothing extracted on receptor pharmacology or absorption physiology. A chapter
-            written from general knowledge would look exactly like a sourced one on the page, and
-            that is the danger — so those chapters state the question and name what is missing.
+            stability and manufacturing expectation; on receptor pharmacology, from a partial
+            textbook sample and open-access reviews; and on pharmacokinetic concepts and routes,
+            from open-access reviews and public reference sources. Where a question has no source
+            it holds, a chapter written from general knowledge would look exactly like a sourced
+            one on the page — so the chapter states the question and names what is missing.
           </Text>
         </Callout>
+
+        <SectionHeading>How each chapter is built</SectionHeading>
+        <Body>
+          Concept first: the chapter’s opening line and, where one helps, a drawing. Then the
+          explanation. Then technical detail, set under its own label, for the reader who needs the
+          terms exactly. Then the sources. A reader can stop at any layer and has not been misled by
+          stopping.
+        </Body>
+        <IllustrationPlate illustration="editorial-states" />
       </PublicationPage>
 
       {/* --- 1. What a peptide is, at the bench ------------------------------- */}
@@ -252,6 +264,7 @@ export function ScienceAndApplications({
           driven towards completion with a large excess of soluble reagent, and the excess is then
           washed away rather than separated.
         </Body>
+        <IllustrationPlate illustration="sequence-to-vial" />
         <Body>
           Two consequences follow, and they matter clinically rather than only chemically. Chains
           that fail to react at a step become deletion peptides — molecules one residue short of
@@ -300,6 +313,7 @@ export function ScienceAndApplications({
           peptide is actually present — is separate again, and the three are routinely collapsed
           into a single percentage on a certificate.
         </Body>
+        <IllustrationPlate illustration="separate-questions" />
         <Comparison
           left={{
             title: 'What each technique establishes',
@@ -323,6 +337,7 @@ export function ScienceAndApplications({
           cannot. A certificate quoting one number from one technique has answered one of the three
           questions, and a reader who does not know which one has learned nothing reliable.
         </Body>
+        <IllustrationPlate illustration="chromatogram" />
         <EvidenceNote
           supports="Extracted claims from SRC-006 and the characterisation protocols (SRC-011), across the purity, identity and content topics."
           doesNotSettle="Whether any particular certificate is honest. This index holds analytical expectations, not audits of laboratories."
@@ -366,6 +381,7 @@ export function ScienceAndApplications({
           of that is a statement about any particular vial; it is what a compliant process looks
           like, which is the benchmark a reader can hold a supplier against.
         </Body>
+        <IllustrationPlate illustration="chain-of-custody" />
         <EvidenceNote
           supports="Extracted claims from SRC-006 and ICH Q7 (SRC-017), across the storage, transport and traceability topics."
           doesNotSettle="What happened to a specific shipment. Excursion records are what would answer that, and this index holds none."
@@ -408,6 +424,8 @@ export function ScienceAndApplications({
           depending on receptor expression. “Partial agonist” is therefore a statement about a
           tissue or cell system, not about a molecule in general.
         </Body>
+        <IllustrationPlate illustration="receptor-binding" />
+        <SubHeading>Technical detail</SubHeading>
         <Body>
           A concentration–effect curve gives a maximum and a half-maximal concentration, but cannot
           measure affinity, because response is generally not proportional to occupancy — in some
@@ -448,6 +466,7 @@ export function ScienceAndApplications({
           cautions that biased agonists’ effects often cannot be predicted from their pharmacological
           profiles and must be tested in a physiological context (Gundry et al. 2017).
         </Body>
+        <IllustrationPlate illustration="cell-signalling" />
         <Body>
           Tissue differences follow partly from receptor distribution: one paracrine signal can
           activate some cell types and inhibit others through different receptor subtypes, and a
@@ -542,6 +561,8 @@ export function ScienceAndApplications({
           curve quantifies overall exposure after a single dose; clearance is the aggregate of all
           elimination processes (Yousef et al. 2024).
         </Body>
+        <IllustrationPlate illustration="concentration-time" />
+        <SubHeading>Technical detail</SubHeading>
         <Body>
           The NCI Thesaurus defines volume of distribution as the apparent volume a compound occupies,
           assuming uniform distribution at the concentration measured in plasma or another tissue, and
@@ -570,7 +591,9 @@ export function ScienceAndApplications({
           toxin-derived peptide drugs Stepensky (2018) reviews, proteolysis acts at the sites of
           administration and distribution whatever the volume of distribution.
         </Body>
+        <IllustrationPlate illustration="circulation" />
 
+        <IllustrationPlate illustration="routes" />
         <SectionHeading>Routes</SectionHeading>
         <Body>
           Subcutaneous injection deposits drug in the interstitial space of the hypodermis — adipose
@@ -613,6 +636,7 @@ export function ScienceAndApplications({
           statement came from and therefore what it can support — a statement about people, a
           statement about a model, or a statement about what a source says.
         </Body>
+        <IllustrationPlate illustration="evidence-lanes" />
         <Body>
           The step from the second to the first is where most of the field goes wrong. An animal
           result establishes that something happened in that species, in that model, at that
@@ -620,16 +644,11 @@ export function ScienceAndApplications({
           translate, absence of harm does not translate, and a mechanism demonstrated in culture is
           not an effect in a body.
         </Body>
-        <SubHeading>What a design can answer</SubHeading>
-        <Bullets
-          items={[
-            'A randomised controlled trial can support a statement about effect.',
-            'An uncontrolled study describes what happened to the people in it and cannot separate treatment from natural course — which matters most in conditions that fluctuate.',
-            'A case report describes one person.',
-            'A pharmacokinetic study answers what the body does to the substance, not whether it helps.',
-            'A safety study that found no harm in a small group has not shown that the compound is safe.',
-          ]}
-        />
+        <IllustrationPlate illustration="study-design" />
+        <Body>
+          An uncontrolled study cannot separate treatment from natural course, and that matters most in
+          conditions that fluctuate.
+        </Body>
         <InTheRecords
           title="Where this bites in the register"
           lines={[
@@ -726,6 +745,7 @@ export function ScienceAndApplications({
           shows three schedules with three attributions, because the average of three unsourced
           numbers is a fourth unsourced number with a false air of consensus.
         </Body>
+        <IllustrationPlate illustration="protocol-comparison" />
         <Table
           head={['In the register', 'Count']}
           rows={[
@@ -753,6 +773,7 @@ export function ScienceAndApplications({
           field the omission would be most of it. So absence is a record type here: what is not
           established, why the sources do not settle it, and what would.
         </Body>
+        <IllustrationPlate illustration="known-unknown" />
         <Table
           head={['Across the register', 'Count']}
           rows={[

@@ -225,6 +225,97 @@ export function MessageReceiverIllustration({ id = 'ill-message-receiver' }: { i
 }
 
 // ---------------------------------------------------------------------------
+// The body's own peptides: made, cut, stored, released, broken down
+// ---------------------------------------------------------------------------
+
+function MiniChain({ x, y, n, cls = 'fill-sea-glass text-tide-teal' }: { x: number; y: number; n: number; cls?: string }) {
+  const pts = Array.from({ length: n }, (_, i) => [x + i * 13, y + (i % 2 === 0 ? 0 : -7)] as const);
+  return (
+    <g className={cls.includes('text-') ? cls.split(' ').filter((c) => c.startsWith('text-')).join(' ') : 'text-tide-teal'}>
+      <polyline points={pts.map(([px, py]) => `${String(px)},${String(py)}`).join(' ')} fill="none" stroke="currentColor" strokeWidth={STROKE.hairline} />
+      {pts.map(([px, py]) => (
+        <circle key={`${String(px)}-${String(py)}`} cx={px} cy={py} r={5} className={cls.split(' ').filter((c) => c.startsWith('fill-')).join(' ')} stroke="currentColor" strokeWidth={STROKE.hairline} />
+      ))}
+    </g>
+  );
+}
+
+export function PeptideLifecycleIllustration({ id = 'ill-peptide-lifecycle' }: { id?: string }) {
+  const stages = [
+    { title: ['Made as a', 'longer chain'] },
+    { title: ['Cut to its', 'working form'] },
+    { title: ['Stored'] },
+    { title: ['Released when', 'signalled'] },
+    { title: ['Broken down', 'by enzymes'] },
+  ];
+  const xs = [84, 242, 400, 558, 716];
+  return (
+    <Illustration
+      id={id}
+      title="How the body handles its own peptides"
+      description="Five stages. Some of the body's peptides, such as neuropeptides and defence peptides, are made first as longer chains and cut by enzymes into their working form. Hormone-making and nerve cells store them and release them when signalled. Enzymes break them down. Beneath, what one of them then does depends on context: which receptors are present, where and when; how much of it there is; and whether it acts nearby or far away."
+      viewBox="0 0 800 270"
+      minWidth={620}
+      basis={{ kind: 'claims', claimKeys: ['END-03', 'END-04', 'END-05', 'END-07', 'END-09', 'END-10', 'END-11', 'END-12'] }}
+      caption="Some of the body's peptides — neuropeptides and defence peptides among them — are made as longer chains and cut to their working form. Cells store them and release them when signalled, and enzymes break them down. What one then does depends on where it acts, how much is there, and which receptors are present."
+    >
+      {stages.map((s, i) => {
+        const cx = xs[i] ?? 0;
+        return (
+          <g key={s.title.join(' ')}>
+            <rect x={cx - 68} y={30} width={136} height={96} rx={14} className="fill-warm-white text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} />
+            <Label x={cx} y={150} lines={s.title} size="sm" weight={600} lineHeight={1.2} />
+            {i < stages.length - 1 ? (
+              <line x1={cx + 70} y1={78} x2={cx + 88} y2={78} stroke="currentColor" className="text-deep-tide" strokeWidth={STROKE.line} markerEnd={arrowUrl(id)} />
+            ) : null}
+          </g>
+        );
+      })}
+
+      {/* Made as a longer chain */}
+      <MiniChain x={45} y={84} n={7} />
+
+      {/* Cut to its working form */}
+      <MiniChain x={196} y={84} n={2} cls="fill-rule-soft text-slate" />
+      <line x1={230} y1={62} x2={230} y2={96} stroke="currentColor" className="text-[var(--color-caution)]" strokeWidth={STROKE.line} strokeDasharray="3 3" />
+      <MiniChain x={242} y={84} n={4} />
+
+      {/* Stored */}
+      <circle cx={400} cy={78} r={32} className="fill-sea-glass text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} />
+      <MiniChain x={382} y={70} n={3} cls="fill-warm-white text-deep-tide" />
+      <MiniChain x={386} y={94} n={3} cls="fill-warm-white text-deep-tide" />
+
+      {/* Released when signalled */}
+      <path d="M 540 52 A 28 28 0 1 0 540 104" fill="none" className="text-tide-teal" stroke="currentColor" strokeWidth={STROKE.line} />
+      {[
+        [556, 64],
+        [572, 80],
+        [556, 94],
+      ].map(([x, y]) => (
+        <circle key={`${String(x)}-${String(y)}`} cx={x} cy={y} r={5} className="fill-deep-tide" />
+      ))}
+      <line x1={582} y1={80} x2={604} y2={80} stroke="currentColor" className="text-deep-tide" strokeWidth={STROKE.hairline} markerEnd={arrowUrl(id)} />
+
+      {/* Broken down by enzymes */}
+      {[
+        [684, 70],
+        [704, 92],
+        [724, 66],
+        [744, 90],
+      ].map(([x, y]) => (
+        <circle key={`${String(x)}-${String(y)}`} cx={x} cy={y} r={5} className="fill-warm-white text-slate" stroke="currentColor" strokeWidth={STROKE.hairline} strokeDasharray="2 2" />
+      ))}
+      <path d="M 706 56 l 14 8 l -14 8 a 9 9 0 1 1 0 -16 z" className="fill-caution-bg text-[var(--color-caution)]" stroke="currentColor" strokeWidth={STROKE.hairline} />
+
+      {/* Context */}
+      <rect x={20} y={196} width={760} height={62} rx={12} className="fill-warm-white text-rule" stroke="currentColor" />
+      <Label x={40} y={220} lines={['What it then does depends on context']} size="xs" tone="slate" anchor="start" caps />
+      <Label x={40} y={242} lines={['which receptors are present, where and when  ·  how much of it there is  ·  whether it acts nearby or far away']} size="xs" tone="soft" anchor="start" />
+    </Illustration>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Receptor binding: binding is not activation
 // ---------------------------------------------------------------------------
 

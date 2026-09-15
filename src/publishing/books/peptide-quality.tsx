@@ -19,15 +19,14 @@ import {
 } from '../primitives';
 import {
   CertificateAnatomyFigure,
-  ChromatogramFigure,
   ContentFigure,
-  IdentityVersusPurityFigure,
   ProvenanceChainFigure,
   QualityDimensionsFigure,
-  ThreeQuestionsFigure,
   SeriesMark,
   TraceabilityFigure,
 } from '../figures';
+import { IllustrationPlate } from '../illustration-print';
+import { QUALITY_SPINE_STAGES, type SpineStageKey } from '@/components/illustrations';
 import { colour, contentWidth, leading, sans, serif, type } from '../theme';
 
 /**
@@ -63,7 +62,66 @@ import { colour, contentWidth, leading, sans, serif, type } from '../theme';
  */
 const TITLE = 'Peptide Quality: From Manufacturing to the Final Vial';
 const PUBLICATION = 'Peptide Quality';
-const ISSUED = '12 September 2026';
+const ISSUED = '14 September 2026';
+
+/**
+ * Where a chapter sits on the spine.
+ *
+ * The book's visual spine is the path from sequence to vial, drawn in full as
+ * figure one. Each chapter opener repeats it as a single line with its own
+ * stages marked, so a reader always knows which point on the path a test
+ * describes — and, by implication, which points it says nothing about.
+ */
+function SpineRail({ highlight }: { highlight: readonly SpineStageKey[] }) {
+  return (
+    <View
+      wrap={false}
+      style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', marginTop: -6, marginBottom: 14 }}
+    >
+      <Text
+        style={{
+          fontFamily: sans,
+          fontSize: 6.4,
+          letterSpacing: 1,
+          textTransform: 'uppercase',
+          color: colour.slate,
+          marginRight: 8,
+        }}
+      >
+        On the path
+      </Text>
+      {QUALITY_SPINE_STAGES.map((stage, index) => {
+        const on = highlight.includes(stage.key);
+        return (
+          <View key={stage.key} style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 1.5 }}>
+            <View
+              style={{
+                width: 5,
+                height: 5,
+                borderRadius: 2.5,
+                backgroundColor: on ? colour.deepTide : colour.rule,
+                marginRight: 3,
+              }}
+            />
+            <Text
+              style={{
+                fontFamily: sans,
+                fontSize: 6.6,
+                fontWeight: on ? 600 : 400,
+                color: on ? colour.deepTide : colour.slate,
+              }}
+            >
+              {stage.title.join(' ')}
+            </Text>
+            {index < QUALITY_SPINE_STAGES.length - 1 ? (
+              <Text style={{ fontFamily: sans, fontSize: 6.4, color: colour.rule, marginHorizontal: 4 }}>›</Text>
+            ) : null}
+          </View>
+        );
+      })}
+    </View>
+  );
+}
 
 export function PeptideQuality() {
   return (
@@ -77,13 +135,13 @@ export function PeptideQuality() {
       {/* ================= 1. COVER ==================================== */}
       <Cover
         imprint="The Tides Index"
-        series="Reference series · Volume three"
+        series="Reference series · Volume five"
         title="Peptide Quality:"
         subtitle="From Manufacturing to the Final Vial"
         descriptor="Independent peptide science & clinical reference"
-        editionLine={`First edition excerpt · prototype · issued ${ISSUED}`}
+        editionLine={`First edition excerpt · illustrated · prototype · issued ${ISSUED}`}
         statusLine="Awaiting scientific review. Nothing in this document has been approved by a reviewer."
-        mark={<SeriesMark width={300} volume={3} />}
+        mark={<SeriesMark width={300} volume={5} />}
       />
 
       {/* ================= 2. WHAT QUALITY MEANS ======================= */}
@@ -106,6 +164,8 @@ export function PeptideQuality() {
           preparation has more or less of. It is a set of separate questions, each answered by a
           different measurement, and an answer to one carries no information about the others.
         </Body>
+
+        <IllustrationPlate illustration="quality-spine" number="Figure 1" />
 
         <SectionHeading>Four things a purity figure is not</SectionHeading>
         <Bullets
@@ -142,6 +202,7 @@ export function PeptideQuality() {
           title="The three analytical questions"
           standfirst="Three separate undertakings. The source held here states that no single technique addresses homogeneity and covalent structure both."
         />
+        <SpineRail highlight={['purification', 'identity', 'content']} />
 
         <Body>
           Evaluating a synthetic peptide has two distinct goals: establishing how homogeneous the
@@ -150,12 +211,7 @@ export function PeptideQuality() {
           actually present — is separate again.
         </Body>
 
-        <Figure
-          number="Figure 1"
-          caption="Three questions, three measurements. An answer to one implies nothing about the other two."
-        >
-          <ThreeQuestionsFigure width={contentWidth - 32} />
-        </Figure>
+        <IllustrationPlate illustration="separate-questions" number="Figure 2" />
 
         <Table
           head={['Question', 'Typically answered by', 'Says nothing about']}
@@ -186,6 +242,7 @@ export function PeptideQuality() {
           title="Chromatographic purity"
           standfirst="What a peak area percentage examines, and the two ways it can mislead."
         />
+        <SpineRail highlight={['purification']} />
 
         <Body>
           Reversed-phase HPLC separates the components of a mixture and reports how much of the
@@ -203,12 +260,7 @@ export function PeptideQuality() {
           lost resolving power can let two similar species emerge as one clean peak.
         </Body>
 
-        <Figure
-          number="Figure 2"
-          caption="The same sample, analysed twice. Resolution is a property of the method, not of the material."
-        >
-          <ChromatogramFigure width={contentWidth - 32} />
-        </Figure>
+        <IllustrationPlate illustration="chromatogram" number="Figure 3" />
 
         <EvidenceNote
           supports="Co-elution of closely related peptides, and the dependence of resolution on column condition. Both located."
@@ -230,6 +282,7 @@ export function PeptideQuality() {
           title="Identity"
           standfirst="Separation answers how many. Mass answers which."
         />
+        <SpineRail highlight={['identity']} />
 
         <Body>
           Assessing homogeneity and establishing correct covalent structure are separate
@@ -239,13 +292,11 @@ export function PeptideQuality() {
           obtained.
         </Body>
 
-        <Figure
-          number="Figure 3"
-          caption="Two instruments, two questions. Neither substitutes for the other."
-        >
-          <IdentityVersusPurityFigure width={contentWidth - 32} />
-        </Figure>
+        <IllustrationPlate illustration="mass-identity" number="Figure 4" />
 
+      </PublicationPage>
+
+      <PublicationPage publication={PUBLICATION} section="Identity">
         <SectionHeading>What a mass result is</SectionHeading>
 
         <Body>
@@ -281,6 +332,7 @@ export function PeptideQuality() {
           title="Content, or how much is actually there"
           standfirst="A proportion is not a quantity, and a percentage carries no mass."
         />
+        <SpineRail highlight={['content']} />
 
         <Body>
           Determining how much peptide is present is a different analytical question from assessing
@@ -290,12 +342,15 @@ export function PeptideQuality() {
         </Body>
 
         <Figure
-          number="Figure 4"
+          number="Figure 5"
           caption="Two preparations reporting the same purity figure, holding different amounts of peptide."
         >
           <ContentFigure width={contentWidth - 32} />
         </Figure>
 
+      </PublicationPage>
+
+      <PublicationPage publication={PUBLICATION} section="Content">
         <SectionHeading>The measurement is indirect</SectionHeading>
 
         <Body>
@@ -336,6 +391,7 @@ export function PeptideQuality() {
           title="A certificate is not one test"
           standfirst="One document, several independent measurements — and any of them may simply be absent."
         />
+        <SpineRail highlight={['batch']} />
 
         <Body>
           A certificate of analysis collects results under a single heading. That presentation
@@ -345,7 +401,7 @@ export function PeptideQuality() {
         </Body>
 
         <Figure
-          number="Figure 5"
+          number="Figure 6"
           caption="The anatomy of a certificate. Absence of a line is not evidence that the attribute is satisfactory."
         >
           <CertificateAnatomyFigure width={contentWidth - 32} />
@@ -411,9 +467,10 @@ export function PeptideQuality() {
           title="Which batch was actually tested?"
           standfirst="A result describes the sample that reached the laboratory. Whether that sample came from the material in your hand is a separate question."
         />
+        <SpineRail highlight={['batch', 'vial']} />
 
         <Figure
-          number="Figure 6"
+          number="Figure 7"
           caption="The chain a result has to travel to say anything about the vial in front of you."
         >
           <TraceabilityFigure width={contentWidth - 32} />
@@ -448,6 +505,7 @@ export function PeptideQuality() {
           title="How to read a certificate"
           standfirst="A worked example, using a document that describes nothing real."
         />
+        <SpineRail highlight={['batch']} />
 
         <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
           <DemonstrationStamp width={160} />
@@ -520,6 +578,7 @@ export function PeptideQuality() {
           title="What a purity percentage does not settle"
           standfirst="Collected in one place, because this is the page worth keeping."
         />
+        <SpineRail highlight={['purification', 'identity', 'content', 'sterility']} />
 
         <Table
           head={['The figure does not tell you', 'Because', 'Status here']}
@@ -596,6 +655,8 @@ export function PeptideQuality() {
           intended peptide.
         </Body>
 
+        <IllustrationPlate illustration="sequence-to-vial" number="Figure 8" />
+
         <Body>
           Incomplete couplings leave deletion or terminated sequences that must be separated from
           the product. Acid cleavage can alkylate tryptophan, methionine and tyrosine unless
@@ -657,6 +718,8 @@ export function PeptideQuality() {
           contamination, and new stability data when material is moved into a different kind of
           container.
         </Body>
+
+        <IllustrationPlate illustration="chain-of-custody" number="Figure 9" />
 
         <SectionHeading>Five things worth knowing</SectionHeading>
         <Bullets
@@ -722,6 +785,7 @@ export function PeptideQuality() {
           stability — including after the product is mixed, where that applies — as something shown
           by testing the actual product over time.
         </Body>
+        <IllustrationPlate illustration="formulation" number="Figure 10" />
         <Body>
           Freeze-drying removes water from a frozen product under low pressure. A 2023 review
           describes how much depends on doing it well: temperatures, pressures and drying times
@@ -729,6 +793,7 @@ export function PeptideQuality() {
           cake. For sterile medicines, the guidance treats everything during freeze-drying that could
           affect sterility as part of aseptic processing.
         </Body>
+        <IllustrationPlate illustration="lyophilisation" number="Figure 11" />
 
         <SectionHeading>What a sterility result means</SectionHeading>
         <Body>
@@ -739,6 +804,7 @@ export function PeptideQuality() {
           indicates that no contaminating microorganism was found in the sample examined. A result
           means something only if the method was shown to work in the presence of that product.
         </Body>
+        <IllustrationPlate illustration="sterility" number="Figure 12" />
 
         <SectionHeading>What an endotoxin result means</SectionHeading>
         <Body>
@@ -748,6 +814,7 @@ export function PeptideQuality() {
           meaningful only against a limit set for each product according to its dose — and only
           where the laboratory has shown the product does not interfere with the test.
         </Body>
+        <IllustrationPlate illustration="endotoxin" number="Figure 13" />
 
         <Callout title="Expectations, not descriptions">
           Everything on this page is what regulators and compendia expect of licensed sterile
@@ -784,7 +851,7 @@ export function PeptideQuality() {
         />
 
         <Figure
-          number="Figure 8"
+          number="Figure 14"
           caption="The dimensions this index recognises, and the state of each."
         >
           <QualityDimensionsFigure
@@ -830,7 +897,7 @@ export function PeptideQuality() {
           standfirst="Source, locator, claim, review, publication — and what happens when any of them changes."
         />
 
-        <Figure number="Figure 9" caption="The chain every statement in this publication travelled.">
+        <Figure number="Figure 15" caption="The chain every statement in this publication travelled.">
           <ProvenanceChainFigure width={contentWidth - 32} />
         </Figure>
 
@@ -857,7 +924,7 @@ export function PeptideQuality() {
         <CurrentVersionBlock
           url="thetidesindex.com/quality"
           version={`${TITLE} · first edition excerpt · issued ${ISSUED}`}
-          note="QR placeholder. The published code will resolve to the current version of each record cited here."
+          note="When the site is public, this block will carry a link to the current version of each record cited here."
         />
 
         <SourceNote

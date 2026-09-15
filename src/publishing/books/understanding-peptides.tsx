@@ -1,4 +1,4 @@
-import { Document, Svg, Rect, Line, Text, View } from '@react-pdf/renderer';
+import { Document, Text, View } from '@react-pdf/renderer';
 import {
   Body,
   Bullets,
@@ -16,110 +16,31 @@ import {
   Table,
 } from '../primitives';
 import { SeriesMark } from '../figures';
-import { colour, contentWidth, leading, sans, serif, type } from '../theme';
+import { ConceptPlate, IllustrationPlate } from '../illustration-print';
+import { colour, leading, sans, serif, type } from '../theme';
 
 /**
- * UNDERSTANDING PEPTIDES — design skeleton, with one chapter written.
+ * UNDERSTANDING PEPTIDES — the patient- and new-staff-facing volume.
  *
- * Structure and page templates, plus chapter eight. **No medical content.**
+ * Built to be taught from. Each idea arrives first as a question, a drawing and
+ * one short explanation — the short course — and the chapters underneath give
+ * the fuller, attributed account for a reader who wants it.
  *
- * This publication is the patient- and new-staff-facing one, which makes it the
- * single most dangerous thing in the programme to draft speculatively: it will
- * be read by people with the least ability to check it, and a plausible
- * paragraph written to fill a page is indistinguishable from a sourced one once
- * it is set in the same typeface.
+ * The drawings are the site's own illustrations, printed through
+ * `illustration-print`, so a figure corrected on the web is corrected here, and
+ * each one states what it was drawn from.
  *
- * So every chapter here is a *brief*: what the chapter will cover, what kind of
- * source it needs, and an illustration placeholder sized to the real layout.
- * Nothing on these pages states anything about peptides that a reader could
- * mistake for a finding. The skeleton proves the design travels to a second
- * publication; the content waits for extraction and review.
- *
- * Chapter eight is the exception, and it is an exception for a reason that does
- * not generalise: it is about how to read a claim rather than about any claim,
- * so it rests on the editorial method — documented, implemented, tested —
- * rather than on a peptide source. It is written. It is not yet reviewed.
+ * Nothing is written from general knowledge. Eleven chapters rest on located
+ * sources or on the editorial method; one remains a brief. A point no held
+ * source supports is printed as SOURCE NEEDED where the point would have been,
+ * and a conclusion drawn openly from several claims as a named Tides synthesis.
+ * Unmarked text is source fact, and every chapter ends with its sources. The
+ * marks are used sparingly on purpose: a patient volume that reads like an
+ * audit report does not get read.
  */
 
 const PUBLICATION = 'Understanding Peptides';
 const ISSUED = '14 September 2026';
-
-/** A sized, labelled hole where an illustration will go. */
-function IllustrationSlot({
-  label,
-  height,
-  note,
-}: {
-  label: string;
-  height: number;
-  note?: string;
-}) {
-  const width = contentWidth;
-  return (
-    <View style={{ marginVertical: 12 }} wrap={false}>
-      <Svg width={width} height={height} viewBox={`0 0 ${String(width)} ${String(height)}`}>
-        <Rect
-          x={0.5}
-          y={0.5}
-          width={width - 1}
-          height={height - 1}
-          fill={colour.mist}
-          stroke={colour.rule}
-          strokeWidth={1}
-          strokeDasharray="4 3"
-          rx={3}
-        />
-        <Line x1={0} y1={0} x2={width} y2={height} stroke={colour.ruleSoft} strokeWidth={0.5} />
-        <Line x1={width} y1={0} x2={0} y2={height} stroke={colour.ruleSoft} strokeWidth={0.5} />
-      </Svg>
-      <View
-        style={{
-          position: 'absolute',
-          top: height / 2 - 16,
-          left: 0,
-          right: 0,
-          alignItems: 'center',
-        }}
-      >
-        <Text
-          style={{
-            fontFamily: sans,
-            fontSize: type.micro,
-            letterSpacing: 1.4,
-            textTransform: 'uppercase',
-            color: colour.slate,
-          }}
-        >
-          Illustration
-        </Text>
-        <Text
-          style={{
-            fontFamily: serif,
-            fontSize: type.small,
-            color: colour.inkSoft,
-            marginTop: 3,
-            textAlign: 'center',
-          }}
-        >
-          {label}
-        </Text>
-        {note === undefined ? null : (
-          <Text
-            style={{
-              fontFamily: sans,
-              fontSize: type.micro,
-              color: colour.slate,
-              marginTop: 3,
-              textAlign: 'center',
-            }}
-          >
-            {note}
-          </Text>
-        )}
-      </View>
-    </View>
-  );
-}
 
 /** What a chapter will contain, and what it needs before it can be written. */
 function ChapterBrief({
@@ -194,8 +115,6 @@ interface ChapterPlan {
   readonly standfirst: string;
   readonly covers: readonly string[];
   readonly needs: string;
-  readonly illustration: string;
-  readonly illustrationNote?: string;
   /**
    * Written rather than briefed, and which body of material it rests on.
    *
@@ -232,8 +151,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from claims FND-01 to FND-07 and FND-16 to FND-19, extracted from CC BY-licensed reviews and a public-domain US government glossary.',
-    illustration: 'The peptide bond joining two amino acids',
-    illustrationNote: 'Deterministic vector diagram, drawn from a located source',
     written: 'peptide',
   },
   {
@@ -246,7 +163,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
       'What changes as a chain gets longer',
     ],
     needs: 'Written from claims FND-08 to FND-17, extracted from CC BY-licensed reviews.',
-    illustration: 'Scale ladder: amino acid → peptide → protein',
     written: 'building-blocks',
   },
   {
@@ -259,7 +175,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from claims END-03 to END-13, extracted from CC BY-licensed reviews and a public-domain US government overview. The strictest sourcing in the book: two points no source held states are marked SOURCE NEEDED on the page, and one conclusion drawn from its claims is marked as a Tides synthesis.',
-    illustration: 'Where endogenous peptides act',
     written: 'body',
   },
   {
@@ -273,7 +188,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from claims SIG-01 to SIG-07, SIG-09, SIG-12 and SIG-13, extracted from CC BY-licensed reviews and a public-domain US government overview.',
-    illustration: 'Signal, receptor, response — schematic',
     written: 'signalling',
   },
   {
@@ -286,7 +200,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from sixteen claims extracted from chapter 2 of Rang and Dale’s Pharmacology, 10th edition, held only as a Spanish-language publisher sample (SRC-121). Each is a paraphrase of the Spanish text, to be re-checked against the English edition, and none is yet scientifically reviewed.',
-    illustration: 'Binding and selectivity',
     written: 'receptors',
   },
   {
@@ -300,7 +213,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Review literature. This chapter must be written to leave a reader less certain, not more.',
-    illustration: 'Research interest and practical difficulty, side by side',
   },
   {
     number: 'Seven',
@@ -313,7 +225,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from claims RTE-01 to RTE-14, RTE-19 to RTE-23 and RTE-25 to RTE-28, PKG-12 to PKG-14, and PK-02 to PK-04, PK-11 and PK-15: FDA route data standards and US regulation (public domain), the NCI Thesaurus (CC BY 4.0) and reviews licensed CC BY 4.0.',
-    illustration: 'Routes, and the barrier each must cross',
     written: 'routes',
   },
   {
@@ -328,7 +239,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from the editorial method. It states nothing about peptides, so it needed no peptide source; it still requires scientific and clinical review before publication.',
-    illustration: 'A hierarchy of evidence, with the limits of each tier marked',
     written: 'evidence',
   },
   {
@@ -342,7 +252,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from the editorial method and from what the register records as unsettled. It makes no safety claim about any compound, because none could be sourced.',
-    illustration: 'Known, unknown, and not yet asked',
     written: 'safety',
   },
   {
@@ -356,7 +265,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from claims extracted into this index from a peptide chemistry textbook and from ICH Q7. Those records are not yet scientifically reviewed, and neither is this chapter.',
-    illustration: 'Purity, identity, content — the simplified triangle',
     written: 'quality',
   },
   {
@@ -370,7 +278,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written as a prompt sheet. It asks questions and answers none, contains no dose and no protocol, and still requires clinical review before publication.',
-    illustration: 'A single-page prompt card',
     written: 'clinician',
   },
   {
@@ -384,7 +291,6 @@ const CHAPTERS: readonly ChapterPlan[] = [
     ],
     needs:
       'Written from the product itself. It describes how the index works and makes no claim about any compound.',
-    illustration: 'A record, annotated',
     written: 'using',
   },
 ];
@@ -451,6 +357,8 @@ function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
           therefore what it is able to support.
         </Body>
 
+        <IllustrationPlate illustration="evidence-lanes" />
+
         <Table
           head={['Class', 'What it is', 'What it can support']}
           rows={[
@@ -515,15 +423,7 @@ function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
           conditions that come and go on their own, which is exactly where peptides are most often
           used.
         </Body>
-        <Bullets
-          items={[
-            'A randomised trial with a comparison group can support a statement about effect.',
-            'An uncontrolled study can describe a group of people and generate a question.',
-            'A single case describes one person and settles nothing on its own.',
-            'A pharmacokinetic study answers what the body does to the substance, not whether it helps.',
-            'A safety study that found no harm in a small group has not shown that it is safe.',
-          ]}
-        />
+        <IllustrationPlate illustration="study-design" />
 
         <SectionHeading>A claim with no source attached</SectionHeading>
         <Body>
@@ -605,6 +505,8 @@ function SafetyAndUncertainty({ chapter }: { chapter: ChapterPlan }) {
         the compound.
       </Body>
 
+      <IllustrationPlate illustration="known-unknown" />
+
       <SectionHeading>How uncertainty is recorded here</SectionHeading>
       <Body>
         Every important statement in this index has to say what remains unknown about it before it
@@ -663,11 +565,7 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
           number. Is it pure? Is it the right molecule? How much of it is in there?
         </Lede>
 
-        <IllustrationSlot
-          label="Purity, identity, content — three questions, three measurements"
-          height={150}
-          note="Vector diagram, drawn from the analytical sources"
-        />
+        <IllustrationPlate illustration="separate-questions" />
 
         <SectionHeading>Pure is not the same as correct</SectionHeading>
         <Body>
@@ -712,6 +610,8 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
             'A document with no batch number cannot be matched to anything you hold.',
           ]}
         />
+
+        <IllustrationPlate illustration="chain-of-custody" />
 
         <SectionHeading>Peptides degrade, in known ways</SectionHeading>
         <Body>
@@ -789,11 +689,7 @@ function Receptors({ chapter }: { chapter: ChapterPlan }) {
           receptor — exists to pick up the body’s own chemical messages.
         </Lede>
 
-        <IllustrationSlot
-          label="A molecule, a receptor, and the difference between attaching and switching on"
-          height={150}
-          note="Vector diagram, to be drawn from the located source"
-        />
+        <IllustrationPlate illustration="receptor-binding" />
 
         <SectionHeading>Something has to be listening</SectionHeading>
         <Body>
@@ -896,23 +792,24 @@ function TidesSynthesis({
       style={{
         borderLeftWidth: 2,
         borderLeftColor: colour.deepTide,
-        backgroundColor: colour.seaGlass,
-        padding: 10,
-        marginVertical: 8,
+        paddingLeft: 11,
+        paddingVertical: 2,
+        marginVertical: 10,
       }}
     >
       <Text
         style={{
           fontFamily: sans,
           fontSize: type.micro,
-          letterSpacing: 1,
+          letterSpacing: 1.1,
+          textTransform: 'uppercase',
           color: colour.deepTide,
           marginBottom: 3,
         }}
       >
-        TIDES SYNTHESIS · {synthesisKey}
+        Tides synthesis · {synthesisKey}
       </Text>
-      <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.ink }}>
+      <Text style={{ fontFamily: serif, fontSize: type.body, lineHeight: leading.body, color: colour.ink }}>
         {statement}
       </Text>
       <Text
@@ -924,7 +821,7 @@ function TidesSynthesis({
           marginTop: 3,
         }}
       >
-        Rests on claims {restsOn}. {doesNotConclude}
+        Drawn by this index from claims {restsOn}. {doesNotConclude}
       </Text>
     </View>
   );
@@ -935,7 +832,7 @@ function TidesSynthesis({
  *
  * Printed in place of the point, in the chapter's own flow, so a gap is read
  * where the reader would otherwise have met a sentence written from general
- * knowledge.
+ * knowledge. Quiet by design: a rule and a label, not an alarm.
  */
 function SourceNeeded({ point, why }: { point: string; why: string }) {
   return (
@@ -943,24 +840,25 @@ function SourceNeeded({ point, why }: { point: string; why: string }) {
       wrap={false}
       style={{
         borderLeftWidth: 2,
-        borderLeftColor: colour.caution,
-        backgroundColor: colour.cautionBg,
-        padding: 10,
-        marginVertical: 8,
+        borderLeftColor: colour.cautionRule,
+        paddingLeft: 11,
+        paddingVertical: 2,
+        marginVertical: 9,
       }}
     >
       <Text
         style={{
           fontFamily: sans,
           fontSize: type.micro,
-          letterSpacing: 1,
+          letterSpacing: 1.1,
+          textTransform: 'uppercase',
           color: colour.caution,
           marginBottom: 3,
         }}
       >
-        SOURCE NEEDED
+        Source needed
       </Text>
-      <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.ink }}>
+      <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.inkSoft }}>
         {point}
       </Text>
       <Text
@@ -1020,18 +918,15 @@ function WhatIsAPeptide({ chapter }: { chapter: ChapterPlan }) {
           bond. Proteins are built from the same building blocks. The main difference the sources
           describe is size — and where size turns a peptide into a protein is a matter of convention.
         </Lede>
-        <IllustrationSlot
-          label={chapter.illustration}
-          height={130}
-          note="Deterministic vector diagram, to be drawn from the located source"
-        />
 
         <SectionHeading>Where a peptide ends and a protein begins</SectionHeading>
         <Body>
           A 2023 review of peptide formulation describes peptides and proteins as both made of amino
           acids: peptides are the smaller molecules, two or more amino acids linked by peptide bonds,
-          and proteins are long chains that may contain many more. How long is too long to be a
-          peptide is not settled. A 2026 review calls the upper limit an arbitrary cut-off, usually
+          and proteins are long chains that may contain many more.
+        </Body>
+        <Body>
+          How long is too long to be a peptide is not settled. A 2026 review calls the upper limit an arbitrary cut-off, usually
           set below 50 or 100 amino acids, and a 2021 review notes that published definitions
           contradict each other, drawing the line below 30, at 50, or at up to 100. The US National
           Human Genome Research Institute’s glossary uses one of these conventions: a peptide is
@@ -1047,6 +942,7 @@ function WhatIsAPeptide({ chapter }: { chapter: ChapterPlan }) {
           amino acid joins the amino group of the next, forming the bond the chemist Emil Fischer
           named the peptide bond. When two amino acids join this way, a molecule of water is released.
         </Body>
+        <IllustrationPlate illustration="peptide-bond" />
         <SourceNeeded
           point="What the two ends of a chain — the N-terminus and the C-terminus — are, and what a “residue” is."
           why="No permissively licensed source held by this index defines them, so this chapter does not."
@@ -1126,7 +1022,7 @@ function AminoAcidsPeptidesProteins({ chapter }: { chapter: ChapterPlan }) {
           Amino acids are the building blocks of both peptides and proteins. What a chain is depends
           on which amino acids it contains, and in what order.
         </Lede>
-        <IllustrationSlot label={chapter.illustration} height={120} />
+        <IllustrationPlate illustration="chain-scale" />
 
         <SectionHeading>One alphabet</SectionHeading>
         <Body>
@@ -1219,7 +1115,7 @@ function PeptidesInTheBody({ chapter }: { chapter: ChapterPlan }) {
           physiology, some of the kinds it makes, how it makes and removes them, and why what a
           peptide does depends on where and when it acts.
         </Lede>
-        <IllustrationSlot label={chapter.illustration} height={120} />
+        <IllustrationPlate illustration="peptide-lifecycle" />
 
         <SectionHeading>Kinds of peptide the body makes</SectionHeading>
         <Body>
@@ -1261,16 +1157,15 @@ function PeptidesInTheBody({ chapter }: { chapter: ChapterPlan }) {
 
       <PublicationPage publication={PUBLICATION} section={chapter.title}>
         <SectionHeading>What a peptide does depends on context</SectionHeading>
-        <Body>
-          A 2014 review of human antimicrobial peptides states that what they do can depend on the
-          biological context, how much of the peptide is present, protein-cutting enzymes and the
-          body’s metabolic state. A 2019 review notes that the same molecule can be used as a hormone
-          carried in the blood in one setting and as a local signal in another. The authors of the
-          2025 neuropeptide review argue that which receptors are present, where and when, is the
-          chief factor deciding what any chemical messenger does. And for hormone systems run by the
-          brain’s hypothalamus and pituitary gland, a 1998 overview describes constant feedback that
-          keeps the system’s activity within appropriate limits.
-        </Body>
+        <Body>Four sources each describe a part of the picture.</Body>
+        <Bullets
+          items={[
+            'What the body’s antimicrobial peptides do can depend on the biological context, how much of the peptide is present, protein-cutting enzymes and the body’s metabolic state (a 2014 review).',
+            'The same molecule can be used as a hormone carried in the blood in one setting and as a local signal in another (a 2019 review).',
+            'Which receptors are present, where and when, is the chief factor deciding what any chemical messenger does — an argument made by the authors of a 2025 neuropeptide review.',
+            'In hormone systems run by the brain’s hypothalamus and pituitary gland, constant feedback keeps the system’s activity within appropriate limits (a 1998 overview).',
+          ]}
+        />
         <TidesSynthesis
           synthesisKey="SYN-BODY-01"
           statement="The body making a peptide is not, on its own, evidence about what a product containing it will do."
@@ -1321,7 +1216,7 @@ function PeptideSignalling({ chapter }: { chapter: ChapterPlan }) {
           whether anything happens depends on whether that cell has a receptor for it, and the change
           takes place inside the receiving cell.
         </Lede>
-        <IllustrationSlot label={chapter.illustration} height={120} />
+        <IllustrationPlate illustration="message-receiver" />
 
         <SectionHeading>A message and a receiver</SectionHeading>
         <Body>
@@ -1351,6 +1246,7 @@ function PeptideSignalling({ chapter }: { chapter: ChapterPlan }) {
           called second-messenger pathways, and that even one receptor can send different internal
           signals depending on which molecule binds it.
         </Body>
+        <IllustrationPlate illustration="cell-signalling" />
       </PublicationPage>
 
       <PublicationPage publication={PUBLICATION} section={chapter.title}>
@@ -1423,18 +1319,28 @@ function RoutesOfAdministration({ chapter }: { chapter: ChapterPlan }) {
           How a substance enters the body decides what it has to survive on the way, and how much of
           it arrives where it acts.
         </Lede>
-        <IllustrationSlot label={chapter.illustration} height={110} />
+        <IllustrationPlate illustration="routes" />
 
         <SectionHeading>The routes, as regulators define them</SectionHeading>
         <Body>
           The US Food and Drug Administration’s data standards give each route a definition.
-          Parenteral means given by injection, infusion or implantation. Intravenous means into a
-          vein; subcutaneous, beneath the skin; intramuscular, within a muscle. Oral means by way of
-          the mouth; sublingual, beneath the tongue; buccal, toward the cheek from within the mouth.
-          Nasal means by way of the nose; inhalation, into the respiratory tract by breathing in
-          through the mouth or nose; and transdermal, through the skin into the circulation by
-          diffusion.
         </Body>
+        <Table
+          head={['Route', 'As the FDA’s data standards define it']}
+          widths={[1, 2.6]}
+          rows={[
+            ['Parenteral', 'Given by injection, infusion or implantation'],
+            ['Intravenous', 'Into a vein'],
+            ['Subcutaneous', 'Beneath the skin'],
+            ['Intramuscular', 'Within a muscle'],
+            ['Oral', 'By way of the mouth'],
+            ['Sublingual', 'Beneath the tongue'],
+            ['Buccal', 'Toward the cheek, from within the mouth'],
+            ['Nasal', 'By way of the nose'],
+            ['Inhalation', 'Into the respiratory tract, by breathing in through the mouth or nose'],
+            ['Transdermal', 'Through the skin into the circulation, by diffusion'],
+          ]}
+        />
         <Body>
           US regulation defines bioavailability as how fast and how completely the active substance
           is absorbed from a product and becomes available where it acts. For a substance injected
@@ -1456,6 +1362,8 @@ function RoutesOfAdministration({ chapter }: { chapter: ChapterPlan }) {
       </PublicationPage>
 
       <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <IllustrationPlate illustration="circulation" />
+
         <SectionHeading>By mouth</SectionHeading>
         <Body>
           The NCI Thesaurus describes the oral route as the most common and convenient, and usually the
@@ -1681,67 +1589,76 @@ export function UnderstandingPeptides() {
         title="Understanding Peptides"
         subtitle="A plain-language introduction"
         descriptor="Independent peptide science & clinical reference"
-        editionLine={`First draft · eleven chapters written · issued ${ISSUED}`}
+        editionLine={`First draft · illustrated · eleven chapters written · issued ${ISSUED}`}
         statusLine="PARTIAL DRAFT. Eleven written chapters and one brief, all awaiting review. No dosing, no administration instructions, no treatment advice."
         mark={<SeriesMark width={300} volume={1} />}
       />
 
-      {/* --- What this is ---------------------------------------------- */}
-      <PublicationPage publication={PUBLICATION} section="About this skeleton">
+      {/* --- Before you start --------------------------------------------- */}
+      <PublicationPage publication={PUBLICATION} section="Before you start">
         <ChapterOpener
-          eyebrow="Skeleton"
-          title="What this document is"
-          standfirst="Eleven chapters written, one still a brief — and the difference is where the sources run out."
+          eyebrow="Before you start"
+          title="How to read this book"
+          standfirst="Look at the drawing, read the line beneath it, and stop whenever you have what you need."
         />
 
         <Lede>
-          This is the first draft of the patient- and new-staff-facing volume. Each chapter is either
-          written from located sources or left as a brief that says what it will cover and what has to
-          exist before it can be written.
+          Each idea comes first as a question, a drawing and one short explanation. The chapters after
+          that give the fuller account, and say exactly where each statement comes from.
         </Lede>
 
-        <Body>
-          This is the volume that will be read by the people least able to check it, and a plausible
-          paragraph written to fill a page is indistinguishable from a sourced one once it is set in the
-          same typeface. So nothing in it is written from general knowledge. Where a chapter needed a
-          point that no held source supports, the page says SOURCE NEEDED in place of the point.
-        </Body>
+        <IllustrationPlate illustration="editorial-states" />
 
-        <SectionHeading>What each chapter rests on</SectionHeading>
         <Body>
-          Four chapters — understanding evidence, safety and uncertainty, questions to ask your
-          clinician, and how to use this index — rest on the editorial method and on the product
-          rather than on peptide science. The chapter on quality and testing rests on a peptide
-          chemistry textbook and a manufacturing standard. Chapters one to four and seven rest on
-          peer-reviewed open-access reviews and US government reference material whose licences allow this index’s
-          AI-assisted extraction, each licence read in the source itself. The chapter on receptors
-          rests on a pharmacology textbook held as a partial Spanish-language sample, checked against
-          English-language open-access sources.
-        </Body>
-        <Body>
-          One chapter remains a brief: why peptides are studied. It names what it still needs.
+          Most of what you will read is the first kind, and it is left unmarked: every chapter ends with
+          the sources it rests on. The other two are marked where they appear, and only there.
         </Body>
 
         <View
-          style={{
-            borderLeftWidth: 2,
-            borderLeftColor: colour.caution,
-            backgroundColor: colour.cautionBg,
-            padding: 12,
-            marginTop: 10,
-          }}
+          wrap={false}
+          style={{ borderLeftWidth: 2, borderLeftColor: colour.caution, paddingLeft: 12, marginTop: 12 }}
         >
-          <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight }}>
-            Every written chapter lists its sources and claims on its own pages. The briefs state
-            nothing about peptides: a sentence in a brief that appears to is describing what a future
-            chapter will address, not making the claim.
+          <Text
+            style={{
+              fontFamily: sans,
+              fontSize: type.micro,
+              letterSpacing: 1.1,
+              textTransform: 'uppercase',
+              color: colour.caution,
+              marginBottom: 4,
+            }}
+          >
+            What this draft is
+          </Text>
+          <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.ink }}>
+            A first draft. Eleven chapters are written from located sources or from this index’s own
+            method, and one is still a brief. Nobody has reviewed it yet — neither a scientist nor a
+            clinician. There are no doses, schedules or instructions anywhere in this volume, and nothing
+            in it is treatment advice.
           </Text>
         </View>
       </PublicationPage>
 
       {/* --- Contents --------------------------------------------------- */}
       <PublicationPage publication={PUBLICATION} section="Contents">
-        <ChapterOpener eyebrow="Contents" title="Twelve chapters" />
+        <ChapterOpener eyebrow="Contents" title="The short course, and twelve chapters" />
+
+        <View
+          style={{
+            flexDirection: 'row',
+            borderBottomWidth: 0.5,
+            borderBottomColor: colour.ruleSoft,
+            paddingVertical: 5.5,
+          }}
+        >
+          <Text style={{ width: 30, fontFamily: sans, fontSize: type.small, color: colour.tideTeal }}>—</Text>
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontFamily: serif, fontSize: type.body, color: colour.ink }}>The short course</Text>
+            <Text style={{ fontFamily: sans, fontSize: type.micro, color: colour.slate, marginTop: 2 }}>
+              Eight ideas, one drawing each. If you read nothing else, read these pages.
+            </Text>
+          </View>
+        </View>
 
         {CHAPTERS.map((chapter, index) => (
           <View
@@ -1750,7 +1667,7 @@ export function UnderstandingPeptides() {
               flexDirection: 'row',
               borderBottomWidth: 0.5,
               borderBottomColor: colour.ruleSoft,
-              paddingVertical: 8,
+              paddingVertical: 5.5,
             }}
           >
             <Text
@@ -1785,6 +1702,65 @@ export function UnderstandingPeptides() {
         <Body>Glossary · sources and method · current version · where to check for revisions.</Body>
       </PublicationPage>
 
+      {/* --- The short course --------------------------------------------- */}
+      <PublicationPage publication={PUBLICATION} section="The short course">
+        <ChapterOpener
+          eyebrow="The short course"
+          title="Eight ideas, one drawing each"
+          standfirst="If you read nothing else, read these pages."
+        />
+        <ConceptPlate
+          eyebrow="What a peptide is"
+          headline="What is a peptide?"
+          illustration="chain-scale"
+          more="Chapters one and two"
+        />
+        <ConceptPlate
+          eyebrow="How one is made"
+          headline="How is one made?"
+          illustration="sequence-to-vial"
+          explanation="A peptide starts as a sequence on paper. It is built one amino acid at a time on tiny beads, cleaned of the wrong and shorter chains made along the way, checked by several different tests, and filled into vials."
+          more="Chapter ten"
+        />
+        <ConceptPlate
+          eyebrow="How it signals"
+          headline="How does a peptide send a signal?"
+          illustration="message-receiver"
+          more="Chapters four and five"
+        />
+        <ConceptPlate
+          eyebrow="In the body"
+          headline="What happens to the body’s own peptides?"
+          illustration="peptide-lifecycle"
+          more="Chapter three"
+        />
+        <ConceptPlate
+          eyebrow="How it is studied"
+          headline="How can it be studied?"
+          illustration="study-design"
+          more="Chapter eight"
+        />
+        <ConceptPlate
+          eyebrow="Routes"
+          headline="How do routes differ?"
+          illustration="routes"
+          explanation="This describes routes; it is not a guide to giving anything. A route decides what a molecule has to get past on the way in. A swallowed peptide meets acid, enzymes and a tightly sealed gut lining — which is why most peptide medicines are injected."
+          more="Chapter seven"
+        />
+        <ConceptPlate
+          eyebrow="Evidence"
+          headline="What does evidence mean?"
+          illustration="evidence-lanes"
+          more="Chapter eight"
+        />
+        <ConceptPlate
+          eyebrow="Quality"
+          headline="How is quality checked?"
+          illustration="separate-questions"
+          more="Chapter ten"
+        />
+      </PublicationPage>
+
       {/* --- One page per chapter --------------------------------------- */}
       {CHAPTERS.map((chapter) =>
         chapter.written !== undefined ? (
@@ -1795,13 +1771,6 @@ export function UnderstandingPeptides() {
               eyebrow={chapter.number}
               title={chapter.title}
               standfirst={chapter.standfirst}
-            />
-            <IllustrationSlot
-              label={chapter.illustration}
-              height={170}
-              {...(chapter.illustrationNote === undefined
-                ? {}
-                : { note: chapter.illustrationNote })}
             />
             <ChapterBrief covers={chapter.covers} needs={chapter.needs} />
           </PublicationPage>
@@ -1825,10 +1794,31 @@ export function UnderstandingPeptides() {
           does not: it addresses a reader who may act on it.
         </Body>
 
+        <SectionHeading>What each chapter rests on</SectionHeading>
+        <Body>
+          Four chapters — understanding evidence, safety and uncertainty, questions to ask your
+          clinician, and how to use this index — rest on the editorial method and on the product
+          rather than on peptide science. The chapter on quality and testing rests on a peptide
+          chemistry textbook and a manufacturing standard. Chapters one to four and seven rest on
+          peer-reviewed open-access reviews and US government reference material whose licences allow
+          this index’s AI-assisted extraction, each licence read in the source itself. The chapter on
+          receptors rests on a pharmacology textbook held as a partial Spanish-language sample, checked
+          against English-language open-access sources.
+        </Body>
+        <Body>One chapter remains a brief: why peptides are studied. It names what it still needs.</Body>
+
+        <SectionHeading>The drawings</SectionHeading>
+        <Body>
+          Every drawing in this volume is one of the Tides Index’s own illustrations, printed from the
+          same source as the website. Each states beneath it what it was drawn from — the claims it rests
+          on or, for a drawing of how this index works, its method. None shows a value, a dose or a
+          particular product.
+        </Body>
+
         <CurrentVersionBlock
           url="thetidesindex.com"
-          version={`Understanding Peptides · design skeleton · issued ${ISSUED}`}
-          note="Five written chapters. No dosing anywhere. No review yet, of the chapters or the records behind them."
+          version={`Understanding Peptides · first draft, illustrated · issued ${ISSUED}`}
+          note="Eleven written chapters and one brief. No dosing anywhere. No review yet, of the chapters or the records behind them."
         />
       </PublicationPage>
     </Document>

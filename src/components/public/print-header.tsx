@@ -29,7 +29,7 @@ export function PrintHeader({
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thetidesindex.com';
 
   return (
-    <div className="print-only mb-6 border-b border-rule pb-3">
+    <div className="print-only print-record-header mb-6 border-b border-rule pb-3">
       <p className="text-sm font-medium">The Tides Index — {title}</p>
       <p className="mt-1 text-xs">
         {mode === 'simple'

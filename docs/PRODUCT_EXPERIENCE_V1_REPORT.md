@@ -149,7 +149,7 @@ Quality is now built as a story that starts at *sequence to vial*, and every pag
 | TIDES SYNTHESIS | A transparent conclusion from several sourced facts | `editorial_syntheses` + `editorial_synthesis_claims` (migration 0027) | DB checks: exactly one subject, **no numerals**, limits stated; publish trigger requires ≥ 2 linked claims, all published; the seed loader refuses claims with contradicting evidence |
 | SOURCE NEEDED | An assertion without evidence | `evidence_gaps` | unchanged |
 
-Six syntheses are published, all on foundations, none on a compound: SYN-PEP-01, SYN-BODY-01, SYN-SIG-01, SYN-REC-01, SYN-PK-01 and SYN-RTE-01. Each card names the claims it rests on and what it does not conclude.
+Six syntheses are seeded, all on foundations, none on a compound. (Correction, publications v2: they were seeded as unpublished and render only through the development preview; none is on the public read path yet. See `docs/PUBLICATIONS_V2_REPORT.md`.) They are: SYN-PEP-01, SYN-BODY-01, SYN-SIG-01, SYN-REC-01, SYN-PK-01 and SYN-RTE-01. Each card names the claims it rests on and what it does not conclude.
 
 SYN-BODY-01 closed the previously open "the body makes it" gap. It does so with a synthesis that explicitly concludes *nothing* about any product's safety or efficacy.
 

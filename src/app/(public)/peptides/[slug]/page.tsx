@@ -765,7 +765,8 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
               forty citations to reach the record's history.
             */
             <details>
-              <summary className="cursor-pointer text-sm text-deep-tide underline-offset-2 hover:underline">
+              {/* "Show all" is an instruction; on paper the list is simply there. */}
+              <summary className="no-print cursor-pointer text-sm text-deep-tide underline-offset-2 hover:underline">
                 Show all {citations.length} references
               </summary>
               <div className="mt-4">

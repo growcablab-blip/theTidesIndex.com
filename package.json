@@ -38,6 +38,7 @@
     "qa:visual": "tsx scripts/qa/grade-measurements.ts",
     "qa:production": "tsx scripts/qa/production-readiness.ts",
     "qa:publication": "tsx scripts/qa/publication-readiness.ts",
+    "qa:print": "tsx scripts/qa/print-web-pages.ts",
     "verify": "npm run lint && npm run typecheck && npm run test && npm run build",
     "sheets": "tsx --tsconfig tsconfig.scripts.json scripts/publishing/build-reference-sheets.ts",
     "shots:peptides-final": "tsx scripts/qa/peptide-shots.ts",

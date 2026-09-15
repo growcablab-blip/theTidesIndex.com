@@ -1203,8 +1203,25 @@ const synthesisSchema = z.object({
   plainLanguageText: z.string().min(1).regex(NO_NUMERALS, 'A synthesis carries no numerals.'),
   reasoning: z.string().min(1),
   doesNotConclude: z.string().min(1),
+  /** Migration 0028. Foundational explanations are `general`. */
+  interpretationKind: z
+    .enum([
+      'general',
+      'mechanism',
+      'efficacy',
+      'safety',
+      'clinical_interpretation',
+      'protocol_interpretation',
+    ])
+    .default('general'),
+  /**
+   * A seed file cannot record a human review, so a synthesis that requires one
+   * may be seeded only as a draft. The loader refuses `published` for it.
+   */
+  publicationState: z.enum(['unpublished', 'published']).default('unpublished'),
 });
 export type SynthesisSeed = z.infer<typeof synthesisSchema>;
+export type SynthesisSeedInput = z.input<typeof synthesisSchema>;
 
 const SYNTHESIS_FILES = ['syntheses/foundations.json'] as const;
 

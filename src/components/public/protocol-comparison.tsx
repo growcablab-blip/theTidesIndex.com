@@ -1,6 +1,12 @@
 import type { ReactNode } from 'react';
 import type { PractitionerProtocol } from '@/server/public/queries';
-import { amountAsReported } from '@/domain/protocols/amount';
+import type { FieldState } from '@/domain/protocols/field-comparison';
+import {
+  compareProtocolFields,
+  groupByState,
+  type ComparisonGroup,
+  type ProtocolFieldComparison,
+} from '@/domain/protocols/protocol-comparison';
 
 /**
  * Source-reported regimens, side by side.
@@ -16,10 +22,13 @@ import { amountAsReported } from '@/domain/protocols/amount';
  * reader draws their own conclusion from the label rather than from a position
  * in a table.
  *
- * **It computes nothing.** Values are compared as worded. Two cells "agree" only
- * when the source text is identical; the same schedule written two ways counts
- * as two wordings, because deciding that "twice a day" and "twice daily" are one
- * thing is the first step towards deciding that 250 and 500 are one thing.
+ * **It computes nothing.** Each field is classified by
+ * `@/domain/protocols/field-comparison` into agreement, difference, reported by
+ * one only, or not reported. Absence never counts as a difference: a source
+ * that does not specify a field is silent, not in conflict. Wording is compared
+ * after normalising presentation only (case, spacing, punctuation, unit
+ * spacing); nothing is converted, so "twice daily" and "every 12 hours" remain
+ * two wordings.
  *
  * Practitioner mode only. The rows are amounts.
  */
@@ -163,231 +172,175 @@ export function ProtocolContextBadge({
 }
 
 /* ==========================================================================
-   Comparing fields — as worded, never reconciled
+   Field states — wording and marks
    ========================================================================== */
 
-export interface ComparisonField {
-  readonly key: string;
-  readonly label: string;
-  readonly group: 'context' | 'regimen' | 'safety';
-  readonly get: (p: PractitionerProtocol) => string | null;
-}
-
-/** The rows, in a fixed order so columns can be read across. */
-export const COMPARISON_FIELDS: readonly ComparisonField[] = [
-  { key: 'objective', label: 'Context / objective', group: 'context', get: (p) => p.objectiveContext },
-  { key: 'population', label: 'Population or model', group: 'context', get: (p) => p.populationModel },
-  { key: 'route', label: 'Route', group: 'regimen', get: (p) => p.routeName },
-  { key: 'formulation', label: 'Formulation', group: 'regimen', get: (p) => p.formulation },
-  // The source's own wording, which already carries its unit. `amountUnit` is a
-  // normalisation hint for filtering; appending it printed "500 mcg mcg".
-  { key: 'amount', label: 'Amount as reported', group: 'regimen', get: (p) => amountAsReported(p) },
-  { key: 'frequency', label: 'Frequency', group: 'regimen', get: (p) => p.frequencyText },
-  { key: 'timing', label: 'Timing', group: 'regimen', get: (p) => p.timingText },
-  { key: 'duration', label: 'Duration', group: 'regimen', get: (p) => p.durationText },
-  { key: 'titration', label: 'Titration', group: 'regimen', get: (p) => p.titrationText },
-  { key: 'cycle', label: 'Cycle / off period', group: 'regimen', get: (p) => p.cycleText },
-  { key: 'combinations', label: 'Combinations', group: 'regimen', get: (p) => p.combinationsText },
-  { key: 'monitoring', label: 'Monitoring', group: 'safety', get: (p) => p.monitoringText },
-  { key: 'cautions', label: 'Cautions', group: 'safety', get: (p) => p.contraindicationsText },
-  { key: 'regulatory', label: 'Regulatory context', group: 'safety', get: (p) => p.regulatoryContext },
-];
-
-const GROUP_LABEL: Readonly<Record<ComparisonField['group'], string>> = {
+const GROUP_LABEL: Readonly<Record<ComparisonGroup, string>> = {
   context: 'What it was for, and in whom',
   regimen: 'The regimen, in each source’s words',
   safety: 'Monitoring, cautions and standing',
 };
 
-/** The fields a clinic compares first, used where there is room for only a few. */
-export const KEY_COMPARISON_FIELDS: readonly string[] = [
-  'route',
-  'population',
-  'amount',
-  'frequency',
-  'duration',
-  'monitoring',
-];
-
-export type FieldStatus = 'differs' | 'same' | 'partial' | 'unstated';
-
-export interface FieldComparison {
-  readonly field: ComparisonField;
-  /** Display values, one per column, exactly as the record holds them. */
-  readonly values: readonly (string | null)[];
-  /**
-   * Which wording each column uses: 0 for the first wording met reading left to
-   * right, 1 for the next, and so on. Null where the source states nothing. An
-   * index, not a rank.
-   */
-  readonly wordings: readonly (number | null)[];
-  readonly wordingCount: number;
-  readonly statedCount: number;
-  readonly status: FieldStatus;
-  /** True when the differing wordings come from more than one source. */
-  readonly acrossSources: boolean;
-}
-
-function stated(value: string | null): string | null {
-  if (value === null) return null;
-  const trimmed = value.trim();
-  return trimmed === '' ? null : trimmed;
+/** The row label for a field's state. Words carry the meaning; the mark repeats it. */
+export function fieldStateLabel(
+  comparison: Pick<ProtocolFieldComparison, 'state' | 'acrossSources'>,
+): string {
+  switch (comparison.state) {
+    case 'difference':
+      return comparison.acrossSources
+        ? 'Difference between sources'
+        : 'Difference within one source’s records';
+    case 'agreement':
+      return comparison.acrossSources
+        ? 'Agreement between sources'
+        : 'Agreement within one source’s records';
+    case 'single':
+      return 'Reported by one source only';
+    default:
+      return 'Not reported by any source';
+  }
 }
 
 /**
- * How one field reads across the columns.
+ * The mark beside each state. Always beside a word, never alone.
  *
- * Identity is exact text after trimming surrounding whitespace — nothing else
- * is normalised. A column that states nothing is never counted as agreeing or
- * disagreeing; it is silent, and the row says how many columns were.
+ * A family of bars, chosen so nothing here reuses the circle, square, triangle
+ * or diamond the evidence-context badges and evidence marks already mean: a
+ * solid bar is a source that reports the field, a dotted bar is silence.
+ *
+ *   agreement  — two solid bars, an equals sign
+ *   difference — two solid bars struck through, a not-equals sign
+ *   single     — one solid bar over one dotted bar
+ *   none       — two dotted bars
  */
-export function compareField(
-  protocols: readonly PractitionerProtocol[],
-  field: ComparisonField,
-): FieldComparison {
-  const values = protocols.map((p) => stated(field.get(p)));
-  const seen = new Map<string, number>();
-  const wordings = values.map((value) => {
-    if (value === null) return null;
-    if (!seen.has(value)) seen.set(value, seen.size);
-    return seen.get(value)!;
-  });
-  const statedCount = values.filter((v) => v !== null).length;
-  const wordingCount = seen.size;
-  const status: FieldStatus =
-    statedCount === 0
-      ? 'unstated'
-      : wordingCount > 1
-        ? 'differs'
-        : statedCount === protocols.length
-          ? 'same'
-          : 'partial';
-  const statingSources = new Set(
-    protocols
-      .filter((_, index) => values[index] !== null)
-      .map((p) => p.sources[0]?.sourceKey ?? p.id),
-  );
-  return {
-    field,
-    values: protocols.map((p) => field.get(p)),
-    wordings,
-    wordingCount,
-    statedCount,
-    status,
-    acrossSources: statingSources.size > 1,
-  };
-}
-
-export function compareProtocols(protocols: readonly PractitionerProtocol[]): FieldComparison[] {
-  return COMPARISON_FIELDS.map((field) => compareField(protocols, field));
-}
-
-export function differsLabel(comparison: Pick<FieldComparison, 'acrossSources'>): string {
-  return comparison.acrossSources ? 'Differs between sources' : 'Differs within one source’s records';
-}
-
-function wordingLetter(index: number): string {
-  return index < 26 ? String.fromCharCode(65 + index) : String(index + 1);
-}
-
-/* ==========================================================================
-   Marks and legend
-   ========================================================================== */
-
-/** The shape that accompanies each row status. Always beside a word, never alone. */
-export function StatusShape({ status }: { status: FieldStatus }) {
+export function FieldStateMark({ state }: { state: FieldState }) {
+  const solid = { strokeWidth: 1.8, strokeLinecap: 'round' as const };
+  const dotted = { strokeWidth: 1.4, strokeLinecap: 'round' as const, strokeDasharray: '0.1 2.6' };
   return (
-    <svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true" className="shrink-0">
-      {status === 'differs' ? (
-        <path d="M6 0.8 L11.2 6 L6 11.2 L0.8 6 Z" fill="var(--color-caution)" />
-      ) : status === 'same' ? (
-        <g stroke="var(--color-tide-teal)" strokeWidth="1.8" strokeLinecap="round">
-          <line x1="2" y1="4.2" x2="10" y2="4.2" />
-          <line x1="2" y1="7.8" x2="10" y2="7.8" />
+    <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" className="shrink-0">
+      {state === 'difference' ? (
+        <g stroke="var(--color-caution)" {...solid}>
+          <line x1="1.8" y1="4.2" x2="10.2" y2="4.2" />
+          <line x1="1.8" y1="7.8" x2="10.2" y2="7.8" />
+          <line x1="8.4" y1="1.2" x2="3.6" y2="10.8" />
         </g>
-      ) : status === 'partial' ? (
-        <g>
-          <circle cx="6" cy="6" r="4.6" fill="none" stroke="var(--color-slate)" strokeWidth="1.2" />
-          <path d="M6 1.4 A4.6 4.6 0 0 0 6 10.6 Z" fill="var(--color-slate)" />
+      ) : state === 'agreement' ? (
+        <g stroke="var(--color-tide-teal)" {...solid}>
+          <line x1="1.8" y1="4.2" x2="10.2" y2="4.2" />
+          <line x1="1.8" y1="7.8" x2="10.2" y2="7.8" />
+        </g>
+      ) : state === 'single' ? (
+        <g stroke="var(--color-slate)">
+          <line x1="1.8" y1="4.2" x2="10.2" y2="4.2" {...solid} />
+          <line x1="1.8" y1="7.8" x2="10.2" y2="7.8" {...dotted} />
         </g>
       ) : (
-        <circle
-          cx="6"
-          cy="6"
-          r="4.6"
-          fill="none"
-          stroke="var(--color-slate)"
-          strokeWidth="1.2"
-          strokeDasharray="2 1.6"
-        />
+        <g stroke="var(--color-slate)">
+          <line x1="1.8" y1="4.2" x2="10.2" y2="4.2" {...dotted} />
+          <line x1="1.8" y1="7.8" x2="10.2" y2="7.8" {...dotted} />
+        </g>
       )}
     </svg>
   );
 }
 
-function StatusMark({ comparison, total }: { comparison: FieldComparison; total: number }) {
-  switch (comparison.status) {
-    case 'differs':
-      return (
-        <span className="mt-1 flex flex-col gap-0.5">
-          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--color-caution)]">
-            <StatusShape status="differs" />
-            {differsLabel(comparison)}
-          </span>
-          <span className="text-2xs text-slate">
-            {comparison.wordingCount} wordings · stated in {comparison.statedCount} of {total}
-          </span>
-        </span>
-      );
-    case 'same':
-      return (
-        <span className="mt-1 inline-flex items-center gap-1.5 text-xs text-tide-teal">
-          <StatusShape status="same" />
-          Same wording in every column
-        </span>
-      );
-    case 'partial':
-      return (
-        <span className="mt-1 inline-flex items-center gap-1.5 text-xs text-slate">
-          <StatusShape status="partial" />
-          Stated in {comparison.statedCount} of {total}; no wording differs
-        </span>
-      );
-    default:
-      return null;
-  }
-}
+const STATE_TEXT: Readonly<Record<FieldState, string>> = {
+  difference: 'text-[var(--color-caution)] font-medium',
+  agreement: 'text-tide-teal',
+  single: 'text-slate',
+  none: 'text-slate',
+};
 
-function WordingTag({ index }: { index: number }) {
+function StateMark({ comparison }: { comparison: ProtocolFieldComparison }) {
+  const { state, total, reportedCount, wordings } = comparison;
+  const detail =
+    state === 'difference'
+      ? `${String(wordings.length)} distinct wordings · reported by ${String(reportedCount)} of ${String(total)}`
+      : state === 'agreement'
+        ? `Reported alike by ${String(reportedCount)} of ${String(total)}`
+        : state === 'single'
+          ? `Reported by 1 of ${String(total)} · nothing to compare it with`
+          : null;
   return (
-    <span className="mr-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-sm border border-[var(--color-caution-rule)] bg-warm-white px-1 align-[1px] text-2xs font-medium text-[var(--color-caution)]">
-      <span className="sr-only">Wording </span>
-      {wordingLetter(index)}
+    <span className="mt-1 flex flex-col gap-0.5" data-field-state={state}>
+      <span className={`inline-flex items-center gap-1.5 text-xs ${STATE_TEXT[state]}`}>
+        <FieldStateMark state={state} />
+        {fieldStateLabel(comparison)}
+      </span>
+      {detail === null ? null : <span className="text-2xs text-slate">{detail}</span>}
     </span>
   );
 }
 
-function NotStated() {
-  // Missing means missing. Not "standard", not inferred from the neighbouring column.
-  return <span className="text-slate italic">Not stated by this source</span>;
+function WordingTag({ letter }: { letter: string }) {
+  return (
+    <span className="mr-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-sm border border-[var(--color-caution-rule)] bg-warm-white px-1 align-[1px] text-2xs font-medium text-[var(--color-caution)]">
+      <span className="sr-only">Wording </span>
+      {letter}
+    </span>
+  );
+}
+
+/**
+ * A field this source does not specify.
+ *
+ * Quiet absence: a dash and two words, never tinted, never lettered, and never
+ * filled in from a neighbouring column. Where the record's placeholder carried a
+ * qualification, it is shown underneath rather than dropped.
+ */
+function NotReported({ note }: { note: string | null }) {
+  return (
+    <span className="text-slate-light" data-cell-state="not_reported">
+      <span aria-hidden="true">— </span>
+      <span className="italic">Not reported</span>
+      {note === null ? null : (
+        <span className="mt-0.5 block text-2xs text-slate not-italic">Record note: {note}</span>
+      )}
+    </span>
+  );
+}
+
+function Cell({ comparison, index }: { comparison: ProtocolFieldComparison; index: number }) {
+  const cell = comparison.cells[index];
+  if (cell === undefined || cell.state === 'not_reported') {
+    return <NotReported note={cell?.note ?? null} />;
+  }
+  const letter =
+    comparison.state === 'difference' && cell.wording !== null
+      ? comparison.wordings[cell.wording]?.letter
+      : undefined;
+  return (
+    <span data-cell-state="reported">
+      {letter === undefined ? null : <WordingTag letter={letter} />}
+      {cell.value}
+    </span>
+  );
+}
+
+function cellTone(comparison: ProtocolFieldComparison, index: number): string {
+  const cell = comparison.cells[index];
+  if (cell?.state !== 'reported') return '';
+  return comparison.state === 'difference'
+    ? 'border-l-2 border-l-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] text-ink'
+    : 'text-ink-soft';
 }
 
 export function ComparisonLegend() {
   const items: readonly { mark: ReactNode; term: string; body: string }[] = [
     {
-      mark: <StatusShape status="differs" />,
-      term: 'Differs between sources',
-      body: 'At least two columns state this field in different words. Those cells are tinted, and a letter groups the columns that share identical wording.',
+      mark: <FieldStateMark state="difference" />,
+      term: 'Difference',
+      body: 'Two or more columns report this field, and what they report differs. Those cells are tinted, and a letter groups the columns that report the same wording.',
     },
     {
-      mark: <StatusShape status="same" />,
-      term: 'Same wording in every column',
-      body: 'Every column states it, word for word. Agreement between sources is not evidence that the value is right.',
+      mark: <FieldStateMark state="agreement" />,
+      term: 'Agreement',
+      body: 'Two or more columns report it, and what they report is the same. Agreement between sources is not evidence that the value is right.',
     },
     {
-      mark: <StatusShape status="partial" />,
-      term: 'Stated by only some',
-      body: 'The columns that state it use one wording; the rest are silent.',
+      mark: <FieldStateMark state="single" />,
+      term: 'Reported by one source only',
+      body: 'Only one column reports it. That is neither agreement nor difference — there is nothing to compare it with.',
     },
     {
       mark: (
@@ -396,12 +349,12 @@ export function ComparisonLegend() {
         </span>
       ),
       term: 'Wording letters',
-      body: 'A is the first wording met reading left to right, B the next. Letters group identical text; they carry no rank.',
+      body: 'On a difference, A is the first wording met reading left to right, B the next. Letters group matching wording; they carry no rank.',
     },
     {
-      mark: <StatusShape status="unstated" />,
-      term: 'Not stated by this source',
-      body: 'The source is silent on it. Nothing is filled in from another column.',
+      mark: <span className="text-slate-light">—</span>,
+      term: 'Not reported',
+      body: 'The source does not specify it. Silence is never counted as a difference or as agreement, and nothing is filled in from another column.',
     },
   ];
   return (
@@ -419,8 +372,10 @@ export function ComparisonLegend() {
         ))}
       </dl>
       <p className="mt-3 text-xs text-slate">
-        Compared as worded: the same schedule written two ways counts as two wordings. Nothing is
-        converted, normalised, averaged or ranged across columns.
+        Wording is matched ignoring only letter case, spacing, punctuation and the space between a
+        number and its unit. Nothing is converted or interpreted: “mcg” and “µg”, or “twice daily”
+        and “every 12 hours”, count as different wordings. Nothing is averaged or ranged across
+        columns, and no dose is suggested.
       </p>
     </div>
   );
@@ -454,6 +409,29 @@ function evidenceMix(
   return [...mix.values()];
 }
 
+function SummaryList({
+  state,
+  title,
+  comparisons,
+}: {
+  state: FieldState;
+  title: string;
+  comparisons: readonly ProtocolFieldComparison[];
+}) {
+  if (comparisons.length === 0) return null;
+  return (
+    <div data-summary-state={state}>
+      <dt className="inline-flex items-center gap-1.5 font-medium text-ink">
+        <FieldStateMark state={state} />
+        {title}
+      </dt>
+      <dd className={`mt-0.5 ${state === 'none' ? 'text-slate' : 'text-ink-soft'}`}>
+        {comparisons.map((c) => c.field.label).join(' · ')}
+      </dd>
+    </div>
+  );
+}
+
 export function ProtocolComparison({
   protocols,
   compoundName,
@@ -464,11 +442,9 @@ export function ProtocolComparison({
   if (protocols.length < 2) return null;
 
   const total = protocols.length;
-  const comparisons = compareProtocols(protocols);
-  const shown = comparisons.filter((c) => c.status !== 'unstated');
-  const byStatus = (status: FieldStatus) =>
-    comparisons.filter((c) => c.status === status).map((c) => c.field.label);
-  const differs = comparisons.filter((c) => c.status === 'differs');
+  const comparisons = compareProtocolFields(protocols);
+  const byState = groupByState(comparisons);
+  const shown = comparisons.filter((c) => c.state !== 'none');
   const sourceCount = new Set(protocols.flatMap((p) => p.sources.map((s) => s.sourceKey))).size;
   const groups = (['context', 'regimen', 'safety'] as const)
     .map((group) => ({ group, rows: shown.filter((c) => c.field.group === group) }))
@@ -497,20 +473,20 @@ export function ProtocolComparison({
         </ul>
 
         <dl className="mt-4 grid gap-3 border-t border-rule pt-3.5 text-sm sm:grid-cols-2">
-          {differs.length > 0 ? (
-            <div className="sm:col-span-2">
+          {byState.difference.length > 0 ? (
+            <div className="sm:col-span-2" data-summary-state="difference">
               <dt className="inline-flex items-center gap-1.5 font-medium text-[var(--color-caution)]">
-                <StatusShape status="differs" />
-                Differs between sources
+                <FieldStateMark state="difference" />
+                Difference — sources report different things
               </dt>
               <dd className="mt-1 flex flex-wrap gap-1.5">
-                {differs.map((c) => (
+                {byState.difference.map((c) => (
                   <span
                     key={c.field.key}
                     className="rounded-sm border border-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] px-2 py-0.5 text-xs text-ink-soft"
                   >
                     {c.field.label}
-                    <span className="text-slate"> · {c.wordingCount} wordings</span>
+                    <span className="text-slate"> · {c.wordings.length} wordings</span>
                     {c.acrossSources ? null : <span className="text-slate"> · one source</span>}
                   </span>
                 ))}
@@ -519,36 +495,12 @@ export function ProtocolComparison({
           ) : null}
           {/*
             Agreement is worth naming too. A reader told only what differs will
-            assume the rest was never reported; these are the fields every
-            column states identically — still not an endorsement of the value.
+            assume the rest was never reported; these are the fields reported
+            alike wherever they are reported — still not an endorsement.
           */}
-          {byStatus('same').length > 0 ? (
-            <div>
-              <dt className="inline-flex items-center gap-1.5 font-medium text-ink">
-                <StatusShape status="same" />
-                Same wording in every column
-              </dt>
-              <dd className="mt-0.5 text-ink-soft">{byStatus('same').join(' · ')}</dd>
-            </div>
-          ) : null}
-          {byStatus('partial').length > 0 ? (
-            <div>
-              <dt className="inline-flex items-center gap-1.5 font-medium text-ink">
-                <StatusShape status="partial" />
-                Stated by only some
-              </dt>
-              <dd className="mt-0.5 text-ink-soft">{byStatus('partial').join(' · ')}</dd>
-            </div>
-          ) : null}
-          {byStatus('unstated').length > 0 ? (
-            <div>
-              <dt className="inline-flex items-center gap-1.5 font-medium text-ink">
-                <StatusShape status="unstated" />
-                Not stated by any column
-              </dt>
-              <dd className="mt-0.5 text-ink-soft">{byStatus('unstated').join(' · ')}</dd>
-            </div>
-          ) : null}
+          <SummaryList state="agreement" title="Agreement — reported alike" comparisons={byState.agreement} />
+          <SummaryList state="single" title="Reported by one source only" comparisons={byState.single} />
+          <SummaryList state="none" title="Not reported by any source" comparisons={byState.none} />
         </dl>
       </div>
 
@@ -570,7 +522,7 @@ export function ProtocolComparison({
               <tr className="align-bottom">
                 <th
                   scope="col"
-                  className="sticky left-0 z-10 w-44 min-w-44 border-r border-b border-rule bg-warm-white px-4 py-3 text-left"
+                  className="sticky left-0 z-10 w-48 min-w-48 border-r border-b border-rule bg-warm-white px-4 py-3 text-left"
                 >
                   <span className="meta-label">Field</span>
                 </th>
@@ -609,7 +561,11 @@ export function ProtocolComparison({
                   </th>
                 </tr>
                 {rows.map((comparison) => (
-                  <tr key={comparison.field.key} className="border-b border-rule-soft align-top">
+                  <tr
+                    key={comparison.field.key}
+                    className="border-b border-rule-soft align-top"
+                    data-field={comparison.field.key}
+                  >
                     <th
                       scope="row"
                       className="sticky left-0 z-10 border-r border-rule bg-warm-white px-4 py-3 text-left font-normal"
@@ -617,32 +573,13 @@ export function ProtocolComparison({
                       <span className="block text-xs font-medium tracking-wide text-ink uppercase">
                         {comparison.field.label}
                       </span>
-                      <StatusMark comparison={comparison} total={total} />
+                      <StateMark comparison={comparison} />
                     </th>
-                    {protocols.map((protocol, index) => {
-                      const value = comparison.values[index] ?? null;
-                      const wording = comparison.wordings[index] ?? null;
-                      const tinted = comparison.status === 'differs' && wording !== null;
-                      return (
-                        <td
-                          key={protocol.id}
-                          className={`px-4 py-3 ${
-                            tinted
-                              ? 'border-l-2 border-l-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] text-ink'
-                              : 'text-ink-soft'
-                          }`}
-                        >
-                          {wording === null ? (
-                            <NotStated />
-                          ) : (
-                            <>
-                              {tinted ? <WordingTag index={wording} /> : null}
-                              {value}
-                            </>
-                          )}
-                        </td>
-                      );
-                    })}
+                    {protocols.map((protocol, index) => (
+                      <td key={protocol.id} className={`px-4 py-3 ${cellTone(comparison, index)}`}>
+                        <Cell comparison={comparison} index={index} />
+                      </td>
+                    ))}
                   </tr>
                 ))}
               </tbody>
@@ -705,42 +642,20 @@ export function ProtocolComparison({
                 <p className="text-xs font-medium tracking-wide text-ink uppercase">
                   {comparison.field.label}
                 </p>
-                <StatusMark comparison={comparison} total={total} />
-                {comparison.status === 'same' ? (
-                  <p className="mt-2 text-sm text-ink-soft">
-                    <span className="text-slate">Every column: </span>
-                    {comparison.values[0]}
-                  </p>
-                ) : (
-                  <ul className="mt-2 space-y-1.5">
-                    {protocols.map((protocol, index) => {
-                      const wording = comparison.wordings[index] ?? null;
-                      const tinted = comparison.status === 'differs' && wording !== null;
-                      return (
-                        <li
-                          key={protocol.id}
-                          className={`flex gap-2.5 rounded-sm px-2 py-1.5 text-sm ${
-                            tinted
-                              ? 'border-l-2 border-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] text-ink'
-                              : 'text-ink-soft'
-                          }`}
-                        >
-                          <ColumnNumber n={index + 1} />
-                          <span className="min-w-0">
-                            {wording === null ? (
-                              <NotStated />
-                            ) : (
-                              <>
-                                {tinted ? <WordingTag index={wording} /> : null}
-                                {comparison.values[index]}
-                              </>
-                            )}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
+                <StateMark comparison={comparison} />
+                <ul className="mt-2 space-y-1.5">
+                  {protocols.map((protocol, index) => (
+                    <li
+                      key={protocol.id}
+                      className={`flex gap-2.5 rounded-sm px-2 py-1.5 text-sm ${cellTone(comparison, index)}`}
+                    >
+                      <ColumnNumber n={index + 1} />
+                      <span className="min-w-0">
+                        <Cell comparison={comparison} index={index} />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </section>
             ))}
           </div>

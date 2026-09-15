@@ -1,7 +1,7 @@
 import { sql } from 'drizzle-orm';
 import { check, index, integer, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 import { claims } from './claims';
-import { publicationState } from './enums';
+import { publicationState, synthesisInterpretationKind } from './enums';
 import { learningTopics } from './learning';
 import { peptides } from './peptides';
 import { qualityTopics } from './quality';
@@ -15,6 +15,11 @@ import { qualityTopics } from './quality';
  * number, mechanism, effect, safety conclusion or protocol — the numeral check
  * and the publish gate (migration 0027) hold what the database can, and tests
  * and review hold the rest.
+ *
+ * A synthesis about a compound, or one whose `interpretationKind` is not
+ * `general`, is published only on an approved human scientific review at its
+ * current version (migration 0028). The review is a row in `reviews` with
+ * entity type `editorial_synthesis`.
  */
 export const editorialSyntheses = pgTable(
   'editorial_syntheses',
@@ -28,6 +33,7 @@ export const editorialSyntheses = pgTable(
     plainLanguageText: text().notNull(),
     reasoning: text().notNull(),
     doesNotConclude: text().notNull(),
+    interpretationKind: synthesisInterpretationKind().notNull().default('general'),
     publicationState: publicationState().notNull().default('unpublished'),
     sortOrder: integer().notNull().default(0),
     version: integer().notNull().default(1),

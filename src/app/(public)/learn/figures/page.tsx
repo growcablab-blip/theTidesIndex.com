@@ -22,7 +22,7 @@ const GROUPS: readonly { heading: string; lede: string; keys: readonly Illustrat
   {
     heading: 'What a peptide is, and how it signals',
     lede: 'The building blocks, the bond between them, and the message-and-receiver logic of signalling.',
-    keys: ['chain-scale', 'peptide-bond', 'message-receiver', 'receptor-binding', 'cell-signalling'],
+    keys: ['chain-scale', 'peptide-bond', 'peptide-lifecycle', 'message-receiver', 'receptor-binding', 'cell-signalling'],
   },
   {
     heading: 'How a substance moves through the body',
@@ -32,12 +32,23 @@ const GROUPS: readonly { heading: string; lede: string; keys: readonly Illustrat
   {
     heading: 'How peptides are made and tested',
     lede: 'From a sequence on paper to a released vial, and what each kind of test actually establishes.',
-    keys: ['sequence-to-vial', 'mass-identity', 'sterility', 'endotoxin', 'lyophilisation', 'chain-of-custody'],
+    keys: [
+      'quality-spine',
+      'sequence-to-vial',
+      'separate-questions',
+      'chromatogram',
+      'mass-identity',
+      'formulation',
+      'sterility',
+      'endotoxin',
+      'lyophilisation',
+      'chain-of-custody',
+    ],
   },
   {
     heading: 'How this index works',
-    lede: 'The separations the database enforces: evidence lanes, recorded unknowns, and protocols that are never merged.',
-    keys: ['evidence-lanes', 'known-unknown', 'protocol-comparison'],
+    lede: 'The separations the database enforces: evidence lanes, recorded unknowns, the three editorial states, what a study design can answer, and protocols that are never merged.',
+    keys: ['evidence-lanes', 'editorial-states', 'study-design', 'known-unknown', 'protocol-comparison'],
   },
 ];
 

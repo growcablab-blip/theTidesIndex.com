@@ -78,12 +78,12 @@ export function Illustration({
         <p className="no-print mb-2 text-xs text-slate sm:hidden" aria-hidden="true">
           Scroll the drawing sideways to see all of it.
         </p>
-        <div className="overflow-x-auto">
+        <div className="print-fit overflow-x-auto">
           <svg
             viewBox={viewBox}
             role="img"
             aria-labelledby={`${titleId} ${descId}`}
-            className="mx-auto block h-auto w-full text-ink"
+            className="print-fit mx-auto block h-auto w-full text-ink"
             style={{ minWidth }}
             preserveAspectRatio="xMidYMid meet"
           >
