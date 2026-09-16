@@ -25,6 +25,8 @@ export default async function PublicLayout({ children }: { children: React.React
         and the stylesheet hides this one when that is present.
       */}
       <div className="print-only print-site-masthead mb-6 border-b border-rule pb-3">
+        {/* eslint-disable-next-line @next/next/no-img-element -- paper only; a plain image prints reliably */}
+        <img src="/brand/tides-index-logo.png" alt="The Tides Index" className="mb-2 h-10 w-auto" />
         <p className="text-sm font-medium">The Tides Index · thetidesindex.com</p>
         <p className="mt-1 text-xs">
           {mode === 'simple'

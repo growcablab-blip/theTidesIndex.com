@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getStaffSession, ROLE_LABELS } from '@/server/auth/session';
@@ -33,10 +34,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           in the corner. */}
       <header className="border-b border-rule bg-mist print:hidden">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-3">
-          <div className="flex items-baseline gap-6">
-            <Link href="/admin" className="font-serif text-lg text-ink">
-              The Tides Index
-              <span className="ml-2 text-xs tracking-wide text-slate uppercase">Editorial</span>
+          <div className="flex items-center gap-6">
+            <Link href="/admin" className="flex items-center gap-2.5 text-ink" aria-label="The Tides Index — editorial">
+              <Image src="/brand/tides-index-mark.png" alt="" width={512} height={512} className="h-8 w-8" />
+              <span className="font-serif text-lg">The Tides Index</span>
+              <span className="text-xs tracking-wide text-slate uppercase">Editorial</span>
             </Link>
             <nav aria-label="Editorial sections">
               <ul className="flex flex-wrap gap-4 text-sm">

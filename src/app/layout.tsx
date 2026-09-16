@@ -34,6 +34,12 @@ export const metadata: Metadata = {
   applicationName: 'The Tides Index',
   authors: [{ name: 'The Tides Index' }],
   formatDetection: { telephone: false },
+  // The favicon and touch icon are the logo's molecule mark (src/app/icon.png,
+  // src/app/apple-icon.png), picked up by Next's file conventions.
+  openGraph: {
+    siteName: 'The Tides Index',
+    images: [{ url: '/brand/tides-index-logo.png', width: 1200, height: 437, alt: 'The Tides Index' }],
+  },
   robots: {
     // Nothing is indexable while the reference is still being built. Lifted at
     // launch, once reviewed content exists to index.

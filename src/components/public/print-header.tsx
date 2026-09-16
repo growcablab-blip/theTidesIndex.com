@@ -30,6 +30,8 @@ export function PrintHeader({
 
   return (
     <div className="print-only print-record-header mb-6 border-b border-rule pb-3">
+      {/* eslint-disable-next-line @next/next/no-img-element -- paper only; a plain image prints reliably */}
+      <img src="/brand/tides-index-logo.png" alt="The Tides Index" className="mb-2 h-10 w-auto" />
       <p className="text-sm font-medium">The Tides Index — {title}</p>
       <p className="mt-1 text-xs">
         {mode === 'simple'

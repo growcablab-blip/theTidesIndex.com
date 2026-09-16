@@ -1,5 +1,7 @@
-import { Page, Text, View, StyleSheet, Svg, Path } from '@react-pdf/renderer';
+import { Image, Page, Text, View, StyleSheet, Svg, Path } from '@react-pdf/renderer';
 import type { ReactNode } from 'react';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { colour, columns, contentWidth, leading, page, RHYTHM, sans, serif, type } from './theme';
 
 /**
@@ -17,6 +19,20 @@ import { colour, columns, contentWidth, leading, page, RHYTHM, sans, serif, type
  * when the record behind it is not. In a publication about what tests do and do
  * not establish, that is the whole job.
  */
+
+/**
+ * The logo, reversed for the dark cover: the supplied artwork with its dark teal
+ * wordmark set in near-white, and the molecule and gold ring unchanged
+ * (public/brand/tides-index-logo-reversed.png, derived from the file in the
+ * project root). Aspect ratio of the trimmed artwork: 1981 × 721.
+ */
+// Passed as bytes: react-pdf reads a Windows path such as C:\… as a URL scheme and draws nothing.
+const COVER_LOGO = {
+  data: readFileSync(fileURLToPath(new URL('../../public/brand/tides-index-logo-reversed.png', import.meta.url))),
+  format: 'png' as const,
+};
+const COVER_LOGO_WIDTH = 216;
+const COVER_LOGO_HEIGHT = (COVER_LOGO_WIDTH * 721) / 1981;
 
 const styles = StyleSheet.create({
   page: {
@@ -132,7 +148,6 @@ export interface CoverProps {
  * to every reader who saw it. A drawn mark says "reference".
  */
 export function Cover({
-  imprint,
   series,
   title,
   subtitle,
@@ -190,17 +205,8 @@ export function Cover({
           right: page.margin.outer,
         }}
       >
-        <Text
-          style={{
-            fontFamily: sans,
-            fontSize: type.small,
-            letterSpacing: 2.4,
-            textTransform: 'uppercase',
-            color: colour.seaGlass,
-          }}
-        >
-          {imprint}
-        </Text>
+        {/* The logo stands for the imprint; the document's metadata carries the name as text. */}
+        <Image src={COVER_LOGO} style={{ width: COVER_LOGO_WIDTH, height: COVER_LOGO_HEIGHT }} />
         {series === undefined ? null : (
           <Text
             style={{
@@ -209,7 +215,7 @@ export function Cover({
               letterSpacing: 1.4,
               textTransform: 'uppercase',
               color: colour.tideTeal,
-              marginTop: 6,
+              marginTop: 12,
             }}
           >
             {series}

@@ -1,11 +1,13 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from './primitives';
 
 /**
  * Site chrome.
  *
- * The header carries a wordmark, the primary sections, and search — and stops
- * there. On a reference, chrome that competes with the content is a cost paid on
+ * The header carries the logo, the primary sections, and search — and stops
+ * there. The logo is the supplied brand artwork (`public/brand/`); its accessible
+ * name is the organisation's name, so screen readers hear "The Tides Index". On a reference, chrome that competes with the content is a cost paid on
  * every page. The tide motif appears once, as a rule beneath the header, and
  * nowhere else.
  */
@@ -68,18 +70,21 @@ export function SiteHeader() {
       <header className="no-print sticky top-0 z-40 border-b border-rule bg-warm-white/95 backdrop-blur-sm">
         <Container width="wide">
           <div className="flex h-16 items-center justify-between gap-6">
-            <Link href="/" className="group flex shrink-0 items-baseline gap-2.5">
-              <span className="font-serif text-lg tracking-tight text-ink">The Tides Index</span>
+            <Link href="/" className="flex shrink-0 items-center" aria-label="The Tides Index — home">
               {/*
-                Held back until there is room for it. At the tablet breakpoint the
-                primary nav appears while the brand is still shrink-0, and the
-                descriptor pushed the search control past the viewport edge —
-                found by measuring at 768px rather than by looking, because 24px
-                of overflow reads as a scrollbar and nothing else.
+                The logo carries its own tagline, so the separate descriptor is
+                gone. Height is fixed and width follows the artwork, so the
+                search control keeps its room at the tablet breakpoint.
               */}
-              <span className="hidden text-2xs tracking-[0.14em] text-slate uppercase lg:inline">
-                Peptide reference
-              </span>
+              <Image
+                src="/brand/tides-index-logo.png"
+                alt="The Tides Index"
+                width={1200}
+                height={437}
+                loading="eager"
+                fetchPriority="high"
+                className="h-11 w-auto"
+              />
             </Link>
 
             <nav aria-label="Primary" className="hidden md:block">
@@ -149,8 +154,14 @@ export function SiteFooter() {
       <Container width="wide">
         <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-serif text-base text-ink">The Tides Index</p>
-            <p className="mt-1.5 max-w-[28ch] text-sm text-slate">
+            <Image
+              src="/brand/tides-index-logo.png"
+              alt="The Tides Index"
+              width={1200}
+              height={437}
+              className="h-16 w-auto"
+            />
+            <p className="mt-3 max-w-[28ch] text-sm text-slate">
               Independent peptide science &amp; clinical reference.
             </p>
           </div>
