@@ -191,19 +191,17 @@ describe('a review, from submission to withdrawal', () => {
   });
 
   /*
-   * A change request no longer holds a record back — and that is worth stating
-   * explicitly rather than leaving as a silent consequence.
+   * An unresolved change request blocks publication (migration 0030).
    *
-   * The 2026-09-24 decision names one review state that must stay unpublishable:
-   * 'rejected'. A change request is not a rejection and does not move the record
-   * to it, so the gate lets the record through. The request itself is still
-   * recorded, still attributed and still in the review queue.
+   * Section 2 separated publication from review and, in doing so, briefly let a
+   * record be published over an objection that had already been raised. That is
+   * not what "public without review" was meant to mean: nobody having looked is
+   * silence, but a reviewer having looked and objected is information.
    *
-   * Whether an open change request *should* block publication is an owner
-   * decision, flagged in docs/V1_SECTION_2_PUBLICATION_REPORT.md. It has no
-   * effect on the current library, which carries no reviews at all.
+   * The record still carries the request either way — the point is that it can
+   * no longer be published while the request stands.
    */
-  it('publishes over a change request, but keeps the request on the record', async () => {
+  it('refuses publication while a change request is unresolved', async () => {
     const target = await claim('HPLC-006');
     await approve(db, {
       entityType: 'claim',
@@ -215,8 +213,11 @@ describe('a review, from submission to withdrawal', () => {
       comments: 'The scope sentence claims more than the table supports.',
     });
 
-    await query(db, `update claims set publication_state = 'published' where id = $1`, [target.id]);
-    expect((await claim('HPLC-006')).publication_state).toBe('published');
+    await expect(
+      query(db, `update claims set publication_state = 'published' where id = $1`, [target.id]),
+    ).rejects.toThrow();
+
+    expect((await claim('HPLC-006')).publication_state).not.toBe('published');
 
     const requests = await query<{ outcome: string; comments: string }>(
       db,
@@ -225,9 +226,6 @@ describe('a review, from submission to withdrawal', () => {
     );
     expect(requests).toHaveLength(1);
     expect(requests[0]?.comments).toMatch(/claims more than the table supports/);
-
-    // And it still carries no review date, because nobody approved it.
-    expect((await claim('HPLC-006')).last_reviewed_at).toBeNull();
   });
 
   // --- A demonstration reviewer is not a reviewer ---------------------------

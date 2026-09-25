@@ -326,6 +326,11 @@ again, which withdraws it.
 So the narrow gap is: a record a reviewer has already flagged, and never revisits, can be published
 over. **It has no effect on the current library**, which carries no reviews at all.
 
+> **Closed in Section 3 (25 September 2026).** Migration `0030` makes an unresolved change request
+> block publication, with parity tests at both layers. See
+> `docs/V1_SECTION_3_WEBSITE_COMPLETION_REPORT.md` §1. The paragraphs above are left as they were
+> written, because they record why the gap existed.
+
 **My recommendation:** close it when convenient, not urgently. Given 0005 still catches the live
 case, this is a smaller hole than I first thought. I did not implement it because it would add a
 blocking condition you did not ask for, to a safety-critical gate.

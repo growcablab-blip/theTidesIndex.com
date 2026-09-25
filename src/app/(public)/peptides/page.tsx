@@ -20,7 +20,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Compounds',
   description:
-    'Every compound with a reviewed record in The Tides Index, with the kind of evidence recorded for each.',
+    'Every compound with a published, source-linked record in The Tides Index, with the kind of evidence recorded for each.',
 };
 
 /**
@@ -145,7 +145,7 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
       <header className="max-w-[60ch]">
         <h1 className="font-serif text-3xl text-ink sm:text-4xl">Compounds</h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Every compound with a reviewed record. Each shows the kind of evidence recorded for it, so
+          Every compound with a published record. Each shows the kind of evidence recorded for it, so
           you can see before opening a page whether anything here rests on human studies.
         </p>
       </header>
@@ -213,7 +213,15 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
             ) : null}
           </form>
 
-          <div className="mt-5 overflow-x-auto">
+          {/*
+            The table is the right shape for this data and the wrong shape for a
+            phone: nine columns at a 64rem minimum is about two and a half
+            screens of sideways scrolling at 375px, with no affordance saying so.
+            So the same rows are rendered twice — as a table where there is room
+            for one, and as a compact list where there is not. Both come from
+            `shown`, so they cannot disagree.
+          */}
+          <div className="mt-5 hidden overflow-x-auto lg:block">
             <table className="w-full min-w-[64rem] border-collapse text-sm">
               <caption className="sr-only">
                 Compounds by the shape of their evidence, described rather than counted.
@@ -282,8 +290,72 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
                 })}
               </tbody>
             </table>
-            {shown.length === 0 ? <p className="mt-3 text-sm text-slate">No compound matches every filter.</p> : null}
           </div>
+
+          {/*
+            The phone view. Not a card wall: one bordered row per compound, the
+            name as the target, and only the fields a reader uses to decide
+            whether to open it. Everything omitted here is on the record, one tap
+            away — the register's job on a phone is to get you to the right
+            record, not to reproduce the table.
+          */}
+          <ul className="mt-5 space-y-3 lg:hidden">
+            {shown.map((r) => {
+              const human = humanState(r);
+              return (
+                <li key={r.slug} className="rounded-xl border border-rule bg-warm-white px-4 py-4">
+                  <Link
+                    href={`/peptides/${r.slug}`}
+                    className="font-serif text-lg leading-snug text-ink hover:text-deep-tide"
+                  >
+                    {r.name}
+                  </Link>
+                  <p className="mt-0.5 text-xs text-slate">
+                    {[r.compoundTypeLabel, r.categoryLabel].filter(Boolean).join(' · ') || '—'}
+                  </p>
+
+                  <dl className="mt-3 space-y-1.5 text-sm">
+                    <div className="flex gap-2">
+                      <dt className="shrink-0 text-slate">Human evidence</dt>
+                      <dd
+                        className={`ml-auto text-right ${
+                          human.tone === 'caution'
+                            ? 'text-[var(--color-caution)]'
+                            : human.tone === 'quiet'
+                              ? 'text-slate'
+                              : 'text-ink-soft'
+                        }`}
+                      >
+                        {human.text}
+                      </dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className="shrink-0 text-slate">Preclinical</dt>
+                      <dd className="ml-auto text-right text-ink-soft">{preclinicalState(r)}</dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className="shrink-0 text-slate">Reported regimens</dt>
+                      <dd className="ml-auto text-right text-ink-soft">
+                        {r.protocolCount === 0
+                          ? 'None recorded'
+                          : regimenKinds(r.protocolEvidenceKeys).join(', ')}
+                      </dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className="shrink-0 text-slate">Open questions</dt>
+                      <dd className="ml-auto text-right text-ink-soft">
+                        {r.researchQuestions > 0 ? `${String(r.researchQuestions)} recorded` : 'None recorded'}
+                      </dd>
+                    </div>
+                  </dl>
+                </li>
+              );
+            })}
+          </ul>
+
+          {shown.length === 0 ? (
+            <p className="mt-3 text-sm text-slate">No compound matches every filter.</p>
+          ) : null}
         </section>
       ) : null}
 
@@ -291,7 +363,7 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
         {peptides.length === 0 ? (
           <EmptyState
             headline="No compound records have been published yet."
-            detail="A compound record is published only once it has a plain-language summary, a statement of what is not established about it, and both scientific and compliance review. Every compound in scope is listed below."
+            detail="A compound record is published only once it has a plain-language summary, a statement of what is not established about it, and every statement resolved to an exact location in a citable source. Every compound in scope is listed below."
           >
             <p>
               The register of sources being worked through is{' '}
@@ -370,7 +442,7 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
           <h2 className="font-serif text-2xl text-ink">In scope, record in preparation</h2>
           <p className="mt-1.5 max-w-[62ch] text-sm text-slate">
             These compounds are being worked on. Nothing about them is published until their
-            statements have been traced to a source and reviewed, so their pages say only that —
+            statements have been traced to a named source at an exact location, so their pages say only that —
             which is different from the compound being out of scope.
           </p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

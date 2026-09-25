@@ -82,18 +82,18 @@ export default function MethodologyPage() {
           <ul>
             <li>
               A statement needs at least one evidence link to an <em>exact location</em> in a source
-              whose held copy is sound, a written record of how that evidence was read, and approved
-              source and scientific review.
+              whose held copy is sound, and a written record of how that evidence was read. Human
+              review is recorded separately and is not a condition of publication.
             </li>
             <li>
-              A high-impact statement additionally has to say what remains uncertain about it, and
-              pass compliance review. &ldquo;Not established&rdquo; is an acceptable answer; leaving
-              it blank is not.
+              A high-impact statement additionally has to say what remains uncertain about it.
+              &ldquo;Not established&rdquo; is an acceptable answer; leaving it blank is not.
             </li>
             <li>
               A protocol record needs provenance, the population or model it applies to, the route,
               an explicit statement of whether it is approved labelling, a study regimen or
-              practitioner practice — and four separate approvals.
+              practitioner practice. Whether any of the four reviews has been recorded is stated on
+              the record itself; none has been so far.
             </li>
             <li>
               A compound page cannot be published unless it states what is <em>not</em> established
@@ -156,7 +156,7 @@ export default function MethodologyPage() {
             </li>
             <li>
               <strong>Generate answers.</strong> Search returns records. No summary is produced that
-              cannot be traced back to a reviewed statement.
+              cannot be traced back to a source-linked statement.
             </li>
             <li>
               <strong>Sell anything.</strong> No products, no vendor rankings, no affiliate links.
@@ -166,8 +166,9 @@ export default function MethodologyPage() {
 
         <Section id="ai" title="Where automation is used">
           <p>
-            Software helps organise, normalise and flag contradictions, and can draft from records
-            that have already been reviewed. It cannot approve anything. Every gate requires an
+            Software helps organise, normalise and flag contradictions, and can draft only from records
+            that already resolve to a named source at an exact location. It cannot approve
+            anything. Every gate requires an
             approval attributable to a named person, which is a constraint in the database rather
             than a policy — an automated actor cannot satisfy it.
           </p>

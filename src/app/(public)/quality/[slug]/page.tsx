@@ -326,7 +326,7 @@ export default async function QualityTopicPage({
               <div className="mt-3">
                 <EmptyState
                   headline="A plain-language explanation has not been written yet."
-                  detail="Quality explainers are written from reviewed analytical sources. Several of the sources this topic depends on are still being obtained."
+                  detail="Quality explainers are written only from analytical sources this index holds in a citable copy. Several of the sources this topic depends on are still being obtained."
                 />
               </div>
             ) : (
@@ -475,7 +475,7 @@ export default async function QualityTopicPage({
 
                 {topic.claims.length === 0 ? (
                   <EmptyState
-                    headline="No source-linked statements have been reviewed for this topic yet."
+                    headline="No source-linked statement has been recorded for this topic yet."
                     detail="Analytical statements need a compendial or methods source at an exact page. Several of the references this section depends on are held only as partial copies and are awaiting replacement."
                   >
                     <p>
@@ -659,7 +659,7 @@ export default async function QualityTopicPage({
           <Section id="record" title="About this record">
             <Disclosure
               summary="Version, review state and how this page is maintained"
-              detail="Who has checked this record, when, and what has not been checked."
+              detail="Whether anyone has checked this record, when, and what has not been checked."
             >
               <div className="rounded-md border border-rule bg-mist px-5 py-5">
                 <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -676,7 +676,11 @@ export default async function QualityTopicPage({
                     {formatDate(topic.publishedAt)}
                   </MetaItem>
                   <MetaItem label="Last reviewed">
-                    {formatDate(topic.lastReviewedAt)}
+                    {topic.lastReviewedAt === null ? (
+                      <span className="text-slate">Not yet reviewed by a person</span>
+                    ) : (
+                      formatDate(topic.lastReviewedAt)
+                    )}
                   </MetaItem>
                   <MetaItem label="Evidence cutoff">
                     <EvidenceCutoff value={topic.evidenceCutoffAt} />

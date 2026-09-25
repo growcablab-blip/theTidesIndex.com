@@ -68,6 +68,25 @@ export interface ClaimGateInput {
   readonly uncertaintyText: string | null;
   readonly evidence: readonly EvidenceLinkState[];
   readonly approvedReviews: readonly ReviewType[];
+  /**
+   * Whether a reviewer's most recent decision at this version asks for changes.
+   *
+   * Not a review requirement: a record nobody has looked at still publishes.
+   * This is the other case — somebody looked and said it is wrong, and the
+   * objection has not been answered. Mirrors tides_has_open_change_request.
+   */
+  readonly hasOpenChangeRequest: boolean;
+}
+
+
+/** The refusal a live change request produces, shared by every gate. */
+function changeRequestFailure(): GateFailure {
+  return {
+    code: 'open_change_request',
+    field: 'reviews',
+    message:
+      'A reviewer has asked for changes and the request has not been resolved. Answer it, or record a new decision, before publishing.',
+  };
 }
 
 export function evaluateClaimPublishGate(input: ClaimGateInput): GateResult {
@@ -77,7 +96,10 @@ export function evaluateClaimPublishGate(input: ClaimGateInput): GateResult {
     // Editorial copy carries no evidentiary weight, so it is exempt from
     // provenance. It was previously held back for a scientific review it could
     // not meaningfully receive; under the 2026-09-24 policy it publishes and
-    // states its review state like everything else.
+    // states its review state like everything else. A live objection still
+    // stops it, because that is a person's judgement rather than a missing
+    // approval.
+    if (input.hasOpenChangeRequest) failures.push(changeRequestFailure());
     return result(failures);
   }
 
@@ -118,6 +140,12 @@ export function evaluateClaimPublishGate(input: ClaimGateInput): GateResult {
     }
   }
 
+  // Last, so an editor hears about a fixable content gap before a reviewer's
+  // objection — which may well have been about exactly that gap.
+  if (failures.length === 0 && input.hasOpenChangeRequest) {
+    failures.push(changeRequestFailure());
+  }
+
   return result(failures);
 }
 
@@ -127,6 +155,14 @@ export interface ProtocolGateInput {
   readonly regulatoryContext: string | null;
   readonly sources: readonly EvidenceLinkState[];
   readonly approvedReviews: readonly ReviewType[];
+  /**
+   * Whether a reviewer's most recent decision at this version asks for changes.
+   *
+   * Not a review requirement: a record nobody has looked at still publishes.
+   * This is the other case — somebody looked and said it is wrong, and the
+   * objection has not been answered. Mirrors tides_has_open_change_request.
+   */
+  readonly hasOpenChangeRequest: boolean;
 }
 
 export function evaluateProtocolPublishGate(input: ProtocolGateInput): GateResult {
@@ -168,6 +204,12 @@ export function evaluateProtocolPublishGate(input: ProtocolGateInput): GateResul
     });
   }
 
+  // Last, so an editor hears about a fixable content gap before a reviewer's
+  // objection — which may well have been about exactly that gap.
+  if (failures.length === 0 && input.hasOpenChangeRequest) {
+    failures.push(changeRequestFailure());
+  }
+
   return result(failures);
 }
 
@@ -175,6 +217,14 @@ export interface PeptideGateInput {
   readonly simpleSummary: string | null;
   readonly unknownsSummary: string | null;
   readonly approvedReviews: readonly ReviewType[];
+  /**
+   * Whether a reviewer's most recent decision at this version asks for changes.
+   *
+   * Not a review requirement: a record nobody has looked at still publishes.
+   * This is the other case — somebody looked and said it is wrong, and the
+   * objection has not been answered. Mirrors tides_has_open_change_request.
+   */
+  readonly hasOpenChangeRequest: boolean;
 }
 
 export function evaluatePeptidePublishGate(input: PeptideGateInput): GateResult {
@@ -197,6 +247,12 @@ export function evaluatePeptidePublishGate(input: PeptideGateInput): GateResult 
     });
   }
 
+  // Last, so an editor hears about a fixable content gap before a reviewer's
+  // objection — which may well have been about exactly that gap.
+  if (failures.length === 0 && input.hasOpenChangeRequest) {
+    failures.push(changeRequestFailure());
+  }
+
   return result(failures);
 }
 
@@ -204,6 +260,14 @@ export interface QualityTopicGateInput {
   readonly whatItProves: string | null;
   readonly whatItDoesNotProve: string | null;
   readonly approvedReviews: readonly ReviewType[];
+  /**
+   * Whether a reviewer's most recent decision at this version asks for changes.
+   *
+   * Not a review requirement: a record nobody has looked at still publishes.
+   * This is the other case — somebody looked and said it is wrong, and the
+   * objection has not been answered. Mirrors tides_has_open_change_request.
+   */
+  readonly hasOpenChangeRequest: boolean;
 }
 
 export function evaluateQualityTopicPublishGate(input: QualityTopicGateInput): GateResult {
@@ -224,6 +288,12 @@ export function evaluateQualityTopicPublishGate(input: QualityTopicGateInput): G
       message:
         'State what it cannot establish. This half is the point of the quality section — a purity result is not an identity, content, sterility or endotoxin result.',
     });
+  }
+
+  // Last, so an editor hears about a fixable content gap before a reviewer's
+  // objection — which may well have been about exactly that gap.
+  if (failures.length === 0 && input.hasOpenChangeRequest) {
+    failures.push(changeRequestFailure());
   }
 
   return result(failures);

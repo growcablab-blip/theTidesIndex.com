@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { currentCorrectionsContact } from '@/domain/publishing/corrections-contact';
 import { listCorrections } from '@/server/public/queries';
 import {
   Callout,
@@ -40,6 +41,8 @@ const SEVERITY_LABEL: Readonly<Record<string, string>> = {
  */
 export default async function CorrectionsPage() {
   const corrections = await listCorrections();
+  // Configuration, not a constant: see src/domain/publishing/corrections-contact.ts.
+  const contact = currentCorrectionsContact();
 
   return (
     <Container width="reading" className="py-10 sm:py-14">
@@ -60,13 +63,35 @@ export default async function CorrectionsPage() {
             Include the page, the statement, and what you believe the correct position is. If you can
             point at a source and a page, that shortens the work considerably.
           </p>
-          <Callout title="A correction contact has not been published yet">
-            <p>
-              This is a gap, and it is listed as one on the{' '}
-              <Link href="/coverage">coverage page</Link> rather than papered over. Until a contact
-              route is live, corrections cannot be submitted through the site.
-            </p>
-          </Callout>
+          {contact === null ? (
+            <Callout title="A correction contact has not been published yet">
+              <p>
+                This is a gap, and it is listed as one on the{' '}
+                <Link href="/coverage">coverage page</Link> rather than papered over. Until a contact
+                route is live, corrections cannot be submitted through the site.
+              </p>
+            </Callout>
+          ) : (
+            <>
+              <p>
+                <a
+                  href={contact.mailto}
+                  className="font-medium text-deep-tide underline decoration-rule underline-offset-2"
+                >
+                  Report a correction
+                </a>{' '}
+                — or write to{' '}
+                <a href={`mailto:${contact.email}`} className="underline decoration-rule underline-offset-2">
+                  {contact.email}
+                </a>
+                .
+              </p>
+              <p className="text-sm text-slate">
+                The link opens an email with the four things that make a correction actionable: the
+                page, the statement, what you believe is correct, and a source if you have one.
+              </p>
+            </>
+          )}
         </div>
       </Section>
 

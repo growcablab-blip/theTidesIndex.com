@@ -36,8 +36,8 @@ export function RecordInPreparation({ peptide }: { peptide: RegisteredPeptide })
           {peptide.canonicalName}
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          This compound is in scope for The Tides Index. Its record has not passed review, so
-          nothing about it is published yet.
+          This compound is in scope for The Tides Index. Its statements have not yet been linked to
+          named sources at exact locations, so nothing about it is published yet.
         </p>
       </header>
 
@@ -49,9 +49,9 @@ export function RecordInPreparation({ peptide }: { peptide: RegisteredPeptide })
         <div className="prose-tides">
           <p>
             A compound record is published only once it carries a plain-language summary, an explicit
-            statement of what is <em>not</em> established about it, and both scientific and
-            compliance review. Every individual statement on it has to resolve to an exact location
-            in a source whose held copy is sound.
+            statement of what is <em>not</em> established about it, and a source for every statement
+            on it. Each of those statements has to resolve to an exact location in a source whose
+            held copy is sound.
           </p>
           <p>
             That is a deliberately high bar, and it is why this index is small. The alternative — a
@@ -70,7 +70,7 @@ export function RecordInPreparation({ peptide }: { peptide: RegisteredPeptide })
 
         <p className="mt-4 text-sm text-slate">
           {started
-            ? 'Extraction has begun. Drafted records are not shown until they have been checked against their source and reviewed — a draft is a working note, not a finding.'
+            ? 'Extraction has begun. Drafted records are not shown until they have been linked to a named source at an exact location — a draft is a working note, not a finding.'
             : 'Extraction has not begun for this compound. Registered sources that discuss it are listed in the source register.'}
         </p>
       </Section>

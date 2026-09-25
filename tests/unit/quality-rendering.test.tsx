@@ -109,9 +109,9 @@ describe('evidence semantics survive rendering', () => {
     );
 
     expect(gapHtml).toContain('Not established by current sources');
-    expect(gapHtml).not.toContain('Supported by a reviewed source');
+    expect(gapHtml).not.toContain('Supported by a named source');
 
-    expect(sourcedHtml).toContain('Supported by a reviewed source');
+    expect(sourcedHtml).toContain('Supported by a named source');
     expect(sourcedHtml).not.toContain('Not established by current sources');
 
     // And the two are not distinguished by colour alone: the container classes
@@ -138,7 +138,7 @@ describe('evidence semantics survive rendering', () => {
 
     expect(html).toContain('Navigational link — no evidence claimed');
     expect(html).toContain('border-dashed');
-    expect(html).not.toContain('Supported by a reviewed source');
+    expect(html).not.toContain('Supported by a named source');
   });
 
   it('names an unpublished related topic instead of hiding or linking it', () => {
@@ -163,7 +163,7 @@ describe('evidence semantics survive rendering', () => {
 
   it('explains all three treatments in the legend', () => {
     const html = renderToStaticMarkup(<EvidenceLegend />);
-    expect(html).toContain('Supported by a reviewed source');
+    expect(html).toContain('Supported by a named source');
     expect(html).toContain('Not established by current sources');
     expect(html).toContain('Navigational link — no evidence claimed');
     expect(html).toContain('a statement about this library');

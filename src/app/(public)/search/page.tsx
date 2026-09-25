@@ -200,7 +200,7 @@ export default async function SearchPage({
         ) : results.length === 0 ? (
           <EmptyState
             headline={`Nothing published matches “${term}”.`}
-            detail="Search covers reviewed, published records only. A compound may be registered and under extraction without being findable here yet."
+            detail="Search covers published records only. A compound may be registered and under extraction without being findable here yet."
           >
             <p>
               The{' '}
@@ -316,7 +316,7 @@ function SearchGuidance() {
     <div className="max-w-[62ch] space-y-4">
       <p className="text-ink-soft">
         Search matches canonical names, alternative names and misspellings, as well as the text of
-        reviewed records.
+        published records.
       </p>
       <div className="rounded-md border border-rule bg-mist px-5 py-4">
         <p className="meta-label">A note on alternative names</p>

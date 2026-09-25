@@ -51,7 +51,7 @@ const RULES = [
   ['Human evidence kept separate', 'Animal and laboratory work is labelled wherever it appears. A result in mice never reads as a finding in people.'],
   ['Protocols are never merged', 'Each regimen stays attributed to the source that published it. There is no averaged standard protocol, because no source stated one.'],
   ['Uncertainty is a required field', 'A high-impact statement cannot be published without saying what remains unknown. “Not established” is an answer.'],
-  ['Two reading depths, one record', 'Plain language for patients, full evidence for clinicians — over the same reviewed data, with doses withheld in the query.'],
+  ['Two reading depths, one record', 'Plain language for patients, full evidence for clinicians — over the same source-linked records, with doses withheld in the query.'],
   ['No scores, nothing to sell', 'No ratings out of ten, no vendor rankings, no affiliate links, no products.'],
 ] as const;
 
@@ -72,7 +72,7 @@ export default async function HomePage() {
               <p className="depth-body mt-5 text-lg leading-relaxed text-ink-soft">
                 A reference for peptides that records what named sources report, keeps evidence from
                 people separate from evidence from animals, and says plainly where the evidence runs
-                out — with every statement traceable to a source, a page and a review.
+                out — with every statement traceable to a named source at an exact page.
               </p>
 
               <form method="get" action="/search" className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -127,7 +127,7 @@ export default async function HomePage() {
           <div className="max-w-[60ch]">
             <h2 className="font-serif text-3xl text-ink sm:text-4xl">Start with a question</h2>
             <p className="depth-body mt-3 text-ink-soft">
-              Seven questions, in the order understanding builds. Follow them through, or enter
+              {LEARNING_JOURNEY.length} questions, in the order understanding builds. Follow them through, or enter
               wherever your question already is.
             </p>
           </div>
@@ -173,7 +173,7 @@ export default async function HomePage() {
           <div className="max-w-[62ch]">
             <h2 className="font-serif text-3xl text-ink">Two ways in. One set of records.</h2>
             <p className="depth-body mt-3 text-ink-soft">
-              The same reviewed evidence, read at two depths. Nothing is written for one audience and
+              The same source-linked records, read at two depths. Nothing is written for one audience and
               hidden from the other — the plain-language view carries no doses, and that is enforced
               in the query rather than by leaving them off the page.
             </p>
@@ -198,7 +198,7 @@ export default async function HomePage() {
 
         <div className="editorial-break mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
           <div>
-            <h3 className="font-serif text-2xl text-ink">Six rules the database keeps</h3>
+            <h3 className="font-serif text-2xl text-ink">{RULES.length} rules the database keeps</h3>
             <p className="depth-body mt-2 max-w-[62ch] text-ink-soft">
               Each is enforced in the schema rather than by editorial habit, which is why they hold
               on a bad day.
@@ -238,7 +238,7 @@ export default async function HomePage() {
                 />
                 <Stat
                   value={snapshot.statementsAwaitingReview}
-                  label="statements extracted and awaiting scientific review"
+                  label="quality statements extracted and awaiting scientific review"
                 />
                 <Stat value={snapshot.registeredSources} label="sources registered" />
               </dl>

@@ -199,7 +199,7 @@ export default async function SequenceToVialPage() {
           <div className="mt-10 max-w-[66ch]">
             <EmptyState
               headline="No manufacturing topic is published yet"
-              detail="The stages below will fill in from reviewed records. Until then there is nothing sourced to show, and this page does not substitute unsourced text."
+              detail="The stages below fill in from source-linked records. Until then there is nothing sourced to show, and this page does not substitute unsourced text."
             />
           </div>
         ) : null}

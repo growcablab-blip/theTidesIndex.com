@@ -208,11 +208,11 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 export function NoProtocolsYet({ simple }: { simple: boolean }) {
   return (
     <EmptyState
-      headline="Source-specific protocol records have not yet passed review."
+      headline="No source-specific protocol record has been captured for this compound."
       detail={
         simple
           ? 'When they do, this section will show which named sources describe regimens for this compound and what those regimens were aiming at. It will not show doses.'
-          : 'Registered practitioner sources discuss this compound. Extracting a regimen requires the exact page it appears on, the population it applies to, and scientific, clinical and compliance review before it can be shown here.'
+          : 'Registered practitioner sources discuss this compound. Extracting a regimen requires the exact page it appears on, the population it applies to, and an explicit statement of the evidence it rests on before it can be shown here.'
       }
     />
   );

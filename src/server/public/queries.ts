@@ -1575,6 +1575,13 @@ export interface CoverageSnapshot {
   readonly qualityTopicsRegistered: number;
   /** Statements extracted and located, awaiting a human scientific review. */
   readonly statementsAwaitingReview: number;
+  /**
+   * Compound and quality records carrying an approved human review.
+   *
+   * Zero is the honest answer today, and the coverage page says so rather than
+   * leaving a reader to infer it from the absence of the number.
+   */
+  readonly recordsHumanReviewed: number;
 }
 
 export const getCoverageSnapshot = cache(async (): Promise<CoverageSnapshot> =>
@@ -1598,7 +1605,22 @@ export const getCoverageSnapshot = cache(async (): Promise<CoverageSnapshot> =>
         (select count(*) from public_v_quality_register)::int
           as quality_topics_registered,
         (select coalesce(sum(claim_count), 0) from public_v_quality_register)::int
-          as statements_awaiting_review
+          as statements_awaiting_review,
+        /*
+         * Published records a person has actually read.
+         *
+         * The coverage page exists to say what is and is not here, and since
+         * publication stopped implying review this is the number most likely to
+         * be assumed rather than checked. Counted from the review_state the
+         * public views already carry, so it cannot drift from what the records
+         * display.
+         */
+        (
+          (select count(*) from public_v_peptides
+            where review_state in ('scientific_reviewed', 'clinical_reviewed', 'compliance_reviewed'))
+          + (select count(*) from public_v_quality_topics
+              where review_state in ('scientific_reviewed', 'clinical_reviewed', 'compliance_reviewed'))
+        )::int as records_human_reviewed
     `);
     const row = rows<Record<string, number>>(result)[0] ?? {};
     return {
@@ -1612,6 +1634,7 @@ export const getCoverageSnapshot = cache(async (): Promise<CoverageSnapshot> =>
       qualityReferencesWritten: row.quality_references_written ?? 0,
       qualityTopicsRegistered: row.quality_topics_registered ?? 0,
       statementsAwaitingReview: row.statements_awaiting_review ?? 0,
+      recordsHumanReviewed: row.records_human_reviewed ?? 0,
     };
   }),
 );

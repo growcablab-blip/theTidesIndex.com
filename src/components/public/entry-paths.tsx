@@ -28,7 +28,7 @@ const AUDIENCES: readonly AudienceCard[] = [
   {
     eyebrow: 'If you are a patient, or reading for yourself',
     title: 'Understand what is actually known',
-    body: 'Plain language over the same reviewed records a clinician sees, with the doses left out and the uncertainty left in.',
+    body: 'Plain language over the same source-linked records a clinician sees, with the doses left out and the uncertainty left in.',
     items: [
       'What peptides are, and why a clinician might raise them',
       'What the evidence shows — and where it runs out',

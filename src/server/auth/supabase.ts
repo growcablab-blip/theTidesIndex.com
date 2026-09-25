@@ -14,6 +14,24 @@ import type { SupabaseClient } from '@supabase/supabase-js';
  * checking a role in application code and then querying with full privileges.
  */
 
+/**
+ * Whether staff authentication is configured on this deployment at all.
+ *
+ * Distinct from "nobody is signed in". A deployment with no Supabase keys is not
+ * a deployment whose visitor has been signed out — it is one where editorial
+ * access has not been provisioned yet, and the admin surface says so rather
+ * than throwing an unhandled error into a 500 page or, worse, rendering a
+ * sign-in form that can never work.
+ *
+ * Public reading never consults this: it does not touch Supabase at all.
+ */
+export function staffAuthConfigured(): boolean {
+  return (
+    (process.env.NEXT_PUBLIC_SUPABASE_URL ?? '') !== '' &&
+    (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '') !== ''
+  );
+}
+
 function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) {

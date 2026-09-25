@@ -6,6 +6,7 @@ import { Container } from '@/components/public/primitives';
 import { AnalyticalQuestionsFigure } from '@/components/public/quality-figures';
 import { ModeExplainer, ModeSwitch } from '@/components/public/mode-switch';
 import { SequenceToVialJourneyIllustration } from '@/components/illustrations';
+import { SEQUENCE_TO_VIAL_STAGES } from '@/domain/quality/sequence-to-vial';
 import { QualityMark } from '@/components/public/quality-marks';
 import {
   QUALITY_MOVEMENTS,
@@ -156,7 +157,7 @@ export default async function QualityIndexPage() {
               <span aria-hidden="true"> →</span>
             </span>
             <span className="text-sm text-slate">
-              Fifteen stages, where checks sit, and what a batch number should lead to.
+              {SEQUENCE_TO_VIAL_STAGES.length} stages, where checks sit, and what a batch number should lead to.
             </span>
           </Link>
         </Container>
@@ -249,7 +250,7 @@ export default async function QualityIndexPage() {
                 Understanding analytical testing
               </h2>
               <p className="depth-body mt-2 max-w-[56ch] text-ink-soft">
-                Four pages, in order. They follow the questions a test report raises rather than the
+                {PATHWAY.length} pages, in order. They follow the questions a test report raises rather than the
                 order a laboratory would teach them.
               </p>
 

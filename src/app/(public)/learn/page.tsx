@@ -5,6 +5,7 @@ import { EditorialStateLegend } from '@/components/public/editorial-state';
 import { ChainScaleIllustration } from '@/components/illustrations';
 import { JourneyIcon } from '@/components/illustrations/journey-icons';
 import { LEARNING_JOURNEY } from '@/domain/learn/journey';
+import { VOLUMES } from '@/domain/publications/volumes';
 import { listLearningTopics } from '@/server/public/queries';
 import { previewLearningTopics } from '@/server/public/preview';
 
@@ -80,7 +81,7 @@ export default async function LearnPage() {
                 Understand peptides in the order understanding builds
               </h1>
               <p className="depth-body mt-5 text-lg leading-relaxed text-ink-soft">
-                Seven questions, from what a peptide is to how reported protocols differ. Stop after
+                {LEARNING_JOURNEY.length} questions, from what a peptide is to how reported protocols differ. Stop after
                 any of them. Every statement you meet on the way is either a sourced fact, a named
                 conclusion drawn from several of them, or an honest gap.
               </p>
@@ -266,7 +267,7 @@ export default async function LearnPage() {
               The publications
             </h2>
             <p className="mt-2 text-ink-soft">
-              Five volumes generated from the same records, so a printed page and a web page cannot
+              {VOLUMES.length} volumes generated from the same records, so a printed page and a web page cannot
               disagree. None is published yet.
             </p>
             <Link

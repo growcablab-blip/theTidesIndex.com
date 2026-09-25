@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getStaffSession, ROLE_LABELS } from '@/server/auth/session';
+import { staffAuthConfigured } from '@/server/auth/supabase';
 import { signOutAction } from './sign-in/actions';
 
 export const metadata: Metadata = {
@@ -19,6 +20,45 @@ const NAV = [
 ] as const;
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  /*
+   * Before asking who is signed in, ask whether signing in is possible.
+   *
+   * Without Supabase keys `getStaffSession()` throws, and with no error boundary
+   * above it that surfaced as an unstyled 500 on every editorial route — which
+   * reads as "the site is broken" rather than "this deployment has no editorial
+   * access yet". Public reading is unaffected either way: it never touches
+   * Supabase.
+   */
+  if (!staffAuthConfigured()) {
+    return (
+      <div className="min-h-screen bg-warm-white">
+        <main className="mx-auto max-w-[44rem] px-6 py-20">
+          <p className="text-xs tracking-wide text-slate uppercase">The Tides Index · Editorial</p>
+          <h1 className="mt-3 font-serif text-3xl text-ink">
+            Editorial access is not configured on this deployment.
+          </h1>
+          <p className="mt-4 text-ink-soft">
+            Staff authentication needs a Supabase project, and this deployment has not been given
+            one. Nothing is wrong with the public site: it reads from the database directly and does
+            not use Supabase.
+          </p>
+          <p className="mt-3 text-sm text-slate">
+            Required: <code>NEXT_PUBLIC_SUPABASE_URL</code> and{' '}
+            <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code>. The full provisioning checklist, including
+            the first administrator profile, is in{' '}
+            <code>docs/V1_SECTION_3_WEBSITE_COMPLETION_REPORT.md</code>.
+          </p>
+          <Link
+            href="/"
+            className="mt-8 inline-block rounded-md border border-deep-tide px-5 py-2.5 text-sm font-medium text-deep-tide hover:bg-mist"
+          >
+            Back to the public site
+          </Link>
+        </main>
+      </div>
+    );
+  }
+
   const session = await getStaffSession();
 
   // The sign-in route renders inside this layout before a session exists.

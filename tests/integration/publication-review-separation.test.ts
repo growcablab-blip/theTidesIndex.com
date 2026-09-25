@@ -181,6 +181,112 @@ describe('publication is separate from human review', () => {
     });
   });
 
+  /*
+   * An unresolved request for changes blocks publication (migration 0030).
+   *
+   * This is the one thing "public without review" must not be allowed to mean.
+   * Nobody having looked is silence; a reviewer having looked and objected is
+   * information, and publishing over it would make the review queue decorative.
+   */
+  describe('an unresolved change request', () => {
+    it('stops a record that would otherwise publish', async () => {
+      const claimId = await sourcedClaim('C-CHANGE-REQUESTED');
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'scientific',
+        reviewerId: staff.scientific,
+        table: 'claims',
+        outcome: 'changes_requested',
+        comments: 'The scope sentence claims more than the source supports.',
+      });
+
+      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
+        /requested changes/i,
+      );
+
+      const row = await claimRow(claimId);
+      expect(row?.publication_state).not.toBe('published');
+    });
+
+    it('is resolved by a later decision from the same reviewer', async () => {
+      const claimId = await sourcedClaim('C-CHANGE-RESOLVED');
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'scientific',
+        reviewerId: staff.scientific,
+        table: 'claims',
+        outcome: 'changes_requested',
+        comments: 'Needs the population stating.',
+      });
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'scientific',
+        reviewerId: staff.scientific,
+        table: 'claims',
+        comments: 'Addressed.',
+      });
+
+      await setPublicationState(db, 'claims', claimId, 'published');
+      expect((await claimRow(claimId))?.publication_state).toBe('published');
+    });
+
+    it('is not resolved by somebody else approving instead', async () => {
+      const claimId = await sourcedClaim('C-CHANGE-OVERRIDDEN');
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'scientific',
+        reviewerId: staff.scientific,
+        table: 'claims',
+        outcome: 'changes_requested',
+        comments: 'This overstates the finding.',
+      });
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'source_check',
+        reviewerId: staff.editor,
+        table: 'claims',
+      });
+
+      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
+        /requested changes/i,
+      );
+    });
+
+    it('does not haunt a record whose wording has since been rewritten', async () => {
+      // A material edit bumps the version, and the edit is itself the answer to
+      // a request for changes. An objection to words that no longer exist must
+      // not block the record for ever.
+      const claimId = await sourcedClaim('C-CHANGE-SUPERSEDED');
+      await approve(db, {
+        entityType: 'claim',
+        entityId: claimId,
+        reviewType: 'scientific',
+        reviewerId: staff.scientific,
+        table: 'claims',
+        outcome: 'changes_requested',
+        comments: 'Rewrite the second sentence.',
+      });
+
+      await query(db, `update claims set claim_text = 'Rewritten as asked.' where id = $1`, [
+        claimId,
+      ]);
+
+      await setPublicationState(db, 'claims', claimId, 'published');
+      expect((await claimRow(claimId))?.publication_state).toBe('published');
+    });
+
+    it('leaves a record nobody has reviewed alone', async () => {
+      const claimId = await sourcedClaim('C-NO-OBJECTION');
+      await setPublicationState(db, 'claims', claimId, 'published');
+      expect((await claimRow(claimId))?.publication_state).toBe('published');
+    });
+  });
+
   describe('last_reviewed_at means an actual human review', () => {
     it('is not written by publication', async () => {
       const claimId = await sourcedClaim('C-NO-FAKE-DATE');

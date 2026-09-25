@@ -36,7 +36,7 @@ export default function PublicationsPage() {
       <header className="mt-4 max-w-[62ch]">
         <p className="meta-label text-tide-teal">Reference series</p>
         <h1 className="mt-2 font-serif text-3xl leading-tight text-ink sm:text-5xl">
-          Five volumes, generated from the same records
+          {VOLUMES.length} volumes, generated from the same records
         </h1>
         <p className="depth-body mt-5 text-lg leading-relaxed text-ink-soft">
           Each volume is built from the records this site renders, so a printed page and a web page

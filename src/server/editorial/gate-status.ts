@@ -47,12 +47,36 @@ async function approvedReviews(
   return rows<{ review_type: ReviewType }>(result).map((r) => r.review_type);
 }
 
+
+/**
+ * Whether a reviewer's most recent decision at this version asks for changes.
+ *
+ * The database is the enforcement point (tides_has_open_change_request, 0030);
+ * this is the same question asked in the same way, so the editorial interface
+ * can say *why* a record will not publish before the editor tries.
+ */
+async function hasOpenChangeRequest(
+  db: Database,
+  entityType: string,
+  entityId: string,
+  version: number,
+): Promise<boolean> {
+  const result = await db.execute(sql`
+    select tides_has_open_change_request(
+      ${entityType}::reviewable_entity_type, ${entityId}, ${version}
+    ) as open
+  `);
+  return rows<{ open: boolean }>(result)[0]?.open === true;
+}
+
 export interface ClaimGateStatus extends GateResult {
   readonly version: number;
   readonly editorialState: string;
   readonly isPublished: boolean;
   readonly needsUpdate: boolean;
   readonly approvedReviews: readonly ReviewType[];
+  /** True when a reviewer's latest decision at this version asks for changes. */
+  readonly hasOpenChangeRequest: boolean;
 }
 
 export async function getClaimGateStatus(
@@ -93,6 +117,7 @@ export async function getClaimGateStatus(
   }));
 
   const reviews = await approvedReviews(db, 'claim', claimId, claim.version);
+  const changeRequested = await hasOpenChangeRequest(db, 'claim', claimId, claim.version);
 
   const result = evaluateClaimPublishGate({
     importance: claim.importance,
@@ -101,6 +126,7 @@ export async function getClaimGateStatus(
     uncertaintyText: claim.uncertainty_text,
     evidence,
     approvedReviews: reviews,
+    hasOpenChangeRequest: changeRequested,
   });
 
   return {
@@ -110,6 +136,7 @@ export async function getClaimGateStatus(
     isPublished: claim.publication_state === 'published',
     needsUpdate: claim.needs_update,
     approvedReviews: reviews,
+    hasOpenChangeRequest: changeRequested,
   };
 }
 
@@ -119,6 +146,8 @@ export interface ProtocolGateStatus extends GateResult {
   readonly isPublished: boolean;
   readonly needsUpdate: boolean;
   readonly approvedReviews: readonly ReviewType[];
+  /** True when a reviewer's latest decision at this version asks for changes. */
+  readonly hasOpenChangeRequest: boolean;
 }
 
 export async function getProtocolGateStatus(
@@ -157,6 +186,7 @@ export async function getProtocolGateStatus(
   }));
 
   const reviews = await approvedReviews(db, 'protocol', protocolId, protocol.version);
+  const changeRequested = await hasOpenChangeRequest(db, 'protocol', protocolId, protocol.version);
 
   const result = evaluateProtocolPublishGate({
     populationModel: protocol.population_model,
@@ -164,6 +194,7 @@ export async function getProtocolGateStatus(
     regulatoryContext: protocol.regulatory_context,
     sources,
     approvedReviews: reviews,
+    hasOpenChangeRequest: changeRequested,
   });
 
   return {
@@ -173,6 +204,7 @@ export async function getProtocolGateStatus(
     isPublished: protocol.publication_state === 'published',
     needsUpdate: protocol.needs_update,
     approvedReviews: reviews,
+    hasOpenChangeRequest: changeRequested,
   };
 }
 
@@ -199,12 +231,14 @@ export async function getPeptideGateStatus(
   if (!peptide) return null;
 
   const reviews = await approvedReviews(db, 'peptide', peptideId, peptide.version);
+  const changeRequested = await hasOpenChangeRequest(db, 'peptide', peptideId, peptide.version);
 
   return {
     ...evaluatePeptidePublishGate({
       simpleSummary: peptide.simple_summary,
       unknownsSummary: peptide.unknowns_summary,
       approvedReviews: reviews,
+      hasOpenChangeRequest: changeRequested,
     }),
     version: peptide.version,
     editorialState: peptide.editorial_state,
@@ -236,12 +270,14 @@ export async function getQualityTopicGateStatus(
   if (!topic) return null;
 
   const reviews = await approvedReviews(db, 'quality_topic', topicId, topic.version);
+  const changeRequested = await hasOpenChangeRequest(db, 'quality_topic', topicId, topic.version);
 
   return {
     ...evaluateQualityTopicPublishGate({
       whatItProves: topic.what_it_proves,
       whatItDoesNotProve: topic.what_it_does_not_prove,
       approvedReviews: reviews,
+      hasOpenChangeRequest: changeRequested,
     }),
     version: topic.version,
     editorialState: topic.editorial_state,

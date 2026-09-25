@@ -80,7 +80,7 @@ export default async function RoutesPage() {
 
       <Section id="finding" title="Finding route evidence for a compound">
         <p className="max-w-[62ch] text-ink-soft">
-          Search can filter to compounds with route evidence recorded — but only reviewed records are
+          Search can filter to compounds with route evidence recorded — but only published records are
           searchable, so an empty result means the extraction work has not been done rather than that
           no evidence exists.{' '}
           <Link href="/search" className="underline decoration-rule underline-offset-2">

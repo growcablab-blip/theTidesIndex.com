@@ -30,14 +30,14 @@ interface Semantics {
 
 const SEMANTICS: Readonly<Record<RelationshipEvidenceStatus, Semantics>> = {
   evidence_backed: {
-    label: 'Supported by a reviewed source',
+    label: 'Supported by a named source',
     glyph: '§',
     glyphLabel: 'Source-linked',
     container: 'border-l-[3px] border-l-tide-teal border border-rule bg-warm-white',
     chip: 'border-tide-teal text-deep-tide',
   },
   complementary: {
-    label: 'Read alongside — supported by a reviewed source',
+    label: 'Read alongside — supported by a named source',
     glyph: '§',
     glyphLabel: 'Source-linked',
     container: 'border-l-[3px] border-l-tide-teal border border-rule bg-warm-white',

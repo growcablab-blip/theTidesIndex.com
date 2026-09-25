@@ -100,6 +100,7 @@ describe('claim publish gate', () => {
       uncertaintyText: null,
       evidence: [],
       approvedReviews: [...reviewed],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(false);
     expect(result.failures.map((f) => f.code)).toContain('missing_provenance');
@@ -114,6 +115,7 @@ describe('claim publish gate', () => {
       uncertaintyText: null,
       evidence: [{ hasSourceLocation: false, sourceIsCitable: true }],
       approvedReviews: [...reviewed],
+      hasOpenChangeRequest: false,
     });
     expect(result.failures[0]?.message).toMatch(/exact source location/i);
   });
@@ -126,6 +128,7 @@ describe('claim publish gate', () => {
       uncertaintyText: null,
       evidence: [{ hasSourceLocation: true, sourceIsCitable: false }],
       approvedReviews: [...reviewed],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(false);
     expect(result.failures[0]?.message).toMatch(/not citable/i);
@@ -139,6 +142,7 @@ describe('claim publish gate', () => {
       uncertaintyText: '   ',
       evidence: [{ hasSourceLocation: true, sourceIsCitable: true }],
       approvedReviews: [...reviewed],
+      hasOpenChangeRequest: false,
     });
     const codes = result.failures.map((f) => f.code);
     expect(codes).toContain('missing_uncertainty');
@@ -158,6 +162,7 @@ describe('claim publish gate', () => {
       uncertaintyText: null,
       evidence: [{ hasSourceLocation: true, sourceIsCitable: true }],
       approvedReviews: [],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(true);
     expect(result.failures).toEqual([]);
@@ -171,6 +176,7 @@ describe('claim publish gate', () => {
       uncertaintyText: null,
       evidence: [],
       approvedReviews: [...reviewed],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(false);
     expect(result.failures.map((f) => f.code)).toContain('missing_provenance');
@@ -186,6 +192,54 @@ describe('claim publish gate', () => {
     expect(outstandingReviews('claim', ['source_check', 'scientific'])).toEqual([]);
   });
 
+  /*
+   * The 2026-09-25 addition. Not a review requirement — the claim below is
+   * fully sourced and would publish on its own. What stops it is that a person
+   * looked at it and said it was wrong, and nobody has answered them.
+   */
+  it('refuses a claim with an unresolved request for changes', () => {
+    const result = evaluateClaimPublishGate({
+      importance: 'low',
+      isEditorialNonEvidentiary: false,
+      interpretationNotes: 'Read as reported in the cited source.',
+      uncertaintyText: null,
+      evidence: [{ hasSourceLocation: true, sourceIsCitable: true }],
+      approvedReviews: [],
+      hasOpenChangeRequest: true,
+    });
+    expect(result.canPublish).toBe(false);
+    expect(result.failures.map((f) => f.code)).toEqual(['open_change_request']);
+    expect(result.failures[0]?.message).toMatch(/asked for changes/i);
+  });
+
+  it('refuses editorial copy with an unresolved request for changes', () => {
+    const result = evaluateClaimPublishGate({
+      importance: 'low',
+      isEditorialNonEvidentiary: true,
+      interpretationNotes: null,
+      uncertaintyText: null,
+      evidence: [],
+      approvedReviews: [],
+      hasOpenChangeRequest: true,
+    });
+    expect(result.canPublish).toBe(false);
+  });
+
+  it('reports the content gap before the reviewer objection', () => {
+    // An editor who is told "a reviewer objected" when the real problem is a
+    // missing citation will go and argue with the reviewer.
+    const result = evaluateClaimPublishGate({
+      importance: 'low',
+      isEditorialNonEvidentiary: false,
+      interpretationNotes: 'Read as reported.',
+      uncertaintyText: null,
+      evidence: [],
+      approvedReviews: [],
+      hasOpenChangeRequest: true,
+    });
+    expect(result.failures.map((f) => f.code)).toEqual(['missing_provenance']);
+  });
+
   it('passes a fully supported claim', () => {
     const result = evaluateClaimPublishGate({
       importance: 'high',
@@ -194,6 +248,7 @@ describe('claim publish gate', () => {
       uncertaintyText: 'Single trial, narrow population, not replicated.',
       evidence: [{ hasSourceLocation: true, sourceIsCitable: true }],
       approvedReviews: ['source_check', 'scientific', 'compliance'],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(true);
     expect(result.failures).toEqual([]);
@@ -207,6 +262,7 @@ describe('claim publish gate', () => {
       uncertaintyText: null,
       evidence: [],
       approvedReviews: [],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(true);
   });
@@ -220,6 +276,7 @@ describe('protocol publish gate', () => {
       regulatoryContext: null,
       sources: [],
       approvedReviews: [],
+      hasOpenChangeRequest: false,
     });
     const codes = result.failures.map((f) => f.code);
     expect(codes).toEqual([
@@ -244,6 +301,7 @@ describe('protocol publish gate', () => {
       regulatoryContext: 'Practitioner-described regimen. Not approved labelling.',
       sources: [{ hasSourceLocation: true, sourceIsCitable: true }],
       approvedReviews: [],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(true);
   });
@@ -255,8 +313,22 @@ describe('protocol publish gate', () => {
       regulatoryContext: 'Practitioner-described regimen.',
       sources: [{ hasSourceLocation: true, sourceIsCitable: false }],
       approvedReviews: ['source_check', 'scientific', 'clinical', 'compliance'],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(false);
+  });
+
+  it('refuses an attributable regimen with an unresolved request for changes', () => {
+    const result = evaluateProtocolPublishGate({
+      populationModel: 'Adult humans, as described by the source',
+      routeKey: 'subcutaneous',
+      regulatoryContext: 'Practitioner-described regimen. Not approved labelling.',
+      sources: [{ hasSourceLocation: true, sourceIsCitable: true }],
+      approvedReviews: [],
+      hasOpenChangeRequest: true,
+    });
+    expect(result.canPublish).toBe(false);
+    expect(result.failures.map((f) => f.code)).toEqual(['open_change_request']);
   });
 
   it('reports all four outstanding protocol reviews without blocking publication', () => {
@@ -275,6 +347,7 @@ describe('protocol publish gate', () => {
       regulatoryContext: 'Practitioner-described regimen. Not approved labelling.',
       sources: [{ hasSourceLocation: true, sourceIsCitable: true }],
       approvedReviews: ['source_check', 'scientific', 'clinical', 'compliance'],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(true);
   });
@@ -286,6 +359,7 @@ describe('quality topic publish gate', () => {
       whatItProves: 'Chromatographic purity of the analysed sample.',
       whatItDoesNotProve: null,
       approvedReviews: ['scientific'],
+      hasOpenChangeRequest: false,
     });
     expect(result.canPublish).toBe(false);
     expect(result.failures[0]?.code).toBe('missing_what_it_does_not_prove');

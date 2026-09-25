@@ -40,7 +40,8 @@ export function PrintHeader({
       </p>
       <p className="mt-1 text-xs">
         {origin}
-        {path} · version {version} · last reviewed {lastReviewed}
+        {path} · version {version} ·{' '}
+        {lastReviewed === 'Not recorded' ? 'no human review recorded' : `last reviewed ${lastReviewed}`}
       </p>
     </div>
   );

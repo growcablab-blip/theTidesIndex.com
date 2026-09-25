@@ -90,7 +90,7 @@ const TITLES = {
  * The canonical compound record.
  *
  * One page per compound, one record behind it, two reading depths over the same
- * reviewed data. The order of sections follows what a clinician actually asks,
+ * source-linked records. The order of sections follows what a clinician actually asks,
  * in the order they ask it: what is this, how strong is the evidence, what is
  * only preclinical, how has it been given, what is its regulatory standing, what
  * have named sources reported, and where do sources disagree.
@@ -124,7 +124,7 @@ export async function generateMetadata({
     return registered
       ? {
           title: `${registered.canonicalName} — record in preparation`,
-          description: `${registered.canonicalName} is in scope for The Tides Index. No reviewed record has been published yet.`,
+          description: `${registered.canonicalName} is in scope for The Tides Index. No record has been published for it yet.`,
         }
       : { title: 'Compound not found' };
   }
@@ -133,7 +133,7 @@ export async function generateMetadata({
     title: peptide.canonicalName,
     description:
       peptide.shortDescription ??
-      `Reviewed evidence, administration routes, source-reported protocols and provenance for ${peptide.canonicalName}.`,
+      `Source-linked evidence, administration routes, source-reported protocols and provenance for ${peptide.canonicalName}.`,
   };
 }
 
@@ -352,10 +352,11 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
 
         {peptide.needsUpdate ? (
           <div className="mt-5 max-w-[64ch]">
-            <Callout tone="caution" title="This record is flagged for re-review">
+            <Callout tone="caution" title="This record is flagged for another editorial pass">
               <p>
-                It remains published because it is the best reviewed information currently held, but
-                it is queued for another editorial pass. Check the review date below.
+                It remains published because every statement on it still resolves to a named source
+                at an exact location, but something about it has been queued for re-checking. Its
+                review status is stated at the top of this page.
               </p>
             </Callout>
           </div>
@@ -396,7 +397,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
               ) : (
                 <EmptyState
                   headline="A plain-language summary has not been written yet."
-                  detail="Summaries are written from reviewed records rather than composed independently, so this appears once the underlying evidence has been extracted and checked."
+                  detail="Summaries are written from the record's own source-linked statements rather than composed independently, so this appears once the underlying evidence has been extracted and checked."
                 />
               )
             ) : peptide.practitionerSummary ? (
@@ -425,7 +426,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
                   {peptide.sequence ? (
                     <code className="font-mono text-sm break-all">{peptide.sequence}</code>
                   ) : (
-                    <NotRecorded what="no reviewed source has been recorded for it" />
+                    <NotRecorded what="no source has been recorded for it" />
                   )}
                 </DefinitionRow>
                 <DefinitionRow term="Molecular description">
@@ -771,7 +772,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           {citations.length === 0 ? (
             <EmptyState
               headline="No references yet."
-              detail="References appear here as claims, route records and protocols pass review. A compound page with no references is a page with nothing asserted on it."
+              detail="References appear here as claims, route records and protocols are linked to their sources. A compound page with no references is a page with nothing asserted on it."
             />
           ) : (
             /*

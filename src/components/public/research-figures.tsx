@@ -310,7 +310,7 @@ export const GAP_TYPE_LABELS: Record<string, string> = {
   source_inaccessible: 'Source exists, not obtained',
   source_corrupted: 'Source held but unusable',
   primary_source_missing: 'Primary source not obtained',
-  no_current_reviewed_evidence: 'Nothing reviewed to draw on',
+  no_current_reviewed_evidence: 'No source-linked evidence to draw on',
   scope_not_established: 'Scope not established',
   numerical_threshold_not_established: 'No threshold established',
   human_evidence_not_established: 'Not established in people',

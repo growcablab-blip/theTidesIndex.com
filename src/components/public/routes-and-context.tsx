@@ -36,7 +36,7 @@ export function RouteEvidenceTable({ routes }: { routes: readonly RouteEvidence[
   if (routes.length === 0) {
     return (
       <EmptyState
-        headline="No route evidence has been reviewed for this compound."
+        headline="No route evidence has been recorded for this compound."
         detail="A route record here means one source, one exact page, one formulation and one population. Until that exists, this index makes no statement about how this compound has been given."
       >
         <p>
@@ -132,7 +132,7 @@ export function RegulatoryStatusList({
   if (statuses.length === 0) {
     return (
       <EmptyState
-        headline="Regulatory status review pending."
+        headline="No regulatory status has been checked and recorded."
         detail="Regulatory standing is specific to a jurisdiction and to a date, and it changes. Rather than carry a stale or unsourced status, this index shows none until one has been checked against the responsible authority and recorded with the date it was checked."
       />
     );

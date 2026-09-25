@@ -334,7 +334,13 @@ export default async function CertificatePage() {
                 {topic.publicationState === 'published' ? 'Published' : 'Not published'}
               </MetaItem>
               <MetaItem label="First published">{formatDate(topic.publishedAt)}</MetaItem>
-              <MetaItem label="Last reviewed">{formatDate(topic.lastReviewedAt)}</MetaItem>
+              <MetaItem label="Last reviewed">
+                {topic.lastReviewedAt === null ? (
+                  <span className="text-slate">Not yet reviewed by a person</span>
+                ) : (
+                  formatDate(topic.lastReviewedAt)
+                )}
+              </MetaItem>
               <MetaItem label="Evidence cutoff">
                 <EvidenceCutoff value={topic.evidenceCutoffAt} />
               </MetaItem>

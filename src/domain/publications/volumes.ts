@@ -75,7 +75,7 @@ export const VOLUMES: readonly Volume[] = [
     key: 'reference-guide',
     number: 'Volume three',
     title: 'The Peptide Reference Guide',
-    subtitle: 'Twelve compound monographs, bound',
+    subtitle: 'A monograph for every compound record, bound',
     audience: 'Clinicians',
     holds: 'Every compound record as a monograph, with its evidence, routes, unknowns and sources.',
     status: 'Draft, generated from the records. Awaiting scientific review.',
