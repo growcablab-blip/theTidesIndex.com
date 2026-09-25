@@ -1,0 +1,487 @@
+{
+  "packetKey": "where-peptides-come-from",
+  "note": "Extracted 15 September 2026 from SRC-143 (Wang et al. 2022, CC BY 4.0, licence read in the retrieved full text), already registered and held. Every quoted segment was checked in full against the held text, and every locator was derived from where the passage sits. Passages read and not used: SRC-143 Introduction, paragraph 1 (insulin 'synthesis' in 1921; more than 80 approvals): Contradicted within the review, which twice describes insulin as isolated from animal pancreata; the approval count conflicts with another review and neither is primary.; SRC-143 Introduction, paragraph 2 (who developed insulin; supply of human insulin): The names are garbled in the source, and the sentence on human insulin supply is ambiguous.; SRC-143 Introduction, paragraphs 3 and 4 (approval counts): Approval counts are not used: the held reviews conflict and neither is a regulatory source.; SRC-143 Chemical synthesis of peptides, paragraph 6 ('recombinant peptide drugs' made by chemical synthesis): Calls a peptide the same review elsewhere lists as synthetic a 'recombinant peptide drug'; terminology inconsistent.; SRC-143 Peptides identified from natural products, paragraph 3 (oral delivery of non-ribosomal peptides): Compound-adjacent route claim, not needed..",
+  "topic": {
+    "topicKey": "where-peptides-come-from",
+    "slug": "where-peptides-come-from",
+    "title": "Where peptides come from: the body, other living things and laboratories",
+    "publicationChapter": "Understanding Peptides — Six: Why peptides are studied (in part); Patient Education Series 01, Peptides 101 (origins and laboratory production)",
+    "summary": "How peptides used in medicine and research are obtained: extraction from animal and other natural sources, chemical synthesis, recombinant DNA technology and combined routes; why laboratories make and modify peptides; and how laboratory-made peptides can copy, alter or depart from natural sequences. Class-level statements from a narrative review, not statements about any peptide product.",
+    "notes": "The review is inconsistent in places (insulin's 1921 preparation; its use of 'synthetic' and 'recombinant'), and those passages were not used. Compound names, approval counts and indications in its examples are not carried."
+  },
+  "locations": [
+    {
+      "key": "org-01",
+      "sourceKey": "SRC-143",
+      "locatorText": "Introduction, paragraph 1",
+      "section": "Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-02",
+      "sourceKey": "SRC-143",
+      "locatorText": "Introduction, paragraph 2",
+      "section": "Introduction, paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-03",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptide production by recombinant technology, paragraph 3",
+      "section": "Peptide production by recombinant technology, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-04",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptide production by recombinant technology, paragraph 2",
+      "section": "Peptide production by recombinant technology, paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-05",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptides identified from natural products, paragraph 1",
+      "section": "Peptides identified from natural products, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-05-2",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptide production by recombinant technology, paragraph 3",
+      "section": "Peptide production by recombinant technology, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-06",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptides identified from natural products, paragraph 3",
+      "section": "Peptides identified from natural products, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-07",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptide production by recombinant technology, paragraph 3",
+      "section": "Peptide production by recombinant technology, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-08",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptide production by recombinant technology, paragraph 3",
+      "section": "Peptide production by recombinant technology, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-09",
+      "sourceKey": "SRC-143",
+      "locatorText": "Chemical synthesis of peptides, paragraph 1",
+      "section": "Chemical synthesis of peptides, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-10",
+      "sourceKey": "SRC-143",
+      "locatorText": "Chemical synthesis of peptides, paragraph 1",
+      "section": "Chemical synthesis of peptides, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-11",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptide production by recombinant technology, paragraph 1",
+      "section": "Peptide production by recombinant technology, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-12",
+      "sourceKey": "SRC-143",
+      "locatorText": "Chemical synthesis of peptides, paragraph 5",
+      "section": "Chemical synthesis of peptides, paragraph 5",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-13",
+      "sourceKey": "SRC-143",
+      "locatorText": "Introduction, paragraph 3",
+      "section": "Introduction, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-14",
+      "sourceKey": "SRC-143",
+      "locatorText": "Introduction, paragraph 4",
+      "section": "Introduction, paragraph 4",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-15",
+      "sourceKey": "SRC-143",
+      "locatorText": "Natural peptides/hormones in the human body, paragraph 1",
+      "section": "Natural peptides/hormones in the human body, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-16",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptides mimicking hormones, paragraph 1",
+      "section": "Peptides mimicking hormones, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "org-17",
+      "sourceKey": "SRC-143",
+      "locatorText": "Peptides mimicking hormones, paragraph 3",
+      "section": "Peptides mimicking hormones, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "ORG-01",
+      "claimText": "Wang et al. (2022) state that research into therapeutic peptides began with fundamental studies of natural human hormones, including insulin, oxytocin, vasopressin and gonadotropin-releasing hormone, and their physiological activities in the body.",
+      "plainLanguageText": "Research into peptide medicines began with studying hormones the human body already makes.",
+      "claimCategory": "production-history",
+      "importance": "medium",
+      "interpretationNotes": "Introduction, paragraph 1. The next sentence dates 'the synthesis of the first therapeutic peptide, insulin' to 1921 and gives an approval count; neither is used (see EXCLUDED and ORG-02).",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-01",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The review's account of where therapeutic peptide research began.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-02",
+      "claimText": "Wang et al. (2022) describe insulin, a peptide of 51 amino acids, as first isolated in 1921 and as the first commercial peptide drug in 1923, and state that animal-derived bovine and porcine insulins dominated the market for almost 90 years until recombinant insulin replaced them.",
+      "plainLanguageText": "Insulin, one of the first peptide medicines, was at first obtained from animals and was later replaced by insulin made with recombinant technology.",
+      "claimCategory": "production-history",
+      "importance": "medium",
+      "interpretationNotes": "Introduction, paragraph 2. Isolation rather than synthesis is corroborated in the same review (ORG-03, isolation from livestock pancreata); paragraph 1 instead says 'synthesis', an internal inconsistency recorded as a gap. The paragraph's naming of the people who developed insulin is garbled in the source and is not carried, nor is its sentence on the supply of human insulin, whose meaning is unclear. 'Almost 90 years' is the review's figure; no primary history is held. At 51 amino acids, insulin sits on the boundary one glossary uses (FND-04), which is why the index treats that boundary as a convention (SYN-PEP-01).",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-02",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Insulin's isolation, first commercial use, and replacement of animal insulin by recombinant insulin, as the review recounts them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-03",
+      "claimText": "Wang et al. (2022) trace the isolation of peptide drugs from natural sources to the 1920s, when insulin was first isolated from livestock pancreata and used to treat diabetes, and state that several other animal-derived peptide drugs subsequently entered clinical use.",
+      "plainLanguageText": "Early peptide medicines, starting with insulin in the 1920s, were extracted from animal tissue.",
+      "claimCategory": "production-history",
+      "importance": "medium",
+      "interpretationNotes": "Peptide production by recombinant technology, paragraph 3. The named later drugs are the source's examples and are not carried. Corroborates the isolation account in ORG-02.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-03",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Extraction from animal tissue as the earliest source of peptide drugs.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-04",
+      "claimText": "Wang et al. (2022) state that, in addition to chemical synthesis, therapeutic peptides can be prepared by biological methods, namely extraction from natural sources, enzymatic synthesis, fermentation, recombinant DNA technology and semisynthesis, applied alone or in combination depending on the complexity and difficulty of preparing the peptide.",
+      "plainLanguageText": "Peptides for medicine and research can be made in several ways: extracted from natural sources, built chemically, or produced by biological methods such as recombinant technology, sometimes in combination.",
+      "claimCategory": "production-methods",
+      "importance": "high",
+      "interpretationNotes": "Peptide production by recombinant technology, paragraph 2. The list of methods sits between the two quoted segments, interleaved with citation markers, so it is paraphrased rather than quoted. No method is said to be better in general; the choice depends on the peptide.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-04",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The range of production routes for therapeutic peptides.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-05",
+      "claimText": "Wang et al. (2022) describe bioactive peptides from bacteria, fungi, plants and animals as possessing therapeutic properties, and venoms and toxins as valuable natural starting points for identifying bioactive peptides.",
+      "plainLanguageText": "Peptides studied for medicine do not only come from humans: bacteria, fungi, plants and animals, including their venoms, are also sources.",
+      "claimCategory": "natural-sources",
+      "importance": "medium",
+      "interpretationNotes": "'Possess therapeutic properties' is the review's characterisation of a class, not evidence that any peptide treats anything. Used only to show that natural sources are not only human.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-05",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Non-human natural sources of bioactive peptides.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        },
+        {
+          "locationKey": "org-05-2",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Venoms and toxins as starting points for peptide discovery.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-06",
+      "claimText": "Wang et al. (2022) state that non-ribosomal peptides, mostly studied from bacteria and fungi, contain non-standard residues and are not produced through the traditional biosynthesis pathways via ribosomes, but by non-ribosomal peptide synthetases.",
+      "plainLanguageText": "Some peptides from bacteria and fungi are made by special enzymes rather than the usual route, and can contain unusual building blocks.",
+      "claimCategory": "natural-sources",
+      "importance": "low",
+      "interpretationNotes": "Natural products section, paragraph 3. The named compounds are not carried, nor is the paragraph's statement about oral delivery. Shows that 'natural' peptides are not all built from the standard amino acids by the usual route; the source does not describe the ribosomal route itself, which remains a gap.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-06",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Non-ribosomal peptides as a natural class made by a different route.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-07",
+      "claimText": "Wang et al. (2022) state that recombinant DNA technology enables production of peptides and proteins with defined sequences and homogeneity, is particularly useful for long or complicated peptides with multiple disulfide bonds that are otherwise difficult to synthesise chemically, and give human insulin and growth hormone as representative peptide drugs made this way.",
+      "plainLanguageText": "Recombinant technology is especially useful for long or complicated peptides that are hard to build chemically.",
+      "claimCategory": "production-methods",
+      "importance": "high",
+      "interpretationNotes": "Peptide production by recombinant technology, paragraph 3; uncited sentences. The review calls both examples 'peptide drugs'; whether a given chain is called a peptide or a protein depends on the convention used (SYN-PEP-01). The paragraph's statement that recombinant methods can be combined with genetic code expansion is not carried.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-07",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "When recombinant production is used, as the review describes it.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-08",
+      "claimText": "Wang et al. (2022) describe semisynthesis as producing large bioactive polypeptides by linking synthetic peptides and recombinant DNA-expressed peptides, particularly useful when multiple artificial modifications are needed.",
+      "plainLanguageText": "Some large peptides are made by joining a chemically built piece to a piece made with recombinant technology.",
+      "claimCategory": "production-methods",
+      "importance": "low",
+      "interpretationNotes": "Peptide production by recombinant technology, paragraph 3.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-08",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Semisynthesis as a combined route.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-09",
+      "claimText": "Wang et al. (2022) state that chemical synthesis of peptides is well developed, particularly solid-phase peptide synthesis (SPPS), developed by Merrifield in 1963, which plays a crucial role in modern peptide production and led to automatic peptide synthesizers.",
+      "plainLanguageText": "Building peptides step by step on a solid support, a method developed in 1963, is central to making peptides chemically today, and it can be automated.",
+      "claimCategory": "production-methods",
+      "importance": "medium",
+      "interpretationNotes": "Chemical synthesis of peptides, paragraph 1. The method itself is described from SRC-006 in SPPS-001 and SPPS-002.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-09",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "SPPS as the established chemical route.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-10",
+      "claimText": "Wang et al. (2022) state that, compared with recombinant technology, crude peptides from SPPS are free of other biological compounds such as enzymes, DNA and RNA fragments and unrelated proteins, that impurities in the final SPPS product derive mainly from incomplete or side reactions and are easily identified, and that subsequent purification is relatively uncomplicated.",
+      "plainLanguageText": "Chemically built peptides avoid the biological leftovers that come with recombinant production; their impurities are mostly the results of incomplete or unwanted reactions during building.",
+      "claimCategory": "production-methods",
+      "importance": "medium",
+      "interpretationNotes": "Chemical synthesis of peptides, paragraph 1. The review's comparison, cited to references not obtained. The origin of synthesis impurities agrees with SPPS-004 and PUR-001. 'Relatively uncomplicated' purification is in tension with SRC-007, which describes preparative purification as labour-intensive and not automated (PUR-003); recorded as a gap rather than resolved.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-10",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "How impurities differ between chemical and recombinant production, in the review's comparison.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-11",
+      "claimText": "Wang et al. (2022) describe chemical synthesis as the preferred method for industrial preparation of peptides because it can introduce building blocks beyond the proteinogenic amino acids, such as unnatural amino acids and biochemical or biophysical probes, and can be fully automated and easily scaled up, while chemical synthesis of long peptides remains challenging and requires alternative strategies.",
+      "plainLanguageText": "Building peptides chemically lets makers use building blocks the body does not use, and it can be automated, but long peptides are still hard to make this way.",
+      "claimCategory": "why-laboratories",
+      "importance": "high",
+      "interpretationNotes": "Peptide production by recombinant technology, paragraph 1; an uncited paragraph. 'Preferred' is the review's characterisation of industry as of 2022. Consistent with FND-17 on long peptides and with ORG-07 on recombinant production as the alternative.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-11",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Why chemical synthesis is used, and its limit.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-12",
+      "claimText": "Wang et al. (2022) state that automated synthesizers are extremely helpful for laboratory-scale peptide synthesis, producing the desired peptides rapidly for further structural and functional studies.",
+      "plainLanguageText": "In research laboratories, machines build peptides quickly so that scientists can study their structure and what they do.",
+      "claimCategory": "why-laboratories",
+      "importance": "medium",
+      "interpretationNotes": "Chemical synthesis of peptides, paragraph 5; the same paragraph as FND-17. The named instruments and their capacity are not carried. Research use, not manufacture for people.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-12",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Making peptides in order to study them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-13",
+      "claimText": "Wang et al. (2022) state that more peptide hormones and their receptors were identified from the 1950s to the 1990s, that progress in protein purification and synthesis, structure elucidation and sequencing accelerated peptide drug development, and that synthetic peptides began to be developed in addition to natural peptides.",
+      "plainLanguageText": "From the 1950s, as tools for purifying, building and analysing peptides improved, laboratory-made peptides began to be developed alongside natural ones.",
+      "claimCategory": "production-history",
+      "importance": "medium",
+      "interpretationNotes": "Introduction, paragraph 3. The review's examples list recombinant human insulin among 'synthetic peptides', a looser use of 'synthetic' than elsewhere; recorded as a terminology gap. The paragraph's approval count is not used.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-13",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The shift from natural to laboratory-made peptides.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-14",
+      "claimText": "Wang et al. (2022) state that peptide drugs developed since 2000 are no longer simply hormone mimics or composed simply of natural amino acids, giving examples that include a peptide mimicking viral proteins, a peptide derived from a cone snail, an analogue manufactured in Escherichia coli modified by recombinant DNA technology, and a chemically synthesised analogue of a human hormone with an attached fatty acid.",
+      "plainLanguageText": "Newer peptide medicines are not always copies of human hormones: some are based on molecules from viruses or other animals, and some carry added chemical groups.",
+      "claimCategory": "peptide-design",
+      "importance": "high",
+      "interpretationNotes": "Introduction, paragraph 4. Compound names are the source's examples and are deliberately not carried, as in PK-13. The paragraph's count of approvals since 2000 is not used.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Laboratory-made peptides that are not copies of human hormones.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-15",
+      "claimText": "Wang et al. (2022) state that peptide drug discovery began by using natural hormones and peptides with well-studied physiological functions to treat hormone-deficiency diseases, with natural peptides or animal homologues as the initial strategies, and that the drawbacks of these natural peptides prompted optimisation of their natural sequences, leading to hormone-mimetic peptide drugs.",
+      "plainLanguageText": "Natural hormones were used as medicines first; because natural peptides have drawbacks, scientists then began changing their sequences, creating hormone-like peptide medicines.",
+      "claimCategory": "why-laboratories",
+      "importance": "high",
+      "interpretationNotes": "Natural peptides/hormones in the human body, paragraph 1. The drawbacks are not listed in this paragraph; the review names them elsewhere as poor membrane permeability and poor stability in the body (PK-10). The named hormones are the source's list of initial targets.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Why laboratories moved from natural peptides to modified sequences.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-16",
+      "claimText": "Wang et al. (2022) describe GLP-1, a hormone that regulates insulin production and secretion, as having a very short half-life in the body, and state that extensive efforts modified its sequence to enhance its stability while maintaining its potency and pharmacological effect.",
+      "plainLanguageText": "Scientists changed the sequence of a natural hormone that breaks down quickly, aiming to make it last longer while still acting in the same way.",
+      "claimCategory": "peptide-design",
+      "importance": "medium",
+      "interpretationNotes": "Peptides mimicking hormones, paragraph 1. The products named in the paragraph are not carried. States a design aim; it does not describe the properties of any particular product. No half-life figure is given or carried.",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Sequence modification to extend a natural hormone's stability.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ORG-17",
+      "claimText": "Wang et al. (2022) describe drugs developed by modifying the native sequence of GnRH, a 10-amino-acid hypothalamic peptide: one has the same biological activity as GnRH by activating GnRH receptors, while another, although optimised from the GnRH sequence, acts as a GnRH antagonist by binding the receptor competitively.",
+      "plainLanguageText": "Two medicines built from the same natural hormone can do opposite things: one switches the hormone's receptor on, the other blocks it.",
+      "claimCategory": "peptide-design",
+      "importance": "medium",
+      "interpretationNotes": "Peptides mimicking hormones, paragraph 3. Drug names and the conditions treated are not carried. Shows that a modified analogue is a different molecule whose action cannot be assumed from its parent (compare RECEPT-003 and RECEPT-005).",
+      "uncertaintyText": "A narrative review of therapeutic peptides, unevenly worded in places: within its own text it describes insulin's 1921 preparation both as isolation and as synthesis, and uses 'synthetic' and 'recombinant' loosely. Used only where its statement is plain, as of 2022. Nothing here is a statement about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "org-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Analogues of one hormone with opposite actions at its receptor.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "primary_source_missing",
+      "statement": "A primary historical account of insulin's first isolation, its first commercial use, and the replacement of animal insulin by recombinant insulin.",
+      "why": "The only held account is a 2022 narrative review, which describes the 1921 preparation as isolation in two places and as synthesis in one, and names its developers inaccurately.",
+      "whatWouldResolveIt": "A historical or primary source for the isolation and commercial introduction of insulin, obtained and read."
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Consistent definitions of 'natural', 'synthetic' and 'recombinant' as descriptions of how a peptide was produced.",
+      "why": "The held review lists recombinant insulin among 'synthetic peptides' in one paragraph and calls a chemically made peptide a 'recombinant peptide drug' in another.",
+      "whatWouldResolveIt": "A permissively licensed source, or regulatory glossary, defining these production categories."
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "How difficult it is to purify a chemically synthesised peptide.",
+      "why": "SRC-143 describes purification after solid-phase synthesis as relatively uncomplicated (ORG-10); SRC-007 describes preparative purification as labour-intensive and not automated (PUR-003). The scopes differ, identifying impurities against separating them, and neither is primary.",
+      "whatWouldResolveIt": "A current peptide process-chemistry reference addressing purification effort directly."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "How the body builds peptides from genetic information on ribosomes, stated in general terms.",
+      "why": "The held sources describe precursors cut into active peptides (END-03, END-07) and mention the ribosomal route only by contrast with non-ribosomal peptides (ORG-06).",
+      "whatWouldResolveIt": "A permissively licensed biochemistry source describing ribosomal peptide synthesis."
+    },
+    {
+      "gapType": "source_missing",
+      "statement": "Whether a laboratory-made peptide with the same sequence as one the body makes behaves in the same way once in the body.",
+      "why": "No held source compares them in general; the review compares production routes, not behaviour.",
+      "whatWouldResolveIt": "A permissively licensed review comparing endogenous and synthetic peptides of identical sequence."
+    }
+  ]
+}

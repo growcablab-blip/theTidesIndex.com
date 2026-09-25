@@ -1,6 +1,6 @@
 {
   "packetKey": "amino-acids-to-proteins",
-  "note": "Extracted 14 September 2026 from CC BY reviews in Essays in Biochemistry, Biochemical Journal, Life and Antibiotics, each licence read in the retrieved full text, with no AI restriction found. OpenStax is excluded (D-26). Every quote was checked word for word.",
+  "note": "Extracted 14 September 2026 from CC BY reviews in Essays in Biochemistry, Biochemical Journal, Life and Antibiotics, each licence read in the retrieved full text, with no AI restriction found. OpenStax is excluded (D-26). Every quote was checked word for word. Supplemented 15 September 2026 by scripts/evidence/build-peptides-101-2026-09-15.py for the Peptides 101 patient series, from sources already held, every quoted segment checked in full.",
   "topic": {
     "topicKey": "amino-acids-to-proteins",
     "slug": "amino-acids-to-proteins",
@@ -64,6 +64,13 @@
       "sourceKey": "SRC-168",
       "locatorText": "Hydrophobic collapse > paragraph 1",
       "section": "Hydrophobic collapse > paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "fnd-21",
+      "sourceKey": "SRC-165",
+      "locatorText": "1. Introduction, paragraph 2",
+      "section": "1. Introduction, paragraph 2",
       "notes": "Web full text; no page numbers. Located by section heading and paragraph."
     }
   ],
@@ -209,6 +216,24 @@
           "interpretation": "'One of the key events', not the whole mechanism.",
           "primaryTrace": "cited_not_obtained",
           "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "FND-21",
+      "claimText": "Brown et al. (2023) state that, since the genetically encoded set of 20 amino acids was established, the greatest deviations have been the addition of a 21st amino acid, selenocysteine, within some lineages of bacteria, archaea and eukaryotes, and a 22nd, pyrrolysine, in archaea and bacteria.",
+      "plainLanguageText": "Some living things use one or two amino acids beyond the standard 20.",
+      "claimCategory": "biochemistry",
+      "importance": "medium",
+      "interpretationNotes": "Introduction, paragraph 2, the same paragraph as FND-10. The source does not say which organisms use selenocysteine, including whether humans do; do not add it. The evolutionary time-scale framing is the authors' and is not carried.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review. General biochemistry, not about any peptide product.",
+      "evidence": [
+        {
+          "locationKey": "fnd-21",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Amino acids beyond the canonical twenty.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
         }
       ]
     }

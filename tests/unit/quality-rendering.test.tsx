@@ -208,7 +208,10 @@ describe('review state cannot read as stronger than it is', () => {
     const html = renderToStaticMarkup(<PreviewBanner state={state()} />);
 
     expect(html).toContain('Unpublished preview — not live');
-    expect(html).toContain('publish gate is unchanged');
+    // The banner explains what the gate does and does not require. Since the
+    // 2026-09-24 separation it must not claim review is still a precondition.
+    expect(html).toContain('exact location in a citable source');
+    expect(html).not.toMatch(/refuses publication without a human/i);
     // Not carried by colour: a dashed border and a worded heading survive print
     // and forced-colours mode.
     expect(html).toContain('border-dashed');

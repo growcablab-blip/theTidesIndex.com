@@ -274,6 +274,17 @@ export function ScienceAndApplications({
           peptide-resin is described in the source as perhaps the most crucial condition for
           efficient assembly.
         </Body>
+        {/*
+          Next to the deletion-peptide paragraph its first line refers to. At the
+          chapter's end it was carried, with the sources, onto a near-empty page.
+        */}
+        <InTheRecords
+          title="Where this bites in the register"
+          lines={[
+            'Deletion peptides are why a single symmetrical chromatographic peak is not proof of one substance — the reasoning behind the purity topic.',
+            `The register records ${String(peptides.length)} compounds; for none of them does this index hold a manufacturing record for the material any source administered.`,
+          ]}
+        />
         <Body>
           At manufacturing scale the picture divides. Peptides longer than about ten residues are
           usually made by solid-phase synthesis or by hybrid routes that assemble purified
@@ -284,13 +295,6 @@ export function ScienceAndApplications({
         <EvidenceNote
           supports="Extracted claims from Synthetic Peptides: A User's Guide (SRC-006) and Advances in the Discovery and Development of Peptide Therapeutics (SRC-007), held in full."
           doesNotSettle="What any particular vial contains. A described process is not a measurement of a product."
-        />
-        <InTheRecords
-          title="Where this bites in the register"
-          lines={[
-            'Deletion peptides are why a single symmetrical chromatographic peak is not proof of one substance — the reasoning behind the purity topic.',
-            `The register records ${String(peptides.length)} compounds; for none of them does this index hold a manufacturing record for the material any source administered.`,
-          ]}
         />
         <SourceNote
           items={[
@@ -446,6 +450,18 @@ export function ScienceAndApplications({
           supports="Claims RECEPT-001 to RECEPT-016, extracted from chapter 2 (printed pp. 6–22) of Rang and Dale’s Pharmacology, 10th edition, held as a Spanish-language publisher sample (SRC-121). Paraphrases of the Spanish text, awaiting re-checking against the English edition (SRC-122, not held)."
           doesNotSettle="Which receptor any compound in the register acts on, or how strongly: those are claims about a compound and are sourced, or not, on its record."
         />
+        {/*
+          Beside the receptor vocabulary it qualifies. At the end of the chapter,
+          after the source-needed box, it fell onto a page of its own.
+        */}
+        <InTheRecords
+          title="How mechanism claims appear in the register"
+          lines={[
+            'Mechanism statements are almost always preclinical or practitioner-reported, and labelled as such wherever they appear.',
+            'A mechanism reported in cell culture is not an effect in a body, and the records say so on the claim rather than in a preface.',
+            'Where a source describes a bidirectional effect with no criterion for direction, the record says the claim is unfalsifiable as stated.',
+          ]}
+        />
         <Body>
           English-language open-access sources corroborate that account, and in one place qualify
           it. Higham and Colquhoun (2024) show that measured agonist binding depends on efficacy as
@@ -485,14 +501,6 @@ export function ScienceAndApplications({
         <SourceNeeded
           question="What happens downstream of the second messenger — the kinase cascades that carry a signal on — in terms general enough to apply across receptors?"
           whatIsMissing="The only permissively licensed passage retrieved on this describes the key enzyme incompletely, so it was not used, and the Rang and Dale chapter that covers it (SRC-122) is not held. The question stays open rather than being answered from general knowledge."
-        />
-        <InTheRecords
-          title="How mechanism claims appear in the register"
-          lines={[
-            'Mechanism statements are almost always preclinical or practitioner-reported, and labelled as such wherever they appear.',
-            'A mechanism reported in cell culture is not an effect in a body, and the records say so on the claim rather than in a preface.',
-            'Where a source describes a bidirectional effect with no criterion for direction, the record says the claim is unfalsifiable as stated.',
-          ]}
         />
       </PublicationPage>
 
@@ -575,6 +583,15 @@ export function ScienceAndApplications({
           circulation, and individual differences in this pre-systemic metabolism by gut and liver make
           oral bioavailability vary (Lin and Wong 2017).
         </Body>
+        {/*
+          Directly after the half-life and bioavailability definitions it is the
+          missing half of. After the chapter's last evidence note it stood alone
+          on the final page.
+        */}
+        <SourceNeeded
+          question="How long repeated administration takes to reach steady state; what a half-life does not tell you — its dependence on clearance and volume of distribution, and why an effect can outlast the substance; and plasma protein binding in general."
+          whatIsMissing="Not stated in general terms by any permissively licensed source retrieved. The one review that states the steady-state rule is a single-author review that also discusses products and dosing intervals, and was not used; the only protein-binding statement retrieved is limited to the blood–brain barrier."
+        />
 
         <SectionHeading>How peptides differ</SectionHeading>
         <Body>
@@ -616,10 +633,6 @@ export function ScienceAndApplications({
           supports="Claims PKG-01 to PKG-08, PKG-12 to PKG-15 and PKG-17 to PKG-21 (learning topic ‘Pharmacokinetic concepts’) and RTE-11 to RTE-14, RTE-16, RTE-17 and RTE-20 to RTE-27 (learning topic ‘Routes of administration’), from reviews licensed CC BY 4.0, the NCI Thesaurus (CC BY 4.0) and 21 CFR 314.3 (public domain), each licence or terms statement read at the source."
           doesNotSettle="Any parameter for any peptide in the register, or how any product should be given. Several route statements come from reviews written about antibodies or macromolecules generally."
           status="Extracted and awaiting scientific review."
-        />
-        <SourceNeeded
-          question="How long repeated administration takes to reach steady state; what a half-life does not tell you — its dependence on clearance and volume of distribution, and why an effect can outlast the substance; and plasma protein binding in general."
-          whatIsMissing="Not stated in general terms by any permissively licensed source retrieved. The one review that states the steady-state rule is a single-author review that also discusses products and dosing intervals, and was not used; the only protein-binding statement retrieved is limited to the blood–brain barrier."
         />
       </PublicationPage>
 

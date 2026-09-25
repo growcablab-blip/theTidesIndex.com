@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import type { PeptidePage } from '@/server/public/queries';
 import type { PublicClaim } from '@/server/public/shapes';
+import {
+  countEvidenceRecords,
+  EVIDENCE_RECORD_DEFINITION,
+  formatEvidenceRecordCount,
+  laneOfClaim,
+  type EvidenceLane,
+} from '@/domain/evidence/evidence-counts';
 import { EvidenceClassTag } from './primitives';
 
 /**
@@ -14,16 +21,15 @@ import { EvidenceClassTag } from './primitives';
  * Everything here is arranged from the record's own claims and gaps. Nothing is
  * scored, nothing is summarised beyond counting, and no drawing depicts a
  * mechanism — mechanism is shown as the attributed statements sources make.
+ *
+ * The lanes count evidence records — distinct sources — not statements. The
+ * unit is defined once, in `@/domain/evidence/evidence-counts`, and printed
+ * books count through the same module.
  */
-
-type EvidenceLane = 'human' | 'preclinical' | 'reference';
 
 /** The same classification the evidence section uses, so the two never disagree. */
 export function laneOf(claim: PublicClaim): EvidenceLane | null {
-  if (claim.evidence.some((e) => e.isHumanEvidence)) return 'human';
-  if (claim.evidence.some((e) => e.evidenceClass === 'preclinical')) return 'preclinical';
-  if (claim.evidence.length > 0) return 'reference';
-  return null;
+  return laneOfClaim(claim);
 }
 
 const LANES: readonly {
@@ -113,11 +119,7 @@ export function summaryAfterBrief(text: string | null, simple: boolean): string 
 
 export function RecordOpening({ peptide, simple }: { peptide: PeptidePage; simple: boolean }) {
   const brief = briefOf(simple ? peptide.simpleSummary : peptide.practitionerSummary, simple);
-  const counts = { human: 0, preclinical: 0, reference: 0 };
-  for (const claim of peptide.claims) {
-    const lane = laneOf(claim);
-    if (lane !== null) counts[lane] += 1;
-  }
+  const counts = countEvidenceRecords(peptide.claims);
   const openQuestions = peptide.gaps.filter(
     (g) => g.resolutionState === 'open' || g.resolutionState === 'partially_resolved',
   ).length;
@@ -188,7 +190,7 @@ export function RecordOpening({ peptide, simple }: { peptide: PeptidePage; simpl
                   <div className="flex items-baseline justify-between gap-3">
                     <span className="text-sm font-medium text-ink">{simple ? l.simpleLabel : l.label}</span>
                     <span className="tabular text-xs text-ink-soft">
-                      {n === 0 ? 'none recorded' : `${String(n)} ${n === 1 ? 'statement' : 'statements'}`}
+                      {n === 0 ? 'none recorded' : formatEvidenceRecordCount(l.lane, n)}
                     </span>
                   </div>
                   <div className="mt-2 flex min-h-3 flex-wrap items-center gap-1.5" aria-hidden="true">
@@ -214,11 +216,17 @@ export function RecordOpening({ peptide, simple }: { peptide: PeptidePage; simpl
               </div>
             </li>
           </ul>
+          <p className="mt-3 text-xs leading-relaxed text-slate">
+            {simple ? EVIDENCE_RECORD_DEFINITION.simpleShort : EVIDENCE_RECORD_DEFINITION.short}{' '}
+            <a href="#evidence" className="text-deep-tide hover:underline">
+              {simple ? 'How they are counted' : 'Definition'}
+            </a>
+          </p>
           {counts.human === 0 ? (
             <p className="mt-3 text-sm leading-relaxed text-ink-soft">
               {simple
                 ? 'No study in people is recorded here. What is known comes from animals, cells or practice — which cannot show what happens in people.'
-                : 'No reviewed human evidence is recorded. Preclinical and practice statements below do not establish effects in people.'}
+                : 'No human evidence record is held here. The preclinical and practice sources below do not establish effects in people.'}
             </p>
           ) : null}
         </div>

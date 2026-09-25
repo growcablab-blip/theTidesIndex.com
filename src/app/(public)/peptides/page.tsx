@@ -5,6 +5,7 @@ import { previewDiscovery } from '@/server/public/preview';
 import type { DiscoveryRow } from '@/server/public/research-index';
 import { Container, EmptyState, EvidenceClassTag } from '@/components/public/primitives';
 import { REPLICATION_LABELS } from '@/components/public/research-figures';
+import { EVIDENCE_RECORD_DEFINITION, formatEvidenceRecordCount } from '@/domain/evidence/evidence-counts';
 
 /**
  * Rendered on demand rather than at build time.
@@ -177,8 +178,8 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
               <span className="meta-label block">Given to people</span>
               <select name="human" defaultValue={params.human ?? ''} className="mt-1 rounded border border-rule bg-warm-white px-2 py-1.5 text-sm text-ink">
                 <option value="">Either</option>
-                <option value="yes">At least one human record</option>
-                <option value="no">No human record found</option>
+                <option value="yes">Human studies found in the screen</option>
+                <option value="no">None found in the screen</option>
               </select>
             </label>
             <label className="text-sm">
@@ -301,6 +302,8 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
             </p>
           </EmptyState>
         ) : (
+          <>
+          <p className="mb-4 max-w-[66ch] text-xs text-slate">{EVIDENCE_RECORD_DEFINITION.short}</p>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {peptides.map((peptide) => (
               <li key={peptide.id}>
@@ -328,19 +331,19 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
                     {peptide.humanEvidenceCount > 0 ? (
                       <EvidenceClassTag
                         evidenceClass="human"
-                        label={`Human ${String(peptide.humanEvidenceCount)}`}
+                        label={formatEvidenceRecordCount('human', peptide.humanEvidenceCount)}
                       />
                     ) : null}
                     {peptide.preclinicalEvidenceCount > 0 ? (
                       <EvidenceClassTag
                         evidenceClass="preclinical"
-                        label={`Preclinical ${String(peptide.preclinicalEvidenceCount)}`}
+                        label={formatEvidenceRecordCount('preclinical', peptide.preclinicalEvidenceCount)}
                       />
                     ) : null}
                     {peptide.referenceEvidenceCount > 0 ? (
                       <EvidenceClassTag
                         evidenceClass="reference_opinion"
-                        label={`Reference ${String(peptide.referenceEvidenceCount)}`}
+                        label={formatEvidenceRecordCount('reference', peptide.referenceEvidenceCount)}
                       />
                     ) : null}
                     {peptide.humanEvidenceCount === 0 &&
@@ -358,6 +361,7 @@ export default async function PeptidesIndexPage({ searchParams }: { searchParams
               </li>
             ))}
           </ul>
+          </>
         )}
       </div>
 

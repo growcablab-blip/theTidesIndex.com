@@ -109,23 +109,30 @@ export const listPeptides = cache(async (): Promise<PeptideSummaryRow[]> =>
                from public_v_peptide_aliases a
                where a.peptide_id = p.id and a.alias_type <> 'related_but_distinct'
              ), array[]::text[]) as aliases,
+             -- Evidence records: distinct sources per lane, placed by each
+             -- citation's evidence type with the rule in
+             -- src/domain/evidence/evidence-counts.ts (human if human evidence,
+             -- else preclinical if preclinical, else reference). Not citations
+             -- and not statements, so the card and the record page agree.
              coalesce((
-               select count(*) from public_v_claims c
+               select count(distinct ce.source_id) from public_v_claims c
                join public_v_claim_evidence ce on ce.claim_id = c.id
                join public_v_evidence_types et on et.key = ce.evidence_type_key
-               where c.peptide_id = p.id and et.evidence_class = 'human'
+               where c.peptide_id = p.id and et.is_human_evidence
              ), 0)::int as human_count,
              coalesce((
-               select count(*) from public_v_claims c
+               select count(distinct ce.source_id) from public_v_claims c
                join public_v_claim_evidence ce on ce.claim_id = c.id
                join public_v_evidence_types et on et.key = ce.evidence_type_key
-               where c.peptide_id = p.id and et.evidence_class = 'preclinical'
+               where c.peptide_id = p.id and not et.is_human_evidence
+                 and et.evidence_class = 'preclinical'
              ), 0)::int as preclinical_count,
              coalesce((
-               select count(*) from public_v_claims c
+               select count(distinct ce.source_id) from public_v_claims c
                join public_v_claim_evidence ce on ce.claim_id = c.id
                join public_v_evidence_types et on et.key = ce.evidence_type_key
-               where c.peptide_id = p.id and et.evidence_class = 'reference_opinion'
+               where c.peptide_id = p.id and not et.is_human_evidence
+                 and et.evidence_class <> 'preclinical'
              ), 0)::int as reference_count
       from public_v_peptides p
       left join public_v_compound_categories cc on cc.key = p.primary_category_key
@@ -406,6 +413,16 @@ export interface PeptidePage {
   readonly lastReviewedAt: string | null;
   readonly evidenceCutoffAt: string | null;
   readonly needsUpdate: boolean;
+  /**
+   * How far a person has actually checked this record.
+   *
+   * Carried on the public relation since migration 0029, because publication no
+   * longer implies review: the page has to be able to say which it has.
+   */
+  readonly reviewState: string;
+  readonly publicationState: string;
+  /** True only for the development preview of an unpublished record. */
+  readonly isPreview: boolean;
   readonly aliases: readonly PeptideAlias[];
   readonly claims: readonly PublicClaim[];
   readonly routes: readonly RouteEvidence[];
@@ -1142,6 +1159,12 @@ async function readPeptidePage(
         lastReviewedAt: str(peptide.last_reviewed_at),
         evidenceCutoffAt: str(peptide.evidence_cutoff_at),
         needsUpdate: Boolean(peptide.needs_update),
+        reviewState: str(peptide.review_state) ?? 'unreviewed',
+        // The public view selects only published rows and so does not carry the
+        // column; the preview reads the base table and does. Either way this is
+        // the record's real state.
+        publicationState: str(peptide.publication_state) ?? 'published',
+        isPreview: preview,
         aliases,
         claims,
         routes: routeEvidence,

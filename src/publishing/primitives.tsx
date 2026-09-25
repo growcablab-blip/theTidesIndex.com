@@ -206,6 +206,9 @@ export function Cover({
         }}
       >
         {/* The logo stands for the imprint; the document's metadata carries the name as text. */}
+        {/* react-pdf's Image renders into a PDF, not the DOM: it has no alt prop, and the
+            accessible name is carried by the document metadata. The DOM rule does not apply. */}
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image src={COVER_LOGO} style={{ width: COVER_LOGO_WIDTH, height: COVER_LOGO_HEIGHT }} />
         {series === undefined ? null : (
           <Text

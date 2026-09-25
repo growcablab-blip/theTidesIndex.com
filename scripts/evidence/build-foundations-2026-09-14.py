@@ -24,6 +24,10 @@ area), and for every source that passed licence and bibliographic checks:
 Editorial decisions live in this file, not in the scratchpad: EXCLUDE drops a
 candidate, REWORD tightens its wording, and GAPS records what stays SOURCE
 NEEDED. Only claims the publications need are taken. Idempotent.
+
+Rewrites its packets whole. build-peptides-101-2026-09-15.py adds claims to
+peptides-in-the-body, peptide-signalling and amino-acids-to-proteins, so run it
+again after this script.
 """
 from __future__ import annotations
 

@@ -13,6 +13,11 @@ import {
 } from './primitives';
 import type { PeptidePage, PractitionerProtocol } from '@/server/public/queries';
 import { amountAsReported } from '@/domain/protocols/amount';
+import {
+  countEvidenceRecords,
+  EVIDENCE_RECORD_DEFINITION,
+  formatEvidenceRecordCount,
+} from '@/domain/evidence/evidence-counts';
 
 /**
  * A practitioner reference sheet, built from the record.
@@ -45,6 +50,7 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
   const publication = 'The Tides Index — practitioner reference';
   const approved = peptide.regulatoryStatuses.filter((s) => s.status === 'approved');
   const screen = peptide.literatureScreens[0];
+  const records = countEvidenceRecords(peptide.claims);
 
   return (
     <Document
@@ -106,17 +112,29 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
           />
           <Fact
             label="Human evidence"
-            value={
+            value={`${formatEvidenceRecordCount('human', records.human)} · ${
               screen === undefined
-                ? `${String(countHumanClaims(peptide))} statements rest on human evidence`
-                : `${String(screen.humanPrimaryCount)} primary human records identified (substudies count separately)`
-            }
+                ? 'no literature screen run'
+                : `${screen.databaseName.split(' ')[0] ?? 'literature'} screen: ${String(screen.humanPrimaryCount)} primary human ${screen.humanPrimaryCount === 1 ? 'publication' : 'publications'} (substudies count separately)`
+            }`}
           />
           <Fact
             label="Recorded as unsettled"
             value={`${String(peptide.gaps.length)} points`}
           />
         </View>
+        <Text
+          style={{
+            fontFamily: sans,
+            fontSize: type.micro,
+            lineHeight: 1.4,
+            color: colour.slate,
+            marginTop: -8,
+            marginBottom: 12,
+          }}
+        >
+          {`${formatEvidenceRecordCount('preclinical', records.preclinical)} · ${formatEvidenceRecordCount('reference', records.reference)}. ${EVIDENCE_RECORD_DEFINITION.short}`}
+        </Text>
 
         <Callout title="What this sheet is">
           <Text>
@@ -235,7 +253,7 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
         ) : (
           <>
             <Body>
-              {peptide.protocols.length} records, each from one named source. No column here is
+              {peptide.protocols.length} {peptide.protocols.length === 1 ? 'regimen' : 'regimens'}, each from one named source. No column here is
               recommended and no two are combined.
             </Body>
             {(peptide.protocols as readonly PractitionerProtocol[]).map((protocol) => (
@@ -350,12 +368,6 @@ export function ReferenceSheet({ peptide, generatedAt }: ReferenceSheetProps): R
 }
 
 // ---------------------------------------------------------------------------
-
-function countHumanClaims(peptide: PeptidePage): number {
-  return peptide.claims.filter((claim) =>
-    claim.evidence.some((evidence) => evidence.evidenceClass === 'human'),
-  ).length;
-}
 
 function resolutionLabel(resolution: string): string {
   const labels: Record<string, string> = {

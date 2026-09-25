@@ -247,14 +247,26 @@ describe('publish gate parity between the domain layer and the database', () => 
     expect(codes).toContain('missing_provenance');
     expect(codes).toContain('missing_interpretation');
     expect(codes).toContain('missing_uncertainty');
-    expect(codes).toContain('missing_compliance_review');
+    // Reviews are no longer gaps in the publish gate. They are reported
+    // separately, as assurance, by outstandingReviews().
+    expect(codes).not.toContain('missing_compliance_review');
+    expect(codes).not.toContain('missing_scientific_review');
     for (const failure of status?.failures ?? []) {
       expect(failure.message.length, failure.code).toBeGreaterThan(10);
       expect(failure.field.length, failure.code).toBeGreaterThan(0);
     }
   });
 
-  it('invalidates the gate status when the record is edited after review', async () => {
+  /*
+   * An edit still strands the approvals — it just no longer strands the page.
+   *
+   * Before the 2026-09-24 separation this was the same fact twice: the reviews
+   * stopped applying, and so the record could not be published. Only the first
+   * half is a review property, and it is the half that has to survive. The
+   * second was a consequence of publication implying review, which it no longer
+   * does.
+   */
+  it('invalidates the approvals when the record is edited after review', async () => {
     const claimId = await createClaim(db, {
       key: 'C-PARITY-REVISED',
       peptideId,
@@ -284,8 +296,11 @@ describe('publish gate parity between the domain layer and the database', () => 
     await query(db, `update claims set claim_text = 'Rewritten.' where id = $1`, [claimId]);
 
     const after = await getClaimGateStatus(db, claimId);
-    expect(after?.canPublish).toBe(false);
+    // The approvals were for words that no longer exist.
     expect(after?.version).toBe(2);
     expect(after?.approvedReviews).toEqual([]);
+    // Provenance is untouched by a wording change, so the record remains
+    // publishable — and will display as unreviewed, which it now is.
+    expect(after?.canPublish).toBe(true);
   });
 });

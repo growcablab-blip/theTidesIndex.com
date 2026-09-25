@@ -228,7 +228,7 @@ export function MessageReceiverIllustration({ id = 'ill-message-receiver' }: { i
 // The body's own peptides: made, cut, stored, released, broken down
 // ---------------------------------------------------------------------------
 
-function MiniChain({ x, y, n, cls = 'fill-sea-glass text-tide-teal' }: { x: number; y: number; n: number; cls?: string }) {
+export function MiniChain({ x, y, n, cls = 'fill-sea-glass text-tide-teal' }: { x: number; y: number; n: number; cls?: string }) {
   const pts = Array.from({ length: n }, (_, i) => [x + i * 13, y + (i % 2 === 0 ? 0 : -7)] as const);
   return (
     <g className={cls.includes('text-') ? cls.split(' ').filter((c) => c.startsWith('text-')).join(' ') : 'text-tide-teal'}>

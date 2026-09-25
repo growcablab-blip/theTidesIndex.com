@@ -1,6 +1,6 @@
 {
   "packetKey": "peptide-signalling",
-  "note": "Extracted 14 September 2026 from permissively licensed reviews (CC BY 4.0, or public domain for the 1998 US government overview), each licence read in the retrieved full text, with no AI restriction found. OpenStax is excluded (D-26). Two GLP-1-receptor statements from a metabolism review were not used, to keep a patient chapter free of compound-adjacent detail. Every quote was checked word for word.",
+  "note": "Extracted 14 September 2026 from permissively licensed reviews (CC BY 4.0, or public domain for the 1998 US government overview), each licence read in the retrieved full text, with no AI restriction found. OpenStax is excluded (D-26). Two GLP-1-receptor statements from a metabolism review were not used, to keep a patient chapter free of compound-adjacent detail. Every quote was checked word for word. Supplemented 15 September 2026 by scripts/evidence/build-peptides-101-2026-09-15.py for the Peptides 101 patient series, from sources already held, every quoted segment checked in full.",
   "topic": {
     "topicKey": "peptide-signalling",
     "slug": "peptide-signalling",
@@ -78,6 +78,34 @@
       "sourceKey": "SRC-159",
       "locatorText": "1. Introduction, paragraph 1",
       "section": "1. Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-14",
+      "sourceKey": "SRC-161",
+      "locatorText": "Abstract, paragraph 1",
+      "section": "Abstract, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-15",
+      "sourceKey": "SRC-161",
+      "locatorText": "Abstract, paragraph 1",
+      "section": "Abstract, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-16",
+      "sourceKey": "SRC-157",
+      "locatorText": "Introduction, paragraph 1",
+      "section": "Introduction, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "sig-17",
+      "sourceKey": "SRC-157",
+      "locatorText": "Introduction, paragraph 5",
+      "section": "Introduction, paragraph 5",
       "notes": "Web full text; no page numbers. Located by section heading and paragraph."
     }
   ],
@@ -259,6 +287,78 @@
           "interpretation": "Preceding sentence in source names GRKs as the kinases that phosphorylate the active receptor (\"classical paradigm of homologous desensitization\").",
           "primaryTrace": "cited_not_obtained",
           "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-14",
+      "claimText": "Apostolopoulos et al. (2021) describe peptides as acting as signalling entities across all domains of life and as interfering with protein-protein interactions.",
+      "plainLanguageText": "Across living things, peptides act as signals and can affect how proteins interact with each other.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "An uncited abstract statement in a 25-author review. It does not say all peptides are signals. The abstract's opening definition ('fragments of proteins') is not adopted.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Peptides as signals across living things.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-15",
+      "claimText": "Apostolopoulos et al. (2021) state that peptide drugs initially served only as hormone analogues but now achieve numerous biomedical tasks, and can cross membranes or reach intracellular targets.",
+      "plainLanguageText": "Peptide medicines began as copies of hormones; some newer ones can cross cell membranes or act inside cells.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "An uncited abstract statement about peptide drugs as a class, not about hormones. It qualifies, without contradicting, SIG-03 (polypeptide hormones cannot enter cells) and PK-10 (poor membrane permeability as a class drawback): the scopes differ. It does not say which peptides, or how.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Peptide drugs reaching inside cells.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-16",
+      "claimText": "Culhane et al. (2015) describe G protein-coupled receptors as the largest protein superfamily of the vertebrate genome, over 800 different receptors detecting extracellular signals that range from photons and small molecules to hormones and proteins.",
+      "plainLanguageText": "One very large family of receptors, the G protein-coupled receptors, picks up many kinds of signal, from light to hormones.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Introduction, paragraph 1, the same paragraph as SIG-07. It does not say what share of peptide hormones act through these receptors, which remains SOURCE NEEDED.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "The size and range of the GPCR family.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A review. The primary studies it cites have not been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "SIG-17",
+      "claimText": "Culhane et al. (2015) state that, while GPCRs in other families have a wide range of ligands, all family B receptors bind peptide hormones.",
+      "plainLanguageText": "Every receptor in one family of these receptors binds peptide hormones.",
+      "claimCategory": "cell-signalling",
+      "importance": "medium",
+      "interpretationNotes": "Family B only. It does not say most peptide hormones act through GPCRs, which remains SOURCE NEEDED. Corroborates REC-27.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "sig-17",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "A receptor family defined by peptide-hormone ligands.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
         }
       ]
     }

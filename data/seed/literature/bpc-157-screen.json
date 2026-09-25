@@ -1228,9 +1228,9 @@
       "included": true,
       "primaryOrSecondary": "primary",
       "peptideIdentityCertainty": "stated",
-      "fullTextStatus": "abstract_only",
-      "classifiedBy": "rule",
-      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+      "fullTextStatus": "full_text_held",
+      "classifiedBy": "manual",
+      "reason": "Full text read 15 September 2026 (CC BY): pharmacokinetics, excretion, metabolism and distribution after intravenous and intramuscular dosing in rats and beagle dogs. Animal in vivo confirmed."
     },
     {
       "pmid": "32956773",
@@ -1484,9 +1484,9 @@
       "included": true,
       "primaryOrSecondary": "primary",
       "peptideIdentityCertainty": "stated",
-      "fullTextStatus": "abstract_only",
-      "classifiedBy": "rule",
-      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+      "fullTextStatus": "full_text_held",
+      "classifiedBy": "manual",
+      "reason": "Full text read 15 September 2026 (CC BY): male Wistar rats with a surgically created quadriceps myotendinous-junction defect, BPC-157 intraperitoneally or in drinking water against controls. Animal in vivo confirmed."
     },
     {
       "pmid": "34966273",
@@ -2493,14 +2493,14 @@
         "Journal Article",
         "Research Support, Non-U.S. Gov't"
       ],
-      "studyType": "animal_in_vivo",
+      "studyType": "in_vitro",
       "evidenceClass": "preclinical",
       "included": true,
       "primaryOrSecondary": "primary",
       "peptideIdentityCertainty": "stated",
-      "fullTextStatus": "abstract_only",
-      "classifiedBy": "rule",
-      "reason": "Animal MeSH heading or animal model named in title or abstract, with no human administration adjudicated."
+      "fullTextStatus": "full_text_held",
+      "classifiedBy": "manual",
+      "reason": "Full text read 15 September 2026 (CC BY): primary tendon fibroblasts cultured from rat Achilles tendon, treated with BPC-157 in a dish. No live-animal outcome, so in vitro; the rule had classified it as an animal study from the MeSH animal heading."
     },
     {
       "pmid": "22950504",

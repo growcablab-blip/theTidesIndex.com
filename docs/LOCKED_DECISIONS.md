@@ -22,3 +22,36 @@ These decisions are considered settled for the foundation build unless the owner
 18. **Internal editorial users require authentication and roles**
 19. **No ecommerce, vendor ranking, affiliate links, or peptide sales in MVP**
 20. **No autonomous AI publishing**
+
+---
+
+## Amendments — 24 September 2026
+
+History is not rewritten above. These entries record what the owner changed on
+24 September 2026 and what remains in force.
+
+**Item 13 — "Initial public cohort: 10 seed compounds" — SUPERSEDED.**
+V1 is no longer capped at ten, or at the twelve compounds built since. The
+library expands to every compound that can legitimately be built from material
+already held. Expansion is a separate piece of work and no compound is invented
+to reach a number.
+
+**New: publication and human review are separate states.**
+`publication_state` records whether content is publicly visible.
+`review_state` records how far a person has actually checked it. A record may
+be public and not yet human reviewed. It may never imply a review that did not
+happen. Provenance still gates publication: a statement without a citable source
+at an exact location is not publishable at any status. Implemented in migration
+`0029_publication_separate_from_review.sql`.
+
+**Item 20 — "No autonomous AI publishing" — IN FORCE, unchanged.**
+This was not weakened on 24 September and should not be read as weakened by the
+change above. The owner decided that source-linked content may be public while
+labelled unreviewed, and the owner authorised the one bulk publication that
+followed. That is owner-authorised publication. It is not automated publishing,
+and nothing in the system publishes on its own initiative or on its own
+authority.
+
+**Also unchanged:** items 8 and 9. Patient/simple mode still receives no dosing
+field, enforced at the data boundary rather than in a component; protocols are
+still source-specific, attributed, and never averaged.

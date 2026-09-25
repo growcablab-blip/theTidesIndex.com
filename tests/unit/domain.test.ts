@@ -11,6 +11,7 @@ import {
   evaluateClaimPublishGate,
   evaluateProtocolPublishGate,
   evaluateQualityTopicPublishGate,
+  outstandingReviews,
 } from '@/domain/publishing/gates';
 import {
   assertPatientSafe,
@@ -130,7 +131,7 @@ describe('claim publish gate', () => {
     expect(result.failures[0]?.message).toMatch(/not citable/i);
   });
 
-  it('requires stated uncertainty and compliance review for high-impact claims', () => {
+  it('requires stated uncertainty for high-impact claims', () => {
     const result = evaluateClaimPublishGate({
       importance: 'critical',
       isEditorialNonEvidentiary: false,
@@ -141,7 +142,48 @@ describe('claim publish gate', () => {
     });
     const codes = result.failures.map((f) => f.code);
     expect(codes).toContain('missing_uncertainty');
-    expect(codes).toContain('missing_compliance_review');
+  });
+
+  /*
+   * The 2026-09-24 separation, asserted from the outside.
+   *
+   * Provenance still decides publication. Review no longer does — it is
+   * reported separately, so the page can say which it has.
+   */
+  it('publishes a provenance-complete claim that no one has reviewed', () => {
+    const result = evaluateClaimPublishGate({
+      importance: 'low',
+      isEditorialNonEvidentiary: false,
+      interpretationNotes: 'Read as reported in the cited source.',
+      uncertaintyText: null,
+      evidence: [{ hasSourceLocation: true, sourceIsCitable: true }],
+      approvedReviews: [],
+    });
+    expect(result.canPublish).toBe(true);
+    expect(result.failures).toEqual([]);
+  });
+
+  it('still refuses a claim with no provenance, reviewed or not', () => {
+    const result = evaluateClaimPublishGate({
+      importance: 'low',
+      isEditorialNonEvidentiary: false,
+      interpretationNotes: 'Read as reported.',
+      uncertaintyText: null,
+      evidence: [],
+      approvedReviews: [...reviewed],
+    });
+    expect(result.canPublish).toBe(false);
+    expect(result.failures.map((f) => f.code)).toContain('missing_provenance');
+  });
+
+  it('reports the reviews a claim still lacks without blocking it', () => {
+    expect(outstandingReviews('claim', [])).toEqual(['source_check', 'scientific']);
+    expect(outstandingReviews('claim', [], 'critical')).toEqual([
+      'source_check',
+      'scientific',
+      'compliance',
+    ]);
+    expect(outstandingReviews('claim', ['source_check', 'scientific'])).toEqual([]);
   });
 
   it('passes a fully supported claim', () => {
@@ -157,8 +199,8 @@ describe('claim publish gate', () => {
     expect(result.failures).toEqual([]);
   });
 
-  it('exempts editorial copy from provenance but not from review', () => {
-    const withoutReview = evaluateClaimPublishGate({
+  it('exempts editorial copy from provenance', () => {
+    const result = evaluateClaimPublishGate({
       importance: 'low',
       isEditorialNonEvidentiary: true,
       interpretationNotes: null,
@@ -166,22 +208,12 @@ describe('claim publish gate', () => {
       evidence: [],
       approvedReviews: [],
     });
-    expect(withoutReview.canPublish).toBe(false);
-
-    const withReview = evaluateClaimPublishGate({
-      importance: 'low',
-      isEditorialNonEvidentiary: true,
-      interpretationNotes: null,
-      uncertaintyText: null,
-      evidence: [],
-      approvedReviews: ['scientific'],
-    });
-    expect(withReview.canPublish).toBe(true);
+    expect(result.canPublish).toBe(true);
   });
 });
 
 describe('protocol publish gate', () => {
-  it('requires provenance, population, route, framing and four approvals', () => {
+  it('requires provenance, population, route and framing', () => {
     const result = evaluateProtocolPublishGate({
       populationModel: null,
       routeKey: null,
@@ -195,10 +227,44 @@ describe('protocol publish gate', () => {
       'missing_population',
       'missing_route',
       'missing_regulatory_context',
-      'missing_source_check_review',
-      'missing_scientific_review',
-      'missing_clinical_review',
-      'missing_compliance_review',
+    ]);
+  });
+
+  /*
+   * A source-reported regimen is the highest-consequence thing this index
+   * publishes, so the protections that keep it attributable are the ones that
+   * must not move: a citable source at an exact location, the population it was
+   * reported in, a route, and the framing that says whether it is labelling, a
+   * study regimen or practice. Review is reported beside it, not in front of it.
+   */
+  it('publishes an attributable regimen that no clinician has reviewed', () => {
+    const result = evaluateProtocolPublishGate({
+      populationModel: 'Adult humans, as described by the source',
+      routeKey: 'subcutaneous',
+      regulatoryContext: 'Practitioner-described regimen. Not approved labelling.',
+      sources: [{ hasSourceLocation: true, sourceIsCitable: true }],
+      approvedReviews: [],
+    });
+    expect(result.canPublish).toBe(true);
+  });
+
+  it('still refuses a regimen whose source is not citable', () => {
+    const result = evaluateProtocolPublishGate({
+      populationModel: 'Adult humans',
+      routeKey: 'subcutaneous',
+      regulatoryContext: 'Practitioner-described regimen.',
+      sources: [{ hasSourceLocation: true, sourceIsCitable: false }],
+      approvedReviews: ['source_check', 'scientific', 'clinical', 'compliance'],
+    });
+    expect(result.canPublish).toBe(false);
+  });
+
+  it('reports all four outstanding protocol reviews without blocking publication', () => {
+    expect(outstandingReviews('protocol', [])).toEqual([
+      'source_check',
+      'scientific',
+      'clinical',
+      'compliance',
     ]);
   });
 

@@ -13,7 +13,7 @@ import {
   truncateContent,
   type TestDb,
 } from '../support/test-db';
-import { approve, createStaff, type Staff } from '../support/fixtures';
+import { createStaff, type Staff } from '../support/fixtures';
 
 /**
  * The HPLC packet, end to end (Phase C.2).
@@ -286,40 +286,60 @@ describe('the HPLC evidence packet', () => {
     expect(message).toMatch(/reviews_automation_scope/);
   });
 
-  it('refuses to publish a claim that only automation has checked', async () => {
+  it('does not let automation stand behind a claim, even though it may now publish', async () => {
     await submit(staff.editor);
 
-    const claims = await query<{ id: string }>(
+    const claims = await query<{ id: string; version: number }>(
       db,
-      `select id from claims where claim_key = 'HPLC-001'`,
+      `select id, version from claims where claim_key = 'HPLC-001'`,
     );
     const claimId = claims[0]!.id;
+    const version = claims[0]!.version;
 
-    // The automated check advanced the verification state and satisfied no gate.
-    // The first refusal is the source check itself: `tides_has_approved_review`
-    // counts human approvals only, so the state column says `source_checked`
-    // while the gate says the source check has not been approved. Those are not
-    // in conflict — one records what was done, the other records who stands
-    // behind it.
-    const first = await rejectionMessage(
-      query(db, `update claims set publication_state = 'published' where id = $1`, [claimId]),
+    /*
+     * The automated check advanced the verification state and satisfied no
+     * approval. Since the 2026-09-24 separation that no longer holds the claim
+     * back — publication asks about provenance, not about who signed off — but
+     * the thing it must never do is count as a person's approval.
+     *
+     * So the state column says `source_checked` while
+     * `tides_has_approved_review` says nobody has approved it. Those are not in
+     * conflict: one records what was done, the other records who stands behind
+     * it, and only the second is allowed to appear on a page as a review.
+     */
+    const [state] = await query<{ review_state: string }>(
+      db,
+      `select review_state from claims where id = $1`,
+      [claimId],
     );
-    expect(first).toMatch(/source check is required/i);
+    // Automation may move a record along the ladder; what it may never do is
+    // reach a rung that means a person approved it.
+    expect([
+      'unreviewed',
+      'captured',
+      'source_checked',
+      'primary_source_checked',
+      'ready_for_scientific_review',
+    ]).toContain(state?.review_state);
 
-    // Give it the human source check it was waiting for. The next refusal is
-    // the one automation can never clear.
-    await approve(db, {
-      entityType: 'claim',
-      entityId: claimId,
-      reviewType: 'source_check',
-      reviewerId: staff.editor,
-      table: 'claims',
-    });
-
-    const second = await rejectionMessage(
-      query(db, `update claims set publication_state = 'published' where id = $1`, [claimId]),
+    const [approval] = await query<{ approved: boolean }>(
+      db,
+      `select tides_has_approved_review('claim', $1, $2, 'source_check') as approved`,
+      [claimId, version],
     );
-    expect(second).toMatch(/scientific review is required/i);
+    expect(approval?.approved).toBe(false);
+
+    await query(db, `update claims set publication_state = 'published' where id = $1`, [claimId]);
+
+    const [published] = await query<{ publication_state: string; last_reviewed_at: string | null }>(
+      db,
+      `select publication_state, last_reviewed_at from claims where id = $1`,
+      [claimId],
+    );
+    expect(published?.publication_state).toBe('published');
+    // The claim is public and nobody has reviewed it, so it carries no review
+    // date. That absence is what the page reads to say so.
+    expect(published?.last_reviewed_at).toBeNull();
   });
 
   it('will not let a non-editor record the check', async () => {

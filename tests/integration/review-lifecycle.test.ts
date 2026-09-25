@@ -44,9 +44,16 @@ describe('the review lifecycle', () => {
   });
 
   async function claim(key: string) {
-    const [row] = await query<{ id: string; version: number; review_state: string }>(
+    const [row] = await query<{
+      id: string;
+      version: number;
+      review_state: string;
+      publication_state: string;
+      last_reviewed_at: string | null;
+    }>(
       db,
-      `select id, version, review_state from claims where claim_key = $1`,
+      `select id, version, review_state, publication_state, last_reviewed_at
+         from claims where claim_key = $1`,
       [key],
     );
     return row!;
@@ -105,7 +112,15 @@ describe('the review lifecycle', () => {
     expect(scientific?.appliesToCurrentVersion).toBe(false);
   });
 
-  it('refuses publication on an approval that no longer applies', async () => {
+  /*
+   * A stranded approval no longer blocks publication — but it must stop being
+   * shown as an approval, and the review date must go with it.
+   *
+   * Before the 2026-09-24 separation both facts were tested at once, because
+   * publication depended on the approvals. Only the review half is a property of
+   * review, and that is the half asserted here.
+   */
+  it('stops standing behind a record once the approval no longer applies', async () => {
     const before = await claim('HPLC-001');
     for (const type of ['source_check', 'scientific', 'compliance'] as const) {
       await approve(db, {
@@ -126,16 +141,22 @@ describe('the review lifecycle', () => {
       before.id,
     ]);
 
-    const message = await rejectionMessage(
-      query(db, `update claims set publication_state = 'published' where id = $1`, [before.id]),
+    // The record may go public: provenance survived the edit.
+    await query(db, `update claims set publication_state = 'published' where id = $1`, [before.id]);
+
+    const after = await claim('HPLC-001');
+    expect(after.publication_state).toBe('published');
+
+    // But nothing on it may claim the stranded approvals still apply.
+    expect(after.review_state).toBe('captured');
+    expect(after.last_reviewed_at).toBeNull();
+
+    const [standing] = await query<{ approved: boolean }>(
+      db,
+      `select tides_has_approved_review('claim', $1, $2, 'scientific') as approved`,
+      [after.id, after.version],
     );
-    // Version-bound approvals mean an edit strands them. The record is refused
-    // publication — here by the coherence check, which fires first because the
-    // edit also demoted the verification state that the stranded approvals had
-    // raised. Either way it cannot publish on a review of a version that no
-    // longer exists.
-    expect(message).toMatch(/cannot publish/i);
-    expect(message).toMatch(/verification state|required at version/i);
+    expect(standing?.approved).toBe(false);
   });
 
   // --- Requesting changes ---------------------------------------------------

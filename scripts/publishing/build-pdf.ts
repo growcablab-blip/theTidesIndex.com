@@ -20,6 +20,7 @@ import { renderToFile, type DocumentProps } from '@react-pdf/renderer';
 import { registerFonts } from '@/publishing/theme';
 import { PeptideQuality } from '@/publishing/books/peptide-quality';
 import { UnderstandingPeptides } from '@/publishing/books/understanding-peptides';
+import { PeptidesTheEssentials } from '@/publishing/books/peptides-the-essentials';
 
 registerFonts();
 
@@ -31,6 +32,10 @@ const BOOKS: Record<string, { file: string; element: () => React.ReactElement<Do
   understanding: {
     file: 'tides-index-understanding-peptides.pdf',
     element: UnderstandingPeptides,
+  },
+  essentials: {
+    file: 'tides-index-peptides-the-essentials.pdf',
+    element: PeptidesTheEssentials,
   },
 };
 

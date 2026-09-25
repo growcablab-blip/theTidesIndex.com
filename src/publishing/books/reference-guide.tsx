@@ -18,6 +18,13 @@ import type {
   RegulatoryStatus,
 } from '@/server/public/queries';
 import type { Citation, EvidenceGap, PublicClaim } from '@/server/public/shapes';
+import {
+  countEvidenceRecords,
+  EVIDENCE_RECORD_DEFINITION,
+  EVIDENCE_RECORD_NOUN,
+  laneOfClaim,
+  type EvidenceLane,
+} from '@/domain/evidence/evidence-counts';
 
 /**
  * THE PEPTIDE REFERENCE GUIDE — the whole register, bound.
@@ -133,21 +140,15 @@ type TextStyle = Style;
 // Reading the record — the site's classification, replicated exactly
 // ---------------------------------------------------------------------------
 
-type Lane = 'human' | 'preclinical' | 'reference';
+type Lane = EvidenceLane;
 
 /**
- * Replicates `laneOf` from `src/components/public/record-opening.tsx`.
- *
- * Replicated rather than imported: that module imports `next/link` and the
- * web component primitives, which have no business in a PDF build. The rule
- * must stay identical to the site's, so the printed counts never disagree with
- * the page a reader checks them against.
+ * The site's lane rule, imported from the domain module the site itself uses,
+ * so the printed counts can never disagree with the page a reader checks them
+ * against. Counts of evidence records come from the same module.
  */
 function laneOf(claim: PublicClaim): Lane | null {
-  if (claim.evidence.some((e) => e.isHumanEvidence)) return 'human';
-  if (claim.evidence.some((e) => e.evidenceClass === 'preclinical')) return 'preclinical';
-  if (claim.evidence.length > 0) return 'reference';
-  return null;
+  return laneOfClaim(claim);
 }
 
 /** The site's mechanism rule (`MechanismAsReported`). */
@@ -735,7 +736,7 @@ function GlanceCell({
 }: {
   label: string;
   count: number;
-  countLabel: string;
+  countLabel?: string;
   mark: (index: number) => ReactNode;
   tone?: 'plain' | 'caution';
 }) {
@@ -752,21 +753,27 @@ function GlanceCell({
         paddingHorizontal: 8,
       }}
     >
-      <Text
-        style={{
-          fontFamily: sans,
-          fontSize: 6.6,
-          letterSpacing: 0.8,
-          textTransform: 'uppercase',
-          color: tone === 'caution' ? colour.caution : colour.slate,
-        }}
-      >
-        {label}
-      </Text>
+      {/* Two lines reserved, so numerals align across cells whose labels wrap. */}
+      <View style={{ minHeight: 16 }}>
+        <Text
+          style={{
+            fontFamily: sans,
+            fontSize: 6.6,
+            lineHeight: 1.2,
+            letterSpacing: 0.8,
+            textTransform: 'uppercase',
+            color: tone === 'caution' ? colour.caution : colour.slate,
+          }}
+        >
+          {label}
+        </Text>
+      </View>
       {/* One text run, so the label sits on the numeral's baseline. */}
       <Text style={{ fontFamily: serif, fontSize: 20, lineHeight: 1.15, color: colour.ink, marginTop: 2 }}>
         {String(count)}
-        <Text style={{ fontFamily: sans, fontSize: 6.6, color: colour.slate }}>{`  ${countLabel}`}</Text>
+        {countLabel === undefined ? null : (
+          <Text style={{ fontFamily: sans, fontSize: 6.6, color: colour.slate }}>{`  ${countLabel}`}</Text>
+        )}
       </Text>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 2.5, marginTop: 5, minHeight: 6 }}>
         {count === 0 ? (
@@ -801,11 +808,7 @@ const identityValue: TextStyle = {
 };
 
 function OpeningBand({ peptide, ordinal, total }: { peptide: PeptidePage; ordinal: number; total: number }) {
-  const counts = { human: 0, preclinical: 0, reference: 0 };
-  for (const claim of peptide.claims) {
-    const lane = laneOf(claim);
-    if (lane !== null) counts[lane] += 1;
-  }
+  const counts = countEvidenceRecords(peptide.claims);
   const openQuestions = peptide.gaps.filter(isOpen).length;
   const screen = peptide.literatureScreens[0];
   const classification = [peptide.compoundTypeLabel, peptide.categoryLabel]
@@ -921,25 +924,22 @@ function OpeningBand({ peptide, ordinal, total }: { peptide: PeptidePage; ordina
           marginBottom: 4,
         }}
       >
-        Evidence at a glance · statements on this record, by the strongest evidence behind each
+        Evidence at a glance · distinct sources cited, by the kind of evidence each supplies
       </Text>
       <View style={{ flexDirection: 'row', gap: 5 }}>
         <GlanceCell
-          label="Human"
+          label={EVIDENCE_RECORD_NOUN.human.heading}
           count={counts.human}
-          countLabel={counts.human === 1 ? 'statement' : 'statements'}
           mark={() => <LaneMark lane="human" size={5.5} />}
         />
         <GlanceCell
-          label="Preclinical"
+          label={EVIDENCE_RECORD_NOUN.preclinical.heading}
           count={counts.preclinical}
-          countLabel={counts.preclinical === 1 ? 'statement' : 'statements'}
           mark={() => <LaneMark lane="preclinical" size={5.5} />}
         />
         <GlanceCell
-          label="Reference and practice"
+          label={EVIDENCE_RECORD_NOUN.reference.heading}
           count={counts.reference}
-          countLabel={counts.reference === 1 ? 'statement' : 'statements'}
           mark={() => <LaneMark lane="reference" size={5.5} />}
         />
         <GlanceCell
@@ -957,14 +957,14 @@ function OpeningBand({ peptide, ordinal, total }: { peptide: PeptidePage; ordina
 
       {counts.human === 0 ? (
         <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.inkSoft, marginTop: 7 }}>
-          No human evidence is recorded on this record. Preclinical and practice statements do not establish
-          effects in people.
+          No human evidence record is held for this compound. Preclinical and practice sources do not
+          establish effects in people.
         </Text>
       ) : null}
       <Text style={{ fontFamily: sans, fontSize: 6.6, lineHeight: leading.tight, color: colour.slate, marginTop: 6 }}>
         {screen === undefined
           ? 'Literature screen: none has been run for this compound.'
-          : `Literature screen: ${screen.databaseName}, ${screen.searchDate} — ${String(screen.resultCount)} records returned, ${String(screen.includedCount)} about this compound, ${String(screen.humanPrimaryCount)} primary human records. A record is a publication, not a study.`}
+          : `Literature screen: ${screen.databaseName}, ${screen.searchDate} — ${String(screen.resultCount)} results returned, ${String(screen.includedCount)} about this compound, ${String(screen.humanPrimaryCount)} primary human publications. A screen counts publications found, not the evidence records cited here.`}
       </Text>
     </View>
   );
@@ -1465,9 +1465,7 @@ export function ReferenceGuide({
   peptides,
   generatedAt,
 }: ReferenceGuideProps): ReactElement<DocumentProps> {
-  const withHuman = peptides.filter((peptide) =>
-    peptide.claims.some((claim) => laneOf(claim) === 'human'),
-  ).length;
+  const withHuman = peptides.filter((peptide) => countEvidenceRecords(peptide.claims).human > 0).length;
   const total = peptides.length;
 
   return (
@@ -1529,6 +1527,9 @@ export function ReferenceGuide({
         <LaneKey />
         <EditorialStateKey />
 
+        <SectionHeading>How evidence is counted</SectionHeading>
+        <Body>{EVIDENCE_RECORD_DEFINITION.full}</Body>
+
         <View wrap={false} style={{ marginTop: 14 }}>
           {/* Plain text, not `Label`: this block is already unbreakable, so no reservation. */}
           <Text
@@ -1567,10 +1568,10 @@ export function ReferenceGuide({
       <GuidePage section="Contents">
         <ChapterOpener eyebrow="Contents" title={`${String(total)} monographs`} />
         <Body>
-          Alphabetical. {withHuman} of {total} records carry at least one statement resting on
-          evidence from people. Counts sit inside each monograph, next to where they came from; there
-          is no table here comparing compounds, because a count of statements measures attention, not
-          evidence.
+          Alphabetical. {withHuman} of {total} monographs cite at least one human evidence record.
+          Counts sit inside each monograph, next to where they came from; there is no table here
+          comparing compounds, because a count of sources measures how much has been written, not
+          what it found.
         </Body>
         {peptides.map((peptide, index) => (
           <View

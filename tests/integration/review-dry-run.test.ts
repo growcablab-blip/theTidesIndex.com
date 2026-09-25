@@ -42,9 +42,10 @@ describe('a review, from submission to withdrawal', () => {
       review_state: string;
       publication_state: string;
       review_submitted_at: string | null;
+      last_reviewed_at: string | null;
     }>(
       db,
-      `select id, version, review_state, publication_state, review_submitted_at
+      `select id, version, review_state, publication_state, review_submitted_at, last_reviewed_at
          from claims where claim_key = $1`,
       [key],
     );
@@ -174,12 +175,35 @@ describe('a review, from submission to withdrawal', () => {
 
     const after = await claim('HPLC-005');
     expect(after.version).toBe(target.version + 1);
+    /*
+     * The approvals were for different words, so the verification state falls
+     * back to 'captured' and the page stops claiming it was reviewed.
+     *
+     * Before the 2026-09-24 separation the gate also withdrew the record, because
+     * publication implied review and the review no longer applied. It does not
+     * imply review any more: the edit did not break provenance, so the content
+     * stays public and the review state it now displays is the honest one.
+     */
     expect(after.review_state).toBe('captured');
-    // The gate withdraws it rather than leaving unreviewed wording public.
-    expect(after.publication_state).not.toBe('published');
+    expect(after.publication_state).toBe('published');
+    // What must not survive the edit is the claim to have been reviewed.
+    expect(after.last_reviewed_at).toBeNull();
   });
 
-  it('refuses to publish on a change request', async () => {
+  /*
+   * A change request no longer holds a record back — and that is worth stating
+   * explicitly rather than leaving as a silent consequence.
+   *
+   * The 2026-09-24 decision names one review state that must stay unpublishable:
+   * 'rejected'. A change request is not a rejection and does not move the record
+   * to it, so the gate lets the record through. The request itself is still
+   * recorded, still attributed and still in the review queue.
+   *
+   * Whether an open change request *should* block publication is an owner
+   * decision, flagged in docs/V1_SECTION_2_PUBLICATION_REPORT.md. It has no
+   * effect on the current library, which carries no reviews at all.
+   */
+  it('publishes over a change request, but keeps the request on the record', async () => {
     const target = await claim('HPLC-006');
     await approve(db, {
       entityType: 'claim',
@@ -191,9 +215,19 @@ describe('a review, from submission to withdrawal', () => {
       comments: 'The scope sentence claims more than the table supports.',
     });
 
-    await expect(
-      query(db, `update claims set publication_state = 'published' where id = $1`, [target.id]),
-    ).rejects.toThrow();
+    await query(db, `update claims set publication_state = 'published' where id = $1`, [target.id]);
+    expect((await claim('HPLC-006')).publication_state).toBe('published');
+
+    const requests = await query<{ outcome: string; comments: string }>(
+      db,
+      `select outcome, comments from reviews where entity_id = $1 and outcome = 'changes_requested'`,
+      [target.id],
+    );
+    expect(requests).toHaveLength(1);
+    expect(requests[0]?.comments).toMatch(/claims more than the table supports/);
+
+    // And it still carries no review date, because nobody approved it.
+    expect((await claim('HPLC-006')).last_reviewed_at).toBeNull();
   });
 
   // --- A demonstration reviewer is not a reviewer ---------------------------
@@ -253,7 +287,7 @@ describe('a review, from submission to withdrawal', () => {
 function factsWith(overrides: Partial<ProductionFacts>): ProductionFacts {
   return {
     demonstrationRecords: 0,
-    publishedWithoutStandingApproval: 0,
+    reviewDateWithoutApproval: 0,
     approvalsByDemonstrationReviewers: 0,
     fixtureRecords: 0,
     privateColumnsExposed: [],

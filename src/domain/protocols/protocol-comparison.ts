@@ -91,19 +91,31 @@ export function compareProtocolFields(
   return fields.map((field) => compareProtocolField(protocols, field));
 }
 
-export interface StateCounts {
-  readonly agreement: readonly ProtocolFieldComparison[];
-  readonly difference: readonly ProtocolFieldComparison[];
-  readonly single: readonly ProtocolFieldComparison[];
-  readonly none: readonly ProtocolFieldComparison[];
-}
+export type StateCounts = Readonly<Record<FieldState, readonly ProtocolFieldComparison[]>>;
 
 export function groupByState(comparisons: readonly ProtocolFieldComparison[]): StateCounts {
   const of = (state: FieldState) => comparisons.filter((c) => c.state === state);
   return {
     agreement: of('agreement'),
     difference: of('difference'),
+    variation: of('variation'),
     single: of('single'),
     none: of('none'),
   };
+}
+
+/**
+ * Fields in the order a clinic reads them first: the key comparison fields in
+ * their stated order, then every other field in row order. An order of fields,
+ * never of regimens or sources.
+ */
+export function byFieldImportance(
+  a: Pick<ProtocolFieldComparison, 'field'>,
+  b: Pick<ProtocolFieldComparison, 'field'>,
+): number {
+  const rank = (key: string) => {
+    const k = KEY_COMPARISON_FIELDS.indexOf(key);
+    return k === -1 ? KEY_COMPARISON_FIELDS.length + COMPARISON_FIELDS.findIndex((f) => f.key === key) : k;
+  };
+  return rank(a.field.key) - rank(b.field.key);
 }

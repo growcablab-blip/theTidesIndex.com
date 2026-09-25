@@ -1,0 +1,232 @@
+{
+  "protocolSection": {
+    "identificationModule": {
+      "nctId": "NCT07803250",
+      "orgStudyIdInfo": {
+        "id": "298969"
+      },
+      "organization": {
+        "fullName": "University of Arkansas",
+        "class": "OTHER"
+      },
+      "briefTitle": "Impact of BPC-157 on Recovery Following Rotator Cuff Repair Surgery",
+      "officialTitle": "Impact of BPC-157 on Recovery From Rotator Cuff Repair Surgery"
+    },
+    "statusModule": {
+      "statusVerifiedDate": "2026-09",
+      "overallStatus": "NOT_YET_RECRUITING",
+      "expandedAccessInfo": {
+        "hasExpandedAccess": false
+      },
+      "startDateStruct": {
+        "date": "2027-01-01",
+        "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+        "date": "2027-08-01",
+        "type": "ESTIMATED"
+      },
+      "completionDateStruct": {
+        "date": "2027-08-01",
+        "type": "ESTIMATED"
+      },
+      "studyFirstSubmitDate": "2026-08-12",
+      "studyFirstSubmitQcDate": "2026-09-01",
+      "studyFirstPostDateStruct": {
+        "date": "2026-09-03",
+        "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2026-09-01",
+      "lastUpdatePostDateStruct": {
+        "date": "2026-09-03",
+        "type": "ACTUAL"
+      }
+    },
+    "sponsorCollaboratorsModule": {
+      "responsibleParty": {
+        "type": "SPONSOR"
+      },
+      "leadSponsor": {
+        "name": "University of Arkansas",
+        "class": "OTHER"
+      }
+    },
+    "oversightModule": {
+      "isFdaRegulatedDrug": true,
+      "isFdaRegulatedDevice": false
+    },
+    "descriptionModule": {
+      "briefSummary": "This study is a randomized, double-blind, placebo-controlled pilot trial investigating the effects of BPC-157 on tendon healing and functional recovery following arthroscopic rotator cuff repair (aRCR). BPC-157 is a synthetic peptide that has demonstrated promising regenerative and anti-inflammatory effects in preclinical animal models of musculoskeletal injury, but it has not yet been studied in formal human clinical trials.\n\nTwenty patients undergoing aRCR will be enrolled and randomly assigned to receive either BPC-157 or a saline placebo. Participants will self-administer subcutaneous injections daily for 90 days following surgery. All other aspects of care will follow the standard postoperative rehabilitation protocol.\n\nThe study will assess tendon healing using postoperative MRI, patient-reported outcome measures (PROMs), range of motion (ROM), and muscle strength via handheld dynamometry. Blood samples will also be collected to evaluate biomarkers associated with collagen turnover and inflammation.\n\nThe goal of this pilot study is to evaluate the safety, feasibility, and preliminary efficacy of BPC-157 in promoting tendon healing and improving functional outcomes after rotator cuff repair. Results will inform the design of a future larger-scale clinical trial."
+    },
+    "conditionsModule": {
+      "conditions": [
+        "Rotator Cuff Tear"
+      ],
+      "keywords": [
+        "arthroscopic rotator cuff repair",
+        "tendon healing",
+        "functional recovery",
+        "BPC-157"
+      ]
+    },
+    "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+        "PHASE1"
+      ],
+      "designInfo": {
+        "allocation": "RANDOMIZED",
+        "interventionModel": "PARALLEL",
+        "primaryPurpose": "TREATMENT",
+        "maskingInfo": {
+          "masking": "QUADRUPLE",
+          "whoMasked": [
+            "PARTICIPANT",
+            "CARE_PROVIDER",
+            "INVESTIGATOR",
+            "OUTCOMES_ASSESSOR"
+          ]
+        }
+      },
+      "enrollmentInfo": {
+        "count": 30,
+        "type": "ESTIMATED"
+      }
+    },
+    "armsInterventionsModule": {
+      "armGroups": [
+        {
+          "label": "BPC-157 Group",
+          "type": "EXPERIMENTAL",
+          "description": "Participants in this arm will receive BPC-157. BPC-157 will be self-administered via subcutaneous injection once daily for 90 days following arthroscopic rotator cuff repair. All participants will follow the standard postoperative rehabilitation protocol in addition to the study intervention.",
+          "interventionNames": [
+            "Drug: BPC-157"
+          ]
+        },
+        {
+          "label": "Sham",
+          "type": "SHAM_COMPARATOR",
+          "description": "Participants in this arm will receive normal saline. Normal saline will be self-administered via subcutaneous injection once daily for 90 days following arthroscopic rotator cuff repair. All participants will follow the standard postoperative rehabilitation protocol in addition to the study intervention.",
+          "interventionNames": [
+            "Other: Sham (No Treatment)"
+          ]
+        }
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "BPC-157",
+          "description": "BPC-157 is a synthetic pentadecapeptide derived from human gastric juice. It has demonstrated pro-angiogenic, cytoprotective, and tissue-regenerative effects in multiple preclinical models of musculoskeletal injury, including tendon and ligament healing. Although widely discussed in experimental and anecdotal contexts, BPC-157 has not undergone formal human clinical trials and remains an investigational compound not approved by the FDA. This study is designed to explore its potential role in promoting tendon regeneration and functional recovery in a postoperative orthopaedic setting.",
+          "armGroupLabels": [
+            "BPC-157 Group"
+          ]
+        },
+        {
+          "type": "OTHER",
+          "name": "Sham (No Treatment)",
+          "description": "Participants in this group will not receive any active treatment or placebo injections. This sham group serves as a no-treatment control to evaluate the natural course of postoperative recovery following arthroscopic rotator cuff repair without investigational intervention. Participants will continue to receive standard postoperative care and rehabilitation in accordance with institutional protocols. This group is included to help differentiate the effects of BPC-157 from both placebo and routine recovery.",
+          "armGroupLabels": [
+            "Sham"
+          ],
+          "otherNames": [
+            "Placebo"
+          ]
+        }
+      ]
+    },
+    "outcomesModule": {
+      "primaryOutcomes": [
+        {
+          "measure": "Shoulder Strength",
+          "description": "Isometric shoulder abduction strength will be assessed using a handheld dynamometer. Strength measurements will focus on shoulder abduction and external rotation at 0° abduction. Three trials will be recorded, and the average peak force will be used as the outcome value. Testing will be performed by a blinded evaluator using a standardized protocol.",
+          "timeFrame": "Baseline, 12 weeks, and 5 months post operatively"
+        }
+      ]
+    },
+    "eligibilityModule": {
+      "eligibilityCriteria": "Inclusion Criteria:\n\n* Males and Females, 18 years old or older\n* Body mass index of 20.0 to 34.9 kg/m2\n* Pre-operative MRI demonstrating a full thickness tear of the posterosuperior rotator cuff less than 2.5 cm in anteroposterior dimension\n* Scheduled for an aRCR at UAMS with Dr. Ryan Hill, Dr. Paul Inclan, or Dr. Justin Rabinowitz\n* COVID-19 negative and/or asymptomatic\n\nExclusion Criteria:\n\n* Previous RCR\n* Pregnant or breastfeeding status\n* Current drug and alcohol abuse · History of platelet-rich plasma injection, other platelet-based product or biologic injection in the past 12 months in the ipsilateral shoulder\n* Lack of decisional capacity\n* Having undergone hormone replacement therapy in the last 12 months\n* Having undergone testosterone replacement therapy in the last 12 months\n* Active diagnosis of blood borne infectious disease\n* Diabetic\n* Documented history or diagnosis of autoimmune disease",
+      "healthyVolunteers": false,
+      "sex": "ALL",
+      "minimumAge": "18 Years",
+      "stdAges": [
+        "ADULT",
+        "OLDER_ADULT"
+      ]
+    },
+    "contactsLocationsModule": {
+      "locations": [
+        {
+          "facility": "University of Arkansas for Medical Sciences Medical Center",
+          "city": "Little Rock",
+          "state": "Arkansas",
+          "zip": "72205",
+          "country": "United States",
+          "contacts": [
+            {
+              "name": "Shiloah Kviatkovsky",
+              "role": "CONTACT",
+              "phone": "619-677-0792",
+              "email": "skviatkovsky@uams.edu"
+            },
+            {
+              "name": "Shiloah Kviatkovsky, P.h.D.",
+              "role": "PRINCIPAL_INVESTIGATOR"
+            },
+            {
+              "name": "Ryan Hill, M.D.",
+              "role": "SUB_INVESTIGATOR"
+            }
+          ],
+          "geoPoint": {
+            "lat": 34.74648,
+            "lon": -92.28959
+          }
+        }
+      ]
+    }
+  },
+  "derivedSection": {
+    "miscInfoModule": {
+      "versionHolder": "2026-09-15"
+    },
+    "conditionBrowseModule": {
+      "meshes": [
+        {
+          "id": "D000070636",
+          "term": "Rotator Cuff Injuries"
+        }
+      ],
+      "ancestors": [
+        {
+          "id": "D012421",
+          "term": "Rupture"
+        },
+        {
+          "id": "D014947",
+          "term": "Wounds and Injuries"
+        },
+        {
+          "id": "D000070599",
+          "term": "Shoulder Injuries"
+        },
+        {
+          "id": "D013708",
+          "term": "Tendon Injuries"
+        }
+      ]
+    },
+    "interventionBrowseModule": {
+      "meshes": [
+        {
+          "id": "C083833",
+          "term": "BPC 157"
+        },
+        {
+          "id": "C005703",
+          "term": "salicylhydroxamic acid"
+        }
+      ]
+    }
+  },
+  "hasResults": false
+}

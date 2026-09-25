@@ -242,9 +242,13 @@ export default async function HomePage() {
                 />
                 <Stat value={snapshot.registeredSources} label="sources registered" />
               </dl>
+              {/* Derived, not asserted. This line read "Nothing is published yet"
+                  while the counts above it came from the database; the day the
+                  library was published it would have contradicted them. */}
               <p className="mt-5 border-t border-rule pt-4 text-sm leading-relaxed text-slate">
-                Nothing is published yet. A statement becomes public only after a named scientific
-                reviewer has approved it against the exact version they read.{' '}
+                {snapshot.publishedPeptides === 0
+                  ? 'Nothing is published yet. '
+                  : 'A statement becomes public once it is linked to a named source at an exact location. That is not the same as a person having checked it, and each record says which it has. '}
                 <Link
                   href="/coverage"
                   className="underline decoration-rule underline-offset-2 hover:decoration-tide-teal"

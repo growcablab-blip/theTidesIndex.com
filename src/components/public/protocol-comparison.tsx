@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { PractitionerProtocol } from '@/server/public/queries';
-import type { FieldState } from '@/domain/protocols/field-comparison';
+import { hasDistinctWordings, type FieldState } from '@/domain/protocols/field-comparison';
 import {
   compareProtocolFields,
   groupByState,
@@ -23,8 +23,8 @@ import {
  * in a table.
  *
  * **It computes nothing.** Each field is classified by
- * `@/domain/protocols/field-comparison` into agreement, difference, reported by
- * one only, or not reported. Absence never counts as a difference: a source
+ * `@/domain/protocols/field-comparison` into agreement, difference between
+ * sources, within-source variation, reported by one only, or not reported. Absence never counts as a difference: a source
  * that does not specify a field is silent, not in conflict. Wording is compared
  * after normalising presentation only (case, spacing, punctuation, unit
  * spacing); nothing is converted, so "twice daily" and "every 12 hours" remain
@@ -187,9 +187,9 @@ export function fieldStateLabel(
 ): string {
   switch (comparison.state) {
     case 'difference':
-      return comparison.acrossSources
-        ? 'Difference between sources'
-        : 'Difference within one source’s records';
+      return 'Difference between sources';
+    case 'variation':
+      return 'Within-source variation';
     case 'agreement':
       return comparison.acrossSources
         ? 'Agreement between sources'
@@ -210,6 +210,8 @@ export function fieldStateLabel(
  *
  *   agreement  — two solid bars, an equals sign
  *   difference — two solid bars struck through, a not-equals sign
+ *   variation  — two short solid bars offset from each other: one source's
+ *                records reporting the field in more than one way
  *   single     — one solid bar over one dotted bar
  *   none       — two dotted bars
  */
@@ -218,7 +220,12 @@ export function FieldStateMark({ state }: { state: FieldState }) {
   const dotted = { strokeWidth: 1.4, strokeLinecap: 'round' as const, strokeDasharray: '0.1 2.6' };
   return (
     <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" className="shrink-0">
-      {state === 'difference' ? (
+      {state === 'variation' ? (
+        <g stroke="var(--color-caution)" {...solid}>
+          <line x1="1.4" y1="4.2" x2="7.2" y2="4.2" />
+          <line x1="4.8" y1="7.8" x2="10.6" y2="7.8" />
+        </g>
+      ) : state === 'difference' ? (
         <g stroke="var(--color-caution)" {...solid}>
           <line x1="1.8" y1="4.2" x2="10.2" y2="4.2" />
           <line x1="1.8" y1="7.8" x2="10.2" y2="7.8" />
@@ -246,21 +253,37 @@ export function FieldStateMark({ state }: { state: FieldState }) {
 
 const STATE_TEXT: Readonly<Record<FieldState, string>> = {
   difference: 'text-[var(--color-caution)] font-medium',
+  variation: 'text-[var(--color-caution)]',
   agreement: 'text-tide-teal',
   single: 'text-slate',
   none: 'text-slate',
 };
 
+/** The line under a state label: counts only, never a value. */
+export function fieldStateDetail(comparison: ProtocolFieldComparison): string | null {
+  const { state, total, reportedCount, wordings, reportingSourceCount, sourcesWithVariation } = comparison;
+  const of = `${String(reportedCount)} of ${String(total)}`;
+  switch (state) {
+    case 'difference':
+      return [
+        `${String(wordings.length)} distinct wordings from ${String(reportingSourceCount)} sources`,
+        `reported by ${of}`,
+        ...(sourcesWithVariation.length > 0 ? [`also varies within ${sourcesWithVariation.join(', ')}`] : []),
+      ].join(' · ');
+    case 'variation':
+      return `${String(wordings.length)} wordings, all from ${sourcesWithVariation[0] ?? 'one source'} · reported by ${of}`;
+    case 'agreement':
+      return `Reported alike by ${of}`;
+    case 'single':
+      return `Reported by 1 of ${String(total)} · nothing to compare it with`;
+    default:
+      return null;
+  }
+}
+
 function StateMark({ comparison }: { comparison: ProtocolFieldComparison }) {
-  const { state, total, reportedCount, wordings } = comparison;
-  const detail =
-    state === 'difference'
-      ? `${String(wordings.length)} distinct wordings · reported by ${String(reportedCount)} of ${String(total)}`
-      : state === 'agreement'
-        ? `Reported alike by ${String(reportedCount)} of ${String(total)}`
-        : state === 'single'
-          ? `Reported by 1 of ${String(total)} · nothing to compare it with`
-          : null;
+  const { state } = comparison;
+  const detail = fieldStateDetail(comparison);
   return (
     <span className="mt-1 flex flex-col gap-0.5" data-field-state={state}>
       <span className={`inline-flex items-center gap-1.5 text-xs ${STATE_TEXT[state]}`}>
@@ -306,7 +329,7 @@ function Cell({ comparison, index }: { comparison: ProtocolFieldComparison; inde
     return <NotReported note={cell?.note ?? null} />;
   }
   const letter =
-    comparison.state === 'difference' && cell.wording !== null
+    hasDistinctWordings(comparison.state) && cell.wording !== null
       ? comparison.wordings[cell.wording]?.letter
       : undefined;
   return (
@@ -320,9 +343,13 @@ function Cell({ comparison, index }: { comparison: ProtocolFieldComparison; inde
 function cellTone(comparison: ProtocolFieldComparison, index: number): string {
   const cell = comparison.cells[index];
   if (cell?.state !== 'reported') return '';
+  // Variation is tinted like a difference, since the wordings do differ, but
+  // without the heavier rule: the mark and the words say which it is.
   return comparison.state === 'difference'
     ? 'border-l-2 border-l-[var(--color-caution-rule)] bg-[var(--color-caution-bg)] text-ink'
-    : 'text-ink-soft';
+    : comparison.state === 'variation'
+      ? 'bg-[var(--color-caution-bg)] text-ink'
+      : 'text-ink-soft';
 }
 
 export function ComparisonLegend() {
@@ -330,7 +357,12 @@ export function ComparisonLegend() {
     {
       mark: <FieldStateMark state="difference" />,
       term: 'Difference',
-      body: 'Two or more columns report this field, and what they report differs. Those cells are tinted, and a letter groups the columns that report the same wording.',
+      body: 'Columns from two or more different sources report this field, and what they report differs. Those cells are tinted, and a letter groups the columns that report the same wording.',
+    },
+    {
+      mark: <FieldStateMark state="variation" />,
+      term: 'Within-source variation',
+      body: 'Two or more columns report it differently, but every one of them comes from the same source — one book giving more than one schedule. Not a disagreement between sources.',
     },
     {
       mark: <FieldStateMark state="agreement" />,
@@ -349,7 +381,7 @@ export function ComparisonLegend() {
         </span>
       ),
       term: 'Wording letters',
-      body: 'On a difference, A is the first wording met reading left to right, B the next. Letters group matching wording; they carry no rank.',
+      body: 'On a difference or a variation, A is the first wording met reading left to right, B the next. Letters group matching wording; they carry no rank.',
     },
     {
       mark: <span className="text-slate-light">—</span>,
@@ -487,7 +519,28 @@ export function ProtocolComparison({
                   >
                     {c.field.label}
                     <span className="text-slate"> · {c.wordings.length} wordings</span>
-                    {c.acrossSources ? null : <span className="text-slate"> · one source</span>}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          ) : null}
+          {byState.variation.length > 0 ? (
+            <div className="sm:col-span-2" data-summary-state="variation">
+              <dt className="inline-flex items-center gap-1.5 font-medium text-[var(--color-caution)]">
+                <FieldStateMark state="variation" />
+                Within-source variation — one source reports more than one wording
+              </dt>
+              <dd className="mt-1 flex flex-wrap gap-1.5">
+                {byState.variation.map((c) => (
+                  <span
+                    key={c.field.key}
+                    className="rounded-sm border border-dashed border-[var(--color-caution-rule)] px-2 py-0.5 text-xs text-ink-soft"
+                  >
+                    {c.field.label}
+                    <span className="text-slate">
+                      {' '}
+                      · {c.wordings.length} wordings within {c.sourcesWithVariation[0] ?? 'one source'}
+                    </span>
                   </span>
                 ))}
               </dd>

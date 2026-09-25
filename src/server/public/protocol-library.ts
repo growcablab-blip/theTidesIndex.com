@@ -70,6 +70,8 @@ export interface ProtocolLibrary {
   /** Every protocol in the register, not only the filtered ones. */
   readonly totalCount: number;
   readonly filteredCount: number;
+  /** Of `totalCount`, how many carry an approved human review. */
+  readonly reviewedCount: number;
   readonly facets: {
     readonly peptides: readonly FacetOption[];
     readonly sources: readonly FacetOption[];
@@ -79,6 +81,13 @@ export interface ProtocolLibrary {
   /** Per-compound counts. The whole of what simple mode receives about regimens. */
   readonly compounds: readonly CompoundProtocolSummary[];
 }
+
+/** Review rungs that mean a named person approved the record. */
+const REVIEWED_STATES: ReadonlySet<string> = new Set([
+  'scientific_reviewed',
+  'clinical_reviewed',
+  'compliance_reviewed',
+]);
 
 const RELATIONS = {
   public_v_protocol_practitioner: 'protocols',
@@ -95,6 +104,7 @@ interface FacetRow {
   protocol_id: string;
   peptide_slug: string;
   peptide_name: string;
+  review_state: string;
   route_key: string | null;
   route_name: string | null;
   evidence_type_key: string;
@@ -148,6 +158,7 @@ export async function readProtocolLibrary(
     await tx.execute(sql`
       select p.id as protocol_id, pe.slug as peptide_slug,
              pe.canonical_name as peptide_name,
+             p.review_state,
              p.route_key, r.name as route_name,
              p.evidence_type_key, et.public_label as evidence_type_label,
              s.source_key, s.title as source_title, s.authors as source_authors
@@ -192,9 +203,22 @@ export async function readProtocolLibrary(
     byCompound.set(row.peptide_slug, entry);
   }
 
+  /*
+   * How many of these regimens a person has actually approved.
+   *
+   * Counted rather than asserted. Publication and review became separate facts
+   * in migration 0029, and the library says which it has; a sentence that hard
+   * coded "none of these has been reviewed" would quietly become false on the
+   * day the first one was.
+   */
+  const reviewedIds = new Set(
+    facetRows.filter((r) => REVIEWED_STATES.has(r.review_state)).map((r) => r.protocol_id),
+  );
+
   const library: Omit<ProtocolLibrary, 'protocols'> = {
     totalCount: totalIds.size,
     filteredCount: filteredIds.size,
+    reviewedCount: reviewedIds.size,
     facets: {
       peptides: facet(facetRows.map((r) => ({ value: r.peptide_slug, label: r.peptide_name, id: r.protocol_id }))),
       sources: facet(

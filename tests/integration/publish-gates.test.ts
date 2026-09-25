@@ -137,7 +137,10 @@ describe('publish gates', () => {
       await expect(publishClaim(db, claimId, staff)).rejects.toThrow(/remains uncertain/i);
     });
 
-    it('refuses publication without an approved scientific review', async () => {
+    it('publishes a sourced claim nobody has reviewed, and records no review date', async () => {
+      // Since the 2026-09-24 separation, review is not a condition of
+      // visibility. What must not happen is the record acquiring the
+      // appearance of a review it never had.
       const claimId = await createClaim(db, {
         key: 'C-NO-REVIEW',
         peptideId,
@@ -149,17 +152,21 @@ describe('publish gates', () => {
         sourceLocationId: usableLocationId,
         evidenceType: 'human_rct',
       });
-      await approve(db, {
-        entityType: 'claim',
-        entityId: claimId,
-        reviewType: 'source_check',
-        reviewerId: staff.editor,
-        table: 'claims',
-      });
 
-      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
-        /scientific review/i,
+      await setPublicationState(db, 'claims', claimId, 'published');
+
+      const [row] = await query<{
+        publication_state: string;
+        review_state: string;
+        last_reviewed_at: string | null;
+      }>(
+        db,
+        `select publication_state, review_state, last_reviewed_at from claims where id = $1`,
+        [claimId],
       );
+      expect(row?.publication_state).toBe('published');
+      expect(row?.review_state).toBe('unreviewed');
+      expect(row?.last_reviewed_at).toBeNull();
     });
 
     it('publishes when provenance, uncertainty and review are all present', async () => {
@@ -188,7 +195,11 @@ describe('publish gates', () => {
       expect(row?.published_at).not.toBeNull();
     });
 
-    it('exempts editorial, non-evidentiary copy from provenance but not from review', async () => {
+    it('exempts editorial, non-evidentiary copy from provenance', async () => {
+      // Site copy carries no evidentiary weight, so it has no source to cite.
+      // It was previously held for a scientific review it could not
+      // meaningfully receive; since the 2026-09-24 separation it publishes and
+      // states its review state like everything else.
       const [row] = await query<{ id: string }>(
         db,
         `insert into claims (claim_key, claim_text, is_editorial_non_evidentiary, interpretation_notes)
@@ -196,25 +207,15 @@ describe('publish gates', () => {
       );
       const claimId = row!.id;
 
-      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
-        /review/i,
-      );
-
-      await approve(db, {
-        entityType: 'claim',
-        entityId: claimId,
-        reviewType: 'scientific',
-        reviewerId: staff.scientific,
-        table: 'claims',
-      });
       await setPublicationState(db, 'claims', claimId, 'published');
 
-      const [published] = await query<{ editorial_state: string }>(
+      const [published] = await query<{ editorial_state: string; last_reviewed_at: string | null }>(
         db,
-        `select editorial_state from claims where id = $1`,
+        `select editorial_state, last_reviewed_at from claims where id = $1`,
         [claimId],
       );
       expect(published?.editorial_state).toBe('published');
+      expect(published?.last_reviewed_at).toBeNull();
     });
 
     it('invalidates approvals when the claim is rewritten after review', async () => {
@@ -231,30 +232,32 @@ describe('publish gates', () => {
       });
       await publishClaim(db, claimId, staff);
 
-      // Rewriting the text bumps the version, which strands the approvals. The
-      // record fails its own gate on the next write and is withdrawn with the
-      // reason recorded — content nobody has reviewed in its current wording
-      // does not stay public, however small the edit looked.
+      /*
+       * Rewriting the text bumps the version, which strands the approvals.
+       *
+       * Before the separation the record was also withdrawn, because
+       * publication implied review and the review no longer applied. It does
+       * not imply review now, and the edit did not break provenance, so the
+       * record stays public — with its review state fallen back to 'captured'
+       * and no review date, which is what the page reads to say that nobody has
+       * checked this wording.
+       */
       await query(db, `update claims set claim_text = 'Materially different wording.' where id = $1`, [
         claimId,
       ]);
 
       const [edited] = await query<{
-        editorial_state: string;
+        publication_state: string;
         review_state: string;
-        needs_update_reason: string | null;
+        last_reviewed_at: string | null;
       }>(
         db,
-        `select editorial_state, review_state, needs_update_reason from claims where id = $1`,
+        `select publication_state, review_state, last_reviewed_at from claims where id = $1`,
         [claimId],
       );
-      expect(edited?.editorial_state).toBe('withdrawn');
+      expect(edited?.publication_state).toBe('published');
       expect(edited?.review_state).toBe('captured');
-      expect(edited?.needs_update_reason).toMatch(/source check is required at version 2/i);
-
-      await expect(setPublicationState(db, 'claims', claimId, 'published')).rejects.toThrow(
-        /verification state is captured|source check|scientific review/i,
-      );
+      expect(edited?.last_reviewed_at).toBeNull();
     });
   });
 
@@ -301,11 +304,21 @@ describe('publish gates', () => {
       await expect(publishProtocol(db, protocolId, staff)).rejects.toThrow(/regulatory_context/i);
     });
 
-    it('requires scientific, clinical and compliance approval', async () => {
+    it('reports the approvals a partly reviewed protocol still lacks', async () => {
+      /*
+       * A protocol needs four approvals for full assurance, and used to need all
+       * four before it could be seen at all. The four are still tracked; they no
+       * longer gate visibility, so what this asserts is that the record goes
+       * public and that the outstanding approvals are still reported as
+       * outstanding.
+       */
       const protocolId = await createProtocol(db, {
         key: 'P-PARTIAL-REVIEW',
         peptideId,
         objectiveContext: 'Tendon healing.',
+        populationModel: 'Adults, as described by the source',
+        routeKey: 'subcutaneous',
+        regulatoryContext: 'Practitioner-described regimen. Not approved labelling.',
       });
       await attachProtocolSource(db, {
         protocolId,
@@ -326,9 +339,27 @@ describe('publish gates', () => {
         });
       }
 
-      await expect(setPublicationState(db, 'protocols', protocolId, 'published')).rejects.toThrow(
-        /clinical review/i,
+      await setPublicationState(db, 'protocols', protocolId, 'published');
+
+      const [row] = await query<{ publication_state: string; version: number }>(
+        db,
+        `select publication_state, version from protocols where id = $1`,
+        [protocolId],
       );
+      expect(row?.publication_state).toBe('published');
+
+      for (const [reviewType, expected] of [
+        ['scientific', true],
+        ['clinical', false],
+        ['compliance', false],
+      ] as const) {
+        const [standing] = await query<{ approved: boolean }>(
+          db,
+          `select tides_has_approved_review('protocol', $1, $2, $3) as approved`,
+          [protocolId, row?.version, reviewType],
+        );
+        expect(standing?.approved, reviewType).toBe(expected);
+      }
     });
 
     it('keeps protocols from different sources side by side without merging them', async () => {

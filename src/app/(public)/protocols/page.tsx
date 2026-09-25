@@ -327,6 +327,27 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
             recorded regimen comes from a practitioner handbook that cites no study for its amounts —
             and the label on each record says so.
           </p>
+          {/* Publication and review are separate facts (migration 0029). This
+              library is the highest-consequence surface on the site, so it says
+              which of the two it has rather than leaving it to be inferred. The
+              figure is counted from the records, never asserted. */}
+          <p>
+            These records are public because each one is linked to a named source at an exact
+            location.{' '}
+            {library.reviewedCount === 0 ? (
+              <>
+                <strong>None of them has been reviewed by a clinician.</strong>
+              </>
+            ) : (
+              <>
+                <strong>
+                  {library.reviewedCount} of {library.totalCount}
+                </strong>{' '}
+                have been reviewed by a named reviewer.
+              </>
+            )}{' '}
+            Each record states its own review status.
+          </p>
         </Callout>
       </div>
 

@@ -1,15 +1,27 @@
 /**
  * Publish gates, as pure functions.
  *
- * These mirror the database triggers in db/migrations/0002. The database is the
- * enforcement point — it has to be, because it is the only layer every writer
- * passes through. This module exists so the editorial interface can tell an
- * editor *what is missing* before they attempt to publish, rather than
- * surfacing a raw constraint violation.
+ * These mirror the database triggers in db/migrations/0002, as amended by 0029.
+ * The database is the enforcement point — it has to be, because it is the only
+ * layer every writer passes through. This module exists so the editorial
+ * interface can tell an editor *what is missing* before they attempt to
+ * publish, rather than surfacing a raw constraint violation.
  *
  * The two must agree. tests/unit/publish-gates.test.ts checks these rules, and
  * tests/integration/publish-gates.test.ts checks the database enforces the same
  * ones; a divergence shows up as one suite passing while the other fails.
+ *
+ * Since the owner decision of 24 September 2026, human review is not one of
+ * these rules. Publication asks whether a record is honestly sourced and
+ * complete; review asks how far a person has checked it. They are two separate
+ * questions, and a record may legitimately be public and not yet reviewed —
+ * provided the page says so, which is what `review_state` on the public views
+ * is for.
+ *
+ * Review has not gone away; it has moved. `outstandingReviews` below reports
+ * which approvals a record still lacks, so the review queue can go on showing
+ * reviewers exactly what it showed them before. The difference is that the
+ * answer no longer decides whether the public can read the page.
  */
 
 export type ReviewType =
@@ -63,14 +75,9 @@ export function evaluateClaimPublishGate(input: ClaimGateInput): GateResult {
 
   if (input.isEditorialNonEvidentiary) {
     // Editorial copy carries no evidentiary weight, so it is exempt from
-    // provenance — but not from review.
-    if (!input.approvedReviews.includes('scientific')) {
-      failures.push({
-        code: 'editorial_requires_scientific_review',
-        field: 'reviews',
-        message: 'Editorial copy still needs an approved scientific review before publication.',
-      });
-    }
+    // provenance. It was previously held back for a scientific review it could
+    // not meaningfully receive; under the 2026-09-24 policy it publishes and
+    // states its review state like everything else.
     return result(failures);
   }
 
@@ -100,22 +107,6 @@ export function evaluateClaimPublishGate(input: ClaimGateInput): GateResult {
     });
   }
 
-  if (!input.approvedReviews.includes('source_check')) {
-    failures.push({
-      code: 'missing_source_check',
-      field: 'reviews',
-      message: 'An approved source check is required.',
-    });
-  }
-
-  if (!input.approvedReviews.includes('scientific')) {
-    failures.push({
-      code: 'missing_scientific_review',
-      field: 'reviews',
-      message: 'An approved scientific review is required.',
-    });
-  }
-
   if (input.importance === 'high' || input.importance === 'critical') {
     if (!isPresent(input.uncertaintyText)) {
       failures.push({
@@ -123,14 +114,6 @@ export function evaluateClaimPublishGate(input: ClaimGateInput): GateResult {
         field: 'uncertaintyText',
         message:
           'A high-impact claim must state what remains uncertain. "Not established" is an acceptable answer; silence is not.',
-      });
-    }
-
-    if (!input.approvedReviews.includes('compliance')) {
-      failures.push({
-        code: 'missing_compliance_review',
-        field: 'reviews',
-        message: 'A high-impact claim requires an approved compliance review.',
       });
     }
   }
@@ -185,17 +168,6 @@ export function evaluateProtocolPublishGate(input: ProtocolGateInput): GateResul
     });
   }
 
-  const required: ReviewType[] = ['source_check', 'scientific', 'clinical', 'compliance'];
-  for (const reviewType of required) {
-    if (!input.approvedReviews.includes(reviewType)) {
-      failures.push({
-        code: `missing_${reviewType}_review`,
-        field: 'reviews',
-        message: `An approved ${reviewType.replace('_', ' ')} review is required before a protocol is published.`,
-      });
-    }
-  }
-
   return result(failures);
 }
 
@@ -223,16 +195,6 @@ export function evaluatePeptidePublishGate(input: PeptideGateInput): GateResult 
       message:
         'State what is not established for this compound. A page that cannot say what is unknown is not ready to be read.',
     });
-  }
-
-  for (const reviewType of ['scientific', 'compliance'] as const) {
-    if (!input.approvedReviews.includes(reviewType)) {
-      failures.push({
-        code: `missing_${reviewType}_review`,
-        field: 'reviews',
-        message: `An approved ${reviewType} review is required.`,
-      });
-    }
   }
 
   return result(failures);
@@ -264,13 +226,38 @@ export function evaluateQualityTopicPublishGate(input: QualityTopicGateInput): G
     });
   }
 
-  if (!input.approvedReviews.includes('scientific')) {
-    failures.push({
-      code: 'missing_scientific_review',
-      field: 'reviews',
-      message: 'An approved scientific review is required.',
-    });
-  }
-
   return result(failures);
+}
+
+/**
+ * Which approved human reviews a record still lacks.
+ *
+ * This is the other half of the 2026-09-24 separation. These are exactly the
+ * approvals that used to block publication; they now describe how far a record
+ * has been checked, which is what the review queue and the record's own review
+ * state are built from. Nothing here gates visibility.
+ *
+ * High and critical claims still carry compliance, because importance is what
+ * made that review worth asking for in the first place — the answer simply
+ * changes the assurance a reader is shown rather than whether they see the page.
+ */
+export type ReviewableEntity = 'claim' | 'protocol' | 'peptide' | 'quality_topic';
+
+export function outstandingReviews(
+  entity: ReviewableEntity,
+  approvedReviews: readonly ReviewType[],
+  importance: ClaimImportance = 'low',
+): readonly ReviewType[] {
+  const required: readonly ReviewType[] =
+    entity === 'protocol'
+      ? ['source_check', 'scientific', 'clinical', 'compliance']
+      : entity === 'peptide'
+        ? ['scientific', 'compliance']
+        : entity === 'quality_topic'
+          ? ['scientific']
+          : importance === 'high' || importance === 'critical'
+            ? ['source_check', 'scientific', 'compliance']
+            : ['source_check', 'scientific'];
+
+  return required.filter((reviewType) => !approvedReviews.includes(reviewType));
 }

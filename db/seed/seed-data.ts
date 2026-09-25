@@ -1182,8 +1182,14 @@ const LEARNING_PACKET_FILES = [
   'learning/receptor-pharmacology.json',
   'learning/pharmacokinetic-concepts.json',
   'learning/routes-of-administration.json',
+  // Peptides 101 pre-publication extraction (15 September 2026).
+  'learning/where-peptides-come-from.json',
 ] as const;
-const TRIAL_PACKET_FILES = ['trials/retatrutide-trials.json'] as const;
+const TRIAL_PACKET_FILES = [
+  'trials/retatrutide-trials.json',
+  // BPC-157 registrations, no results posted (15 September 2026).
+  'trials/bpc-157-trials.json',
+] as const;
 const INTAKE_REGISTER_FILES = ['source-artifacts/intake-2026-09-14.json'] as const;
 
 /**

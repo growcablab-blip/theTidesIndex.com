@@ -7,7 +7,6 @@ import {
   Comparison,
   Cover,
   CurrentVersionBlock,
-  EvidenceNote,
   Lede,
   PublicationPage,
   SectionHeading,
@@ -16,7 +15,7 @@ import {
   Table,
 } from '../primitives';
 import { SeriesMark } from '../figures';
-import { ConceptPlate, IllustrationPlate } from '../illustration-print';
+import { ConceptPlate, IllustrationPlate, patientIllustration } from '../illustration-print';
 import { colour, leading, sans, serif, type } from '../theme';
 
 /**
@@ -31,83 +30,21 @@ import { colour, leading, sans, serif, type } from '../theme';
  * each one states what it was drawn from.
  *
  * Nothing is written from general knowledge. Eleven chapters rest on located
- * sources or on the editorial method; one remains a brief. A point no held
- * source supports is printed as SOURCE NEEDED where the point would have been,
- * and a conclusion drawn openly from several claims as a named Tides synthesis.
- * Unmarked text is source fact, and every chapter ends with its sources. The
- * marks are used sparingly on purpose: a patient volume that reads like an
- * audit report does not get read.
+ * sources or on the editorial method; a twelfth is planned and held back from
+ * print until it can be sourced. A point no held source supports is printed as
+ * what remains uncertain, where the point would have been, and a conclusion drawn
+ * openly from several claims as what the sources add up to. Unmarked text is
+ * source fact, and every chapter ends with its sources.
+ *
+ * The page speaks to a patient; the record keeps its exact state. Each chapter
+ * closes with what we know, what remains uncertain and what would answer it, in
+ * plain words, and the back matter prints the internal evidence states and the
+ * recorded open questions verbatim, so nothing is hidden and nothing reads like
+ * an audit report on the way through.
  */
 
 const PUBLICATION = 'Understanding Peptides';
-const ISSUED = '14 September 2026';
-
-/** What a chapter will contain, and what it needs before it can be written. */
-function ChapterBrief({
-  covers,
-  needs,
-}: {
-  covers: readonly string[];
-  needs: string;
-}) {
-  return (
-    <View
-      style={{
-        borderWidth: 0.75,
-        borderColor: colour.rule,
-        borderRadius: 3,
-        padding: 13,
-        marginTop: 10,
-        backgroundColor: colour.white,
-      }}
-      wrap={false}
-    >
-      <Text
-        style={{
-          fontFamily: sans,
-          fontSize: type.micro,
-          letterSpacing: 1.2,
-          textTransform: 'uppercase',
-          color: colour.deepTide,
-          marginBottom: 6,
-        }}
-      >
-        This chapter will cover
-      </Text>
-      {covers.map((item) => (
-        <View key={item} style={{ flexDirection: 'row', marginBottom: 3 }}>
-          <Text style={{ width: 12, color: colour.tideTeal, fontSize: type.small }}>—</Text>
-          <Text
-            style={{
-              flex: 1,
-              fontFamily: serif,
-              fontSize: type.small,
-              lineHeight: leading.tight,
-            }}
-          >
-            {item}
-          </Text>
-        </View>
-      ))}
-      <Text
-        style={{
-          fontFamily: sans,
-          fontSize: type.micro,
-          letterSpacing: 1.2,
-          textTransform: 'uppercase',
-          color: colour.caution,
-          marginTop: 9,
-          marginBottom: 4,
-        }}
-      >
-        Before it can be written
-      </Text>
-      <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight }}>
-        {needs}
-      </Text>
-    </View>
-  );
-}
+const ISSUED = '15 September 2026';
 
 interface ChapterPlan {
   readonly number: string;
@@ -137,6 +74,70 @@ interface ChapterPlan {
     | 'body'
     | 'signalling'
     | 'routes';
+}
+
+/**
+ * The chapters as printed. A chapter still at the brief stage is not printed —
+ * a planned chapter set as an outline reads as unfinished work in a booklet a
+ * clinic hands to patients — so printed chapters are numbered in order.
+ */
+const NUMBER_WORDS = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+
+type WrittenKind = NonNullable<ChapterPlan['written']>;
+
+function printedChapters(): readonly ChapterPlan[] {
+  return CHAPTERS.filter((c) => c.written !== undefined).map((c, i) => ({ ...c, number: NUMBER_WORDS[i] ?? c.number }));
+}
+
+function chapterNumber(kind: WrittenKind): string {
+  return (printedChapters().find((c) => c.written === kind)?.number ?? '').toLowerCase();
+}
+
+/**
+ * The close of a chapter, for a patient reader: what the sources establish, what
+ * they leave open, and what kind of evidence would settle it. The exact internal
+ * state of each chapter's record is printed in the back matter (REVIEW_STATE).
+ */
+function WhatWeKnow({ know, uncertain, answer }: { know: string; uncertain: string; answer?: string }) {
+  const rows: readonly [string, string, string][] = [
+    ['What we know', know, colour.tideTeal],
+    ['What remains uncertain', uncertain, colour.caution],
+    ...(answer === undefined ? [] : ([['What would answer it', answer, colour.deepTide]] as [string, string, string][])),
+  ];
+  return (
+    <View
+      wrap={false}
+      style={{
+        borderTopWidth: 0.75,
+        borderTopColor: colour.rule,
+        borderBottomWidth: 0.75,
+        borderBottomColor: colour.rule,
+        paddingVertical: 8,
+        marginVertical: 10,
+      }}
+    >
+      {rows.map(([label, text, tone]) => (
+        <View key={label} style={{ flexDirection: 'row', paddingVertical: 3 }}>
+          <Text
+            style={{
+              width: 112,
+              fontFamily: sans,
+              fontSize: type.micro,
+              letterSpacing: 0.9,
+              textTransform: 'uppercase',
+              color: tone,
+              paddingTop: 1.5,
+            }}
+          >
+            {label}
+          </Text>
+          <Text style={{ flex: 1, fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.ink }}>
+            {text}
+          </Text>
+        </View>
+      ))}
+    </View>
+  );
 }
 
 const CHAPTERS: readonly ChapterPlan[] = [
@@ -357,7 +358,7 @@ function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
           therefore what it is able to support.
         </Body>
 
-        <IllustrationPlate illustration="evidence-lanes" />
+        <IllustrationPlate illustration={patientIllustration('evidence-lanes')} />
 
         <Table
           head={['Class', 'What it is', 'What it can support']}
@@ -423,7 +424,7 @@ function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
           conditions that come and go on their own, which is exactly where peptides are most often
           used.
         </Body>
-        <IllustrationPlate illustration="study-design" />
+        <IllustrationPlate illustration={patientIllustration('study-design')} />
 
         <SectionHeading>A claim with no source attached</SectionHeading>
         <Body>
@@ -431,10 +432,9 @@ function UnderstandingEvidence({ chapter }: { chapter: ChapterPlan }) {
           is attached to. Not whether it sounds plausible, and not whether the person saying it seems
           knowledgeable — what specific source says it, and what that source actually did.
         </Body>
-        <EvidenceNote
-          supports="How this index classifies and attributes evidence: a documented method, implemented in the database and covered by automated tests."
-          doesNotSettle="Anything about any particular peptide. This chapter contains no peptide claims, and the chapters that will are not written yet."
-          status="Written from the editorial method · awaiting scientific and clinical review"
+        <WhatWeKnow
+          know="How this index sorts evidence into studies in people, studies in animals or cells, and reference or opinion — its own documented method, which states nothing about any peptide."
+          uncertain="Anything about a particular peptide. This chapter explains how to read evidence; it does not assess any."
         />
 
         <Callout title="“Not established” is an answer">
@@ -565,7 +565,7 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
           number. Is it pure? Is it the right molecule? How much of it is in there?
         </Lede>
 
-        <IllustrationPlate illustration="separate-questions" />
+        <IllustrationPlate illustration={patientIllustration('separate-questions')} />
 
         <SectionHeading>Pure is not the same as correct</SectionHeading>
         <Body>
@@ -585,11 +585,6 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
           survive the process intact, so what comes back is a considered estimate rather than a
           reading off a scale.
         </Body>
-        <EvidenceNote
-          supports="Claims extracted into this index from a peptide chemistry textbook (SRC-006) and its characterisation protocols (SRC-011)."
-          doesNotSettle="Anything about a specific product. These are the questions to ask, not answers about any vial."
-          status="Extracted and awaiting scientific review"
-        />
       </PublicationPage>
 
       <PublicationPage publication={PUBLICATION} section={chapter.title}>
@@ -611,7 +606,6 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
           ]}
         />
 
-        <IllustrationPlate illustration="chain-of-custody" />
 
         <SectionHeading>Peptides degrade, in known ways</SectionHeading>
         <Body>
@@ -629,6 +623,11 @@ function QualitySourceTesting({ chapter }: { chapter: ChapterPlan }) {
             each of which is a document that someone either has or does not.
           </Text>
         </Callout>
+
+        <WhatWeKnow
+          know="Why purity, identity and amount are three separate questions — from a peptide chemistry textbook and its laboratory protocols."
+          uncertain="Anything about a specific product. These are the questions to ask, not answers about any vial."
+        />
 
         <SourceNote
           items={[
@@ -747,10 +746,10 @@ function Receptors({ chapter }: { chapter: ChapterPlan }) {
           </Text>
         </Callout>
 
-        <EvidenceNote
-          supports="Claims extracted into this index from chapter 2 of Rang and Dale’s Pharmacology, 10th edition, held as a Spanish-language publisher sample (SRC-121), each a paraphrase of the Spanish text; corroborated, and in one place qualified, by English-language sources licensed CC BY 4.0 (REC-02, REC-03, REC-05, REC-06, REC-25, REC-26)."
-          doesNotSettle="Anything about a specific peptide, and anything about signalling inside the cell or pharmacokinetics, whose chapters are not in the sample held."
-          status="Extracted from a partial translated source; awaiting scientific review and re-checking against the English edition"
+        <WhatWeKnow
+          know="What receptors are, the difference between attaching and switching on, and why no medicine is perfectly choosy — from a standard pharmacology textbook, read in a partial Spanish-language edition and checked against English-language reviews."
+          uncertain="Which receptor any particular peptide acts on, how strongly, or with what result."
+          answer="Checking each statement against the English edition of the textbook."
         />
 
         <SourceNote
@@ -807,7 +806,7 @@ function TidesSynthesis({
           marginBottom: 3,
         }}
       >
-        Tides synthesis · {synthesisKey}
+        What these sources add up to
       </Text>
       <Text style={{ fontFamily: serif, fontSize: type.body, lineHeight: leading.body, color: colour.ink }}>
         {statement}
@@ -821,7 +820,7 @@ function TidesSynthesis({
           marginTop: 3,
         }}
       >
-        Drawn by this index from claims {restsOn}. {doesNotConclude}
+        A Tides synthesis ({synthesisKey}), drawn openly by this index from claims {restsOn}. {doesNotConclude}
       </Text>
     </View>
   );
@@ -856,7 +855,7 @@ function SourceNeeded({ point, why }: { point: string; why: string }) {
           marginBottom: 3,
         }}
       >
-        Source needed
+        What remains uncertain
       </Text>
       <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.inkSoft }}>
         {point}
@@ -987,10 +986,10 @@ function WhatIsAPeptide({ chapter }: { chapter: ChapterPlan }) {
           </Text>
         </Callout>
 
-        <EvidenceNote
-          supports="Claims FND-01 to FND-07 and FND-16 to FND-19 (learning topic ‘What a peptide is’), from reviews licensed CC BY and a public-domain US government glossary, each licence read in the retrieved full text."
-          doesNotSettle="Anything about a particular peptide or product. Definitions of ‘peptide’ are conventions and differ between sources."
-          status="Extracted; awaiting scientific review"
+        <WhatWeKnow
+          know="What a peptide is, how the peptide bond forms, and how short chains differ from proteins — from published reviews and a US government genetics glossary."
+          uncertain="Anything about a particular peptide or product. Definitions of ‘peptide’ are conventions, and they differ between sources."
+          answer="A published source that defines the ends of a chain and ‘residue’, and one comparing how peptides and proteins are measured."
         />
         <SourceNote
           items={[
@@ -1022,7 +1021,7 @@ function AminoAcidsPeptidesProteins({ chapter }: { chapter: ChapterPlan }) {
           Amino acids are the building blocks of both peptides and proteins. What a chain is depends
           on which amino acids it contains, and in what order.
         </Lede>
-        <IllustrationPlate illustration="chain-scale" />
+        <IllustrationPlate illustration={patientIllustration('chain-scale')} />
 
         <SectionHeading>One alphabet</SectionHeading>
         <Body>
@@ -1074,10 +1073,10 @@ function AminoAcidsPeptidesProteins({ chapter }: { chapter: ChapterPlan }) {
           </Text>
         </Callout>
 
-        <EvidenceNote
-          supports="Claims FND-08 to FND-15 (learning topic ‘Amino acids, peptides, proteins’), with FND-16 and FND-17 from chapter one, all from reviews licensed CC BY 4.0."
-          doesNotSettle="How any particular peptide folds or behaves."
-          status="Extracted; awaiting scientific review"
+        <WhatWeKnow
+          know="The amino-acid alphabet, and how a chain’s sequence gives rise to its shape — from published reviews."
+          uncertain="How any particular peptide folds or behaves, and what else changes as a chain gets longer."
+          answer="A published review of how a chain’s properties change with its length."
         />
         <SourceNote
           items={[
@@ -1115,7 +1114,7 @@ function PeptidesInTheBody({ chapter }: { chapter: ChapterPlan }) {
           physiology, some of the kinds it makes, how it makes and removes them, and why what a
           peptide does depends on where and when it acts.
         </Lede>
-        <IllustrationPlate illustration="peptide-lifecycle" />
+        <IllustrationPlate illustration={patientIllustration('peptide-lifecycle')} />
 
         <SectionHeading>Kinds of peptide the body makes</SectionHeading>
         <Body>
@@ -1180,10 +1179,10 @@ function PeptidesInTheBody({ chapter }: { chapter: ChapterPlan }) {
           </Text>
         </Callout>
 
-        <EvidenceNote
-          supports="Claims END-03 to END-13 (learning topic ‘Peptides the body makes’), from reviews licensed CC BY and a public-domain 1998 US government overview, each licence read in the retrieved full text."
-          doesNotSettle="Anything about a peptide product or treatment, and the two points marked source needed. The synthesis names the claims it rests on and concludes nothing about safety or efficacy."
-          status="Extracted; awaiting scientific review"
+        <WhatWeKnow
+          know="Some kinds of peptide the body makes, how it makes, stores and removes them, and why what one does depends on context — from published reviews and a US government overview."
+          uncertain="Anything about a peptide product or treatment, and the two questions marked in this chapter."
+          answer="A published review of growth factors as a class, and one on how the body clears its peptide hormones."
         />
         <SourceNote
           items={[
@@ -1216,7 +1215,7 @@ function PeptideSignalling({ chapter }: { chapter: ChapterPlan }) {
           whether anything happens depends on whether that cell has a receptor for it, and the change
           takes place inside the receiving cell.
         </Lede>
-        <IllustrationPlate illustration="message-receiver" />
+        <IllustrationPlate illustration={patientIllustration('message-receiver')} />
 
         <SectionHeading>A message and a receiver</SectionHeading>
         <Body>
@@ -1250,6 +1249,8 @@ function PeptideSignalling({ chapter }: { chapter: ChapterPlan }) {
       </PublicationPage>
 
       <PublicationPage publication={PUBLICATION} section={chapter.title}>
+        <IllustrationPlate illustration={patientIllustration('signals-near-far')} />
+
         <SectionHeading>Why specificity matters</SectionHeading>
         <Body>
           Because a cell responds only through the receptors it carries, the same signal need not
@@ -1274,10 +1275,10 @@ function PeptideSignalling({ chapter }: { chapter: ChapterPlan }) {
           </Text>
         </Callout>
 
-        <EvidenceNote
-          supports="Claims SIG-01 to SIG-07, SIG-09, SIG-12 and SIG-13 (learning topic ‘How peptide signalling works’), from reviews licensed CC BY 4.0 and a public-domain 1998 US government overview, each licence read in the retrieved full text."
-          doesNotSettle="Receptor or signalling claims about any particular peptide, and the definitions marked source needed."
-          status="Extracted; awaiting scientific review"
+        <WhatWeKnow
+          know="How a messenger acts through a receptor, what happens inside the receiving cell, and how a signal is switched off — from published reviews and a US government overview."
+          uncertain="Which receptor any particular peptide acts on, and plain definitions of local signalling."
+          answer="A published source that defines paracrine and autocrine signalling."
         />
         <SourceNote
           items={[
@@ -1319,8 +1320,9 @@ function RoutesOfAdministration({ chapter }: { chapter: ChapterPlan }) {
           How a substance enters the body decides what it has to survive on the way, and how much of
           it arrives where it acts.
         </Lede>
-        <IllustrationPlate illustration="routes" />
+        <IllustrationPlate illustration={patientIllustration('routes')} />
 
+        <View wrap={false}>
         <SectionHeading>The routes, as regulators define them</SectionHeading>
         <Body>
           The US Food and Drug Administration’s data standards give each route a definition.
@@ -1341,6 +1343,7 @@ function RoutesOfAdministration({ chapter }: { chapter: ChapterPlan }) {
             ['Transdermal', 'Through the skin into the circulation, by diffusion'],
           ]}
         />
+        </View>
         <Body>
           US regulation defines bioavailability as how fast and how completely the active substance
           is absorbed from a product and becomes available where it acts. For a substance injected
@@ -1362,7 +1365,7 @@ function RoutesOfAdministration({ chapter }: { chapter: ChapterPlan }) {
       </PublicationPage>
 
       <PublicationPage publication={PUBLICATION} section={chapter.title}>
-        <IllustrationPlate illustration="circulation" />
+        <IllustrationPlate illustration={patientIllustration('body-map')} />
 
         <SectionHeading>By mouth</SectionHeading>
         <Body>
@@ -1419,10 +1422,10 @@ function RoutesOfAdministration({ chapter }: { chapter: ChapterPlan }) {
           </Text>
         </Callout>
 
-        <EvidenceNote
-          supports="Claims RTE-01 to RTE-14, RTE-19 to RTE-23 and RTE-25 to RTE-28 (learning topic ‘Routes of administration’), PKG-12 to PKG-14 (‘Pharmacokinetic concepts’), and PK-02 to PK-04, PK-11 and PK-15 (‘Peptides as medicines’), from FDA route data standards and 21 CFR 314.3 (public domain), the NCI Thesaurus (CC BY 4.0) and reviews licensed CC BY 4.0."
-          doesNotSettle="How any product is given, how much of it is absorbed, or whether any route suits it."
-          status="Extracted; awaiting scientific review"
+        <WhatWeKnow
+          know="How regulators define each route, what bioavailability means, and why a swallowed peptide faces so many barriers — from US regulatory data standards, a US government terminology and published reviews."
+          uncertain="How any product is given, how much of it is absorbed, or whether any route suits it — and the two questions marked in this chapter."
+          answer="A published review of how inhaled peptides are absorbed into the body, and a source stating that injected products must be sterile."
         />
         <SourceNote
           items={[
@@ -1575,12 +1578,39 @@ function HowToUseTheIndex({ chapter }: { chapter: ChapterPlan }) {
   );
 }
 
+const REVIEW_STATE_BY_KIND: readonly [WrittenKind, string, string][] = [
+  ['evidence', 'How this index classifies and attributes evidence: a documented method, implemented in the database and covered by automated tests.', 'Written from the editorial method · awaiting scientific and clinical review'],
+  ['quality', 'Claims extracted into this index from a peptide chemistry textbook (SRC-006) and its characterisation protocols (SRC-011).', 'Extracted and awaiting scientific review'],
+  ['receptors', 'Claims extracted into this index from chapter 2 of Rang and Dale’s Pharmacology, 10th edition, held as a Spanish-language publisher sample (SRC-121), each a paraphrase of the Spanish text; corroborated, and in one place qualified, by English-language sources licensed CC BY 4.0 (REC-02, REC-03, REC-05, REC-06, REC-25, REC-26).', 'Extracted from a partial translated source; awaiting scientific review and re-checking against the English edition'],
+  ['peptide', 'Claims FND-01 to FND-07 and FND-16 to FND-19 (learning topic ‘What a peptide is’), from reviews licensed CC BY and a public-domain US government glossary, each licence read in the retrieved full text.', 'Extracted; awaiting scientific review'],
+  ['building-blocks', 'Claims FND-08 to FND-15 (learning topic ‘Amino acids, peptides, proteins’), with FND-16 and FND-17 from chapter one, all from reviews licensed CC BY 4.0.', 'Extracted; awaiting scientific review'],
+  ['body', 'Claims END-03 to END-13 (learning topic ‘Peptides the body makes’), from reviews licensed CC BY and a public-domain 1998 US government overview, each licence read in the retrieved full text.', 'Extracted; awaiting scientific review'],
+  ['signalling', 'Claims SIG-01 to SIG-07, SIG-09, SIG-12 and SIG-13 (learning topic ‘How peptide signalling works’), from reviews licensed CC BY 4.0 and a public-domain 1998 US government overview, each licence read in the retrieved full text.', 'Extracted; awaiting scientific review'],
+  ['routes', 'Claims RTE-01 to RTE-14, RTE-19 to RTE-23 and RTE-25 to RTE-28 (learning topic ‘Routes of administration’), PKG-12 to PKG-14 (‘Pharmacokinetic concepts’), and PK-02 to PK-04, PK-11 and PK-15 (‘Peptides as medicines’), from FDA route data standards and 21 CFR 314.3 (public domain), the NCI Thesaurus (CC BY 4.0) and reviews licensed CC BY 4.0.', 'Extracted; awaiting scientific review'],
+];
+
+/**
+ * The open questions this volume prints in plain words, as the learning packets
+ * record them — statement and resolution verbatim. Exported so a test holds each
+ * to its packet entry.
+ */
+export const OPEN_QUESTIONS: readonly { statement: string; whatWouldResolveIt: string; chapter: WrittenKind }[] = [
+  { statement: 'What the N-terminus and C-terminus of a chain are, and what \'residue\' means.', whatWouldResolveIt: 'A CC BY-type biochemistry review or public-domain glossary entry that defines them.', chapter: 'peptide' },
+  { statement: 'How the way a molecule is measured changes with chain length.', whatWouldResolveIt: 'A permissively licensed analytical review comparing peptide and protein characterisation.', chapter: 'peptide' },
+  { statement: 'What else changes as a chain gets longer, such as stability or recognition by the immune system.', whatWouldResolveIt: 'A permissively licensed review addressing length-dependent properties.', chapter: 'building-blocks' },
+  { statement: 'Growth factors as a class of signals made by the body.', whatWouldResolveIt: 'A CC BY-type review of growth factors, obtained and read.', chapter: 'body' },
+  { statement: 'That the body\'s own peptides are, as a general rule, short-lived and cleared by peptidases.', whatWouldResolveIt: 'A permissively licensed review of peptide hormone clearance.', chapter: 'body' },
+  { statement: 'Plain definitions of paracrine and autocrine signalling.', whatWouldResolveIt: 'A permissively licensed source defining them.', chapter: 'signalling' },
+  { statement: 'Whether, and how well, inhaled peptides are absorbed into the body.', whatWouldResolveIt: 'A permissively licensed review of systemic pulmonary peptide delivery.', chapter: 'routes' },
+  { statement: 'Sterility as a requirement of products given by injection, stated as a route demand.', whatWouldResolveIt: 'A permissively licensed source stating that parenteral routes require sterile products.', chapter: 'routes' },
+];
+
 export function UnderstandingPeptides() {
   return (
     <Document
-      title="Understanding Peptides — first draft"
+      title="Understanding Peptides — draft for review"
       author="The Tides Index"
-      subject="Patient-facing first draft. Eleven written chapters, one brief. No dosing and no reviewed content."
+      subject="Patient-facing draft for scientific and clinical review. Eleven chapters. No dosing, no administration instructions."
       creator="The Tides Index"
     >
       <Cover
@@ -1589,78 +1619,74 @@ export function UnderstandingPeptides() {
         title="Understanding Peptides"
         subtitle="A plain-language introduction"
         descriptor="Independent peptide science & clinical reference"
-        editionLine={`First draft · illustrated · eleven chapters written · issued ${ISSUED}`}
-        statusLine="PARTIAL DRAFT. Eleven written chapters and one brief, all awaiting review. No dosing, no administration instructions, no treatment advice."
+        editionLine={`Draft for scientific and clinical review · issued ${ISSUED}`}
+        statusLine="Not yet reviewed. No dosing, no administration instructions, no treatment advice."
         mark={<SeriesMark width={300} volume={1} />}
       />
 
-      {/* --- Before you start --------------------------------------------- */}
-      <PublicationPage publication={PUBLICATION} section="Before you start">
+      {/* --- Peptides in sixty seconds: the short course ------------------ */}
+      <PublicationPage publication={PUBLICATION} section="Peptides in sixty seconds">
         <ChapterOpener
-          eyebrow="Before you start"
-          title="How to read this book"
-          standfirst="Look at the drawing, read the line beneath it, and stop whenever you have what you need."
+          eyebrow="The short course"
+          title="Peptides in sixty seconds"
+          standfirst="Eight ideas, one drawing each. Every statement comes from a named source; where the sources run out, the page says so."
         />
-
-        <Lede>
-          Each idea comes first as a question, a drawing and one short explanation. The chapters after
-          that give the fuller account, and say exactly where each statement comes from.
-        </Lede>
-
-        <IllustrationPlate illustration="editorial-states" />
-
-        <Body>
-          Most of what you will read is the first kind, and it is left unmarked: every chapter ends with
-          the sources it rests on. The other two are marked where they appear, and only there.
-        </Body>
-
-        <View
-          wrap={false}
-          style={{ borderLeftWidth: 2, borderLeftColor: colour.caution, paddingLeft: 12, marginTop: 12 }}
-        >
-          <Text
-            style={{
-              fontFamily: sans,
-              fontSize: type.micro,
-              letterSpacing: 1.1,
-              textTransform: 'uppercase',
-              color: colour.caution,
-              marginBottom: 4,
-            }}
-          >
-            What this draft is
-          </Text>
-          <Text style={{ fontFamily: serif, fontSize: type.small, lineHeight: leading.tight, color: colour.ink }}>
-            A first draft. Eleven chapters are written from located sources or from this index’s own
-            method, and one is still a brief. Nobody has reviewed it yet — neither a scientist nor a
-            clinician. There are no doses, schedules or instructions anywhere in this volume, and nothing
-            in it is treatment advice.
-          </Text>
-        </View>
+        <ConceptPlate
+          eyebrow="What a peptide is"
+          headline="What is a peptide?"
+          illustration={patientIllustration('chain-scale')}
+          more={`Chapters ${chapterNumber('peptide')} and ${chapterNumber('building-blocks')}`}
+        />
+        <ConceptPlate
+          eyebrow="How one is made"
+          headline="How is one made?"
+          illustration={patientIllustration('sequence-to-vial')}
+          more={`Chapter ${chapterNumber('quality')}`}
+        />
+        <ConceptPlate
+          eyebrow="How it signals"
+          headline="How does a peptide send a signal?"
+          illustration={patientIllustration('message-receiver')}
+          more={`Chapters ${chapterNumber('signalling')} and ${chapterNumber('receptors')}`}
+        />
+        <ConceptPlate
+          eyebrow="In the body"
+          headline="What happens to the body’s own peptides?"
+          illustration={patientIllustration('peptide-lifecycle')}
+          more={`Chapter ${chapterNumber('body')}`}
+        />
+        <ConceptPlate
+          eyebrow="How it is studied"
+          headline="How can it be studied?"
+          illustration={patientIllustration('study-design')}
+          more={`Chapter ${chapterNumber('evidence')}`}
+        />
+        <ConceptPlate
+          eyebrow="Routes"
+          headline="How do routes differ?"
+          illustration={patientIllustration('routes')}
+          explanation="This describes routes; it is not a guide to giving anything. A route decides what a molecule has to get past on the way in. A swallowed peptide meets acid, enzymes and a tightly sealed gut lining — which is why most peptide medicines are injected."
+          more={`Chapter ${chapterNumber('routes')}`}
+        />
+        <ConceptPlate
+          eyebrow="Evidence"
+          headline="What does evidence mean?"
+          illustration={patientIllustration('evidence-lanes')}
+          more={`Chapter ${chapterNumber('evidence')}`}
+        />
+        <ConceptPlate
+          eyebrow="Quality"
+          headline="How is quality checked?"
+          illustration={patientIllustration('separate-questions')}
+          more={`Chapter ${chapterNumber('quality')}`}
+        />
       </PublicationPage>
 
       {/* --- Contents --------------------------------------------------- */}
       <PublicationPage publication={PUBLICATION} section="Contents">
-        <ChapterOpener eyebrow="Contents" title="The short course, and twelve chapters" />
+        <ChapterOpener eyebrow="Contents" title="Going deeper" standfirst="Eleven chapters, each ending with what we know, what remains uncertain and the sources." />
 
-        <View
-          style={{
-            flexDirection: 'row',
-            borderBottomWidth: 0.5,
-            borderBottomColor: colour.ruleSoft,
-            paddingVertical: 5.5,
-          }}
-        >
-          <Text style={{ width: 30, fontFamily: sans, fontSize: type.small, color: colour.tideTeal }}>—</Text>
-          <View style={{ flex: 1 }}>
-            <Text style={{ fontFamily: serif, fontSize: type.body, color: colour.ink }}>The short course</Text>
-            <Text style={{ fontFamily: sans, fontSize: type.micro, color: colour.slate, marginTop: 2 }}>
-              Eight ideas, one drawing each. If you read nothing else, read these pages.
-            </Text>
-          </View>
-        </View>
-
-        {CHAPTERS.map((chapter, index) => (
+        {printedChapters().map((chapter, index) => (
           <View
             key={chapter.title}
             style={{
@@ -1699,99 +1725,32 @@ export function UnderstandingPeptides() {
         ))}
 
         <SubHeading>Back matter</SubHeading>
-        <Body>Glossary · sources and method · current version · where to check for revisions.</Body>
-      </PublicationPage>
-
-      {/* --- The short course --------------------------------------------- */}
-      <PublicationPage publication={PUBLICATION} section="The short course">
-        <ChapterOpener
-          eyebrow="The short course"
-          title="Eight ideas, one drawing each"
-          standfirst="If you read nothing else, read these pages."
-        />
-        <ConceptPlate
-          eyebrow="What a peptide is"
-          headline="What is a peptide?"
-          illustration="chain-scale"
-          more="Chapters one and two"
-        />
-        <ConceptPlate
-          eyebrow="How one is made"
-          headline="How is one made?"
-          illustration="sequence-to-vial"
-          explanation="A peptide starts as a sequence on paper. It is built one amino acid at a time on tiny beads, cleaned of the wrong and shorter chains made along the way, checked by several different tests, and filled into vials."
-          more="Chapter ten"
-        />
-        <ConceptPlate
-          eyebrow="How it signals"
-          headline="How does a peptide send a signal?"
-          illustration="message-receiver"
-          more="Chapters four and five"
-        />
-        <ConceptPlate
-          eyebrow="In the body"
-          headline="What happens to the body’s own peptides?"
-          illustration="peptide-lifecycle"
-          more="Chapter three"
-        />
-        <ConceptPlate
-          eyebrow="How it is studied"
-          headline="How can it be studied?"
-          illustration="study-design"
-          more="Chapter eight"
-        />
-        <ConceptPlate
-          eyebrow="Routes"
-          headline="How do routes differ?"
-          illustration="routes"
-          explanation="This describes routes; it is not a guide to giving anything. A route decides what a molecule has to get past on the way in. A swallowed peptide meets acid, enzymes and a tightly sealed gut lining — which is why most peptide medicines are injected."
-          more="Chapter seven"
-        />
-        <ConceptPlate
-          eyebrow="Evidence"
-          headline="What does evidence mean?"
-          illustration="evidence-lanes"
-          more="Chapter eight"
-        />
-        <ConceptPlate
-          eyebrow="Quality"
-          headline="How is quality checked?"
-          illustration="separate-questions"
-          more="Chapter ten"
-        />
+        <Body>How this book is made · review state, chapter by chapter · open questions, as recorded · current version.</Body>
       </PublicationPage>
 
       {/* --- One page per chapter --------------------------------------- */}
-      {CHAPTERS.map((chapter) =>
-        chapter.written !== undefined ? (
-          <WrittenChapter key={chapter.title} chapter={chapter} />
-        ) : (
-          <PublicationPage key={chapter.title} publication={PUBLICATION} section={chapter.title}>
-            <ChapterOpener
-              eyebrow={chapter.number}
-              title={chapter.title}
-              standfirst={chapter.standfirst}
-            />
-            <ChapterBrief covers={chapter.covers} needs={chapter.needs} />
-          </PublicationPage>
-        ),
-      )}
+      {printedChapters().map((chapter) => (
+        <WrittenChapter key={chapter.title} chapter={chapter} />
+      ))}
 
-      {/* --- Back matter ------------------------------------------------ */}
-      <PublicationPage publication={PUBLICATION} section="Method">
+      {/* --- Back matter: how this book is made ------------------------- */}
+      <PublicationPage publication={PUBLICATION} section="How this book is made">
         <ChapterOpener
           eyebrow="Back matter"
-          title="Sources, method and version"
-          standfirst="The same chain as every Tides Index publication."
+          title="How this book is made"
+          standfirst="Where every statement comes from, and how uncertainty is shown."
         />
         <Body>
-          Every statement in the finished volume will resolve to an exact location in a named source,
-          carry a recorded reading distinct from the passage itself, and state what remains
-          uncertain. Where the sources settle nothing, the page will say so.
+          Every substantive statement in this book comes from a named source, at a place in it that can
+          be checked. Where the sources run out, the page says so rather than filling the gap from
+          general knowledge.
         </Body>
+        <IllustrationPlate illustration="editorial-states" />
         <Body>
-          This volume will additionally require clinical review, which the Peptide Quality volume
-          does not: it addresses a reader who may act on it.
+          Most of the book is the first kind — what a named source states — and it is left unmarked;
+          each chapter ends with the sources it rests on. The other two are marked where they appear: a
+          conclusion drawn openly from several sourced statements, and a point no source held here
+          supports, printed as what remains uncertain.
         </Body>
 
         <SectionHeading>What each chapter rests on</SectionHeading>
@@ -1799,26 +1758,58 @@ export function UnderstandingPeptides() {
           Four chapters — understanding evidence, safety and uncertainty, questions to ask your
           clinician, and how to use this index — rest on the editorial method and on the product
           rather than on peptide science. The chapter on quality and testing rests on a peptide
-          chemistry textbook and a manufacturing standard. Chapters one to four and seven rest on
+          chemistry textbook and a manufacturing standard. Chapters one to four and six rest on
           peer-reviewed open-access reviews and US government reference material whose licences allow
           this index’s AI-assisted extraction, each licence read in the source itself. The chapter on
           receptors rests on a pharmacology textbook held as a partial Spanish-language sample, checked
           against English-language open-access sources.
         </Body>
-        <Body>One chapter remains a brief: why peptides are studied. It names what it still needs.</Body>
+
+        <SectionHeading>Review state, chapter by chapter</SectionHeading>
+        <Body>
+          The chapters speak plainly; the records behind them keep their exact state, printed here as
+          recorded. Nothing in this edition has yet been reviewed by a scientist or a clinician.
+        </Body>
+        <Table
+          head={['Chapter', 'Rests on', 'State']}
+          widths={[0.8, 2.6, 1.2]}
+          rows={REVIEW_STATE_BY_KIND.map(([kind, restsOn, state]) => [
+            printedChapters().find((c) => c.written === kind)?.title ?? kind,
+            restsOn,
+            state,
+          ])}
+        />
+
+        <SectionHeading>Open questions, as recorded</SectionHeading>
+        <Body>
+          Each point this book prints as what remains uncertain is a recorded gap. Here is each as the
+          record states it, with the kind of source recorded as needed to answer it.
+        </Body>
+        <Table
+          head={['Question', 'Recorded as needing', 'Chapter']}
+          widths={[1.7, 1.6, 0.7]}
+          rows={OPEN_QUESTIONS.map((q) => [q.statement, q.whatWouldResolveIt, chapterNumber(q.chapter)])}
+        />
+
+        <SectionHeading>What this edition leaves out</SectionHeading>
+        <Body>
+          A chapter on why peptides are studied is planned. It is not printed until it can be written
+          from sources this index can use: a planned chapter set as an outline would read as unfinished
+          work in a booklet meant to be handed to patients.
+        </Body>
 
         <SectionHeading>The drawings</SectionHeading>
         <Body>
-          Every drawing in this volume is one of the Tides Index’s own illustrations, printed from the
-          same source as the website. Each states beneath it what it was drawn from — the claims it rests
-          on or, for a drawing of how this index works, its method. None shows a value, a dose or a
-          particular product.
+          Every drawing is one of the Tides Index’s own illustrations, printed from the same source as
+          the website. Several are simplified versions, drawn with fewer labels so they can be read at
+          this size; the fuller versions appear on the website and in the practitioner volumes. Each
+          states beneath it what it was drawn from. None shows a value, a dose or a particular product.
         </Body>
 
         <CurrentVersionBlock
           url="thetidesindex.com"
-          version={`Understanding Peptides · first draft, illustrated · issued ${ISSUED}`}
-          note="Eleven written chapters and one brief. No dosing anywhere. No review yet, of the chapters or the records behind them."
+          version={`Understanding Peptides · draft for review · issued ${ISSUED}`}
+          note="Eleven chapters. No dosing anywhere. Not yet reviewed by a scientist or a clinician."
         />
       </PublicationPage>
     </Document>

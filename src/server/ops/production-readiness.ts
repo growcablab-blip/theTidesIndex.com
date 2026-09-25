@@ -49,8 +49,16 @@ export const PRIVATE_SOURCE_COLUMNS = [
 export interface ProductionFacts {
   /** `tides_demonstration_record_count()`. */
   readonly demonstrationRecords: number;
-  /** Published records with no standing human approval at their current version. */
-  readonly publishedWithoutStandingApproval: number;
+  /**
+   * Records that display a review date without a standing human approval.
+   *
+   * Since publication stopped implying review (migration 0029), a published
+   * record with no approval is the ordinary case and not a fault. What must
+   * never happen is the other thing: a page showing "last reviewed" on a
+   * version no person approved. That is the index claiming a check it did not
+   * receive, which is the one failure the whole separation exists to prevent.
+   */
+  readonly reviewDateWithoutApproval: number;
   /** Approvals recorded against a reviewer profile marked as a demonstration. */
   readonly approvalsByDemonstrationReviewers: number;
   /** Records whose key names them as a test fixture. */
@@ -123,13 +131,13 @@ export function productionBlockers(facts: ProductionFacts): Blocker[] {
     });
   }
 
-  if (facts.publishedWithoutStandingApproval > 0) {
+  if (facts.reviewDateWithoutApproval > 0) {
     blockers.push({
-      key: 'published_without_approval',
-      summary: `${String(facts.publishedWithoutStandingApproval)} published record(s) have no standing human approval.`,
+      key: 'review_date_without_approval',
+      summary: `${String(facts.reviewDateWithoutApproval)} record(s) carry a review date no approval supports.`,
       consequence:
-        'The publish gates are triggers and should make this impossible. A non-zero count ' +
-        'means a gate is missing, disabled, or was bypassed.',
+        'The page would tell a reader that a person checked this version when none did. ' +
+        'Only an approved human review at the current version may write last_reviewed_at.',
     });
   }
 

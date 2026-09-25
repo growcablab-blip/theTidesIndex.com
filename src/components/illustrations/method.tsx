@@ -276,7 +276,7 @@ export function EditorialStatesIllustration({ id = 'ill-editorial-states' }: { i
 // What a study design can answer
 // ---------------------------------------------------------------------------
 
-function DesignGlyph({ cy, kind }: { cy: number; kind: 'trial' | 'uncontrolled' | 'case' | 'exposure' | 'safety' }) {
+export function DesignGlyph({ cy, kind }: { cy: number; kind: 'trial' | 'uncontrolled' | 'case' | 'exposure' | 'safety' }) {
   const dots = (x0: number, n: number, filled: boolean) =>
     Array.from({ length: n }, (_, i) => (
       <circle

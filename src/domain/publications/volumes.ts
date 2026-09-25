@@ -58,7 +58,7 @@ export const VOLUMES: readonly Volume[] = [
     holds:
       'What a peptide is, how peptides signal, what the body makes, how substances move through it, how to read evidence, and what to ask a clinician. No doses and no administration instructions.',
     status:
-      'Partial draft: eleven chapters written, one brief. Every unsupported point is printed as SOURCE NEEDED rather than filled in.',
+      'Draft for review: eleven chapters, with a planned chapter on why peptides are studied held back until it can be sourced. Every unsupported point is printed as what remains uncertain rather than filled in.',
     chapters: UNDERSTANDING_PEPTIDES_CHAPTERS,
   },
   {

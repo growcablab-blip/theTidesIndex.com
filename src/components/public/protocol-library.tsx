@@ -169,6 +169,7 @@ function ChooserRow({ entry, filters }: { entry: ChooserEntry; filters: Protocol
         {protocols.length === 1 ? null : (
           <ChooserStates
             difference={keyOf('difference')}
+            variation={keyOf('variation')}
             agreement={keyOf('agreement')}
             single={keyOf('single')}
             none={keyOf('none')}
@@ -199,12 +200,14 @@ const shortLabel = (c: ProtocolFieldComparison) => c.field.label.replace(' as re
  */
 function ChooserStates({
   difference,
+  variation,
   agreement,
   single,
   none,
   otherDifferences,
 }: {
   difference: readonly ProtocolFieldComparison[];
+  variation: readonly ProtocolFieldComparison[];
   agreement: readonly ProtocolFieldComparison[];
   single: readonly ProtocolFieldComparison[];
   none: readonly ProtocolFieldComparison[];
@@ -232,10 +235,7 @@ function ChooserStates({
         <li className="text-sm text-ink-soft" data-chooser-state="difference">
           <span className="mr-1.5 inline-flex items-center gap-1.5 font-medium text-[var(--color-caution)]">
             <FieldStateMark state="difference" />
-            {difference.some((c) => c.acrossSources)
-              ? 'Difference between sources'
-              : 'Difference within one source’s records'}
-            :
+            Difference between sources:
           </span>
           {difference.map(shortLabel).join(' · ')}
           {otherDifferences > 0 ? (
@@ -247,12 +247,14 @@ function ChooserStates({
         </li>
       ) : (
         <li className="text-sm text-ink-soft" data-chooser-state="no-difference">
-          No difference on route, population, amount, frequency, duration or monitoring
+          No difference between sources on route, population, amount, frequency, duration or
+          monitoring
           {otherDifferences > 0
             ? ` (${String(otherDifferences)} other field${otherDifferences === 1 ? '' : 's'} differ)`
             : ''}
         </li>
       )}
+      {line('variation', 'Within-source variation', variation, 'text-[var(--color-caution)]')}
       {line('agreement', 'Agreement', agreement, 'text-tide-teal')}
       {line('single', 'Reported by one only', single, 'text-slate')}
       {line('none', 'Not reported', none, 'text-slate')}

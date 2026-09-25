@@ -24,6 +24,7 @@ import {
 import { ContentsRail, ReferenceLayout } from '@/components/public/contents-rail';
 import { ModeExplainer, ModeSwitch } from '@/components/public/mode-switch';
 import { ClaimsByEvidenceClass, EvidenceSnapshot } from '@/components/public/evidence';
+import { countEvidenceRecords } from '@/domain/evidence/evidence-counts';
 import {
   AliasList,
   DisagreementList,
@@ -40,6 +41,7 @@ import { ReferenceList } from '@/components/public/citation';
 import { RecordInPreparation } from '@/components/public/record-in-preparation';
 import { previewPeptidePage } from '@/server/public/preview';
 import { PrintHeader } from '@/components/public/print-header';
+import { PreviewBanner, ReviewStatusPanel } from '@/components/public/record-status';
 import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
 import {
   MechanismAsReported,
@@ -198,7 +200,9 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
     {
       id: 'evidence',
       label: title('evidence'),
-      count: peptide.claims.length,
+      // Distinct sources cited as evidence — the unit every evidence count on
+      // the page uses — rather than the number of statements extracted.
+      count: countEvidenceRecords(peptide.claims).distinctSources,
       empty: peptide.claims.length === 0,
     },
     ...(hasMechanism ? [{ id: 'mechanism', label: title('mechanism') }] : []),
@@ -365,6 +369,18 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
           and three evidence lanes, before any section begins. The fuller
           six-part summary stays for practitioners, who use it to orient.
         */}
+        <PreviewBanner state={peptide} />
+
+        {/*
+          Review state sits above the content, not in the record footer.
+          Publication no longer implies review (migration 0029), so a reader who
+          stops after the first screen must still have been told which of the two
+          this page has.
+        */}
+        <div id="review" className="mb-8 scroll-mt-24">
+          <ReviewStatusPanel state={peptide} />
+        </div>
+
         <RecordOpening peptide={peptide} simple={simple} />
         {!simple ? (
           <div className="mb-10">
@@ -781,7 +797,16 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
             <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               <MetaItem label="Version">{peptide.version}</MetaItem>
               <MetaItem label="First published">{formatDate(peptide.publishedAt)}</MetaItem>
-              <MetaItem label="Last reviewed">{formatDate(peptide.lastReviewedAt)}</MetaItem>
+              {/* Null is the ordinary case, not a gap in the data: publication
+                  does not write this field, and only a named person's approval
+                  does. Said in words so it does not read as an unfilled box. */}
+              <MetaItem label="Last reviewed">
+                {peptide.lastReviewedAt === null ? (
+                  <span className="text-slate">Not yet reviewed by a person</span>
+                ) : (
+                  formatDate(peptide.lastReviewedAt)
+                )}
+              </MetaItem>
               <MetaItem label="Evidence surveyed to">
                 {peptide.evidenceCutoffAt ? (
                   formatDate(peptide.evidenceCutoffAt)
@@ -792,12 +817,16 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
             </dl>
 
             <p className="mt-5 max-w-[70ch] border-t border-rule pt-4 text-sm text-slate">
-              This record is assembled from reviewed, source-linked entries. Nothing appears on it
-              that has not passed source checking and scientific review, and{' '}
+              This record is assembled from source-linked entries: every statement on it resolves to
+              a named source at an exact location, and{' '}
               {humanClaims.length === 0
                 ? 'no statement here rests on human evidence.'
                 : `${String(humanClaims.length)} of its statements rest on human evidence.`}{' '}
-              If something looks wrong,{' '}
+              How far it has been checked by a person is stated under{' '}
+              <Link href="#review" className="underline decoration-rule underline-offset-2">
+                review status
+              </Link>
+              , at the top of this page. If something looks wrong,{' '}
               <Link href="/corrections" className="underline decoration-rule underline-offset-2">
                 tell us
               </Link>

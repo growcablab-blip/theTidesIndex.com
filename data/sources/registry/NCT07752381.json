@@ -1,0 +1,228 @@
+{
+  "protocolSection": {
+    "identificationModule": {
+      "nctId": "NCT07752381",
+      "orgStudyIdInfo": {
+        "id": "20819"
+      },
+      "secondaryIdInfos": [
+        {
+          "id": "legacy-20819"
+        }
+      ],
+      "organization": {
+        "fullName": "Parlay Wellness",
+        "class": "INDUSTRY"
+      },
+      "briefTitle": "A Clinical Trial to Evaluate the Effects of Peptide Gummies on Markers of Inflammation, Physical Performance, and Recovery",
+      "officialTitle": "A Clinical Trial to Evaluate the Effects of Peptide Gummies on Markers of Inflammation, Physical Performance, and Recovery"
+    },
+    "statusModule": {
+      "statusVerifiedDate": "2026-08",
+      "overallStatus": "COMPLETED",
+      "expandedAccessInfo": {
+        "hasExpandedAccess": false
+      },
+      "startDateStruct": {
+        "date": "2025-09-01",
+        "type": "ACTUAL"
+      },
+      "primaryCompletionDateStruct": {
+        "date": "2025-11-01",
+        "type": "ACTUAL"
+      },
+      "completionDateStruct": {
+        "date": "2025-11-01",
+        "type": "ACTUAL"
+      },
+      "studyFirstSubmitDate": "2026-08-03",
+      "studyFirstSubmitQcDate": "2026-08-03",
+      "studyFirstPostDateStruct": {
+        "date": "2026-08-07",
+        "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2026-08-03",
+      "lastUpdatePostDateStruct": {
+        "date": "2026-08-07",
+        "type": "ACTUAL"
+      }
+    },
+    "sponsorCollaboratorsModule": {
+      "responsibleParty": {
+        "type": "SPONSOR"
+      },
+      "leadSponsor": {
+        "name": "Parlay Wellness",
+        "class": "INDUSTRY"
+      },
+      "collaborators": [
+        {
+          "name": "Citruslabs",
+          "class": "INDUSTRY"
+        }
+      ]
+    },
+    "oversightModule": {
+      "oversightHasDmc": false,
+      "isFdaRegulatedDrug": false,
+      "isFdaRegulatedDevice": false
+    },
+    "descriptionModule": {
+      "briefSummary": "This study will evaluate the effects of Parlay Recover peptide gummies (containing Body Protection Compound BPC-157) on markers of inflammation, physical performance, and recovery in physically active adults. Over an 8-week period, 40 participants will consume two gummies daily and complete questionnaires at Baseline, Week 2, Week 4, Week 6, and Week 8, as well as undergo blood testing at Baseline and Week 8.\n\nThe primary objective is to examine changes in inflammatory biomarkers (hs-CRP and IL-6) as measured by blood testing. Secondary objectives include evaluating participants' self-reported perceptions of the product's effects on physical performance and recovery, including aching, stiffness, function, and recovery of muscles and joints."
+    },
+    "conditionsModule": {
+      "conditions": [
+        "Musculoskeletal Inflammation",
+        "Exercise-Induced Muscle Damage",
+        "Post-Exercise Recovery",
+        "Musculoskeletal Pain"
+      ]
+    },
+    "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+        "NA"
+      ],
+      "designInfo": {
+        "allocation": "NA",
+        "interventionModel": "SINGLE_GROUP",
+        "primaryPurpose": "TREATMENT",
+        "maskingInfo": {
+          "masking": "NONE"
+        }
+      },
+      "enrollmentInfo": {
+        "count": 40,
+        "type": "ACTUAL"
+      }
+    },
+    "armsInterventionsModule": {
+      "armGroups": [
+        {
+          "label": "Parlay Recover Peptide Gummies",
+          "type": "EXPERIMENTAL",
+          "interventionNames": [
+            "Dietary Supplement: Parlay Recover Peptide Gummies"
+          ]
+        }
+      ],
+      "interventions": [
+        {
+          "type": "DIETARY_SUPPLEMENT",
+          "name": "Parlay Recover Peptide Gummies",
+          "description": "All participants receive Parlay Recover peptide gummies containing Body Protection Compound (BPC)-157 (500 µg per serving).",
+          "armGroupLabels": [
+            "Parlay Recover Peptide Gummies"
+          ]
+        }
+      ]
+    },
+    "outcomesModule": {
+      "primaryOutcomes": [
+        {
+          "measure": "Change in High-Sensitivity C-Reactive Protein (hs-CRP)",
+          "description": "Change in serum hs-CRP levels as measured by blood testing at Quest Diagnostics Clinic",
+          "timeFrame": "Baseline and Week 8"
+        },
+        {
+          "measure": "Change in Interleukin-6 (IL-6)",
+          "description": "Change in serum IL-6 levels as measured by blood testing at Quest Diagnostics Clinic",
+          "timeFrame": "Baseline and Week 8"
+        },
+        {
+          "measure": "Change in Self-Reported Swelling",
+          "description": "Change in perceived swelling around muscles and joints as assessed by self-reported questionnaire",
+          "timeFrame": "Baseline, Week 2, Week 4, Week 6, and Week 8"
+        }
+      ],
+      "secondaryOutcomes": [
+        {
+          "measure": "Change in Self-Reported Aching",
+          "description": "Change in perceived aching of muscles and joints as assessed by self-reported questionnaire",
+          "timeFrame": "Baseline, Week 2, Week 4, Week 6, and Week 8"
+        },
+        {
+          "measure": "Change in Self-Reported Stiffness",
+          "description": "Change in perceived stiffness of muscles and joints as assessed by self-reported questionnaire",
+          "timeFrame": "Baseline, Week 2, Week 4, Week 6, and Week 8"
+        },
+        {
+          "measure": "Change in Self-Reported Muscle Function",
+          "description": "Change in perceived function of muscles as assessed by self-reported questionnaire",
+          "timeFrame": "Baseline, Week 2, Week 4, Week 6, and Week 8"
+        },
+        {
+          "measure": "Change in Self-Reported Recovery",
+          "description": "Change in perceived recovery of muscles and joints following physical activity as assessed by self-reported questionnaire",
+          "timeFrame": "Baseline, Week 2, Week 4, Week 6, and Week 8"
+        }
+      ]
+    },
+    "eligibilityModule": {
+      "eligibilityCriteria": "Inclusion Criteria:\n\n* Be male or female.\n* Be aged 18-65.\n* Engages in structured physical activity ≥3 times per week, with each session lasting at least 30 minutes, over the past 3 months (e.g., running, gym/strength training, cycling, team sports, fitness classes).\n* Within the last 4 weeks, reports post-exercise musculoskeletal symptoms (aching, stiffness, or delayed recovery) at least once per week.\n* Willing to maintain current exercise routine throughout the 8-week study (no major changes in frequency, intensity, or new training programs).\n* Anyone who is generally healthy - does not live with any uncontrolled chronic disease.\n* If taking products or supplements that target muscle and joint health, has been consistently taking these for at least 3 months prior to starting the study, and is willing to maintain this routine for the study duration.\n* Willing to maintain the same diet and sleep schedule throughout the study duration.\n* Resides in the United States.\n\nExclusion Criteria:\n\n* Anyone with pre-existing chronic conditions that would prevent participants from adhering to the protocol, including oncological and psychiatric disorders.\n* Use of specialized recovery modalities (e.g., cryotherapy, frequent sports massage, IV nutrition, high-dose recovery supplements) started within the past 8 weeks or expected to be initiated during the trial.\n* Acute illness or infection within 14 days prior to Baseline (e.g., fever, flu, COVID-19) or planned surgery during the study.\n* History of inflammatory or autoimmune conditions, including but not limited to rheumatoid arthritis, lupus, inflammatory bowel disease (IBD), ankylosing spondylitis, Hashimoto's thyroiditis, or Grave's disease.\n* Use of systemic corticosteroids (such as prednisone) within past 8 weeks.\n* Recent intra-articular steroid injection within 12 weeks.\n* Anyone with any allergies or sensitivities to any of the study product ingredients.\n* Anyone who is a heavy drinker (i.e. 8 or more alcoholic drinks per week for women or 15 or more alcoholic drinks per week for men).\n* Any women who are pregnant, breastfeeding, or trying to conceive (or who will be at any point during the study period).\n* Anyone with uncontrolled chronic diseases, including but not limited to hypertension (high blood pressure) and diabetes.\n* Anyone unwilling to follow the study protocol.\n* Anyone with nut sensitivity or allergy.\n* Anyone with a history of substance abuse.\n* Musculoskeletal injury within the past 8 weeks that required any type of modification in your exercise routine.\n* Planning on introducing any new products, prescription medications, or supplements that target muscle health, joint health, or exercise performance for the study duration.\n* Currently partaking in another research study or will be partaking in any other research study at any point during this study's duration.\n* Anyone with a history of hypotension.\n* Anyone who is currently taking antihypertensive medication.",
+      "healthyVolunteers": true,
+      "sex": "ALL",
+      "minimumAge": "18 Years",
+      "maximumAge": "65 Years",
+      "stdAges": [
+        "ADULT",
+        "OLDER_ADULT"
+      ]
+    },
+    "contactsLocationsModule": {
+      "locations": [
+        {
+          "facility": "Citruslabs",
+          "city": "Las Vegas",
+          "state": "Nevada",
+          "zip": "89101",
+          "country": "United States",
+          "geoPoint": {
+            "lat": 36.17497,
+            "lon": -115.13722
+          }
+        }
+      ]
+    }
+  },
+  "derivedSection": {
+    "miscInfoModule": {
+      "versionHolder": "2026-09-15"
+    },
+    "conditionBrowseModule": {
+      "meshes": [
+        {
+          "id": "D059352",
+          "term": "Musculoskeletal Pain"
+        }
+      ],
+      "ancestors": [
+        {
+          "id": "D009135",
+          "term": "Muscular Diseases"
+        },
+        {
+          "id": "D009140",
+          "term": "Musculoskeletal Diseases"
+        },
+        {
+          "id": "D010146",
+          "term": "Pain"
+        },
+        {
+          "id": "D009461",
+          "term": "Neurologic Manifestations"
+        },
+        {
+          "id": "D012816",
+          "term": "Signs and Symptoms"
+        },
+        {
+          "id": "D013568",
+          "term": "Pathological Conditions, Signs and Symptoms"
+        }
+      ]
+    }
+  },
+  "hasResults": false
+}

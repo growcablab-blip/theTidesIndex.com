@@ -21,7 +21,7 @@ import {
 function facts(overrides: Partial<ProductionFacts> = {}): ProductionFacts {
   return {
     demonstrationRecords: 0,
-    publishedWithoutStandingApproval: 0,
+    reviewDateWithoutApproval: 0,
     approvalsByDemonstrationReviewers: 0,
     fixtureRecords: 0,
     privateColumnsExposed: [],
@@ -66,11 +66,19 @@ describe('production readiness', () => {
     expect(blockers[0]?.summary).toContain('local_file_sha256');
   });
 
-  it('rejects a published record with no standing human approval', () => {
-    const blockers = productionBlockers(facts({ publishedWithoutStandingApproval: 1 }));
-    expect(blockers.map((b) => b.key)).toEqual(['published_without_approval']);
-    // The gates are triggers. A non-zero count is evidence one is broken.
-    expect(blockers[0]?.consequence).toContain('missing, disabled, or was bypassed');
+  /*
+   * Since migration 0029 a published record with no approval is the ordinary
+   * case, not a fault. The blocker moved to the thing that would actually
+   * mislead a reader: a review date on a version nobody approved.
+   */
+  it('rejects a record carrying a review date no approval supports', () => {
+    const blockers = productionBlockers(facts({ reviewDateWithoutApproval: 1 }));
+    expect(blockers.map((b) => b.key)).toEqual(['review_date_without_approval']);
+    expect(blockers[0]?.consequence).toContain('when none did');
+  });
+
+  it('permits published records that simply have not been reviewed', () => {
+    expect(productionBlockers(facts({ reviewDateWithoutApproval: 0 }))).toEqual([]);
   });
 
   it('rejects preview in a production build, and permits it elsewhere', () => {
@@ -87,7 +95,7 @@ describe('production readiness', () => {
         approvalsByDemonstrationReviewers: 1,
         fixtureRecords: 4,
         privateColumnsExposed: ['public_v_sources.local_private_filename'],
-        publishedWithoutStandingApproval: 1,
+        reviewDateWithoutApproval: 1,
         previewEnabled: true,
       }),
     );

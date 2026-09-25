@@ -130,6 +130,54 @@ describe('protocol comparison matrix', () => {
   });
 });
 
+describe('within-source variation', () => {
+  // Two records from one source that word the amount differently, and a third
+  // source that is silent on it.
+  const sameSource = [
+    protocol('1', 'SRC-A', { amountReported: 'Fixture amount one', routeName: 'Fixture route' }),
+    protocol('2', 'SRC-A', { amountReported: 'Fixture amount two', routeName: 'Fixture route' }),
+    protocol('3', 'SRC-B', { amountReported: 'Not specified.', routeName: 'Other fixture route' }),
+  ];
+  const html = renderToStaticMarkup(
+    createElement(ProtocolComparison, { protocols: sameSource, compoundName: 'Fixture compound' }),
+  );
+
+  it('draws variation as its own state, with its own word, never as a difference', () => {
+    const row = rowOf(html, 'amount');
+    expect(row).toContain('data-field-state="variation"');
+    expect(row).toContain('Within-source variation');
+    expect(row).toContain('all from SRC-A');
+    expect(row).not.toContain('Difference');
+    // Wordings are still lettered: they do differ.
+    expect(row).toMatch(/Wording <\/span>A/);
+    expect(row).toMatch(/Wording <\/span>B/);
+  });
+
+  it('keeps a real difference between sources labelled as one', () => {
+    const row = rowOf(html, 'route');
+    expect(row).toContain('data-field-state="difference"');
+    expect(row).toContain('Difference between sources');
+  });
+
+  it('summarises variation apart from differences, and explains it in the legend', () => {
+    expect(html).toContain('data-summary-state="variation"');
+    const differences = html.slice(html.indexOf('data-summary-state="difference"'));
+    expect(differences.slice(0, differences.indexOf('</dd>'))).not.toContain('Amount');
+    expect(html).toContain('every one of them comes from the same source');
+  });
+
+  it('shows variation in the chooser without counting it as a difference', () => {
+    const chooser = renderToStaticMarkup(
+      createElement(CompoundChooser, { protocols: sameSource, filters: {} }),
+    );
+    const variation = chooser.slice(chooser.indexOf('data-chooser-state="variation"'));
+    expect(chooser).toContain('data-chooser-state="variation"');
+    expect(variation.slice(0, variation.indexOf('</li>'))).toContain('Amount');
+    const difference = chooser.slice(chooser.indexOf('data-chooser-state="difference"'));
+    expect(difference.slice(0, difference.indexOf('</li>'))).not.toContain('Amount');
+  });
+});
+
 describe('compound chooser', () => {
   it('counts only real differences on the key fields', () => {
     const html = renderToStaticMarkup(

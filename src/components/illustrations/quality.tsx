@@ -27,7 +27,7 @@ const JOURNEY: readonly JourneyStep[] = [
   { key: 'vial', title: 'Final vial', note: ['filled, sealed, sometimes', 'freeze-dried, released'], glyph: 'vial' },
 ];
 
-function JourneyGlyph({ cx, cy, glyph }: { cx: number; cy: number; glyph: JourneyStep['glyph'] }) {
+export function JourneyGlyph({ cx, cy, glyph }: { cx: number; cy: number; glyph: JourneyStep['glyph'] }) {
   switch (glyph) {
     case 'sequence':
       return (
@@ -376,9 +376,9 @@ export function ChainOfCustodyIllustration({ id = 'ill-chain-of-custody' }: { id
 // Purity ≠ identity ≠ content ≠ sterility ≠ endotoxin
 // ---------------------------------------------------------------------------
 
-type QuestionKey = 'purity' | 'identity' | 'content' | 'sterility' | 'endotoxin';
+export type QuestionKey = 'purity' | 'identity' | 'content' | 'sterility' | 'endotoxin';
 
-function QuestionGlyph({ cx, cy, kind }: { cx: number; cy: number; kind: QuestionKey }) {
+export function QuestionGlyph({ cx, cy, kind }: { cx: number; cy: number; kind: QuestionKey }) {
   switch (kind) {
     case 'purity':
       return (

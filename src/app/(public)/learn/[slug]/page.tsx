@@ -79,7 +79,7 @@ export default async function LearningTopicPage({ params }: { params: Promise<{ 
               role="note"
               className="mt-4 inline-block rounded-md border border-dashed border-[var(--color-caution)] bg-[var(--color-caution-bg)] px-3 py-1.5 text-xs font-medium tracking-wide text-[var(--color-caution)] uppercase"
             >
-              Unpublished preview — awaiting scientific review
+              Unpublished preview — not live
             </p>
           ) : null}
 
@@ -89,6 +89,14 @@ export default async function LearningTopicPage({ params }: { params: Promise<{ 
               {topic.summary ? (
                 <p className="depth-body mt-4 text-lg leading-relaxed text-ink-soft">{topic.summary}</p>
               ) : null}
+              {/* Stated definitionally rather than as a count. A learning topic
+                  carries no review_state of its own, so there is no per-record
+                  rung to show here; what the reader needs is the distinction
+                  itself, which holds whatever the record's status. */}
+              <p className="mt-4 max-w-[58ch] border-l-2 border-rule pl-4 text-sm text-slate">
+                Every statement on this page is linked to a named source at an exact location. That
+                is what makes it public — it is not the same as a person having checked it.
+              </p>
             </div>
             <div className="shrink-0">
               <ModeSwitch mode={mode} path={`/learn/${slug}`} />

@@ -23,6 +23,7 @@ import {
 } from 'react';
 import { ILLUSTRATIONS, type IllustrationKey } from '@/components/illustrations';
 import { Illustration, type IllustrationBasis } from '@/components/illustrations/frame';
+import { PATIENT_ILLUSTRATIONS, type PatientIllustrationKey } from '@/components/illustrations/patient';
 import { colour, contentWidth, leading, sans, serif, type } from './theme';
 
 /**
@@ -561,6 +562,21 @@ export function toPrintable(element: ReactElement): PrintableIllustration {
 
 const printableCache = new Map<IllustrationKey, PrintableIllustration>();
 
+const patientCache = new Map<PatientIllustrationKey, PrintableIllustration>();
+
+/**
+ * The patient version of a drawing, by key: drawn on a narrower canvas so its
+ * labels print near nine to ten points. See `components/illustrations/patient`.
+ */
+export function patientIllustration(key: PatientIllustrationKey): PrintableIllustration {
+  const cached = patientCache.get(key);
+  if (cached !== undefined) return cached;
+  const component = PATIENT_ILLUSTRATIONS[key] as unknown as Component;
+  const printable = toPrintable(createElement(component, { id: `print-patient-${key}` }));
+  patientCache.set(key, printable);
+  return printable;
+}
+
 /** A registered web illustration, by the key pages already use. */
 export function printableIllustration(key: IllustrationKey): PrintableIllustration {
   const cached = printableCache.get(key);
@@ -646,7 +662,7 @@ export function ConceptPlate({
   const figure = typeof illustration === 'string' ? printableIllustration(illustration) : illustration;
   const text = explanation ?? figure.caption;
   return (
-    <View style={{ marginBottom: 18 }} wrap={false}>
+    <View style={{ marginBottom: 12 }} wrap={false}>
       {eyebrow === undefined ? null : (
         <Text
           style={{
@@ -661,15 +677,15 @@ export function ConceptPlate({
           {eyebrow}
         </Text>
       )}
-      <Text style={{ fontFamily: serif, fontSize: type.title - 6, lineHeight: leading.title, color: colour.ink, marginBottom: 8 }}>
+      <Text style={{ fontFamily: serif, fontSize: type.title - 8, lineHeight: leading.title, color: colour.ink, marginBottom: 6 }}>
         {headline}
       </Text>
-      <View style={{ backgroundColor: colour.mist, borderRadius: 4, paddingVertical: 10, paddingHorizontal: 12 }}>
+      <View style={{ backgroundColor: colour.mist, borderRadius: 4, paddingVertical: 8, paddingHorizontal: 12 }}>
         {figure.drawing(contentWidth - 24)}
       </View>
       {text === null ? null : (
         <Text
-          style={{ fontFamily: serif, fontSize: type.body + 1.5, lineHeight: leading.body, color: colour.ink, marginTop: 9 }}
+          style={{ fontFamily: serif, fontSize: type.body + 1, lineHeight: leading.tight, color: colour.ink, marginTop: 6 }}
         >
           {text}
         </Text>

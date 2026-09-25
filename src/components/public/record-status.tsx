@@ -1,5 +1,3 @@
-import type { QualityTopicRecordState } from '@/server/public/quality-topic';
-
 /**
  * How far this record has been checked, stated before the reader gets to the
  * content rather than after it.
@@ -13,7 +11,22 @@ import type { QualityTopicRecordState } from '@/server/public/quality-topic';
  *
  * So the rung is named in words, never implied by the absence of a warning, and
  * the wording for an unreviewed record leads with what has *not* happened.
+ *
+ * Since the owner decision of 24 September 2026 this is no longer a preview
+ * concern but the ordinary case: a published record may be unreviewed, so every
+ * record type that can be published has to carry this. The props are therefore a
+ * structural minimum rather than one page's type — quality topics, compounds and
+ * protocol libraries all satisfy it.
  */
+
+export interface RecordReviewState {
+  /** The `review_state` rung, as the database records it. */
+  readonly reviewState: string;
+  readonly publicationState: string;
+  readonly needsUpdate: boolean;
+  /** True only for the development preview of an unpublished record. */
+  readonly isPreview: boolean;
+}
 
 interface Rung {
   readonly label: string;
@@ -88,7 +101,7 @@ export function reviewRung(reviewState: string): Rung {
  * Loud on purpose. A preview that looks like the live site is how unreviewed
  * content ends up quoted.
  */
-export function PreviewBanner({ state }: { state: QualityTopicRecordState }) {
+export function PreviewBanner({ state }: { state: RecordReviewState }) {
   if (!state.isPreview) return null;
   const rung = reviewRung(state.reviewState);
 
@@ -103,9 +116,9 @@ export function PreviewBanner({ state }: { state: QualityTopicRecordState }) {
       </p>
       <p className="mt-1.5 text-sm text-ink-soft">
         This record is <strong>{rung.label.toLowerCase()}</strong> and has not been published.{' '}
-        {rung.meaning} It is rendered here so that the page can be examined and reviewed; the
-        publish gate is unchanged and continues to refuse publication without a human scientific
-        approval.
+        {rung.meaning} It is rendered here so that the page can be examined before it goes out. The
+        publish gate still requires provenance to an exact location in a citable source; what it no
+        longer requires is a human review, which is recorded and shown separately.
       </p>
     </div>
   );
@@ -118,7 +131,7 @@ export function PreviewBanner({ state }: { state: QualityTopicRecordState }) {
  * give a page in the first few seconds, and this is the fact that should inform
  * that decision.
  */
-export function ReviewStatusPanel({ state }: { state: QualityTopicRecordState }) {
+export function ReviewStatusPanel({ state }: { state: RecordReviewState }) {
   const rung = reviewRung(state.reviewState);
 
   return (
@@ -142,6 +155,17 @@ export function ReviewStatusPanel({ state }: { state: QualityTopicRecordState })
         ) : null}
       </div>
       <p className="mt-1.5 max-w-[68ch] text-sm text-ink-soft">{rung.meaning}</p>
+      {/* The two facts a reader is most likely to run together. Published here
+          means every statement resolves to a named source at an exact location —
+          it does not mean a person has read the page, and the difference is
+          stated rather than left to be inferred from the rung's name. */}
+      {state.publicationState === 'published' && !rung.reviewed ? (
+        <p className="mt-2 max-w-[68ch] text-sm text-ink-soft">
+          This page is public because every statement on it is linked to a named source at an exact
+          location. That is not the same as a person having checked it, and this record has not been
+          checked by one.
+        </p>
+      ) : null}
     </div>
   );
 }

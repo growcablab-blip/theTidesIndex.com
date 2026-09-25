@@ -1,12 +1,12 @@
 {
   "packetKey": "bpc-157",
   "peptideKey": "bpc-157",
-  "note": "Extracted from three practitioner sources held by this index: SRC-002 (LaValle et al., Peptide Handbook, 2022), SRC-003 (Campbell, Optimize Your Health with Therapeutic Peptides, 2023) and SRC-005 (Hack Smith, The Complete Guide to Peptides, 2025). BPC-157 is the deliberately harder half of this pair. There is no approved product, no human trial in anything held here, and three sources that describe three different regimens. The architecture's job on this record is to keep all of that visible at once without letting volume of discussion read as weight of evidence. Updated 14 September 2026: the interstitial cystitis study (SRC-030) is now held in full and read; the intravenous pilot (SRC-029) is held only as an owner transcription whose body is unverified, so it stays at abstract level; the file supplied for the knee-pain study (SRC-031) was a different article, so that study also stays at abstract level.",
+  "note": "Extracted from three practitioner sources held by this index: SRC-002 (LaValle et al., Peptide Handbook, 2022), SRC-003 (Campbell, Optimize Your Health with Therapeutic Peptides, 2023) and SRC-005 (Hack Smith, The Complete Guide to Peptides, 2025). BPC-157 is the deliberately harder half of this pair. There is no approved product, no human trial in anything held here, and three sources that describe three different regimens. The architecture's job on this record is to keep all of that visible at once without letting volume of discussion read as weight of evidence. Updated 14 September 2026: the interstitial cystitis study (SRC-030) is now held in full and read; the intravenous pilot (SRC-029) is held only as an owner transcription whose body is unverified, so it stays at abstract level; the file supplied for the knee-pain study (SRC-031) was a different article, so that study also stays at abstract level. Updated 15 September 2026, targeted evidence repair: the preclinical lane was empty because every laboratory or animal finding reached this record through a practitioner handbook or a review abstract. Three primary preclinical studies mapped by the orthopaedic systematic review (SRC-032) were read in full under CC BY and are cited directly (BPC-012 to BPC-014); the review itself is cited only for the shape of the literature (BPC-011); four ClinicalTrials.gov registrations are recorded as trials with no results; what could not be read is recorded as gaps.",
   "compound": {
     "shortDescription": "A synthetic fifteen-amino-acid peptide, described by the sources held here as derived from a protein found in human gastric juice. Very widely discussed, almost entirely on animal research: a literature screen identified three small uncontrolled human studies and no approved product anywhere.",
-    "simpleSummary": "BPC-157 is a short synthetic peptide. The sources held here describe it as a fragment of a larger protein found in stomach fluid, which is where the name comes from: body protection compound.\n\nIt is discussed more than almost any other compound in this field, largely in the context of healing — tendons, ligaments, muscle, gut lining, skin. There is a considerable body of laboratory and animal work behind those claims, and the practitioner sources held here are careful about how they say it: one describes the effects as observed \"in laboratory studies\".\n\n**Research in people is very limited.** A search of the PubMed medical literature database on 13 September 2026 returned 230 records mentioning the compound. Reading through them, three were studies in people: two people given it intravenously, twelve women given it for a bladder condition, and a review of the records of seventeen patients given it in the knee. Thirty-one people in total, across three studies, none of which had a comparison group. That last point matters more than the numbers. Without a comparison group, a study cannot tell whether the people who got better did so because of the treatment.\n\nAlmost everything else is animal research. No medicines regulator has approved BPC-157 anywhere, and the reason two independent reviews give is that the clinical research needed to assess it has not been done.",
-    "practitionerSummary": "Synthetic pentadecapeptide, sequence Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val, MW reported as 1419.556 g/mol, described as a partial sequence of body protection compound isolated from human gastric juice.\n\nMechanisms reported by the sources held here, all from laboratory work: angiomodulation — described as increasing angiogenesis where needed and decreasing it where not, including in tumour metastasis; nitric oxide stimulation; upregulation of VEGF, FGF and TGF-β; F-actin formation in fibroblasts; increased fibroblast migration and dispersal; increased phosphorylation of paxillin and FAK without change in the amounts produced; upregulation of anti-inflammatory transcription factors and downregulation of TNF-α; upregulation of growth hormone. Additional reported domains: neuroprotection with effects described on serotonergic, dopaminergic, opioid and GABAergic systems; cardioprotection including reported counteraction of neuroleptic-induced QTc prolongation; gastroprotection against ethanol, NSAIDs, corticosteroids, neuroleptics and capsaicin. Topical application reported to accelerate closure after alkali burn via granulation, re-epithelialisation and collagen deposition through ERK1/2.\n\n**What the screen replaced.** This record previously said, under this heading, that no human evidence was held by this index, and noted that a PubMed search had returned 228 records none of which had been read. The screen recorded below read them. Three are human studies, so the earlier statement was true of the library and misleading about the world — which is exactly why it was bounded to the register at the time, and why the screen was the next thing to do.\n\nPharmacokinetics: nothing. No source held here reports bioavailability, half-life, distribution or elimination for any route.\n\nRoutes: subcutaneous and oral are both reported, and one source reports topical in an animal burn model. No source held here compares them, and none reports what fraction of an oral amount is absorbed intact — which for a pentadecapeptide is the question that determines whether an oral route means anything.\n\nSafety, as reported: described as safe in recommended amounts by one source, with caution advised in cancer and other conditions where angiogenesis may need to be suppressed. Rare reactions listed as erythema, transient muscle atrophy, polyarthralgia with hand oedema, and rash. Paediatric safety not established. The angiogenesis caution and the reported anti-tumour effects sit in tension within the same source, and this index records both rather than resolving them.\n\nRegulatory: no approval, no authorisation and no assessment in any jurisdiction, in anything held here.\n\nProtocols: three sources, three different regimens, recorded separately and attributed. None cites a study establishing its amounts.\n\n**Human evidence.** Three primary human studies identified by a PubMed screen on 13 September 2026, all uncontrolled: n = 2 intravenous safety pilot, n = 12 single-procedure injection for interstitial cystitis, n = 17 retrospective intra-articular chart review. No RCT exists.\n\n**Citation crosswalk.** All twenty-two references the practitioner handbook gives for its BPC-157 entry are preclinical or reviews; twenty-one resolve to records in the screen (fourteen animal studies, seven reviews). The sole citation for tumour cell growth inhibition is a 2004 conference abstract in a human melanoma cell line, not indexed in PubMed. The cancer-cachexia claim traces to a 2018 review that states it is written before any clinical trial. A clinician following the handbook's citations will not reach human evidence, because there is none at the end of them.",
-    "unknownsSummary": "Whether BPC-157 does anything useful in people. Three human studies have been identified and none of them can answer that, because none had a comparison group — and the conditions they looked at are ones that come and go on their own.\n\nAlso unknown: how much, how often, for how long, by which route, what happens on stopping, what happens with prolonged use, whether the material sold under this name is what it says it is, and whether the effect on blood-vessel growth is a hazard in cancer or a therapeutic possibility — a question on which two research groups disagree in print and neither has human evidence.\n\nOne more thing is unknown in a different way. A 2006 review states that clinical trials in inflammatory bowel disease were carried out under three development codes. No report of them appears in this search, and a 2026 review states that no Phase II trial has been completed. This index cannot tell whether those trials were run and never published, or whether the characterisation is wrong. It is recorded as a lead.\n\nThe volume of discussion around this compound is not evidence, and this record is arranged so that the two are not mistaken for each other.",
+    "simpleSummary": "BPC-157 is a short synthetic peptide. The sources held here describe it as a fragment of a larger protein found in stomach fluid, which is where the name comes from: body protection compound.\n\nIt is discussed more than almost any other compound in this field, largely in the context of healing — tendons, ligaments, muscle, gut lining, skin. There is a considerable body of laboratory and animal work behind those claims, and the practitioner sources held here are careful about how they say it: one describes the effects as observed \"in laboratory studies\".\n\n**Research in people is very limited.** A search of the PubMed medical literature database on 13 September 2026 returned 230 records mentioning the compound. Reading through them, three were studies in people: two people given it intravenously, twelve women given it for a bladder condition, and a review of the records of seventeen patients given it in the knee. Thirty-one people in total, across three studies, none of which had a comparison group. That last point matters more than the numbers. Without a comparison group, a study cannot tell whether the people who got better did so because of the treatment.\n\nAlmost everything else is animal research. As of 15 September 2026, ClinicalTrials.gov lists three placebo- or sham-controlled studies of BPC-157 in people — one registered in 2015 whose status has not been updated since, and two registered in 2026 that have not finished — and one uncontrolled supplement study. None has posted results. No medicines regulator has approved BPC-157 anywhere, and the reason two independent reviews give is that the clinical research needed to assess it has not been done.",
+    "practitionerSummary": "Synthetic pentadecapeptide, sequence Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val, MW reported as 1419.556 g/mol, described as a partial sequence of body protection compound isolated from human gastric juice.\n\nMechanisms reported by the sources held here, all from laboratory work: angiomodulation — described as increasing angiogenesis where needed and decreasing it where not, including in tumour metastasis; nitric oxide stimulation; upregulation of VEGF, FGF and TGF-β; F-actin formation in fibroblasts; increased fibroblast migration and dispersal; increased phosphorylation of paxillin and FAK without change in the amounts produced; upregulation of anti-inflammatory transcription factors and downregulation of TNF-α; upregulation of growth hormone. Additional reported domains: neuroprotection with effects described on serotonergic, dopaminergic, opioid and GABAergic systems; cardioprotection including reported counteraction of neuroleptic-induced QTc prolongation; gastroprotection against ethanol, NSAIDs, corticosteroids, neuroleptics and capsaicin. Topical application reported to accelerate closure after alkali burn via granulation, re-epithelialisation and collagen deposition through ERK1/2.\n\n**What the screen replaced.** This record previously said, under this heading, that no human evidence was held by this index, and noted that a PubMed search had returned 228 records none of which had been read. The screen recorded below read them. Three are human studies, so the earlier statement was true of the library and misleading about the world — which is exactly why it was bounded to the register at the time, and why the screen was the next thing to do.\n\nPharmacokinetics: one animal study held (BPC-014) — intravenous and intramuscular dosing in rats and beagle dogs; intact peptide half-life under 30 minutes; intramuscular absolute bioavailability about 14–19% in rats and 45–51% in dogs; degradation to peptide fragments and amino acids, excreted mainly in urine. No oral or subcutaneous data in any species, and nothing in humans.\n\nRoutes: subcutaneous and oral are both reported, and one source reports topical in an animal burn model. No source held here compares them, and none reports what fraction of an oral amount is absorbed intact — which for a pentadecapeptide is the question that determines whether an oral route means anything.\n\nSafety, as reported: described as safe in recommended amounts by one source, with caution advised in cancer and other conditions where angiogenesis may need to be suppressed. Rare reactions listed as erythema, transient muscle atrophy, polyarthralgia with hand oedema, and rash. Paediatric safety not established. The angiogenesis caution and the reported anti-tumour effects sit in tension within the same source, and this index records both rather than resolving them.\n\nRegulatory: no approval, no authorisation and no assessment in any jurisdiction, in anything held here.\n\nProtocols: three sources, three different regimens, recorded separately and attributed. None cites a study establishing its amounts.\n\n**Human evidence.** Three primary human studies identified by a PubMed screen on 13 September 2026, all uncontrolled: n = 2 intravenous safety pilot, n = 12 single-procedure injection for interstitial cystitis, n = 17 retrospective intra-articular chart review. No RCT exists.\n\n**Citation crosswalk.** All twenty-two references the practitioner handbook gives for its BPC-157 entry are preclinical or reviews; twenty-one resolve to records in the screen (fourteen animal studies, seven reviews). The sole citation for tumour cell growth inhibition is a 2004 conference abstract in a human melanoma cell line, not indexed in PubMed. The cancer-cachexia claim traces to a 2018 review that states it is written before any clinical trial. A clinician following the handbook's citations will not reach human evidence, because there is none at the end of them.\n\n**Primary preclinical studies read.** The orthopaedic systematic review (SRC-032; 35 preclinical and 1 clinical study included) is used as a map. Three primary studies it cites were read in full under CC BY: a rat myotendinous-junction defect model (BPC-012; Zagreb group), growth hormone receptor expression in cultured rat tendon fibroblasts (BPC-013; an independent group — receptor, not hormone), and rat and dog pharmacokinetics (BPC-014). The tendon, ligament, muscle and bone healing studies and the preclinical toxicology study it cites are not open access and are recorded as gaps.\n\n**Registered trials.** ClinicalTrials.gov, 15 September 2026: NCT02637284 (phase 1, oral, healthy volunteers, placebo-controlled; registered 2015, status unknown), NCT07437547 (phase 2, acute hamstring strain, placebo-controlled; recruiting), NCT07803250 (pilot after rotator cuff repair, sham-controlled; not yet recruiting), NCT07752381 (single-arm supplement study; completed, registered after completion). No results posted for any. Recorded as registrations, not as evidence.",
+    "unknownsSummary": "Whether BPC-157 does anything useful in people. Three human studies have been identified and none of them can answer that, because none had a comparison group — and the conditions they looked at are ones that come and go on their own.\n\nAlso unknown: how much, how often, for how long, by which route, what happens on stopping, what happens with prolonged use, whether the material sold under this name is what it says it is, and whether the effect on blood-vessel growth is a hazard in cancer or a therapeutic possibility — a question on which two research groups disagree in print and neither has human evidence.\n\nOne more thing is unknown in a different way. A 2006 review states that clinical trials in inflammatory bowel disease were carried out under three development codes. No report of them appears in this search, and a 2026 review states that no Phase II trial has been completed. This index cannot tell whether those trials were run and never published, or whether the characterisation is wrong. It is recorded as a lead.\n\nControlled studies in people have now been registered; none has reported. Until one does, the animal work — however much of it there is — remains the main body of evidence, and it cannot answer questions about people.\n\nThe volume of discussion around this compound is not evidence, and this record is arranged so that the two are not mistaken for each other.",
     "aliases": [
       {
         "alias": "Body Protection Compound-157",
@@ -121,7 +121,7 @@
       "sourceKey": "SRC-032",
       "locatorText": "Abstract, PMID 40756949",
       "section": "Methods, results and conclusion",
-      "notes": "Read at abstract level. Full text not obtained."
+      "notes": "Abstract re-read from PubMed on 15 September 2026. The full text is in PubMed Central without an open licence this index could confirm, so nothing beyond the abstract is used."
     },
     {
       "key": "bpc-jozwiak-abstract",
@@ -164,6 +164,88 @@
       "pageEnd": null,
       "section": "Limitations; conflict of interest",
       "notes": null
+    },
+    {
+      "key": "bpc-japjec-methods",
+      "sourceKey": "SRC-194",
+      "locatorText": "Materials and Methods, sections 2.1–2.4 (PMC8615275)",
+      "section": "2.1 Animals; 2.2 Surgery; 2.3 Drugs; 2.4 Experimental Protocol and Assessments",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-japjec-results",
+      "sourceKey": "SRC-194",
+      "locatorText": "Results, sections 3.1–3.3 (PMC8615275)",
+      "section": "3.1 Functional Recovery; 3.2 Muscle Size Recovery; 3.3 Oxidative Stress and eNOS, COX-2 mRNA",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-japjec-discussion",
+      "sourceKey": "SRC-194",
+      "locatorText": "Discussion; Funding; Institutional Review Board Statement; Conflicts of Interest (PMC8615275)",
+      "section": "4. Discussion; Funding; Conflicts of Interest",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-chang-results",
+      "sourceKey": "SRC-195",
+      "locatorText": "Results, sections 2.1–2.3 (PMC6271067)",
+      "section": "2.1 Growth hormone receptor expression; 2.2 Cell proliferation; 2.3 JAK2 activation",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-chang-discussion",
+      "sourceKey": "SRC-195",
+      "locatorText": "Discussion, section 3 (PMC6271067)",
+      "section": "3. Discussion",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-chang-methods",
+      "sourceKey": "SRC-195",
+      "locatorText": "Experimental Section 4.1–4.2; Acknowledgments; Conflicts of Interest (PMC6271067)",
+      "section": "4.1 Primary culture of tendon fibroblasts; 4.2 BPC 157 treatment; Acknowledgments; Conflicts of Interest",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-he-rat-pk",
+      "sourceKey": "SRC-196",
+      "locatorText": "Results, section 2.1; Tables 1–3 (PMC9794587)",
+      "section": "2.1 Pharmacokinetic studies of BPC157 in rats",
+      "tableNumber": "1–3",
+      "notes": "Web full text; no page numbers. Tables read as structured XML cells, not flattened page text.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-he-dog-pk",
+      "sourceKey": "SRC-196",
+      "locatorText": "Results, section 2.2; Tables 4–6 (PMC9794587)",
+      "section": "2.2 Pharmacokinetic studies of BPC157 in beagle dogs",
+      "tableNumber": "4–6",
+      "notes": "Web full text; no page numbers. Tables read as structured XML cells, not flattened page text.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-he-adme",
+      "sourceKey": "SRC-196",
+      "locatorText": "Results, sections 2.3.1–2.3.4 (PMC9794587)",
+      "section": "2.3 Excretion, metabolism, and tissue distribution of BPC157",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
+    },
+    {
+      "key": "bpc-he-discussion-methods",
+      "sourceKey": "SRC-196",
+      "locatorText": "Discussion; section 4.1 Test article; Funding; Conflict of interest (PMC9794587)",
+      "section": "3 Discussion; 4.1 Test article and materials; Funding; Conflict of interest",
+      "notes": "Web full text; no page numbers. Section headings as published.",
+      "pageStart": null
     }
   ],
   "claims": [
@@ -198,12 +280,12 @@
     },
     {
       "claimKey": "BPC-002",
-      "claimText": "A PubMed screen conducted on 13 September 2026 returned 230 records and identified three primary human studies of BPC-157, involving 31 people in total. All three are small, uncontrolled, unblinded, single-site and published in the same journal. The remaining evidence identified by the screen is preclinical: 162 animal studies, one human-tissue preparation and two in vitro studies, alongside 48 reviews and 7 commentary pieces.",
+      "claimText": "A PubMed screen conducted on 13 September 2026 returned 230 records and identified three primary human studies of BPC-157, involving 31 people in total. All three are small, uncontrolled, unblinded, single-site and published in the same journal. The remaining evidence identified by the screen is preclinical: 161 animal studies, one human-tissue preparation and three in vitro studies, alongside 48 reviews and 7 commentary pieces.",
       "plainLanguageText": "Most of what is said about BPC-157 comes from laboratory and animal research. A search of the medical literature found three studies in people, together involving thirty-one participants. None of them had a comparison group, so none can show that an effect was caused by the compound rather than by anything else.",
       "claimCategory": "evidence-base",
       "importance": "critical",
       "interpretationNotes": "This claim replaces one that said no human study was recorded in the sources held here. That was true of the library and said nothing about the literature, which is why the screen was run. The answer it returned is not the one the register implied: human studies exist. They are also not the kind of evidence that would support any of the uses attributed to this compound — a two-participant infusion pilot and two retrospective chart reviews of twelve and seventeen patients, none controlled, are hypothesis-generating at best. A systematic review published in 2025 searched three databases independently to June 2024 and included 36 studies, of which it classified one as clinical, and reported that it found no clinical safety data. Two independent screens reaching the same shape of answer is worth more than either alone.",
-      "uncertaintyText": "This is a statement about one database on one date under one set of criteria, and it is bounded to that. PubMed is not the whole of the scientific literature: it indexes neither conference abstracts nor most regulatory submissions, and a 2006 review asserts that clinical trials for inflammatory bowel disease were conducted under the development codes PL 10, PLD 116 and PL 14736 — no report of which appears in this search. Those trials are recorded as a gap, not as evidence and not as absence. The interstitial cystitis study has been read in full. The intravenous study is verified at abstract level; an owner transcription of its body is held but unverified. The knee study is held at abstract level only.",
+      "uncertaintyText": "This is a statement about one database on one date under one set of criteria, and it is bounded to that. PubMed is not the whole of the scientific literature: it indexes neither conference abstracts nor most regulatory submissions, and a 2006 review asserts that clinical trials for inflammatory bowel disease were conducted under the development codes PL 10, PLD 116 and PL 14736 — no report of which appears in this search. Those trials are recorded as a gap, not as evidence and not as absence. The interstitial cystitis study has been read in full. The intravenous study is verified at abstract level; an owner transcription of its body is held but unverified. The knee study is held at abstract level only. One record the screen's rule had classified as an animal study (Chang et al. 2014, PMID 25415472) was reclassified as in vitro on 15 September 2026, when its full text was read: it used tendon cells cultured from rats, not live animals.",
       "evidence": [
         {
           "locationKey": "bpc-iv-safety-abstract",
@@ -250,7 +332,7 @@
       "claimCategory": "preclinical-effect",
       "importance": "high",
       "interpretationNotes": "Recorded as a description of what laboratory work has reported, with the tissue list kept as the source gives it rather than generalised to 'healing'. The specific mechanisms named — granulation, fibroblast recruitment, collagen formation — are what the source offers as the how, and are recorded because a mechanism makes a claim checkable in a way that an outcome alone does not.",
-      "uncertaintyText": "Preclinical, entirely. A result in an animal model is not a result in a person, and a mechanism operating in cell culture is not an effect in a body. The primary papers behind these reports have not been opened by this index, so the models, the doses and the routes used are all unknown here.",
+      "uncertaintyText": "Preclinical, entirely. A result in an animal model is not a result in a person, and a mechanism operating in cell culture is not an effect in a body. The papers these practitioner sources cite have not been opened by this index, so the models, doses and routes behind this list are unknown here. Separately, three primary preclinical studies mapped by an independent systematic review have been read and are recorded as their own statements (BPC-012 to BPC-014); they cover a rat myotendinous-junction model, cultured tendon cells and pharmacokinetics, not the full tissue list above. The primary tendon, ligament, muscle and bone studies that could not be read are recorded as a gap.",
       "evidence": [
         {
           "locationKey": "lavalle-bpc-29",
@@ -312,12 +394,12 @@
     },
     {
       "claimKey": "BPC-005",
-      "claimText": "The sources held here report both subcutaneous and oral administration, and topical application in an animal burn model, without comparing them or reporting bioavailability for any route.",
+      "claimText": "The practitioner sources held here report both subcutaneous and oral administration, and topical application in an animal burn model, without comparing them or reporting bioavailability for any route.",
       "plainLanguageText": "Injection under the skin, swallowing, and application to the skin are all described. No source held here says how much reaches the body by any of these routes, or compares them.",
       "claimCategory": "route",
       "importance": "critical",
       "interpretationNotes": "Recorded as a claim because the oral route is the one a reader is most likely to act on and the one the sources support least. A fifteen-residue peptide taken orally faces gastric and intestinal proteolysis, and whether any survives intact is precisely the question the sources do not address. This index records that they report the route and records that they establish nothing about it.",
-      "uncertaintyText": "No bioavailability figure, no pharmacokinetic study, and no comparison between routes appears in anything held here. That an amount is reported for a route is not evidence that the route delivers the peptide. For the oral route in particular, this index holds nothing addressing whether the peptide survives digestion.",
+      "uncertaintyText": "That an amount is reported for a route is not evidence that the route delivers the peptide. One animal pharmacokinetic study is now held (BPC-014): it tested intravenous and intramuscular injection in rats and dogs only. No bioavailability figure for oral or subcutaneous administration, in any species, appears in anything held here, and nothing held here addresses whether the peptide survives digestion.",
       "evidence": [
         {
           "locationKey": "lavalle-bpc-28",
@@ -471,7 +553,7 @@
       "claimCategory": "regulatory",
       "importance": "critical",
       "interpretationNotes": "The previous version of this record could say only that the sources held here reported no approval — an absence in a small library. Two independent 2025–2026 reviews, one of them searching patent databases and regulator websites as well as three literature databases, state the position directly. That is still secondary evidence: a review saying a regulator has not approved something is not the regulator saying it. But it is a considerable advance on silence, and it is checkable.",
-      "uncertaintyText": "No regulator's own record has been consulted for BPC-157. The approach that produced authoritative labelling for tesamorelin — querying the FDA's own interface — returns nothing for this compound, which is consistent with the reviews and is not the same as confirmation from the regulator.",
+      "uncertaintyText": "No regulator's own record has been consulted for BPC-157. The approach that produced authoritative labelling for tesamorelin — querying the FDA's own interface — returns nothing for this compound, which is consistent with the reviews and is not the same as confirmation from the regulator. ClinicalTrials.gov was searched on 15 September 2026 (BPC-157, BPC 157, PL 14736, pentadecapeptide, body protection compound). It lists no completed controlled trial with results: a 2015 phase 1 registration with unknown status, a phase 2 registration recruiting since February 2026, a pilot not yet recruiting, and a single-arm supplement study, none with results posted. A registration is not a result and is not cited as evidence here.",
       "evidence": [
         {
           "locationKey": "bpc-jozwiak-abstract",
@@ -490,6 +572,149 @@
           "populationModel": "Not applicable.",
           "primaryTrace": "cited_not_obtained",
           "primaryTraceNote": "A review characterising studies this index has not obtained. Its account of them has not been checked against the papers."
+        }
+      ]
+    },
+    {
+      "claimKey": "BPC-011",
+      "claimText": "A systematic review written from an orthopaedic sports-medicine perspective (Vasireddi et al., HSS Journal, 2025), searching PubMed, Cochrane and Embase to 3 June 2024 with two reviewers, identified 544 records and included 36 studies: 35 preclinical and 1 clinical. It reports preclinical improvements in muscle, tendon, ligament and bone injury models, describes the included studies as level IV and level V evidence, and states that it found no clinical safety data.",
+      "plainLanguageText": "An independent review of the sports-medicine research on BPC-157 found 36 relevant studies. Thirty-five were animal or laboratory studies and one was a study in people, and the review found no safety data from studies in people.",
+      "claimCategory": "evidence-base",
+      "importance": "critical",
+      "interpretationNotes": "Recorded as a map of the literature, not as evidence about the compound. What the review says about the animal studies is its summary of them. The preclinical statements on this record (BPC-012 to BPC-014) cite the primary papers, which this index read, and never this review. The review's reference list was retrieved as PubMed metadata to identify which primary studies to seek; the ones that could not be read are recorded as a gap rather than cited through the review.",
+      "uncertaintyText": "Read at abstract level. The full text is in PubMed Central under an author copyright line with no open licence this index could confirm, so its per-study detail is not used. Its abstract summarises its one clinical study as seven of twelve patients reporting relief for more than six months after a knee injection. The abstract of the knee study held here (SRC-031) reports 17 patients, 16 reached, and 11 of the 12 given BPC-157 alone reporting significant improvement, without a breakdown by duration. The two are not necessarily in conflict, and the full texts that could settle it are not held. 'Level IV and level V' is the review's own grading.",
+      "evidence": [
+        {
+          "locationKey": "bpc-systematic-review-abstract",
+          "evidenceTypeKey": "academic_reference",
+          "relationship": "supports",
+          "interpretation": "The abstract gives the databases, the search date, the two-reviewer screening, 544 records, 36 included studies (35 preclinical, 1 clinical), preclinical improvements in muscle, tendon, ligament and bony injury models, no clinical safety data found, and the grading of the included studies as level IV and level V.",
+          "populationModel": "Not applicable — a review of the literature.",
+          "primaryTrace": "abstract_only",
+          "primaryTraceNote": "The statement concerns what the review itself reports, so the review is the source, read at abstract level. Its characterisation of individual studies has not been checked against them, except for the three read in full (BPC-012 to BPC-014)."
+        }
+      ]
+    },
+    {
+      "claimKey": "BPC-012",
+      "claimText": "In male rats with a surgically created quadriceps myotendinous-junction defect, which the authors report does not heal on its own, BPC-157 given by intraperitoneal injection or in drinking water was reported to abolish the leg contracture seen in every control animal, to improve walking and motor-function indices, to shrink the defect and prevent muscle atrophy, and to improve collagen organisation and vascularity at the junction over 42 days, with lower oxidative-stress and nitric-oxide levels, higher eNOS mRNA and lower COX-2 mRNA in the tissue than in controls.",
+      "plainLanguageText": "In one rat study, animals whose thigh tendon had been surgically separated from the muscle recovered movement and tissue structure when given BPC-157, while untreated animals did not. This is an animal result. It does not show what happens in people.",
+      "claimCategory": "preclinical-effect",
+      "importance": "high",
+      "interpretationNotes": "Primary animal study, read in full. The outcomes are the authors' functional, biomechanical, macroscopic, microscopic and biochemical assessments against saline or water controls, recorded as reported. The study comes from the Zagreb group and rests its premise on that group's earlier muscle, tendon and ligament studies, so it extends that work rather than independently replicating it.",
+      "uncertaintyText": "One rat study, six animals per group and time point, in a lesion model created for it. Random assignment and blinded surgery and assessment are stated; the methods describe no sample-size calculation. Most comparisons are reported in figures, which this index has not re-analysed. The amounts used are rat amounts, not human ones, and are deliberately not reproduced here. A result in a rat myotendinous-junction model does not establish any effect in a human muscle or tendon injury.",
+      "evidence": [
+        {
+          "locationKey": "bpc-japjec-methods",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "Twelve-week-old male Wistar rats, randomly assigned at six per group per interval; the quadriceps tendon dissected from the muscle under anaesthesia; BPC-157 at two dose levels intraperitoneally or in drinking water, against saline or water controls, with assessments at days 7, 14, 28 and 42. Surgery and assessment are stated to be blinded; the peptide is stated to be 99% pure by HPLC.",
+          "populationModel": "Male Wistar rats with a surgically created quadriceps myotendinous-junction defect.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC8615275) on 15 September 2026 and read; sections 2.1–2.4."
+        },
+        {
+          "locationKey": "bpc-japjec-results",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "Leg contracture present in all controls and absent in all treated rats; improved motor-function and walking indices; smaller defect and preserved muscle fibre size against progressive atrophy in controls; earlier and better-oriented collagen type I; lower MDA and NO tissue levels, higher eNOS and lower COX-2 mRNA than controls.",
+          "populationModel": "Male Wistar rats with a surgically created quadriceps myotendinous-junction defect.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC8615275) on 15 September 2026 and read; sections 3.1–3.3."
+        },
+        {
+          "locationKey": "bpc-japjec-discussion",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "contextualizes",
+          "interpretation": "The authors state that the study cannot provide precise information about the full mechanisms responsible, and frame the result through their group's earlier tendon, muscle and ligament studies. Funded by a University of Zagreb grant; no conflicts of interest declared.",
+          "populationModel": "Male Wistar rats.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC8615275) on 15 September 2026 and read; Discussion, Funding and Conflicts of Interest."
+        }
+      ]
+    },
+    {
+      "claimKey": "BPC-013",
+      "claimText": "In fibroblasts cultured from rat Achilles tendon, BPC-157 increased growth hormone receptor expression at both mRNA and protein level, rising with concentration and with time over three days. When growth hormone was added to cells pretreated with BPC-157, the number of viable cells, PCNA expression and JAK2 phosphorylation increased.",
+      "plainLanguageText": "In cells taken from rat tendon and grown in a dish, BPC-157 increased a receptor that responds to growth hormone. This is a laboratory finding about cells, not a finding about healing in a body.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Primary in vitro study from a group independent of the Zagreb group, read in full, and recorded as a proposed mechanism, which is how its authors present it. The mechanism list on this record, taken from practitioner sources, includes 'upregulation of growth hormone'. This study reports increased expression of the growth hormone receptor in tendon cells, which is a different thing, and does not measure growth hormone itself. The authors also report that their own earlier study found no direct effect of BPC-157 alone on the proliferation of these cells.",
+      "uncertaintyText": "Cells in culture from rats; each experiment repeated three times with cells from a different rat, compared by t-test. The microarray result that prompted the study came from the group's earlier work. The authors state that culture cannot reproduce the environment of a healing tendon. The peptide was bought from a named supplier and no purity or identity testing is reported. No animal or human outcome was measured.",
+      "evidence": [
+        {
+          "locationKey": "bpc-chang-results",
+          "evidenceTypeKey": "in_vitro",
+          "relationship": "supports",
+          "interpretation": "Growth hormone receptor mRNA and protein rose with BPC-157 concentration at 24 hours and with time over one to three days, up to sevenfold at day three; with growth hormone added, viable-cell counts (MTT) and PCNA expression rose with BPC-157 pretreatment, and phosphorylated but not total JAK2 increased with longer pretreatment.",
+          "populationModel": "Primary tendon fibroblasts from Achilles tendons of male Sprague-Dawley rats, passages 2 to 4.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC6271067) on 15 September 2026 and read; sections 2.1–2.3."
+        },
+        {
+          "locationKey": "bpc-chang-discussion",
+          "evidenceTypeKey": "in_vitro",
+          "relationship": "contextualizes",
+          "interpretation": "The authors state that their earlier study found BPC-157 had no direct effect on the proliferation or PCNA expression of tendon fibroblasts, and that in vitro culture cannot mimic the environment of a healing tendon.",
+          "populationModel": "Cultured rat tendon fibroblasts.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC6271067) on 15 September 2026 and read; section 3."
+        },
+        {
+          "locationKey": "bpc-chang-methods",
+          "evidenceTypeKey": "in_vitro",
+          "relationship": "contextualizes",
+          "interpretation": "Each experiment was repeated three times with fibroblasts from a different rat. The peptide was synthesised and purchased from a named supplier, with its sequence and molecular weight given and no purity or identity testing reported. Supported by the National Science Council of Taiwan and Chang Gung Memorial Hospital; no conflict of interest declared.",
+          "populationModel": "Cultured rat tendon fibroblasts.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC6271067) on 15 September 2026 and read; sections 4.1–4.2, Acknowledgments and Conflicts of Interest."
+        }
+      ]
+    },
+    {
+      "claimKey": "BPC-014",
+      "claimText": "In rats and beagle dogs given BPC-157 intravenously or by intramuscular injection, intact peptide peaked in plasma within minutes, was eliminated with a half-life under 30 minutes, and could not be detected 4 hours after dosing. Absolute bioavailability after intramuscular injection was reported as about 14–19% in rats and 45–51% in dogs. In rats, radiolabelled peptide was broken down into smaller peptide fragments and amino acids, with urine the main route of excretion. Oral and subcutaneous administration were not studied.",
+      "plainLanguageText": "In rats and dogs, injected BPC-157 was broken down and cleared from the blood quickly. The study did not test it taken by mouth, and it was not done in people.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "critical",
+      "interpretationNotes": "The only pharmacokinetic study of BPC-157 this index holds, read in full. It is an animal study and says nothing directly about people. It matters to this record for two reasons: it replaces 'no pharmacokinetic data in anything held here' with a bounded animal result, and it leaves the oral-route question where it was, because oral administration was not part of it. The authors' description of their radiolabel results as proving metabolic safety is their interpretation and is not adopted here.",
+      "uncertaintyText": "Two species; in rats, six animals per time point, and in dogs, six animals across four dosing cycles; intravenous and intramuscular routes only; material the authors synthesised and purified themselves. The authors state that many methodological validations were omitted for space and that metabolites in tissues were not analysed. Measurements after the radiolabelled dose track total radioactivity, including breakdown products, not intact peptide. No figure here transfers to a person, to another route, or to material of other origin.",
+      "evidence": [
+        {
+          "locationKey": "bpc-he-rat-pk",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "After intravenous and single or repeated intramuscular dosing in rats, intact peptide peaked at 3 minutes, had an elimination half-life under 30 minutes, was undetectable at 4 hours, and showed intramuscular absolute bioavailability of 14.49% to 19.35% across three dose levels, with exposure rising linearly with dose.",
+          "populationModel": "Sprague-Dawley rats, male and female.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC9794587) on 15 September 2026 and read; section 2.1 and Tables 1–3."
+        },
+        {
+          "locationKey": "bpc-he-dog-pk",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "In beagle dogs, intact peptide peaked within about 9 minutes of intramuscular dosing, had an elimination half-life under 30 minutes, was undetectable at 4 hours, and showed intramuscular absolute bioavailability of 45.27% to 50.56% across three dose levels.",
+          "populationModel": "Beagle dogs, three male and three female.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC9794587) on 15 September 2026 and read; section 2.2 and Tables 4–6."
+        },
+        {
+          "locationKey": "bpc-he-adme",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "supports",
+          "interpretation": "After an intramuscular radiolabelled dose in rats, urine was the dominant excretion route; the parent peptide was the main plasma component at 3 minutes and was degraded into small peptide fragments within 10 minutes, with labelled proline predominating at 1 hour; radioactivity peaked in most tissues at 1 hour, highest in kidney.",
+          "populationModel": "Sprague-Dawley rats, intact, bile-duct cannulated and jugular-vein cannulated.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC9794587) on 15 September 2026 and read; sections 2.3.1–2.3.4."
+        },
+        {
+          "locationKey": "bpc-he-discussion-methods",
+          "evidenceTypeKey": "animal_in_vivo",
+          "relationship": "contextualizes",
+          "interpretation": "The authors synthesised and purified the peptide in their own laboratory; state that metabolites were not analysed in tissues and that many methodological validations were omitted for space; and were funded by Chinese national and provincial science grants, declaring no commercial or financial conflict.",
+          "populationModel": "Rats and beagle dogs.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Open-access full text (CC BY) retrieved from Europe PMC (PMC9794587) on 15 September 2026 and read; Discussion, section 4.1, Funding and Conflict of interest."
         }
       ]
     }
@@ -519,8 +744,8 @@
       "verificationIssueKey": null,
       "resolution": {
         "state": "open",
-        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
-        "checkedAt": "2026-09-14"
+        "checkedAt": "2026-09-15",
+        "note": "Checked 15 September 2026. The animal pharmacokinetic study now held (BPC-014) tested intravenous and intramuscular injection only. The 2015 registered phase 1 study (NCT02637284) lists oral pharmacokinetics as an outcome and has posted no results. Unchanged."
       }
     },
     {
@@ -547,8 +772,8 @@
       "verificationIssueKey": null,
       "resolution": {
         "state": "open",
-        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
-        "checkedAt": "2026-09-14"
+        "checkedAt": "2026-09-15",
+        "note": "Checked 15 September 2026. Four registered studies list adverse events or safety monitoring; none has posted results. Preclinical toxicology is recorded as its own gap and would not settle this one."
       }
     },
     {
@@ -586,9 +811,9 @@
       "whatWouldResolveIt": "The primary publications, obtained and read, with each mechanism checked against the paper reporting it.",
       "verificationIssueKey": null,
       "resolution": {
-        "state": "open",
-        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
-        "checkedAt": "2026-09-14"
+        "state": "partially_resolved",
+        "checkedAt": "2026-09-15",
+        "note": "Checked 15 September 2026. Three primary preclinical studies mapped by the orthopaedic systematic review were read in full under CC BY and are cited directly (BPC-012 to BPC-014). The papers the practitioner sources cite for each mechanism remain unopened, and the core tendon, ligament, muscle and bone healing studies are recorded as a separate gap."
       }
     },
     {
@@ -601,8 +826,8 @@
       "verificationIssueKey": null,
       "resolution": {
         "state": "open",
-        "note": "Checked 14 September 2026 against the newly supplied human-study material; unchanged.",
-        "checkedAt": "2026-09-14"
+        "checkedAt": "2026-09-15",
+        "note": "Checked 15 September 2026. ClinicalTrials.gov returns no study under PL 14736 or PL-14736. The only BPC-157 registration from before 2026 is an oral phase 1 study in healthy volunteers (NCT02637284), not an inflammatory bowel disease trial."
       }
     },
     {
@@ -650,6 +875,56 @@
       "researchQuestion": null,
       "opportunityType": null,
       "resolution": null
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "What the primary animal studies of tendon, ligament, muscle and bone healing mapped by the orthopaedic systematic review report.",
+      "why": "They are the core of the musculoskeletal literature the review maps, and its reference list includes them, but none is open access according to Europe PMC and none is held: Staresinic et al. 2003 and Krivic et al. 2006 and 2008 (Achilles tendon), Chang et al. 2011 (tendon), Cerovecki et al. 2010 (medial collateral ligament), Staresinic et al. 2006, Novinscak et al. 2008 and Pevec et al. 2010 (transected, crushed and corticosteroid-impaired muscle), and Sebecic et al. 1999 (segmental bone defect in rabbits). They are not cited through the review, and nothing on this record states what they found.",
+      "whatWouldResolveIt": "The publisher versions of PMIDs 14554208, 16583442, 18594781, 21030672, 20225319, 16609979, 18668315, 20190676 and 10071911, obtained as held copies or under a licence that permits extraction, and read.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null,
+      "resolution": null
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "What formal preclinical toxicology studies of BPC-157 examined and found.",
+      "why": "The systematic review's abstract states that preclinical safety studies showed no adverse effects across several organ systems, and the pharmacokinetic study held here refers to its authors' earlier safety evaluation (Xu et al., Regulatory Toxicology and Pharmacology 2020, PMID 32334036). That paper is not open access and has not been read, so neither statement is adopted here. Preclinical toxicology would not, in any case, establish safety in people.",
+      "whatWouldResolveIt": "The full text of Xu et al. 2020, read, with species, duration, endpoints and findings recorded.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null,
+      "resolution": null
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "Whether the musculoskeletal healing results reported in animals have been reproduced by independent research groups.",
+      "why": "The animal healing study read here (BPC-012) comes from the Zagreb group and rests its premise on that group's own earlier tendon, muscle and ligament studies. The one study from an independent group read here (BPC-013) examined a mechanism in cultured cells, not healing in an animal. This index has not assessed replication across the corpus.",
+      "whatWouldResolveIt": "A replication assessment across the primary musculoskeletal studies, recording research group, country, model and outcome for each.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do the musculoskeletal healing effects reported for BPC-157 in rats replicate in independent laboratories using pre-specified outcomes?",
+      "opportunityType": "independent_replication",
+      "resolution": null
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "What the registered studies of BPC-157 in people found, or will find.",
+      "why": "ClinicalTrials.gov, as retrieved on 15 September 2026, lists SRC-197 (NCT02637284), SRC-198 (NCT07437547), SRC-199 (NCT07803250), SRC-200 (NCT07752381): a randomised placebo-controlled phase 1 study in healthy volunteers registered in 2015, status unknown and not updated since; a randomised placebo-controlled phase 2 study in acute hamstring strain, recruiting since February 2026; a randomised sham-controlled pilot after rotator cuff repair, not yet recruiting; and a single-arm supplement study registered in August 2026 after its stated completion. None has posted results. A registration states what was planned; it is not a finding, and none of these is counted as evidence.",
+      "whatWouldResolveIt": "Posted results or peer-reviewed reports of these studies, read in full.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What do the registered placebo- and sham-controlled studies of BPC-157 report when they finish, and are their results made public?",
+      "opportunityType": "human_evidence",
+      "resolution": null
+    },
+    {
+      "gapType": "source_inaccessible",
+      "statement": "What the orthopaedic systematic review's full text reports for each included study, including its account of its one clinical study.",
+      "why": "The full text is in PubMed Central under an author copyright line with no open licence this index could confirm, and Europe PMC does not list it as open access, so only the abstract is used. Its abstract's summary of the knee study cannot be checked against the knee study's own abstract (BPC-011).",
+      "whatWouldResolveIt": "Confirmation of the article's licence terms or permission to extract, then the full text read.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null,
+      "resolution": null
     }
   ],
   "routes": [
@@ -660,7 +935,7 @@
       "populationModel": "Not specified. The source gives amounts without describing a population or citing a study.",
       "formulation": "Injectable solution; the source records an available 2 mg/mL, 5 mL presentation.",
       "pkNotes": null,
-      "limitationsNotes": "Reported by a practitioner handbook as the route it recommends. No pharmacokinetic data, no bioavailability figure and no study establishing this route appear in anything held here. Recording a route is not a statement that it is appropriate, effective or safe."
+      "limitationsNotes": "Reported by a practitioner handbook as the route it recommends. No bioavailability figure and no study establishing this route appear in anything held here; the one animal pharmacokinetic study held (BPC-014) tested intravenous and intramuscular injection only. Recording a route is not a statement that it is appropriate, effective or safe."
     },
     {
       "routeKey": "oral",
@@ -669,7 +944,7 @@
       "populationModel": "Not specified.",
       "formulation": "Not specified by the source.",
       "pkNotes": null,
-      "limitationsNotes": "The source gives an oral amount and nothing else. Whether a fifteen-residue peptide survives gastric and intestinal proteolysis in any useful proportion is the question this route turns on, and no source held here addresses it. The oral route is recorded here because a source reports it, and it is the least supported route on this record."
+      "limitationsNotes": "The source gives an oral amount and nothing else. Whether a fifteen-residue peptide survives gastric and intestinal proteolysis in any useful proportion is the question this route turns on, and no source held here addresses it. The oral route is recorded here because a source reports it, and it is the least supported route on this record. The one animal pharmacokinetic study held (BPC-014) did not test oral administration."
     },
     {
       "routeKey": "topical",
@@ -997,6 +1272,42 @@
       "grantReference": null,
       "disclosureText": null,
       "notes": "The PubMed record for this study carries no grant list and no conflict-of-interest statement, and the full text has not been obtained. This is an absence in the record consulted on 13 September 2026, not a statement that the study was unfunded or that nothing was disclosed."
+    },
+    {
+      "fundingKey": "FUND-SRC-194",
+      "sourceKey": "SRC-194",
+      "locationKey": "bpc-japjec-discussion",
+      "funderKind": "academic_institution",
+      "sponsorName": null,
+      "manufacturerInvolved": null,
+      "institution": "University of Zagreb",
+      "grantReference": "BM 099",
+      "disclosureText": "The authors declare that there are no conflicts of interest.",
+      "notes": "Funding and conflict statements read in the full text on 15 September 2026. The declaration is the authors' statement and is recorded as such."
+    },
+    {
+      "fundingKey": "FUND-SRC-195",
+      "sourceKey": "SRC-195",
+      "locationKey": "bpc-chang-methods",
+      "funderKind": "mixed",
+      "sponsorName": "National Science Council of Taiwan",
+      "manufacturerInvolved": null,
+      "institution": "Chang Gung Memorial Hospital",
+      "grantReference": null,
+      "disclosureText": "The authors declare no conflict of interest.",
+      "notes": "The acknowledgments thank the National Science Council of Taiwan and Chang Gung Memorial Hospital for supporting the work; no grant number is given. Read 15 September 2026."
+    },
+    {
+      "fundingKey": "FUND-SRC-196",
+      "sourceKey": "SRC-196",
+      "locationKey": "bpc-he-discussion-methods",
+      "funderKind": "government",
+      "sponsorName": "National Natural Science Foundation of China; Natural Science Foundation of Shaanxi; Key Research and Development Program of Shaanxi Province",
+      "manufacturerInvolved": null,
+      "institution": "Air Force Medical University, Xi'an",
+      "grantReference": "NSFC 81672800, 81603009, 81673020, 81802632, 82173830; 2020JQ-445; 2021SF-207, 2021SF-223, 2022ZDLSF05-19",
+      "disclosureText": "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.",
+      "notes": "Read 15 September 2026. The authors made the peptide themselves and state that they intend to conduct clinical trials of it; recorded as context."
     }
   ]
 }

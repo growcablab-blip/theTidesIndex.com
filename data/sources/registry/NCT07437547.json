@@ -1,0 +1,240 @@
+{
+  "protocolSection": {
+    "identificationModule": {
+      "nctId": "NCT07437547",
+      "orgStudyIdInfo": {
+        "id": "BH-BPC157-MUSC-001"
+      },
+      "organization": {
+        "fullName": "Hudson Biotech",
+        "class": "INDUSTRY"
+      },
+      "briefTitle": "BPC 157 for Acute Hamstring Muscle Strain Repair",
+      "officialTitle": "A Randomized, Double-Blind, Placebo-Controlled Phase 2 Trial of Pentadecapeptide BPC 157 for Accelerated Repair of Acute Grade II Hamstring Strain Confirmed by MRI",
+      "acronym": "BPC-HAMSTR"
+    },
+    "statusModule": {
+      "statusVerifiedDate": "2026-02",
+      "overallStatus": "RECRUITING",
+      "expandedAccessInfo": {
+        "hasExpandedAccess": false
+      },
+      "startDateStruct": {
+        "date": "2026-02-02",
+        "type": "ACTUAL"
+      },
+      "primaryCompletionDateStruct": {
+        "date": "2027-02-14",
+        "type": "ESTIMATED"
+      },
+      "completionDateStruct": {
+        "date": "2028-02-17",
+        "type": "ESTIMATED"
+      },
+      "studyFirstSubmitDate": "2026-02-22",
+      "studyFirstSubmitQcDate": "2026-02-22",
+      "studyFirstPostDateStruct": {
+        "date": "2026-02-27",
+        "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2026-02-22",
+      "lastUpdatePostDateStruct": {
+        "date": "2026-02-27",
+        "type": "ACTUAL"
+      }
+    },
+    "sponsorCollaboratorsModule": {
+      "responsibleParty": {
+        "type": "SPONSOR"
+      },
+      "leadSponsor": {
+        "name": "Hudson Biotech",
+        "class": "INDUSTRY"
+      }
+    },
+    "oversightModule": {
+      "oversightHasDmc": true,
+      "isFdaRegulatedDrug": false,
+      "isFdaRegulatedDevice": false
+    },
+    "descriptionModule": {
+      "briefSummary": "This randomized, double-blind, placebo-controlled Phase 2 study evaluates whether pentadecapeptide BPC 157 (BPC-157), an investigational peptide, can speed structural healing and functional recovery after an acute grade II hamstring muscle strain. Participants will receive BPC 157 or placebo for 14 days in addition to a standardized rehabilitation program. The co-primary endpoints are time to return to unrestricted sport and change in MRI-assessed injury volume at Day 14.",
+      "detailedDescription": "Acute hamstring strains are common in running- and field-based sports and often lead to prolonged time away from sport and a risk of recurrence. Preclinical research suggests that BPC 157 may influence pathways involved in tissue protection, angiogenesis, and repair. Human clinical evidence remains limited, so a controlled trial is needed to evaluate potential benefits and characterize safety in a musculoskeletal injury population. After screening and baseline assessments (including MRI confirmation of an acute grade II hamstring strain), eligible participants will be randomized 1:1 to receive subcutaneous BPC 157 or matching placebo once daily for 14 days. All participants will follow the same evidence-based rehabilitation protocol supervised by study physiotherapists. Clinical assessments will occur at Days 3, 7, 14, 28, and 56, with additional follow-up at 3 months after return-to-play for recurrence monitoring. Safety will be assessed through adverse event monitoring, vital signs, and standard laboratory tests. An independent Data and Safety Monitoring Committee will review unblinded safety data at predefined intervals."
+    },
+    "conditionsModule": {
+      "conditions": [
+        "Hamstring Muscle Strain",
+        "Skeletal Muscle Injury"
+      ],
+      "keywords": [
+        "BPC 157",
+        "BPC-157",
+        "pentadecapeptide",
+        "muscle strain",
+        "hamstring injury",
+        "sports medicine",
+        "MRI",
+        "return to play",
+        "muscle repair",
+        "rehabilitation"
+      ]
+    },
+    "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+        "PHASE2"
+      ],
+      "designInfo": {
+        "allocation": "RANDOMIZED",
+        "interventionModel": "PARALLEL",
+        "interventionModelDescription": "Participants with an acute MRI-confirmed grade II hamstring strain are randomized 1:1 to investigational BPC 157 or placebo. Both groups receive the same standardized rehabilitation program.",
+        "primaryPurpose": "TREATMENT",
+        "maskingInfo": {
+          "masking": "QUADRUPLE",
+          "maskingDescription": "Investigational pharmacy prepares identical-appearing prefilled syringes labeled with a randomization code. Participants, study clinicians, investigators, and outcome assessors remain blinded to assignment. Emergency unblinding is permitted only when necessary for participant safety.",
+          "whoMasked": [
+            "PARTICIPANT",
+            "CARE_PROVIDER",
+            "INVESTIGATOR",
+            "OUTCOMES_ASSESSOR"
+          ]
+        }
+      },
+      "enrollmentInfo": {
+        "count": 120,
+        "type": "ESTIMATED"
+      }
+    },
+    "armsInterventionsModule": {
+      "armGroups": [
+        {
+          "label": "Arm 1: Experimental - BPC 157",
+          "type": "EXPERIMENTAL",
+          "description": "Participants receive investigational pentadecapeptide BPC 157 plus standardized rehabilitation.",
+          "interventionNames": [
+            "Drug: Pentadecapeptide BPC 157",
+            "Drug: Placebo"
+          ]
+        },
+        {
+          "label": "Arm 2: Placebo Comparator - Placebo",
+          "type": "EXPERIMENTAL",
+          "description": "Participants receive matching placebo plus standardized rehabilitation.",
+          "interventionNames": [
+            "Drug: Pentadecapeptide BPC 157",
+            "Drug: Placebo"
+          ]
+        }
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Pentadecapeptide BPC 157",
+          "description": "subcutaneous injection (administered by trained study staff). Schedule: once daily for 14 days.",
+          "armGroupLabels": [
+            "Arm 1: Experimental - BPC 157",
+            "Arm 2: Placebo Comparator - Placebo"
+          ]
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo",
+          "description": "subcutaneous injection (administered by trained study staff). Schedule: once daily for 14 days.",
+          "armGroupLabels": [
+            "Arm 1: Experimental - BPC 157",
+            "Arm 2: Placebo Comparator - Placebo"
+          ]
+        }
+      ]
+    },
+    "outcomesModule": {
+      "primaryOutcomes": [
+        {
+          "measure": "Time to return to unrestricted sport participation (days)",
+          "description": "defined as clearance by a blinded sports medicine clinician and completion of a standardized functional performance battery without pain-limited stopping.",
+          "timeFrame": "8 Weeks"
+        },
+        {
+          "measure": "Change from baseline to Day 14 in MRI-assessed hamstring injury volume (cm^3), measured by blinded central radiology review.",
+          "timeFrame": "14 Days"
+        }
+      ],
+      "secondaryOutcomes": [
+        {
+          "measure": "Change in pain during activity on a 0-10 Numeric Rating Scale (NRS; 0 = no pain, 10 = worst pain).",
+          "timeFrame": "56 Days"
+        },
+        {
+          "measure": "Hamstring strength limb symmetry index (LSI) by isokinetic dynamometry",
+          "timeFrame": "56 Days"
+        },
+        {
+          "measure": "Change in Lower Extremity Functional Scale (LEFS; 0-80, higher scores indicate better function)",
+          "timeFrame": "56 Days"
+        }
+      ]
+    },
+    "eligibilityModule": {
+      "eligibilityCriteria": "Inclusion Criteria:\n\n* Age 18 to 45 years.\n* Acute posterior thigh pain consistent with hamstring strain with onset within 72 hours prior to screening.\n* MRI-confirmed grade II hamstring strain of the biceps femoris, semitendinosus, or semimembranosus, with measurable lesion.\n* Pre-injury physical activity \\>= 3 sessions/week or participation in organized recreational sport.\n* Willingness to follow the standardized rehabilitation protocol and attend all study visits.\n* For participants of childbearing potential: negative pregnancy test at baseline and agreement to use effective contraception during dosing and for 30 days after last dose.\n\nExclusion Criteria:\n\n* Grade III hamstring tear, tendon avulsion, or injury requiring surgical management.\n* Concomitant lower extremity injury that would interfere with rehabilitation or outcome assessment.\n* Prior hamstring strain on the index limb within the past 6 months.\n* Use of systemic corticosteroids, anabolic agents, platelet-rich plasma, stem-cell products, or investigational peptides/growth factors within 30 days prior to screening.\n* Known bleeding disorder or current therapeutic anticoagulation.\n* Significant uncontrolled medical illness (e.g., severe cardiovascular, hepatic, or renal disease) that increases study risk.\n* Known allergy or hypersensitivity to components of the investigational product or placebo.\n* Pregnant or breastfeeding.\n* Current participation in another interventional clinical study or participation within 30 days prior to screening.\n* Currently subject to a formal anti-doping testing program (e.g., WADA/USADA-aligned) where use of an investigational peptide could create a regulatory conflict, unless explicitly approved by the relevant authority",
+      "healthyVolunteers": false,
+      "sex": "ALL",
+      "minimumAge": "18 Years",
+      "maximumAge": "45 Years",
+      "stdAges": [
+        "ADULT"
+      ]
+    },
+    "contactsLocationsModule": {
+      "centralContacts": [
+        {
+          "name": "Seni S Lu, Phd",
+          "role": "CONTACT",
+          "phone": "+86 13076790030",
+          "email": "Seni-Lu@beijing-biotech.com"
+        }
+      ],
+      "locations": [
+        {
+          "facility": "Peking University Shenzhen Hospital",
+          "status": "RECRUITING",
+          "city": "Shenzhen",
+          "state": "Guangdong",
+          "zip": "518036",
+          "country": "China",
+          "contacts": [
+            {
+              "name": "Zhen J Peng, Phd",
+              "role": "CONTACT",
+              "phone": "+86 13076790039",
+              "email": "Zhen-Peng@beijing-biotech.com"
+            }
+          ],
+          "geoPoint": {
+            "lat": 22.54554,
+            "lon": 114.0683
+          }
+        }
+      ]
+    }
+  },
+  "derivedSection": {
+    "miscInfoModule": {
+      "versionHolder": "2026-09-15"
+    },
+    "conditionBrowseModule": {
+      "meshes": [
+        {
+          "id": "D013180",
+          "term": "Sprains and Strains"
+        }
+      ],
+      "ancestors": [
+        {
+          "id": "D014947",
+          "term": "Wounds and Injuries"
+        }
+      ]
+    }
+  },
+  "hasResults": false
+}

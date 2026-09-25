@@ -205,6 +205,7 @@ describe('foundations from permissively licensed sources (D-26)', () => {
     'receptor-pharmacology',
     'pharmacokinetic-concepts',
     'routes-of-administration',
+    'where-peptides-come-from',
   ] as const;
   const packets = PACKETS.map((name) => read<LearningPacket>(`data/seed/learning/${name}.json`));
   // Chapter seven also cites the earlier review-based packet on peptides as medicines.

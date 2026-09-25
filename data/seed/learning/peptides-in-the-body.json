@@ -1,6 +1,6 @@
 {
   "packetKey": "peptides-in-the-body",
-  "note": "Extracted 14 September 2026 from permissively licensed reviews (CC BY, or public domain for the 1998 US government overview), each licence read in the retrieved full text, with no text-and-data-mining or AI restriction found. OpenStax is excluded (D-26). Elphick et al. 2018 was not used: it carries a published correction whose text could not be obtained. Every quote was checked word for word against the retrieved text. Endogenous examples are the sources' own; none is a statement about treatment.",
+  "note": "Extracted 14 September 2026 from permissively licensed reviews (CC BY, or public domain for the 1998 US government overview), each licence read in the retrieved full text, with no text-and-data-mining or AI restriction found. OpenStax is excluded (D-26). Elphick et al. 2018 was not used: it carries a published correction whose text could not be obtained. Every quote was checked word for word against the retrieved text. Endogenous examples are the sources' own; none is a statement about treatment. Supplemented 15 September 2026 by scripts/evidence/build-peptides-101-2026-09-15.py for the Peptides 101 patient series, from sources already held, every quoted segment checked in full.",
   "topic": {
     "topicKey": "peptides-in-the-body",
     "slug": "peptides-in-the-body",
@@ -85,6 +85,41 @@
       "sourceKey": "SRC-156",
       "locatorText": "What Are Hormones? > Regulation of Hormone Activity, paragraph 2",
       "section": "What Are Hormones? > Regulation of Hormone Activity, paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-14",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones? > Mechanisms of Action, paragraph 1",
+      "section": "What Are Hormones? > Mechanisms of Action, paragraph 1",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-14-2",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones? > Mechanisms of Action, paragraph 2",
+      "section": "What Are Hormones? > Mechanisms of Action, paragraph 2",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-15",
+      "sourceKey": "SRC-156",
+      "locatorText": "What Are Hormones? > Mechanisms of Action, paragraph 3",
+      "section": "What Are Hormones? > Mechanisms of Action, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-16",
+      "sourceKey": "SRC-157",
+      "locatorText": "Introduction, paragraph 3",
+      "section": "Introduction, paragraph 3",
+      "notes": "Web full text; no page numbers. Located by section heading and paragraph."
+    },
+    {
+      "key": "end-16-2",
+      "sourceKey": "SRC-157",
+      "locatorText": "Introduction, paragraph 5",
+      "section": "Introduction, paragraph 5",
       "notes": "Web full text; no page numbers. Located by section heading and paragraph."
     }
   ],
@@ -282,6 +317,74 @@
           "locationKey": "end-13",
           "evidenceTypeKey": "academic_reference",
           "interpretation": "Describes hypothalamic-pituitary hormone cascades specifically, not all peptides. Does not by itself make a safety argument; editorial bridge to \"the body makes it is not a safety argument\" is SOURCE NEEDED.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-14",
+      "claimText": "Hiller-Sturmhöfel and Bartke (1998) state that hormones fall into several classes, including steroids, amino acid derivatives, and polypeptides and proteins, whose structural differences mean their mechanisms of action differ, including whether they can enter target cells, and that steroids and amino acid derivatives can enter cells.",
+      "plainLanguageText": "Not all hormones are peptides. Some, such as steroids, have a different structure and can enter the cells they act on.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "1998 general overview. Pairs with SIG-03, from the same section, on peptide hormones acting at the cell surface. About hormones only, not all signalling molecules.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-14",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Hormone classes, and steroids entering cells.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        },
+        {
+          "locationKey": "end-14-2",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Amino acid derivative hormones entering cells.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-15",
+      "claimText": "Hiller-Sturmhöfel and Bartke (1998) describe polypeptide and protein hormones as chains of amino acids of various lengths, from three to several hundred amino acids, found primarily in the hypothalamus, pituitary gland and pancreas, and in some instances derived from inactive precursors, or pro-hormones, cleaved into active hormones.",
+      "plainLanguageText": "Peptide and protein hormones vary widely in length, and some are made as inactive precursors that are cut into their active form.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "The same paragraph as SIG-03. 'Primarily' is the source's hedge. The length range describes hormones; it is not a definition of 'peptide' (SYN-PEP-01).",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-15",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "What peptide hormones are, where they are made, and precursors.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        }
+      ]
+    },
+    {
+      "claimKey": "END-16",
+      "claimText": "Culhane et al. (2015) state that the 15 family B G protein-coupled receptors for peptide hormones are grouped by physiological role, including insulin secretion, vasodilation, regulation of calcium homeostasis and cardiac contractility, and that these receptors modulate physiological processes such as calcium homeostasis and regulation of blood glucose.",
+      "plainLanguageText": "Receptors for one family of peptide hormones help control things such as blood sugar, calcium balance, the widening of blood vessels and heart contraction.",
+      "claimCategory": "physiology",
+      "importance": "medium",
+      "interpretationNotes": "Introduction. The paragraph's statements about drug targets and diseases, and Table 1, are not carried. Describes the body's own signalling, not any treatment.",
+      "uncertaintyText": "Foundational statement from a peer-reviewed review, not a systematic review. It describes general biology and says nothing about any peptide product or treatment.",
+      "evidence": [
+        {
+          "locationKey": "end-16",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Physiological roles of family B peptide-hormone receptors.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
+        },
+        {
+          "locationKey": "end-16-2",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Processes family B receptors modulate.",
           "primaryTrace": "cited_not_obtained",
           "primaryTraceNote": "The review's own statement, with no citation attached; nothing behind it can be traced."
         }

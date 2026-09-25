@@ -11,15 +11,24 @@
  *   - NOT REPORTED — a record does not specify the field.
  *
  * Every individual cell is therefore either `reported` or `not_reported`, and a
- * field as a whole is one of four states:
+ * field as a whole is one of five states:
  *
  *   - `agreement`  — at least two cells are reported, and all reported cells share
  *                    one normalised wording.
- *   - `difference` — at least two cells are reported, and they carry two or more
- *                    normalised wordings.
+ *   - `difference` — at least two cells are reported, they carry two or more
+ *                    normalised wordings, and the reported cells come from more
+ *                    than one source. A difference *between sources*.
+ *   - `variation`  — at least two cells are reported and they carry two or more
+ *                    normalised wordings, but every reported cell comes from the
+ *                    same source: one handbook giving two schedules for two
+ *                    purposes. Real, and worth seeing, but it is not one source
+ *                    contradicting another, so it is never called a difference.
  *   - `single`     — exactly one cell is reported. Neither agreement nor
  *                    difference: there is nothing to compare it with.
  *   - `none`       — no cell is reported.
+ *
+ * A cell with no source key counts as its own source, so a record whose source
+ * is unknown can never make a difference look like within-source variation.
  *
  * Not-reported cells take no part in the classification at all. A field reported
  * by one record and left unspecified by four is `single`, never `difference`.
@@ -53,7 +62,10 @@
  */
 
 export type CellState = 'reported' | 'not_reported';
-export type FieldState = 'agreement' | 'difference' | 'single' | 'none';
+export type FieldState = 'agreement' | 'difference' | 'variation' | 'single' | 'none';
+
+/** Every state, in the order surfaces list them. */
+export const FIELD_STATES: readonly FieldState[] = ['agreement', 'difference', 'variation', 'single', 'none'];
 
 export interface ComparisonInput {
   /** The value exactly as the record holds it. */
@@ -110,6 +122,13 @@ export interface FieldClassification {
    * it is not a difference *between sources*, and the label says so.
    */
   readonly acrossSources: boolean;
+  /**
+   * Source keys whose own reported cells carry two or more wordings, in order of
+   * first appearance. Set on `variation` (exactly one key) and also on a
+   * `difference` where, besides differing from other sources, one source's
+   * records also vary among themselves. Cells without a source key never count.
+   */
+  readonly sourcesWithVariation: readonly string[];
   /** Column indexes that do not report the field. */
   readonly notReportedColumns: readonly number[];
 }
@@ -262,14 +281,28 @@ export function classifyField(inputs: readonly ComparisonInput[]): FieldClassifi
     ),
   );
 
+  const acrossSources = reportingSources.size > 1;
   const state: FieldState =
     reportedCount === 0
       ? 'none'
       : reportedCount === 1
         ? 'single'
-        : wordings.length > 1
-          ? 'difference'
-          : 'agreement';
+        : wordings.length === 1
+          ? 'agreement'
+          : acrossSources
+            ? 'difference'
+            : 'variation';
+
+  const wordingsBySource = new Map<string, Set<number>>();
+  for (const cell of cells) {
+    if (cell.state !== 'reported' || cell.sourceKey === null || cell.wording === null) continue;
+    const set = wordingsBySource.get(cell.sourceKey) ?? new Set<number>();
+    set.add(cell.wording);
+    wordingsBySource.set(cell.sourceKey, set);
+  }
+  const sourcesWithVariation = [...wordingsBySource.entries()]
+    .filter(([, set]) => set.size > 1)
+    .map(([key]) => key);
 
   return {
     state,
@@ -279,7 +312,8 @@ export function classifyField(inputs: readonly ComparisonInput[]): FieldClassifi
     reportedCount,
     notReportedCount: cells.length - reportedCount,
     reportingSourceCount: reportingSources.size,
-    acrossSources: reportingSources.size > 1,
+    acrossSources,
+    sourcesWithVariation,
     notReportedColumns: cells.flatMap((c, column) => (c.state === 'not_reported' ? [column] : [])),
   };
 }
@@ -288,8 +322,14 @@ export function classifyField(inputs: readonly ComparisonInput[]): FieldClassifi
 export const FIELD_STATE_TERM: Readonly<Record<FieldState, string>> = {
   agreement: 'Agreement',
   difference: 'Difference',
-  single: 'Reported by one only',
+  variation: 'Within-source variation',
+  single: 'One source only',
   none: 'Not reported',
 };
+
+/** Whether the field's reported wordings differ at all, between sources or within one. */
+export function hasDistinctWordings(state: FieldState): boolean {
+  return state === 'difference' || state === 'variation';
+}
 
 export const NOT_REPORTED_TERM = 'Not reported';

@@ -482,3 +482,45 @@ constrains; none needs revisiting unless a source contradicts it.
   deterministic and its rule is recorded on every row.
 - **D-20 · Reviewer onboarding.** Not built yet. The admin form is written
   when the reviewer is ready to enter the workflow.
+
+---
+
+## Superseded by the owner decision of 24 September 2026
+
+Nothing above has been edited. This entry records which of the decisions above
+were answered — or made moot — by the owner's instruction that publication and
+human review are separate states, and that human review is not a condition of
+public visibility.
+
+**The general change.** Every decision above that was framed as "this cannot be
+public until a person reviews it" now reads differently. Such content becomes
+public on provenance and completeness, and states its own review status on the
+page. Implemented in migration `0029_publication_separate_from_review.sql`;
+recorded in `docs/LOCKED_DECISIONS.md`.
+
+**D-17 · "Ready for review" is a mechanical result — ANSWERED, and the risk it
+named is now handled in the product.** The worry was that "12 of 12 ready" would
+be read as "12 of 12 reviewed". Every published record now carries its review
+status in words on the page itself, and says plainly that being public is not
+the same as having been checked by a person. The distinction is no longer
+something a reader has to infer from a command's output.
+
+**D-20 · Reviewer identity — STILL OPEN, and now the gating item for review
+rather than for publication.** The data model is ready; no reviewer is
+onboarded, no Supabase auth is provisioned, and no human review has been
+recorded against any record. That no longer prevents publication. It is what
+stands between the current library and a library with genuine assurance on it.
+
+**D-16 · Understanding Peptides chapters — UNAFFECTED HERE.** It concerns a
+publication, and publications are deferred until the website is online.
+
+**D-06 · Tremblay / CanLab — UNAFFECTED.** Still not held; still nothing
+attributed to it. Awaiting the owner's archive.
+
+**Not superseded: the synthesis review gate.** The decision of 21 September that
+compound-specific and interpretive Tides syntheses require an approved human
+scientific review before publication still stands, and `editorial_syntheses`
+were deliberately left unpublished on 24 September. A synthesis is this index's
+own conclusion rather than a sourced fact, which is a different question from
+making sourced content visible. Six syntheses are affected. Whether that gate
+should also be lifted is an open decision for the owner.

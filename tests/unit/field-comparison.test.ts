@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
+  FIELD_STATES,
+  FIELD_STATE_TERM,
   absenceNote,
   classifyField,
+  hasDistinctWordings,
   isNotReported,
   normaliseForComparison,
   wordingLetter,
@@ -145,15 +148,66 @@ describe('field classification', () => {
     ]);
   });
 
-  it('says when a difference sits within one source’s records', () => {
+  it('classifies differing wordings from one source as within-source variation, not difference', () => {
     const result = classifyField([
       { value: '250 mcg', sourceKey: 'SRC-004' },
       { value: '500 mcg', sourceKey: 'SRC-004' },
       { value: null, sourceKey: 'SRC-009' },
     ]);
-    expect(result.state).toBe('difference');
+    expect(result.state).toBe('variation');
     expect(result.acrossSources).toBe(false);
     expect(result.reportingSourceCount).toBe(1);
+    expect(result.sourcesWithVariation).toEqual(['SRC-004']);
+    expect(result.wordings.map((w) => w.letter)).toEqual(['A', 'B']);
+  });
+
+  it('keeps a difference between sources a difference, and notes variation inside it', () => {
+    const result = classifyField([
+      { value: '250 mcg', sourceKey: 'SRC-004' },
+      { value: '500 mcg', sourceKey: 'SRC-004' },
+      { value: '250 mcg', sourceKey: 'SRC-009' },
+    ]);
+    expect(result.state).toBe('difference');
+    expect(result.acrossSources).toBe(true);
+    expect(result.sourcesWithVariation).toEqual(['SRC-004']);
+  });
+
+  it('never calls differing wordings from different sources variation, even when each source is internally consistent', () => {
+    const result = classifyField([
+      { value: '250 mcg', sourceKey: 'SRC-004' },
+      { value: '250 mcg', sourceKey: 'SRC-004' },
+      { value: '500 mcg', sourceKey: 'SRC-009' },
+    ]);
+    expect(result.state).toBe('difference');
+    expect(result.sourcesWithVariation).toEqual([]);
+  });
+
+  it('treats records without a source key as separate sources, so they cannot pass for variation', () => {
+    const result = classifyField([{ value: '250 mcg' }, { value: '500 mcg' }]);
+    expect(result.state).toBe('difference');
+    expect(result.sourcesWithVariation).toEqual([]);
+  });
+
+  it('keeps agreement within one source as agreement', () => {
+    const result = classifyField([
+      { value: 'Subcutaneous', sourceKey: 'SRC-005' },
+      { value: 'subcutaneous.', sourceKey: 'SRC-005' },
+    ]);
+    expect(result.state).toBe('agreement');
+    expect(result.acrossSources).toBe(false);
+  });
+
+  it('names the five states in the owner’s words', () => {
+    expect(FIELD_STATES.map((s) => FIELD_STATE_TERM[s])).toEqual([
+      'Agreement',
+      'Difference',
+      'Within-source variation',
+      'One source only',
+      'Not reported',
+    ]);
+    expect(hasDistinctWordings('difference')).toBe(true);
+    expect(hasDistinctWordings('variation')).toBe(true);
+    expect(hasDistinctWordings('agreement')).toBe(false);
   });
 
   it('keeps the note a qualified placeholder carries', () => {

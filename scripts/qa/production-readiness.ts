@@ -42,7 +42,7 @@ try {
   const [counts] = await rows<{
     demonstration_records: number;
     demonstration_approvals: number;
-    published_without_approval: number;
+    review_date_without_approval: number;
   }>(sql`
     select
       tides_demonstration_record_count() as demonstration_records,
@@ -51,18 +51,30 @@ try {
         where p.is_demonstration) as demonstration_approvals,
       (
         (select count(*)::int from claims c
-          where c.publication_state = 'published'
-            and not tides_has_approved_review('claim', c.id, c.version, 'scientific'))
+          where c.last_reviewed_at is not null
+            and not exists (select 1 from reviews r
+                             where r.entity_type = 'claim' and r.entity_id = c.id
+                               and r.entity_version = c.version and r.outcome = 'approved'
+                               and r.performed_by = 'human' and r.reviewer_user_id is not null))
         + (select count(*)::int from quality_topics q
-            where q.publication_state = 'published'
-              and not tides_has_approved_review('quality_topic', q.id, q.version, 'scientific'))
+            where q.last_reviewed_at is not null
+              and not exists (select 1 from reviews r
+                               where r.entity_type = 'quality_topic' and r.entity_id = q.id
+                                 and r.entity_version = q.version and r.outcome = 'approved'
+                                 and r.performed_by = 'human' and r.reviewer_user_id is not null))
         + (select count(*)::int from protocols p
-            where p.publication_state = 'published'
-              and not tides_has_approved_review('protocol', p.id, p.version, 'scientific'))
+            where p.last_reviewed_at is not null
+              and not exists (select 1 from reviews r
+                               where r.entity_type = 'protocol' and r.entity_id = p.id
+                                 and r.entity_version = p.version and r.outcome = 'approved'
+                                 and r.performed_by = 'human' and r.reviewer_user_id is not null))
         + (select count(*)::int from peptides pe
-            where pe.publication_state = 'published'
-              and not tides_has_approved_review('peptide', pe.id, pe.version, 'scientific'))
-      ) as published_without_approval
+            where pe.last_reviewed_at is not null
+              and not exists (select 1 from reviews r
+                               where r.entity_type = 'peptide' and r.entity_id = pe.id
+                                 and r.entity_version = pe.version and r.outcome = 'approved'
+                                 and r.performed_by = 'human' and r.reviewer_user_id is not null))
+      ) as review_date_without_approval
   `);
 
   /*
@@ -99,7 +111,7 @@ try {
   const facts: ProductionFacts = {
     demonstrationRecords: Number(counts!.demonstration_records),
     approvalsByDemonstrationReviewers: Number(counts!.demonstration_approvals),
-    publishedWithoutStandingApproval: Number(counts!.published_without_approval),
+    reviewDateWithoutApproval: Number(counts!.review_date_without_approval),
     fixtureRecords: fixtures.length,
     privateColumnsExposed: exposed.map((row) => `${row.table_name}.${row.column_name}`),
     previewEnabled: process.env.TIDES_PREVIEW_UNPUBLISHED === '1',

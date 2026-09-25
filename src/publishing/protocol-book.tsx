@@ -18,12 +18,19 @@ import {
 import { SeriesMark } from './figures';
 import type { LibraryProtocol, ProtocolLibrary } from '@/server/public/protocol-library';
 import { amountAsReported } from '@/domain/protocols/amount';
-import { absenceNote, isNotReported, type FieldState } from '@/domain/protocols/field-comparison';
 import {
-  compareProtocolFields,
-  groupByState,
-  type ProtocolFieldComparison,
-} from '@/domain/protocols/protocol-comparison';
+  absenceNote,
+  hasDistinctWordings,
+  isNotReported,
+  type FieldState,
+} from '@/domain/protocols/field-comparison';
+import { compareProtocolFields, type ProtocolFieldComparison } from '@/domain/protocols/protocol-comparison';
+import {
+  buildCompoundOverview,
+  truncateWording,
+  type CompoundOverview,
+  type OverviewList,
+} from '@/domain/protocols/compound-overview';
 import type { PeptidePage } from '@/server/public/queries';
 
 /**
@@ -37,16 +44,21 @@ import type { PeptidePage } from '@/server/public/queries';
  * list of eighty-four regimens still has to do the work the book should have
  * done: find the four entries for this compound, work out which came from a
  * trial and which from a handbook, and notice that two of them disagree. So
- * each compound now opens with an overview, then a source-to-source comparison
- * of every field, then the full entries, then what the sources disagree about
- * and what nobody has tested.
+ * each compound now opens with a one-page overview (built by
+ * `@/domain/protocols/compound-overview`, which selects and counts but never
+ * computes a value), then a source-to-source comparison of every field, then
+ * the full entries, then what the sources disagree about and what nobody has
+ * tested.
  *
  * The comparison follows the owner's closed decision on semantics, through the
  * same classifier as the website (`@/domain/protocols/field-comparison`):
  * AGREEMENT where two or more regimens report a field alike, DIFFERENCE where
- * two or more report it differently, NOT REPORTED where a source does not
- * specify it. Silence is never counted as a difference. A field only one
- * regimen reports is marked as such — it is neither.
+ * regimens from different sources report it differently, WITHIN-SOURCE
+ * VARIATION where the differing regimens all come from one source, NOT
+ * REPORTED where a source does not specify it. Silence is never counted as a
+ * difference. A field only one regimen reports is marked ONE SOURCE ONLY — it
+ * is neither. A field no regimen reports gets no row anywhere: it is named
+ * once, in a single line.
  *
  * Every wording in the grid carries the regimens and sources that report it.
  * There is no Tides row, no consensus row, no average and no range.
@@ -150,6 +162,12 @@ const STATE_STYLE: Readonly<
   Record<FieldState | 'not_reported', { word: string; ink: string; bar: string; bg: string | undefined }>
 > = {
   difference: { word: 'Difference', ink: colour.caution, bar: colour.caution, bg: colour.cautionBg },
+  variation: {
+    word: 'Within-source variation',
+    ink: colour.caution,
+    bar: colour.cautionRule,
+    bg: colour.cautionBg,
+  },
   agreement: { word: 'Agreement', ink: colour.tideTeal, bar: colour.tideTeal, bg: undefined },
   single: { word: 'One source only', ink: colour.inkSoft, bar: colour.rule, bg: undefined },
   none: { word: 'Not reported', ink: colour.slate, bar: colour.ruleSoft, bg: undefined },
@@ -158,13 +176,22 @@ const STATE_STYLE: Readonly<
 
 /**
  * Solid bar: a source reports the field. Dashed bar: silence.
- * Equals for agreement, struck equals for difference, one solid over one dashed
+ * Equals for agreement, struck equals for difference, two short solid bars
+ * offset from each other for within-source variation, one solid over one dashed
  * for a field one regimen reports, two dashed for not reported.
  */
 function StateMark({ state, size = 9 }: { state: FieldState | 'not_reported'; size?: number }) {
   const ink = STATE_STYLE[state].ink;
   const solid = { stroke: ink, strokeWidth: 1.7, strokeLinecap: 'round' as const };
   const dashed = { stroke: ink, strokeWidth: 1.2, strokeDasharray: '1.6 1.6' };
+  if (state === 'variation') {
+    return (
+      <Svg width={size} height={size} viewBox="0 0 12 12" style={{ marginRight: 4, marginTop: 0.5 }}>
+        <Line x1={1.2} y1={4.2} x2={7.2} y2={4.2} {...solid} />
+        <Line x1={4.8} y1={7.8} x2={10.8} y2={7.8} {...solid} />
+      </Svg>
+    );
+  }
   const top = state === 'none' || state === 'not_reported' ? dashed : solid;
   const bottom = state === 'agreement' || state === 'difference' ? solid : dashed;
   return (
@@ -182,6 +209,7 @@ function StateWord({ state }: { state: FieldState | 'not_reported' }) {
       <StateMark state={state} />
       <Text
         style={{
+          flexShrink: 1,
           fontFamily: sans,
           fontSize: type.micro,
           fontWeight: state === 'difference' ? 600 : 400,
@@ -312,7 +340,14 @@ function stateDetail(c: ProtocolFieldComparison): string {
   const of = `${String(c.reportedCount)} of ${String(c.total)}`;
   switch (c.state) {
     case 'difference':
-      return `${String(c.wordings.length)} wordings · ${of} report${c.acrossSources ? '' : ' · within one source'}`;
+      return [
+        `${String(c.wordings.length)} wordings · ${String(c.reportingSourceCount)} sources · ${of} report`,
+        ...(c.sourcesWithVariation.length > 0
+          ? [`also varies within ${c.sourcesWithVariation.join(', ')}`]
+          : []),
+      ].join(' · ');
+    case 'variation':
+      return `${String(c.wordings.length)} wordings, all from ${c.sourcesWithVariation[0] ?? 'one source'} · ${of} report`;
     case 'agreement':
       return `${of} report alike${c.acrossSources ? '' : ' · within one source'}`;
     case 'single':
@@ -426,14 +461,14 @@ function FieldGroup({
               ) : null}
             </View>
             <View style={{ flex: 1, flexDirection: 'row', paddingRight: 8 }}>
-              {state === 'difference' ? <LetterTag letter={wording.letter} /> : null}
+              {hasDistinctWordings(state) ? <LetterTag letter={wording.letter} /> : null}
               <Text
                 style={{
                   flex: 1,
                   fontFamily: serif,
                   fontSize: type.small,
                   lineHeight: leading.tight,
-                  color: state === 'difference' ? colour.ink : colour.inkSoft,
+                  color: hasDistinctWordings(state) ? colour.ink : colour.inkSoft,
                 }}
               >
                 {wording.value}
@@ -504,6 +539,35 @@ function FieldGroup({
   );
 }
 
+/**
+ * Fields nobody reports, named once. Printed above the grid rather than as a
+ * row at its foot: the row repeated "not reported" for every regimen and, at the
+ * end of a long grid, often landed alone on a page of its own.
+ */
+function NotReportedByAny({ labels, by }: { labels: readonly string[]; by: string }) {
+  if (labels.length === 0) return null;
+  return (
+    <View
+      wrap={false}
+      style={{ flexDirection: 'row', alignItems: 'flex-start', marginTop: 6, marginBottom: 2 }}
+    >
+      <StateMark state="none" />
+      <Text
+        style={{
+          flex: 1,
+          fontFamily: sans,
+          fontSize: type.micro,
+          lineHeight: leading.tight,
+          color: colour.slate,
+        }}
+      >
+        <Text style={{ color: colour.inkSoft, fontWeight: 500 }}>Not reported by any {by}: </Text>
+        {labels.join(' · ')}.
+      </Text>
+    </View>
+  );
+}
+
 function ComparisonGrid({
   comparisons,
   protocols,
@@ -512,7 +576,6 @@ function ComparisonGrid({
   protocols: readonly LibraryProtocol[];
 }) {
   const shown = comparisons.filter((c) => c.state !== 'none');
-  const none = comparisons.filter((c) => c.state === 'none');
   return (
     <View style={{ marginTop: 8, marginBottom: 6 }}>
       {/* Repeats at the top of every page the grid runs onto. */}
@@ -535,100 +598,280 @@ function ComparisonGrid({
       {shown.map((comparison) => (
         <FieldGroup key={comparison.field.key} comparison={comparison} protocols={protocols} />
       ))}
-      {none.length === 0 ? null : (
-        <GridRow state="none" first last>
-          <Text
-            style={{
-              width: COL.field,
-              paddingRight: 6,
-              fontFamily: sans,
-              fontSize: type.micro,
-              letterSpacing: 0.6,
-              textTransform: 'uppercase',
-              lineHeight: leading.tight,
-              color: colour.slate,
-            }}
-          >
-            {none.map((c) => c.field.label).join(' · ')}
-          </Text>
-          <View style={{ width: COL.state, paddingRight: 6 }}>
-            <StateWord state="none" />
-          </View>
-          <Text
-            style={{
-              flex: 1,
-              paddingRight: 8,
-              fontFamily: serif,
-              fontSize: type.small,
-              fontStyle: 'italic',
-              lineHeight: leading.tight,
-              color: colour.slate,
-            }}
-          >
-            — No regimen here specifies {none.length === 1 ? 'this field' : 'these fields'}
-          </Text>
-          <Text style={{ width: COL.by, fontFamily: sans, fontSize: type.micro, color: colour.slate }}>
-            All {protocols.length}
-          </Text>
-        </GridRow>
-      )}
     </View>
   );
 }
 
-/** The four states at a glance, above the grid. */
-function StateSummary({ comparisons }: { comparisons: readonly ProtocolFieldComparison[] }) {
-  const byState = groupByState(comparisons);
-  const items: readonly [FieldState, string, readonly ProtocolFieldComparison[]][] = [
-    ['difference', 'Difference', byState.difference],
-    ['agreement', 'Agreement', byState.agreement],
-    ['single', 'Reported by one source only', byState.single],
-    ['none', 'Not reported by any', byState.none],
-  ];
+/* ==========================================================================
+   The one-page compound overview
+   ========================================================================== */
+
+const OVERVIEW_LABEL = 96;
+
+const ovText = {
+  fontFamily: serif,
+  fontSize: type.caption,
+  lineHeight: leading.tight,
+  color: colour.inkSoft,
+} as const;
+
+const ovMuted = {
+  fontFamily: sans,
+  fontSize: type.micro,
+  lineHeight: leading.tight,
+  color: colour.slate,
+} as const;
+
+const refs = (columns: readonly number[]) => columns.map(regimenRef).join(', ');
+
+function OverviewSection({
+  state,
+  title,
+  count,
+  children,
+}: {
+  state?: FieldState;
+  title: string;
+  count?: number;
+  children: ReactNode;
+}) {
+  const ink = state === undefined ? colour.deepTide : STATE_STYLE[state].ink;
   return (
-    <View
-      wrap={false}
-      style={{
-        borderWidth: 0.75,
-        borderColor: colour.rule,
-        backgroundColor: colour.white,
-        borderRadius: 3,
-        paddingVertical: 7,
-        paddingHorizontal: 10,
-        marginTop: 4,
-      }}
-    >
-      {items.map(([state, title, list]) => (
-        <View key={state} style={{ flexDirection: 'row', marginVertical: 1.5 }}>
-          <View style={{ width: 188, flexDirection: 'row', alignItems: 'center', paddingRight: 8 }}>
-            <StateMark state={state} />
-            <Text
-              style={{
-                fontFamily: sans,
-                fontSize: type.micro,
-                letterSpacing: 0.6,
-                textTransform: 'uppercase',
-                fontWeight: state === 'difference' ? 600 : 400,
-                color: STATE_STYLE[state].ink,
-              }}
-            >
-              {title} ({list.length})
-            </Text>
-          </View>
-          <Text
-            style={{
-              flex: 1,
-              fontFamily: serif,
-              fontSize: type.caption,
-              lineHeight: leading.tight,
-              color: list.length === 0 ? colour.slate : colour.inkSoft,
-            }}
-          >
-            {list.length === 0 ? '—' : list.map((c) => c.field.label).join(' · ')}
-          </Text>
-        </View>
-      ))}
+    <View style={{ marginTop: 8 }} wrap={false}>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          borderBottomWidth: 0.5,
+          borderBottomColor: colour.rule,
+          paddingBottom: 2.5,
+          marginBottom: 2.5,
+        }}
+      >
+        {state === undefined ? null : <StateMark state={state} />}
+        <Text
+          style={{
+            fontFamily: sans,
+            fontSize: type.micro,
+            letterSpacing: 0.8,
+            textTransform: 'uppercase',
+            fontWeight: state === 'difference' ? 600 : 500,
+            color: ink,
+          }}
+        >
+          {title}
+          {count === undefined ? '' : ` (${String(count)})`}
+        </Text>
+      </View>
+      {children}
     </View>
+  );
+}
+
+function OverviewRow({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <View style={{ flexDirection: 'row', marginTop: 1.5 }}>
+      <Text
+        style={{
+          width: OVERVIEW_LABEL,
+          paddingRight: 6,
+          paddingTop: 1,
+          fontFamily: sans,
+          fontSize: 6.6,
+          letterSpacing: 0.4,
+          textTransform: 'uppercase',
+          lineHeight: leading.tight,
+          color: colour.ink,
+        }}
+      >
+        {label}
+      </Text>
+      <Text style={{ ...ovText, flex: 1 }}>{children}</Text>
+    </View>
+  );
+}
+
+function Omitted({ list }: { list: OverviewList<unknown> }) {
+  if (list.omitted.length === 0) return null;
+  return (
+    <Text style={{ ...ovMuted, marginTop: 2, paddingLeft: OVERVIEW_LABEL }}>
+      and {list.omitted.length} more, shortened to fit this page: {list.omitted.join(' · ')} — each in
+      the detailed comparison.
+    </Text>
+  );
+}
+
+const None = () => <Text style={{ ...ovMuted, marginTop: 1 }}>None.</Text>;
+
+/**
+ * Sources, routes and the five states on one page, before any regimen is read.
+ *
+ * Counts, field names, source keys and — for agreement only — the wording the
+ * regimens share, quoted as recorded. No amount is computed, no range drawn and
+ * no regimen singled out; every list keeps the book's own order of regimens and
+ * orders only fields. Lists too long for the page are shortened by the fitting
+ * rule in `@/domain/protocols/compound-overview`, and what is shortened is still
+ * named.
+ */
+function CompoundOverviewPage({
+  name,
+  overview,
+  protocols,
+  record,
+}: {
+  name: string;
+  overview: CompoundOverview;
+  protocols: readonly LibraryProtocol[];
+  record: PeptidePage | undefined;
+}) {
+  const fromStudy = protocols.filter((p) => contextOf(p).order <= 5).length;
+  const facts = [
+    fromStudy === 0
+      ? 'No regimen from a label or a human study'
+      : `From a label or a human study: ${String(fromStudy)} of ${String(protocols.length)}`,
+    record === undefined
+      ? 'Record not loaded'
+      : `Recorded as unsettled on this compound: ${String(record.gaps.length)} points`,
+  ].join(' · ');
+
+  return (
+    <PublicationPage publication={PUBLICATION} section={name}>
+      <ChapterOpener
+        eyebrow="Compound · overview"
+        title={name}
+        standfirst={`${String(overview.regimenCount)} recorded regimen${overview.regimenCount === 1 ? '' : 's'} from ${String(overview.sourceCount)} source${overview.sourceCount === 1 ? '' : 's'}.`}
+      />
+      <Text style={{ ...ovMuted, color: colour.inkSoft, marginTop: -4 }}>{facts}</Text>
+      {record?.shortDescription === undefined || record.shortDescription === null ? null : (
+        <Text style={{ ...ovText, fontSize: type.small, marginTop: 5 }}>{record.shortDescription}</Text>
+      )}
+
+      <OverviewSection title="Sources represented" count={overview.sourceCount}>
+        {overview.sources.shown.map((source) => {
+          const lead = `${source.kinds.join('; ')} · ${refs(source.columns)}`;
+          const title =
+            source.title === null
+              ? 'Title not recorded'
+              : truncateWording(source.title, Math.max(30, 96 - lead.length)).text;
+          return (
+            <OverviewRow key={source.sourceKey} label={source.sourceKey}>
+              <Text style={{ fontFamily: sans, fontSize: type.micro, color: colour.slate }}>
+                {lead} —{' '}
+              </Text>
+              {title}
+            </OverviewRow>
+          );
+        })}
+        <Omitted list={overview.sources} />
+      </OverviewSection>
+
+      <OverviewSection title="Routes represented" count={overview.routes.length}>
+        <Text style={ovText}>
+          {overview.routes.length === 0
+            ? 'No regimen reports a route.'
+            : overview.routes.map((r) => `${r.route} (${refs(r.columns)})`).join(' · ')}
+          {overview.routeNotReportedColumns.length === 0 ? null : (
+            <Text style={{ color: colour.slate, fontStyle: 'italic' }}>
+              {'  '}— not reported by {refs(overview.routeNotReportedColumns)}
+            </Text>
+          )}
+        </Text>
+      </OverviewSection>
+
+      {overview.compared ? (
+        <>
+          <OverviewSection state="agreement" title="Areas of agreement" count={overview.agreement.total}>
+            {overview.agreement.shown.length === 0 ? <None /> : null}
+            {overview.agreement.shown.map((item) => (
+              <OverviewRow key={item.comparison.field.key} label={item.comparison.field.label}>
+                “{item.wording}”
+                <Text style={{ fontFamily: sans, fontSize: type.micro, color: colour.slate }}>
+                  {'  '}
+                  {item.comparison.reportedCount} of {item.comparison.total} report alike
+                  {item.withinSource === null ? '' : ` · all within ${item.withinSource}`}
+                </Text>
+              </OverviewRow>
+            ))}
+            <Omitted list={overview.agreement} />
+          </OverviewSection>
+
+          <OverviewSection
+            state="difference"
+            title="Major differences between sources"
+            count={overview.difference.total}
+          >
+            {overview.difference.shown.length === 0 ? <None /> : null}
+            {overview.difference.shown.map((item) => (
+              <OverviewRow key={item.comparison.field.key} label={item.comparison.field.label}>
+                {item.wordingCount} distinct wordings from {item.sourceKeys.join(', ')}
+                {item.variesWithin.length === 0 ? '' : ` · also varies within ${item.variesWithin.join(', ')}`}
+              </OverviewRow>
+            ))}
+            <Omitted list={overview.difference} />
+          </OverviewSection>
+
+          <OverviewSection
+            state="variation"
+            title="Within-source variation"
+            count={overview.variation.total}
+          >
+            {overview.variation.shown.length === 0 ? <None /> : null}
+            {overview.variation.shown.map((item) => (
+              <OverviewRow key={item.comparison.field.key} label={item.comparison.field.label}>
+                {item.wordingCount} wordings, all from {item.sourceKey} (
+                {refs(item.comparison.wordings.flatMap((w) => w.columns).sort((a, b) => a - b))})
+              </OverviewRow>
+            ))}
+            <Omitted list={overview.variation} />
+          </OverviewSection>
+
+          <OverviewSection state="single" title="One source only" count={overview.single.total}>
+            {overview.single.shown.length === 0 ? (
+              <None />
+            ) : (
+              <Text style={ovText}>
+                {overview.single.shown
+                  .map((s) => `${s.comparison.field.label} (${regimenRef(s.column)} ${s.sourceKey ?? ''})`.replace(' )', ')'))
+                  .join(' · ')}
+              </Text>
+            )}
+            <Omitted list={overview.single} />
+          </OverviewSection>
+        </>
+      ) : (
+        <OverviewSection title="Comparison">
+          <Text style={ovText}>
+            One regimen on file, so there is nothing to set it beside: no field can agree, differ or
+            vary. It is printed in full overleaf.
+          </Text>
+        </OverviewSection>
+      )}
+
+      <OverviewSection state="none" title="Important fields not reported">
+        <OverviewRow label="By any regimen">
+          {overview.notReportedByAny.length === 0
+            ? 'None — every field is reported by at least one regimen.'
+            : `${overview.notReportedByAny.join(' · ')}.`}
+        </OverviewRow>
+        {overview.compared && overview.keyGaps.shown.length > 0 ? (
+          <OverviewRow label="By some regimens">
+            {overview.keyGaps.shown
+              .map(
+                (g) =>
+                  `${g.comparison.field.label}: not reported by ${String(g.notReportedCount)} of ${String(g.total)}`,
+              )
+              .join(' · ')}
+          </OverviewRow>
+        ) : null}
+        <Omitted list={overview.keyGaps} />
+      </OverviewSection>
+
+      <Text style={{ ...ovMuted, marginTop: 10 }}>
+        Counts, field names and source keys; the only wordings on this page are the ones regimens
+        share, quoted as recorded. Nothing here is averaged, ranged or recommended, and agreement is
+        not evidence that a value is right. The detailed comparison and every regimen in full follow.
+      </Text>
+    </PublicationPage>
   );
 }
 
@@ -636,7 +879,22 @@ function StateSummary({ comparisons }: { comparisons: readonly ProtocolFieldComp
    Entries
    ========================================================================== */
 
-function Entry({ protocol, index }: { protocol: LibraryProtocol; index: number }) {
+/** Entry fields no regimen of the compound reports: left out of every entry, and named once. */
+function silentEverywhere(protocols: readonly LibraryProtocol[]): ReadonlySet<string> {
+  return new Set(
+    FIELDS.filter(([, read]) => protocols.every((p) => isNotReported(read(p)))).map(([label]) => label),
+  );
+}
+
+function Entry({
+  protocol,
+  index,
+  omit,
+}: {
+  protocol: LibraryProtocol;
+  index: number;
+  omit: ReadonlySet<string>;
+}) {
   const context = contextOf(protocol);
   return (
     <View style={{ ...RULE, paddingVertical: 8 }} wrap={false}>
@@ -668,7 +926,9 @@ function Entry({ protocol, index }: { protocol: LibraryProtocol; index: number }
         {protocol.objectiveContext}
       </Text>
       <View style={{ marginTop: 4 }}>
-        {FIELDS.filter(([label, read]) => read(protocol) !== null || ALWAYS.has(label)).map(
+        {FIELDS.filter(
+          ([label, read]) => !omit.has(label) && (read(protocol) !== null || ALWAYS.has(label)),
+        ).map(
           ([label, read]) => {
             const value = read(protocol);
             const silent = isNotReported(value);
@@ -745,14 +1005,10 @@ function CompoundSection({
   protocols: readonly LibraryProtocol[];
   record: PeptidePage | undefined;
 }) {
-  const sources = new Set(protocols.flatMap((p) => p.sources.map((s) => s.sourceKey)));
-  const reportedRoutes = [
-    ...new Set(protocols.map((p) => p.routeName).filter((r): r is string => !isNotReported(r))),
-  ];
-  const silentRoutes = protocols.filter((p) => isNotReported(p.routeName)).length;
-  const kinds = [...new Set(protocols.map((p) => contextOf(p).label))];
-  const fromStudy = protocols.filter((p) => contextOf(p).order <= 5).length;
+  const overview = buildCompoundOverview(protocols, (p) => contextOf(p as LibraryProtocol).label);
   const comparisons = protocols.length > 1 ? compareProtocolFields(protocols) : [];
+  const noneLabels = comparisons.filter((c) => c.state === 'none').map((c) => c.field.label);
+  const omitFromEntries = silentEverywhere(protocols);
   const questions =
     record?.gaps.filter(
       (gap) =>
@@ -768,68 +1024,25 @@ function CompoundSection({
 
   return (
     <>
-      {/* --- Overview and comparison ------------------------------------- */}
+      {/* --- One-page overview --------------------------------------------- */}
+      <CompoundOverviewPage name={name} overview={overview} protocols={protocols} record={record} />
+
+      {/* --- Detailed comparison, then every regimen in full ---------------- */}
       <PublicationPage publication={PUBLICATION} section={name}>
-        <ChapterOpener
-          eyebrow="Compound"
-          title={name}
-          standfirst={`${String(protocols.length)} recorded regimen${protocols.length === 1 ? '' : 's'} from ${String(sources.size)} source${sources.size === 1 ? '' : 's'}.`}
-        />
-
-        {record?.shortDescription === undefined || record.shortDescription === null ? null : (
-          <Lede>{record.shortDescription}</Lede>
-        )}
-
-        <KeptHeading>Before reading the regimens</KeptHeading>
-        <Table
-          head={['', '']}
-          rows={[
-            ['Regimens recorded', String(protocols.length)],
-            [
-              'From a label or a human study',
-              fromStudy === 0
-                ? 'None — every regimen here comes from a handbook, commentary or report'
-                : `${String(fromStudy)} of ${String(protocols.length)}`,
-            ],
-            ['Kinds of source', kinds.join('; ')],
-            [
-              'Routes reported',
-              [
-                reportedRoutes.length === 0 ? 'None reported' : reportedRoutes.join(', '),
-                silentRoutes === 0
-                  ? ''
-                  : `not reported by ${String(silentRoutes)} of ${String(protocols.length)}`,
-              ]
-                .filter((part) => part !== '')
-                .join('; '),
-            ],
-            [
-              'Recorded as unsettled on this compound',
-              record === undefined ? 'Record not loaded' : `${String(record.gaps.length)} points`,
-            ],
-          ]}
-          widths={[1.2, 2.2]}
-        />
-
         <KeptHeading>The regimens</KeptHeading>
         <RegimenIndex protocols={protocols} />
 
-        <KeptHeading ahead={140}>Source to source, field by field</KeptHeading>
-        {protocols.length < 2 ? (
-          <Body>
-            One regimen on file, so there is nothing to set it beside: no field here can agree or
-            differ. It is printed in full overleaf, with every field it does not specify marked as
-            not reported.
-          </Body>
-        ) : (
+        {protocols.length < 2 ? null : (
           <>
+            <KeptHeading ahead={140}>Source to source, field by field</KeptHeading>
             <Body>
               Each field, read across every regimen above. Where regimens report a field
-              differently, each wording is lettered and printed with the regimens that use it. A
-              regimen that does not specify a field is listed as not reported — silence is never
-              counted as a difference, and nothing is filled in from another regimen.
+              differently, each wording is lettered and printed with the regimens that use it —
+              marked as a difference where the wordings come from different sources, and as
+              within-source variation where they all come from one. A regimen that does not specify
+              a field is listed as not reported: silence is never counted as a difference, and
+              nothing is filled in from another regimen.
             </Body>
-            <StateSummary comparisons={comparisons} />
             {/* Before the grid, so it can never be stranded on a page after it. */}
             <Text
               style={{
@@ -849,18 +1062,29 @@ function CompoundSection({
               of a page, and the callout then stood alone on a page of its own.
             */}
             <NotRecommended />
+            <NotReportedByAny labels={noneLabels} by="source" />
             <ComparisonGrid comparisons={comparisons} protocols={protocols} />
           </>
         )}
         {protocols.length < 2 ? <NotRecommended /> : null}
-      </PublicationPage>
 
-      {/* --- Full entries -------------------------------------------------- */}
-      <PublicationPage publication={PUBLICATION} section={name}>
-        <KeptHeading>Every regimen in full</KeptHeading>
-        {protocols.map((protocol, index) => (
-          <Entry key={protocol.id} protocol={protocol} index={index} />
-        ))}
+        {/*
+          The entries follow the grid on the same flow rather than on a fresh
+          page: a grid ending near the top of a page used to leave the rest of
+          that page empty. The heading and the note on omitted fields travel with
+          the first entry, so neither can be stranded.
+        */}
+        {protocols.map((protocol, index) =>
+          index === 0 ? (
+            <View key={protocol.id} wrap={false}>
+              <SectionHeading>Every regimen in full</SectionHeading>
+              <NotReportedByAny labels={[...omitFromEntries]} by="regimen here, so left out of each entry" />
+              <Entry protocol={protocol} index={index} omit={omitFromEntries} />
+            </View>
+          ) : (
+            <Entry key={protocol.id} protocol={protocol} index={index} omit={omitFromEntries} />
+          ),
+        )}
 
         {doseDisagreements.length === 0 ? null : (
           <>
@@ -943,7 +1167,12 @@ const STATE_EXPLAINED: readonly [FieldState | 'not_reported', string, string][] 
   [
     'difference',
     'Difference',
-    'Two or more regimens report the field, and what they report differs. Printed on a tinted band with a heavier rule; each distinct wording carries a letter (A, B, …) and the regimens that use it. Letters group wordings; they carry no rank.',
+    'Regimens from two or more different sources report the field, and what they report differs. Printed on a tinted band with a heavier rule; each distinct wording carries a letter (A, B, …) and the regimens that use it. Letters group wordings; they carry no rank.',
+  ],
+  [
+    'variation',
+    'Within-source variation',
+    'The field is reported in more than one way, but every regimen reporting it comes from the same source — one book giving two schedules for two purposes. Lettered like a difference, with a lighter rule. It is not one source contradicting another.',
   ],
   [
     'agreement',
@@ -958,7 +1187,7 @@ const STATE_EXPLAINED: readonly [FieldState | 'not_reported', string, string][] 
   [
     'not_reported',
     'Not reported',
-    'The source does not specify the field. Listed, muted, under every field it applies to — and never counted as a difference or as agreement.',
+    'The source does not specify the field. Listed, muted, under the field — never counted as a difference or as agreement. A field no regimen reports gets no row: it is named once, in a single line.',
   ],
 ];
 
@@ -973,7 +1202,9 @@ function StateKey() {
             flexDirection: 'row',
             borderLeftWidth: state === 'difference' ? 2.5 : 1.5,
             borderLeftColor: STATE_STYLE[state].bar,
-            ...(state === 'difference' ? { backgroundColor: colour.cautionBg } : {}),
+            ...(hasDistinctWordings(state === 'not_reported' ? 'none' : state)
+              ? { backgroundColor: colour.cautionBg }
+              : {}),
             paddingVertical: 6,
             paddingLeft: 6,
             ...RULE,
@@ -1077,8 +1308,9 @@ export function ProtocolBook({
 
         <KeptHeading ahead={160}>Reading a comparison</KeptHeading>
         <Body>
-          Each compound sets its regimens side by side, one field at a time. Every field is in one
-          of these states, and each is marked by a word and a shape, never by colour alone.
+          Each compound opens with a one-page overview, then sets its regimens side by side, one
+          field at a time. Every field is in one of these states, each marked by a word and a shape,
+          never by colour alone.
         </Body>
         <StateKey />
 
@@ -1126,10 +1358,9 @@ export function ProtocolBook({
       <PublicationPage publication={PUBLICATION} section="Contents">
         <ChapterOpener eyebrow="Contents" title={`${String(compounds.length)} compounds`} />
         {compounds.map(([slug, list]) => {
-          const differences =
-            list.length > 1
-              ? compareProtocolFields(list).filter((c) => c.state === 'difference').length
-              : 0;
+          const states = list.length > 1 ? compareProtocolFields(list).map((c) => c.state) : [];
+          const differences = states.filter((s) => s === 'difference').length;
+          const variations = states.filter((s) => s === 'variation').length;
           return (
             <View
               key={slug}
@@ -1168,8 +1399,11 @@ export function ProtocolBook({
                       }}
                     >
                       {differences > 0
-                        ? `Differences on ${String(differences)} field${differences === 1 ? '' : 's'}`
-                        : 'No differences among reported fields'}
+                        ? `Differences between sources on ${String(differences)} field${differences === 1 ? '' : 's'}`
+                        : 'No differences between sources among reported fields'}
+                      {variations > 0
+                        ? ` · within-source variation on ${String(variations)}`
+                        : ''}
                     </Text>
                   </View>
                 ) : null}
@@ -1202,10 +1436,13 @@ export function ProtocolBook({
           in the words the source used.
         </Body>
         <Body>
-          Comparisons are mechanical. A field is marked as a difference only where two or more
-          regimens report it and their wordings differ after ignoring letter case, spacing,
-          punctuation and unit spacing; a field a source does not specify is not reported, and is
-          never counted either way.
+          Comparisons are mechanical. A field is marked as a difference only where regimens from
+          two or more sources report it and their wordings differ after ignoring letter case,
+          spacing, punctuation and unit spacing, and as within-source variation where the differing
+          regimens all come from one source; a field a source does not specify is not reported, and
+          is never counted either way. The compound overviews count and select from the same
+          classification and compute nothing: where a list is too long for the page it is shortened,
+          and the fields left out are still named.
         </Body>
         <Body>
           No regimen in this book has been through scientific or clinical review, and no record

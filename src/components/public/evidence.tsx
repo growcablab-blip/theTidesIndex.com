@@ -3,6 +3,15 @@ import {
   summariseEvidence,
   type EvidenceTypeDescriptor,
 } from '@/domain/evidence/evidence-types';
+import {
+  countEvidenceRecords,
+  EVIDENCE_LANES,
+  EVIDENCE_RECORD_DEFINITION,
+  EVIDENCE_RECORD_NOUN,
+  formatStatementCount,
+  laneOfClaim,
+  laneOfEvidence,
+} from '@/domain/evidence/evidence-counts';
 import { EditorialStateChip } from './editorial-state';
 import type { EvidenceRecord, PublicClaim } from '@/server/public/queries';
 import { CitationLine } from './citation';
@@ -50,8 +59,24 @@ function toDescriptor(record: EvidenceRecord): EvidenceTypeDescriptor {
  * "7/10" learns nothing they can act on.
  */
 export function EvidenceSnapshot({ claims }: { claims: readonly PublicClaim[] }) {
-  const descriptors = claims.flatMap((claim) => claim.evidence.map(toDescriptor));
+  /*
+   * One descriptor per source per lane, so the sentence ("a single human study
+   * is recorded") reads the same unit as the numbers printed beside it. It used
+   * to read one descriptor per citation, and a trial cited by four statements
+   * counted as four.
+   */
+  const seen = new Set<string>();
+  const descriptors: EvidenceTypeDescriptor[] = [];
+  for (const claim of claims) {
+    for (const evidence of claim.evidence) {
+      const key = `${laneOfEvidence(evidence)}:${String(evidence.isInterpretive)}:${evidence.citation.sourceKey}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      descriptors.push(toDescriptor(evidence));
+    }
+  }
   const snapshot = summariseEvidence(descriptors);
+  const records = countEvidenceRecords(claims);
 
   return (
     <div className="rounded-md border border-rule bg-mist px-5 py-4">
@@ -60,9 +85,9 @@ export function EvidenceSnapshot({ claims }: { claims: readonly PublicClaim[] })
 
       {snapshot.hasAnyEvidence ? (
         <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
-          <CountItem label="Human" value={snapshot.humanCount} />
-          <CountItem label="Preclinical" value={snapshot.preclinicalCount} />
-          <CountItem label="Reference and practice" value={snapshot.interpretiveCount} />
+          {EVIDENCE_LANES.map((lane) => (
+            <CountItem key={lane} label={EVIDENCE_RECORD_NOUN[lane].heading} value={records[lane]} />
+          ))}
         </dl>
       ) : null}
     </div>
@@ -324,35 +349,35 @@ export function ClaimsByEvidenceClass({
   claims: readonly PublicClaim[];
   simple: boolean;
 }) {
-  const human = claims.filter((c) => c.evidence.some((e) => e.isHumanEvidence));
-  const preclinical = claims.filter(
-    (c) =>
-      !c.evidence.some((e) => e.isHumanEvidence) &&
-      c.evidence.some((e) => e.evidenceClass === 'preclinical'),
-  );
-  const reference = claims.filter(
-    (c) =>
-      c.evidence.length > 0 &&
-      !c.evidence.some((e) => e.isHumanEvidence) &&
-      !c.evidence.some((e) => e.evidenceClass === 'preclinical'),
-  );
+  const human = claims.filter((c) => laneOfClaim(c) === 'human');
+  const preclinical = claims.filter((c) => laneOfClaim(c) === 'preclinical');
+  const reference = claims.filter((c) => laneOfClaim(c) === 'reference');
 
   return (
     <div className="space-y-[calc(var(--rhythm)*2)]">
+      {/*
+        Where the counts at the top of the page are defined. Visible text, not a
+        tooltip: a number whose unit has to be hovered for is read without it.
+      */}
+      <p id="how-evidence-is-counted" className="max-w-[64ch] text-sm leading-relaxed text-slate">
+        <span className="font-medium text-ink-soft">How evidence is counted. </span>
+        {simple ? EVIDENCE_RECORD_DEFINITION.simpleFull : EVIDENCE_RECORD_DEFINITION.full}
+        {simple ? null : ' Each statement below is filed under the strongest kind of evidence behind it.'}
+      </p>
       <ClaimGroup
         heading="Human evidence"
         description="Findings from studies carried out in people."
         claims={human}
         simple={simple}
-        emptyHeadline="No reviewed human evidence is currently recorded."
-        emptyDetail="That is a statement about this index, not about the literature: human studies may exist that have not yet been extracted, verified and reviewed here."
+        emptyHeadline="No human evidence is currently recorded here."
+        emptyDetail="That is a statement about this index, not about the literature: human studies may exist that have not yet been extracted and linked to a source here."
       />
       <ClaimGroup
         heading="Preclinical evidence"
         description="Animal and laboratory work. These results do not establish what happens in people."
         claims={preclinical}
         simple={simple}
-        emptyHeadline="No reviewed preclinical evidence is currently recorded."
+        emptyHeadline="No preclinical evidence is currently recorded here."
         emptyDetail="Extraction from the registered sources has not reached this compound yet."
       />
       <ClaimGroup
@@ -360,8 +385,8 @@ export function ClaimsByEvidenceClass({
         description="What textbooks, practitioner references and named clinicians describe. Attributed, and never presented as a study result."
         claims={reference}
         simple={simple}
-        emptyHeadline="No reviewed reference or practitioner statements are currently recorded."
-        emptyDetail="Several registered sources discuss this compound; none has passed source checking and review yet."
+        emptyHeadline="No reference or practitioner statements are currently recorded here."
+        emptyDetail="Several registered sources discuss this compound; none has been extracted into a sourced statement yet."
       />
     </div>
   );
@@ -384,7 +409,13 @@ function ClaimGroup({
 }) {
   return (
     <div>
-      <h3 className="font-serif text-lg text-deep-tide">{heading}</h3>
+      <h3 className="font-serif text-lg text-deep-tide">
+        {heading}
+        {/* Statement counts live here, at depth, and always say "statements". */}
+        {!simple && claims.length > 0 ? (
+          <span className="tabular ml-2 font-sans text-xs text-slate">{formatStatementCount(claims.length)}</span>
+        ) : null}
+      </h3>
       <p className="mt-1 mb-4 max-w-[56ch] text-sm text-slate">{description}</p>
       {claims.length === 0 ? (
         <EmptyState headline={emptyHeadline} detail={emptyDetail} />

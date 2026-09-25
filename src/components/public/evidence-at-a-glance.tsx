@@ -1,4 +1,5 @@
 import type { PeptidePage } from '@/server/public/queries';
+import { countEvidenceRecords, formatEvidenceRecordCount } from '@/domain/evidence/evidence-counts';
 
 /**
  * What a reader needs before they read anything else.
@@ -68,12 +69,12 @@ export function EvidenceAtAGlance({
   peptide: PeptidePage;
   simple: boolean;
 }) {
-  const humanClaims = peptide.claims.filter((claim) =>
-    claim.evidence.some((evidence) => evidence.evidenceClass === 'human'),
-  ).length;
-  const preclinicalClaims = peptide.claims.filter((claim) =>
-    claim.evidence.some((evidence) => evidence.evidenceClass === 'preclinical'),
-  ).length;
+  /*
+   * Counted in evidence records — distinct sources — through the one module
+   * that defines the unit, so this panel, the lanes above it and the printed
+   * monograph all print the same number with the same noun.
+   */
+  const records = countEvidenceRecords(peptide.claims);
 
   const approved = peptide.regulatoryStatuses.filter((status) => status.status === 'approved');
   /*
@@ -90,12 +91,12 @@ export function EvidenceAtAGlance({
   const hasProtocols = peptide.protocolCountAll > 0;
 
   /*
-   * A screen answers the evidence questions better than the claim layer can.
-   * The claim layer says what this index has written down; the screen says what
-   * the literature contains. Where both exist, the screen is what a reader
-   * means by "is there any evidence".
+   * The screen says what the literature contains; the evidence records say what
+   * this index holds and cites. Both are shown, with different nouns: a screen
+   * counts publications found, and never borrows the word "record".
    */
   const screen = peptide.literatureScreens[0];
+  const screenName = screen?.databaseName.split(' ')[0] ?? 'literature';
   const screenedPreclinical =
     screen === undefined
       ? 0
@@ -110,31 +111,26 @@ export function EvidenceAtAGlance({
           .reduce((n, t) => n + t.count, 0);
 
   const humanValue =
-    screen !== undefined
-      ? screen.humanPrimaryCount === 0
-        ? 'None identified'
-        : `${String(screen.humanPrimaryCount)} ${screen.humanPrimaryCount === 1 ? 'record' : 'records'} in people`
-      : humanClaims === 0
-        ? 'None held'
-        : `${String(humanClaims)} statements`;
+    records.human === 0 ? 'None held' : formatEvidenceRecordCount('human', records.human);
 
   const humanNote =
     screen !== undefined
       ? screen.humanPrimaryCount === 0
-        ? `None found in a ${screen.databaseName.split(' ')[0] ?? 'literature'} screen on ${screen.searchDate}.`
-        : `From a ${screen.databaseName.split(' ')[0] ?? 'literature'} screen on ${screen.searchDate}. Open the section below for what each one was.`
-      : humanClaims === 0
-        ? 'No study in people is held by this index for this compound.'
-        : 'Statements resting on evidence from people.';
+        ? `A ${screenName} screen on ${screen.searchDate} found no primary human publication.`
+        : `A ${screenName} screen on ${screen.searchDate} found ${String(screen.humanPrimaryCount)} primary human ${screen.humanPrimaryCount === 1 ? 'publication' : 'publications'}; the literature section says what each one was.`
+      : records.human === 0
+        ? 'No source cited here is evidence from people. No literature screen has been run.'
+        : 'Distinct sources cited as evidence from people. No literature screen has been run.';
 
   const preclinicalValue =
+    records.preclinical === 0
+      ? 'None held'
+      : formatEvidenceRecordCount('preclinical', records.preclinical);
+
+  const preclinicalNote =
     screen !== undefined
-      ? screenedPreclinical === 0
-        ? 'None identified'
-        : `${String(screenedPreclinical)} studies identified`
-      : preclinicalClaims === 0
-        ? 'None recorded here'
-        : `${String(preclinicalClaims)} statements`;
+      ? `A ${screenName} screen found ${String(screenedPreclinical)} laboratory or animal ${screenedPreclinical === 1 ? 'publication' : 'publications'}. However much of it there is, it is not evidence about people.`
+      : 'Laboratory and animal work. However much of it there is, it is not evidence about people.';
 
   // The best replication state on the record, which is what a reader asking
   // "has anybody else found this" wants first.
@@ -162,18 +158,14 @@ export function EvidenceAtAGlance({
         <Item
           label="Human evidence"
           value={humanValue}
-          tone={
-            (screen === undefined ? humanClaims : screen.humanPrimaryCount) === 0
-              ? 'absent'
-              : 'present'
-          }
+          tone={records.human === 0 ? 'absent' : 'present'}
           note={humanNote}
         />
         <Item
           label="Preclinical evidence"
           value={preclinicalValue}
           tone="neutral"
-          note="Laboratory and animal work. However much of it there is, it is not evidence about people."
+          note={preclinicalNote}
         />
         {bestReplication === null ? (
           <Item
