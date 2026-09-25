@@ -448,7 +448,7 @@ records.
 | `npm run typecheck` | **exit 0** |
 | Unit tests | **406 passed**, 27 files |
 | Integration suite — targeted | **10 files, 136 tests, all passed**: publish-gates, gate-parity, review-dry-run, review-lifecycle, publication-review-separation, evidence-packet, public-quality-page, quality-register, editorial-services, synthesis-review. Chosen to cover every gate change plus every suite asserting copy this section altered |
-| Integration suite — full (35 files, 419 tests) | Started after the commit; result appended below when it lands. The full run takes ~75 minutes on this machine — see the note under this table |
+| Integration suite — full | **35 files, 424 tests, all passed**, zero failures. Run after the commit as confirmation; 2,854s (47.5 min) with nothing else competing for the machine |
 | `npm run build` | **succeeds** — `/robots.txt` and `/sitemap.xml` present as dynamic routes; `/_not-found` static |
 | `npm run qa:production` | **No blockers. This database may serve the public.** |
 | `npm run qa:doses` | clean, all 12 compounds |
@@ -460,7 +460,9 @@ records.
 ("Supported by a reviewed source" → "Supported by a named source"); the assertions still check that a
 gap and a sourced statement never share wording or styling.
 
-**Why the full suite was not a commit gate.** It takes ~75 minutes here: every test truncates and
+**Why the full suite was not a commit gate.** It takes 45–75 minutes here depending on what else is
+running — 47.5 minutes on the confirmation run above, about 75 with a dev server alongside it. The
+reason is the same either way: every test truncates and
 re-seeds the entire corpus in `beforeEach` (197 sources, 376 claims, 84 protocols, 35 packets), and
 `vitest.config.ts` deliberately runs everything in one worker because parallel forks crashed on
 Windows. That is ~10.5 seconds per test across 419 tests. The targeted run above covers the blast
@@ -468,6 +470,10 @@ radius of this section's changes; the full run is confirmation, not discovery. *
 file and rolling back per test inside a transaction would likely cut it to single digits** — worth
 doing, but it is surgery on the harness every integrity guarantee depends on, so it is not website
 completion work.
+
+The confirmation run found nothing the targeted run had missed, which is the outcome the targeted
+selection was chosen to produce — but it was the full run that established it, not the argument for
+the selection.
 
 **One operational hazard found, worth knowing:** re-seeding a database that already has published
 protocols **withdraws all of them**. The seed deletes and re-inserts `protocol_sources`, and the
