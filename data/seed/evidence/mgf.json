@@ -1,0 +1,447 @@
+{
+  "packetKey": "mgf",
+  "peptideKey": "mgf",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 95-99 (file pp. 97-101). Class C: practitioner-reference. The monograph covers MGF and PEG-MGF under one heading with separate regimens, so this is one record with PEG-MGF recorded as a distinct preparation rather than a distinct molecule, and two protocols. Like the KPV monograph, it contains no human study at all. One internal tension is recorded: the indications claim bone repair and growth while the mechanism section reports that MGF inhibits osteoblast differentiation and mineralisation in cell culture.",
+  "compound": {
+    "shortDescription": "A splice variant of insulin-like growth factor 1, expressed by muscle after mechanical loading and used by practitioner sources for muscle repair and growth. Every study described is in cells or animals.",
+    "simpleSummary": "MGF stands for mechano-growth factor. It is a variant of IGF-1, the growth factor muscle produces in response to being worked, and it is made when muscle is loaded or damaged.\n\n**What the handbook lists it for:** muscle growth and repair, recovery after training, bone and soft tissue repair, and a long list of other uses including heart and nerve protection.\n\n**Every study the handbook describes is in cells or animals.** There is no human study in this monograph, and none is held by this index.\n\n**It is banned in sport.** The handbook states plainly that MGF and PEG-MGF are prohibited by the World Anti-Doping Agency.\n\n**Two safety points the handbook does make.** It cautions against using it for more than ten days continuously, and it warns that people prone to low blood sugar may see blood sugar fall further.\n\n**PEG-MGF is the same peptide with a chemical coat added** to make it last longer in the body — minutes becomes days. It is covered here as a preparation of MGF, with its own separate regimen, rather than as a different compound.\n\n**One part of the handbook argues with itself.** It lists bone repair as a use, while the section explaining how MGF works says it holds back the cells that build bone.",
+    "practitionerSummary": "LaValle et al. describe MGF as mechano-growth factor, the IGF-1Ec splice variant of insulin-like growth factor 1, a 24-residue peptide of molecular weight 2868.19, with autocrine and paracrine activity, discovered by comparing the RNA transcript of exercised and non-exercised muscle.\n\n**The indication list is long:** anabolic support and muscle mass growth, conditions requiring anabolic enhancement, performance, post-training repair, skeletal muscle hypertrophy, bone repair and growth, soft tissue repair of tendon, ligament, cartilage and muscle, anti-ageing, inflammatory response, cardiac support and neuroprotection.\n\n**The handbook states that MGF and PEG-MGF are banned by the World Anti-Doping Agency.** It prints that inside the indications list rather than in a separate section.\n\n**The mechanism as stated is a division of labour with IGF-1.** MGF is reported to stimulate proliferation and suppress differentiation while IGF-1 supports differentiation, which is the stated reason the handbook pairs it with IGF-1 LR3 on alternating days. After resistance exercise the IGF-1 gene is described as splicing towards MGF, which activates muscle stem cells; loss of muscle mass in age and disease is associated with an impaired ability to express MGF; and the predominant IGF-1 isoform is reported to shift with age.\n\n**Three routes and three regimens.** Subcutaneous MGF divided across muscle groups on training days with a stated weekly ceiling; PEG-MGF, pegylated to extend a half-life the handbook gives as minutes to one it gives as days, on fewer days per week; and a transdermal preparation. All are on the protocol records. The handbook states MGF should not be used for more than ten consecutive days.\n\n**The safety material is more specific than most in this handbook.** It cautions in individuals prone to hypoglycaemia because MGF and IGF-1 use may further lower blood sugar, states safety in paediatrics has not been established, and lists injection-site erythema, rash, oedema and joint and muscle pain as the most common adverse effects — a list which, unlike the recurring boilerplate elsewhere in this book, is specific to this monograph.\n\n**There is no human study in this monograph.** Cell culture, animal models and physiology, throughout.\n\n**And one claim contradicts another.** Bone repair and growth appears in the indications; the mechanism section states MGF has been observed to inhibit osteoblast differentiation and mineralisation in osteoblast cell culture, while playing a positive role in bone injury healing in laboratory studies. Both are recorded.",
+    "unknownsSummary": "**No human study of MGF or PEG-MGF exists in the source, and none is held here.** Every finding is cell culture, animal model or descriptive physiology. For a compound listed for muscle growth, performance and cardiac and neurological protection, that is the governing fact about this record.\n\n**The bone claim is unresolved within the source itself.** MGF is reported both to inhibit the cells that mineralise bone in culture and to help bone injury healing in laboratory studies. Which applies in a person is not addressed.\n\n**PEG-MGF has no evidence of its own.** Its entry describes what pegylation does to half-life and gives a regimen. No study of the pegylated form is described or held, so its evidence is MGF's evidence, which is preclinical.\n\n**The transdermal route has a preparation and a dose and no absorption data.** Whether a 24-residue peptide crosses intact skin in useful quantity is not addressed.\n\n**The anti-doping status is recorded as the handbook states it, not as verified.** No World Anti-Doping Agency list was consulted, and prohibited lists are revised annually.\n\n**Safety in paediatrics is stated by the source itself to be unestablished**, and the ten-day limit on continuous use is given without a stated reason.\n\n**No literature screen has been run for MGF.**",
+    "aliases": [
+      {
+        "alias": "Mechano-Growth Factor",
+        "note": "The name the handbook spells out in its monograph heading."
+      },
+      {
+        "alias": "IGF-1Ec",
+        "note": "The isoform designation the handbook gives: MGF is described as the IGF-1Ec splice variant of insulin-like growth factor 1."
+      },
+      {
+        "alias": "PEG-MGF",
+        "note": "Recorded as related but distinct, not as a synonym. The handbook covers it in the same monograph and describes it as MGF that has been pegylated to extend its half-life from minutes to days, with its own separate regimen. It is a preparation of the same peptide rather than a different one, and rather than a different molecule with its own evidence — which is why it is one record with two protocols and an identity claim naming the preparation."
+      }
+    ],
+    "sequence": "Tyr-Gln-Pro-Pro-Ser-Thr-Asn-Lys-Asn-Thr-Lys-Ser-Gln-Arg-Arg-Lys-Gly-Ser-Thr-Phe-Glu-Glu-Arg-Lys",
+    "molecularDescription": "Twenty-four residues, molecular weight 2868.19 as printed by the handbook, described as the IGF-1Ec splice variant of insulin-like growth factor 1. The printed residue count and the printed weight are consistent with each other, which is not true of every monograph in this source. The molecular formula as printed is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "Endogenous, and administered synthetically: the handbook describes MGF as a splice variant expressed by muscle and liver, and gives regimens for administered material.",
+    "nomenclatureNote": "Three names for one peptide and one for a preparation of it. MGF, mechano-growth factor and IGF-1Ec are the same thing. PEG-MGF is that peptide pegylated, recorded as related but distinct. IGF-1 LR3, which appears in this monograph's regimens as a pairing, is a different compound and has deliberately not been recorded as an alias or given a record from this source."
+  },
+  "locations": [
+    {
+      "key": "lavalle-mgf-95",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 95",
+      "pageStart": 95,
+      "notes": "Monograph opening: category, sequence, molecular composition, and the indications list including the World Anti-Doping Agency statement."
+    },
+    {
+      "key": "lavalle-mgf-96",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 96",
+      "pageStart": 96,
+      "notes": "The remaining indications, the MGF dosage block with the weekly ceiling and consecutive-day limit, the PEG-MGF dosage block with its half-life, and the opening of the transdermal option."
+    },
+    {
+      "key": "lavalle-mgf-97",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 97",
+      "pageStart": 97,
+      "notes": "The transdermal regimen, the Warnings and Cautions block including the hypoglycaemia caution and the adverse-effect list, and the start of the summary on IGF-1 and resistance exercise."
+    },
+    {
+      "key": "lavalle-mgf-98",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 98",
+      "pageStart": 98,
+      "notes": "Proliferation versus differentiation, tissue expression, the osteoblast cell culture finding, the satellite cell account, and the age-related isoform shift."
+    },
+    {
+      "key": "lavalle-mgf-99",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 99",
+      "pageStart": 99,
+      "notes": "The reported roles including cardiac repair, sarcopenia and neuroprotection, and the description of PEG-MGF as pegylated MGF with a longer half-life."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "MGF-001",
+      "claimText": "LaValle et al. describe MGF as mechano-growth factor, the IGF-1Ec splice variant of insulin-like growth factor 1, a 24-residue peptide of molecular weight 2868.19 with autocrine and paracrine activity, discovered by studying the RNA transcript of exercised and non-exercised muscle, and produced in the liver under the influence of growth hormone in response to muscle damage after exercise.",
+      "plainLanguageText": "MGF is a variant of IGF-1, the growth factor muscle makes when it is worked. It was found by comparing exercised and unexercised muscle.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's description. That MGF is a splice variant rather than an analogue or a fragment matters for how its evidence should be read: findings about IGF-1 are not findings about MGF, and the source is explicit that the two have different effects on cell differentiation.",
+      "uncertaintyText": "No analytical characterisation is held. The printed sequence and molecular weight are consistent with one another but rest on one practitioner handbook.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-95",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The category, sequence and molecular composition block.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy and the residues counted against the printed weight."
+        },
+        {
+          "locationKey": "lavalle-mgf-97",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The summary's account of the splice variant, its discovery and its production in the liver under growth hormone influence.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-002",
+      "claimText": "LaValle et al. state that MGF and PEG-MGF are banned by the World Anti-Doping Agency.",
+      "plainLanguageText": "The handbook says MGF and PEG-MGF are banned in sport by the World Anti-Doping Agency.",
+      "claimCategory": "regulatory",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the handbook's statement and not as a verified status. Prohibited lists are revised annually, so a statement printed in a 2022 handbook is a statement about a past list. No anti-doping list was consulted here. It is recorded at high importance because it is consequential for any reader who competes, and because the source prints it inside an indications list where it is easily missed.",
+      "uncertaintyText": "No World Anti-Doping Agency prohibited list was read, and no date is given for the status. Which class it falls under, and whether the position still holds, are not established here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-95",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The note within the indications list stating that MGF and PEG-MGF peptides are banned by the World Anti-Doping Agency.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given and no anti-doping list was consulted."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-003",
+      "claimText": "LaValle et al. list MGF for anabolic support and muscle mass growth, conditions requiring anabolic enhancement, improved performance, post-training exercise repair, skeletal muscle hypertrophy, bone repair and growth, soft tissue repair of tendon, ligament, cartilage and muscle, anti-ageing, inflammatory response, cardiac support and neuroprotection.",
+      "plainLanguageText": "The handbook lists MGF for muscle growth and repair, performance, bone and soft tissue repair, ageing, inflammation, and heart and nerve protection.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list. It is long and spans several organ systems on the strength of preclinical work, which is the pattern a reader should be able to see for themselves.",
+      "uncertaintyText": "No human study of any listed indication is held, and the monograph describes none. The bone indication is in tension with the monograph's own mechanism section.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-95",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list, which the handbook attributes to six citations by superscript.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Six superscript citations are given for the list as a whole; none has been obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-mgf-96",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The continuation of the indications list onto the following page.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited as part of the same list; not obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-004",
+      "claimText": "LaValle et al. report that MGF stimulates proliferation and suppresses differentiation while IGF-1 supports differentiation, that after resistance exercise the IGF-1 gene is spliced towards MGF which activates muscle stem cells to re-enter the cell cycle, and that loss of muscle mass in old age and in certain diseases is associated with an impaired ability to express MGF.",
+      "plainLanguageText": "The handbook says MGF makes muscle stem cells multiply while IGF-1 makes them mature, and that people losing muscle with age make less MGF.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded because this is the reasoning the monograph's regimens rest on, including the alternation with IGF-1 LR3: proliferation and differentiation are presented as separable and separately addressable. An association between impaired MGF expression and muscle loss is a correlation in the source's own framing, not a demonstrated cause.",
+      "uncertaintyText": "The cited work is in vitro and in vivo and is not held. That MGF expression is impaired where muscle is lost does not establish that administering MGF restores it, and the source does not claim otherwise.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-98",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The proliferation versus differentiation passage, the satellite cell account, and the association with muscle loss in age and disease.",
+          "populationModel": "In vitro and in vivo studies, as the handbook describes them. Not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-005",
+      "claimText": "This handbook's MGF monograph lists bone repair and growth as an indication while its mechanism section reports that MGF has been observed to inhibit osteoblast differentiation and mineralisation in osteoblast cell culture, alongside playing a positive role in bone injury healing in laboratory studies.",
+      "plainLanguageText": "The handbook lists MGF for bone repair, but also says it held back the cells that build bone in a laboratory study. Both statements are in the same monograph.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "The comparison is this index's, made by reading the indications list against the mechanism section of the same monograph. It is recorded rather than resolved: inhibiting osteoblast differentiation in culture and assisting bone injury healing in an animal are not necessarily contradictory — remodelling requires both resorption and formation — but a reader given only the indication would not know the tension existed. No attempt is made to reconcile them, because that would require the underlying studies.",
+      "uncertaintyText": "Neither the cell culture work nor the bone healing studies are held. Whether the two findings can be reconciled, and what either implies for a person with a fracture or with osteoporosis, is not established anywhere here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-95",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The indication 'bone repair and growth - important role in osteoclast stress response'.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy."
+        },
+        {
+          "locationKey": "lavalle-mgf-98",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The statement that MGF has been observed to inhibit osteoblast differentiation and mineralisation in osteoblast cell culture medium, while playing a positive role in bone injury healing in laboratory studies.",
+          "populationModel": "Osteoblast cell culture and laboratory bone injury studies, as the handbook describes them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-006",
+      "claimText": "LaValle et al. report that MGF is expressed in resting, active and damaged muscle, in cardiac muscle particularly after ischaemia, in exercised tendon and in brain particularly in relation to ischaemia, and that animal models have confirmed cell culture experiments identifying MGF as a local tissue repair factor and a responder to mechanical demands, with reported roles in tissue growth and regeneration, wound healing, cardiac repair, sarcopenia and neuroprotection, the last reported as markedly more effective than IGF-1 in animal models.",
+      "plainLanguageText": "The handbook describes MGF appearing wherever tissue is loaded or damaged — muscle, heart, tendon, brain — and reports animal work supporting a repair role, including better nerve protection than IGF-1.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as one claim covering the monograph's preclinical breadth, at the population the source gives: cell culture and animal models. The comparative neuroprotection claim is retained with its source framing, 'in animal models', because stripped of that it would read as a clinical comparison.",
+      "uncertaintyText": "None of the cited work is held. No human outcome is reported anywhere in this monograph, and a repair factor's expression pattern is not evidence that administering it repairs anything.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-98",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The tissue expression list and the statement that animal models confirmed cell culture experiments identifying MGF as a local tissue repair factor.",
+          "populationModel": "Cell culture and animal models, as the handbook describes them. Not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-mgf-99",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The reported roles list, including cardiac repair, sarcopenia support and neuroprotection described as markedly more effective than IGF-1 in animal models.",
+          "populationModel": "Animal models, as the handbook states for the neuroprotection comparison.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-007",
+      "claimText": "LaValle et al. describe PEG-MGF as MGF stabilised with polyethylene glycol to increase its half-life, give MGF's half-life as five to seven minutes and PEG-MGF's as 48 to 72 hours, and state that pegylation must be considered during the compounding process to ensure an appropriate half-life.",
+      "plainLanguageText": "PEG-MGF is MGF with a chemical coat added so it lasts days in the body instead of minutes. The handbook says that has to be taken into account when it is made up.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as an identity claim rather than a pharmacokinetic one, because the practical question it answers is what a reader is being given. A several-hundred-fold difference in half-life between two preparations sold under nearly the same name is the kind of distinction that has to be visible, and it is the reason PEG-MGF is recorded as related but distinct rather than as a synonym.",
+      "uncertaintyText": "Both half-lives are given without a route, a population or a method. No pharmacokinetic study of either preparation is held, and no study of the pegylated form specifically is described.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-96",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The MGF and PEG-MGF dosage blocks, which give both half-lives and describe pegylation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given for either half-life."
+        },
+        {
+          "locationKey": "lavalle-mgf-99",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The closing paragraph describing PEG-MGF as pegylated to improve stability and half-life, and the compounding consideration.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given."
+        }
+      ]
+    },
+    {
+      "claimKey": "MGF-008",
+      "claimText": "LaValle et al. state that MGF and PEG-MGF are reported safe in recommended dosages, that injection-site redness and pain may occur, that they should be used with IGF-1 LR3 for no more than ten days of continuous therapy, that caution is warranted in individuals prone to hypoglycaemia because MGF and IGF-1 use may further lower blood sugar, that safety in paediatrics has not been established, and that the most common adverse effects are injection-site erythema, rash, oedema, and joint and muscle pain.",
+      "plainLanguageText": "The handbook says MGF is reported safe at the doses it gives, warns people prone to low blood sugar that it may lower it further, limits continuous use to ten days, and lists injection-site reactions, rash, swelling and joint or muscle pain as the commonest effects.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "The source's safety block, and more specific than most in this handbook: the hypoglycaemia caution names a mechanism and a population, and the adverse-effect list is particular to this monograph rather than the four-item boilerplate that recurs elsewhere in the book. The ten-day limit is recorded as stated, without a reason, because the source gives none.",
+      "uncertaintyText": "No safety dataset is held and none is cited. Why continuous use should stop at ten days is not stated, nor what happens if it does not. The hypoglycaemia caution has no monitoring guidance attached.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-mgf-97",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Warnings and Cautions block in full, including the hypoglycaemia caution, the paediatric statement, the ten-day limit and the adverse-effect list.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citations are given for the statements in this block."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any outcome of MGF or PEG-MGF in people — muscle, bone, cardiac, neurological or otherwise.",
+      "why": "The monograph contains no human study. Every finding it reports is cell culture, animal model or descriptive physiology, and none of those studies is held either.",
+      "whatWouldResolveIt": "Held human studies with a defined endpoint, at a stated dose and route.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has MGF or PEG-MGF been administered to people in any study, and what was measured?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "Whether MGF helps or hinders bone formation.",
+      "why": "One monograph makes both claims: bone repair and growth in the indications, inhibition of osteoblast differentiation and mineralisation in cell culture in the mechanism section.",
+      "whatWouldResolveIt": "The underlying cell culture and bone healing studies, and any study measuring a bone outcome after administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What effect does MGF administration have on bone formation and on fracture healing, and can the cell culture and animal findings be reconciled?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "formulation_unspecified",
+      "statement": "What distinguishes PEG-MGF preparations from one another, and whether any evidence concerns the pegylated form specifically.",
+      "why": "The source describes pegylation and gives PEG-MGF its own regimen and half-life, but describes no study of the pegylated form. Its evidence is MGF's evidence, which is preclinical.",
+      "whatWouldResolveIt": "A study of the pegylated form, or an analytical specification of a marketed preparation.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has the pegylated form been studied separately from MGF, and does the extended half-life change its effects rather than only its dosing?",
+      "opportunityType": "formulation_comparison"
+    },
+    {
+      "gapType": "route_not_established",
+      "statement": "Whether the transdermal preparation delivers any MGF.",
+      "why": "The source gives a transdermal concentration and a daily amount with no absorption data, and does not address whether a 24-residue peptide crosses intact skin.",
+      "whatWouldResolveIt": "Pharmacokinetic comparison of transdermal and subcutaneous administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What systemic or local exposure does transdermal MGF achieve compared with subcutaneous administration?",
+      "opportunityType": "route_comparison"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The current anti-doping status of MGF and PEG-MGF.",
+      "why": "The handbook states they are banned by the World Anti-Doping Agency. No prohibited list was consulted, and those lists are revised annually.",
+      "whatWouldResolveIt": "Reading the current prohibited list and recording the class and the date.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Under which class are MGF and PEG-MGF prohibited, and as of what list date?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Why continuous use should stop at ten days, and what the hypoglycaemia caution requires in practice.",
+      "why": "The source gives both the limit and the caution without a reason, a mechanism for the limit, or any monitoring guidance.",
+      "whatWouldResolveIt": "A source stating the basis for the ten-day limit, and any glucose monitoring data during administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What happens to glucose during MGF administration, and what is the basis for limiting continuous use?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the MGF and IGF-1Ec literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds, covering MGF, mechano-growth factor and IGF-1Ec.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What literature exists on MGF, and does any of it involve administration to people?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-mgf-96",
+      "populationModel": "Not specified by the source. The regimen is framed around training days.",
+      "formulation": "Not stated beyond subcutaneous injection divided across muscle groups.",
+      "pkNotes": "The source gives MGF's half-life as five to seven minutes and PEG-MGF's as 48 to 72 hours, without a route or method.",
+      "limitationsNotes": "The main route the source describes, for both preparations. No human pharmacokinetic study is held, and injection divided across muscle groups is a practice the source describes rather than a characterised administration."
+    },
+    {
+      "routeKey": "topical",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-mgf-97",
+      "populationModel": "Not specified by the source.",
+      "formulation": "A transdermal preparation supplied at 200 mcg/ml in 50 ml, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "Given a concentration and a daily amount with no absorption data. Whether a 24-residue peptide crosses intact skin in useful quantity is not addressed by the source."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "MGF-PR-LAVALLE-SQ",
+      "objectiveContext": "Muscle repair and hypertrophy around training, as the handbook frames it.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Not stated beyond injection divided across muscle groups.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen. The same handbook states MGF is banned by the World Anti-Doping Agency.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "600 mcg on a training day, divided into 100 mcg per muscle group",
+      "amountUnit": "mcg",
+      "frequencyText": "On workout days, post workout; five days out of seven",
+      "durationText": "Not more than ten consecutive days, as the source states",
+      "cycleText": "Five days on out of seven, with the source recommending the weekly total stay below 2 mg",
+      "combinationsText": "The source states MGF works well when alternated with IGF-1 LR3, 100 mcg three times a week, to improve muscle cell differentiation as well as proliferation, and that the pairing should not run for more than ten days of continuous therapy. IGF-1 LR3 is a different compound and has no record in this index; the pairing is recorded as the source's practice, not as an endorsement.",
+      "monitoringText": "The source gives no monitoring guidance, while cautioning that blood sugar may fall further in people prone to hypoglycaemia.",
+      "contraindicationsText": "The source states safety in paediatrics has not been established and advises caution in individuals prone to hypoglycaemia.",
+      "safetyNotes": "The source states MGF is reported safe in recommended dosages and lists injection-site erythema, rash, oedema, and joint and muscle pain as the most common adverse effects.",
+      "locationKey": "lavalle-mgf-96"
+    },
+    {
+      "protocolKey": "MGF-PR-LAVALLE-PEG-SQ",
+      "objectiveContext": "Muscle repair and hypertrophy-specific training, as the handbook frames the pegylated preparation.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "PEG-MGF: MGF stabilised with polyethylene glycol, which the source gives a half-life of 48 to 72 hours against MGF's five to seven minutes.",
+      "regulatoryContext": "A practitioner handbook's regimen for a pegylated preparation of the same peptide. Not approved labelling and not a study regimen. The same handbook states PEG-MGF is banned by the World Anti-Doping Agency.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "600 mcg on a training day, divided into muscle groups",
+      "amountUnit": "mcg",
+      "frequencyText": "Three to four days a week",
+      "durationText": "Not more than ten consecutive days, as the source states",
+      "cycleText": "Three to four days a week, with the source recommending no more than 2 mg in total",
+      "combinationsText": "As for MGF, the source states it works well alternated with IGF-1 LR3, 100 mcg three times a week, and limits the pairing to ten days of continuous therapy.",
+      "monitoringText": "None given by the source.",
+      "contraindicationsText": "The source states safety in paediatrics has not been established and advises caution in individuals prone to hypoglycaemia.",
+      "safetyNotes": "The source's safety block covers MGF and PEG-MGF together and describes no adverse effects specific to the pegylated form.",
+      "locationKey": "lavalle-mgf-96"
+    },
+    {
+      "protocolKey": "MGF-PR-LAVALLE-TRANSDERMAL",
+      "objectiveContext": "Muscle repair, as a transdermal alternative in the handbook's presentation.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "topical",
+      "formulation": "Transdermal preparation supplied at 200 mcg/ml in 50 ml.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1 ml applied daily",
+      "amountUnit": "ml",
+      "frequencyText": "Daily, five days out of seven",
+      "durationText": null,
+      "monitoringText": null,
+      "safetyNotes": "The source gives no separate safety statement for the transdermal preparation and no absorption data.",
+      "locationKey": "lavalle-mgf-97"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "MGF-ID-001",
+      "nameUsed": "MGF (Mechano-Growth Factor)",
+      "chemicalForm": "IGF-1Ec splice variant of insulin-like growth factor 1",
+      "sequence": "YQPPSTNKNTKSQRRKGSTFEERK",
+      "residueCount": 24,
+      "molecularWeight": 2868.19,
+      "weightBasis": "As printed by the handbook, and consistent with the printed 24-residue sequence.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block.",
+      "notes": "Recorded as full length rather than a fragment: a splice variant is a gene product in its own right, not a piece cut from another peptide. The sequence is given here in single-letter code translated from the three-letter form the source prints, which contains no modified residues.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-mgf-95"
+    },
+    {
+      "identityKey": "MGF-ID-002",
+      "nameUsed": "PEG-MGF",
+      "chemicalForm": "MGF conjugated with polyethylene glycol",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": null,
+      "weightBasis": null,
+      "form": "preparation",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The PEG-MGF dosage block and the closing paragraph of the summary, which describe it as MGF pegylated to extend half-life.",
+      "notes": "Recorded as a preparation of the same peptide rather than as a separate compound, because that is what the source describes: the same molecule with polyethylene glycol attached to extend a half-life the handbook gives as minutes to one it gives as days. No degree of pegylation, molecular weight or analytical specification is given by the source, so none is recorded.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-mgf-99"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "MGF-REP-001",
+      "finding": "MGF as a local tissue repair factor responding to mechanical demand.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "The handbook states that animal models confirmed cell culture experiments, which would be replication across model types if the studies were held. None is held, and no human study exists in the source, so the finding is not assessed.",
+      "limitations": "Confirmation of a cell culture result in an animal is not confirmation in humans, and this record does not record it as such.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-mgf-95",
+      "checkedAt": "2026-09-26",
+      "notes": "The handbook states MGF and PEG-MGF are banned by the World Anti-Doping Agency, which is a sporting prohibition rather than a medicines status, and no anti-doping list or regulator record was read. The medicinal status is therefore recorded as unknown, with the reported anti-doping position carried on its own claim."
+    }
+  ]
+}

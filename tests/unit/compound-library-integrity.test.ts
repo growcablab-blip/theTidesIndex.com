@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { seedData } from '@db/seed/seed-data';
+import { findDoses } from '@/domain/presentation/dose-text';
 
 /**
  * Rules the compound library has to keep as it grows.
@@ -132,15 +133,21 @@ describe('patient payload', () => {
    * caught it. The amounts belong on the protocol, where the mode boundary can
    * hold them.
    */
-  const DOSE = /\b\d+(?:[.,]\d+)?\s?(mcg|µg|mg|g|iu|units?)\b/i;
+  /*
+   * The rule is imported, not written here. It was written here once, and the
+   * copy drifted: a Section 4 record recording a molecular weight of
+   * "3051.3 g/mol" tripped this test while `npm run qa:doses` passed, because
+   * the standing scan knows a molecular weight is not a dose and this file did
+   * not. One definition, in `src/domain/presentation/dose-text.ts`.
+   */
 
   it('keeps dose-shaped strings out of claim text', () => {
     for (const packet of packets) {
       for (const claim of packet.claims) {
         expect(
-          DOSE.test(claim.claimText),
+          findDoses(claim.claimText).map((d) => d.context),
           `${packet.packetKey} ${claim.claimKey}: claim text carries a dose — put it on the protocol`,
-        ).toBe(false);
+        ).toEqual([]);
       }
     }
   });
@@ -150,9 +157,9 @@ describe('patient payload', () => {
       for (const claim of packet.claims) {
         if (claim.plainLanguageText === null || claim.plainLanguageText === undefined) continue;
         expect(
-          DOSE.test(claim.plainLanguageText),
+          findDoses(claim.plainLanguageText).map((d) => d.context),
           `${packet.packetKey} ${claim.claimKey}: plain-language text carries a dose`,
-        ).toBe(false);
+        ).toEqual([]);
       }
     }
   });
@@ -162,9 +169,9 @@ describe('patient payload', () => {
       const simple = packet.compound.simpleSummary;
       if (simple === null || simple === undefined) continue;
       expect(
-        DOSE.test(simple),
+        findDoses(simple).map((d) => d.context),
         `${packet.packetKey}: simple summary carries a dose`,
-      ).toBe(false);
+      ).toEqual([]);
     }
   });
 });

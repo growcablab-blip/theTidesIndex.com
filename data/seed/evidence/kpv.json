@@ -1,0 +1,310 @@
+{
+  "packetKey": "kpv",
+  "peptideKey": "kpv",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 68-70 (file pp. 70-72). Class C: practitioner-reference. This monograph is the clearest case in the tranche of a record with no human evidence of any kind: every study it describes is a cell or animal model, and the record says so rather than letting a long mechanism section read as weight. Two observations about the source are recorded: its category label calls KPV an alpha-MSH stimulating peptide while its own text describes a fragment of alpha-MSH that does not act through melanocortin receptors, and it states three routes while giving a regimen for only one.",
+  "compound": {
+    "shortDescription": "The three-residue N-terminal fragment of alpha-MSH, used by practitioner sources for gut and inflammatory support. Every study described is in cells or animals.",
+    "simpleSummary": "KPV is a very short peptide — three amino acids — taken from the front end of a larger hormone called alpha-MSH. Alpha-MSH has anti-inflammatory effects, and the idea is that this small piece carries them.\n\n**What the handbook lists it for:** inflammation, gut tissue support, and immune modulation.\n\n**Every study the handbook describes is in cells or in animals.** Peritoneal inflammation in animals, skin inflammation in animals, colitis in animals, and glial cells in culture. **There is no human study here at all**, and none is held by this index.\n\n**It is not the same thing as alpha-MSH.** The handbook says KPV does not attach to the receptors alpha-MSH uses, and works inside cells instead. It also says KPV does not cause the skin darkening alpha-MSH can cause.\n\n**One thing to keep in mind about the dose.** The handbook mentions taking it by mouth, through the skin, or by injection, but gives an amount for only one of those.",
+    "practitionerSummary": "LaValle et al. describe KPV as a tripeptide, Lys-Pro-Val, molecular weight 342.43 g/mol, based on the alpha-melanocyte-stimulating hormone molecule, and state that the anti-inflammatory activity of alpha-MSH is reported to be facilitated by its three N-terminal amino acids, which are KPV.\n\n**Indications listed:** anti-inflammatory action in metaflammation, gut tissue support, and immune modulation.\n\n**The evidence described is entirely preclinical.** Reduced cytokine release and leukocyte migration in a crystal-induced peritonitis model; amelioration of IL-1-induced cutaneous inflammation; a report that KPV exerts a more potent anti-inflammatory effect than alpha-MSH itself; attenuated inflammatory responses in colonic epithelial and immune cells with reduced incidence of colitis in vivo after oral administration; and decreased TNF-alpha mRNA expression with reduced nitric oxide release in glial cells stimulated with beta-amyloid or interferon-gamma. **No human study appears in this monograph.**\n\n**The mechanism is stated to differ from alpha-MSH, and that distinction is the record's most useful content.** The handbook states that alpha-MSH binds specific melanocortin receptors while KPV does not, that KPV appears to act inside cells to inactivate inflammatory pathways, and that in mouse studies blocking MC3 and MC4 receptors — which mediate alpha-MSH's anti-inflammatory effects — had no impact on KPV's. It also states KPV is not reported to cause the skin pigmentation alpha-MSH can cause.\n\n**The routes and the regimen do not line up.** The dosage block gives an oral amount only; a later page states KPV can be used orally, transdermally or by injection without side effects, naming no amount for the other two and not specifying which kind of injection. The oral regimen is on the protocol record.\n\n**The source pairs it with BPC-157.** The handbook states KPV can be used synergistically with oral BPC-157 for improved gut healing. That pairing is recorded on the protocol as the source's, not as an endorsement.\n\n**The handbook's own category label sits awkwardly with its text.** It classes KPV as an alpha-MSH stimulating peptide, while describing a fragment of alpha-MSH that does not act through alpha-MSH's receptors. Nothing in the monograph describes KPV stimulating alpha-MSH.",
+    "unknownsSummary": "**There is no human evidence for KPV in anything held by this index, and none in the source either.** Every study the monograph describes is in cells or animals. For a compound listed for gut tissue support and immune modulation, that is the single most important thing to know.\n\n**Whether the preclinical findings transfer to people is not addressed.** The colitis finding in particular is an animal model of a human disease, which is a starting point rather than a result.\n\n**'More potent than alpha-MSH' is a comparative claim from an unheld study.** The comparison and its conditions are not available here.\n\n**Two of the three stated routes have no amount attached.** The source says KPV can be used transdermally or by injection and gives no dose, no formulation and no kind of injection. This index has not supplied any of those.\n\n**The handbook's category label is not supported by its own text.** It calls KPV an alpha-MSH stimulating peptide; nothing in the monograph describes it stimulating alpha-MSH.\n\n**No literature screen has been run for KPV.**",
+    "aliases": [
+      {
+        "alias": "Lys-Pro-Val",
+        "note": "The three-letter sequence, which the handbook prints as the sequence rather than as a name, but which is how the peptide is often written."
+      },
+      {
+        "alias": "alpha-MSH",
+        "note": "Recorded as related but distinct, not as a synonym. KPV is the three N-terminal residues of alpha-MSH, and the same monograph states that KPV does not bind the melanocortin receptors alpha-MSH acts through. A reader arriving from alpha-MSH should land here and see the difference, not be told the two are one thing."
+      }
+    ],
+    "sequence": "Lys-Pro-Val",
+    "molecularDescription": "A tripeptide, Lys-Pro-Val, molecular weight 342.43 g/mol as printed by the handbook, described as the three N-terminal amino acids of alpha-melanocyte-stimulating hormone. The molecular formula as printed in the held copy is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "KPV is both a name and a sequence: the three letters are the residues. The handbook categorises it as an 'Alpha-MSH Stimulating Peptide', which its own description does not support — it describes a fragment of alpha-MSH that does not act through alpha-MSH's receptors. The parent hormone is recorded as a related but distinct name so that the two are never merged."
+  },
+  "locations": [
+    {
+      "key": "lavalle-kpv-68",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 68",
+      "pageStart": 68,
+      "notes": "Monograph opening: category, sequence, molecular composition, indications, the oral dosage block including the BPC-157 pairing, the safety block, and the start of the description."
+    },
+    {
+      "key": "lavalle-kpv-69",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 69",
+      "pageStart": 69,
+      "notes": "The alpha-MSH relationship, the preclinical studies in peritonitis, cutaneous inflammation, colitis and glial cells, and the account of how KPV's mechanism differs from alpha-MSH's."
+    },
+    {
+      "key": "lavalle-kpv-70",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 70",
+      "pageStart": 70,
+      "notes": "The statement that KPV can be used orally, transdermally or by injection, in contrast with alpha-MSH."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "KPV-001",
+      "claimText": "LaValle et al. describe KPV as a tripeptide, Lys-Pro-Val, of molecular weight 342.43 g/mol, based on the alpha-melanocyte-stimulating hormone molecule, and state that alpha-MSH is an endogenous tridecapeptide cleavage product of proopiomelanocortin whose anti-inflammatory activity is reported to be facilitated by its three N-terminal amino acids, lysine-proline-valine.",
+      "plainLanguageText": "KPV is a three-amino-acid peptide taken from the front end of a larger hormone, alpha-MSH. The handbook says those three amino acids are what carry alpha-MSH's anti-inflammatory effect.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's account of what KPV is and where it comes from. The relationship to the parent hormone is part of the identity rather than a separate topic, because the reason for using KPV at all is that it is supposed to carry one of alpha-MSH's activities.",
+      "uncertaintyText": "No analytical characterisation is held. That the anti-inflammatory activity of alpha-MSH is carried by these three residues is the handbook's report of studies it cites and this index has not obtained.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kpv-68",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The sequence and molecular composition block, and the opening of the description.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "The sequence and molecular weight were read directly in the held copy."
+        },
+        {
+          "locationKey": "lavalle-kpv-69",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that alpha-MSH is a tridecapeptide cleavage product of proopiomelanocortin and that its anti-inflammatory activity is facilitated by the three N-terminal residues.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KPV-002",
+      "claimText": "KPV is a distinct peptide from alpha-melanocyte-stimulating hormone: LaValle et al. state that alpha-MSH binds specific melanocortin receptors while KPV does not, that KPV appears to exert its anti-inflammatory function inside cells by inactivating inflammatory pathways, and that in mouse studies blocking the MC3 and MC4 receptors that mediate alpha-MSH's anti-inflammatory effects had no impact on KPV's.",
+      "plainLanguageText": "KPV is not the same as alpha-MSH. The handbook says it does not use the same receptors and works inside cells instead, and that blocking those receptors in mice did not stop KPV working.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance because the confusion this prevents is a real one: KPV is described in this very source as an alpha-MSH stimulating peptide, and a reader who treats the two as interchangeable would carry evidence, expectations and cautions across from a hormone with different receptor pharmacology. The receptor-blockade evidence is the source's strongest ground for the distinction and is preclinical.",
+      "uncertaintyText": "The mouse receptor-blockade studies are cited and not held. The handbook itself says KPV's mechanisms are largely unmapped, so 'acts inside cells' is a direction rather than a mechanism.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kpv-69",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The passage distinguishing KPV's mechanism from alpha-MSH's, including the MC3 and MC4 receptor blockade results.",
+          "populationModel": "Mouse studies, as the handbook describes them. Not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KPV-003",
+      "claimText": "LaValle et al. list KPV for anti-inflammatory use in metaflammation, gut tissue support, and immune modulation.",
+      "plainLanguageText": "The handbook lists KPV for inflammation, gut support and immune modulation.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list. Short, which is worth noting: this monograph does not claim the breadth many others in the same book do.",
+      "uncertaintyText": "No human study of any listed use is held, and the source describes none. Every study in the monograph is a cell or animal model.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kpv-68",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list in full.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KPV-004",
+      "claimText": "LaValle et al. report preclinical findings for KPV: reduced cytokine release and leukocyte migration in the peritoneal cavity in a model of crystal-induced peritonitis, amelioration of IL-1-induced cutaneous inflammation, attenuated inflammatory responses of colonic epithelial and immune cells with reduced incidence of colitis in vivo after oral administration, and decreased TNF-alpha mRNA expression with reduced nitric oxide release in glial cells stimulated with beta-amyloid or interferon-gamma.",
+      "plainLanguageText": "The handbook describes animal and cell studies: less inflammation in the abdomen, in the skin, in the gut, and in brain support cells.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as one claim covering the monograph's preclinical account, at the population the source itself gives for each finding: models and cell cultures. The colitis result is the most clinically suggestive and is still an animal model of a human disease. None of it is human evidence and this record does not present it as any.",
+      "uncertaintyText": "None of the studies is held. Species, doses, routes and durations are unknown, as is whether any of these findings has been pursued in people.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kpv-69",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The preclinical findings paragraph in full: peritonitis, cutaneous inflammation, colitis in vivo, and glial cells.",
+          "populationModel": "Animal models and cell cultures, as the handbook describes each finding. No human study appears in this monograph.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Each finding is cited by superscript; none has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KPV-005",
+      "claimText": "LaValle et al. report that in studies KPV was found to exert a more potent anti-inflammatory effect than alpha-melanocyte-stimulating hormone itself.",
+      "plainLanguageText": "The handbook reports that KPV was found to work better than alpha-MSH at reducing inflammation.",
+      "claimCategory": "efficacy",
+      "importance": "high",
+      "interpretationNotes": "Kept as its own claim rather than folded into the preclinical account, because it is comparative: a claim that a fragment outperforms the parent molecule. The comparison's model, endpoint and conditions are not given by the source and the study is not held, so what 'more potent' means here cannot be established.",
+      "uncertaintyText": "Neither the study nor its conditions are held. Potency comparisons depend entirely on the model and the endpoint, neither of which the source states.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kpv-69",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The sentence reporting a more potent anti-inflammatory effect than alpha-MSH.",
+          "populationModel": "Not stated by the source. The surrounding studies are animal models and cell cultures.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KPV-006",
+      "claimText": "LaValle et al. state that oral KPV is reported safe and efficacious in recommended dosages, that KPV is not reported to cause the skin pigmentation alpha-melanocyte-stimulating hormone can cause, and that KPV can be used orally, transdermally or by injection without side effects.",
+      "plainLanguageText": "The handbook says KPV taken by mouth is reported safe at the doses it gives, that it does not cause the skin darkening alpha-MSH can cause, and that it can be taken in three ways without side effects.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "The source's safety material in full, and thin: two unattributed assertions and no adverse-event list. 'Without side effects' is recorded as the source's phrase and is a strong claim to make about three routes with no supporting data. The pigmentation point is retained because it is a specific, checkable difference from the parent hormone rather than a general reassurance.",
+      "uncertaintyText": "No safety dataset is held and the source cites none. 'Without side effects' across three routes is unsupported by anything here, and two of those routes have no stated dose at all.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kpv-68",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The safety and contraindications block: oral KPV reported safe and efficacious, and no reported skin pigmentation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given for either statement."
+        },
+        {
+          "locationKey": "lavalle-kpv-70",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that KPV can be used orally, transdermally or by injection without side effects, unlike alpha-MSH which is injection only.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any outcome of KPV in people, for inflammation, gut disease or anything else.",
+      "why": "The monograph contains no human study at all. Every finding it reports is a cell culture or an animal model, and none of those is held either.",
+      "whatWouldResolveIt": "Held human studies with a defined endpoint, at a stated dose and route.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has KPV been administered to people in any study, and what was measured?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "route_not_established",
+      "statement": "What amount, formulation or kind of injection the transdermal and injected routes would use.",
+      "why": "The source states KPV can be used orally, transdermally or by injection, and gives an amount for the oral route only. It does not say which kind of injection.",
+      "whatWouldResolveIt": "A source stating a formulation and amount for each route, or pharmacokinetic comparison between them.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How does KPV exposure compare between oral, transdermal and injected administration?",
+      "opportunityType": "route_comparison"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Whether KPV is properly described as an alpha-MSH stimulating peptide, as this handbook's category label calls it.",
+      "why": "The label is not supported by the monograph's own text, which describes a fragment of alpha-MSH acting independently of alpha-MSH's receptors. Nothing in the source describes KPV stimulating alpha-MSH.",
+      "whatWouldResolveIt": "A source addressing whether KPV has any effect on alpha-MSH production or signalling.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does KPV affect alpha-MSH production or melanocortin signalling at all, or only intracellular inflammatory pathways?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "The adverse-effect profile of KPV by any route.",
+      "why": "The source asserts safety without citation and states three routes carry no side effects, which nothing held supports.",
+      "whatWouldResolveIt": "A held safety dataset for any route.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What adverse events have been recorded with KPV, and at what exposures?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the KPV literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds, covering KPV and the alpha-MSH tripeptide literature.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What literature exists on the KPV tripeptide, and does any of it involve human subjects?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "oral",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-kpv-68",
+      "populationModel": "Not specified by the source for the regimen. The colitis finding the source cites for oral administration is an animal model.",
+      "formulation": "Not stated beyond oral administration.",
+      "pkNotes": null,
+      "limitationsNotes": "The only route the source gives an amount for. No human pharmacokinetic data is held, and oral bioavailability of a tripeptide is not addressed by the source."
+    },
+    {
+      "routeKey": "topical",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-kpv-70",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Not stated. The source names transdermal use without giving a preparation.",
+      "pkNotes": null,
+      "limitationsNotes": "Named as possible, with no amount, no formulation and no absorption data. Recorded because the source states it, not because it is characterised."
+    },
+    {
+      "routeKey": "other",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-kpv-70",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Not stated.",
+      "pkNotes": null,
+      "limitationsNotes": "The source says KPV can be given by injection but does not say which kind — subcutaneous, intramuscular or otherwise — so no specific injection route has been recorded. Registered as other rather than guessing."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "KPV-PR-LAVALLE-ORAL",
+      "objectiveContext": "Anti-inflammatory and gut tissue support, as the handbook frames it.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "oral",
+      "formulation": "Oral; no preparation described.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "500 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Twice daily",
+      "durationText": null,
+      "combinationsText": "The source states KPV can be used synergistically with BPC-157 500 mcg orally for improved gut healing. Recorded as the source's pairing; nothing held here tests the combination, and BPC-157's own record carries its own separate regimens.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states oral KPV is reported safe and efficacious in recommended dosages and that it is not reported to cause skin pigmentation, unlike alpha-MSH. No adverse-event list is given.",
+      "locationKey": "lavalle-kpv-68"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "KPV-ID-001",
+      "nameUsed": "KPV",
+      "chemicalForm": "Tripeptide, the three N-terminal residues of alpha-melanocyte-stimulating hormone",
+      "sequence": "KPV",
+      "residueCount": 3,
+      "molecularWeight": 342.43,
+      "weightBasis": "As printed by the handbook.",
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block, read with the description of the relationship to alpha-MSH.",
+      "notes": "The name and the sequence are the same three letters. Recorded as a fragment of alpha-MSH rather than as a full-length peptide, following the source's own description, and kept distinct from the parent hormone because the same source states the two do not share a receptor mechanism.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-kpv-68"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "KPV-REP-001",
+      "finding": "Reduction of inflammation by KPV.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "Several preclinical models are described across different tissues, but none of the studies is held and no human study exists in the source, so neither replication nor human confirmation can be assessed.",
+      "limitations": "A finding repeated across animal models is not a finding confirmed in humans, and this record does not treat it as one.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-kpv-68",
+      "checkedAt": "2026-09-26",
+      "notes": "The handbook makes no regulatory statement about KPV and no regulator record was read."
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "packetKey": "larazotide",
+  "peptideKey": "larazotide",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 82-84 (file pp. 84-86). Class C: practitioner-reference, but the strongest human evidence in this tranche — the monograph reports a named 2015 multicentre randomised placebo-controlled trial in 342 adults with its design, its endpoints and its results, and a Phase 3 study in progress as of March 2022. Neither has been obtained by this index, so both are recorded as the handbook's report. The Phase 3 statement is more than four years old at the time of extraction and is flagged as stale rather than presented as current.",
+  "compound": {
+    "shortDescription": "A locally acting eight-residue oral peptide that regulates intestinal tight junctions, with a reported multicentre randomised trial in coeliac disease and a Phase 3 study reported as in progress in 2022.",
+    "simpleSummary": "Larazotide is a short peptide taken by mouth that acts on the lining of the gut rather than being absorbed into the body. It is intended to help the junctions between gut cells stay closed, which is what people mean by \"leaky gut\".\n\n**What the handbook lists it for:** reducing intestinal permeability and tight junction problems, and gut conditions including irritable bowel syndrome, Crohn's disease, coeliac disease and ulcerative colitis.\n\n**This is the best-evidenced compound in this group, and the evidence is still second-hand.** The handbook describes a properly designed trial: 342 adults with coeliac disease already on a gluten-free diet, placebo-controlled, with a placebo run-in and run-out. It reports fewer symptoms, more good days, and a large reduction in abdominal pain, with safety like placebo. **This index has not read that trial** — only the handbook's summary of it.\n\n**One result is worth noticing.** The lowest of the three doses tested worked, and the two higher doses were no better. That is unusual, and the handbook reports it plainly.\n\n**A larger Phase 3 study was described as in progress in March 2022.** That was more than four years ago. What happened to it is not recorded here, and a reader should not assume it is still running or that it succeeded.",
+    "practitionerSummary": "LaValle et al. describe larazotide acetate as a novel, locally acting, non-systemic synthetic eight-amino-acid oral peptide of molecular weight 725.8, discovered during functional screening of synthetic Vibrio cholerae related peptides, and categorise it as a zonulin-receptor antagonist.\n\n**Indications listed:** leaky gut support through decreased intestinal permeability, improved tight junction regulation, and gut conditions including irritable bowel syndrome, Crohn's disease, coeliac disease and ulcerative colitis.\n\n**The mechanism is described in unusual detail for this handbook.** Larazotide is reported to prevent opening of intestinal tight junctions by promoting junction assembly and actin filament rearrangement, preventing gluten reaching the intestinal submucosa and triggering an inflammatory response; to act as a zonulin antagonist reducing zonulin-induced permeability, associated with redistribution and rearrangement of tight junction proteins and actin filaments; and more recently to inhibit myosin light chain kinase, reducing tension on actin filaments and facilitating junction closure.\n\n**The human evidence, as the handbook reports it, is the strongest in this tranche.** A 2015 multicentre randomised double-blind placebo-controlled study in 342 adults with coeliac disease, all on a gluten-free diet for at least twelve months beforehand and maintaining it throughout, with a four-week placebo run-in, twelve weeks of treatment and a four-week placebo run-out. The primary endpoint of fewer symptoms was met at the lowest of the three doses tested, with 26 per cent fewer symptoms, 31 per cent more improved symptom days, a reduction of 50 per cent or more in abdominal pain scores, and decreases in non-gastrointestinal symptoms including fatigue and headaches. The two higher doses gave no different outcomes. Safety was comparable to placebo. **This index has not obtained the trial.**\n\n**The inverse dose-response is a finding in its own right.** Three doses were tested and the lowest was the one that met the endpoint. The handbook states this without comment; it bears on any assumption that more would do more.\n\n**The practitioner regimen matches the trial's effective dose.** That is worth noting because it is unusual in this handbook, where regimens frequently have no stated relationship to any study.\n\n**Preclinical work is reported beyond coeliac disease:** rodent and porcine studies including collagen-induced arthritis in mice and intestinal ischaemic injury in pigs.\n\n**The regulatory position is reported and stale.** A Phase 3 randomised double-blind placebo-controlled study of larazotide acetate, attributed to 9 Meters Biopharma of Raleigh, North Carolina, for relief of persistent symptoms in coeliac patients on a gluten-free diet, was described as in process with an interim analysis as of March 2022. That statement is more than four years old and nothing held here updates it.",
+    "unknownsSummary": "**Neither trial has been obtained.** The 2015 study and the Phase 3 study are both known here only as a practitioner handbook's summary. For the 2015 study that means the symptom instrument, the analysis population, the handling of dropouts and the funding are all unknown.\n\n**The Phase 3 statement is more than four years out of date.** It was reported as in process as of March 2022 and this record was built in September 2026. Whether it completed, what it found, and whether the sponsor still exists in the same form are all unrecorded here. A reader should treat it as a historical statement, not a current one.\n\n**Why the lowest dose worked best is not explained.** The handbook reports that the two higher doses gave no different outcomes and offers no account of it. Nothing held resolves whether that reflects a ceiling, a genuine inverse relationship, or the trial's power.\n\n**The indications extend well beyond the evidence described.** Irritable bowel syndrome, Crohn's disease and ulcerative colitis are listed; the human evidence reported is in coeliac disease only.\n\n**\"Leaky gut\" is used by the source as a clinical category.** This index records the term because the source uses it, without adopting it as an established diagnosis, and holds nothing that establishes it as one.\n\n**No literature screen has been run for larazotide.** Of all the compounds added in this tranche, this is the one where a screen would most likely find substantial held-able literature.",
+    "aliases": [
+      {
+        "alias": "Larazotide acetate",
+        "note": "The name the handbook uses throughout its description and for the material studied in both trials it reports. Recorded as a synonym because the source uses the two interchangeably within one monograph."
+      }
+    ],
+    "sequence": "Gly-Gly-Val-Leu-Val-Gln-Pro-Gly",
+    "molecularDescription": "Eight residues, molecular weight 725.8 as printed by the handbook, consistent with the printed sequence length. Described as a synthetic peptide discovered during functional screening of synthetic Vibrio cholerae related peptides, locally acting and non-systemic. The printed sequence carries free amino and carboxy termini, written H- and -OH in the held copy. The molecular formula as printed is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "The handbook also abbreviates the name to 'LA' within its own description. That abbreviation has deliberately not been recorded as an alias: two letters that collide with a great deal of ordinary text are worse than useless in a search index. No research code or brand name has been added either, because the source gives none — it names a manufacturer but no product name."
+  },
+  "locations": [
+    {
+      "key": "lavalle-larazotide-82",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 82",
+      "pageStart": 82,
+      "notes": "Monograph opening: category, the eight-residue sequence, molecular composition, the indications list, the oral dosage block, and the safety block including the human safety statement and the start of the Phase 3 description."
+    },
+    {
+      "key": "lavalle-larazotide-83",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 83",
+      "pageStart": 83,
+      "notes": "The completion of the Phase 3 statement dated March 2022, the description of the peptide's discovery and mechanism including the zonulin antagonism and myosin light chain kinase material, the rodent and porcine studies, and the opening of the 2015 trial account."
+    },
+    {
+      "key": "lavalle-larazotide-84",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 84",
+      "pageStart": 84,
+      "notes": "The 2015 trial's design and results, including the primary endpoint at the lowest dose, the symptom and abdominal pain figures, the absence of difference at higher doses, and safety comparable to placebo."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "LARA-001",
+      "claimText": "LaValle et al. describe larazotide acetate as a novel, locally acting, non-systemic synthetic eight-amino-acid oral peptide of molecular weight 725.8, discovered during functional screening of synthetic Vibrio cholerae related peptides, and categorise it as a zonulin-receptor antagonist.",
+      "plainLanguageText": "Larazotide is a short synthetic peptide taken by mouth that works on the gut lining rather than being absorbed into the body.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's description. That it is described as locally acting and non-systemic is part of the identity rather than a detail: it shapes what kind of evidence would be relevant and what kind of adverse effects would be plausible.",
+      "uncertaintyText": "No analytical characterisation is held, and no pharmacokinetic study supporting the non-systemic description is held either. The printed sequence and molecular weight are consistent with one another but rest on one practitioner handbook.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-82",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The category, sequence and molecular composition block.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy and the residues counted against the printed weight."
+        },
+        {
+          "locationKey": "lavalle-larazotide-83",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The description of the peptide's discovery, its local non-systemic action and its size.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-002",
+      "claimText": "LaValle et al. list larazotide for leaky gut support through decreased intestinal permeability, improved tight junction regulation, and gut conditions including irritable bowel syndrome, Crohn's disease, coeliac disease and ulcerative colitis.",
+      "plainLanguageText": "The handbook lists larazotide for gut permeability problems and for several gut conditions including coeliac disease, Crohn's and ulcerative colitis.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list. It is worth reading against the evidence the same monograph gives: the human trial it reports is in coeliac disease, and the other three conditions appear on the list without any human evidence attached to them.",
+      "uncertaintyText": "Only coeliac disease has human evidence described, and that evidence is not held. Nothing supports the irritable bowel syndrome, Crohn's disease or ulcerative colitis indications here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-82",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list in full.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-003",
+      "claimText": "LaValle et al. report that larazotide acetate acts as a tight junction regulator restoring intestinal barrier function, appearing to prevent the opening of intestinal tight junctions by promoting junction assembly and actin filament rearrangement and so preventing gluten from reaching the intestinal submucosa and triggering an inflammatory response, that it is thought to act as a zonulin antagonist reducing zonulin-induced increases in barrier permeability with associated redistribution of tight junction proteins and actin filaments, and that it has more recently been linked to inhibition of myosin light chain kinase, reducing tension on actin filaments and facilitating tight junction closure.",
+      "plainLanguageText": "The handbook explains that larazotide helps the junctions between gut cells stay closed, which keeps gluten from reaching the tissue underneath and setting off inflammation.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as the source's mechanistic account, which is more developed and more specific than most in this handbook — naming a protein target and a proposed molecular route. The source's own hedging, 'appears to' and 'is thought to', is preserved.",
+      "uncertaintyText": "None of the cited mechanistic work is held, and the source does not say which of it is in cells, animals or people. A proposed mechanism is not evidence of a clinical effect.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-83",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The mechanism paragraphs: tight junction assembly, zonulin antagonism, and myosin light chain kinase inhibition.",
+          "populationModel": "Not stated by the source for the mechanistic work.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-004",
+      "claimText": "LaValle et al. report a 2015 multicentre randomised double-blind placebo-controlled study of larazotide acetate at three doses in 342 adults with coeliac disease, all on a gluten-free diet for at least twelve months beforehand and maintaining it throughout, comprising a four-week placebo run-in, twelve weeks of treatment and a four-week placebo run-out, and state that the primary endpoint of fewer symptoms was achieved at the lowest dose tested, with 26 per cent fewer symptoms, 31 per cent more improved symptom days, a reduction of 50 per cent or more in abdominal pain scores, decreases in non-gastrointestinal symptoms including fatigue and headaches, and safety comparable to placebo.",
+      "plainLanguageText": "The handbook reports a placebo-controlled trial in 342 adults with coeliac disease that found fewer symptoms, more good days and much less abdominal pain, with safety like placebo. That trial has not been read here.",
+      "claimCategory": "efficacy",
+      "importance": "critical",
+      "interpretationNotes": "The strongest human evidence in this tranche, and still a practitioner handbook's report of a trial rather than a trial this index holds. Recorded at critical importance and as reference material for exactly that reason: the level of detail — design, run-in and run-out, patient count, named endpoints, effect sizes — makes it the claim most likely to be mistaken for held clinical-trial evidence. The doses are on the protocol records and deliberately not in this text.",
+      "uncertaintyText": "The trial has not been obtained. The symptom instrument, the primary endpoint's exact definition, the analysis population, the dropout handling and the funding are unknown here. Effect sizes quoted at second hand carry no confidence intervals and no comparison of how the primary endpoint related to the others.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-83",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The opening of the trial account: the 2015 multicentre randomised double-blind placebo-controlled design, the three doses, and the 342 adults with coeliac disease on a gluten-free diet.",
+          "populationModel": "Adults with coeliac disease maintained on a gluten-free diet, as reported by the handbook about a trial it cites.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; the trial has not been obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-larazotide-84",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The study structure and the results block, including the primary endpoint, the symptom and abdominal pain figures and the safety statement.",
+          "populationModel": "Adults with coeliac disease, as reported by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-005",
+      "claimText": "LaValle et al. report that in the 2015 trial the two higher doses produced no different outcomes from the lowest dose tested, which was the dose that met the primary endpoint.",
+      "plainLanguageText": "In that trial the lowest of the three doses was the one that worked, and taking more made no difference.",
+      "claimCategory": "efficacy",
+      "importance": "high",
+      "interpretationNotes": "Recorded as its own claim because it is a finding, not a footnote: an inverse or flat dose-response contradicts the intuition a reader brings to any regimen, and it is the single most practically useful thing the trial account contains. The source reports it without explanation and no explanation is supplied here.",
+      "uncertaintyText": "Why the higher doses did not perform better is not addressed by the source and cannot be assessed without the trial. Whether the trial had the power to detect a difference between doses is unknown.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-84",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that the two higher doses gave no different outcomes from the lowest.",
+          "populationModel": "Adults with coeliac disease, as reported by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-006",
+      "claimText": "LaValle et al. report that as of March 2022 a Phase 3 randomised double-blind placebo-controlled study of larazotide acetate, attributed to 9 Meters Biopharma of Raleigh, North Carolina, was in process at interim analysis, evaluating efficacy and safety for the relief of persistent symptoms in patients with coeliac disease on a gluten-free diet.",
+      "plainLanguageText": "The handbook says a large Phase 3 trial was under way as of March 2022. What happened to it is not recorded here.",
+      "claimCategory": "regulatory",
+      "importance": "high",
+      "interpretationNotes": "Recorded with its date attached and treated as time-sensitive. The statement was current when the handbook was published and is more than four years old at the time of extraction; a trial reported as in progress may have completed, failed, or been abandoned, and this index holds nothing that says which. The sponsor is named because a reader checking the outcome will need it.",
+      "uncertaintyText": "Nothing held records what became of this study. Its registration number is not given by the source, its outcome is unknown here, and a reader should treat the 'in process' statement as a fact about March 2022 rather than about now.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-82",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The start of the Phase 3 statement within the safety block, naming the design, the sponsor and the indication.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; no trial registration or report was obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-larazotide-83",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The completion of the statement, dating it to March 2022 and describing the study as at interim analysis.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-007",
+      "claimText": "LaValle et al. report that small rodent and large porcine animal studies demonstrate the importance of larazotide acetate as a tight junction regulatory peptide in conditions other than coeliac disease, including collagen-induced arthritis in mice and intestinal ischaemic injury in pigs.",
+      "plainLanguageText": "The handbook describes animal studies suggesting larazotide may matter beyond coeliac disease, including arthritis in mice and gut injury in pigs.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded at the population the source gives — mice and pigs — because the indications list includes conditions for which this animal work is the only support offered. Labelling it clearly is what keeps the list from reading as though it were all evidenced in people.",
+      "uncertaintyText": "Neither study is held. Animal findings in arthritis and ischaemic injury do not establish anything about those conditions in people, and the source does not claim they do.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-83",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The sentence describing rodent and porcine studies, naming collagen-induced arthritis in mice and intestinal ischaemic injury in pigs.",
+          "populationModel": "Mice and pigs, as the handbook states. Not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LARA-008",
+      "claimText": "LaValle et al. state that larazotide is reported safe in humans at recommended dosages, with safety comparable to placebo in a human multicentre randomised double-blind controlled study.",
+      "plainLanguageText": "The handbook says larazotide has been found as safe as placebo in a controlled human study.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Unusually for this handbook, the safety statement is attributed to a specific kind of study rather than asserted. It is still the handbook's report of a trial this index has not obtained, and 'comparable to placebo' over twelve weeks of treatment says nothing about longer use.",
+      "uncertaintyText": "The study is not held, so the adverse events collected, the comparison method and the duration are unknown. The trial reported ran twelve weeks of treatment; nothing here addresses safety beyond that.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-larazotide-82",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The safety block's statement that larazotide is reported safe in humans at recommended dosages, with safety comparable to placebo in a human multicentre randomised double-blind controlled study.",
+          "populationModel": "Human subjects in a randomised controlled study, as reported by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The 2015 multicentre randomised placebo-controlled trial in coeliac disease.",
+      "why": "It is the strongest human evidence on this record and it is known here only through a practitioner handbook's summary. The symptom instrument, endpoint definition, analysis population and funding are all unknown.",
+      "whatWouldResolveIt": "Obtaining the trial report.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What instrument and endpoint definition did the 2015 larazotide coeliac trial use, and what were the effect sizes with their confidence intervals?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "What became of the Phase 3 study reported as in process in March 2022.",
+      "why": "The handbook's statement is more than four years old at the time of extraction and nothing held updates it. A study reported as in progress may have completed, failed or been abandoned.",
+      "whatWouldResolveIt": "The trial registration record and any results publication, and the sponsor's current position.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Did the larazotide Phase 3 coeliac study complete, and what did it report?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "Why the lowest dose tested was the one that met the primary endpoint.",
+      "why": "The handbook reports that the two higher doses gave no different outcomes and offers no explanation. Without the trial it cannot be told apart from a ceiling effect, a genuine inverse relationship, or limited power.",
+      "whatWouldResolveIt": "The trial report, and any dose-ranging study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Is larazotide's effect on coeliac symptoms flat or inverse across the studied dose range, and why?",
+      "opportunityType": "dose_response"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any outcome of larazotide in irritable bowel syndrome, Crohn's disease or ulcerative colitis.",
+      "why": "All three appear on the indication list. The human evidence the source describes is in coeliac disease only; the support for the others is animal work and mechanism.",
+      "whatWouldResolveIt": "Held human studies in those conditions with a defined endpoint.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has larazotide been studied in inflammatory bowel disease or irritable bowel syndrome in people?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "What 'leaky gut' names, as a condition larazotide is listed to support.",
+      "why": "The source uses the term as a clinical category without defining it or citing a diagnostic standard. This index records the term because the source uses it and holds nothing that establishes it as a diagnosis.",
+      "whatWouldResolveIt": "A source defining intestinal permeability as a measurable clinical entity, with a method and a threshold.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How is intestinal permeability measured clinically, and what change in it corresponds to a change a patient would notice?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the larazotide literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds, covering larazotide and larazotide acetate.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for larazotide, a compound with named randomised trials and a reported Phase 3 programme?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "oral",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-larazotide-82",
+      "populationModel": "Adults with coeliac disease in the trial the source reports; not specified for the practitioner regimen.",
+      "formulation": "Oral; no preparation described.",
+      "pkNotes": "The source describes larazotide as locally acting and non-systemic, without giving any pharmacokinetic measurement to support it.",
+      "limitationsNotes": "The only route described, and the route used in the trial the source reports. No pharmacokinetic study is held, and the claim that it is non-systemic is unsupported by anything held here."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "LARA-PR-LAVALLE-ORAL",
+      "objectiveContext": "Leaky gut support and tight junction regulation, as the handbook frames its general use.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "oral",
+      "formulation": "Oral; no preparation described.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen — although it matches the dose the handbook reports as effective in the 2015 trial, which is recorded as its own protocol.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "500 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Three times daily",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states larazotide is reported safe in humans at recommended dosages, with safety comparable to placebo in a human multicentre randomised double-blind controlled study.",
+      "locationKey": "lavalle-larazotide-82"
+    },
+    {
+      "protocolKey": "LARA-PR-2015-TRIAL-REPORTED",
+      "objectiveContext": "Relief of persistent symptoms in coeliac disease on a gluten-free diet, as the regimen studied in the 2015 trial the handbook reports.",
+      "populationModel": "342 adults with coeliac disease, on a gluten-free diet for at least twelve months before the study and maintaining it throughout, as reported by the handbook.",
+      "routeKey": "oral",
+      "formulation": "Oral larazotide acetate; no preparation described.",
+      "regulatoryContext": "A study regimen as reported by a practitioner handbook, not practitioner practice and not approved labelling. The trial has not been obtained by this index.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.5 mg, 1 mg or 2 mg three times daily, with the primary endpoint met at 0.5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Three times daily",
+      "durationText": "Twelve weeks of treatment, within a study running four weeks of placebo run-in and four weeks of placebo run-out",
+      "titrationText": "None: three fixed dose arms were compared, and the source reports no difference in outcome between the lowest and the two higher ones.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The handbook reports safety comparable to placebo. No adverse-event detail is given for any arm.",
+      "locationKey": "lavalle-larazotide-84"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "LARA-ID-001",
+      "nameUsed": "Larazotide acetate",
+      "chemicalForm": "Synthetic eight-residue peptide, acetate form",
+      "sequence": "GGVLVQPG",
+      "residueCount": 8,
+      "molecularWeight": 725.8,
+      "weightBasis": "As printed by the handbook, and consistent with the printed eight-residue sequence.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block, read with the description naming larazotide acetate as the material studied.",
+      "notes": "Recorded as full length: a synthetic peptide designed in its own right rather than a fragment of a larger one, discovered by screening peptides related to Vibrio cholerae products. The sequence is given in single-letter code translated from the three-letter form the source prints; the printed form carries free termini and no modified residues.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-larazotide-82"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "LARA-REP-001",
+      "finding": "Reduction of persistent coeliac symptoms on a gluten-free diet.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "One multicentre randomised placebo-controlled trial is reported, and a Phase 3 study was reported as in progress in 2022. Neither is held, so nothing can be assessed — and one trial, however well designed, is not replication.",
+      "limitations": "Were the trials obtained, this record would be a candidate for a single-study or independently-replicated assessment. It is not one today because nothing is held.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Coeliac disease",
+      "status": "investigational_clinical",
+      "authority": "No regulator's record consulted; status taken from the practitioner handbook's report of a Phase 3 study in process as of March 2022",
+      "locationKey": "lavalle-larazotide-83",
+      "checkedAt": "2026-09-26",
+      "notes": "Recorded as investigational because the handbook reports a Phase 3 randomised placebo-controlled study in process at interim analysis as of March 2022, attributed to 9 Meters Biopharma. That statement is more than four years old at the date this record was checked, and nothing held updates it: the study may have completed, failed or been abandoned, and no regulator record or trial registration was read. The status should be treated as historical and re-checked before it is relied on."
+    }
+  ]
+}

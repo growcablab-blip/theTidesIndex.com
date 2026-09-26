@@ -10,6 +10,7 @@ Claude Code should treat these as product acceptance criteria.
 - [ ] A source marked `replace` cannot become an authoritative citation.
 - [ ] Source records can point to a secondary source and a traced primary source separately.
 - [ ] Revision history is preserved.
+- [ ] A deterministic re-seed does not withdraw, unpublish, replace or delete any published record, and does not publish anything (`npm run qa:publication-integrity`).
 
 ## B. Patient/practitioner modes
 
@@ -65,6 +66,7 @@ Content may be sparse during seed phase; missing data must be labeled, not inven
 - [ ] TypeScript strict passes.
 - [ ] Lint passes.
 - [ ] Unit/integration tests pass.
+- [ ] Publication-surface integrity passes (`npm run qa:publication-integrity`).
 - [ ] Production build passes.
 - [ ] No secrets committed.
 - [ ] Source PDFs are not in public/static directories.
@@ -82,3 +84,25 @@ Content may be sparse during seed phase; missing data must be labeled, not inven
 - [ ] database backups configured
 - [ ] corrections contact/mechanism live
 - [ ] editorial methodology page live
+
+## I. Standing release checks
+
+Run every one of these, in this order, against the database the deploy will point at. All must pass
+before a release. None of them modifies the database.
+
+| Command | Question it answers |
+|---|---|
+| `npm run lint` | does the code meet the project's standards |
+| `npm run typecheck` | does it typecheck under strict + `exactOptionalPropertyTypes` |
+| `npx vitest run tests/unit` | do the pure rules still hold |
+| `npx vitest run tests/integration` | do the gates, triggers and views behave against a real Postgres |
+| `npm run qa:production` | **is this database fit to serve the public** — no demonstration records, no fabricated approval, no review date nobody earned |
+| `npm run qa:publication-integrity` | **is it still everything it was** — would a re-seed cost the public site any record it currently shows |
+| `npm run qa:doses` | is there any dose-shaped string in any patient payload |
+| `npm run evidence:locators` | does every recorded locator still resolve in the held file |
+| `npm run build` | does it build for production |
+
+`qa:production` and `qa:publication-integrity` answer **different questions**, and the second one
+exists because the first passed cleanly through two incidents in which a routine `npm run db:seed`
+removed 275 published records from the public site. A single snapshot cannot see a loss; only a
+comparison across a re-seed can. Neither command replaces the other, and a release needs both.

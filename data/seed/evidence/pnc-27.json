@@ -1,0 +1,382 @@
+{
+  "packetKey": "pnc-27",
+  "peptideKey": "pnc-27",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 107-110 (file pp. 109-112). Class C: practitioner-reference. The most safety-sensitive record built in either tranche: the only indication given is cancer treatment, the evidence described is entirely in vitro and in vivo laboratory work, and the monograph itself carries a 2017 FDA public warning and a case report of a massive gastrointestinal haemorrhage. The printed dosage is internally implausible — a concentration of 5,000 mg/ml is not a physically possible solution — and is recorded with that stated inline rather than transcribed as a usable regimen. In-vitro cytotoxic concentrations are deliberately not reproduced in claim text: they are not doses, and printing them beside a dose block invites an inference nothing supports.",
+  "compound": {
+    "shortDescription": "A designed 32-residue peptide combining a fragment of p53 with a membrane-penetrating sequence, sold as a cancer treatment. All evidence described is laboratory work, and the monograph itself carries an FDA warning and a serious adverse event report.",
+    "simpleSummary": "PNC-27 is a laboratory-designed peptide. It joins a short piece of p53 — a protein that normally suppresses tumours — to a second piece that helps it cross cell membranes. The idea is that it kills cancer cells while leaving normal cells alone.\n\n**The only use the handbook lists is cancer treatment.**\n\n**Every study described is in cells or animals.** Cancer cells in dishes, and animal work. **There is no human trial here at all**, and none is held by this index. A peptide that kills cancer cells in a dish has not been shown to treat cancer in a person.\n\n**The handbook itself carries two serious warnings, and they are the most important things on this page.** In 2017 the US Food and Drug Administration warned the public about PNC-27, after finding bacterial contamination in a sample of a PNC-27 solution sold for inhalation. And the handbook describes a woman with advanced cancer who suffered a massive internal bleed two days after receiving PNC-27 abroad.\n\n**The dose printed in the handbook cannot be right.** The concentration it gives is not physically possible for a solution, so this index has not presented the figures as a usable amount.\n\n**Nothing here should be read as evidence that PNC-27 treats cancer.** It is a record of what one practitioner handbook says, including its own warnings.",
+    "practitionerSummary": "LaValle et al. describe PNC-27 as an anti-cancer peptide, printed as a 32-residue sequence of molecular weight 4031.7, containing the HDM-2-binding domain corresponding to residues 12-26 of p53 together with a transmembrane-penetrating domain, theorised and then designed by computer by Pincus and Michl at SUNY Downstate Medical Center.\n\n**The only indication given is anticancer therapy.** There is no second use listed.\n\n**The mechanism as stated is selective membranolysis.** PNC-27 is reported to kill cancer cells but not normal cells by inducing tumour cell necrosis and subsequent membranolysis, evidenced by the absence of lactate dehydrogenase release, and to interact with HDM2 expressed on the membranes of several human cancer cell lines but not on normal cells.\n\n**The evidence described is entirely preclinical.** In-vitro cytotoxicity across a long list of human cancer cell types, a 2003 in-vitro study in three breast cancer lines of differing p53 status reporting p53-independent necrosis, an in-vitro study reporting pore formation in p53-null leukaemia cells, and an in-vitro report of synergy with paclitaxel in ovarian cancer. The handbook gives IC50 concentrations in micrograms per millilitre on the cited page; they are not reproduced here because an in-vitro cytotoxic concentration is not a dose and does not become one by being printed near a dosage block.\n\n**Two safety items dominate this monograph and belong at the front of any reading of it.** First, the handbook records that in 2017 the FDA issued public warnings about PNC-27 use, citing possible contamination and unknown side effects in products purchased over the internet as a cancer treatment, after an FDA laboratory found Variovorax paradoxus in a PNC-27 solution sample intended for inhalation. Second, it describes a case report: a 46-year-old woman with end-stage metastatic cervical cancer, previously treated with multiple courses of chemotherapy and a pelvic exenteration, who sought experimental PNC-27 treatment in Mexico and presented two days after infusion with large-volume haematemesis and bloody discharge from her urostomy and colostomy.\n\n**The printed regimen cannot be used as printed.** The handbook gives a supplied concentration of 5,000 mg per ml, which is not a physically possible solution, and derives its amounts from it arithmetically. The figures are recorded on the protocol with that stated in the same field, rather than transcribed as though they were usable.\n\n**PNC-28 is named as a closely related peptide** — identical in sequence but lacking the first six residues of PNC-27 — and is recorded as related but distinct rather than as another name.",
+    "unknownsSummary": "**There is no human efficacy evidence for PNC-27 anywhere in the source or in this index.** The indication is cancer treatment. The evidence is cells and animals. That gap is the single most important fact on this record, and no amount of in-vitro detail narrows it.\n\n**The printed dosage is internally implausible.** The concentration it states does not exist as a solution — it would be several grams of peptide in a single millilitre — and the stated amounts are derived from it. The figures themselves are on the protocol record, where practitioner-mode context can hold them. This index has not corrected the figures, because correcting a source's arithmetic would be inventing a dose, and has not presented them as usable either.\n\n**The FDA warning is recorded as the handbook reports it.** No FDA communication was retrieved, so its date, scope and current status are unverified here.\n\n**The case report is a single case in a patient with end-stage disease and extensive prior surgery.** Whether PNC-27 caused the haemorrhage is not established by the report as the handbook describes it, and this index does not assert that it did. It is recorded because a reader weighing an unapproved cancer treatment should see it.\n\n**In-vitro selectivity has not been shown to mean clinical safety.** That a peptide spares cultured normal cells and haematopoietic stem cells is not evidence that it spares tissues in a person.\n\n**Nothing is known here about how any of this is supplied.** The FDA finding concerned a contaminated solution sold for inhalation, a route the monograph does not otherwise mention.\n\n**No literature screen has been run for PNC-27.**",
+    "aliases": [
+      {
+        "alias": "PNC-28",
+        "note": "Recorded as related but distinct, never a synonym. The handbook states PNC-28 has a sequence identical to PNC-27 but lacking its first six residues, corresponding to p53 residues 17-26 rather than 12-26. A shorter peptide is a different peptide, and the handbook's findings are reported for both together, which is itself worth a reader knowing."
+      }
+    ],
+    "sequence": "Pro-Pro-Leu-Ser-Gln-Glu-Thr-Phe-Ser-Asp-Leu-Trp-Lys-Leu-Leu-Lys-Lys-Trp-Lys-Met-Arg-Arg-Asn-Gln-Phe-Trp-Val-Lys-Val-Gln-Arg-Gly",
+    "molecularDescription": "Thirty-two residues, molecular weight 4031.7 as printed by the handbook, which is consistent with the printed sequence length. Described as the HDM-2-binding domain corresponding to residues 12-26 of p53 joined to a transmembrane-penetrating domain — fifteen residues of p53 plus a delivery sequence, which is consistent with the printed total. The molecular formula as printed is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "PNC-27 and PNC-28 are two peptides, not two names. The handbook reports much of its cell-line work for both together, so a finding attributed to 'both peptides' is recorded as such rather than as a PNC-27 finding."
+  },
+  "locations": [
+    {
+      "key": "lavalle-pnc27-107",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 107",
+      "pageStart": 107,
+      "notes": "Monograph opening: category, the 32-residue sequence, molecular composition, the single indication, the subcutaneous dosage block including the supplied concentration, and the start of the adverse-effect list."
+    },
+    {
+      "key": "lavalle-pnc27-108",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 108",
+      "pageStart": 108,
+      "notes": "The remainder of the adverse-effect list, the 2017 FDA public warning and the Variovorax paradoxus finding, the case report of massive gastrointestinal haemorrhage, and the start of the mechanism summary."
+    },
+    {
+      "key": "lavalle-pnc27-109",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 109",
+      "pageStart": 109,
+      "notes": "The absence of LDH release, the account of the peptide's design at SUNY Downstate, the PNC-28 comparison with IC50 concentrations, and the Clinical Uses list of cancer cell types."
+    },
+    {
+      "key": "lavalle-pnc27-110",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 110",
+      "pageStart": 110,
+      "notes": "The 2003 breast cancer cell line study, the K562 leukaemia pore formation study, the HDM2 membrane expression findings, and the reported in-vitro synergy with paclitaxel."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "PNC-001",
+      "claimText": "LaValle et al. describe PNC-27 as an anti-cancer peptide containing the HDM-2-binding domain corresponding to amino acid residues 12-26 of the p53 protein together with a transmembrane-penetrating domain, printed as a 32-residue sequence of molecular weight 4031.7, and state that the PNC peptides were theorised and then created by computer by Pincus and Michl at SUNY Downstate Medical Center.",
+      "plainLanguageText": "PNC-27 is a designed peptide: a short piece of the tumour-suppressor protein p53 joined to a sequence that helps it cross cell membranes.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's description. The composite structure matters for how the record should be read: this is a designed construct rather than an endogenous peptide or a fragment of one, so there is no natural physiology to reason from and everything depends on the studies.",
+      "uncertaintyText": "No analytical characterisation is held. The printed residue count and molecular weight are consistent with each other and with the described composition, but rest on one practitioner handbook.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-107",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The category, sequence and molecular composition block.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy and the residues counted against the printed weight."
+        },
+        {
+          "locationKey": "lavalle-pnc27-108",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The summary's description of the p53 residues 12-26 HDM-2-binding domain and the transmembrane-penetrating domain.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-pnc27-109",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The account of the peptides being theorised and created using a computer at SUNY Downstate Medical Center.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-002",
+      "claimText": "LaValle et al. give anticancer therapy as the only indication for PNC-27.",
+      "plainLanguageText": "The only use the handbook lists for PNC-27 is treating cancer.",
+      "claimCategory": "practitioner_use",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance. A single indication of cancer treatment, supported by no human evidence in the source or here, is the most consequential claim in the library: a reader acting on it may be someone with a serious illness choosing between treatments. It is reproduced because the source states it, and everything else on this record exists to make its evidential basis visible.",
+      "uncertaintyText": "No human study of PNC-27 for any cancer is held, and the source describes none. All of the evidence it gives is in vitro or in vivo laboratory work. Nothing here supports use as a cancer treatment in a person.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-107",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses block, which reads only 'Anticancer therapy'.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation accompanies the indication itself."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-003",
+      "claimText": "LaValle et al. record that in 2017 the US Food and Drug Administration issued warnings to the public regarding PNC-27 use, citing possible contamination and unknown treatment side effects in products purchased over the internet as a cancer treatment, and that an FDA laboratory discovered the bacterium Variovorax paradoxus in a sample of PNC-27 solution intended for inhalation.",
+      "plainLanguageText": "The handbook records that in 2017 the FDA warned the public about PNC-27, and that an FDA laboratory found bacteria in a PNC-27 solution being sold for inhalation.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "The most important single item on this record, and it comes from the practitioner handbook itself rather than from any critic of the compound. Recorded at critical importance and placed ahead of the mechanism material, because a regulator warning about contamination in product sold to people with cancer bears on a reader's decision more directly than any in-vitro finding. No FDA communication was retrieved, so this is the handbook's report of it.",
+      "uncertaintyText": "The FDA communication itself has not been obtained, so its exact date, scope, wording and current status are unverified here. Whether the contamination finding concerned one supplier or many is not stated.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-108",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The paragraph recording the 2017 FDA warnings, the Variovorax paradoxus finding in a solution for inhalation, and the recommendation to use a licensed compounding pharmacy.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The handbook gives no citation for the FDA warning and no FDA record was consulted by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-004",
+      "claimText": "LaValle et al. describe a case report of a 46-year-old woman with end-stage metastatic cervical cancer, who had undergone multiple courses of chemotherapy and a pelvic exenteration, and who sought experimental PNC-27 treatment in Mexico two weeks before presenting with haematemesis, developing large-volume haematemesis together with bloody discharge from her urostomy and colostomy two days after PNC-27 infusion.",
+      "plainLanguageText": "The handbook describes a woman with advanced cancer who had a massive internal bleed two days after being given PNC-27 abroad.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance and in the detail the source gives, including the prior surgery and advanced disease, because those details are what allow a reader to weigh it rather than dismiss or overstate it. A single case in a patient with end-stage disease and a pelvic exenteration does not establish causation, and this record does not assert that PNC-27 caused the haemorrhage. It is recorded because a serious adverse event following an unapproved treatment is exactly the kind of fact that a reader considering that treatment is entitled to see.",
+      "uncertaintyText": "The case report has not been obtained. Whether PNC-27 caused the haemorrhage, what dose or route was used, and what else the patient received are not established. Nor is it known how many other such cases exist unreported.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-108",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The case report as the handbook describes it, including the patient's history, the timing relative to infusion and the presentation.",
+          "populationModel": "A single patient with end-stage metastatic cervical cancer, as reported by the handbook about a case report it cites.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The case report is cited by superscript; it has not been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-005",
+      "claimText": "The dosage printed in this handbook's PNC-27 monograph is not physically possible as printed: it gives a supplied concentration that no aqueous solution can reach — several grams of peptide in a single millilitre — and derives its stated amounts arithmetically from that figure.",
+      "plainLanguageText": "The dose printed in the handbook cannot be right. The concentration it gives is not physically possible for a liquid — it would be several grams of peptide in a single millilitre — and the amounts are worked out from it.",
+      "claimCategory": "evidence-quality",
+      "importance": "critical",
+      "interpretationNotes": "This is arithmetic and physical chemistry on the source's own figures, not an external correction. Several grams of peptide in a millilitre of solution is not a solution. The amounts the monograph gives are internally consistent with that concentration, which means they inherit its error. Recorded at critical importance because the consequence of transcribing the figures without comment would be to present a thousand-fold overstatement as a cancer regimen. This index has not supplied a corrected figure: doing so would be inventing a dose, which is precisely what it must not do.",
+      "uncertaintyText": "What the intended figures were is not established and has not been guessed at. The error may be a unit — micrograms for milligrams — or something else entirely; nothing held resolves it.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-107",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The dosage block, giving the supplied concentration and the amounts derived from it.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy and the arithmetic checked against the stated concentration."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-006",
+      "claimText": "LaValle et al. report that PNC-27 kills cancer cells but not normal cells by inducing tumour cell necrosis and subsequent membranolysis, evidenced by the absence of lactate dehydrogenase release in tumour cells, and that it interacts with HDM2 highly expressed on the membranes of several human cancer cell lines including pancreatic, breast and melanoma lines and a transformed rat pancreatic line, but not on normal cells.",
+      "plainLanguageText": "The handbook says PNC-27 breaks open cancer cells while leaving normal cells alone, by binding a protein found on cancer cell membranes.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as the mechanistic account, at the population the source gives: cell lines. Selectivity in culture is the whole of the argument for this compound, and it is worth a reader seeing that the argument is made entirely in cultured cells. The absence of LDH release is retained because it is a specific, checkable observation rather than a general assertion.",
+      "uncertaintyText": "None of the studies is held. Selectivity between cultured cancer and normal cells does not establish selectivity between tissues in a person, where distribution, metabolism and membrane composition all differ from a dish.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-108",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that PNC-27 kills cancer cells but not normal cells by necrosis and membranolysis.",
+          "populationModel": "Cancer cell lines, as the handbook describes them. Not human subjects.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-pnc27-110",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The HDM2 membrane expression findings across named cancer cell lines and the statement that normal cells do not express it in that way.",
+          "populationModel": "Named human and rat cancer cell lines, as the handbook describes them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-007",
+      "claimText": "LaValle et al. report in-vitro cytotoxicity of PNC-27 against human primary cancer cells including ovarian epithelial cancers, metastatic colon adenocarcinoma, cervical carcinoma, metastatic breast carcinoma, non-small cell lung carcinoma, leukaemias, multiple myelomas, prostate cancer, osteosarcoma and pancreatic cancer, and report that both PNC-27 and PNC-28 are lethal to a wide variety of cancer cells at concentrations the source states in micrograms per millilitre, while neither affects normal or untransformed cells in culture including human haematopoietic stem cells at the highest concentrations tested.",
+      "plainLanguageText": "The handbook lists many kinds of cancer cell that PNC-27 killed in the laboratory, and says it did not harm normal cells including blood-forming stem cells.",
+      "claimCategory": "efficacy",
+      "importance": "high",
+      "interpretationNotes": "The concentration figures are deliberately not reproduced in this claim. They are in-vitro IC50 values on the cited page; they are not doses, and printing them alongside a dosage block invites the inference that the regimen achieves them, which nothing held supports. A reader who needs the figures can open the page the citation names. The claim itself is recorded as reference material about laboratory work, at high rather than critical importance because it is the mechanism story rather than a clinical claim — the clinical claim is recorded separately and flagged as unsupported.",
+      "uncertaintyText": "All of it is in vitro. None of the studies is held. The source attributes much of this work to PNC-27 and PNC-28 together, so which findings belong to which peptide is not always separable. No exposure achievable in a person has been compared with any of these concentrations.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-109",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Clinical Uses list of cancer cell types, and the PNC-28 comparison with its IC50 range and the statement about normal cells and haematopoietic stem cells.",
+          "populationModel": "Human and rodent cancer cell lines and cultured normal cells, as the handbook describes them. Despite the source's 'Clinical Uses' heading, no clinical study is described.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index. The section is headed 'Clinical Uses' in the source while describing in-vitro and in-vivo work, which is recorded here rather than adopted."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-008",
+      "claimText": "LaValle et al. report a 2003 in-vitro study in three human breast cancer cell lines of differing p53 status — mutant, overexpressed wild type, and null — in which PNC-27 induced necrosis independently of p53, an in-vitro study reporting that PNC-27 interacted with MDM2 in p53-null human leukaemia K562 cells causing pore formation and cell death, and an in-vitro report of synergy between paclitaxel and PNC-27 in ovarian cancer.",
+      "plainLanguageText": "The handbook describes laboratory studies in breast cancer, leukaemia and ovarian cancer cells, including one where PNC-27 worked regardless of the cells' p53 status.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded because the p53-independence finding matters to the mechanism the compound is named for: a peptide built from a p53 domain that acts without p53 is acting through something other than restoring p53 function, and the source's own account says so. The paclitaxel synergy is included with its in-vitro framing intact, because a combination claim is the kind most easily carried into practice.",
+      "uncertaintyText": "All three studies are in vitro and none is held. In-vitro synergy with a chemotherapy agent says nothing about whether the combination is safe or effective in a person.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-110",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The 2003 breast cancer cell line study, the K562 pore formation study, and the reported paclitaxel synergy.",
+          "populationModel": "Human cancer cell lines, as the handbook describes them. In vitro throughout.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Each is cited by superscript; none has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PNC-009",
+      "claimText": "LaValle et al. state that PNC-27 is reported safe in recommended dosages, and list nausea, redness, bruising or soreness at the injection site, rash, oedema, and joint or muscle pain as the most common adverse effects of subcutaneous dosing.",
+      "plainLanguageText": "The handbook says PNC-27 is reported safe at the doses it gives, and lists nausea, injection-site reactions, rash, swelling and joint or muscle pain as the commonest effects.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's safety block, and it should be read against the two items that follow it in the same monograph: a regulator warning and a case report of a life-threatening haemorrhage. A statement that a compound is 'reported safe in recommended dosages' carries very little when the recommended dosage as printed is not physically possible.",
+      "uncertaintyText": "No safety dataset is held and none is cited. The statement is unattributed, and the same monograph contains an FDA contamination warning and a serious adverse event report.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pnc27-107",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Warnings and Cautions block and the start of the adverse-effect list.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given for the safety statement."
+        },
+        {
+          "locationKey": "lavalle-pnc27-108",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The remainder of the adverse-effect list.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any cancer outcome with PNC-27 in a person.",
+      "why": "The monograph describes no clinical trial. Its evidence is in-vitro cytotoxicity and animal work, and none of those studies is held. The one human account it gives is a case report of a serious adverse event.",
+      "whatWouldResolveIt": "Held clinical trials with a defined oncological endpoint, a stated dose and a stated population.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has PNC-27 been administered to people in any registered trial, and with what outcome?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "What dose of PNC-27 the source intends, and whether any achievable exposure approaches the concentrations that killed cells in culture.",
+      "why": "The printed supplied concentration is not physically possible and the stated amounts derive from it. Separately, the in-vitro concentrations are given with no comparison to achievable plasma or tissue levels.",
+      "whatWouldResolveIt": "A corrected regimen from the source or a manufacturer, and pharmacokinetic data allowing exposure to be compared with in-vitro cytotoxic concentrations.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What exposure does any administered PNC-27 regimen achieve, and how does it compare with the concentrations cytotoxic in culture?",
+      "opportunityType": "human_pharmacokinetics"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The 2017 FDA warning about PNC-27 and its current status.",
+      "why": "The handbook reports the warning and the contamination finding without citation, and no FDA communication was retrieved by this index.",
+      "whatWouldResolveIt": "Retrieving the FDA communication and any later statement, and recording the date and scope.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What exactly did the FDA say about PNC-27 in 2017, and has anything changed since?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Whether PNC-27 caused the haemorrhage described in the case report, and what other serious events may have occurred.",
+      "why": "One case report in a patient with end-stage disease and extensive prior surgery cannot establish causation, and no systematic safety collection exists for a compound sold outside regulated channels.",
+      "whatWouldResolveIt": "The case report itself, and any adverse event series or registry.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What serious adverse events have been reported after PNC-27 administration, and in what settings?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Which findings belong to PNC-27 and which to PNC-28.",
+      "why": "The handbook reports substantial parts of its cell-line evidence for both peptides together, describing PNC-28 as identical in sequence but six residues shorter.",
+      "whatWouldResolveIt": "The underlying studies, which would separate the two.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do PNC-27 and PNC-28 differ in potency or selectivity, and which of the reported findings was demonstrated for which?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "chain_of_custody_unknown",
+      "statement": "What material sold as PNC-27 actually contains.",
+      "why": "The handbook's own account includes an FDA laboratory finding a bacterial contaminant in a PNC-27 solution sold for inhalation over the internet. Nothing held characterises any marketed material.",
+      "whatWouldResolveIt": "Analytical characterisation of marketed material, or a licensed compounding pharmacy's specification.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the identity, purity and sterility of material sold as PNC-27?",
+      "opportunityType": "product_characterisation"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the PNC-27 literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds, covering PNC-27 and PNC-28.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What literature exists on PNC-27, and does any of it describe administration to people?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-pnc27-107",
+      "populationModel": "Not specified by the source.",
+      "formulation": "The handbook states a supplied concentration that is not physically possible for a solution; see the protocol record and the claim on the printed dosage.",
+      "pkNotes": null,
+      "limitationsNotes": "The route the dosage block describes. No human pharmacokinetic data is held. The FDA finding the same monograph reports concerned a solution sold for inhalation, a route the monograph does not otherwise mention."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "PNC-PR-LAVALLE-SQ",
+      "objectiveContext": "Anticancer therapy, the only use the handbook lists.",
+      "populationModel": "Not specified by the source, beyond a longer course for metastatic carcinoma.",
+      "routeKey": "subcutaneous",
+      "formulation": "The handbook states the product is supplied at 5,000 mg per millilitre in a 5 ml vial. That is not a physically possible solution, and the amounts below are derived from it.",
+      "regulatoryContext": "A practitioner handbook's regimen for a compound with no approved indication, no held human trial, a 2017 FDA public warning reported in the same monograph, and a printed dosage that is internally implausible. Not approved labelling, not a study regimen, and not usable as printed.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "As printed: 0.2 ml to 0.4 ml of a solution the handbook states is 5,000 mg per ml. NOT USABLE AS PRINTED — that concentration is not physically possible, so the derived amounts cannot be correct either. Recorded for provenance, not for use.",
+      "amountUnit": "ml",
+      "frequencyText": "Three times daily",
+      "durationText": "Six weeks; the source states metastatic carcinoma is generally dosed the same but for 12 to 24 weeks",
+      "monitoringText": "None given by the source.",
+      "contraindicationsText": null,
+      "safetyNotes": "The source states PNC-27 is reported safe in recommended dosages, and lists nausea, injection-site redness, bruising or soreness, rash, oedema and joint or muscle pain. The same monograph records a 2017 FDA public warning about contamination and unknown side effects, and a case report of massive gastrointestinal haemorrhage two days after infusion in a patient with end-stage cancer. The printed dosage is not physically possible as stated.",
+      "locationKey": "lavalle-pnc27-107"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "PNC-ID-001",
+      "nameUsed": "PNC-27",
+      "chemicalForm": "Designed peptide: the HDM-2-binding domain corresponding to p53 residues 12-26 joined to a transmembrane-penetrating domain",
+      "sequence": "PPLSQETFSDLWKLLKKWKMRRNQFWVKVQRG",
+      "residueCount": 32,
+      "molecularWeight": 4031.7,
+      "weightBasis": "As printed by the handbook, and consistent with the printed 32-residue sequence.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block, read with the summary's description of the two domains.",
+      "notes": "Recorded as an analogue rather than a fragment: it contains a fragment of p53 but is not one, being a designed construct joining that fragment to a delivery sequence. The sequence is given in single-letter code translated from the three-letter form the source prints, which contains no modified residues.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-pnc27-107"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "PNC-REP-001",
+      "finding": "Selective killing of cancer cells by PNC-27.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "Several in-vitro studies across different cell lines are described, which would be a form of replication if the studies were held. None is held, and no clinical study exists in the source, so nothing is confirmed in humans.",
+      "limitations": "Much of the reported work covers PNC-27 and PNC-28 together, so even at face value the findings are not cleanly attributable to one peptide.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "United States",
+      "indicationContext": "Cancer treatment",
+      "status": "not_approved",
+      "authority": "US Food and Drug Administration, as reported by the practitioner handbook rather than read from an FDA record",
+      "locationKey": "lavalle-pnc27-108",
+      "checkedAt": "2026-09-26",
+      "notes": "Recorded as not approved on the strength of the handbook's own account: it reports that in 2017 the FDA issued public warnings about PNC-27 sold over the internet as a cancer treatment, citing possible contamination and unknown side effects. That is a regulator warning about an unapproved product rather than any authorisation. No FDA communication was retrieved, so the date and scope are unverified, and regulatory positions are time-sensitive."
+    }
+  ]
+}

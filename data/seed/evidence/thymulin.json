@@ -1,0 +1,423 @@
+{
+  "packetKey": "thymulin",
+  "peptideKey": "thymulin",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 160-162 (file pp. 162-164). Class C: practitioner-reference. Three findings about the source are recorded. First, the printed molecular weight is not consistent with the nonapeptide the same monograph describes. Second, the monograph lists Thymalin under Other Name(s) without establishing that the two are the same substance, so that name is recorded as related but distinct rather than as a synonym. Third, the 'Thyamlin' row in the SRC-004 cheat sheet has deliberately not been reconciled to this record: it is closer to Thymalin than to Thymulin, and attaching it here would compound one unresolved identity with a guess.",
+  "compound": {
+    "shortDescription": "An endogenous nine-residue thymic hormone whose activity depends on zinc, used by practitioner sources for immune support. The human evidence described is two rheumatoid arthritis trials this index has not read.",
+    "simpleSummary": "Thymulin is a small hormone made by the thymus, the gland that trains immune cells. Levels are highest in childhood, fall from adolescence onwards, and reach their lowest in the thirties.\n\n**It only works with zinc.** The handbook says thymulin has to bind a zinc atom to be active, and suggests checking zinc status in red blood cells before relying on it. That is one of the few pieces of concrete monitoring advice in this whole handbook.\n\n**What the handbook lists it for:** immune support, inflammation including inflammation in the brain, and pain.\n\n**There is human evidence described, in rheumatoid arthritis.** Two placebo-controlled trials are reported, using the name nonathymulin, with a benefit on four objective measures. **Those trials have not been obtained and read here** — what is held is a handbook summarising them.\n\n**Two naming problems.** The handbook lists 'Thymalin' as another name for thymulin, and nothing held here shows they are the same substance. A separate source lists something spelled 'Thyamlin', which this index has not treated as either.\n\n**And one number in the handbook does not add up.** The molecular weight printed is far too large for a nine-residue peptide.",
+    "practitionerSummary": "LaValle et al. describe thymulin as an endogenous thymic hormone produced exclusively by the epithelial cells of the thymus, printed as a nine-residue sequence beginning with pyroglutamate, and give Thymalin and Nonathymulin as other names.\n\n**Indications listed:** clinical conditions where immune support is necessary, anti-inflammatory use including neuroinflammation, and analgesia.\n\n**Zinc dependence is the practical point.** The handbook states thymulin's biological activity depends on binding one molecule of zinc, and that assessment of red blood cell zinc status may be beneficial because thymulin is reported dependent on the presence of zinc when activating immunity. It gives the half-life as 30 to 60 minutes.\n\n**The endocrine context is developed at length.** Levels are detectable at birth, peak between ages five and ten, fall from adolescence to a minimum around thirty-six and remain steady until about eighty, with a circadian rhythm peaking at night. Growth hormone increases synthesis and secretion directly or through IGF-1; thyroxine and triiodothyronine have a positive effect; prolactin, glucocorticoids and gonadal steroids modulate secretion; hypothalamic and pituitary extracts stimulate it, and removal of the pituitary causes thymic atrophy.\n\n**The immunological mechanism as stated:** selective immunomodulation enhancing anti-inflammatory and inhibiting pro-inflammatory cytokines, suppression of p38 — which the handbook links to glucocorticoid resistance — inhibition of NF-kappaB activation, involvement in T-cell differentiation both inside and outside the thymus, and enhancement of T- and NK-cell action. In the brain it is reported to target receptors on microglial cells and to attenuate inflammatory pain by modulating spinal signalling pathways.\n\n**The human material is two trials, reported second-hand.** Two randomised double-blind placebo-controlled trials, one with 49 patients and one with 30, are reported to have found nonathymulin effective in rheumatoid arthritis at the lower of the two doses studied, with a benefit on four objective parameters against placebo and minimal adverse effects, and no additional clinical improvement at the higher dose. **Neither trial has been obtained by this index.** The doses studied are on the protocol records.\n\n**Two identity problems and one arithmetic problem.** Thymalin is listed as another name without support, so it is recorded as related but distinct. The printed molecular weight of 3051.3 g/mol cannot belong to a nine-residue peptide, whose mass would be roughly a third of that; it is close to the figure this same handbook prints for the 28-residue thymosin alpha-1.",
+    "unknownsSummary": "**The rheumatoid arthritis trials have not been obtained.** They are the only human evidence on this record, and everything about them — design, duration, blinding quality, funding, how the four objective parameters were defined — is unknown here.\n\n**Whether Thymalin is thymulin is not established.** The handbook lists it as another name. Nothing held supports or refutes that, and the two names are used elsewhere for materials of very different kinds. Recorded as related but distinct so the index does not assert an identity on a name list.\n\n**The 'Thyamlin' entry in another held source has not been reconciled.** SRC-004 lists a compound spelled Thyamlin with a longevity indication. That spelling is closer to Thymalin than to Thymulin, and this index has not decided which it is, so no alias was created.\n\n**The printed molecular weight is wrong or refers to something else.** 3051.3 g/mol is not the mass of a nonapeptide. This index has not established the correct figure, because doing so would require a source it does not hold.\n\n**The neuroinflammation and analgesia claims are preclinical.** Microglial receptor targeting and spinal signalling are mechanisms described in models, not outcomes measured in people.\n\n**No literature screen has been run for thymulin.**",
+    "aliases": [
+      {
+        "alias": "Nonathymulin",
+        "note": "Listed by the handbook under Other Name(s), and used by the same monograph for the synthetic thymic peptide hormone studied in the rheumatoid arthritis trials it reports. 'Nona' is consistent with the nine-residue sequence printed, so this name is recorded as a synonym."
+      },
+      {
+        "alias": "Thymalin",
+        "note": "Listed by the handbook under Other Name(s), but recorded as related but distinct rather than as a synonym. Nothing held establishes that the two names refer to the same substance, and a name list in a practitioner handbook is not sufficient basis for merging two scientific identities. The distinction is recorded as an open question rather than resolved in either direction."
+      }
+    ],
+    "sequence": "Pyr-Ala-Lys-Ser-Gln-Gly-Gly-Ser-Asn",
+    "molecularDescription": "A nine-residue peptide beginning with pyroglutamate, as printed by the handbook: Pyr-Ala-Lys-Ser-Gln-Gly-Gly-Ser-Asn. The handbook prints a molecular weight of 3051.3 g/mol, which is not consistent with a peptide of nine residues — such a peptide would weigh roughly a third of that — and which is close to the 3108.28 g/mol this same handbook prints for the 28-residue thymosin alpha-1. The correct figure has not been established here. The molecular formula as printed is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "Endogenous, and available synthetically: the handbook describes thymulin as an endogenous thymic hormone and describes the material studied in its reported trials as a synthetic thymic peptide hormone.",
+    "nomenclatureNote": "Three spellings circulate and only one is settled. Nonathymulin is recorded as a synonym because the source both lists it and uses it for the studied peptide. Thymalin is recorded as related but distinct, because the source asserts the identity and nothing held supports it. 'Thyamlin', which appears in the SRC-004 cheat sheet, has not been attached to this record at all: it is closer to Thymalin than to Thymulin, and this index has not established which compound it names."
+  },
+  "locations": [
+    {
+      "key": "lavalle-thymulin-160",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 160",
+      "pageStart": 160,
+      "notes": "Monograph opening: category, other names, the nine-residue sequence, molecular composition, the indications list, the subcutaneous dosage block, the safety block including the zinc status suggestion, and the half-life."
+    },
+    {
+      "key": "lavalle-thymulin-161",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 161",
+      "pageStart": 161,
+      "notes": "The description of thymulin as an endogenous thymic hormone, the age profile and circadian rhythm, the zinc dependence, and the neuroendocrine interactions with the growth hormone and thyroid axes."
+    },
+    {
+      "key": "lavalle-thymulin-162",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 162",
+      "pageStart": 162,
+      "notes": "T-cell and NK-cell actions, the microglial and spinal analgesia material, and the Human Study section reporting two randomised placebo-controlled trials of nonathymulin in rheumatoid arthritis."
+    },
+    {
+      "key": "lavalle-ta1-147-thymulin",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 147",
+      "pageStart": 147,
+      "notes": "The thymosin alpha-1 monograph's sequence and molecular composition block, cited here only for the comparison distinguishing the two thymic peptides and for the molecular weight printed there."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "THYU-001",
+      "claimText": "LaValle et al. describe thymulin as an endogenous thymic hormone produced exclusively by the epithelial cells of the thymus, print it as a nine-residue sequence beginning with pyroglutamate, and give Thymalin and Nonathymulin as other names.",
+      "plainLanguageText": "The handbook describes thymulin as a nine-amino-acid hormone made only by the thymus gland, and gives two other names for it.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's description. The two other names are reproduced because the source gives them, but they are not treated equally: see the separate claims on nomenclature. The residue count is taken from the printed sequence, which lists nine residues and is consistent with the name nonathymulin.",
+      "uncertaintyText": "No analytical characterisation is held. The printed molecular weight is inconsistent with the printed sequence, which is recorded as its own claim.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-160",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The other-names block and the printed sequence.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy and the residues counted."
+        },
+        {
+          "locationKey": "lavalle-thymulin-161",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The description of thymulin as produced exclusively by thymic epithelial cells.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-002",
+      "claimText": "The molecular weight printed in this handbook's thymulin monograph, 3051.3 g/mol, is not consistent with the nine-residue sequence printed in the same block, and is close to the 3108.28 g/mol the same handbook prints for the 28-residue thymosin alpha-1.",
+      "plainLanguageText": "The molecular weight printed for thymulin is far too large for a nine-amino-acid peptide, and is close to the figure the same book gives for a much longer thymic peptide.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "This is arithmetic on the source's own figures, not an external correction: nine residues of the kinds printed cannot weigh three thousand daltons, and the neighbouring monograph's figure is noted because the proximity is striking. No attempt is made to state the correct weight, or to explain how the figure arose, because both would require sources this index does not hold. It is recorded because a molecular weight is one of the few checkable facts on a monograph page, and a reader comparing thymic peptides would be misled by it.",
+      "uncertaintyText": "Whether the printed figure is a transcription error, a different substance's weight, or an error in the book is not determined. The correct molecular weight of thymulin is not established here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-160",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The molecular composition block printing 3051.3 g/mol alongside a nine-residue sequence.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy."
+        },
+        {
+          "locationKey": "lavalle-ta1-147-thymulin",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contextualizes",
+          "interpretation": "The thymosin alpha-1 monograph's molecular weight of 3108.28 g/mol for a 28-residue peptide, in the same handbook.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy for the comparison."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-003",
+      "claimText": "Thymulin is a different peptide from thymosin alpha-1 and from thymosin beta-4: this handbook prints thymulin as a nine-residue thymic hormone and thymosin alpha-1 as a 28-residue peptide, in separate monographs, and describes no relationship between them.",
+      "plainLanguageText": "Thymulin, thymosin alpha-1 and thymosin beta-4 are different peptides. They all come from the thymus and their names look alike, which is exactly why they get confused.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The comparison is this index's, made by reading two monographs of the held source. Recorded at critical importance because these names are routinely conflated, the index now carries records for all three, and evidence crossing between them would be the most consequential error available here. The claim is deliberately limited to what the two monographs show — different lengths, separate treatments — and asserts nothing about the biology of the relationship.",
+      "uncertaintyText": "The source does not compare the thymic peptides, so the distinction rests on their separate descriptions rather than on any statement about how they relate. Whether they share activity is not addressed anywhere held here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-160",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The thymulin monograph's nine-residue sequence, in its own monograph.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy."
+        },
+        {
+          "locationKey": "lavalle-ta1-147-thymulin",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contextualizes",
+          "interpretation": "The thymosin alpha-1 monograph's 28-residue sequence, thirteen pages earlier in the same handbook.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy for the comparison."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-004",
+      "claimText": "LaValle et al. list thymulin for clinical conditions where immune support is necessary, for anti-inflammatory use including neuroinflammation, and as an analgesic.",
+      "plainLanguageText": "The handbook lists thymulin for immune support, inflammation including in the brain, and pain.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list. 'Clinical conditions where immune support is necessary' is as unspecific as the source makes it, and is left that way rather than being sharpened into named conditions the source does not name.",
+      "uncertaintyText": "The only human evidence the source offers is in rheumatoid arthritis. Nothing held supports the analgesic or neuroinflammation indications in people.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-160",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list in full.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-005",
+      "claimText": "LaValle et al. state that thymulin's biological activity depends upon binding one molecule of zinc, that thymulin is reported dependent on the presence of zinc when activating immunity, and that assessment of red blood cell zinc status may therefore be beneficial.",
+      "plainLanguageText": "The handbook says thymulin only works when it is bound to zinc, and suggests checking zinc levels in red blood cells.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Recorded as its own claim, and at high importance, because it is one of the few pieces of specific, actionable monitoring guidance anywhere in this handbook: it implies that the compound may do nothing in a zinc-deficient person. That makes it useful to a practitioner and useful to a reader assessing whether an absent effect would even be interpretable.",
+      "uncertaintyText": "The zinc-dependence citation has not been obtained. What red blood cell zinc threshold would matter, and whether correcting zinc changes any outcome, are not addressed by the source.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-160",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The safety block's statement that red blood cell zinc assessment may be beneficial, with its stated reason.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-thymulin-161",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that the biological activity of thymulin is dependent upon it binding one molecule of zinc.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-006",
+      "claimText": "LaValle et al. report that thymulin has a selective immunomodulatory effect enhancing anti-inflammatory and inhibiting pro-inflammatory cytokines, that it suppresses p38 — which they associate with glucocorticoid resistance — and inhibits NF-kappaB activation, and that it is involved in T-cell differentiation both within and outside the thymus and in enhancement of T- and NK-cell actions.",
+      "plainLanguageText": "The handbook describes thymulin shifting the balance of inflammatory signals and taking part in the development of immune cells.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as the source's mechanistic account, which is developed at greater length than most in this handbook and cited throughout by superscript. The p38 and glucocorticoid-resistance link is retained because it is specific enough to be checkable.",
+      "uncertaintyText": "None of the cited work is held, and the source does not say which findings are from human cells, animals or both. No clinical outcome follows from a cytokine shift on its own.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-161",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Functions of Thymulin section: cytokine effects, p38 suppression and NF-kappaB inhibition.",
+          "populationModel": "Not stated by the source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-thymulin-162",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The T-cell differentiation and T- and NK-cell enhancement material.",
+          "populationModel": "Not stated by the source.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-007",
+      "claimText": "LaValle et al. report that thymulin levels are detectable at birth, increase to their highest in children aged five to ten, fall from adolescence to their lowest around thirty-six years of age and remain steady until about eighty, follow a circadian rhythm peaking at night, and are increased by growth hormone directly or through IGF-1 and by thyroxine and triiodothyronine, while prolactin, glucocorticoids and gonadal steroids modulate secretion and removal of the pituitary gland results in thymic atrophy.",
+      "plainLanguageText": "The handbook describes how thymulin changes across life and through the day, and how other hormones affect it.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded because the age profile is the implicit rationale for giving thymulin at all, and because a reader should be able to see that rationale stated rather than assumed. It is descriptive physiology from cited sources, not an outcome of administration.",
+      "uncertaintyText": "The cited measurements are not held, and the source does not say in what populations they were made. That a level declines with age does not establish that replacing it changes anything.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-161",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The age profile, circadian rhythm and neuroendocrine interaction material in full.",
+          "populationModel": "Human physiology, as the handbook describes it, from studies it cites but does not characterise.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-008",
+      "claimText": "LaValle et al. report that thymulin has anti-inflammatory and analgesic properties in the brain, specifically targeting receptors on microglial cells, and that thymulin treatment attenuates inflammatory pain by modulating spinal cellular and molecular signalling pathways.",
+      "plainLanguageText": "The handbook says thymulin acts on immune cells in the brain and reduces inflammatory pain by acting on signalling in the spinal cord.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as the mechanistic basis the source gives for the analgesic indication. The language — attenuating inflammatory pain by modulating spinal pathways — is the language of a model rather than of a clinical trial, and this record treats it that way.",
+      "uncertaintyText": "The studies are cited and not held, and the source does not name a species. No human pain outcome is reported anywhere in the monograph.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-162",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The microglial receptor and spinal signalling passage.",
+          "populationModel": "Not stated by the source; the described work is mechanistic rather than clinical.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-009",
+      "claimText": "LaValle et al. report two randomised double-blind placebo-controlled trials, one in 49 patients and one in 30 patients, and state that nonathymulin was effective in the treatment of rheumatoid arthritis at the lower of the two doses studied, giving a benefit on four objective parameters against placebo with minimal adverse effects, and that the higher-dose group also improved significantly but no more than the lower-dose group.",
+      "plainLanguageText": "The handbook reports two placebo-controlled trials in rheumatoid arthritis and says the lower of the two doses worked, with a clear benefit over placebo on four measures. Those trials have not been read here.",
+      "claimCategory": "efficacy",
+      "importance": "critical",
+      "interpretationNotes": "The only human efficacy material on this record, and a practitioner handbook's summary of two trials cited by a single superscript. Recorded at critical importance and as reference material so that it cannot be read as clinical-trial evidence this index holds. The dose-response point is preserved because it is informative — a higher dose giving no further benefit is a finding — but the amounts themselves are on the protocol records, not here. The name used is the source's: the trials are reported as studying nonathymulin.",
+      "uncertaintyText": "Neither trial has been obtained. The four objective parameters are not named, the duration is not given, the response definition is not stated, and who funded them is unknown. Two trials from an unstated period in a disease whose treatment has changed substantially is a thin basis for any present-day conclusion.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-162",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Human Study section in full, including both patient counts, the comparison with placebo on four objective parameters, and the absence of additional benefit at the higher dose.",
+          "populationModel": "Patients with rheumatoid arthritis, as reported by the handbook about trials it does not otherwise describe.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Both trials are attributed to a single superscript citation in the handbook. This index has not obtained either, so what is recorded is the handbook's report of them."
+        }
+      ]
+    },
+    {
+      "claimKey": "THYU-010",
+      "claimText": "LaValle et al. state that thymulin is reported safe in recommended dosages and give its half-life as 30 to 60 minutes.",
+      "plainLanguageText": "The handbook says thymulin is reported safe at the doses it gives, and that it clears from the body within about an hour.",
+      "claimCategory": "safety",
+      "importance": "medium",
+      "interpretationNotes": "The source's safety statement is unattributed and carries no adverse-event list. The half-life is recorded alongside it because it is the kind of detail that bears on a regimen: a compound cleared within an hour administered three times a week has very different exposure from one that persists.",
+      "uncertaintyText": "No safety dataset is held and none is cited. The half-life is given without a route, a population or a method.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-thymulin-160",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The safety block: reported safe in recommended dosages, and the stated half-life.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given for the safety statement or the half-life."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The two randomised placebo-controlled trials of nonathymulin in rheumatoid arthritis.",
+      "why": "Both are attributed to a single superscript citation in the handbook and neither has been obtained by this index, so the design, duration, endpoints and funding are all unknown.",
+      "whatWouldResolveIt": "Obtaining both trial reports.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What were the four objective parameters in the nonathymulin rheumatoid arthritis trials, over what duration, and how was response defined?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Whether Thymalin and thymulin are the same substance.",
+      "why": "The handbook lists Thymalin under Other Name(s) and gives no basis for it. Nothing held establishes the identity, and the two names are used elsewhere for materials of different kinds, so the alias is recorded as related but distinct rather than as a synonym.",
+      "whatWouldResolveIt": "A source stating the composition of the material sold as Thymalin, or an analytical comparison of the two.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the composition of the material marketed as Thymalin, and is it the thymulin nonapeptide?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Which compound the 'Thyamlin' row in the SRC-004 cheat sheet refers to.",
+      "why": "The spelling is a closer transposition of Thymalin than of Thymulin, and the indication given there is longevity rather than immune support. This index has not decided which compound it names, so no alias was created on this record and the cheat sheet row is not cited as evidence for anything here.",
+      "whatWouldResolveIt": "A clearer version of that source, or any other source using the same spelling with a stated composition.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Is 'Thyamlin' a misspelling of Thymalin, of Thymulin, or of neither?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any analgesic or neuroinflammatory outcome of thymulin in people.",
+      "why": "The microglial and spinal signalling material the indications rest on is mechanistic, and none of it is held. The only human evidence the source offers is in rheumatoid arthritis.",
+      "whatWouldResolveIt": "Held human studies with a pain or neuroinflammatory endpoint.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has thymulin been studied for pain or neuroinflammation in people, and with what endpoint?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "What red blood cell zinc status would make thymulin ineffective, and what should be done about it.",
+      "why": "The source states that zinc is required for activity and that assessing red blood cell zinc may be beneficial, without giving a threshold, a method or an action.",
+      "whatWouldResolveIt": "A source stating the zinc status at which thymulin activity is impaired, and whether correcting it restores activity.",
+      "verificationIssueKey": null,
+      "researchQuestion": "At what zinc status is thymulin activity impaired, and does correcting zinc change any measured outcome?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the thymulin literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds, covering thymulin, nonathymulin and the serum thymic factor literature.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for thymulin, a compound with named randomised trials reported in rheumatoid arthritis?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-thymulin-160",
+      "populationModel": "Not specified by the source for the practitioner regimen. The trials the source reports were in patients with rheumatoid arthritis and it does not state their route.",
+      "formulation": "Not stated beyond subcutaneous administration.",
+      "pkNotes": "The source gives a half-life of 30 to 60 minutes, without stating the route or method it applies to.",
+      "limitationsNotes": "The only route the source describes. No human pharmacokinetic study is held, and the source does not say whether the reported trials used this route."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "THYU-PR-LAVALLE-SQ",
+      "objectiveContext": "Immune support, as the handbook frames its general use.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Not stated.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Daily for the first two weeks, then three times weekly",
+      "durationText": "Two weeks daily, then four months at the reduced frequency",
+      "titrationText": "The source states the dose may be increased to 5 mg subcutaneously in acute needs, without saying for how long or on what criteria.",
+      "monitoringText": "The source suggests assessment of red blood cell zinc status, because it reports thymulin's activity as zinc-dependent. No threshold or method is given.",
+      "contraindicationsText": null,
+      "safetyNotes": "The source states thymulin is reported safe in recommended dosages and gives a half-life of 30 to 60 minutes. No adverse-event list is given.",
+      "locationKey": "lavalle-thymulin-160"
+    },
+    {
+      "protocolKey": "THYU-PR-RA-TRIALS-REPORTED",
+      "objectiveContext": "Rheumatoid arthritis, as the regimen studied in the two trials the handbook reports.",
+      "populationModel": "Patients with rheumatoid arthritis, as reported by the handbook: 49 patients at the lower dose and 30 at the higher.",
+      "routeKey": "subcutaneous",
+      "formulation": "Not stated. The handbook describes the material studied as nonathymulin, a synthetic thymic peptide hormone.",
+      "regulatoryContext": "A study regimen as reported by a practitioner handbook, not practitioner practice and not approved labelling. Neither trial has been obtained by this index, and the route is not stated by the source.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "5 mg at the lower dose and 10 mg at the higher",
+      "amountUnit": "mg",
+      "frequencyText": "Daily",
+      "durationText": "Not stated by the source.",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The handbook reports minimal adverse effects at the lower dose. No adverse-event detail is given for either dose.",
+      "locationKey": "lavalle-thymulin-162"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "THYU-ID-001",
+      "nameUsed": "Thymulin",
+      "chemicalForm": "Nine-residue thymic peptide hormone beginning with pyroglutamate",
+      "sequence": null,
+      "residueCount": 9,
+      "molecularWeight": null,
+      "weightBasis": "Deliberately empty. The handbook prints 3051.3 g/mol, which is not consistent with a nine-residue peptide, and this index has not established the correct figure. Recording the printed value here would place a number that cannot be right on the identity record a reader consults to tell thymic peptides apart.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block, read with the description of thymulin as an endogenous thymic hormone.",
+      "notes": "Recorded as full length rather than a fragment: the source describes thymulin as an endogenous hormone in its own right. The sequence is on the compound record in the three-letter form the source prints; it is not repeated here in single-letter code because the first residue is pyroglutamate, which has no single-letter code, and translating it would be this index's inference rather than the source's statement."
+    ,
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-thymulin-160"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "THYU-REP-001",
+      "finding": "Benefit of nonathymulin in rheumatoid arthritis.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "Two trials are reported by one handbook under a single citation, and neither is held. Whether they were independent of each other, or from the same group, is not stated, so replication cannot be assessed even at face value.",
+      "limitations": "The handbook reports the trials as a pair, which may mean one report of two dose arms rather than two independent studies.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-thymulin-160",
+      "checkedAt": "2026-09-26",
+      "notes": "The handbook makes no regulatory statement about thymulin and no regulator record was read."
+    }
+  ]
+}

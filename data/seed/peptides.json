@@ -421,5 +421,139 @@
       }
     ],
     "notes": "Class C by decision: comparator mentions inside retatrutide literature are not dedicated semaglutide evidence and were not used to promote this record."
+  },
+  {
+    "peptideKey": "aod-9604",
+    "canonicalName": "AOD-9604",
+    "slug": "aod-9604",
+    "compoundTypeKey": "peptide_fragment",
+    "primaryCategoryKey": "metabolic",
+    "aliases": [
+      {
+        "alias": "AOD 9604",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "AOD9604",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Tyr-hGH177-191",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "AOD-9604 + HA",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "One held source spells the name three ways on facing pages. 'AOD-9604 + HA' is the handbook's name for the hyaluronic acid combination, recorded as related but distinct because it is a combination rather than a different molecule. The printed sequence lists twelve residues while the summary describes a hexadecapeptide fragment; the conflict is recorded rather than resolved."
+  },
+  {
+    "peptideKey": "ara-290",
+    "canonicalName": "ARA-290",
+    "slug": "ara-290",
+    "compoundTypeKey": "peptide_fragment",
+    "primaryCategoryKey": "neuro-cognitive",
+    "aliases": [
+      {
+        "alias": "Cibinetide acetate",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Helix B surface peptide",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "HBSP",
+        "aliasType": "abbreviation"
+      }
+    ],
+    "notes": "Three names in one source: ARA-290, cibinetide acetate and Helix B surface peptide. The alias is recorded as the source gives it, including the salt form; no bare 'cibinetide' alias was invented, and a search for cibinetide matches the recorded alias anyway."
+  },
+  {
+    "peptideKey": "kpv",
+    "canonicalName": "KPV",
+    "slug": "kpv",
+    "compoundTypeKey": "peptide_fragment",
+    "primaryCategoryKey": "immune",
+    "aliases": [
+      {
+        "alias": "Lys-Pro-Val",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "alpha-MSH",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "The three N-terminal residues of alpha-MSH. Alpha-MSH is recorded as related but distinct, never a synonym: the same source states KPV does not bind the melanocortin receptors alpha-MSH acts through. The handbook's category label calls KPV an alpha-MSH stimulating peptide, which its own text does not support."
+  },
+  {
+    "peptideKey": "thymulin",
+    "canonicalName": "Thymulin",
+    "slug": "thymulin",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "immune",
+    "aliases": [
+      {
+        "alias": "Nonathymulin",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Thymalin",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "Nonathymulin is a synonym: the source lists it and uses it for the peptide studied in the trials it reports. Thymalin is recorded as related but distinct, because the source asserts the identity and nothing held supports it. The 'Thyamlin' row in SRC-004 has not been attached to this record at all — the spelling is closer to Thymalin, and the indication differs. The printed molecular weight is inconsistent with the printed nine-residue sequence and is not carried on the identity record."
+  },
+  {
+    "peptideKey": "mgf",
+    "canonicalName": "MGF",
+    "slug": "mgf",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "repair-recovery",
+    "aliases": [
+      {
+        "alias": "Mechano-Growth Factor",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "IGF-1Ec",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "PEG-MGF",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "One record for MGF with PEG-MGF recorded as related but distinct: the source covers them in one monograph and describes PEG-MGF as the same peptide pegylated to extend its half-life from minutes to days, so it is a preparation with its own regimen rather than a separate molecule. IGF-1 LR3 appears in the regimens as a pairing and is deliberately not an alias."
+  },
+  {
+    "peptideKey": "pnc-27",
+    "canonicalName": "PNC-27",
+    "slug": "pnc-27",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "uncategorised",
+    "aliases": [
+      {
+        "alias": "PNC-28",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "PNC-28 is a different peptide, six residues shorter, and is recorded as related but distinct because the handbook reports much of its cell-line evidence for both together. No category fits an anticancer peptide in the current taxonomy, so it is uncategorised rather than forced into one. The printed dosage is not physically possible and is recorded with that stated inline rather than transcribed as usable."
+  },
+  {
+    "peptideKey": "larazotide",
+    "canonicalName": "Larazotide",
+    "slug": "larazotide",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "gastrointestinal",
+    "aliases": [
+      {
+        "alias": "Larazotide acetate",
+        "aliasType": "synonym"
+      }
+    ],
+    "notes": "Larazotide acetate is the name the source uses for the studied material and is recorded as a synonym. The abbreviation 'LA' used inside the monograph is deliberately not an alias: two letters colliding with ordinary text are worse than useless in a search index. No research code or brand name was added, because the source gives none."
   }
 ]

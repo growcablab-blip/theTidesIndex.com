@@ -1,0 +1,309 @@
+{
+  "packetKey": "ara-290",
+  "peptideKey": "ara-290",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 24-26 (file pp. 26-28). Class C: practitioner-reference. The monograph is unusually preclinical: it names eight animal model classes and describes the human material in two sentences. It is also the only monograph read in this tranche with no adverse-event list at all, which is recorded as a gap rather than read as an absence of adverse events.",
+  "compound": {
+    "shortDescription": "An eleven-residue peptide taken from one helix of the erythropoietin molecule, used by practitioner sources for neuropathic pain. Almost everything reported about it is from animal models.",
+    "simpleSummary": "ARA-290 is a short piece of erythropoietin — the hormone that drives red blood cell production — taken from one part of that molecule rather than the whole thing. The idea is to keep the tissue-protective effects without the effects on blood.\n\n**What the handbook lists it for:** nerve pain in people with sarcoidosis, a diabetic eye condition, and inflammation associated with metabolic disease.\n\n**Nearly all of the evidence described is from animals.** The handbook names eight kinds of animal model. Two sentences describe studies in people with sarcoidosis, and those studies have not been obtained and read here.\n\n**The handbook says it is reported safe and effective at the doses it gives, and gives no list of side effects at all.** That is unusual for this book, and an absence of a list is not evidence of an absence of effects.\n\n**This index holds no study of it.**",
+    "practitionerSummary": "LaValle et al. describe ARA-290 as an eleven-amino-acid peptide derived from the Helix B structure of the erythropoietin molecule, molecular weight 1257.31 g/mol, also called cibinetide acetate and Helix B surface peptide (HBSP).\n\n**The indications listed are narrow:** neuropathic pain in patients with sarcoidosis, diabetic macular oedema, and metaflammation.\n\n**The evidence base as the handbook describes it is overwhelmingly preclinical.** It names diet-induced insulin resistance, diabetic retinopathy, diabetic autonomic neuropathy, myocardial infarction, chronic heart failure, burns, traumatic brain injury and shock-induced multi-organ failure, and reports that across these models ARA-290 prevented tissue injury, reduced inflammation and improved healing.\n\n**The proposed mechanism is receptor-selective rather than analgesic.** The handbook states ARA-290 interacts selectively with the innate repair receptor, that its effect on neuropathic pain in preclinical models requires that receptor, and that it is not acting as an analgesic but reducing underlying inflammation and stimulating nerve fibre regrowth from damaged axons.\n\n**The human material is two sentences.** Studies of patients with sarcoidosis and small fibre neuropathy are reported to have shown reduced neuropathic symptoms alongside an increase in small nerve fibres measured as corneal nerve fibre density. Those studies are cited by superscript and have not been obtained here.\n\n**The claim that matters most is comparative.** The handbook states that recombinant human erythropoietin has reported side effects in clinical trials that limit its clinical use, and that ARA-290 does not seem to produce those effects, having been reported safe in preclinical animal toxicology, in normal human volunteers and in patients with sarcoidosis. Nothing supporting that comparison is held here.\n\n**The regimen is on the protocol record.** One route, subcutaneous.\n\n**This monograph carries no adverse-event list.** Most in this handbook do. That is recorded as an absence in the source rather than as reassurance.",
+    "unknownsSummary": "**No study of ARA-290 is held by this index.** Not the sarcoidosis studies, not the animal work, not the volunteer safety data.\n\n**The human evidence is thin even as the source describes it.** Two sentences about patients with sarcoidosis and small fibre neuropathy. Nothing is said about how many patients, over what period, or at what dose.\n\n**Diabetic macular oedema is listed as an indication on the strength of a murine model.** The handbook's own account attributes the macular oedema finding to a mouse study. Whether it holds in people is not established anywhere held here.\n\n**The comparison with recombinant erythropoietin is unsupported here.** That ARA-290 does not produce erythropoietin's dose-limiting effects is the handbook's statement, not a finding this index holds, and it is the statement a reader is most likely to rely on.\n\n**No adverse-event list is given by the source at all**, and no monitoring guidance. For a peptide derived from a haematopoietic hormone, the absence of any stated monitoring is itself worth noting.\n\n**No literature screen has been run for ARA-290.**",
+    "aliases": [
+      {
+        "alias": "Cibinetide acetate",
+        "note": "Listed by the handbook under Other Name(s). Recorded exactly as the source gives it, including the salt form: no bare 'cibinetide' alias has been added, because that is the source's wording and a search for cibinetide matches this alias anyway."
+      },
+      {
+        "alias": "Helix B surface peptide",
+        "note": "Listed by the handbook under Other Name(s), and descriptive of the origin it states: the Helix B structure of erythropoietin."
+      },
+      {
+        "alias": "HBSP",
+        "note": "The abbreviation the handbook prints alongside Helix B surface peptide."
+      }
+    ],
+    "sequence": "Glp-Glu-Gln-Leu-Glu-Arg-Ala-Leu-Asn-Ser-Ser",
+    "molecularDescription": "Eleven residues, molecular weight 1257.31 g/mol as printed by the handbook, described as derived from the Helix B structure of erythropoietin. The printed sequence lists eleven residues, which agrees with the summary's description of an eleven-amino-acid peptide. The held copy renders glutamine as 'Gin' and pyroglutamate as '{Glp}'; both have been read as the standard abbreviations. The molecular formula as printed is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "Three names for one peptide in one source: ARA-290, cibinetide acetate, and Helix B surface peptide with the abbreviation HBSP. A reader meeting any of them elsewhere is reading about the same molecule as far as this source is concerned."
+  },
+  "locations": [
+    {
+      "key": "lavalle-ara290-24",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 24",
+      "pageStart": 24,
+      "notes": "Monograph opening: category, other names, sequence, molecular composition, the indications list and the dosage block."
+    },
+    {
+      "key": "lavalle-ara290-25",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 25",
+      "pageStart": 25,
+      "notes": "Warnings and Cautions, the description of the peptide's origin in erythropoietin Helix B, the list of preclinical models, and the comparison with recombinant human erythropoietin."
+    },
+    {
+      "key": "lavalle-ara290-26",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 26",
+      "pageStart": 26,
+      "notes": "The innate repair receptor mechanism, the statement that it is not acting as an analgesic, the sarcoidosis and small fibre neuropathy studies, and the murine autonomic neuropathy and macular oedema findings."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "ARA-001",
+      "claimText": "LaValle et al. describe ARA-290 as an eleven-amino-acid peptide derived from the Helix B structure of the erythropoietin molecule, with molecular weight 1257.31 g/mol, and also called cibinetide acetate and Helix B surface peptide.",
+      "plainLanguageText": "The handbook describes ARA-290 as a short piece of the erythropoietin molecule, and gives two other names for it.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's description. The printed sequence lists eleven residues, which is consistent with the description — worth noting because the same handbook's AOD-9604 monograph is not internally consistent on this point.",
+      "uncertaintyText": "No analytical characterisation of the material is held. The identity rests on one practitioner handbook's sequence and molecular weight.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-24",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The sequence, molecular composition and other-names block.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy; the printed residue count was checked against the summary's description on the following page."
+        }
+      ]
+    },
+    {
+      "claimKey": "ARA-002",
+      "claimText": "LaValle et al. list ARA-290 for neuropathic pain treatment in patients with sarcoidosis, diabetic macular oedema, and metaflammation.",
+      "plainLanguageText": "The handbook lists it for nerve pain in sarcoidosis, a diabetic eye condition, and inflammation linked to metabolic disease.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list. It is notably narrower and more specific than most lists in this source, which is worth recording: it names a population rather than a symptom.",
+      "uncertaintyText": "No study of any listed indication is held. The macular oedema indication is attributed by the handbook itself to a murine model.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-24",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list in full.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ARA-003",
+      "claimText": "LaValle et al. report that ARA-290 has been evaluated in preclinical models of diet-induced insulin resistance, diabetic retinopathy, diabetic autonomic neuropathy, myocardial infarction, chronic heart failure, burns, traumatic brain injury and shock-induced multi-organ failure, and that across these models it prevented tissue injury, reduced inflammation, and improved and activated healing.",
+      "plainLanguageText": "The handbook lists eight kinds of animal study and says that across them ARA-290 protected tissue and reduced inflammation. These are animal findings.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "The handbook's own framing is 'a wide spectrum of preclinical models', and the claim is recorded at that population level. A breadth of animal models is a reason to study something in people, not a substitute for having done so, and this record does not present it as one.",
+      "uncertaintyText": "None of the studies is held. Species, dose, route, timing and outcome measures are all unknown to this index, as is whether any of these models has ever been followed into a human trial.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-25",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The list of preclinical models and the summary of what was reported across them.",
+          "populationModel": "Preclinical animal models, as the handbook describes them. Not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Each model is cited by superscript; none has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ARA-004",
+      "claimText": "LaValle et al. state that ARA-290 interacts selectively with the innate repair receptor, that its prevention and improvement of peripheral neuropathic pain in preclinical models requires that receptor, and that it is not acting as an analgesic but rather reduces the underlying inflammation and stimulates nerve fibre regrowth from damaged axons.",
+      "plainLanguageText": "The handbook says ARA-290 works through a specific receptor and is not a painkiller: the idea is that it reduces the inflammation behind the pain and helps nerve fibres regrow.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded because the distinction matters to how a reader would interpret any reported effect on pain: a mechanism that requires nerve regrowth implies a different time course from analgesia, and a different kind of evidence would be needed to demonstrate it.",
+      "uncertaintyText": "The receptor-dependence evidence the handbook cites is preclinical, and none of it is held. Whether the same mechanism operates in people is not established here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-26",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The innate repair receptor account and the explicit statement that ARA-290 is not acting as an analgesic.",
+          "populationModel": "Preclinical models of neuropathy, as the handbook describes them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "ARA-005",
+      "claimText": "LaValle et al. report that studies of patients with sarcoidosis and small fibre neuropathy have shown ARA-290 reducing neuropathic symptoms in conjunction with an increase in small nerve fibres, assessed as changes in corneal nerve fibre density.",
+      "plainLanguageText": "The handbook reports studies in people with sarcoidosis where nerve pain improved and a measure of small nerve fibres increased. Those studies have not been read here.",
+      "claimCategory": "efficacy",
+      "importance": "high",
+      "interpretationNotes": "This is the only human efficacy material in the monograph, and it is a practitioner handbook's two-sentence summary of studies cited by superscript. It is recorded as reference material, at the population the handbook names, precisely so that it cannot be read as a trial result this index holds. The corneal nerve fibre density measure is retained because a stated objective endpoint is more informative than 'symptoms improved'.",
+      "uncertaintyText": "The studies have not been obtained. How many patients, what design, what dose, what duration, who funded them, and whether the symptom and fibre-density findings came from the same patients are all unknown here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-26",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The sentence reporting reduced neuropathic symptoms with increased corneal nerve fibre density in patients with sarcoidosis and small fibre neuropathy.",
+          "populationModel": "Patients with sarcoidosis and small fibre neuropathy, as reported by the handbook about studies it does not otherwise describe.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript in the handbook. This index has not obtained the studies, so this is the handbook's report of them and nothing more."
+        }
+      ]
+    },
+    {
+      "claimKey": "ARA-006",
+      "claimText": "LaValle et al. state that recombinant human erythropoietin has reported side effects in clinical trials that limit its potential clinical use, and that ARA-290 does not seem to produce those side effects, having been reported safe when formally evaluated in preclinical animal toxicology, in normal human volunteers, and in patients with sarcoidosis.",
+      "plainLanguageText": "The handbook says the drug form of erythropoietin has side effects that limit its use, and that ARA-290 does not appear to cause them. Nothing held here tests that comparison.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance because it is the claim a reader would most reasonably act on — that a peptide derived from erythropoietin can be given without erythropoietin's dose-limiting risks — and because nothing supporting it is held. The handbook's own hedge, 'does not seem to', is preserved rather than firmed up.",
+      "uncertaintyText": "No toxicology report, volunteer study or patient safety dataset is held. Which of erythropoietin's effects are being compared, at what exposure, and over what duration are not stated. The monograph gives no adverse-event list and no monitoring guidance for ARA-290 at all.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-25",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The comparison with recombinant human erythropoietin and the statement of where ARA-290 has been reported safe.",
+          "populationModel": "Animal toxicology, healthy human volunteers and patients with sarcoidosis, as the handbook reports them.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-ara290-25",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The Warnings and Cautions block, which states only that subcutaneous ARA-290 is reported safe and efficacious in recommended dosages.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given for this statement, and no adverse-event list accompanies it."
+        }
+      ]
+    },
+    {
+      "claimKey": "ARA-007",
+      "claimText": "LaValle et al. report that erythropoietin is produced in most tissues including spinal cord and brain in response to local injury, counteracting the effects of proinflammatory cytokines, and that animal studies indicate exogenously administered erythropoietin enhances healing and prevents overt tissue damage after injury.",
+      "plainLanguageText": "The handbook explains that erythropoietin is made in injured tissue and appears to protect it, which is the reasoning behind using a piece of it.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as the biological rationale the source gives, and about erythropoietin rather than about ARA-290. Kept separate from the ARA-290 claims for that reason: evidence about a parent molecule is not evidence about a fragment of it, and conflating the two is the specific error this record is most exposed to.",
+      "uncertaintyText": "The studies cited are animal studies and are not held. Nothing here establishes that a fragment reproduces the parent molecule's tissue-protective effects.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ara290-25",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The opening of the summary, describing erythropoietin's local production and the animal evidence for exogenous administration.",
+          "populationModel": "Animal studies, as the handbook describes them. Not human, and about erythropoietin rather than ARA-290.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any neuropathic pain outcome with ARA-290.",
+      "why": "The sarcoidosis studies the handbook reports are cited by superscript and have not been obtained. No trial, endpoint or effect size is held.",
+      "whatWouldResolveIt": "Held trials in neuropathic pain reporting a defined endpoint, the dose used and the population studied.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What neuropathic pain endpoints have been measured with ARA-290, in whom, and at what dose?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Whether ARA-290 affects diabetic macular oedema in people.",
+      "why": "The handbook lists macular oedema as an indication and attributes the finding, in its own account, to a murine model.",
+      "whatWouldResolveIt": "Held human studies with an ophthalmic endpoint.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has ARA-290 been studied in diabetic macular oedema in people, and with what visual or anatomical endpoint?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "The adverse-effect profile of ARA-290, and what should be monitored.",
+      "why": "The monograph gives no adverse-event list and no monitoring guidance — unusual for this handbook, most of whose monographs carry both. An absence of a list is not an absence of effects, and for a peptide derived from a haematopoietic hormone the omission is worth recording.",
+      "whatWouldResolveIt": "A held safety dataset, or a product label or investigator brochure with an adverse-event table.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What adverse events have been recorded with ARA-290, and does it have any effect on haematological parameters?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The preclinical animal toxicology and healthy-volunteer studies the safety claim rests on.",
+      "why": "Both are cited by superscript in the handbook and neither has been obtained by this index.",
+      "whatWouldResolveIt": "Obtaining the toxicology report and the volunteer study.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What exposures were tested in ARA-290 animal toxicology, and what was measured in healthy volunteers?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the ARA-290 and cibinetide literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds, searching both ARA-290 and cibinetide.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for cibinetide, which has been through named clinical studies in sarcoidosis?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ara290-24",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Supplied as 6 mg/ml in a 4 ml vial, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "The only route the held source describes. No human pharmacokinetic data is held, and no half-life is given."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "ARA-PR-LAVALLE-SQ",
+      "objectiveContext": "Neuropathic pain, diabetic macular oedema and metaflammation, as the handbook frames its use.",
+      "populationModel": "Not specified by the source. The indication list names patients with sarcoidosis, but the regimen is given without a population.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 6 mg/ml in a 4 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "4 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Three to five times per week",
+      "durationText": "4 to 5 weeks",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states subcutaneous ARA-290 is reported safe and efficacious in recommended dosages, and gives no adverse-event list and no monitoring guidance.",
+      "locationKey": "lavalle-ara290-24"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "ARA-ID-001",
+      "nameUsed": "ARA 290",
+      "chemicalForm": "Eleven-residue peptide derived from the Helix B structure of erythropoietin",
+      "sequence": null,
+      "residueCount": 11,
+      "molecularWeight": 1257.31,
+      "weightBasis": "As printed by the handbook.",
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block, read together with the summary's description of an eleven-amino-acid peptide.",
+      "notes": "The printed residue count and the described length agree, which is not true of every monograph in this handbook. The sequence is recorded on the compound record in the three-letter form the source prints; it is left off this identity claim because the database stores an identity sequence in single-letter code and the first residue is pyroglutamate, which has no single-letter code. Translating it would be this index's inference rather than the source's statement. The held copy prints glutamine as 'Gin' and pyroglutamate as '{Glp}'; both have been read as the standard abbreviations.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ara290-24"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "ARA-REP-001",
+      "finding": "Reduction of neuropathic symptoms in patients with sarcoidosis.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "The handbook reports studies in this population but none is held, so there is nothing to assess. A breadth of animal models is not replication of a human finding.",
+      "limitations": "Assessing replication would require the cited studies and knowledge of whether they came from independent groups.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-ara290-24",
+      "checkedAt": "2026-09-26",
+      "notes": "The handbook makes no regulatory statement about ARA-290 and no regulator record was read. Recorded as unknown rather than as not approved, because an absence of a statement is not a statement."
+    }
+  ]
+}

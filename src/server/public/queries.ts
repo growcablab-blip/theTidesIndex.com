@@ -1212,6 +1212,24 @@ export async function readPeptidePagePreview(
   return readPeptidePage(tx, slug, mode, { preview: true });
 }
 
+/**
+ * The published record, on a caller's own transaction.
+ *
+ * `getPeptidePage` is what a page calls and opens its own connection;
+ * `readPeptidePagePreview` takes a transaction but ignores publication state.
+ * Neither can answer "does this record render on the public path, with preview
+ * off" inside a test, which is the question that matters after publishing a new
+ * compound: a record can be published, indexed and still fail to render because
+ * a relation the page needs was left unpublished.
+ */
+export async function readPublishedPeptidePage(
+  tx: Database,
+  slug: string,
+  mode: ReadingMode,
+): Promise<PeptidePage | null> {
+  return readPeptidePage(tx, slug, mode);
+}
+
 // ---------------------------------------------------------------------------
 // Quality topics
 // ---------------------------------------------------------------------------

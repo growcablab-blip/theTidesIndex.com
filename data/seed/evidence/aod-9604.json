@@ -1,0 +1,471 @@
+{
+  "packetKey": "aod-9604",
+  "peptideKey": "aod-9604",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 19-23 (file pp. 21-25; printed = file - 2 for SRC-002, the offset verified in Section 4 part 1). Class C: practitioner-reference. Two findings are recorded that are about the source rather than the compound. First, the printed sequence lists twelve residues while the summary describes a hexadecapeptide fragment spanning residues 176-191, and this index has not resolved which is right. Second, the rare-adverse-reaction list is the same boilerplate already found verbatim in this handbook's DSIP and kisspeptin monographs.",
+  "compound": {
+    "shortDescription": "A fragment of the C-terminus of human growth hormone, used by practitioner sources for fat loss and, combined with hyaluronic acid, for joint and cartilage support. No study of it is held here.",
+    "simpleSummary": "AOD-9604 is a short piece of the human growth hormone molecule. The idea behind it is that growth hormone's effect on fat might be separated from its other effects, so that the fat-related part could be used on its own.\n\n**The handbook lists two quite different uses.** On its own, for weight management and body fat. Combined with hyaluronic acid, for joint pain, osteoarthritis and cartilage repair.\n\n**This index holds no study of it.** The handbook describes a pooled analysis of six trials in around 900 adults and reports that it looked safe, but that analysis has not been obtained and read here — what is held is a handbook describing it.\n\n**The handbook's own description of the molecule does not agree with itself.** The sequence it prints is shorter than the fragment its summary describes. Until that is resolved, what exactly is being discussed is not settled.\n\n**One list on this page is not about this compound.** The rare side effects given are word for word the same as those printed for two other, unrelated peptides in the same book.",
+    "practitionerSummary": "LaValle et al. describe AOD-9604 as a modified hexadecapeptide fragment of the C-terminus of human growth hormone, residues 176-191, designated Tyr-hGH177-191, with molecular weight 1815.1 g/mol, and state it has similar clinical effects to the parent molecule.\n\n**Two presentations are described, with separate indications.** AOD-9604 alone for weight management, body-fat reduction, regulation of fat metabolism, stimulation of lipolysis and inhibition of lipogenesis. AOD-9604 with hyaluronic acid for joint pain, joint trauma, osteoarthritis, collagen support and cartilage repair and regeneration.\n\n**Three routes are described:** subcutaneous injection, a topical cream, and intra-articular injection for the hyaluronic acid combination. The regimens are on the protocol records.\n\n**The safety material is the strongest in the monograph and is still second-hand.** The handbook reports a meta-analysis of six randomised, double-blind, placebo-controlled trials in approximately 900 adults, with no effect on serum IGF-I, no negative effect on carbohydrate metabolism on oral glucose tolerance testing, no anti-AOD-9604 antibodies detected, no withdrawals or serious adverse events, and authors concluding a safety and tolerability profile indistinguishable from placebo. **This index has not obtained that meta-analysis.** What is recorded is a practitioner handbook's report of it.\n\n**The comparative claim for the hyaluronic acid combination deserves scepticism.** The handbook states the combination has stronger therapeutic benefits than bone marrow aspirate concentrate and platelet-rich plasma. That is a comparative efficacy claim against two established interventions, and nothing supporting it is held here.\n\n**A GRAS determination is reported, for food use.** The handbook states a qualified panel determined AOD-9604 to be Generally Recognized as Safe under conditions of intended use in foods. No regulator's record was consulted, and a food determination would not be a medicines authorisation in any case.\n\n**The molecular description is internally inconsistent.** The printed sequence lists twelve residues; the summary describes a sixteen-residue fragment. The molecular formula in the held copy is garbled and has not been transcribed.",
+    "unknownsSummary": "**No study of AOD-9604 is held by this index** — not for fat loss, not for osteoarthritis, not for safety. The meta-analysis the handbook describes is cited by superscript and has not been obtained.\n\n**What molecule the record describes is not fully settled.** The handbook prints a twelve-residue sequence and describes a hexadecapeptide fragment of residues 176-191 in the same monograph. Both cannot be right, and this index has not determined which is.\n\n**The comparison with bone marrow aspirate concentrate and platelet-rich plasma is unsupported here.** It is recorded because the source makes it, and flagged because a reader might otherwise take it as established.\n\n**The GRAS statement has not been verified.** No panel report, notification or regulator record was read, and GRAS concerns food use rather than therapeutic use.\n\n**Safety in paediatrics is stated by the source itself to be unestablished.**\n\n**The rare-adverse-reaction list carries no compound-specific information.** Erythema, transient muscle atrophy, polyarthralgia with hand oedema and rash appear verbatim in this handbook's DSIP and kisspeptin monographs too.\n\n**No literature screen has been run for AOD-9604.**",
+    "aliases": [
+      {
+        "alias": "AOD 9604",
+        "note": "The spelling the handbook's monograph heading uses, without a hyphen."
+      },
+      {
+        "alias": "AOD9604",
+        "note": "The spelling the same monograph's summary uses, closed up. Both forms appear on facing pages of one source."
+      },
+      {
+        "alias": "Tyr-hGH177-191",
+        "note": "The chemical designation the handbook gives for the fragment."
+      },
+      {
+        "alias": "AOD-9604 + HA",
+        "note": "Not a separate compound. The handbook's name for AOD-9604 combined with hyaluronic acid, which it gives its own indications and its own intra-articular regimen. Recorded as a combination on the protocol record, not as a distinct molecule."
+      }
+    ],
+    "sequence": null,
+    "molecularDescription": "Described by the handbook as a modified hexadecapeptide fragment of the human growth hormone C-terminus, residues 176-191, molecular weight 1815.1 g/mol. The sequence printed in the held copy lists twelve residues (Tyr-Leu-Arg-Ile-Val-Gln-Cys-Arg-Ser-Cys-Gly-Phe, with Ile rendered as 'Ille'), which does not match a sixteen-residue fragment. The molecular formula as printed is garbled and has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "One source spells the name three ways — AOD 9604, AOD9604 and, in the chemical designation, Tyr-hGH177-191. The hyphenated AOD-9604 is used as the canonical name here. 'AOD-9604 + HA' names a combination with hyaluronic acid rather than a different molecule."
+  },
+  "locations": [
+    {
+      "key": "lavalle-aod-19",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 19",
+      "pageStart": 19,
+      "notes": "Monograph opening: category, printed sequence, molecular composition, and the indications lists for AOD 9604 and for AOD 9604 + HA."
+    },
+    {
+      "key": "lavalle-aod-20",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 20",
+      "pageStart": 20,
+      "notes": "Dosages for the subcutaneous, topical and intra-articular presentations; Warnings and Cautions; the start of the summary on growth hormone's lipolytic action."
+    },
+    {
+      "key": "lavalle-aod-21",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 21",
+      "pageStart": 21,
+      "notes": "The mechanism list, the description of the fragment as hexadecapeptide residues 176-191, the GRAS statement, and the opening of the meta-analysis account."
+    },
+    {
+      "key": "lavalle-aod-22",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 22",
+      "pageStart": 22,
+      "notes": "The meta-analysis conclusion, and the AOD 9604 + HA section including the comparison with bone marrow aspirate concentrate and platelet-rich plasma."
+    },
+    {
+      "key": "lavalle-dsip-44-aod",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 44",
+      "pageStart": 44,
+      "notes": "The DSIP monograph's rare-adverse-reaction list, cited here only to show that the same wording appears in a third monograph of this handbook."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "AOD-001",
+      "claimText": "LaValle et al. describe AOD-9604 as a modified hexadecapeptide fragment of the C-terminus of human growth hormone, amino acids 176-191, designated Tyr-hGH177-191, and state that it has similar clinical effects to the parent molecule.",
+      "plainLanguageText": "The handbook describes AOD-9604 as a short piece of the growth hormone molecule, and says it acts in a similar way to growth hormone itself.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the source's description of what the molecule is. The claim of similar clinical effects to growth hormone is the handbook's and rests on citations this index has not obtained.",
+      "uncertaintyText": "The sequence the same monograph prints lists twelve residues rather than sixteen, so the source does not agree with itself about what the molecule is.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-21",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The summary's description of the fragment, its residue span and its designation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-002",
+      "claimText": "The sequence printed in this handbook's AOD-9604 monograph lists twelve residues, which does not match the hexadecapeptide fragment spanning residues 176-191 that the same monograph's summary describes.",
+      "plainLanguageText": "The sequence printed in the book is shorter than the fragment the book describes. The two do not match.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "This comparison is this index's, made by reading both pages of the held copy. It is recorded because identity is the foundation of every other claim on the record: if what is being discussed is not settled, nothing resting on it is either. No attempt has been made to decide which figure is correct, because that would require a source this index does not hold.",
+      "uncertaintyText": "Whether the printed sequence is an incomplete transcription, an OCR loss in the held copy, or an error in the book is not determined. The held copy also renders isoleucine as 'Ille', which suggests transcription problems on this page.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-19",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The printed sequence block, listing twelve residues.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy."
+        },
+        {
+          "locationKey": "lavalle-aod-21",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contradicts",
+          "interpretation": "The summary's description of a hexadecapeptide fragment of residues 176-191, which a twelve-residue sequence cannot be.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy and compared with the sequence block."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-003",
+      "claimText": "LaValle et al. list AOD-9604 for weight management support, reducing body fat, regulating fat metabolism, stimulating lipolysis and inhibiting lipogenesis.",
+      "plainLanguageText": "The handbook lists AOD-9604 for weight management and body fat.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list for the compound on its own, distinct from the list it gives for the hyaluronic acid combination.",
+      "uncertaintyText": "No study of body-composition or weight outcomes with AOD-9604 is held by this index.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-19",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list printed under the AOD 9604 heading.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-004",
+      "claimText": "LaValle et al. list AOD-9604 combined with hyaluronic acid for joint pain, joint trauma, osteoarthritis, collagen support, and cartilage repair and regeneration, and state that the combination is reporting strong efficacy in the treatment of osteoarthritis.",
+      "plainLanguageText": "Combined with hyaluronic acid, the handbook lists it for joint problems and osteoarthritis, and says the combination is showing strong results.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Recorded separately from the indications for the compound alone, because the source treats them as different uses with different routes and different regimens. 'Reporting strong efficacy' is the handbook's phrasing and is not an efficacy finding held here.",
+      "uncertaintyText": "No study of the combination in osteoarthritis is held. The hyaluronic acid component has its own substantial literature that this index has not screened either.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-19",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Indications/Uses list printed under the AOD 9604 + HA heading.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-aod-22",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that the combination is being used to regenerate hyaline cartilage and is reporting strong efficacy in osteoarthritis.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript in the handbook; not obtained here."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-005",
+      "claimText": "LaValle et al. state that AOD-9604 combined with hyaluronic acid has stronger therapeutic benefits than bone marrow aspirate concentrate and platelet-rich plasma therapy for osteoarthritis.",
+      "plainLanguageText": "The handbook says the combination works better than two other joint treatments. Nothing held here supports that comparison.",
+      "claimCategory": "efficacy",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance because it is a comparative efficacy claim against two interventions in established clinical use, made without any evidence this index holds, and a reader could reasonably act on it in choosing between treatments. It is reproduced because the source makes it, not because it is supported.",
+      "uncertaintyText": "Nothing comparing AOD-9604 with hyaluronic acid against bone marrow aspirate concentrate or platelet-rich plasma is held here. No trial, no comparison, no outcome measure.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-22",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that these studies indicate stronger therapeutic benefits than bone marrow aspirate concentrate and platelet-rich plasma.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The handbook attributes this to studies it cites by superscript. None has been obtained by this index, so the comparison cannot be checked."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-006",
+      "claimText": "LaValle et al. report that growth hormone's lipolytic and anti-lipogenic actions are mediated in part by increased beta-adrenoceptor coupling efficiency, reduced Gi expression, increased hormone-sensitive lipase activity and an inhibitory effect on insulin, citing in vitro and in vivo studies, and state that AOD-9604 acts directly on fat metabolism without influencing appetite.",
+      "plainLanguageText": "The handbook explains how growth hormone affects fat, and says AOD-9604 acts on fat directly rather than by changing appetite.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Recorded as a mechanism account drawn from laboratory studies, which the handbook itself describes as in vitro and in vivo. It is not evidence of a human outcome and is not presented as one.",
+      "uncertaintyText": "The studies are cited by superscript and not held. Whether these mechanisms operate at the doses the handbook's regimens use, in people, is not established here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-21",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The mechanism list and the statement that laboratory studies reported fat-reducing properties acting directly on fat metabolism without influencing appetite.",
+          "populationModel": "In vitro and in vivo laboratory studies, as the handbook describes them. Not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained. The handbook's own framing is 'studies in vitro and in vivo'."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-007",
+      "claimText": "LaValle et al. report a meta-analysis of six randomised, double-blind, placebo-controlled trials in approximately 900 adult subjects, and state that it found no effect on serum IGF-I levels, no negative effect on carbohydrate metabolism on oral glucose tolerance testing, no anti-AOD-9604 antibodies in any patient assayed, no withdrawals or serious adverse events related to intake, and authors concluding a safety and tolerability profile indistinguishable from placebo.",
+      "plainLanguageText": "The handbook describes a pooled analysis of six trials in about 900 adults and says it found no safety problems. That analysis has not been read here — only the handbook's account of it.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "The most consequential claim on this record, and the one most at risk of being misread. A practitioner handbook reporting a meta-analysis is not a meta-analysis: the analysis is cited by superscript and has not been obtained, so its inclusion criteria, endpoints, funding and quality are all unknown here. It is recorded at critical importance and as reference material precisely so that it cannot be mistaken for held clinical-trial evidence of safety.",
+      "uncertaintyText": "The meta-analysis has not been obtained. Which trials it pooled, over what durations, at what doses, in whom, and who funded them are all unknown to this index. An absence of detected adverse events in six trials is also not the same as established long-term safety.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-21",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The opening of the meta-analysis account: six randomised, double-blind, placebo-controlled trials, approximately 900 adult subjects, and the IGF-I and glucose tolerance findings.",
+          "populationModel": "Adults, as reported by the handbook about trials it does not otherwise describe.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The meta-analysis is cited by superscript in the handbook. This index has not obtained it, and everything recorded here is the handbook's report of it."
+        },
+        {
+          "locationKey": "lavalle-aod-22",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The conclusion as the handbook states it: no withdrawal or serious adverse event related to intake in any of the studies, and a tolerability profile indistinguishable from placebo.",
+          "populationModel": "Adults, as reported by the handbook.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Cited by superscript; not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-008",
+      "claimText": "LaValle et al. state that AOD-9604 has been determined by a qualified panel of experts to be Generally Recognized as Safe under conditions of its intended uses in foods.",
+      "plainLanguageText": "The handbook says a panel of experts judged AOD-9604 safe for use in foods. This has not been checked against any official record.",
+      "claimCategory": "regulatory",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the handbook's statement. A GRAS determination concerns use in food and is not a medicines authorisation, and in the United States such determinations may be self-affirmed by a manufacturer's panel rather than issued by a regulator. No panel report, notification or regulator record was consulted here, so the record says what the source says and nothing more.",
+      "uncertaintyText": "No GRAS notification, panel report or regulator record has been read. Whether a determination was made, by whom, and whether any regulator responded to it are all unverified here. It would not in any case bear on therapeutic use.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-21",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The GRAS statement as printed in the summary.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The handbook gives no citation for this statement and no regulator record was consulted."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-009",
+      "claimText": "LaValle et al. state that AOD-9604 and AOD-9604 with hyaluronic acid are reported safe in recommended dosages, that injection-site redness and pain may occur, that safety in paediatrics has not been established, and list erythema, transient muscle atrophy, polyarthralgia combined with hand oedema, and rash as rare adverse reactions.",
+      "plainLanguageText": "The handbook says it is reported safe at the doses it gives, that injection-site reactions can happen, and that safety in children is not established.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "The source's own safety block. The paediatric statement is recorded because a stated absence of evidence is itself useful. The rare-adverse-reaction list is recorded here for completeness but is qualified by the next claim: it is not specific to this compound.",
+      "uncertaintyText": "'Reported safe in recommended dosages' is not attributed to any study the handbook identifies. No systematic safety data for either presentation is held here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-20",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Warnings and Cautions block in full.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No citation is given for the safety statements in this block."
+        }
+      ]
+    },
+    {
+      "claimKey": "AOD-010",
+      "claimText": "The rare adverse reactions listed in this handbook's AOD-9604 monograph — erythema, transient muscle atrophy, polyarthralgia combined with hand oedema, and rash — are identical in wording to those listed in the same handbook's DSIP monograph, making at least three monographs in this source that carry the same list.",
+      "plainLanguageText": "The rare side effects listed here are word for word the same as those listed for other, unrelated peptides in the same book, so they are not specific to this one.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "This comparison is this index's, made by reading the monographs of the held source. The same list was already recorded as shared between the DSIP and kisspeptin monographs during the first expansion tranche; finding it a third time on an unrelated compound settles the point that it is boilerplate. A reader weighing an adverse-effect list is entitled to know it was not written about this compound.",
+      "uncertaintyText": "Where the list originates, and whether it describes observations of any particular peptide, is not stated by the source and has not been determined here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-aod-20",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The rare-adverse-reaction list in the AOD-9604 Warnings and Cautions block.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held copy."
+        },
+        {
+          "locationKey": "lavalle-dsip-44-aod",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contextualizes",
+          "interpretation": "The DSIP monograph's identically worded list, in the same handbook.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Both monographs read in the held copy and the wording compared directly."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any body-composition, body-fat or weight outcome with AOD-9604.",
+      "why": "No study is held. The indication list is a practitioner handbook's account of its authors' practice, and the one pooled analysis it describes concerns safety rather than efficacy.",
+      "whatWouldResolveIt": "Held trials measuring body fat, body weight or body composition after AOD-9604 administration, with the dose and duration used.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What body-composition outcomes have been measured with AOD-9604 in people, at what doses, and over what durations?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The meta-analysis of six randomised placebo-controlled trials that the handbook's safety account rests on.",
+      "why": "It is cited by superscript in the handbook and has not been obtained by this index, so its trials, endpoints, doses, durations and funding are all unknown here.",
+      "whatWouldResolveIt": "Obtaining the meta-analysis itself, and ideally the six trials it pooled.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What exactly did the pooled safety analysis of AOD-9604 include, and what did each trial measure?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Which molecule this record describes: a twelve-residue peptide or a sixteen-residue fragment of growth hormone residues 176-191.",
+      "why": "The one held source prints a twelve-residue sequence and describes a hexadecapeptide fragment in the same monograph. Both cannot be right.",
+      "whatWouldResolveIt": "An analytical characterisation, a manufacturer's specification, or a primary source stating the sequence.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is the actual sequence of the material sold and studied as AOD-9604?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Whether AOD-9604 with hyaluronic acid outperforms bone marrow aspirate concentrate or platelet-rich plasma in osteoarthritis.",
+      "why": "The handbook makes the comparison and cites studies by superscript; none has been obtained, and no comparative data is held.",
+      "whatWouldResolveIt": "Held comparative trials of the combination against those interventions, with joint outcome measures.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How does intra-articular AOD-9604 with hyaluronic acid compare with hyaluronic acid alone, and with bone marrow aspirate concentrate or platelet-rich plasma?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The reported GRAS determination for AOD-9604 in foods.",
+      "why": "The handbook states it without citation. No panel report, GRAS notification or regulator record was consulted, and a food determination would not bear on therapeutic use in any case.",
+      "whatWouldResolveIt": "The GRAS notification or panel report itself, and any regulator response to it.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does a GRAS notification for AOD-9604 exist, and what did any regulator say in response?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Safety of AOD-9604 in children and adolescents.",
+      "why": "The source states directly that safety in paediatrics has not been established.",
+      "whatWouldResolveIt": "Paediatric safety data, or a clear statement of contraindication from a regulator or guideline.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has AOD-9604 been administered to anyone under eighteen, and with what monitoring?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the AOD-9604 literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for AOD-9604, a compound the handbook says has been through six randomised controlled trials?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-aod-20",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Supplied as 1.2 mg/ml in a 5 ml vial, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "Reported by one practitioner handbook. No human study of this route is held here."
+    },
+    {
+      "routeKey": "topical",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-aod-20",
+      "populationModel": "Not specified by the source.",
+      "formulation": "A cream supplied as 0.6 mg per gram in a 30 gram container, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "The source gives no absorption or bioavailability data for the topical route, and none is held. Whether a peptide of this size crosses intact skin in any useful quantity is not addressed by the source."
+    },
+    {
+      "routeKey": "intra-articular",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-aod-20",
+      "populationModel": "Not specified by the source.",
+      "formulation": "AOD-9604 1 mg/ml with hyaluronic acid 10 mg/ml, in a 5 ml vial, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "Described only for the hyaluronic acid combination. An injection into a joint carries risks the source does not discuss, and no study of this route is held."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "AOD-PR-LAVALLE-SQ",
+      "objectiveContext": "Weight management and body-fat reduction, as the handbook frames it.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 1.2 mg/ml in a 5 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.25 ml (0.3 mg)",
+      "amountUnit": "mg",
+      "frequencyText": "Once daily",
+      "durationText": "20 days",
+      "monitoringText": null,
+      "contraindicationsText": "The source states safety in paediatrics has not been established.",
+      "safetyNotes": "The source states AOD-9604 is reported safe in recommended dosages and that injection-site redness and pain may occur. Its rare-adverse-reaction list appears verbatim in at least two other monographs of the same handbook and carries no compound-specific information.",
+      "locationKey": "lavalle-aod-20"
+    },
+    {
+      "protocolKey": "AOD-PR-LAVALLE-TOPICAL",
+      "objectiveContext": "Weight management, as an alternative to injection in the handbook's presentation.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "topical",
+      "formulation": "Cream, 0.6 mg per gram, supplied in 30 grams.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1.0 ml, described by the source as four clicks of the dispenser",
+      "amountUnit": "ml",
+      "frequencyText": "Nightly",
+      "timingText": "Before bed",
+      "durationText": null,
+      "monitoringText": null,
+      "safetyNotes": "The source gives no separate safety statement for the topical presentation and no absorption data.",
+      "locationKey": "lavalle-aod-20"
+    },
+    {
+      "protocolKey": "AOD-PR-LAVALLE-HA-IA",
+      "objectiveContext": "Joint pain, joint trauma, osteoarthritis and cartilage repair, as the handbook frames the hyaluronic acid combination.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intra-articular",
+      "formulation": "AOD-9604 1 mg/ml combined with hyaluronic acid 10 mg/ml, in a 5 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen for a combination product. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.5 to 0.75 ml of the combination",
+      "amountUnit": "ml",
+      "frequencyText": "Once weekly, then once monthly",
+      "durationText": "Four weekly injections, then monthly for five months",
+      "combinationsText": "Hyaluronic acid, as a single combined preparation rather than two separate injections. The source presents the combination as the thing administered, and gives it indications distinct from AOD-9604 alone.",
+      "monitoringText": null,
+      "safetyNotes": "The source states the combination is reported safe in recommended dosages and that injection-site redness and pain may occur. It does not discuss the risks specific to injecting into a joint.",
+      "locationKey": "lavalle-aod-20"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "AOD-ID-001",
+      "nameUsed": "AOD 9604",
+      "chemicalForm": "Modified fragment of the human growth hormone C-terminus, described as residues 176-191",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": 1815.1,
+      "weightBasis": "As printed by the handbook. The residue count is deliberately left empty: the monograph describes sixteen residues and prints twelve.",
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block, and the summary's description of the fragment.",
+      "notes": "The printed sequence and the described fragment do not agree. Recorded as one identity with the conflict stated rather than as two, because the source is describing one substance inconsistently rather than two substances.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-aod-19"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "AOD-REP-001",
+      "finding": "Any body-fat or weight outcome of AOD-9604.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study is held, so there is nothing to assess for replication.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-aod-21",
+      "checkedAt": "2026-09-26",
+      "notes": "The handbook reports a GRAS determination for use in foods, which is not a medicines authorisation and may be self-affirmed by a manufacturer's own panel. No GRAS notification and no regulator record was read, so the medicinal status is recorded as unknown."
+    }
+  ]
+}

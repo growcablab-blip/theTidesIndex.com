@@ -804,6 +804,14 @@ const COMPOUND_PACKET_FILES = [
   // of its own: SRC-153 and SRC-154 are registered reviews in which it is a
   // central subject. Everything about clinical use is still a handbook's.
   'evidence/ll-37.json',
+  // Tranche 2. Practitioner-reference records built from LaValle monographs.
+  'evidence/aod-9604.json',
+  'evidence/larazotide.json',
+  'evidence/pnc-27.json',
+  'evidence/mgf.json',
+  'evidence/thymulin.json',
+  'evidence/kpv.json',
+  'evidence/ara-290.json',
   'evidence/semaglutide.json',
   'evidence/vip.json',
   'evidence/kisspeptin.json',

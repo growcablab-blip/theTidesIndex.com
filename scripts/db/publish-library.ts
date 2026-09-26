@@ -190,8 +190,22 @@ try {
     if (refusals.length > 40) console.log(`    … and ${refusals.length - 40} more.`);
   }
 
-  const [index] = await rows<{ n: number }>(sql`select count(*)::int n from search_documents`);
-  console.log(`\n  Search index: ${index?.n ?? 0} document(s).\n`);
+  /*
+   * Read once, and again if it comes back empty.
+   *
+   * The rebuild truncates and repopulates, and a count that lands mid-rebuild
+   * reports zero — which happened once and reads, alarmingly, as "the search
+   * index is gone". The same transient the publish read-back guards against,
+   * and the same answer: ask twice before printing something frightening.
+   */
+  const indexCount = async (): Promise<number> => {
+    const [row] = await rows<{ n: number }>(sql`select count(*)::int n from search_documents`);
+    return row?.n ?? 0;
+  };
+  const indexed = (await indexCount()) || (await indexCount());
+  console.log(`
+  Search index: ${indexed} document(s).
+`);
 } finally {
   await client.end({ timeout: 5 });
 }

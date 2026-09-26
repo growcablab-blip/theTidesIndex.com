@@ -11,12 +11,17 @@
  * is found by pattern rather than by someone remembering to add it to a list.
  *
  * Exits non-zero on any hit. Run after every compound is loaded.
+ *
+ * The rule itself lives in `src/domain/presentation/dose-text.ts`, shared with
+ * `tests/integration/every-compound-renders.test.ts`, so the standing QA check
+ * and the test suite cannot drift apart on what counts as a dose.
  */
 import postgres from 'postgres';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import { sql } from 'drizzle-orm';
 import * as schema from '@db/schema';
 import { readPeptidePagePreview } from '@/server/public/queries';
+import { findDoses } from '@/domain/presentation/dose-text';
 
 const url = process.env.DATABASE_URL;
 if (url === undefined || url === '') {
@@ -24,45 +29,10 @@ if (url === undefined || url === '') {
   process.exit(1);
 }
 
-/**
- * A number followed by a mass, volume or unit-of-activity, optionally per a
- * body-weight, volume or time basis. Deliberately broad: a false positive costs
- * a minute to read, a false negative puts an amount in front of a patient.
- */
-const DOSE = /\b\d+(?:[.,]\d+)?\s*(?:[-–]\s*\d+(?:[.,]\d+)?\s*)?(?:mcg|µg|ug|micrograms?|mg|milligrams?|grams?|g|ml|mL|IU|units)\b(?:\s*(?:\/|per)\s*(?:kg|kilogram|ml|mL|day|dose|vial))?/g;
-
-/** Strings that match the pattern and are not doses. Keep this list short and specific. */
-const ALLOWED = [
-  // Molecular weights.
-  /\b\d+(?:\.\d+)?\s*(?:g\/mol|grams? per mole|kDa)\b/i,
-  // A biomarker concentration measured in a study is a result, not an amount
-  // anybody is given: "IGF-1 rose by 181 micrograms per litre".
-  /\b\d+(?:\.\d+)?\s*(?:micrograms?|mcg|µg|ug|mg|ng|pg)\s*(?:per|\/)\s*(?:litre|liter|L|dL)\b/i,
-];
-
 const client = postgres(url, { max: 1, prepare: false });
 const db = drizzle(client, { schema, casing: 'snake_case' });
 
 let hits = 0;
-
-function walk(value: unknown, path: string, slug: string): void {
-  if (typeof value === 'string') {
-    for (const match of value.matchAll(DOSE)) {
-      const around = value.slice(Math.max(0, match.index - 40), match.index + match[0].length + 30);
-      if (ALLOWED.some((a) => a.test(around))) continue;
-      hits += 1;
-      console.log(`  ${slug}${path}\n      …${around.replaceAll('\n', ' ')}…`);
-    }
-    return;
-  }
-  if (Array.isArray(value)) {
-    value.forEach((item, index) => walk(item, `${path}[${String(index)}]`, slug));
-    return;
-  }
-  if (value !== null && typeof value === 'object') {
-    for (const [key, item] of Object.entries(value)) walk(item, `${path}.${key}`, slug);
-  }
-}
 
 try {
   const slugs = (
@@ -77,9 +47,11 @@ try {
   console.log(`\nScanning patient payloads for ${String(slugs.length)} compounds\n`);
   for (const slug of slugs) {
     const page = await readPeptidePagePreview(db, slug, 'simple');
-    const before = hits;
-    walk(page, '', slug);
-    console.log(`  ${slug.padEnd(20)} ${hits === before ? 'clean' : `${String(hits - before)} hit(s)`}`);
+    const found = findDoses(page);
+    hits += found.length;
+    for (const hit of found) console.log(`  ${slug}${hit.path}
+      …${hit.context}…`);
+    console.log(`  ${slug.padEnd(20)} ${found.length === 0 ? 'clean' : `${String(found.length)} hit(s)`}`);
   }
 
   console.log(hits === 0 ? '\nNo dose-shaped strings in any patient payload.\n' : `\n${String(hits)} hit(s).\n`);
