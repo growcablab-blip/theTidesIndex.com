@@ -1,0 +1,219 @@
+{
+  "packetKey": "dsip",
+  "peptideKey": "dsip",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 43-46. Class C: practitioner-reference. Unusually for a practitioner monograph, its safety section states two negatives explicitly — that classical sedation is not seen and that tolerance does not develop — and both are recorded as the source's statements rather than as established facts.",
+  "compound": {
+    "shortDescription": "A nine-amino-acid peptide described by practitioner sources as a sleep-promoting factor. Named for an effect on deep sleep; no study of it is held here.",
+    "simpleSummary": "DSIP stands for delta sleep-inducing peptide — delta being the slow brain-wave pattern of deep sleep. It is a short peptide of nine building blocks.\n\n**The handbook makes an interesting distinction about how it is said to work.** It states that DSIP does not sedate in the ordinary pharmacological sense, and that it does not produce tolerance with repeated use. Both are claims about what does *not* happen, and this index records them as the handbook's statements, because no study supporting either is held.\n\n**Beyond sleep, two other uses are listed** — protecting nerve tissue, and supporting withdrawal from alcohol or drugs.\n\n**One practical interaction is given.** The handbook says DSIP can stimulate luteinising hormone, so testosterone treatment may need adjusting. It also says safety in children and in pregnancy has not been established.",
+    "practitionerSummary": "DSIP is described by LaValle et al. as a sleep promotion factor, sequence Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu, molecular weight 848.34, used in their practice for sleep promotion, neuroprotection, and alcohol or drug detoxification and withdrawal.\n\n**The regimen is 100 mcg subcutaneously daily**, supplied as 1 mg/ml in a 3 ml vial, taken at bedtime — though the source explicitly states bedtime use is not required, which is consistent with its claim that DSIP is not a classical sedative.\n\n**Two negative claims are the distinctive content of this monograph.** It states that sedation in the classical pharmacological sense is not seen with DSIP, and that administration of synthetic DSIP does not induce tolerance. Each carries a superscript citation; neither citation has been obtained by this index, so both are recorded at reference class.\n\n**The adverse-effect list is more specific than most in this handbook.** Minimal effects described as transient headache, nausea or vomiting and vertigo; rare reactions including erythema, transient muscle atrophy, polyarthralgia with hand oedema, and rash. It states that DSIP can stimulate luteinising hormone and that testosterone therapy may need adjusting accordingly, and that safety in paediatrics and in pregnancy has not been established.",
+    "unknownsSummary": "**No study of DSIP is held by this index.** No trial, no sleep study, no pharmacokinetic work. The regimen and the effects described are a practitioner handbook's.\n\n**The two negative claims are the ones to treat most carefully.** \"Sedation is not seen\" and \"does not induce tolerance\" are both statements that something does not happen, which is harder to establish than that something does, and neither cited source has been obtained here. Nothing held supports or contradicts them.\n\n**No sleep outcome is quantified anywhere in the monograph.** It does not say how much deep sleep changes, over what period, or in whom.\n\n**No literature screen has been run for DSIP**, so the thinness of this record is a statement about this index rather than about the literature.\n\n**The luteinising hormone interaction is stated without a mechanism or a magnitude**, and this index holds nothing that would let a clinician judge how much adjustment might be needed.",
+    "aliases": [
+      {
+        "alias": "Delta Sleep-Inducing Peptide",
+        "aliasType": "chemical_name",
+        "note": "The name the abbreviation stands for, printed by the handbook beneath the heading."
+      }
+    ],
+    "sequence": "WAGGDASGE",
+    "molecularDescription": "A nine-residue peptide, Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu, molecular weight 848.34 as printed by the handbook. The molecular formula in the held copy is garbled and has not been reproduced.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "The name describes an observed association with delta-wave sleep rather than a demonstrated mechanism. The handbook's own text distinguishes the compound from classical sedatives."
+  },
+  "locations": [
+    {
+      "key": "lavalle-dsip-43",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 43",
+      "pageStart": 43,
+      "notes": "Monograph opening: category, sequence, molecular composition, indications, dosage and the opening safety statement."
+    },
+    {
+      "key": "lavalle-dsip-44",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 44",
+      "pageStart": 44,
+      "notes": "The sedation and tolerance statements, the adverse-effect list, the luteinising hormone interaction, and the paediatric and pregnancy statement."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "DSIP-001",
+      "claimText": "LaValle et al. describe DSIP as a nine-residue sleep promotion factor, Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu, molecular weight 848.34, used in their practice for sleep promotion, neuroprotection, and alcohol or drug detoxification and withdrawal.",
+      "plainLanguageText": "DSIP is a nine-building-block peptide that a practitioner handbook uses for sleep, nerve protection, and withdrawal from alcohol or drugs.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Identity and indications as printed in the monograph's opening block. This index makes no statement about whether DSIP is effective for any of the listed uses.",
+      "uncertaintyText": "No study of DSIP is held for any of these indications, and the sequence has not been checked against an analytical reference.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-dsip-43",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Category, sequence, molecular composition and the Indications/Uses list.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "DSIP-002",
+      "claimText": "LaValle et al. state that sedation in the classical pharmacological sense is not seen with DSIP, and that administration of synthetic DSIP does not induce tolerance.",
+      "plainLanguageText": "The handbook says DSIP does not sedate the way sleeping tablets do, and that it does not stop working as you keep using it.",
+      "claimCategory": "pharmacodynamics",
+      "importance": "high",
+      "interpretationNotes": "Two claims that something does not happen. Recorded because they are the monograph's distinctive content and because they are the kind of claim a reader is most likely to take as established. Each carries a superscript citation in the source; neither has been obtained.",
+      "uncertaintyText": "Neither cited source has been obtained. A claim that an effect is absent is harder to establish than one that it is present, and nothing held here supports or contradicts either statement.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-dsip-44",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "States that classical sedation is not seen and that synthetic DSIP does not induce tolerance, each with a superscript citation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; neither cited source has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "DSIP-003",
+      "claimText": "LaValle et al. describe DSIP side effects as minimal but possibly including transient headache, nausea or vomiting and vertigo, with rare reactions including erythema, transient muscle atrophy, polyarthralgia combined with hand oedema, and rash.",
+      "plainLanguageText": "The handbook lists headache, nausea and dizziness as possible, and a few rarer reactions including a rash and joint pain with hand swelling.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the source's list. No frequencies are given for any of the effects, common or rare.",
+      "uncertaintyText": "No rates are given and no study establishing them is held. \"Minimal\" is the source's characterisation.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-dsip-44",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The adverse-effect list and the rare-reaction list.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; the cited source has not been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "DSIP-004",
+      "claimText": "LaValle et al. state that DSIP can stimulate luteinising hormone and that testosterone therapy may need to be adjusted accordingly, and that safety in paediatrics and in pregnancy has not been established.",
+      "plainLanguageText": "The handbook says DSIP can raise a hormone that affects testosterone, so testosterone treatment may need changing — and that it has not been shown safe in children or pregnancy.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "An interaction and a population limitation, both stated directly. Recorded at critical importance because the interaction concerns concurrent hormone therapy and the limitation concerns pregnancy.",
+      "uncertaintyText": "No magnitude, mechanism or monitoring interval is given for the luteinising hormone effect, and nothing held here would let a clinician judge what adjustment might be needed.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-dsip-44",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The luteinising hormone statement with its testosterone-therapy caveat, and the paediatric and pregnancy statement.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; no supporting study has been obtained."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any sleep outcome with DSIP.",
+      "why": "No study of DSIP is held. The monograph names sleep promotion as its primary use without reporting a measured sleep outcome.",
+      "whatWouldResolveIt": "A held study measuring sleep architecture or a sleep outcome after DSIP administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does DSIP change measured sleep architecture in people, and by how much?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "primary_source_missing",
+      "statement": "The sources behind the claims that DSIP neither sedates nor induces tolerance.",
+      "why": "Both are superscript citations in the handbook and neither has been obtained by this index.",
+      "whatWouldResolveIt": "Obtaining the two cited sources and reading what they actually measured.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What evidence underlies the claims that DSIP produces neither classical sedation nor tolerance?",
+      "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "The size and significance of the luteinising hormone effect.",
+      "why": "The source states DSIP can stimulate luteinising hormone and that testosterone therapy may need adjusting, without magnitude, mechanism or monitoring guidance.",
+      "whatWouldResolveIt": "A study measuring luteinising hormone and testosterone during DSIP administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How much does DSIP alter luteinising hormone, and does it change testosterone requirements?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the DSIP literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human and preclinical literature exists for DSIP, which has been described since the 1970s?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-dsip-43",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Supplied as 1 mg/ml in a 3 ml vial, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "The only route described by the held source. No human study of any route is held here."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "DSIP-PR-LAVALLE-SQ",
+      "objectiveContext": "Sleep promotion and the other uses listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 1 mg/ml in a 3 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.1 ml (100 mcg)",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily at bedtime; the source states that bedtime use is not required",
+      "durationText": null,
+      "monitoringText": "The source notes that DSIP can stimulate luteinising hormone and that testosterone therapy may need adjusting.",
+      "contraindicationsText": "Safety in paediatrics and in pregnancy has not been established, per the source.",
+      "safetyNotes": "The source describes side effects as minimal, listing transient headache, nausea or vomiting and vertigo, with rare erythema, transient muscle atrophy, polyarthralgia with hand oedema and rash.",
+      "locationKey": "lavalle-dsip-43"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "DSIP-ID-001",
+      "nameUsed": "DSIP",
+      "chemicalForm": "Nine-residue peptide",
+      "sequence": "WAGGDASGE",
+      "residueCount": 9,
+      "molecularWeight": 848.34,
+      "weightBasis": "As printed by the handbook. The sequence is transcribed from the monograph's three-letter listing; the molecular formula in the held copy is garbled and has not been reproduced.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block.",
+      "notes": null,
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-dsip-43"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "DSIP-REP-001",
+      "finding": "Any sleep effect of DSIP.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study is held, so there is nothing to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-dsip-43",
+      "checkedAt": "2026-09-26",
+      "notes": "No regulatory record was read."
+    }
+  ]
+}

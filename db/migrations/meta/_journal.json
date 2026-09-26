@@ -218,6 +218,20 @@
       "when": 1789181265681,
       "tag": "0030_open_change_request_blocks_publication",
       "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1789181325681,
+      "tag": "0031_provenance_guards_check_at_commit",
+      "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1789181385681,
+      "tag": "0032_stable_identity_for_rebuilt_relations",
+      "breakpoints": true
     }
   ]
 }

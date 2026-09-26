@@ -243,5 +243,183 @@
       }
     ],
     "notes": "Kept as a record of its own because the evidence says it is a different molecule from Thymosin beta-4. Evidence must not cross between the two."
+  },
+  {
+    "peptideKey": "ll-37",
+    "canonicalName": "LL-37",
+    "slug": "ll-37",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "immune",
+    "aliases": [
+      {
+        "alias": "LL37",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Cathelicidin",
+        "aliasType": "related_but_distinct"
+      },
+      {
+        "alias": "hCAP18",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "The only compound in the Section 4 expansion with held literature of its own (SRC-153, SRC-154). Clinical use is described by a practitioner handbook only."
+  },
+  {
+    "peptideKey": "pt-141",
+    "canonicalName": "PT-141",
+    "slug": "pt-141",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "reproductive-endocrine",
+    "aliases": [
+      {
+        "alias": "Bremelanotide",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Vyleesi",
+        "aliasType": "brand_name"
+      }
+    ],
+    "notes": "A practitioner handbook reports that a product containing this peptide is FDA-approved for one narrow indication. No regulator's record has been consulted; the approval is recorded as reported, not verified."
+  },
+  {
+    "peptideKey": "epitalon",
+    "canonicalName": "Epitalon",
+    "slug": "epitalon",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "longevity-neuroendocrine",
+    "aliases": [
+      {
+        "alias": "Epithalon",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Epithalone",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Epithalamin",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "The handbook lists Epithalamin as another name, but the mortality trials it reports under that name concern a pineal extract rather than this tetrapeptide. Kept related-but-distinct so findings do not transfer silently."
+  },
+  {
+    "peptideKey": "sermorelin",
+    "canonicalName": "Sermorelin",
+    "slug": "sermorelin",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "gh-endocrine",
+    "aliases": [
+      {
+        "alias": "GHRH (1-29)",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "Modified GRF (1-29)",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "Unsubstituted GHRH(1-29). Kept separate from the mod-grf-1-29 record, which is the tetrasubstituted analogue of the same fragment; no evidence crosses between them."
+  },
+  {
+    "peptideKey": "dsip",
+    "canonicalName": "DSIP",
+    "slug": "dsip",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "sleep-neuro",
+    "aliases": [
+      {
+        "alias": "Delta Sleep-Inducing Peptide",
+        "aliasType": "chemical_name"
+      }
+    ],
+    "notes": "The handbook's rare-adverse-reaction list for this compound is identical to the one it prints for kisspeptin; recorded on both records as boilerplate."
+  },
+  {
+    "peptideKey": "thymosin-alpha-1",
+    "canonicalName": "Thymosin alpha-1",
+    "slug": "thymosin-alpha-1",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "immune",
+    "aliases": [
+      {
+        "alias": "Thymalfasin",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "Zadaxin",
+        "aliasType": "brand_name"
+      },
+      {
+        "alias": "TA1",
+        "aliasType": "abbreviation"
+      },
+      {
+        "alias": "Thymosin beta-4",
+        "aliasType": "related_but_distinct"
+      }
+    ],
+    "notes": "A different molecule from thymosin-beta-4 and tb-500 despite the shared family name. No evidence crosses between the three records."
+  },
+  {
+    "peptideKey": "kisspeptin",
+    "canonicalName": "Kisspeptin",
+    "slug": "kisspeptin",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "reproductive-endocrine",
+    "aliases": [
+      {
+        "alias": "Metastin",
+        "aliasType": "synonym"
+      }
+    ],
+    "notes": "The source describes kisspeptin as a family formed by differential proteolysis and does not say which member its regimen refers to. No alias created for kisspeptin-10, which the handbook does not mention."
+  },
+  {
+    "peptideKey": "vip",
+    "canonicalName": "VIP",
+    "slug": "vip",
+    "compoundTypeKey": "peptide",
+    "primaryCategoryKey": "gastrointestinal",
+    "aliases": [
+      {
+        "alias": "Vasoactive Intestinal Peptide",
+        "aliasType": "chemical_name"
+      },
+      {
+        "alias": "Aviptadil",
+        "aliasType": "synonym"
+      },
+      {
+        "alias": "PHM27",
+        "aliasType": "research_code"
+      }
+    ],
+    "notes": "The monograph's intranasal titration chart is too poorly rendered in the held copy to transcribe; only the start, strength change and final dose are recorded."
+  },
+  {
+    "peptideKey": "semaglutide",
+    "canonicalName": "Semaglutide",
+    "slug": "semaglutide",
+    "compoundTypeKey": "peptide_analog",
+    "primaryCategoryKey": "metabolic",
+    "aliases": [
+      {
+        "alias": "Ozempic",
+        "aliasType": "brand_name"
+      },
+      {
+        "alias": "Wegovy",
+        "aliasType": "brand_name"
+      },
+      {
+        "alias": "Rybelsus",
+        "aliasType": "brand_name"
+      }
+    ],
+    "notes": "Class C by decision: comparator mentions inside retatrutide literature are not dedicated semaglutide evidence and were not used to promote this record."
   }
 ]

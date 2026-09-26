@@ -1,0 +1,307 @@
+{
+  "packetKey": "pt-141",
+  "peptideKey": "pt-141",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 111-117. Class C: practitioner-reference. The handbook reports that a product containing this peptide (Vyleesi, bremelanotide) is FDA-approved for one indication, and reports its labelled dose. That report is recorded as the handbook's, attributed to it — the FDA record itself has not been consulted by this index, and the approved-label regimen is kept as a separate protocol from the practitioner one.",
+  "compound": {
+    "shortDescription": "A melanocortin receptor agonist used for sexual dysfunction. A product containing it is reported by a practitioner handbook to be FDA-approved for one narrow indication; the regimens described for wider use are the handbook's own.",
+    "simpleSummary": "PT-141 acts on melanocortin receptors, a signalling system involved in sexual arousal. Unlike most compounds in this index, a medicine containing it exists: the handbook reports that Vyleesi is approved in the United States for one specific condition — low sexual desire causing distress, in women before the menopause.\n\n**Two different things are described on this page.** One is that approved medicine and the dose printed on its label. The other is how practitioners describe using the raw peptide, at a different dose, for a wider range of situations including in men. They are kept separate here because they are not the same claim.\n\n**The safety notes are the most substantial part of this record.** The handbook says it should not be used by anyone with uncontrolled high blood pressure or known heart disease, that nausea is common and can be severe, and that men should stop if an erection lasts more than four hours.\n\n**This index has not checked the approval itself.** No regulator's own record was read — what is recorded is that a practitioner handbook says so.",
+    "practitionerSummary": "PT-141 (bremelanotide) is described by the held handbook as an alpha-melanocortin receptor agonist for sexual performance support, indicated in its authors' practice for male and female sexual dysfunction including HSDD, female sexual arousal disorder and erectile dysfunction.\n\n**The approved product and the practitioner regimen are different and are recorded separately.** The handbook reports Vyleesi as the patented, FDA-approved as-needed treatment for premenopausal women with acquired, generalised HSDD, not indicated for men per the manufacturer, dosed 1.75 mg subcutaneously by autoinjector to abdomen or thigh at least 45 minutes before anticipated activity, no more than one dose in 24 hours and no more than eight doses per month. Separately, it describes PT-141 supplied as 10 mg/ml in a 2 ml vial, with a 2 mg starting dose 45 minutes to an hour beforehand, a 1 mg test dose followed by a further 1 mg after 30 minutes, titration to response, effects lasting 24-72 hours, and twice-weekly use initially.\n\n**Neither regimen is this index's recommendation, and the approval has not been verified here.** The FDA record itself has not been consulted; what is held is a handbook reporting it.\n\n**Contraindications and interactions are unusually specific for a practitioner source and are reproduced in full.** Contraindicated in uncontrolled hypertension or known cardiovascular disease; caution with a hypertension history; discontinue on tachycardia; discontinue on priapism beyond four hours; concurrent PDE5 inhibitor use discouraged in men because of priapism risk; Vyleesi reported to slow gastric emptying and to reduce systemic exposure of orally administered naltrexone, which the handbook says to avoid.",
+    "unknownsSummary": "**No study of PT-141 is held by this index.** The entire record rests on one practitioner handbook. No trial, no case series and no regulatory document has been obtained, and no literature screen has been run for this compound.\n\n**The approval is reported, not verified.** The handbook states that Vyleesi is FDA-approved for premenopausal women with acquired, generalised HSDD. No FDA record was read here, so what this index can say is that a handbook reports an approval — not that it has confirmed one, and not on what evidence it was granted.\n\n**Efficacy is not established by anything held.** The indications listed are the authors' practice. The one piece of outcome evidence the handbook offers is a case report of two hypertensive patients whose blood pressure rose after injection, which is a safety observation rather than a demonstration that the peptide works.\n\n**The printed sequence and molecular formula could not be read reliably** from the held copy, and no analytical reference for this peptide is held.",
+    "aliases": [
+      {
+        "alias": "Bremelanotide",
+        "aliasType": "synonym",
+        "note": "The international non-proprietary name, given by the handbook as another name for PT-141."
+      },
+      {
+        "alias": "Vyleesi",
+        "aliasType": "brand_name",
+        "note": "A marketed product the handbook reports as containing this peptide and as FDA-approved for one indication. A product is not the same thing as the molecule, and its labelled regimen is recorded as its own protocol."
+      }
+    ],
+    "sequence": null,
+    "molecularDescription": "A cyclic melanocortin receptor agonist. The handbook prints a molecular weight of approximately 1025.2 and a molecular formula; the held copy renders both incompletely and neither has been reproduced here.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "PT-141 is the research designation, bremelanotide the non-proprietary name, and Vyleesi a marketed product reported to contain it. The product is recorded as a brand name rather than a synonym, because statements about the product's approved use do not transfer to the peptide in general."
+  },
+  "locations": [
+    {
+      "key": "lavalle-pt141-111",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 111",
+      "pageStart": 111,
+      "notes": "Monograph opening: category, other names, composition, indications, and the Vyleesi indication as the handbook states it."
+    },
+    {
+      "key": "lavalle-pt141-112",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 112",
+      "pageStart": 112,
+      "notes": "Dosage: the practitioner subcutaneous regimen and, separately, the Vyleesi labelled regimen."
+    },
+    {
+      "key": "lavalle-pt141-113",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 113",
+      "pageStart": 113,
+      "notes": "Dosing limits, warnings, common adverse effects, cardiovascular contraindications and the hypertension case report."
+    },
+    {
+      "key": "lavalle-pt141-114",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 114",
+      "pageStart": 114,
+      "notes": "Priapism guidance, PDE5 interaction, gastric emptying and the naltrexone interaction."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "PT141-001",
+      "claimText": "LaValle et al. describe PT-141 (bremelanotide) as an alpha-melanocortin receptor agonist used for sexual performance support, and list male and female sexual dysfunction, hypoactive sexual desire disorder, female sexual arousal disorder and erectile dysfunction among its uses.",
+      "plainLanguageText": "A practitioner handbook describes PT-141 as acting on melanocortin receptors, and lists the sexual-function problems its authors use it for.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's category and indications list. This index makes no statement about whether PT-141 is effective for any of them.",
+      "uncertaintyText": "No study of PT-141 is held for any of these indications. The list describes the authors' practice.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pt141-111",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The monograph's Category and Indications/Uses blocks.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PT141-002",
+      "claimText": "LaValle et al. report that Vyleesi, a product containing bremelanotide, is the patented and only FDA-approved as-needed treatment for premenopausal women with acquired, generalised hypoactive sexual desire disorder, and that it is not indicated for men per the manufacturer.",
+      "plainLanguageText": "The handbook reports that a medicine containing this peptide is approved in the United States, for one specific group of women, and that the manufacturer does not indicate it for men.",
+      "claimCategory": "regulatory",
+      "importance": "critical",
+      "interpretationNotes": "Recorded as the handbook's report of an approval, not as a verified regulatory position. No FDA record has been read by this index, and the distinction matters: an approval for one indication in one population is routinely read as approval of the molecule in general.",
+      "uncertaintyText": "The regulator's own record has not been consulted here. The scope reported — one indication, premenopausal women, not indicated for men — is narrower than the uses listed elsewhere in the same monograph.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pt141-111",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "States the Vyleesi indication and the exclusions the label carries.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The handbook refers to the Vyleesi FDA-approved monograph; that document has not been obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-pt141-112",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "Repeats that Vyleesi is not indicated for men per the manufacturer, alongside the labelled regimen.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Same handbook, same citation practice."
+        }
+      ]
+    },
+    {
+      "claimKey": "PT141-003",
+      "claimText": "LaValle et al. state that PT-141 and Vyleesi are contraindicated in patients with uncontrolled hypertension or known cardiovascular disease, advise caution where there is a history of hypertension, and cite a case report of two hypertensive patients whose blood pressure rose after PT-141 injection.",
+      "plainLanguageText": "The handbook says PT-141 should not be used by anyone with uncontrolled high blood pressure or known heart disease, and reports two patients whose blood pressure rose after an injection.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "A contraindication stated by the source in absolute terms, recorded at that strength. The case report is the handbook's citation and has not been obtained.",
+      "uncertaintyText": "The case report was not obtained and its two patients cannot be characterised further here. Anecdotal reports of short-term blood-pressure rises are also mentioned by the source without citation.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pt141-113",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Contraindication in uncontrolled hypertension or known cardiovascular disease, caution with a hypertension history, and the two-patient case report.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The handbook cites a case study by superscript; it has not been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "PT141-004",
+      "claimText": "LaValle et al. report gastrointestinal distress including nausea as common and potentially severe, list flushing, headache and nausea or vomiting as the most common side effects at above four per cent, and recommend an antihistamine or a 5-HT3 receptor antagonist in sensitive individuals.",
+      "plainLanguageText": "Nausea is common and can be severe. The handbook suggests an anti-sickness medicine for people prone to it, and lists flushing and headache as the other common effects.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "The frequency figure is the handbook's and its basis is not stated; it is reproduced as printed rather than characterised as a trial rate.",
+      "uncertaintyText": "Where the above-four-per-cent figure comes from is not stated by the source, and no study establishing it is held.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pt141-113",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Warnings and Cautions: GI distress, the common side-effect list, and the antiemetic recommendation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; its citations have not been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "PT141-005",
+      "claimText": "LaValle et al. advise discontinuing PT-141 if priapism develops in men, defined as an erection lasting longer than four hours, and state that concurrent use with any PDE5 inhibitor is not recommended in men because of that risk.",
+      "plainLanguageText": "Men should stop if an erection lasts more than four hours, and the handbook says not to combine it with erectile-dysfunction drugs.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "An interaction and a stopping rule, both stated directly by the source.",
+      "uncertaintyText": "No frequency is given for priapism and no study of the interaction is held.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pt141-114",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Priapism guidance and the PDE5 interaction.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; its citations have not been obtained."
+        },
+        {
+          "locationKey": "lavalle-pt141-112",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The dosage block separately discourages concurrent PDE5 inhibitor use.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Same handbook."
+        }
+      ]
+    },
+    {
+      "claimKey": "PT141-006",
+      "claimText": "LaValle et al. report that Vyleesi slows gastric emptying and may affect absorption of concomitantly administered oral medications, and that it significantly decreases systemic exposure of orally administered naltrexone, advising avoidance with oral naltrexone products used for alcohol or opioid dependence.",
+      "plainLanguageText": "The handbook reports that the approved product slows the stomach, which can affect other tablets, and specifically says to avoid it with oral naltrexone.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Attributed by the source to the Vyleesi FDA-approved monograph. Recorded as the handbook's report of that document, which this index has not obtained.",
+      "uncertaintyText": "The label itself was not read here. The interaction is stated for Vyleesi specifically rather than for the peptide in general.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-pt141-114",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Gastric emptying and the naltrexone interaction, attributed in the text to the Vyleesi FDA-approved monograph.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "The handbook names the FDA monograph as its source; that document has not been obtained by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Whether PT-141 improves any sexual-function outcome.",
+      "why": "No trial, case series or outcome report is held. The indications listed are a practitioner handbook's description of its authors' practice.",
+      "whatWouldResolveIt": "The trials underlying the reported approval, or any held study measuring a sexual-function outcome.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What outcomes did the trials supporting the bremelanotide approval measure, and in whom?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The regulatory status of bremelanotide in any jurisdiction.",
+      "why": "The approval is reported by a practitioner handbook. No regulator's own record has been consulted by this index.",
+      "whatWouldResolveIt": "The FDA label or approval record for Vyleesi, read directly.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What exactly is the approved indication, population and dose, as the regulator states it?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the PT-141 literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human and preclinical literature exists for bremelanotide, and how much of it concerns the approved indication rather than wider use?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "How often priapism, tachycardia or clinically significant blood-pressure rise occur.",
+      "why": "The source gives stopping rules and a two-patient case report but no rates.",
+      "whatWouldResolveIt": "Trial safety tables or pharmacovigilance data for bremelanotide.",
+      "verificationIssueKey": null,
+      "researchQuestion": "At what rates do cardiovascular effects and priapism occur with bremelanotide?",
+      "opportunityType": "human_safety"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-pt141-112",
+      "populationModel": "Adults, as described by the handbook; the approved product's population is narrower.",
+      "formulation": "Described as supplied at 10 mg/ml in a 2 ml vial for the practitioner regimen, and as an autoinjector for the marketed product.",
+      "pkNotes": "The handbook states effects last 24-72 hours after administration. No pharmacokinetic study is held.",
+      "limitationsNotes": "The only route described by the held source. No human study of any route is held here."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "PT141-PR-LAVALLE-SQ",
+      "objectiveContext": "Sexual dysfunction in men and women, as framed by the handbook.",
+      "populationModel": "Not specified by the source beyond men and women.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 10 mg/ml in a 2 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling — the approved product's regimen is recorded separately and differs in dose, population and indication.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "2 mg (0.1-0.2 ml) starting dose; the source separately recommends a 1 mg (0.1 ml) test dose followed by a further 1 mg after 30 minutes",
+      "amountUnit": "mg",
+      "frequencyText": "Twice weekly initially, which the source says may increase if tolerated; it also states no more than twice-weekly use is recommended to reduce tachycardia risk",
+      "durationText": "Taken 45 minutes to an hour before sex; the source states effects last 24-72 hours after administration",
+      "monitoringText": "Titration may be needed to achieve the desired response.",
+      "contraindicationsText": "Uncontrolled hypertension or known cardiovascular disease. Concurrent PDE5 inhibitor use is discouraged in men because of priapism risk.",
+      "safetyNotes": "Discontinue if tachycardia develops. Discontinue if priapism lasting more than four hours develops in men. Nausea is common and potentially severe.",
+      "locationKey": "lavalle-pt141-112"
+    },
+    {
+      "protocolKey": "PT141-PR-VYLEESI-LABEL",
+      "objectiveContext": "Acquired, generalised hypoactive sexual desire disorder in premenopausal women — the indication the handbook reports for the marketed product.",
+      "populationModel": "Premenopausal women with acquired, generalised HSDD. The source states the product is not indicated for men per the manufacturer.",
+      "routeKey": "subcutaneous",
+      "formulation": "Autoinjector, to the abdomen or thigh.",
+      "regulatoryContext": "Reported by a practitioner handbook as the approved labelling for Vyleesi. The regulator's own record has not been consulted by this index, so this is a secondary report of a label rather than the label itself.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1.75 mg",
+      "amountUnit": "mg",
+      "frequencyText": "As needed, at least 45 minutes before anticipated sexual activity; no more than one dose in 24 hours and no more than eight doses per month",
+      "durationText": "As needed rather than continuous.",
+      "monitoringText": null,
+      "contraindicationsText": "Uncontrolled hypertension or known cardiovascular disease. Avoid with orally administered naltrexone products.",
+      "safetyNotes": "Reported to slow gastric emptying and to affect absorption of concomitantly administered oral medicines.",
+      "locationKey": "lavalle-pt141-112"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "PT141-ID-001",
+      "nameUsed": "PT-141",
+      "chemicalForm": "Cyclic alpha-melanocortin receptor agonist peptide",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": 1025.2,
+      "weightBasis": "As printed by the handbook. The held copy renders the sequence and molecular formula incompletely and neither has been reproduced.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's Chemical Composition block.",
+      "notes": "Bremelanotide is given by the same source as another name; Vyleesi is a product reported to contain it.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-pt141-111"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "PT141-REP-001",
+      "finding": "Any sexual-function outcome of PT-141.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study is held, so there is nothing to replicate. An approval is reported by a handbook but the trials behind it have not been obtained.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "United States",
+      "indicationContext": "Acquired, generalised hypoactive sexual desire disorder in premenopausal women",
+      "status": "unknown",
+      "authority": "Reported by a practitioner handbook as FDA-approved; no regulator's record has been consulted by this index",
+      "locationKey": "lavalle-pt141-111",
+      "checkedAt": "2026-09-26",
+      "notes": "Recorded as unknown deliberately. The handbook reports an approval and this index has not verified it, so the honest status is that the position is reported but unconfirmed. The reported scope is one indication in premenopausal women, explicitly not men."
+    }
+  ]
+}

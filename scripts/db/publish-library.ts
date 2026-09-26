@@ -132,12 +132,36 @@ try {
         if (after?.publication_state === 'published') {
           published += 1;
         } else {
-          refused += 1;
-          refusals.push({
-            table,
-            label: row.label,
-            reason: `refused: left ${after?.publication_state ?? 'unknown'}`,
-          });
+          /*
+           * Not published, and the write did not raise.
+           *
+           * A gate that refuses by coercion looks exactly like this — but so
+           * does a driver that pipelined the update and the read-back such that
+           * the read saw the earlier state. The two are indistinguishable from
+           * here and have opposite meanings, so the row is asked once more
+           * before being recorded as refused. A genuine refusal refuses twice;
+           * a transient does not, and silently leaving a publishable record
+           * unpublished is the failure worth spending a second query on.
+           */
+          await db.execute(sql`
+            update ${sql.identifier(table)}
+               set publication_state = 'published'
+             where id = ${row.id}
+          `);
+          const [retried] = await rows<{ publication_state: string }>(sql`
+            select publication_state from ${sql.identifier(table)} where id = ${row.id}
+          `);
+
+          if (retried?.publication_state === 'published') {
+            published += 1;
+          } else {
+            refused += 1;
+            refusals.push({
+              table,
+              label: row.label,
+              reason: `refused: left ${retried?.publication_state ?? 'unknown'}`,
+            });
+          }
         }
       } catch (error) {
         refused += 1;

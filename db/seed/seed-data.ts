@@ -800,6 +800,18 @@ const LITERATURE_SCREEN_FILES = [
 ] as const;
 
 const COMPOUND_PACKET_FILES = [
+  // Section 4 expansion. LL-37 is the one new compound with held literature
+  // of its own: SRC-153 and SRC-154 are registered reviews in which it is a
+  // central subject. Everything about clinical use is still a handbook's.
+  'evidence/ll-37.json',
+  'evidence/semaglutide.json',
+  'evidence/vip.json',
+  'evidence/kisspeptin.json',
+  'evidence/thymosin-alpha-1.json',
+  'evidence/dsip.json',
+  'evidence/sermorelin.json',
+  'evidence/epitalon.json',
+  'evidence/pt-141.json',
   'evidence/tesamorelin.json',
   'evidence/bpc-157.json',
   // Two packets for what practitioner sources treat as one compound. The

@@ -1,0 +1,219 @@
+{
+  "packetKey": "vip",
+  "peptideKey": "vip",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 163-168. Class C: practitioner-reference. The monograph prints a multi-week intranasal titration chart which the held copy renders too poorly to transcribe; the starting dose, the escalation principle and the final dose are recorded, and the chart itself is explicitly not reproduced rather than guessed at.",
+  "compound": {
+    "shortDescription": "A 28-residue neuropeptide of the gut-brain axis, given intranasally by practitioner sources on a long escalating schedule. No study of it is held here.",
+    "simpleSummary": "VIP — vasoactive intestinal peptide — is a signalling molecule the body makes, active in both the gut and the brain. Practitioner sources give it as a nasal spray rather than an injection.\n\n**The schedule is unusually long and complex.** The handbook starts at one spray and builds over about two weeks to eight sprays a day, then switches to a ten-times stronger preparation and repeats the build-up, ending at three sprays four times a day for six months.\n\n**The printed schedule could not be read reliably.** The dosing chart in the copy this index holds is too damaged to transcribe, so only the start, the principle and the endpoint are recorded here. Nothing has been guessed.\n\n**The handbook claims effectiveness for one condition.** It describes twelve doses daily for six months as \"the studied dose that demonstrates effectiveness\" for chronic inflammatory response syndrome. This index holds no such study.",
+    "practitionerSummary": "VIP is described by LaValle et al. as a gut-brain axis neuropeptide, 28 residues, molecular weight 3325.8, other names aviptadil and PHM27. Listed uses are gut-brain axis support, anti-inflammatory cytokine modulation, improving the intestinal barrier, CNS protection, CIRS and biotoxin illness, and pulmonary hypertension.\n\n**Administration is intranasal and escalating.** The regimen starts at 50 mcg/ml, one spray, alternating nostrils, building over roughly two weeks to eight sprays daily; at day 16, if tolerated, the source directs a switch to full-strength VIP at 500 mcg/0.1 ml and a repeat of the same build-up, with a final dose of three sprays four times daily. The preparation is to be refrigerated. The source directs repeating a NeuroQuant assessment six months after beginning the full-dose regimen.\n\n**The intermediate titration chart is not reproduced.** The table in the held copy is rendered too poorly to transcribe reliably, and a dosing table is the last thing to reconstruct from a damaged scan. What is recorded is the starting dose, the escalation principle, the strength change and the final dose — each legible in the surrounding prose.\n\n**One efficacy claim is made directly.** The source states that twelve doses daily for six months is \"the studied dose that demonstrates effectiveness to resolve CIRS\". No such study is held by this index, and the claim is recorded as the handbook's.",
+    "unknownsSummary": "**No study of VIP is held by this index**, including the one the monograph refers to when it calls twelve doses daily for six months \"the studied dose\". That citation has not been obtained, so this index cannot say what was studied, in whom, or what resolving CIRS meant in it.\n\n**The full dosing schedule is not recorded here because it could not be read.** The titration chart in the held copy is garbled. Anyone intending to follow the handbook's schedule needs the source itself; this record deliberately does not reconstruct it.\n\n**CIRS is a contested diagnostic category.** The monograph uses it as an indication without qualification. This index takes no position on it and holds no source addressing it.\n\n**Pulmonary hypertension is listed as a use** with nothing held to support it — a serious cardiopulmonary indication resting here on one practitioner handbook.\n\n**No literature screen has been run for VIP.** Aviptadil has a research literature that this index has not searched, so the thinness of this record reflects this index rather than the field.",
+    "aliases": [
+      {
+        "alias": "Vasoactive Intestinal Peptide",
+        "aliasType": "chemical_name",
+        "note": "What the abbreviation stands for, printed by the handbook beneath the heading."
+      },
+      {
+        "alias": "Aviptadil",
+        "aliasType": "synonym",
+        "note": "The international non-proprietary name, listed by the handbook as another name."
+      },
+      {
+        "alias": "PHM27",
+        "aliasType": "research_code",
+        "note": "Listed by the handbook as another name."
+      }
+    ],
+    "sequence": "HSDAVFTDNYTRLRKQMAVKKYLNSILN",
+    "molecularDescription": "A 28-residue C-terminally amidated neuropeptide, molecular weight 3325.8 g/mol as printed by the handbook. The molecular formula in the held copy is garbled and has not been reproduced.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "VIP is the abbreviation in general use; aviptadil is the non-proprietary name for the synthetic form. The abbreviation collides with ordinary English usage, which is why the full name is carried as an alias."
+  },
+  "locations": [
+    {
+      "key": "lavalle-vip-163",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 163",
+      "pageStart": 163,
+      "notes": "Monograph opening: category, other names, sequence, molecular composition, uses and the starting intranasal dose."
+    },
+    {
+      "key": "lavalle-vip-164",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 164",
+      "pageStart": 164,
+      "notes": "The titration chart — too poorly rendered in the held copy to transcribe — together with the day-16 strength change, the final dose, the six-month statement and the NeuroQuant instruction."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "VIP-001",
+      "claimText": "LaValle et al. describe VIP (aviptadil) as a 28-residue gut-brain axis neuropeptide and list it for gut-brain axis support, anti-inflammatory cytokine modulation, improving the intestinal barrier, CNS protection, CIRS and biotoxin illness, and pulmonary hypertension.",
+      "plainLanguageText": "A practitioner handbook describes VIP as a gut-and-brain signalling peptide and lists the conditions its authors use it for, including pulmonary hypertension.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's list. Pulmonary hypertension is a serious cardiopulmonary indication and is recorded as listed, with nothing held to support it.",
+      "uncertaintyText": "No study is held for any listed indication. CIRS is a contested diagnostic category on which this index takes no position and holds no source.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-vip-163",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The monograph's category and uses list.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "VIP-002",
+      "claimText": "LaValle et al. direct an escalating intranasal regimen beginning at one spray of a starting-strength preparation, alternating nostrils, building to eight sprays daily, then switching at day 16 if tolerated to a ten-fold stronger preparation and repeating the build-up to a final dose of three sprays four times daily, with the preparation refrigerated. The strengths are recorded on the protocol rather than here.",
+      "plainLanguageText": "The handbook starts at one nasal spray and builds up over about two weeks, then switches to a much stronger preparation and builds up again, ending at three sprays four times a day.",
+      "claimCategory": "protocol",
+      "importance": "high",
+      "interpretationNotes": "The start, the strength change and the final dose are legible in the prose and are recorded. The intermediate day-by-day chart is not, and has deliberately not been reconstructed.",
+      "uncertaintyText": "The titration chart between the start and the final dose is rendered too poorly in the held copy to transcribe. Anyone intending to follow this schedule needs the source itself.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-vip-163",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The starting strength, the alternating-nostril instruction, the build to eight sprays daily, and the refrigeration instruction.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook."
+        },
+        {
+          "locationKey": "lavalle-vip-164",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The day-16 switch to full strength, the repeat of the schedule, and the final dose of three sprays four times daily.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Same handbook; the chart on this page could not be read."
+        }
+      ]
+    },
+    {
+      "claimKey": "VIP-003",
+      "claimText": "LaValle et al. state that twelve doses daily for six months is the studied dose that demonstrates effectiveness to resolve CIRS, and direct repeating a NeuroQuant assessment six months after beginning the full-dose regimen.",
+      "plainLanguageText": "The handbook says a specific long schedule has been studied and shown to resolve one condition, and tells clinicians to repeat a brain scan measurement after six months.",
+      "claimCategory": "practitioner_use",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance because it is an explicit efficacy claim referring to a study, which is exactly the kind of statement that gets read as trial evidence. It is not: the study has not been obtained and this is a practitioner handbook's description of it.",
+      "uncertaintyText": "The study referred to has not been obtained. What it measured, in whom, how resolution was defined, and whether it was controlled are all unknown to this index. CIRS is itself a contested category.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-vip-164",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The statement that twelve doses daily for six months is the studied dose demonstrating effectiveness to resolve CIRS, and the NeuroQuant follow-up instruction.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook referring to a study it does not identify in a way this index has been able to obtain."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Whether VIP resolves CIRS or affects any listed condition.",
+      "why": "The monograph refers to a study demonstrating effectiveness but that study has not been obtained, and no other source is held.",
+      "whatWouldResolveIt": "The study the handbook refers to, obtained and read.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What study underlies the claim that intranasal VIP resolves CIRS, and what did it measure?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "formulation_unspecified",
+      "statement": "The intermediate steps of the intranasal titration schedule.",
+      "why": "The dosing chart in the held copy is rendered too poorly to transcribe, and reconstructing a dosing table from a damaged scan is not something this index will do.",
+      "whatWouldResolveIt": "A legible copy of the source, or the schedule from the originating protocol.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "The safety of VIP in pulmonary hypertension.",
+      "why": "Pulmonary hypertension is listed as a use with no supporting evidence held and no safety statement specific to it.",
+      "whatWouldResolveIt": "Held studies of aviptadil in pulmonary hypertension.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is known about aviptadil administration in pulmonary hypertension?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the VIP and aviptadil literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for aviptadil, which has been studied in more than one indication?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "intranasal",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-vip-163",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Two strengths are described: a starting preparation at 50 mcg/ml and a full-strength preparation at 500 mcg/0.1 ml, to be refrigerated.",
+      "pkNotes": null,
+      "limitationsNotes": "The only route described by the held source, and unusual among the compounds in this index in not being an injection. No human study of this route is held here."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "VIP-PR-LAVALLE-NASAL",
+      "objectiveContext": "CIRS and biotoxin illness, and the other uses listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "intranasal",
+      "formulation": "Starting preparation 50 mcg/ml; full strength 500 mcg/0.1 ml from day 16 if tolerated. Refrigerated.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen, notwithstanding the source's reference to a studied dose.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "Begins at one spray of 50 mcg/ml alternating nostrils; final dose three sprays four times daily at full strength",
+      "amountUnit": "mcg",
+      "frequencyText": "Escalating over roughly two weeks to eight sprays daily, then repeated at full strength to three sprays four times daily; the source describes twelve doses daily as the studied schedule",
+      "durationText": "Six months at the full-dose regimen, per the source",
+      "monitoringText": "The source directs repeating a NeuroQuant assessment six months after beginning the full-dose regimen.",
+      "contraindicationsText": null,
+      "safetyNotes": "The intermediate titration chart could not be read in the held copy and has not been reconstructed; the source itself is needed for the day-by-day schedule.",
+      "locationKey": "lavalle-vip-163"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "VIP-ID-001",
+      "nameUsed": "VIP",
+      "chemicalForm": "28-residue C-terminally amidated neuropeptide",
+      "sequence": "HSDAVFTDNYTRLRKQMAVKKYLNSILN",
+      "residueCount": 28,
+      "molecularWeight": 3325.8,
+      "weightBasis": "As printed by the handbook. The sequence is transcribed from the monograph's three-letter listing; the molecular formula in the held copy is garbled and has not been reproduced.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block.",
+      "notes": "Aviptadil is given by the same source as the alternative name for the synthetic form.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-vip-163"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "VIP-REP-001",
+      "finding": "Resolution of CIRS with intranasal VIP.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "The handbook refers to a study demonstrating effectiveness, but that study has not been obtained and no independent replication is held.",
+      "limitations": "This assessment describes what a secondary source reports rather than a review of the literature.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-vip-163",
+      "checkedAt": "2026-09-26",
+      "notes": "No regulatory record was read. The handbook describes a compounded intranasal preparation in two strengths without reference to any approval."
+    }
+  ]
+}

@@ -29,7 +29,9 @@ try {
   for (const [key, count] of Object.entries(result)) {
     console.log(`  ${key.padEnd(20)} ${String(count).padStart(4)}`);
   }
-  console.log('\nAll seeded records are unpublished and awaiting review.');
+  // Not "everything is unpublished": on a re-seed most of these records already
+  // exist, and the seed deliberately leaves their publication state alone.
+  console.log('\nNew records arrive unpublished. Existing publication states are unchanged.');
 } catch (error) {
   console.error('Seeding failed:', error);
   process.exitCode = 1;

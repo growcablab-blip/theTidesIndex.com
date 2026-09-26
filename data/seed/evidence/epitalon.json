@@ -1,0 +1,329 @@
+{
+  "packetKey": "epitalon",
+  "peptideKey": "epitalon",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 47-52. Class C: practitioner-reference. This monograph is the strongest test in the tranche of the rule that a handbook describing a trial is not a trial. It reports human mortality trials, telomere elongation percentages and broad disease-prevention claims, all by superscript citation, and none of those citations has been obtained by this index. Every such statement is recorded as the handbook's report, at reference_opinion class, with the gap stated.",
+  "compound": {
+    "shortDescription": "A four-amino-acid peptide described by practitioner sources as a pineal-gland bioregulator used for anti-ageing, sleep and telomere support. The handbook reports human trials for it; none of the cited studies is held here.",
+    "simpleSummary": "Epitalon is a very short peptide — four building blocks — described as acting on the pineal gland, the part of the brain that governs the sleep hormone melatonin.\n\n**The handbook that describes it claims a great deal.** It reports that Epitalon lengthens telomeres (the caps on the ends of chromosomes), improves sleep by raising melatonin, regulates inflammation, and it cites human trials reporting large reductions in death rates over many years.\n\n**This index holds none of those studies.** Everything on this page comes from one practitioner handbook. It cites its sources by small superscript numbers, and none of those sources has been obtained and read here. So what can honestly be said is that a handbook makes these claims — not that they have been checked.\n\n**Some of the handbook's wording goes further than its own evidence.** It states in places that eliminating free radicals prevents diseases including cancer, dementia and heart disease. That is a very broad claim and this index does not repeat it as a finding.",
+    "practitionerSummary": "Epitalon (Ala-Glu-Asp-Gly, MW 390.35) is described by LaValle et al. as a synthetic pineal-gland peptide bioregulator, used in their practice for anti-ageing, telomere lengthening, neuroprotection and cognitive support, mood, sleep regulation via melatonin restoration, and antioxidant effect.\n\n**The monograph reports human outcome trials, and this is where the record needs care.** It describes a 12-year trial reporting a 28% decrease in overall mortality and a two-fold decrease in cardiovascular mortality with epithalamin, a six-year study reporting 4.1-fold lower mortality with thymalin and epithalamin, and a study reporting a 33% increase in telomere elongation. **Each is cited by superscript and none of those citations has been obtained by this index.** They are recorded here as the handbook's reports, classed as reference material, not as human evidence. The distinction is the whole point: a handbook describing a trial is not a trial.\n\n**Note also the shifting name.** Several of the reported trials concern *epithalamin*, a pineal extract preparation, rather than the synthetic tetrapeptide epitalon. The monograph moves between the two names; this index records the name each statement uses.\n\n**Two regimens are given**, oral and subcutaneous, both cyclical and both reproduced as printed.",
+    "unknownsSummary": "**Not one of the studies this monograph cites is held by this index.** The mortality trials, the telomere elongation figure and the melatonin study are all superscript citations that have not been obtained. Nothing on this page has been verified against a primary source.\n\n**The trials described may not be about this molecule.** Several concern *epithalamin*, a pineal extract, rather than the synthetic tetrapeptide. Whether findings for one transfer to the other is not established by anything held here, and the monograph does not address the question.\n\n**No literature screen has been run for epitalon.** The absence of evidence on this page is a statement about this index, not about the literature.\n\n**The monograph's broadest claims are not reproduced here as findings.** It states that eliminating free radicals prevents diseases including cancer, dementia, Alzheimer's and heart disease. That is a general claim about oxidative stress rather than a demonstrated effect of this peptide, and this index does not carry it as one.\n\n**No safety data beyond a single sentence.** The handbook states epitalon is reported safe in recommended dosages and gives nothing further — no adverse-effect list, no contraindications, no interactions.",
+    "aliases": [
+      {
+        "alias": "Epithalon",
+        "aliasType": "synonym",
+        "note": "The spelling the monograph itself uses throughout its summary, alongside Epitalon in the heading."
+      },
+      {
+        "alias": "Epithalone",
+        "aliasType": "synonym",
+        "note": "Listed by the handbook among other names."
+      },
+      {
+        "alias": "Epithalamin",
+        "aliasType": "related_but_distinct",
+        "note": "Listed by the handbook as another name, but the trials it reports under this name concern a pineal extract preparation rather than the synthetic tetrapeptide. Recorded as related but distinct so that findings reported for one do not silently attach to the other."
+      }
+    ],
+    "sequence": "AEDG",
+    "molecularDescription": "A synthetic tetrapeptide, Ala-Glu-Asp-Gly, molecular weight 390.35 g/mol as printed by the handbook. The molecular formula printed in the held copy is garbled and has not been reproduced.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "Epitalon and Epithalon are the same molecule spelled two ways, and the handbook uses both. Epithalamin is treated here as related but distinct: it names a pineal extract preparation in the literature the handbook cites, and several reported trial results are attributed to it rather than to the tetrapeptide."
+  },
+  "locations": [
+    {
+      "key": "lavalle-epitalon-47",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 47",
+      "pageStart": 47,
+      "notes": "Monograph opening: category, other names, sequence, molecular composition, indications and the oral and subcutaneous dosing."
+    },
+    {
+      "key": "lavalle-epitalon-48",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 48",
+      "pageStart": 48,
+      "notes": "Repeat schedule, warnings, and the start of the summary describing telomerase upregulation."
+    },
+    {
+      "key": "lavalle-epitalon-49",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 49",
+      "pageStart": 49,
+      "notes": "Antioxidant and anti-tumour reports, inflammation regulation, and the melatonin study in elderly patients."
+    },
+    {
+      "key": "lavalle-epitalon-50",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 50",
+      "pageStart": 50,
+      "notes": "Clinical Indications: the telomere elongation figure and the reported mortality trials."
+    },
+    {
+      "key": "lavalle-epitalon-52",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 52",
+      "pageStart": 52,
+      "notes": "Reported insulin sensitivity and lipid effects."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "EPI-001",
+      "claimText": "LaValle et al. describe epitalon as a synthetic four-amino-acid pineal peptide bioregulator, Ala-Glu-Asp-Gly, molecular weight 390.35, used in their practice to regulate the cell cycle through upregulation of telomerase activity.",
+      "plainLanguageText": "Epitalon is a synthetic peptide just four building blocks long, described as acting on the pineal gland.",
+      "claimCategory": "identity",
+      "importance": "medium",
+      "interpretationNotes": "Identity and composition as printed in the monograph's opening block.",
+      "uncertaintyText": "The sequence and weight are as the handbook prints them; no analytical reference for this peptide is held.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-epitalon-47",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Category, other names, sequence Ala-Glu-Asp-Gly and MW 390.35 g/mol.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-002",
+      "claimText": "LaValle et al. report that most studies on epitalon have been conducted by the St Petersburg Institute of Bioregulation and Gerontology.",
+      "plainLanguageText": "The handbook notes that most of the research on this peptide comes from a single institute.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "Recorded because it is the source's own statement about where its evidence base comes from, and because concentration of a literature in one centre is a fact a reader should have when weighing it.",
+      "uncertaintyText": "This index has not obtained that literature and cannot characterise it further, including whether it has been independently replicated elsewhere.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-epitalon-48",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The summary states that most studies on epitalon have been conducted by that institute.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; the underlying literature has not been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-003",
+      "claimText": "LaValle et al. report a 12-year trial in which patients treated with epithalamin showed a 28% decrease in overall mortality and a two-fold decrease in cardiovascular mortality against a placebo group, and a separate six-year study in which treatment with thymalin and epithalamin was followed by a mortality rate 4.1 times lower than controls.",
+      "plainLanguageText": "The handbook reports two long studies claiming large reductions in death rates. This index has not seen either study.",
+      "claimCategory": "practitioner_use",
+      "importance": "critical",
+      "interpretationNotes": "Recorded as the handbook's report of studies, not as human evidence. The evidence class is deliberately reference material: a practitioner handbook describing a trial is not a trial, and neither cited study has been obtained. Note also that both concern epithalamin — a pineal extract — rather than the synthetic tetrapeptide, and one combines it with thymalin, so neither result is attributable to epitalon alone.",
+      "uncertaintyText": "Neither study has been obtained. This index cannot confirm that the studies exist as described, what they measured, in whom, or whether the preparation used was the tetrapeptide. The second combines two agents, so no effect can be attributed to either alone.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-epitalon-50",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Clinical Indications, Aging Deceleration: the 12-year trial figures and the six-year thymalin/epithalamin comparison.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Both are superscript citations in the handbook. Neither has been obtained by this index, so neither can be classed as human evidence."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-004",
+      "claimText": "LaValle et al. report a study finding a 33% increase in telomere elongation in human somatic cells with epithalon, and describe telomerase induction as the mechanism by which they hold it to act.",
+      "plainLanguageText": "The handbook reports a study claiming a 33% increase in telomere length, and treats that as how the peptide works.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Recorded as reported. A percentage figure carries an appearance of precision that the held material does not support, so the citation status is stated alongside it.",
+      "uncertaintyText": "The cited study has not been obtained. What was measured, in what cells, and over what period is unknown to this index.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-epitalon-50",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "States that epithalon induces telomerase activity and telomere elongation in human somatic cells, with a reported 33% increase.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A superscript citation in the handbook, not obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-005",
+      "claimText": "LaValle et al. report a study in elderly patients in which epithalon administration was followed by increased melatonin levels and restoration of sleep, and describe sleep regulation through pineal action as one of its uses.",
+      "plainLanguageText": "The handbook reports a study in older patients where melatonin went up and sleep improved.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reported as the handbook describes it. Classed as reference material because the study has not been obtained.",
+      "uncertaintyText": "The study has not been obtained; its design, size and how sleep was measured are unknown here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-epitalon-49",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Describes the melatonin study in elderly patients and its reported outcome.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A superscript citation, not obtained by this index."
+        },
+        {
+          "locationKey": "lavalle-epitalon-47",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The indications list includes sleep regulation and restoration of melatonin levels.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Same handbook."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-006",
+      "claimText": "LaValle et al. state that epitalon is reported safe in recommended dosages, and give no adverse effects, contraindications or interactions.",
+      "plainLanguageText": "The handbook says it is reported safe at the doses it recommends, and says nothing else about safety.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Recorded because the absence is itself informative: this is the whole of the monograph's safety content, for a compound it recommends taking in repeated annual cycles.",
+      "uncertaintyText": "\"Reported safe\" is not supported by any held study, and the source lists no adverse effects, contraindications or interactions at all. Absence of a warning here is not evidence of safety.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-epitalon-48",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Warnings and Cautions block states only that epitalon is reported safe in recommended dosages.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; no supporting study has been obtained."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "primary_source_missing",
+      "statement": "Any of the studies this monograph relies on.",
+      "why": "Every study the monograph reports — the mortality trials, the telomere elongation figure, the melatonin study — is a superscript citation, and none has been obtained by this index.",
+      "whatWouldResolveIt": "Obtaining the cited papers and reading them, which would allow the claims to be reclassified against the actual evidence rather than the handbook's account of it.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do the studies cited in this monograph exist as described, and what did they actually measure?",
+      "opportunityType": "independent_replication"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Whether results reported for epithalamin apply to the synthetic tetrapeptide epitalon.",
+      "why": "The monograph lists epithalamin as another name, but in the literature it names a pineal extract preparation rather than the tetrapeptide, and the reported mortality trials are attributed to it.",
+      "whatWouldResolveIt": "The cited trials, read directly, establishing which preparation was administered.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Are epitalon and epithalamin the same intervention, and if not, which of the reported findings belong to which?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any effect of epitalon in people, as established by evidence held here.",
+      "why": "No study of any kind is held for this compound. The reported human trials are the handbook's account of work this index has not seen.",
+      "whatWouldResolveIt": "A held human study of epitalon with a measured outcome.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has epitalon, as the synthetic tetrapeptide, been given to people in any study with a measured outcome?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "The safety of repeated annual cycles of epitalon.",
+      "why": "The source's entire safety content is that it is reported safe in recommended dosages, with no adverse effects, contraindications or interactions given, while recommending cycles repeated every four to six months or twice annually.",
+      "whatWouldResolveIt": "Any held safety data, including adverse-effect reporting from the trials the monograph cites.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What adverse effects have been recorded with repeated epitalon administration?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the epitalon literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What literature exists for epitalon, and how much of it originates outside the one institute the handbook names?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "oral",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-epitalon-47",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Not specified beyond an oral dose taken before meals.",
+      "pkNotes": null,
+      "limitationsNotes": "Described by a practitioner handbook only. No study of oral administration of this peptide is held, and oral bioavailability of a tetrapeptide is not addressed by the source."
+    },
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-epitalon-47",
+      "populationModel": "Not specified by the source.",
+      "formulation": null,
+      "pkNotes": null,
+      "limitationsNotes": "Described by a practitioner handbook only. No human study by this route is held."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "EPI-PR-LAVALLE-ORAL",
+      "objectiveContext": "Anti-ageing and the other uses listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "oral",
+      "formulation": "Taken 30 minutes before meals.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "10-20 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Twice daily, 30 minutes before meals",
+      "durationText": "One month, repeated every 4-6 months",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states only that epitalon is reported safe in recommended dosages.",
+      "locationKey": "lavalle-epitalon-47"
+    },
+    {
+      "protocolKey": "EPI-PR-LAVALLE-SQ",
+      "objectiveContext": "Anti-ageing and the other uses listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "10 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Every 3 days",
+      "durationText": "15 days, repeated twice annually",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states only that epitalon is reported safe in recommended dosages.",
+      "locationKey": "lavalle-epitalon-47"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "EPI-ID-001",
+      "nameUsed": "Epitalon",
+      "chemicalForm": "Synthetic tetrapeptide Ala-Glu-Asp-Gly",
+      "sequence": "AEDG",
+      "residueCount": 4,
+      "molecularWeight": 390.35,
+      "weightBasis": "As printed by the handbook. The molecular formula in the held copy is garbled and has not been reproduced.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's opening composition block.",
+      "notes": "The same monograph lists Epithalamin among its other names, which in the cited literature denotes a pineal extract rather than this tetrapeptide.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-epitalon-47"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "EPI-REP-001",
+      "finding": "Reduced mortality with epithalamin over 12 years.",
+      "state": "repeated_same_group",
+      "humanConfirmed": false,
+      "basis": "The handbook reports the mortality findings and separately states that most studies on this compound come from one institute, the St Petersburg Institute of Bioregulation and Gerontology. Neither the trials nor any independent replication is held here.",
+      "limitations": "Recorded from a secondary source's own description of its evidence base. No cited study has been obtained, so this assessment describes what the handbook reports rather than a review of the literature.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-epitalon-47",
+      "checkedAt": "2026-09-26",
+      "notes": "No regulatory record was read. The handbook gives an oral and a subcutaneous regimen without reference to any approval."
+    }
+  ]
+}

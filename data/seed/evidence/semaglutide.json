@@ -1,0 +1,263 @@
+{
+  "packetKey": "semaglutide",
+  "peptideKey": "semaglutide",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 126-135. Class C: practitioner-reference, deliberately. Semaglutide appears in this project's retatrutide literature screen, but only as a comparator in searches run for a different compound; under the Section 4 rule those mentions are not dedicated semaglutide evidence and have not been used to promote this record. What is held for semaglutide itself is a handbook restating approved labelling.",
+  "compound": {
+    "shortDescription": "A GLP-1 receptor agonist marketed under several brand names. The handbook restates its approved indication and dosing; this index holds no study of semaglutide itself.",
+    "simpleSummary": "Semaglutide is a long-acting copy of GLP-1, a hormone the gut releases after eating that signals fullness and helps control blood sugar. Unlike most compounds in this index it is a widely marketed medicine, sold under several brand names.\n\n**This index holds very little about it, and that is worth saying plainly.** What is held is a practitioner handbook restating the approved indication and dose schedules. No trial of semaglutide is held here.\n\n**It appears in this index's retatrutide work only as a comparison.** The retatrutide literature search returned papers that mention semaglutide alongside it. Those are studies about retatrutide, and this index does not treat them as evidence about semaglutide.\n\n**Both an injection and a tablet form are described**, with different starting doses and different build-up schedules.",
+    "practitionerSummary": "Semaglutide is described by LaValle et al. as a GLP-1 receptor agonist for glycaemic control and weight management, molecular weight 4113.6, marketed as Ozempic, Wegovy and — in oral form — Rybelsus. The indication it states is as an adjunct to diet and exercise to improve glycaemic control in adults with type 2 diabetes.\n\n**Two regimens are recorded, both as the handbook reports them.** Oral: 3 mg once daily for 30 days, increasing to 7 mg once daily for 30 days, then 14 mg once daily as a target if warranted, swallowed whole on an empty stomach at least 30 minutes before eating. Subcutaneous: 0.25 mg once weekly to start, increasing to 0.5 mg once weekly after 2-4 weeks, and up to 1 mg once weekly if additional glycaemic control is needed after at least four weeks, at any time of day with or without food.\n\n**Three specific statements from the source are worth carrying.** It states no dosage adjustment is needed in hepatic or renal impairment; that oral semaglutide can be started seven days after the last injectable dose; and that per the manufacturer there is no oral dose equivalent to the highest weekly subcutaneous dose.\n\n**This record is deliberately not classed as mixed-evidence.** Semaglutide has a large trial literature; none of it is held by this index. Promoting the record on the strength of comparator mentions inside retatrutide papers would be exactly the error the expansion rules forbid.",
+    "unknownsSummary": "**No trial of semaglutide is held by this index.** For a medicine with one of the larger recent trial literatures, this record rests on a practitioner handbook restating a label. That gap is about this index, not about the evidence base, and it is the most important thing to know when reading this page.\n\n**The comparator mentions are not evidence here.** Semaglutide appears three times in this index's retatrutide evidence packet and seven times in its literature screen. Those records were retrieved by searches for retatrutide and concern trials of that compound. They are not semaglutide efficacy evidence and have not been used as such.\n\n**The approval is reported, not verified.** The indication and both dose schedules come from a handbook. No regulator's label has been read here, so this index cannot confirm the indication, the populations, or the warnings that accompany it.\n\n**Weight management is named in the compound's category line but the indication given is glycaemic control.** The handbook does not reconcile the two, and this index does not carry a weight-loss indication it cannot source.\n\n**No literature screen has been run for semaglutide.**",
+    "aliases": [
+      {
+        "alias": "Ozempic",
+        "aliasType": "brand_name",
+        "note": "A marketed product listed by the handbook as containing semaglutide."
+      },
+      {
+        "alias": "Wegovy",
+        "aliasType": "brand_name",
+        "note": "A marketed product listed by the handbook as containing semaglutide."
+      },
+      {
+        "alias": "Rybelsus",
+        "aliasType": "brand_name",
+        "note": "The oral form, listed by the handbook. The source states there is no oral dose equivalent to the highest weekly subcutaneous dose."
+      }
+    ],
+    "sequence": null,
+    "molecularDescription": "A GLP-1 receptor agonist, molecular weight 4113.6 g/mol as printed by the handbook. The monograph prints a sequence which the held copy renders incompletely; it has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "Semaglutide is the non-proprietary name; Ozempic, Wegovy and Rybelsus are marketed products reported to contain it. Statements about one product's approved use do not transfer to the molecule in general, which is why each is recorded as a brand name rather than a synonym."
+  },
+  "locations": [
+    {
+      "key": "lavalle-semaglutide-126",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 126",
+      "pageStart": 126,
+      "notes": "Monograph opening: category, brand names, sequence, molecular composition, the stated indication and the oral dose schedule."
+    },
+    {
+      "key": "lavalle-semaglutide-127",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 127",
+      "pageStart": 127,
+      "notes": "Oral administration instructions, the hepatic and renal statement, the switch from injectable, and the subcutaneous dose schedule."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "SEMA-001",
+      "claimText": "LaValle et al. describe semaglutide as a glucagon-like peptide-1 receptor agonist indicated as an adjunct to diet and exercise to improve glycaemic control in adults with type 2 diabetes mellitus, marketed as Ozempic, Wegovy and, in oral form, Rybelsus.",
+      "plainLanguageText": "The handbook describes semaglutide as a GLP-1 medicine for blood sugar control in type 2 diabetes, sold under three brand names.",
+      "claimCategory": "regulatory",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the handbook's restatement of an approved indication. No regulator's label has been read by this index, so this is a secondary report rather than a verified regulatory position.",
+      "uncertaintyText": "The label itself has not been obtained. The indication quoted concerns glycaemic control, while the monograph's category line also names weight management; the source does not reconcile them and this index does not carry a weight-loss indication it cannot source.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-semaglutide-126",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The category, brand names and the indication as printed.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook restating labelling; no labelling document has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "SEMA-002",
+      "claimText": "LaValle et al. give an oral semaglutide schedule that escalates in two steps across two months to a target dose taken once daily, swallowed whole on an empty stomach at least 30 minutes before eating. The amounts are recorded on the protocol rather than here.",
+      "plainLanguageText": "The handbook gives a tablet schedule that starts low and steps up twice over two months, taken on an empty stomach. The amounts are on the protocol record.",
+      "claimCategory": "protocol",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as printed. The administration conditions are part of the regimen rather than incidental, since absorption of the oral form depends on them.",
+      "uncertaintyText": "The label has not been obtained, so this index cannot confirm the schedule against the approved labelling it restates.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-semaglutide-126",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The oral dose escalation.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook restating labelling."
+        },
+        {
+          "locationKey": "lavalle-semaglutide-127",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "The swallow-whole, empty-stomach and 30-minute instructions.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Same handbook."
+        }
+      ]
+    },
+    {
+      "claimKey": "SEMA-003",
+      "claimText": "LaValle et al. state that no dosage adjustment is required in hepatic or renal impairment, that oral semaglutide can be initiated seven days after the last dose of injectable semaglutide, and that per the manufacturer no oral dose is equivalent to the highest weekly subcutaneous dose.",
+      "plainLanguageText": "The handbook says the dose does not need changing for liver or kidney problems, that you can switch from injection to tablet after a week, and that no tablet dose matches the highest weekly injection.",
+      "claimCategory": "protocol",
+      "importance": "high",
+      "interpretationNotes": "Three specific administration statements, the third of which is explicitly attributed by the source to the manufacturer. Recorded together because they concern switching between forms, where an assumed equivalence would be a dosing error.",
+      "uncertaintyText": "None of the three has been checked against labelling. The statement that no adjustment is needed in hepatic or renal impairment is the kind of claim that should be verified against a label before being relied on.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-semaglutide-127",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The hepatic and renal statement, the seven-day switch, and the statement that no oral dose is equivalent to the highest weekly subcutaneous dose, attributed to the manufacturer.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook restating labelling; the label has not been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "SEMA-004",
+      "claimText": "LaValle et al. give a once-weekly subcutaneous semaglutide schedule that starts low, doubles after two to four weeks, and may be increased further if additional glycaemic control is needed after at least four weeks, administered at any time of day with or without food. The amounts are recorded on the protocol rather than here.",
+      "plainLanguageText": "The handbook gives a weekly injection schedule that starts low and can be increased twice. The amounts are on the protocol record.",
+      "claimCategory": "protocol",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as printed. The escalation is conditional on glycaemic response in the source's wording rather than automatic.",
+      "uncertaintyText": "The label has not been obtained, so this index cannot confirm the schedule or the maximum dose against approved labelling.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-semaglutide-127",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The subcutaneous escalation for type 2 diabetes or pre-diabetes.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook restating labelling."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any trial evidence for semaglutide, held by this index.",
+      "why": "No semaglutide trial is held. The compound appears in this index only inside retatrutide material, as a comparator in searches run for a different compound, and those records are not evidence about semaglutide.",
+      "whatWouldResolveIt": "A dedicated literature screen and the retrieval of the principal semaglutide trials.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What are the principal semaglutide trials, what did they measure, and in which populations?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "The approved indication, population and dosing of each marketed semaglutide product.",
+      "why": "The handbook restates labelling and no label has been obtained. Three products are named and their indications are not identical.",
+      "whatWouldResolveIt": "The approved labelling for each product, read directly.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What does each semaglutide product's label actually state, and where do the indications differ?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "scope_not_established",
+      "statement": "Whether semaglutide is indicated for weight management as this index holds it.",
+      "why": "The monograph's category line names weight management support while the indication it states concerns glycaemic control in type 2 diabetes. The source does not reconcile them.",
+      "whatWouldResolveIt": "The labelling for the product marketed for weight management.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Which semaglutide product carries a weight-management indication, and on what terms?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the semaglutide literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "How large is the semaglutide human literature, and what does it establish?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-semaglutide-127",
+      "populationModel": "Adults with type 2 diabetes or pre-diabetes, as the source frames it.",
+      "formulation": null,
+      "pkNotes": "The source states the weekly dose may be taken at any time of day, with or without food.",
+      "limitationsNotes": "Described here only from a handbook restating labelling. No study is held."
+    },
+    {
+      "routeKey": "oral",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-semaglutide-126",
+      "populationModel": "Adults, as the source frames it.",
+      "formulation": "Tablet, swallowed whole.",
+      "pkNotes": "The source specifies an empty stomach and at least 30 minutes before eating, and states there is no oral dose equivalent to subcutaneous 1 mg weekly.",
+      "limitationsNotes": "Described here only from a handbook restating labelling. No study is held."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "SEMA-PR-LAVALLE-ORAL",
+      "objectiveContext": "Glycaemic control in type 2 diabetes, as the handbook states the indication.",
+      "populationModel": "Adults, per the stated indication.",
+      "routeKey": "oral",
+      "formulation": "Tablet, swallowed whole on an empty stomach at least 30 minutes before eating.",
+      "regulatoryContext": "A practitioner handbook restating approved labelling. The label itself has not been obtained by this index, so this is a secondary report of a regimen rather than the labelling.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "3 mg, then 7 mg, then 14 mg as a target dose if warranted",
+      "amountUnit": "mg",
+      "frequencyText": "Once daily",
+      "durationText": "30 days at 3 mg, then 30 days at 7 mg, then the target dose if warranted",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states no dosage adjustment is required in hepatic or renal impairment, and that there is no oral dose equivalent to subcutaneous 1 mg weekly.",
+      "locationKey": "lavalle-semaglutide-126"
+    },
+    {
+      "protocolKey": "SEMA-PR-LAVALLE-SQ",
+      "objectiveContext": "Glycaemic control in type 2 diabetes or pre-diabetes, as framed by the handbook.",
+      "populationModel": "Adults with type 2 diabetes or pre-diabetes, as the source frames it.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook restating approved labelling. The label itself has not been obtained by this index.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.25 mg (250 mcg) to start; 0.5 mg (500 mcg) after 2-4 weeks; up to 1 mg if additional glycaemic control is needed after at least 4 weeks",
+      "amountUnit": "mg",
+      "frequencyText": "Once weekly, at any time of day, with or without food",
+      "durationText": "Escalation conditional on glycaemic response rather than a fixed course",
+      "monitoringText": "The source conditions each increase on whether additional glycaemic control is needed.",
+      "contraindicationsText": null,
+      "safetyNotes": "The source states oral semaglutide can be initiated seven days after the last injectable dose.",
+      "locationKey": "lavalle-semaglutide-127"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "SEMA-ID-001",
+      "nameUsed": "Semaglutide",
+      "chemicalForm": "GLP-1 receptor agonist",
+      "sequence": null,
+      "residueCount": null,
+      "molecularWeight": 4113.6,
+      "weightBasis": "As printed by the handbook. The monograph's sequence is rendered incompletely in the held copy and has not been transcribed.",
+      "form": "analogue",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's chemical composition block.",
+      "notes": "Three marketed products are named by the same source; their indications are not stated to be identical.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-semaglutide-126"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "SEMA-REP-001",
+      "finding": "Any glycaemic or weight outcome of semaglutide.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No semaglutide trial is held by this index. A substantial trial literature is understood to exist and has not been searched or retrieved here, so no assessment of replication is possible from held material.",
+      "limitations": "The absence of an assessment reflects this index's holdings, not the state of the field.",
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Glycaemic control in type 2 diabetes, as reported",
+      "status": "unknown",
+      "authority": "Reported by a practitioner handbook restating labelling; no regulator's record has been consulted by this index",
+      "locationKey": "lavalle-semaglutide-126",
+      "checkedAt": "2026-09-26",
+      "notes": "Recorded as unknown deliberately. Semaglutide is plainly an approved medicine in multiple jurisdictions; what this index has not done is read any label, so it records the position as reported rather than verified."
+    }
+  ]
+}

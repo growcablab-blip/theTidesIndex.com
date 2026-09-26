@@ -1,0 +1,216 @@
+{
+  "packetKey": "kisspeptin",
+  "peptideKey": "kisspeptin",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 62-67. Class C: practitioner-reference. One finding is recorded that applies beyond this compound: the monograph's rare-adverse-reaction list is word-for-word identical to the one printed in the DSIP monograph of the same handbook, which means it is boilerplate rather than a compound-specific observation.",
+  "compound": {
+    "shortDescription": "A peptide of the KISS1 gene family, first identified as a metastasis suppressor and used by practitioner sources for reproductive and gonadal support. No study of it is held here.",
+    "simpleSummary": "Kisspeptin is a signalling peptide that sits near the top of the chain controlling reproductive hormones. It was first found in 1996 as something that suppressed the spread of melanoma cells, which is why its other name is metastin.\n\n**The handbook lists a wide range of reproductive uses** — low testosterone, fertility, ovulation and implantation, hormone replacement — as well as insulin resistance, cancer and mood.\n\n**This index holds no study of it.** Everything on this page is that one handbook.\n\n**One of the listed uses deserves particular caution.** The handbook lists preventing ectopic pregnancy. That is a serious obstetric claim, and nothing held here supports it.\n\n**The list of rare side effects is not specific to this compound.** The same four reactions appear word for word in another monograph of the same book, so they should be read as general boilerplate rather than as things observed with kisspeptin.",
+    "practitionerSummary": "Kisspeptin is described by LaValle et al. as a gonadal axis support peptide, a 54-residue sequence of molecular weight 5857, other name metastin, derived from the KISS1 gene and first described in 1996 as a metastasis inhibitor in melanoma cell lines.\n\n**The indication list spans reproductive endocrinology and more.** Primary hypogonadism, endogenous testosterone support, fertility support, improving ovulation and egg implantation, preventing ectopic pregnancy, physiologic hormone replacement, physiologic gonadotropin release, diabetes and insulin-resistance support, potential adjunct for metastatic prevention in cancer, and potential support for mood disorders.\n\n**The regimen is 100 mcg subcutaneously daily at bedtime, five days a week**, supplied as 1 mg/ml in a 3 ml vial, with the source stating bedtime use is not required.\n\n**Two limitations belong in a practitioner's reading of this record.** First, nothing held here supports any listed indication, and several of them — preventing ectopic pregnancy in particular — are consequential obstetric claims. Second, the monograph's rare-adverse-reaction list is identical to the one printed for DSIP in the same handbook, so it carries no compound-specific information.\n\n**Kisspeptin-10 is not addressed by the source.** The sequence printed is the longer form; this index has not created an alias for the shorter fragment because the handbook does not mention it.",
+    "unknownsSummary": "**No study of kisspeptin is held by this index** — for fertility, hypogonadism, ovulation, ectopic pregnancy, insulin resistance, cancer or mood. Every indication rests on one practitioner handbook.\n\n**Preventing ectopic pregnancy is listed without any supporting evidence held here.** It is recorded because the source states it, and flagged because a reader encountering it should know that nothing in this index supports it.\n\n**The rare-adverse-reaction list is boilerplate.** Erythema, transient muscle atrophy, polyarthralgia with hand oedema and rash appear verbatim in this handbook's DSIP monograph as well. Whatever those reactions describe, it is not something specific to kisspeptin, and this index does not present them as such.\n\n**The relationship to kisspeptin-10 is unaddressed.** The monograph prints the longer sequence and does not discuss shorter fragments, which are what much of the research literature uses. Whether findings transfer between them is not established here.\n\n**No literature screen has been run for kisspeptin.**",
+    "aliases": [
+      {
+        "alias": "Metastin",
+        "aliasType": "synonym",
+        "note": "Listed by the handbook as another name, reflecting its first description as a metastasis inhibitor."
+      }
+    ],
+    "sequence": null,
+    "molecularDescription": "A 54-residue C-terminally amidated peptide of the KISS1 family, molecular weight 5857 g/mol as printed by the handbook. The held copy's rendering of the full sequence is long and partly garbled and has not been transcribed.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "Kisspeptin names a family of peptides derived from the KISS1 gene by differential proteolysis, as the handbook itself states. The monograph prints the longer form and does not address kisspeptin-10 or other shorter fragments, so no alias has been created for them."
+  },
+  "locations": [
+    {
+      "key": "lavalle-kisspeptin-62",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 62",
+      "pageStart": 62,
+      "notes": "Monograph opening: category, other name, sequence, molecular composition and the indications list."
+    },
+    {
+      "key": "lavalle-kisspeptin-63",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 63",
+      "pageStart": 63,
+      "notes": "Dosage, warnings and cautions, and the start of the summary describing the 1996 discovery and the KISS1 family."
+    },
+    {
+      "key": "lavalle-dsip-44",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 44",
+      "pageStart": 44,
+      "notes": "The DSIP monograph's rare-adverse-reaction list, cited here only for the comparison showing the wording is identical."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "KISS-001",
+      "claimText": "LaValle et al. describe kisspeptin as a gonadal axis support peptide derived from the KISS1 gene, first discovered in 1996 as a metastasis inhibitor in melanoma cell lines, and state that kisspeptin is a family of structurally similar peptides formed by differential proteolysis.",
+      "plainLanguageText": "Kisspeptin comes from a gene called KISS1 and was first found as something that stopped melanoma cells spreading. It is a family of related peptides rather than a single one.",
+      "claimCategory": "identity",
+      "importance": "high",
+      "interpretationNotes": "The family point is the source's own and matters: it means a name alone does not identify which peptide is being discussed.",
+      "uncertaintyText": "The monograph prints one sequence and does not say which family member its regimen refers to, nor address the shorter fragments used in much of the research literature.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kisspeptin-63",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The summary's account of the 1996 discovery and the KISS1-derived family formed by differential proteolysis.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KISS-002",
+      "claimText": "LaValle et al. list kisspeptin for primary hypogonadism, endogenous testosterone support, fertility support, improving ovulation and egg implantation, preventing ectopic pregnancy, physiologic hormone replacement, physiologic gonadotropin release, diabetes and insulin-resistance support, potential adjunct for metastatic prevention in cancer, and potential support for mood disorders.",
+      "plainLanguageText": "The handbook lists a wide range of uses, mostly reproductive, including preventing ectopic pregnancy.",
+      "claimCategory": "practitioner_use",
+      "importance": "critical",
+      "interpretationNotes": "Reproduced as the handbook's list. Recorded at critical importance because it includes obstetric claims — preventing ectopic pregnancy, improving implantation — for which nothing is held, and because a reader may act on such a claim in a high-consequence setting.",
+      "uncertaintyText": "No study is held for any listed indication. Preventing ectopic pregnancy in particular is a serious obstetric claim that nothing in this index supports.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kisspeptin-62",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The monograph's Indications/Uses list in full.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; none of its superscript citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "KISS-003",
+      "claimText": "The rare adverse reactions listed in this handbook's kisspeptin monograph — erythema, transient muscle atrophy, polyarthralgia combined with hand oedema, and rash — are identical in wording to those listed in the same handbook's DSIP monograph.",
+      "plainLanguageText": "The rare side effects listed here are word for word the same as those listed for a different peptide in the same book, so they are not specific to this one.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "This comparison is this index's, made by reading both monographs of the same held source. It is recorded because an adverse-effect list that recurs verbatim across unrelated compounds carries no compound-specific information, and a reader is entitled to know that before weighing it.",
+      "uncertaintyText": "Whether the list originates in a general reference or in observations of one compound is not stated by the source. This index has not determined which, if either.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-kisspeptin-63",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Warnings and Cautions block's rare-adverse-reaction list.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Both monographs were read in the held copy and the wording compared directly."
+        },
+        {
+          "locationKey": "lavalle-dsip-44",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contextualizes",
+          "interpretation": "The DSIP monograph's rare-adverse-reaction list, identically worded.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read in the held copy for the comparison."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any reproductive or metabolic outcome with kisspeptin.",
+      "why": "No study is held. The indication list is a practitioner handbook's description of its authors' practice.",
+      "whatWouldResolveIt": "Held studies measuring gonadotropin, testosterone, ovulation or fertility outcomes after kisspeptin administration.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What gonadotropin and reproductive outcomes have been measured with kisspeptin administration, and in whom?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Whether kisspeptin prevents ectopic pregnancy, or is safe in anyone attempting pregnancy.",
+      "why": "The monograph lists preventing ectopic pregnancy as a use and gives no supporting evidence this index has obtained, nor any statement about safety in pregnancy.",
+      "whatWouldResolveIt": "Obstetric studies of kisspeptin administration with pregnancy outcomes.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What is known about kisspeptin administration around conception and early pregnancy?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Which member of the kisspeptin family a regimen refers to.",
+      "why": "The source states kisspeptin is a family formed by differential proteolysis, prints one long sequence, and does not say which form its dosing applies to or address shorter fragments such as kisspeptin-10.",
+      "whatWouldResolveIt": "A source specifying the form administered, or an analytical reference for the supplied material.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Which kisspeptin family member do practitioner regimens use, and does it match the form studied in the literature?",
+      "opportunityType": "identity_clarification"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the kisspeptin literature would show.",
+      "why": "No literature screen has been run for this compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for kisspeptin, which has an established reproductive-endocrinology research base?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-kisspeptin-63",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Supplied as 1 mg/ml in a 3 ml vial, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "The only route described by the held source. No human study of any route is held here."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "KISS-PR-LAVALLE-SQ",
+      "objectiveContext": "Gonadal axis and reproductive support across the conditions listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 1 mg/ml in a 3 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.1 ml (100 mcg)",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily at bedtime, five days a week; the source states that bedtime use is not required",
+      "durationText": null,
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source states kisspeptin is reported safe in recommended dosages and lists injection-site redness and pain, together with a rare-reaction list that appears verbatim in another monograph of the same handbook.",
+      "locationKey": "lavalle-kisspeptin-63"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "KISS-ID-001",
+      "nameUsed": "Kisspeptin",
+      "chemicalForm": "54-residue C-terminally amidated KISS1-derived peptide",
+      "sequence": null,
+      "residueCount": 54,
+      "molecularWeight": 5857,
+      "weightBasis": "As printed by the handbook. The full sequence in the held copy is long and partly garbled and has not been transcribed.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block.",
+      "notes": "The source describes kisspeptin as a family rather than a single peptide, so the name alone does not identify the form supplied.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-kisspeptin-62"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "KISS-REP-001",
+      "finding": "Any reproductive outcome of kisspeptin.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study is held, so there is nothing to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-kisspeptin-63",
+      "checkedAt": "2026-09-26",
+      "notes": "No regulatory record was read."
+    }
+  ]
+}

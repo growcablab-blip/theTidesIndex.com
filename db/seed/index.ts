@@ -15,8 +15,10 @@ import { seedData } from './seed-data';
  * Idempotent seeding of controlled vocabularies, the source registry, compound
  * skeletons and the open verification queue.
  *
- * Nothing seeded here is published. Records arrive at `unreviewed` and must pass
- * the editorial gates like anything else. In particular the compound records are
+ * Nothing seeded here is published: a record arrives at `unreviewed` and must
+ * pass the editorial gates like anything else. Re-seeding an existing database
+ * leaves publication state alone — it neither publishes nor unpublishes, which
+ * is what `tests/integration/seed-preserves-publication.test.ts` holds it to. In particular the compound records are
  * deliberately empty of medical content: a seeded page says "not yet
  * established", it does not invent a summary to look finished
  * (MASTER_BUILD_SPEC.md §13).
@@ -53,7 +55,27 @@ export interface SeedResult {
   specimenCertificateTests: number;
 }
 
+/**
+ * One transaction for the whole seed.
+ *
+ * Not for speed, and not for tidiness: the provenance watchdogs are deferred
+ * constraint triggers (migration 0031) that ask their question once, at commit.
+ * A packet owns its `protocol_sources` and `claim_evidence` rows and rebuilds
+ * them, and a rebuild passes through a moment where a published record has no
+ * source. Outside a transaction the watchdog sees that moment, believes it, and
+ * withdraws the record — which is how a routine re-seed took all 98 published
+ * protocols off the public site.
+ *
+ * Inside one transaction the intermediate state is never visible to the
+ * watchdog, and the completed graph is what gets judged. The second guarantee
+ * matters just as much: a seed that fails part way now rolls back whole, so it
+ * cannot leave a published record standing on provenance it no longer has.
+ */
 export async function seedDatabase(db: SeedDb): Promise<SeedResult> {
+  return db.transaction((tx) => seedWithinTransaction(tx));
+}
+
+async function seedWithinTransaction(db: SeedDb): Promise<SeedResult> {
   await seedTaxonomies(db);
   const sources = await seedSourceRegistry(db);
   const { peptides, aliases } = await seedPeptideSkeletons(db);

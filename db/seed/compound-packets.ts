@@ -273,9 +273,13 @@ export async function loadCompoundPacket(
   }
 
   // --- Routes --------------------------------------------------------------
-  await db.execute(sql`delete from peptide_routes where peptide_id = ${peptide.id}`);
+  // Keyed on (compound, route, source location): the same route reported by
+  // two sources is two records, and the same route from the same page is one.
+  const routeIds: string[] = [];
   for (const route of packet.routes) {
-    await db.execute(sql`
+    const [row] = await db
+      .execute(
+        sql`
       insert into peptide_routes (
         peptide_id, route_key, evidence_type_key, source_id, source_location_id,
         population_model, formulation, pk_notes, limitations_notes
@@ -286,8 +290,20 @@ export async function loadCompoundPacket(
         ${route.populationModel}, ${route.formulation}, ${route.pkNotes},
         ${route.limitationsNotes}
       )
-    `);
+      on conflict (peptide_id, route_key, source_location_id) do update set
+        evidence_type_key = excluded.evidence_type_key,
+        source_id = excluded.source_id,
+        population_model = excluded.population_model,
+        formulation = excluded.formulation,
+        pk_notes = excluded.pk_notes,
+        limitations_notes = excluded.limitations_notes
+      returning id
+    `,
+      )
+      .then(rowsOf<{ id: string }>);
+    routeIds.push(row!.id);
   }
+  await pruneToKept(db, 'peptide_routes', peptide.id, routeIds);
 
   // --- Protocols -----------------------------------------------------------
   for (const protocol of packet.protocols) {
@@ -395,10 +411,10 @@ export async function loadCompoundPacket(
   // --- Products ------------------------------------------------------------
   /*
    * Loaded before the PK observations, because an observation points at the
-   * product it was measured on. Cleared and rewritten: the packet owns this
-   * relation, and a product that leaves the packet should leave the database.
+   * product it was measured on — which is the second reason to upsert rather
+   * than replace: a stable product id means the observation's foreign key is
+   * not rewritten on every seed either.
    */
-  await db.execute(sql`delete from compound_products where peptide_id = ${peptide.id}`);
   const productIds = new Map<string, string>();
   for (const product of packet.products) {
     const [row] = await db.execute(sql`
@@ -419,10 +435,30 @@ export async function loadCompoundPacket(
         (select source_id from source_locations where id = ${locationId(product.locationKey)}),
         ${locationId(product.locationKey)}
       )
+      on conflict (product_key) do update set
+        peptide_id = excluded.peptide_id,
+        product_name = excluded.product_name,
+        proprietary_name = excluded.proprietary_name,
+        manufacturer = excluded.manufacturer,
+        authority = excluded.authority,
+        jurisdiction = excluded.jurisdiction,
+        application_number = excluded.application_number,
+        marketing_status = excluded.marketing_status,
+        presentation = excluded.presentation,
+        strength_text = excluded.strength_text,
+        reconstitution_text = excluded.reconstitution_text,
+        labelled_dose_text = excluded.labelled_dose_text,
+        storage_text = excluded.storage_text,
+        excipients_text = excluded.excipients_text,
+        substitutability_note = excluded.substitutability_note,
+        notes = excluded.notes,
+        source_id = excluded.source_id,
+        source_location_id = excluded.source_location_id
       returning id
     `).then(rowsOf<{ id: string }>);
     productIds.set(product.productKey, row!.id);
   }
+  await pruneToKept(db, 'compound_products', peptide.id, [...productIds.values()]);
 
   // --- Chemical forms ------------------------------------------------------
   await db.execute(sql`delete from compound_forms where peptide_id = ${peptide.id}`);
@@ -442,7 +478,7 @@ export async function loadCompoundPacket(
   }
 
   // --- Pharmacokinetic observations ----------------------------------------
-  await db.execute(sql`delete from pk_observations where peptide_id = ${peptide.id}`);
+  const observationIds: string[] = [];
   for (const observation of packet.pharmacokinetics) {
     const productId = observation.productKey
       ? (productIds.get(observation.productKey) ?? null)
@@ -453,7 +489,7 @@ export async function loadCompoundPacket(
           `${observation.productKey}, which the packet does not define.`,
       );
     }
-    await db.execute(sql`
+    const [row] = await db.execute(sql`
       insert into pk_observations (
         observation_key, peptide_id, product_id, parameter, value_text,
         dose_context, administration, population, route_key, study_condition,
@@ -467,20 +503,38 @@ export async function loadCompoundPacket(
         (select source_id from source_locations where id = ${locationId(observation.locationKey)}),
         ${locationId(observation.locationKey)}, ${observation.notes}
       )
-    `);
+      on conflict (observation_key) do update set
+        peptide_id = excluded.peptide_id,
+        product_id = excluded.product_id,
+        parameter = excluded.parameter,
+        value_text = excluded.value_text,
+        dose_context = excluded.dose_context,
+        administration = excluded.administration,
+        population = excluded.population,
+        route_key = excluded.route_key,
+        study_condition = excluded.study_condition,
+        evidence_type_key = excluded.evidence_type_key,
+        source_id = excluded.source_id,
+        source_location_id = excluded.source_location_id,
+        notes = excluded.notes
+      returning id
+    `).then(rowsOf<{ id: string }>);
+    observationIds.push(row!.id);
   }
+  await pruneToKept(db, 'pk_observations', peptide.id, observationIds);
 
   // --- Identity claims -----------------------------------------------------
   /*
    * What each source says the name refers to.
    *
-   * Cleared and rewritten, because the packet owns the relation and a stale
-   * identity claim is the worst kind of stale record here: it is the one a
-   * reader consults to find out whether two names mean the same molecule.
+   * Upserted on `identity_key`, then pruned to what the packet still lists: a
+   * stale identity claim is the worst kind of stale record here, because it is
+   * the one a reader consults to find out whether two names mean the same
+   * molecule.
    */
-  await db.execute(sql`delete from compound_identity_claims where peptide_id = ${peptide.id}`);
+  const identityIds: string[] = [];
   for (const identity of packet.identities) {
-    await db.execute(sql`
+    const [row] = await db.execute(sql`
       insert into compound_identity_claims (
         identity_key, peptide_id, name_used, chemical_form, sequence,
         residue_count, molecular_weight, weight_basis, form, verification,
@@ -495,13 +549,31 @@ export async function loadCompoundPacket(
         (select source_id from source_locations where id = ${locationId(identity.locationKey)}),
         ${locationId(identity.locationKey)}
       )
-    `);
+      on conflict (identity_key) do update set
+        peptide_id = excluded.peptide_id,
+        name_used = excluded.name_used,
+        chemical_form = excluded.chemical_form,
+        sequence = excluded.sequence,
+        residue_count = excluded.residue_count,
+        molecular_weight = excluded.molecular_weight,
+        weight_basis = excluded.weight_basis,
+        form = excluded.form,
+        verification = excluded.verification,
+        usage_context = excluded.usage_context,
+        notes = excluded.notes,
+        evidence_type_key = excluded.evidence_type_key,
+        source_id = excluded.source_id,
+        source_location_id = excluded.source_location_id
+      returning id
+    `).then(rowsOf<{ id: string }>);
+    identityIds.push(row!.id);
   }
+  await pruneToKept(db, 'compound_identity_claims', peptide.id, identityIds);
 
   // --- Replication ---------------------------------------------------------
-  await db.execute(sql`delete from replication_assessments where peptide_id = ${peptide.id}`);
+  const assessmentIds: string[] = [];
   for (const assessment of packet.replication) {
-    await db.execute(sql`
+    const [row] = await db.execute(sql`
       insert into replication_assessments (
         assessment_key, peptide_id, finding, state, study_count, group_count,
         country_count, models, human_confirmed, basis, limitations,
@@ -513,13 +585,30 @@ export async function loadCompoundPacket(
         ${assessment.humanConfirmed}, ${assessment.basis}, ${assessment.limitations},
         ${assessment.supportingRecords}
       )
-    `);
+      on conflict (assessment_key) do update set
+        peptide_id = excluded.peptide_id,
+        finding = excluded.finding,
+        state = excluded.state,
+        study_count = excluded.study_count,
+        group_count = excluded.group_count,
+        country_count = excluded.country_count,
+        models = excluded.models,
+        human_confirmed = excluded.human_confirmed,
+        basis = excluded.basis,
+        limitations = excluded.limitations,
+        supporting_records = excluded.supporting_records
+      returning id
+    `).then(rowsOf<{ id: string }>);
+    assessmentIds.push(row!.id);
   }
+  await pruneToKept(db, 'replication_assessments', peptide.id, assessmentIds);
 
   // --- Regulatory ----------------------------------------------------------
-  await db.execute(sql`delete from regulatory_statuses where peptide_id = ${peptide.id}`);
+  // Keyed on (compound, jurisdiction, indication): one position per authority
+  // per indication, re-dated rather than re-created when the check is repeated.
+  const regulatoryIds: string[] = [];
   for (const entry of packet.regulatory) {
-    await db.execute(sql`
+    const [row] = await db.execute(sql`
       insert into regulatory_statuses (
         peptide_id, jurisdiction, indication_context, status, authority,
         source_id, source_location_id, checked_at, notes
@@ -529,8 +618,18 @@ export async function loadCompoundPacket(
         (select source_id from source_locations where id = ${locationId(entry.locationKey)}),
         ${locationId(entry.locationKey)}, ${entry.checkedAt}::date, ${entry.notes}
       )
-    `);
+      on conflict (peptide_id, jurisdiction, indication_context) do update set
+        status = excluded.status,
+        authority = excluded.authority,
+        source_id = excluded.source_id,
+        source_location_id = excluded.source_location_id,
+        checked_at = excluded.checked_at,
+        notes = excluded.notes
+      returning id
+    `).then(rowsOf<{ id: string }>);
+    regulatoryIds.push(row!.id);
   }
+  await pruneToKept(db, 'regulatory_statuses', peptide.id, regulatoryIds);
 
   return {
     packetKey: packet.packetKey,
@@ -608,4 +707,39 @@ function rowsOf<T>(result: unknown): T[] {
     return (result as { rows: T[] }).rows;
   }
   return [];
+}
+
+/**
+ * Removes the rows of `table` for this compound that the packet no longer
+ * contains, naming the survivors by id.
+ *
+ * The counterpart to upserting. These relations are owned wholesale by a
+ * packet, so a record that leaves the packet must leave the database — but the
+ * records that stayed must keep the identity they had. They used to be deleted
+ * and re-inserted, which gave every one of them a new id and a
+ * `publication_state` back at its default: a routine re-seed quietly took 177
+ * published records off the public site, with nothing withdrawn and no error
+ * raised, because the published rows had simply ceased to exist.
+ *
+ * An upsert keeps the row, and this removes only what the packet dropped.
+ */
+async function pruneToKept(
+  db: SeedDb,
+  table: string,
+  peptideId: string,
+  keptIds: readonly string[],
+): Promise<void> {
+  const keep =
+    keptIds.length === 0
+      ? sql`array[]::uuid[]`
+      : sql`array[${sql.join(
+          keptIds.map((id) => sql`${id}::uuid`),
+          sql`, `,
+        )}]`;
+
+  await db.execute(sql`
+    delete from ${sql.identifier(table)}
+     where peptide_id = ${peptideId}
+       and id <> all(${keep})
+  `);
 }

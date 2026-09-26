@@ -7,7 +7,17 @@ export default defineConfig({
     include: ['tests/**/*.test.ts', 'tests/**/*.test.tsx'],
     globals: false,
     testTimeout: 60_000,
-    hookTimeout: 120_000,
+    /**
+     * Two minutes was enough when the register held twelve compounds. The
+     * integration suites truncate and re-seed the whole database before every
+     * test, the Section 4 expansion took the seed to twenty-one compounds, and
+     * a full run now takes about fifty minutes in one shared worker. A re-seed
+     * costs five or six seconds; but across four hundred of them the embedded
+     * database occasionally stalls for far longer than that, and a stalled
+     * re-seed that would have recovered was failing the run as a timeout.
+     * Four minutes is slack for the stall, not room for a slow test.
+     */
+    hookTimeout: 240_000,
     // Each integration suite runs a real Postgres image in WebAssembly. Running
     // several files in parallel exhausts the worker heap, so suites run one at
     // a time; the wall-clock cost is small and the alternative is flakiness.

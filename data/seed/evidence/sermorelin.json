@@ -1,0 +1,242 @@
+{
+  "packetKey": "sermorelin",
+  "peptideKey": "sermorelin",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 136-140. Class C: practitioner-reference. Identity matters here: sermorelin is unmodified GHRH(1-29), while the existing mod-grf-1-29 record is a tetrasubstituted analogue of the same fragment. They are kept as separate records and cross-referenced, so that evidence for one does not attach to the other.",
+  "compound": {
+    "shortDescription": "The first 29 amino acids of growth-hormone-releasing hormone, unmodified. Described by a practitioner handbook as a growth hormone secretagogue; no study of it is held here.",
+    "simpleSummary": "Sermorelin is the front section of a hormone the body already makes — growth-hormone-releasing hormone, cut down to its first 29 building blocks. It works by asking the pituitary gland to release growth hormone, rather than by supplying growth hormone itself.\n\n**It is closely related to another compound in this index.** Modified GRF (1-29) is the same fragment with four substitutions made to it. They are not the same molecule and this index keeps them as separate records.\n\n**What the handbook reports about it is practice, not trial evidence.** It gives a nightly dose and says the full effect takes three to six months of daily use. This index holds no study of sermorelin.\n\n**Two things are worth knowing from the safety notes.** The handbook says a large proportion of patients develop antibodies to the hormone at some point during treatment, and that sermorelin is prohibited in sport by the World Anti-Doping Agency.",
+    "practitionerSummary": "Sermorelin is described by LaValle et al. as a truncated analogue of endogenous GHRH consisting of its first 29 amino acids, binding GHRH receptors in the pituitary and stimulating pulsatile growth hormone secretion from anterior pituitary somatotropes. The handbook prints the full 29-residue sequence and a molecular weight of 3357.9 g/mol.\n\n**Distinguish it from Modified GRF (1-29).** That compound, recorded separately in this index, is a tetrasubstituted version of the same fragment. The handbook does not draw the comparison; this index does, because practitioner sources routinely treat GHRH analogues interchangeably and the substitutions are the whole reason the other molecule exists.\n\n**The regimen and its timing are the handbook's.** 200-300 mcg subcutaneously nightly before bed, with peak blood levels reported within 5 to 20 minutes and a loading period of three to six months of regular daily use before maximum effect.\n\n**Two safety points are specific and are reproduced as stated.** A large proportion of patients are said to develop anti-GRF antibodies at least once during treatment, which the source states without giving a rate or a consequence; and sermorelin is prohibited in athletics under WADA rules. The handbook's own safety sentence describes it as \"safe and efficacious in recommended dosages\" — a claim of efficacy this index does not carry, because no study supporting it is held.",
+    "unknownsSummary": "**No study of sermorelin is held by this index.** No trial, no case series, no pharmacokinetic study. The mechanism described is standard GHRH pharmacology as the handbook states it, and the regimen is its authors' practice.\n\n**The handbook calls sermorelin \"efficacious\" and this index does not.** That word appears in its safety sentence without a citation this index has obtained. Nothing held establishes that sermorelin changes any clinical outcome.\n\n**The antibody statement is unquantified.** \"A large proportion of patients\" is the source's wording. No rate is given, no time course, and no statement of whether the antibodies affect the response or matter clinically.\n\n**No literature screen has been run for sermorelin**, so the absence of evidence here is a statement about this index rather than about the literature. Sermorelin is named in one registered source held by this index — an anti-doping analytical paper — but that source concerns detection of GHRH analogues, not clinical effect.\n\n**Whether evidence for Modified GRF (1-29) bears on sermorelin, or the reverse, is not established.** They are different molecules and this index does not transfer findings between them.",
+    "aliases": [
+      {
+        "alias": "GHRH (1-29)",
+        "aliasType": "chemical_name",
+        "note": "What the molecule is: the first 29 residues of growth-hormone-releasing hormone, unmodified."
+      },
+      {
+        "alias": "Modified GRF (1-29)",
+        "aliasType": "related_but_distinct",
+        "note": "A tetrasubstituted analogue of the same fragment, recorded as its own compound in this index. Not a synonym — the substitutions are the reason it exists."
+      }
+    ],
+    "sequence": "YADAIFTNSYRKVLGQLSARKLLQDIMSR",
+    "molecularDescription": "A 29-residue C-terminally amidated analogue of GHRH(1-29), molecular weight 3357.9 g/mol as printed by the handbook. The molecular formula in the held copy is garbled and has not been reproduced.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "Sermorelin is GHRH(1-29) without substitution. The separately recorded Modified GRF (1-29) is the same fragment tetrasubstituted, and practitioner sources frequently discuss the two together; this index keeps them apart and transfers no evidence between them."
+  },
+  "locations": [
+    {
+      "key": "lavalle-sermorelin-136",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 136",
+      "pageStart": 136,
+      "notes": "Monograph opening: category, sequence, composition, indications, dosage, and the onset and loading-period statements."
+    },
+    {
+      "key": "lavalle-sermorelin-137",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 137",
+      "pageStart": 137,
+      "notes": "Safety and contraindications, the anti-GRF antibody statement, the WADA prohibition, and the mechanism description."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "SERM-001",
+      "claimText": "LaValle et al. describe sermorelin as a truncated analogue of endogenous growth-hormone-releasing hormone consisting of its first 29 amino acids, which binds GHRH receptors in the pituitary and stimulates pulsatile growth hormone secretion from anterior pituitary somatotropes.",
+      "plainLanguageText": "Sermorelin is the first 29 building blocks of a hormone the body makes, and it works by asking the pituitary to release growth hormone.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Standard GHRH pharmacology as the handbook states it. Recorded as the source's description rather than as a demonstrated effect of this preparation.",
+      "uncertaintyText": "No held study measures growth hormone response to sermorelin. The mechanism is described, not demonstrated here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-sermorelin-137",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Description section: truncated GHRH analogue, first 29 amino acids, GHRHR binding, pulsatile secretion from somatotropes.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "SERM-002",
+      "claimText": "Sermorelin as described by LaValle et al. is GHRH(1-29) without substitution, which distinguishes it from Modified GRF (1-29), recorded separately in this index as a tetrasubstituted analogue of the same fragment.",
+      "plainLanguageText": "Sermorelin and Modified GRF (1-29) are built on the same fragment, but the second one has been chemically altered. They are two different molecules.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The comparison is this index's, not the handbook's. It is recorded because practitioner sources discuss GHRH analogues interchangeably, and a reader who assumes they are one compound will attach evidence for either to both. Neither record carries the other's evidence.",
+      "uncertaintyText": "Whether any finding for one applies to the other is not established by anything held here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-sermorelin-136",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Prints the full 29-residue sequence and identifies the compound as GHRH(1-29).",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; the sequence has not been checked against an analytical reference."
+        }
+      ]
+    },
+    {
+      "claimKey": "SERM-003",
+      "claimText": "LaValle et al. report that sermorelin reaches peak blood levels within 5 to 20 minutes of injection, but that maximum effect takes a loading period of three to six months of regular daily use in most people.",
+      "plainLanguageText": "The handbook says it peaks in the blood within minutes, but that the full effect takes three to six months of daily use.",
+      "claimCategory": "pharmacokinetics",
+      "importance": "medium",
+      "interpretationNotes": "Two different timescales — a blood level and a clinical effect — stated together by the source. Recorded as reported; no measurement supporting either is held.",
+      "uncertaintyText": "No pharmacokinetic study is held. What \"maximum effect\" refers to, and how it was determined, is not stated by the source.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-sermorelin-136",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "States the 5-20 minute peak and the 3-6 month loading period.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; no cited measurement has been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "SERM-004",
+      "claimText": "LaValle et al. state that a large proportion of patients develop anti-GRF antibodies at least once during treatment with sermorelin.",
+      "plainLanguageText": "The handbook says many patients develop antibodies against the hormone at some point during treatment.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Recorded because it is a specific immunological observation, unusual for a practitioner source to volunteer. The source gives no rate, no time course and no consequence.",
+      "uncertaintyText": "\"A large proportion\" is not quantified by the source, and no held study establishes the rate, the duration, or whether the antibodies affect response or safety.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-sermorelin-137",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The safety block states that a large proportion of patients develop anti-GRF antibodies at least once during treatment.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; no supporting study has been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "SERM-005",
+      "claimText": "LaValle et al. state that sermorelin is prohibited for use in athletics by the World Anti-Doping Agency.",
+      "plainLanguageText": "The handbook states that sermorelin is banned in sport.",
+      "claimCategory": "regulatory",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the handbook's statement. The WADA Prohibited List itself has not been consulted by this index, so this is a secondary report of a prohibition rather than a verified position.",
+      "uncertaintyText": "No anti-doping authority's own record has been read here, and no date or list version is given by the source.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-sermorelin-137",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "States the WADA prohibition in the safety block.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; the Prohibited List has not been obtained by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any growth hormone or clinical response to sermorelin.",
+      "why": "No study of sermorelin is held. The handbook describes a regimen and a mechanism but cites no obtainable measurement.",
+      "whatWouldResolveIt": "A held human study measuring growth hormone or IGF-I response to sermorelin.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What growth hormone and IGF-I response does sermorelin produce in adults, and how does it compare with an unmodified GHRH infusion?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "How often anti-GRF antibodies develop, and whether they matter.",
+      "why": "The source states a large proportion of patients develop them without giving a rate or a consequence.",
+      "whatWouldResolveIt": "A study reporting antibody incidence and its effect on response.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What proportion of patients develop anti-GRF antibodies on sermorelin, and does it reduce the growth hormone response?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the sermorelin literature would show.",
+      "why": "No literature screen has been run for this compound. The one registered source naming sermorelin is an anti-doping analytical paper concerning detection, not clinical effect.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for sermorelin, given it has a longer clinical history than most compounds in this index?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "terminology_unresolved",
+      "statement": "Whether evidence for Modified GRF (1-29) bears on sermorelin.",
+      "why": "They share a fragment but differ by four substitutions, and practitioner sources discuss them together.",
+      "whatWouldResolveIt": "A study comparing the two directly, or pharmacokinetic data for each.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Do sermorelin and Modified GRF (1-29) differ measurably in half-life or growth hormone response?",
+      "opportunityType": "identity_clarification"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-sermorelin-136",
+      "populationModel": "Not specified by the source.",
+      "formulation": null,
+      "pkNotes": "The source reports peak blood levels within 5 to 20 minutes of injection. No pharmacokinetic study is held.",
+      "limitationsNotes": "The only route described by the held source, which states that sermorelin administered subcutaneously is reported safe and efficacious in recommended dosages. No study supporting either word is held."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "SERM-PR-LAVALLE-SQ",
+      "objectiveContext": "Growth hormone deficiency and the other uses listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen. The same source states the compound is prohibited in athletics by WADA.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "200-300 mcg",
+      "amountUnit": "mcg",
+      "frequencyText": "Once daily, before bedtime",
+      "durationText": "The source states a loading period of 3 to 6 months of regular daily use before maximum effect in most people",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": "The source reports injection-site redness and pain, that a large proportion of patients develop anti-GRF antibodies at least once during treatment, and that the compound is prohibited in athletics.",
+      "locationKey": "lavalle-sermorelin-136"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "SERM-ID-001",
+      "nameUsed": "Sermorelin",
+      "chemicalForm": "C-terminally amidated GHRH(1-29)",
+      "sequence": "YADAIFTNSYRKVLGQLSARKLLQDIMSR",
+      "residueCount": 29,
+      "molecularWeight": 3357.9,
+      "weightBasis": "As printed by the handbook. The sequence is transcribed from the monograph's three-letter listing; the molecular formula in the held copy is garbled and has not been reproduced.",
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and composition block.",
+      "notes": "Unsubstituted, which is what distinguishes it from the separately recorded Modified GRF (1-29).",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-sermorelin-136"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "SERM-REP-001",
+      "finding": "Any clinical effect of sermorelin.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study is held, so there is nothing to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-sermorelin-137",
+      "checkedAt": "2026-09-26",
+      "notes": "No regulatory record was read. Separately, the handbook states that sermorelin is prohibited in athletics by WADA; that is a sporting prohibition rather than a medicines-regulatory position, and the Prohibited List itself has not been consulted."
+    }
+  ]
+}

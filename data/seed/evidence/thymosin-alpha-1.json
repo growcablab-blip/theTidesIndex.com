@@ -1,0 +1,224 @@
+{
+  "packetKey": "thymosin-alpha-1",
+  "peptideKey": "thymosin-alpha-1",
+  "note": "Extracted 26 September 2026 from the LaValle handbook monograph, printed pp. 147-152. Class C: practitioner-reference. Two identity points are handled explicitly: this is a different molecule from the existing thymosin-beta-4 record despite the shared family name, and the handbook reports a marketed product (Zadaxin, thymalfasin) whose regimen is recorded separately from the practitioner one.",
+  "compound": {
+    "shortDescription": "A 28-residue thymic peptide used by practitioner sources for immune support. A marketed product containing it is reported by the handbook; no regulator's record has been consulted here.",
+    "simpleSummary": "Thymosin alpha-1 is a peptide originally identified in the thymus, the gland that trains part of the immune system. Practitioner sources use it where they want to support immune function.\n\n**It is not the same thing as thymosin beta-4**, which has its own record in this index. They share a family name and nothing else that matters here — the evidence for one does not apply to the other.\n\n**The handbook reports a marketed medicine containing it**, called Zadaxin, with its own dose schedule. That is recorded separately from the dose the handbook's authors use in their own practice, because the two are different claims.\n\n**The list of conditions is long and this index holds no study for any of them.** Hepatitis B and C, HIV, several cancers, chemotherapy support and others are listed as uses. That is a description of practice.",
+    "practitionerSummary": "Thymosin alpha-1 (thymalfasin) is described by LaValle et al. as a 28-residue acetylated thymic peptide, molecular weight 3108.28, used where immune support is required. The listed indications are wide: hepatitis B and C, HIV/AIDS, non-small-cell lung, hepatocellular and melanoma cancers, chemotherapy adjunct, chronic inflammatory and autoimmune conditions, cystic fibrosis, Lyme disease, blocking steroid-induced thymocyte apoptosis, depressed vaccine response, geriatric immune support and DiGeorge syndrome.\n\n**Two regimens are recorded separately.** The handbook's general practice dose is 1.5 mg subcutaneously every third day, from two weeks for viral infection to three months or longer for HIV, cancer, hepatitis B or C, or complicated immune suppression. The Zadaxin regimen it reports is 1.6 mg subcutaneously twice weekly for 6-12 months, with weight-based adjustment to 40 mcg/kg twice weekly below 40 kg, and it states this may be used alongside conventional antiretroviral regimens.\n\n**Distinguish from thymosin beta-4.** That compound is recorded separately in this index, as is TB-500. The three are different molecules and no evidence crosses between the records.\n\n**Nothing here establishes efficacy.** No study of thymosin alpha-1 is held by this index for any listed indication, and the Zadaxin approval is reported by a handbook rather than verified against a regulator.",
+    "unknownsSummary": "**No study of thymosin alpha-1 is held by this index** — no trial, no case series, for any of the indications listed. The indication list is among the longest in this handbook and is supported here by nothing but the handbook.\n\n**The marketed product is reported, not verified.** Zadaxin is named with a specific regimen and an antiretroviral context, but no regulator's record has been consulted, so this index cannot say where it is approved, for what, or on what evidence.\n\n**The breadth of the indication list is itself a limitation.** A compound listed for hepatitis, HIV, three cancers, cystic fibrosis, Lyme disease and vaccine response is being described across areas that would each require their own evidence. None of it is held here.\n\n**No literature screen has been run for thymosin alpha-1.** Four mentions of the name appear inside the existing thymosin beta-4 packet and its literature screen, but those are incidental to a search run for a different compound and are not evidence about this one.",
+    "aliases": [
+      {
+        "alias": "Thymalfasin",
+        "aliasType": "synonym",
+        "note": "The international non-proprietary name, listed by the handbook."
+      },
+      {
+        "alias": "Zadaxin",
+        "aliasType": "brand_name",
+        "note": "A marketed product the handbook reports as containing this peptide, with its own regimen recorded separately."
+      },
+      {
+        "alias": "TA1",
+        "aliasType": "abbreviation",
+        "note": "Used by the handbook in passing; the spreadsheet index also carries it."
+      },
+      {
+        "alias": "Thymosin beta-4",
+        "aliasType": "related_but_distinct",
+        "note": "A different molecule with its own record in this index. Shares only the family name; no evidence transfers between them."
+      }
+    ],
+    "sequence": "SDAAVDTSSEITTKDLKEKKEVVEEAEN",
+    "molecularDescription": "A 28-residue N-terminally acetylated peptide, molecular weight 3108.28 g/mol as printed by the handbook. The molecular formula in the held copy is garbled and has not been reproduced.",
+    "naturalOrSynthetic": "synthetic",
+    "nomenclatureNote": "Thymosin alpha-1 and thymosin beta-4 share a family name and are different molecules; this index records them separately, as it does TB-500. Thymalfasin is the non-proprietary name and Zadaxin a marketed product reported to contain it."
+  },
+  "locations": [
+    {
+      "key": "lavalle-ta1-147",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 147",
+      "pageStart": 147,
+      "notes": "Monograph opening: names, sequence, molecular composition and the indications list."
+    },
+    {
+      "key": "lavalle-ta1-148",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 148",
+      "pageStart": 148,
+      "notes": "The practitioner subcutaneous regimen and, separately, the Zadaxin regimen with its weight-based adjustment."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "TA1-001",
+      "claimText": "LaValle et al. describe thymosin alpha-1 (thymalfasin) as a 28-residue acetylated thymic peptide used for clinical conditions where immune support is necessary, listing hepatitis B and C, HIV/AIDS, non-small-cell lung, hepatocellular and melanoma cancers, chemotherapy adjunct use, chronic inflammatory and autoimmune conditions, cystic fibrosis, Lyme disease, depressed vaccine response, geriatric immune support and DiGeorge syndrome.",
+      "plainLanguageText": "A practitioner handbook describes thymosin alpha-1 as an immune-support peptide and lists a long set of conditions its authors use it for.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's indication list. This index makes no statement about effectiveness for any of them, and notes that the breadth of the list is itself worth a reader's attention.",
+      "uncertaintyText": "No study is held for any listed indication. A list spanning viral hepatitis, HIV, three cancers, cystic fibrosis and vaccine response would require separate evidence in each area, and none is held here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ta1-147",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The monograph's Indications/Uses list.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; none of those citations has been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "TA1-002",
+      "claimText": "Thymosin alpha-1 is a different molecule from thymosin beta-4 and from TB-500, each of which is recorded separately in this index.",
+      "plainLanguageText": "Thymosin alpha-1 and thymosin beta-4 are not the same thing, despite the shared family name.",
+      "claimCategory": "identity",
+      "importance": "critical",
+      "interpretationNotes": "The distinction is this index's, drawn from the two monographs' own sequences and molecular weights. It is recorded because a shared family name is exactly the kind of thing that causes evidence to be transferred between unrelated records.",
+      "uncertaintyText": "The handbook does not compare them; the separation rests on the composition each monograph prints.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ta1-147",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Prints a 28-residue sequence and a molecular weight of 3108.28 for thymosin alpha-1, distinct from the composition given for thymosin beta-4 elsewhere in the same work.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; neither composition has been checked against an analytical reference."
+        }
+      ]
+    },
+    {
+      "claimKey": "TA1-003",
+      "claimText": "LaValle et al. report a marketed product, Zadaxin, containing thymalfasin, given subcutaneously twice weekly for 6 to 12 months with a weight-based adjustment in lighter patients, and state it may be used together with conventional antiretroviral regimens. The amounts are recorded on the protocol rather than here.",
+      "plainLanguageText": "The handbook reports a marketed medicine containing this peptide, with its own schedule and a reduced amount for lighter patients. The amounts are on the protocol record.",
+      "claimCategory": "regulatory",
+      "importance": "high",
+      "interpretationNotes": "Recorded as the handbook's report of a marketed product. No regulator's record has been consulted, so this index cannot say where the product is approved or for what.",
+      "uncertaintyText": "Neither the approval nor the labelled regimen has been verified against any regulator's record. The jurisdiction is not stated by the source.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ta1-148",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The Zadaxin dosage block, including the weight-based adjustment and the antiretroviral statement.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; no labelling document has been obtained by this index."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any clinical effect of thymosin alpha-1, for any of the listed indications.",
+      "why": "No study is held. The indication list is a practitioner handbook's description of its authors' practice.",
+      "whatWouldResolveIt": "Held studies for the specific indications — the hepatitis and HIV literature would be the obvious starting point given the marketed product.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What outcomes have been measured for thymalfasin in viral hepatitis and HIV, and in what populations?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "regulatory_status_unverified",
+      "statement": "Where Zadaxin is approved, and for what.",
+      "why": "The handbook reports a marketed product and its regimen without naming a jurisdiction, and no regulator's record has been consulted here.",
+      "whatWouldResolveIt": "A regulator's own approval record or labelling document for thymalfasin.",
+      "verificationIssueKey": null,
+      "researchQuestion": "In which jurisdictions is thymalfasin approved, for which indications?",
+      "opportunityType": "regulatory_position"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the thymosin alpha-1 literature would show.",
+      "why": "No literature screen has been run for this compound. The few mentions in the existing thymosin beta-4 screen are incidental results of a search for a different compound.",
+      "whatWouldResolveIt": "A dedicated PubMed screen using the same method as the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human literature exists for thymalfasin, given a marketed product has existed for some time?",
+      "opportunityType": "human_evidence"
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ta1-148",
+      "populationModel": "Not specified by the source beyond the weight-based adjustment in the marketed-product regimen.",
+      "formulation": "Described as supplied at 3 mg/ml in a 5 ml vial for the practitioner regimen.",
+      "pkNotes": null,
+      "limitationsNotes": "The only route described by the held source. No human study of any route is held here."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "TA1-PR-LAVALLE-SQ",
+      "objectiveContext": "Immune support across the conditions listed in the monograph, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 3 mg/ml in a 5 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling — the marketed product's regimen is recorded separately and differs in dose and schedule.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1.5 mg",
+      "amountUnit": "mg",
+      "frequencyText": "Every third day",
+      "durationText": "From 2 weeks for viral infection, to 3 months or longer for HIV, cancer, hepatitis B or C, or complicated immune suppression or over-activation; the source also refers to multiple overlapping courses",
+      "monitoringText": null,
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "lavalle-ta1-148"
+    },
+    {
+      "protocolKey": "TA1-PR-ZADAXIN",
+      "objectiveContext": "The marketed product's regimen as the handbook reports it, including use alongside conventional antiretroviral regimens.",
+      "populationModel": "Adults, with a weight-based adjustment below 40 kg.",
+      "routeKey": "subcutaneous",
+      "formulation": null,
+      "regulatoryContext": "Reported by a practitioner handbook as the regimen of a marketed product. No regulator's record has been consulted by this index, and the jurisdiction is not stated by the source.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "1.6 mg; adjusted to 40 mcg/kg in patients weighing under 40 kg",
+      "amountUnit": "mg",
+      "frequencyText": "Twice weekly",
+      "durationText": "6 to 12 months",
+      "monitoringText": "The source notes that individual dosage requirements may vary.",
+      "contraindicationsText": null,
+      "safetyNotes": null,
+      "locationKey": "lavalle-ta1-148"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "TA1-ID-001",
+      "nameUsed": "Thymosin alpha-1",
+      "chemicalForm": "N-terminally acetylated 28-residue peptide",
+      "sequence": "SDAAVDTSSEITTKDLKEKKEVVEEAEN",
+      "residueCount": 28,
+      "molecularWeight": 3108.28,
+      "weightBasis": "As printed by the handbook. The sequence is transcribed from the monograph's three-letter listing, which shows an N-terminal acetyl group; the molecular formula in the held copy is garbled and has not been reproduced.",
+      "form": "full_length",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's sequence and molecular composition block.",
+      "notes": "Distinct in both length and weight from the thymosin beta-4 record in this index.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ta1-147"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "TA1-REP-001",
+      "finding": "Any clinical effect of thymosin alpha-1.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study is held, so there is nothing to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "Reported by a practitioner handbook as a marketed product (Zadaxin); no regulator's record has been consulted by this index",
+      "locationKey": "lavalle-ta1-148",
+      "checkedAt": "2026-09-26",
+      "notes": "Recorded as unknown deliberately. The handbook names a marketed product and gives its regimen but no jurisdiction, and this index has verified neither."
+    }
+  ]
+}

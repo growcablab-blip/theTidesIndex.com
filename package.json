@@ -28,6 +28,7 @@
     "sources:verify": "tsx scripts/sources/verify-sources.ts",
     "sources:audit": "tsx scripts/sources/audit-sources.ts",
     "sources:coverage": "tsx scripts/sources/domain-coverage.ts",
+    "sources:compound-coverage": "tsx scripts/sources/compound-coverage.ts",
     "sources:apply-audit": "tsx scripts/sources/apply-audit-findings.ts",
     "sources:read": "tsx scripts/sources/read-source.ts",
     "sources:register-official": "tsx scripts/sources/register-official-sources.ts",

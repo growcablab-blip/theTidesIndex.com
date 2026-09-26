@@ -1,0 +1,379 @@
+{
+  "packetKey": "ll-37",
+  "peptideKey": "ll-37",
+  "note": "Extracted 26 September 2026. The one compound in the Section 4 expansion with held literature of its own: SRC-153 and SRC-154 are registered review sources in which LL-37 is a central subject, held as full text. Everything about clinical use still comes from a practitioner handbook and is attributed as such. No study of administered LL-37 in people is held, and no literature screen has been run for this compound.",
+  "compound": {
+    "shortDescription": "The only cathelicidin peptide found in humans, cut from a larger precursor protein. Its biology is described in held review literature; everything this index holds about giving it to people comes from a practitioner handbook.",
+    "simpleSummary": "LL-37 is a small piece of a larger protein your own body makes. It is part of the immune system's first line of defence, found in skin, gut, lungs and white blood cells. It gets its name from its size and shape: it is 37 building blocks long and starts with two of the same one, leucine.\n\n**What it does in the body is reasonably well described.** Held reviews describe it puncturing the outer membranes of bacteria, and also acting as a signal that calls immune cells towards a wound or an infection.\n\n**What happens when it is given as a treatment is not established here.** This index holds no study of LL-37 being given to people. What it holds is a practitioner handbook describing how clinicians use it, and that is a description of practice, not a finding about whether it works.\n\n**One caution is worth reading even in this short version.** The same handbook warns that depending on the type of cancer, LL-37 may act either against a tumour or in its favour, and advises caution in anyone with cancer or prone to it.",
+    "practitionerSummary": "LL-37 is the sole human cathelicidin, a 37-residue amphipathic cationic peptide released by extracellular cleavage of the C-terminal end of the hCAP18 precursor — by kallikrein-family serine proteases in keratinocytes and by proteinase 3 in neutrophils, as the held handbook describes it. It is expressed in epithelia of skin, gut, respiratory tract and testis, and in monocytes, neutrophils, T, NK and B cells.\n\n**Mechanism, from held review literature.** Its cationic charge preferentially associates it with anionic phospholipid membranes; it adopts a helical conformation on membrane interaction, segregating hydrophobic residues and permitting pore formation and lysis. Beyond direct antimicrobial action, held reviews describe chemotactic and immunomodulatory roles, including interaction with the formyl peptide receptor family.\n\n**Clinical use, from a practitioner handbook only.** LaValle et al. list antimicrobial, antiviral, antifungal, chronic-wound and inflammatory-bowel indications, and give a subcutaneous regimen and a topical one. These are the authors' practice. **No held source reports LL-37 administered to people with a measured outcome**, and no literature screen has been run for this compound.\n\n**Two safety points are recorded from the handbook rather than inferred.** It reports a Herxheimer-type reaction in sensitive individuals and advises starting at the lowest dose; and it advises caution in cancer, stating that LL-37 may act as either a pro-tumorigenic or an anti-cancer agent depending on tumour biology.",
+    "unknownsSummary": "**Whether giving LL-37 to a person does anything is not established here.** This index holds no clinical study of administered LL-37 — no trial, no case series, not even an uncontrolled report. The indications listed on this page are a practitioner handbook's, and the handbook cites no study for them that this index has obtained.\n\n**No literature screen has been run for LL-37.** The two review sources held were registered for foundational teaching, not for this compound, and they describe its biology rather than its use as a treatment. A systematic search might find human work; none has been done here, so the absence of evidence on this page is a statement about this index, not about the literature.\n\n**The direction of any effect in cancer is explicitly unsettled**, by the handbook's own account: it describes LL-37 as potentially tumour-promoting in some cancers and tumour-suppressing in others.\n\n**The sequence and molecular formula printed in the handbook could not be checked.** The held copy's rendering of both is incomplete, and no analytical reference for this peptide is held.",
+    "aliases": [
+      {
+        "alias": "Cathelicidin",
+        "aliasType": "related_but_distinct",
+        "note": "The peptide family, of which LL-37 is the only human member. Not another name for the peptide."
+      },
+      {
+        "alias": "hCAP18",
+        "aliasType": "related_but_distinct",
+        "note": "The 18 kDa precursor protein LL-37 is cleaved from. A different molecule, not a synonym."
+      },
+      {
+        "alias": "LL37",
+        "aliasType": "abbreviation",
+        "note": "Abbreviation without the hyphen, as some sources write it."
+      }
+    ],
+    "sequence": null,
+    "molecularDescription": "A 37-residue amphipathic cationic peptide cleaved from the C-terminal end of the 18 kDa hCAP18 precursor. The handbook prints a molecular weight of 4493.33 g/mol; its rendering of the full sequence and molecular formula in the held copy is incomplete and has not been reproduced here.",
+    "naturalOrSynthetic": "natural",
+    "nomenclatureNote": "Named for its length and its first two residues: the isolated peptide is 37 amino acids long and begins with a pair of leucines. \"Cathelicidin\" is the family, of which LL-37 is the only human member, and hCAP18 is the precursor protein rather than another name for the peptide — both are recorded as related but distinct."
+  },
+  "locations": [
+    {
+      "key": "lavalle-ll37-71",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 71",
+      "pageStart": 71,
+      "notes": "Monograph opening: category, sequence, molecular composition, indications and other uses."
+    },
+    {
+      "key": "lavalle-ll37-72",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 72",
+      "pageStart": 72,
+      "notes": "Dosage, vitamin D note, warnings and cautions."
+    },
+    {
+      "key": "lavalle-ll37-73",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 73",
+      "pageStart": 73,
+      "notes": "Autoantigen discussion, Herxheimer reaction, and the start of the summary."
+    },
+    {
+      "key": "lavalle-ll37-74",
+      "sourceKey": "SRC-002",
+      "locatorText": "p. 74",
+      "pageStart": 74,
+      "notes": "Structure, cleavage from hCAP18, expression and mechanism."
+    },
+    {
+      "key": "wang2014-cathelicidins",
+      "sourceKey": "SRC-153",
+      "locatorText": "Wang 2014, '2.3. Human Cathelicidins'",
+      "section": "2.3. Human Cathelicidins",
+      "notes": "Web full text; no page numbers. Located by section heading."
+    },
+    {
+      "key": "alford2020-ll37-receptor",
+      "sourceKey": "SRC-154",
+      "locatorText": "Alford et al. 2020, discussion of LL-37 interaction with the formyl peptide receptor family",
+      "section": "LL-37 and host receptor interaction",
+      "notes": "Web full text; no page numbers. Located by the passage describing FPR interaction and chemotaxis."
+    }
+  ],
+  "claims": [
+    {
+      "claimKey": "LL37-001",
+      "claimText": "LL-37 is the only cathelicidin-derived antimicrobial peptide found in humans, and is named for being 37 amino acids long and beginning with two leucine residues.",
+      "plainLanguageText": "LL-37 is the one member of its family that humans make. Its name says what it is: 37 building blocks long, starting with two leucines.",
+      "claimCategory": "identity",
+      "importance": "medium",
+      "interpretationNotes": "Both the review source and the handbook state this; the naming account is taken from the review, which describes the isolation history.",
+      "uncertaintyText": "The naming account is historical and well corroborated; nothing here depends on it.",
+      "evidence": [
+        {
+          "locationKey": "wang2014-cathelicidins",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "States that the isolated peptide contains 37 amino acids and starts with a pair of leucines, hence the name, and that it is two residues shorter than the predicted FALL-39.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "The held full text was read at the cited section."
+        },
+        {
+          "locationKey": "lavalle-ll37-73",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "States that LL-37 is the sole cathelicidin to exist in humans.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook. Where it cites primary literature it does so by superscript, and none of those citations has been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-002",
+      "claimText": "LL-37 is produced by extracellular cleavage of the C-terminal end of the 18 kDa hCAP18 precursor protein, by kallikrein-family serine proteases in keratinocytes and by proteinase 3 in neutrophils.",
+      "plainLanguageText": "The body does not make LL-37 directly. It makes a larger protein and then cuts the end off it, and that piece is LL-37.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "Reported by the handbook's summary section. The enzymes named are the handbook's.",
+      "uncertaintyText": "The enzymes and the precursor are as the handbook states them; no primary source for them has been obtained.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ll37-74",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Describes LL-37 as a 37-residue amphipathic helical cationic peptide produced by extracellular cleavage of hCAP18 by kallikrein-family serine proteases in keratinocytes and proteinase 3 in neutrophils.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; the cited works have not been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-003",
+      "claimText": "LL-37's cationic charge associates it preferentially with negatively charged phospholipid membranes, where it adopts a helical conformation that segregates its hydrophobic residues and permits membrane penetration, transmembrane pore formation and bacterial lysis.",
+      "plainLanguageText": "LL-37 is attracted to the outer surface of bacteria, folds against it, and punches holes in it.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "A mechanistic description, reported by both a held review and the handbook. It describes how the peptide behaves at a membrane, not that giving it to a person clears an infection.",
+      "uncertaintyText": "A mechanism described in reviews of the peptide's biology. No held source connects this mechanism to an outcome in a treated person.",
+      "evidence": [
+        {
+          "locationKey": "wang2014-cathelicidins",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Describes the two hydrophobic domains of the long amphipathic helix as the basis for binding and disrupting curved anionic bacterial membrane surfaces, by pore formation or the carpet model.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "The held full text was read at the cited section."
+        },
+        {
+          "locationKey": "lavalle-ll37-74",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "supports",
+          "interpretation": "Same mechanism, described in the handbook's summary.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-004",
+      "claimText": "Beyond direct antimicrobial action, LL-37 is described as chemotactic and immunomodulatory, interacting with the formyl peptide receptor family to attract immune cells to sites of wounding or infection.",
+      "plainLanguageText": "LL-37 also acts as a signal, calling immune cells towards a wound or an infection.",
+      "claimCategory": "mechanism",
+      "importance": "medium",
+      "interpretationNotes": "The receptor interaction is reported by the held review as an earlier study's suggestion, and is recorded here at that strength rather than as settled.",
+      "uncertaintyText": "The held review presents the receptor interaction as proposed and supported by sequence analysis, not as demonstrated in people.",
+      "evidence": [
+        {
+          "locationKey": "alford2020-ll37-receptor",
+          "evidenceTypeKey": "academic_reference",
+          "interpretation": "Reports that the disordered C-terminus of LL-37 interacts with the N-formyl peptide receptor-like family as part of mediating chemotaxis, and that sequence analysis suggests co-evolution with FPR2.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "The held full text was read at the cited passage."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-005",
+      "claimText": "LaValle et al. list LL-37 for antimicrobial use against gram-positive and gram-negative infections including MRSA, for antiviral and antifungal use, for mould and biotoxin illness, for chronic wound healing including venous leg ulcers, and for inflammatory bowel conditions.",
+      "plainLanguageText": "A practitioner handbook lists the conditions its authors use LL-37 for. That is a description of their practice, not evidence that it works.",
+      "claimCategory": "practitioner_use",
+      "importance": "high",
+      "interpretationNotes": "Reproduced as the handbook's list of indications. This index makes no statement about whether LL-37 is effective for any of them; no held source reports an outcome in a treated person.",
+      "uncertaintyText": "No study of LL-37 given to people is held for any of these indications. The list is the authors' practice and nothing here establishes efficacy.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ll37-71",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "The monograph's Indications/Uses and Other Uses lists.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook. Its superscript citations have not been obtained by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-006",
+      "claimText": "LaValle et al. advise caution in cancer and in those prone to cancer, stating that depending on tumour biology LL-37 may act either as a pro-tumorigenic or an anti-cancer agent, and separately list it as reported to induce tumorigenic effects in cancers of the ovary, lung, breast, prostate, pancreas, malignant melanoma and skin squamous cell carcinoma.",
+      "plainLanguageText": "The same handbook warns that in cancer LL-37 might work against a tumour or in its favour, depending on the cancer, and advises caution.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "Recorded because it is a safety statement the source makes explicitly and in both directions. This index does not resolve which direction applies to any cancer.",
+      "uncertaintyText": "The direction of any effect in cancer is unsettled by the source's own account, and no held study establishes it either way.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ll37-72",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Warnings and Cautions: use with caution in cancer and those prone to cancer; may act as either a pro-tumorigenic or anti-cancer agent depending on tumour biology.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook citing primary literature by superscript; not obtained."
+        },
+        {
+          "locationKey": "lavalle-ll37-71",
+          "evidenceTypeKey": "practitioner_reference",
+          "relationship": "contextualizes",
+          "interpretation": "The Other Uses list names the cancers in which LL-37 is reported to induce tumorigenic effects, alongside those in which it is used.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Same handbook, same citation practice."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-007",
+      "claimText": "LaValle et al. report that LL-37 administration has produced a Herxheimer reaction in sensitive individuals — abrupt fever, chills, myalgia, headache, tachycardia, hyperventilation, flushing and mild hypotension — and advise starting treatment at the lowest dose.",
+      "plainLanguageText": "The handbook reports that some people react to starting LL-37 with a short flu-like episode, and advises beginning with the smallest dose.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Reported by the handbook as observed practice. No frequency is given and no held study quantifies it.",
+      "uncertaintyText": "How often this occurs is not stated by the source and is not established by anything held here.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ll37-73",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Describes the reaction, lists its features, and advises starting at the lowest dose.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; its citations have not been obtained."
+        }
+      ]
+    },
+    {
+      "claimKey": "LL37-008",
+      "claimText": "LaValle et al. state that dysfunctional endogenous LL-37 has a described role in the pathogenesis of psoriasis, systemic lupus erythematosus, rheumatoid arthritis and atherosclerosis, while also stating that there are no reported cases of exogenously administered LL-37 leading to the onset of an autoimmune condition.",
+      "plainLanguageText": "The handbook notes that the body's own LL-37, when it misbehaves, is part of the picture in several autoimmune diseases — and says no case has been reported of LL-37 given as a treatment causing one.",
+      "claimCategory": "safety",
+      "importance": "high",
+      "interpretationNotes": "Both halves are recorded together deliberately: separating them would leave either an unexplained alarm or an unqualified reassurance. The distinction between endogenous and administered peptide is the source's own.",
+      "uncertaintyText": "\"No reported cases\" is a statement about what has been reported, not evidence that administration is safe in this respect. No surveillance data is held.",
+      "evidence": [
+        {
+          "locationKey": "lavalle-ll37-73",
+          "evidenceTypeKey": "practitioner_reference",
+          "interpretation": "Describes the autoantigen role in those conditions and, in the same passage, states that no cases of exogenous administration causing autoimmune onset have been reported.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "A practitioner handbook; its citations have not been obtained."
+        }
+      ]
+    }
+  ],
+  "notYetSupported": [
+    {
+      "gapType": "human_evidence_not_established",
+      "statement": "Any effect of administered LL-37 in people, for any of the indications listed.",
+      "why": "No held source reports LL-37 given to people with a measured outcome. The two held review sources describe the peptide's biology; the handbook describes its authors' practice.",
+      "whatWouldResolveIt": "A controlled study of administered LL-37 with a clinical outcome, or a case series reporting outcomes in treated patients.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Does administered LL-37 change any clinical outcome in infection, chronic wounds or inflammatory bowel disease?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "no_current_reviewed_evidence",
+      "statement": "What a systematic search of the LL-37 literature would show.",
+      "why": "No literature screen has been run for this compound. The two review sources held were registered for foundational teaching, not for LL-37.",
+      "whatWouldResolveIt": "A dedicated PubMed screen for LL-37 with the same method used for the twelve screened compounds.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What human and preclinical literature exists for LL-37, and how much of it concerns administration rather than endogenous biology?",
+      "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Whether LL-37 promotes or suppresses any particular cancer.",
+      "why": "The only held source addressing it states both directions are possible depending on tumour biology, and resolves neither.",
+      "whatWouldResolveIt": "Preclinical or clinical work separating the tumour types in which each direction is observed.",
+      "verificationIssueKey": null,
+      "researchQuestion": "In which tumour types does LL-37 act as a tumour promoter, and in which as a suppressor?",
+      "opportunityType": "human_safety"
+    },
+    {
+      "gapType": "numerical_threshold_not_established",
+      "statement": "The sequence and molecular formula of LL-37 as supplied.",
+      "why": "The held copy's rendering of the handbook's sequence and molecular formula is incomplete, and no analytical reference for this peptide is held.",
+      "whatWouldResolveIt": "A compendial or analytical reference giving the sequence and formula.",
+      "verificationIssueKey": null,
+      "researchQuestion": null,
+      "opportunityType": null
+    }
+  ],
+  "routes": [
+    {
+      "routeKey": "subcutaneous",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ll37-72",
+      "populationModel": "Not specified by the source.",
+      "formulation": "Supplied as a 2,000 mcg/ml, 5 ml vial, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "Described by a practitioner handbook only. No human study of LL-37 by this or any route is held."
+    },
+    {
+      "routeKey": "topical",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ll37-72",
+      "populationModel": "Not specified by the source.",
+      "formulation": "A cubosome gel, as the handbook describes it.",
+      "pkNotes": null,
+      "limitationsNotes": "Described by a practitioner handbook only, for local application to a wound site."
+    }
+  ],
+  "protocols": [
+    {
+      "protocolKey": "LL37-PR-LAVALLE-SQ",
+      "objectiveContext": "General dosing for the indications listed in the monograph, prophylactic or therapeutic, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "subcutaneous",
+      "formulation": "Supplied as 2,000 mcg/ml in a 5 ml vial.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "0.1 ml (200 mcg)",
+      "amountUnit": "mcg",
+      "frequencyText": "Daily",
+      "durationText": "6-8 weeks; the source states longer therapy may be necessary in some individuals",
+      "monitoringText": "The source recommends testing 25-hydroxy vitamin D and, if below 50 ng/ml, taking 5,000 IU (125 mcg) vitamin D3 daily, on the basis that LL-37 is activated in the body by vitamin D.",
+      "contraindicationsText": null,
+      "safetyNotes": "The source reports a Herxheimer reaction in sensitive individuals and advises starting at the lowest dose. It advises caution in cancer and those prone to cancer.",
+      "locationKey": "lavalle-ll37-72"
+    },
+    {
+      "protocolKey": "LL37-PR-LAVALLE-TOPICAL",
+      "objectiveContext": "Local application at a wound site, as framed by the handbook.",
+      "populationModel": "Not specified by the source.",
+      "routeKey": "topical",
+      "formulation": "Cubosome gel.",
+      "regulatoryContext": "A practitioner handbook's regimen. Not approved labelling and not a study regimen.",
+      "evidenceTypeKey": "practitioner_reference",
+      "amountReported": "Not stated by the source",
+      "amountUnit": null,
+      "frequencyText": "2-3 times weekly",
+      "durationText": null,
+      "monitoringText": "The source advises monitoring for local redness and irritation.",
+      "contraindicationsText": null,
+      "safetyNotes": "The source reports that redness, pain and effusion may occur at an injection site, and advises monitoring for local redness and irritation with topical use.",
+      "locationKey": "lavalle-ll37-72"
+    }
+  ],
+  "identities": [
+    {
+      "identityKey": "LL37-ID-001",
+      "nameUsed": "LL-37",
+      "chemicalForm": "37-residue amphipathic cationic peptide cleaved from hCAP18",
+      "sequence": null,
+      "residueCount": 37,
+      "molecularWeight": 4493.33,
+      "weightBasis": "As printed by the handbook. The held copy's rendering of the sequence and molecular formula is incomplete and has not been reproduced.",
+      "form": "fragment",
+      "verification": "stated_by_secondary_source",
+      "usageContext": "The monograph's Chemical Composition block.",
+      "notes": "The residue count is corroborated by the held review source, which explains the name as 37 residues beginning with two leucines.",
+      "evidenceTypeKey": "practitioner_reference",
+      "locationKey": "lavalle-ll37-71"
+    }
+  ],
+  "replication": [
+    {
+      "assessmentKey": "LL37-REP-001",
+      "finding": "Any clinical effect of administered LL-37.",
+      "state": "not_assessed",
+      "humanConfirmed": false,
+      "basis": "No study of administered LL-37 in people is held, so there is nothing to replicate.",
+      "limitations": null,
+      "supportingRecords": null
+    }
+  ],
+  "regulatory": [
+    {
+      "jurisdiction": "Not established",
+      "indicationContext": "Any medicinal use",
+      "status": "unknown",
+      "authority": "No medicines regulator's own record has been consulted for this compound",
+      "locationKey": "lavalle-ll37-72",
+      "checkedAt": "2026-09-26",
+      "notes": "No regulatory record was read. The handbook describes supply as a compounded preparation; that is not a regulatory determination."
+    }
+  ]
+}

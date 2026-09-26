@@ -92,18 +92,20 @@ describe('seeding', () => {
      * sold as "CJC-1295 without DAC" lacks the group that defines it, and a
      * seized product sold as CJC-1295 was analysed and found to be that
      * shorter peptide. Modified GRF (1-29) is therefore its own record.
+     *
+     * Twenty-one since the Section 4 expansion. The number is no longer
+     * asserted as a literal: what matters is that the seeded cohort is exactly
+     * the declared register, not that the register is any particular size.
      */
-    expect(rows.length).toBe(12);
+    expect(rows.length).toBe(seedData.peptides.length);
 
     /*
-     * Two compounds have been extracted from held sources and carry content;
-     * the other eight must carry none.
-     *
-     * The assertion is narrowed rather than dropped, because what it was
-     * guarding against has not changed: a compound acquiring a summary because
-     * somebody wrote one, rather than because a packet extracted one from a
-     * located source. An empty cohort made that easy to check. A cohort with
-     * two real records makes it worth checking.
+     * Every compound in the register now carries an evidence packet, so the
+     * second branch below currently matches nothing. It is kept anyway,
+     * because what it guards against has not changed: a compound acquiring a
+     * summary because somebody wrote one, rather than because a packet
+     * extracted one from a located source. The next compound added ahead of
+     * its packet is exactly the case it catches.
      */
     const extracted = new Set(seedData.compoundPackets.map((packet) => packet.peptideKey));
     expect(extracted.size).toBeGreaterThan(0);
