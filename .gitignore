@@ -6,9 +6,12 @@
 # Node / build
 node_modules/
 .next/
-out/
-dist/
-coverage/
+/out/
+/dist/
+# Anchored to the repository root. Unanchored, this rule also matched
+# src/app/(public)/coverage — a real page, silently never committed, which
+# 404ed in production while working locally for weeks.
+/coverage/
 *.log
 *.tsbuildinfo
 .turbo/
@@ -43,7 +46,7 @@ publishing/pdf/generated/
 .pglite/
 
 # Build artefacts of the evidence architecture, not sources.
-build/
+/build/
 
 # Screenshots and other review captures. A snapshot of a moment.
 review/

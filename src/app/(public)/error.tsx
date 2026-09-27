@@ -1,15 +1,24 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { FailurePage } from '@/components/public/failure-page';
 
 /**
  * A public page that failed to render.
  *
- * Every page here reads from the database on each request, so the realistic
- * failure is a database that is briefly unreachable rather than a bug in the
- * page. That makes "try again" a genuinely useful control rather than a
- * decoration, and it is offered first.
+ * This boundary knows that rendering failed and nothing else. It does not know
+ * why, and it must not guess: an earlier version told the reader that nothing
+ * they were reading had been changed or withdrawn, and that the cause was
+ * probably a database the index could not reach. Neither is knowable here. The
+ * first would be a false reassurance if a record really had just been
+ * withdrawn, and the second sent a reader away to wait for a fault that might
+ * be permanent — which is what happened in production, where every
+ * database-backed page failed for a reason no amount of waiting would fix.
+ *
+ * So it says what it knows, offers the two things that might actually help, and
+ * stops. "Try again" stays because a retry is cheap and a transient failure is
+ * one real possibility among several.
  *
  * What is deliberately absent: the error message, the digest, and any stack.
  * A reader cannot act on them, and an error string from a database can carry
@@ -31,7 +40,7 @@ export default function PublicError({
   return (
     <FailurePage
       label="Something went wrong"
-      headline="This page could not be loaded."
+      headline="We couldn&rsquo;t load this page."
       action={
         <button
           type="button"
@@ -42,13 +51,13 @@ export default function PublicError({
         </button>
       }
     >
+      <p>The fault is at our end, not with the address you asked for.</p>
       <p>
-        The fault is at our end, not with the address you asked for. Nothing you were reading has
-        been changed or withdrawn.
-      </p>
-      <p>
-        If it keeps happening, the index is probably having trouble reaching its database. Trying
-        again in a minute is usually enough.
+        Try again, or return to another section of The Tides Index. If it keeps happening, the{' '}
+        <Link href="/corrections" className="underline decoration-rule underline-offset-2">
+          corrections page
+        </Link>{' '}
+        explains how to tell us.
       </p>
     </FailurePage>
   );

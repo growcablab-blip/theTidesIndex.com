@@ -51,11 +51,10 @@ export default function GlobalError({
             The Tides Index
           </p>
           <h1 style={{ margin: '0.75rem 0 0', fontSize: '1.875rem', lineHeight: 1.2 }}>
-            The site could not be loaded.
+            We couldn&rsquo;t load the site.
           </h1>
           <p style={{ margin: '1rem 0 0', color: '#5d6b72', lineHeight: 1.6 }}>
-            This is a fault at our end. Nothing you were reading has been changed or withdrawn, and
-            reloading is safe.
+            This is a fault at our end, not with the address you asked for. Reloading is safe.
           </p>
           <button
             type="button"
