@@ -154,6 +154,14 @@
       "sourceKey": "SRC-005",
       "locatorText": "file p. 184",
       "section": "Peptide monitoring and blood tests"
+    },
+    {
+      "key": "tremblay-eb1-t105",
+      "sourceKey": "SRC-206",
+      "locatorText": "transcript, turn 105 (Tremblay)",
+      "pageStart": null,
+      "section": "the mice who were given the DAC version getting bad cases of cancer",
+      "notes": "The stated reason for avoiding the albumin-binding form, attributed to a biochemist he says was in the group that invented the molecule in Montreal."
     }
   ],
   "claims": [
@@ -312,6 +320,25 @@
           "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
+    },
+    {
+      "claimKey": "CJC-TREM-001",
+      "claimText": "Tremblay states that he avoids the albumin-binding (DAC) form of CJC-1295, on the basis of a recollection related to him by a biochemist he says worked in the Montreal group that invented the molecule, that mice given the DAC version developed blood cancer, which he attributes to the drug-affinity complex binding to albumin; he states that the how and why were not investigated.",
+      "plainLanguageText": "Tremblay says he avoids the long-acting DAC form of CJC-1295, because a colleague who worked in the group that invented it told him mice given that version developed blood cancer.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance and framed exactly as it arrives: a second-hand recollection of an unpublished animal observation, relayed by a named-but-unidentified colleague, about a form of the compound the index already carries as a separate record. It is not evidence that CJC-1295 with DAC causes cancer, and nothing here says it is. It is recorded because it is the stated reason a practising expert refuses to use a widely sold form, and a reader weighing that form is entitled to know what the refusal rests on — including how thin it is.",
+      "uncertaintyText": "Nothing documents this. No study, no publication, no data, and by his own account the mechanism was never investigated. The colleague is not named and the work is unpublished. A recollection of an unpublished animal finding cannot establish a human risk, and this index does not treat it as doing so. The speaker owns a company that sells the alternative form.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb1-t105",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The account in full: the Montreal origin of the molecule, the colleague's recollection, the blood cancer in mice given the DAC version, the albumin-binding explanation, and the statement that it was not investigated further.",
+          "populationModel": "Mice, in an unpublished experiment recalled by a third party. Not a study this index holds, and not human.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "Unpublished work relayed second hand; nothing is held. The turn itself was read directly in the held transcript."
+        }
+      ]
     }
   ],
   "notYetSupported": [
@@ -368,6 +395,15 @@
       "verificationIssueKey": null,
       "researchQuestion": "Does adding a ghrelin-receptor agonist to a GHRH analogue change GH, IGF-I or safety outcomes compared with either alone?",
       "opportunityType": "protocol_validation"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Whether the albumin-binding form of CJC-1295 carries any oncological risk.",
+      "why": "A held practitioner source refuses to use it on the strength of a second-hand recollection of unpublished mouse work, whose mechanism he says was never investigated. Nothing documenting it is held, and nothing refuting it is held either.",
+      "whatWouldResolveIt": "The original animal work, or any toxicology or follow-up data for the drug-affinity-complex form.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What toxicology exists for the albumin-binding form of CJC-1295, and does anything support or refute the reported animal finding?",
+      "opportunityType": "human_safety"
     }
   ],
   "routes": [

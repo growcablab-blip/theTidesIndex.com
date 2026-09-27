@@ -1,0 +1,193 @@
+{
+  "bpc-157": {
+    "locations": [
+      {
+        "key": "tremblay-eb1-t78",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 78 (Tremblay)",
+        "pageStart": null,
+        "section": "if you were to use half a milligram injected, then if you choose to do orally",
+        "notes": "The oral-versus-injected conversion, with the reason he gives: more than half is lost to digestion."
+      },
+      {
+        "key": "tremblay-eb1-t60",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 60 (Tremblay)",
+        "pageStart": null,
+        "section": "The more you take, the more it",
+        "notes": "Dose-responsiveness of the repair peptides, the general overdose claim with its growth-hormone exception, and the cell-division argument about cancer risk."
+      },
+      {
+        "key": "tremblay-greenfield-t53",
+        "sourceKey": "SRC-204",
+        "locatorText": "transcript, turn 53 (Tremblay)",
+        "pageStart": null,
+        "section": "98% of the studies were done by a group of Croatian researchers",
+        "notes": "The concentration of the BPC-157 literature in one research group. The same turn continues into a second-hand allegation about that group, which is deliberately not recorded anywhere in this index."
+      },
+      {
+        "key": "tremblay-greenfield-t31",
+        "sourceKey": "SRC-204",
+        "locatorText": "transcript, turn 31 (Tremblay)",
+        "pageStart": null,
+        "section": "there is a local effect if you would inject within the injury",
+        "notes": "The 2019 position on local injection: near the injury is pointless, within it works, and placing it accurately needs imaging."
+      },
+      {
+        "key": "tremblay-eb2-t18",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 18 (Tremblay)",
+        "pageStart": null,
+        "section": "you have to go in the injury, not next to it",
+        "notes": "The 2022 account: hydrodissection with BPC-157 and thymosin beta-4 under ultrasound, and one reported case of long-standing pain resolving."
+      },
+      {
+        "key": "tremblay-eb2-t20",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 20 (Tremblay)",
+        "pageStart": null,
+        "section": "They were sure they were at the right place",
+        "notes": "The accuracy figure he gives for injectors working without ultrasound."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "BPC-TREM-001",
+        "claimText": "Tremblay states that BPC-157 is active orally but that more than half of an oral dose is lost to digestion, so an oral amount must be roughly double an injected one for an equivalent effect, and that injection is the more efficient route for any peptide.",
+        "plainLanguageText": "Tremblay says BPC-157 does work taken by mouth, but digestion destroys more than half of it, so an oral amount has to be about twice an injected one.",
+        "claimCategory": "administration",
+        "importance": "high",
+        "interpretationNotes": "Recorded because the index holds no comparable conversion rule from any source: the LaValle handbook gives regimens per route and never relates one route to another. This is a practitioner's working rule offered with a mechanism, not a measured bioavailability, and the amounts are on the protocol record rather than here. The speaker owns the company that manufactures and sells the compound, which is context rather than a verdict on the statement.",
+        "uncertaintyText": "No pharmacokinetic study supporting the ratio is held or cited. 'More than half' is his estimate rather than a measurement, and the conversion is not calibrated against any outcome.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t78",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The conversion itself, the digestion reasoning, and the statement that injection is always the more efficient route.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "BPC-TREM-002",
+        "claimText": "Tremblay states that the repair peptides, naming BPC-157, TB-500 and thymosin beta-4, are dose related — the more taken, the more effect — and argues that they do not raise net cancer risk, because the additional cell divisions involved in faster healing are divisions that would have occurred anyway over a longer period.",
+        "plainLanguageText": "Tremblay says more of these repair peptides means more effect, and argues they do not raise cancer risk because healing faster uses the same number of cell divisions in less time.",
+        "claimCategory": "safety",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance because both halves are consequential and neither is supported by anything held. A dose-response assertion invites taking more; the cancer argument is reasoning from first principles, which is how he offers it, not a finding. It is reproduced because he makes it and because a reader meeting it elsewhere should be able to see what it rests on. The speaker owns the company that manufactures and sells these compounds.",
+        "uncertaintyText": "No dose-response study and no long-term human safety data for any of the three compounds is held. The cell-division argument assumes that healing is the only process affected and that total divisions are what matters, neither of which is established anywhere here.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t60",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The dose-responsiveness statement and the cell-division argument in full, as he gives them.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "BPC-TREM-003",
+        "claimText": "Tremblay states that about 98 per cent of the BPC-157 studies indexed in PubMed were produced by one group of Croatian researchers.",
+        "plainLanguageText": "Tremblay says almost all the published BPC-157 research comes from a single research group in Croatia.",
+        "claimCategory": "evidence-quality",
+        "importance": "high",
+        "interpretationNotes": "A claim about the shape of the evidence base rather than about the compound, and useful for that reason: a literature concentrated in one group is a different thing from an equally large literature from many. The figure is his and is not verified here. The same turn continues into a second-hand allegation about that group's research conduct; that is hearsay about identifiable people and is deliberately not recorded anywhere in this index.",
+        "uncertaintyText": "The percentage is not verified. No bibliometric analysis of the BPC-157 literature is held, and no literature screen has been run for BPC-157 that would test it.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-greenfield-t53",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The statement about the concentration of the PubMed literature in one research group.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "BPC-TREM-004",
+        "claimText": "Tremblay states, in 2019 and again in 2022, that injecting BPC-157 near an injury gives no advantage because the bloodstream takes the peptide up before it can diffuse through the intervening tissue, while injecting within the injured tissue does have a local effect and needs imaging to place accurately; in 2022 he describes hydrodissection, mixing BPC-157 and thymosin beta-4 into the fluid used to separate a compressed nerve from the tissue pressing on it.",
+        "plainLanguageText": "Tremblay says injecting near an injury adds nothing, because the blood carries the peptide away before it reaches the tissue. Injecting into the injury itself does work, but needs ultrasound to place accurately.",
+        "claimCategory": "administration",
+        "importance": "high",
+        "interpretationNotes": "Recorded across both held transcripts because the position is the same in each, three years apart: near the injury is pointless, within it is not, imaging is needed. A derived summary of this collection characterised 2019 as calling local injection a myth and 2022 as a reversal. Reading both transcripts does not support that, so the position is recorded as consistent rather than as a change; what 2022 adds is a technique and a case, not a different view.",
+        "uncertaintyText": "No comparative pharmacokinetic study of local against systemic administration is held or cited. The hydrodissection account is a single unpublished case described second hand, and the procedure carries risks the source does not discuss.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-greenfield-t31",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The 2019 statement: tissue in between, uptake by the bloodstream within a minute, a local effect only within the injury, and ultrasound to place it.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          },
+          {
+            "locationKey": "tremblay-eb2-t18",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The 2022 statement of the same rule, together with the hydrodissection technique and the reported case.",
+            "populationModel": "One patient, as described second hand by the speaker. Not a case report this index holds.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "BPC-TREM-005",
+        "claimText": "Tremblay states that injectors working without ultrasound guidance, who believed they had placed an injection correctly, were in the right place about 75 per cent of the time.",
+        "plainLanguageText": "Tremblay says that without ultrasound, people confident they had injected in the right place were right about three times in four.",
+        "claimCategory": "administration",
+        "importance": "medium",
+        "interpretationNotes": "Recorded because it is the stated basis for the imaging requirement in the claim above. He attributes it to no named source, and the transcript is loose at this point, giving the figure once as a miss rate of a quarter; it is recorded as the accuracy figure he states and no further.",
+        "uncertaintyText": "No study is named and none is held. Whether the figure comes from a published comparison of landmark-guided against ultrasound-guided injection, or from impression, is not established.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb2-t20",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The exchange giving the accuracy figure for injectors working without ultrasound.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      }
+    ],
+    "protocols": [
+      {
+        "protocolKey": "BPC-PR-TREMBLAY-ORAL-CONVERSION",
+        "objectiveContext": "Oral administration as an alternative to injection, for people unwilling to inject, as Tremblay frames it.",
+        "populationModel": "Not specified by the source.",
+        "routeKey": "oral",
+        "formulation": "Not stated.",
+        "regulatoryContext": "An expert practitioner's conversion rule given in a podcast interview. Not approved labelling, not a study regimen and not a Tides position. The speaker manufactures and sells the compound.",
+        "evidenceTypeKey": "expert_commentary",
+        "amountReported": "1 to 1.2 mg orally, given as the equivalent of 0.5 mg injected",
+        "amountUnit": "mg",
+        "frequencyText": "Not stated; the source gives a conversion rather than a schedule",
+        "durationText": null,
+        "monitoringText": null,
+        "contraindicationsText": null,
+        "safetyNotes": "The source states the oral route is active but not cost effective, and that injection is the more efficient route for any peptide. He gives no safety statement specific to oral administration.",
+        "locationKey": "tremblay-eb1-t78"
+      }
+    ],
+    "notYetSupported": [
+      {
+        "gapType": "route_not_established",
+        "statement": "The actual oral bioavailability of BPC-157, and whether any conversion ratio holds.",
+        "why": "Two held sources now describe oral administration and neither measures it. Tremblay gives a ratio of roughly two to one, from an estimate that digestion destroys more than half; no pharmacokinetic study supporting it is held or cited.",
+        "whatWouldResolveIt": "A pharmacokinetic comparison of oral and subcutaneous administration in people.",
+        "verificationIssueKey": null,
+        "researchQuestion": "What exposure does oral BPC-157 achieve relative to an injected dose?",
+        "opportunityType": "route_comparison"
+      },
+      {
+        "gapType": "no_current_reviewed_evidence",
+        "statement": "Whether the BPC-157 literature really is concentrated in one research group.",
+        "why": "Tremblay states that about 98 per cent of the PubMed literature comes from a single Croatian group. No literature screen has been run for BPC-157, so this index cannot test the claim — and the answer would change how every preclinical finding on this record should be weighed.",
+        "whatWouldResolveIt": "A literature screen recording the authorship distribution across the BPC-157 corpus.",
+        "verificationIssueKey": null,
+        "researchQuestion": "How is authorship distributed across the published BPC-157 literature, and how much of it is independent?",
+        "opportunityType": "independent_replication"
+      }
+    ]
+  }
+}

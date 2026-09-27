@@ -1,0 +1,243 @@
+{
+  "epitalon": {
+    "locations": [
+      {
+        "key": "tremblay-eb1-t22",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 22 (Tremblay)",
+        "pageStart": null,
+        "section": "the mortality rate was 67% lower in the group using Epitalon",
+        "notes": "The 2019 account of the long human studies: the mortality figure, the extrapolation to added years, and the secondary benefits claimed."
+      },
+      {
+        "key": "tremblay-eb1-t30",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 30 (Tremblay)",
+        "pageStart": null,
+        "section": "instead of living longer, they die younger",
+        "notes": "The same interview, minutes later: an ongoing study whose early direction he describes as bad."
+      },
+      {
+        "key": "tremblay-eb2-t26",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 26 (Tremblay)",
+        "pageStart": null,
+        "section": "the lengthening of the telomeres",
+        "notes": "Three years on: the study still unreported, its preliminary telomere marker showing shortening rather than lengthening, and his reasons for discounting telomere measurement generally."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "EPI-TREM-001",
+        "claimText": "Tremblay states in 2019 that long studies in older people, run for up to fifteen years, found mortality 67 per cent lower in the group using Epitalon, alongside improvements in short-term memory, bone density and influenza rates, and that by extrapolation he believes twenty to thirty years could be added to a life.",
+        "plainLanguageText": "Tremblay says long Russian studies found far fewer deaths among older people taking Epitalon, and that he believes it could add twenty to thirty years to a life.",
+        "claimCategory": "efficacy",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance because it is the strongest longevity claim anywhere in this index and because it is made about a compound a member of the public can buy. It is an expert's account of studies he does not identify, and he flags the life-extension figure himself as an extrapolation he believes rather than a finding. It should be read against the same speaker's remarks minutes later in the same interview, and in 2022, about a study that was not going well; all three are on this record.",
+        "uncertaintyText": "No study is named and none is held. The mortality figure, the population, the comparator and the analysis are all unknown here. The twenty-to-thirty-year figure is explicitly an extrapolation. The speaker owns the company that manufactures and sells the compound.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t22",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The account of the studies, the mortality figure, the secondary benefits and the extrapolation, as he gives them.",
+            "populationModel": "Older people in studies the speaker describes but does not identify. Not studies this index holds.",
+            "primaryTrace": "cited_not_obtained",
+            "primaryTraceNote": "He names no study and this index holds none. The turn itself was read directly in the held transcript."
+          }
+        ]
+      },
+      {
+        "claimKey": "EPI-TREM-002",
+        "claimText": "Tremblay states in the same 2019 interview that a study then in progress appeared to show the opposite of longevity — that instead of living longer the animals were dying younger — describing the direction as not looking good while saying he remained in favour of Epitalon pending the final result; in 2022 he states that the study still had not reported, and that the preliminary telomere marker it released showed shortening rather than lengthening.",
+        "plainLanguageText": "In the same conversation, Tremblay said a study then under way looked bad — the animals appeared to be dying younger, not living longer. Three years later he said the study still had not reported and that its early telomere results showed shortening.",
+        "claimCategory": "efficacy",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance and deliberately placed beside the claim above, because the two come from the same speaker, one of them minutes after the other. Nothing here adjudicates between them. What the record shows is a source who reports a very strong benefit and, unprompted, reports a study pointing the other way — which is more informative than either statement alone and is the reason both are kept.",
+        "uncertaintyText": "The study is not named, not held, and by his own account had still not reported three years later. Whether it has since is unknown here. A preliminary marker in an unreported study is not a result.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t30",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The 2019 remark about the ongoing study's direction.",
+            "populationModel": "An animal study the speaker describes but does not identify.",
+            "primaryTrace": "cited_not_obtained",
+            "primaryTraceNote": "No study named; the turn was read directly in the held transcript."
+          },
+          {
+            "locationKey": "tremblay-eb2-t26",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The 2022 statement that the study had not reported and that its preliminary telomere marker showed shortening.",
+            "populationModel": "The same unidentified animal study, three years later.",
+            "primaryTrace": "cited_not_obtained",
+            "primaryTraceNote": "No study named; the turn was read directly in the held transcript."
+          }
+        ]
+      },
+      {
+        "claimKey": "EPI-TREM-003",
+        "claimText": "Tremblay states that he gives little credit to the telomere-lengthening evidence for Epitalon, on the grounds that telomere length varies between tissues, that the studies were done around twenty years earlier when telomere measurement was less developed, and that ageing is multifactorial rather than reducible to telomere length.",
+        "plainLanguageText": "Tremblay says he does not put much weight on the telomere results for Epitalon: telomere length differs between tissues, the studies are old, and ageing is not just about telomeres.",
+        "claimCategory": "evidence-quality",
+        "importance": "high",
+        "interpretationNotes": "Recorded because the index's existing Epitalon record carries a practitioner handbook's report of a specific telomere-elongation result, and here a second practitioner source — who sells the compound and is otherwise enthusiastic about it — discounts that line of evidence and says why. Neither source is adjudicated. A reader seeing both gets something neither gives alone.",
+        "uncertaintyText": "Neither the telomere studies nor any critique of them is held. His reasons are argument rather than analysis, and this index has run no literature screen for Epitalon that would test either position.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb2-t26",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "His reasons for discounting the telomere evidence: tissue variation, the age of the studies, and the multifactorial nature of ageing.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      }
+    ],
+    "notYetSupported": [
+      {
+        "gapType": "conflicting_sources",
+        "statement": "Whether Epitalon lengthens telomeres, shortens them, or does neither.",
+        "why": "The index now holds two practitioner sources pointing opposite ways. A handbook reports a specific elongation result; a second practitioner source discounts the telomere evidence and reports a preliminary marker showing shortening in a study that had not reported. Neither underlying study is held.",
+        "whatWouldResolveIt": "The original telomere studies, and the report of the study described as in progress.",
+        "verificationIssueKey": null,
+        "researchQuestion": "What has Epitalon administration been shown to do to telomere length, in which tissues, and by what measurement method?",
+        "opportunityType": "independent_replication"
+      }
+    ]
+  },
+  "tb-500": {
+    "locations": [
+      {
+        "key": "tremblay-eb2-t34",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 34 (Tremblay)",
+        "pageStart": null,
+        "section": "TB-500 was a product name",
+        "notes": "The brand-name account, in answer to the direct question whether TB4 is the same as TB-500."
+      },
+      {
+        "key": "tremblay-eb2-t36",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 36 (Tremblay)",
+        "pageStart": null,
+        "section": "First, they were using a smaller fraction of Thymosin Beta-4, later on, they switch",
+        "notes": "The claim that one company kept the name while changing the molecule it referred to — first a fraction, later the full peptide."
+      },
+      {
+        "key": "tremblay-eb1-t75",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 75 (Ari Whitten)",
+        "pageStart": null,
+        "section": "TB-500 is not orally active",
+        "notes": "The host's statement of the route distinction, which Tremblay then answers in the following turns."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "TB500-TREM-001",
+        "claimText": "Tremblay states that TB-500 is a product name rather than the name of a peptide, given by one of the earliest companies to market it for horses, and that the same company first sold a smaller fraction of thymosin beta-4 under that name and later switched to full-length thymosin beta-4 while keeping the name.",
+        "plainLanguageText": "Tremblay says TB-500 is a brand name, not a chemical one, and that the company using it changed what was in the vial — first a fragment of thymosin beta-4, later the whole peptide — without changing the name.",
+        "claimCategory": "identity",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance, and it is the most consequential identity claim this source contributes. The index already carries TB-500 and thymosin beta-4 as two records with no evidence crossing between them, on analytical grounds; a second and independent practitioner source reaching the same distinction is genuine convergence. What it adds is worse than the distinction itself: if one brand name has referred to two different molecules at different times, then the date of a study or a purchase is part of the identity, and a reader cannot tell from the name alone which molecule was involved.",
+        "uncertaintyText": "The brand history is his account and no documentation of it is held. When the switch happened, which company, and whether other vendors did the same are all unknown here — which is precisely what would be needed to date any given use.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb2-t34",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The direct answer that TB4 and TB-500 are not the same, and that TB-500 was a product name.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          },
+          {
+            "locationKey": "tremblay-eb2-t36",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The account of the same name being kept while the contents changed from a fraction to the full peptide.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      }
+    ],
+    "notYetSupported": [
+      {
+        "gapType": "terminology_unresolved",
+        "statement": "Which molecule a given use of the name TB-500 refers to, and from when.",
+        "why": "A held practitioner source states that one vendor kept the name while switching from a fraction of thymosin beta-4 to the full peptide. If that is right, the name alone does not identify the molecule and the date matters.",
+        "whatWouldResolveIt": "Vendor documentation or analytical characterisation of material sold under the name at different dates.",
+        "verificationIssueKey": null,
+        "researchQuestion": "What has been supplied under the name TB-500 over time, and can any study using the name be tied to a characterised molecule?",
+        "opportunityType": "identity_clarification"
+      }
+    ]
+  },
+  "thymosin-beta-4": {
+    "locations": [
+      {
+        "key": "tremblay-eb2-t38",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 38 (Tremblay)",
+        "pageStart": null,
+        "section": "Thymosin Beta-4 is like a key chain",
+        "notes": "The key-chain account of thymosin beta-4: a 43-residue peptide whose fractions act separately, four of which he says have been isolated and synthesised."
+      },
+      {
+        "key": "tremblay-eb2-t52",
+        "sourceKey": "SRC-216",
+        "locatorText": "transcript, turn 52 (Tremblay)",
+        "pageStart": null,
+        "section": "They never found an increase in cancerous activity",
+        "notes": "His answer on the pro-cancer signal: a Petri-dish finding weighed against what he reports clinicians observing in practice."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "TB4-TREM-001",
+        "claimText": "Tremblay describes thymosin beta-4 as a 43-residue peptide that behaves like a key chain, with different fractions acting on different receptors, and states that researchers broke it down and isolated four fractions with separable activities, one of which appears in a review of bioregulators and is small enough that he suggests it may act in the way Epitalon is proposed to.",
+        "plainLanguageText": "Tremblay describes thymosin beta-4 as a bunch of keys on one ring: different pieces of the molecule do different jobs, and four of those pieces have been separated out.",
+        "claimCategory": "mechanism",
+        "importance": "high",
+        "interpretationNotes": "Recorded because it bears directly on the identity architecture this index already maintains: if fractions of thymosin beta-4 have separable activities, then a product containing a fraction is not interchangeable with one containing the whole peptide, which is the distinction the TB-500 record turns on. The suggestion that one fraction may work as Epitalon is proposed to is his speculation and is labelled as such.",
+        "uncertaintyText": "No study identifying the four fractions is named or held. Which fractions, which activities and which receptors are not established here, and the comparison with Epitalon is offered as a possibility rather than a finding.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb2-t38",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The key-chain account, the isolation of four fractions, and the suggested resemblance between one fraction and Epitalon.",
+            "primaryTrace": "cited_not_obtained",
+            "primaryTraceNote": "He refers to work he does not identify. The turn itself was read directly in the held transcript."
+          }
+        ]
+      },
+      {
+        "claimKey": "TB4-TREM-002",
+        "claimText": "Tremblay acknowledges a reported pro-cancer activity of thymosin beta-4 found in a Petri dish, argues that a molecule with several activities has to be weighed on its net effect, and states that in his experience consulting with doctors who used thymosin beta-4 as a base peptide in therapies including cancer, they never found an increase in cancerous activity, describing this as empirical.",
+        "plainLanguageText": "Tremblay accepts that a laboratory study found a cancer-promoting effect, but says that doctors he has worked with, who used thymosin beta-4 in people including cancer patients, did not see cancer get worse. He calls that observation empirical.",
+        "claimCategory": "safety",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance because it is a safety reassurance about cancer offered on the basis of unsystematic clinical observation, in a compound with a reported in-vitro pro-cancer signal. He labels it empirical himself, and that label is preserved rather than smoothed away. Practitioner observation of an absence is among the weakest forms of safety evidence: nobody counted, nobody followed up, and nothing was compared. It is recorded because he says it and because a reader will meet the argument elsewhere without the caveat.",
+        "uncertaintyText": "No patient series, registry or follow-up is held or described. How many patients, over what period, with what cancers and with what surveillance are all unknown. An absence noticed in practice is not an absence measured. The speaker owns the company that manufactures and sells the compound.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb2-t52",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The acknowledgement of the in-vitro finding, the net-effect argument, and the clinical observation he reports, with his own word for it.",
+            "populationModel": "Patients of doctors he consulted with, in numbers and over a period he does not state. Not a study.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      }
+    ],
+    "notYetSupported": [
+      {
+        "gapType": "safety_not_established",
+        "statement": "Whether thymosin beta-4 affects cancer risk or progression in people.",
+        "why": "A held practitioner source acknowledges an in-vitro pro-cancer finding and answers it with unsystematic clinical observation, which he labels empirical. Nothing held measures either.",
+        "whatWouldResolveIt": "Follow-up data from any population given thymosin beta-4, and the in-vitro work the concern rests on.",
+        "verificationIssueKey": null,
+        "researchQuestion": "Has cancer incidence or progression been measured in anyone given thymosin beta-4, and over what period?",
+        "opportunityType": "long_term_outcomes"
+      }
+    ]
+  }
+}

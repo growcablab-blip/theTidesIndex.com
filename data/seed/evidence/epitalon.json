@@ -64,6 +64,30 @@
       "locatorText": "p. 52",
       "pageStart": 52,
       "notes": "Reported insulin sensitivity and lipid effects."
+    },
+    {
+      "key": "tremblay-eb1-t22",
+      "sourceKey": "SRC-206",
+      "locatorText": "transcript, turn 22 (Tremblay)",
+      "pageStart": null,
+      "section": "the mortality rate was 67% lower in the group using Epitalon",
+      "notes": "The 2019 account of the long human studies: the mortality figure, the extrapolation to added years, and the secondary benefits claimed."
+    },
+    {
+      "key": "tremblay-eb1-t30",
+      "sourceKey": "SRC-206",
+      "locatorText": "transcript, turn 30 (Tremblay)",
+      "pageStart": null,
+      "section": "instead of living longer, they die younger",
+      "notes": "The same interview, minutes later: an ongoing study whose early direction he describes as bad."
+    },
+    {
+      "key": "tremblay-eb2-t26",
+      "sourceKey": "SRC-216",
+      "locatorText": "transcript, turn 26 (Tremblay)",
+      "pageStart": null,
+      "section": "the lengthening of the telomeres",
+      "notes": "Three years on: the study still unreported, its preliminary telomere marker showing shortening rather than lengthening, and his reasons for discounting telomere measurement generally."
     }
   ],
   "claims": [
@@ -182,6 +206,70 @@
           "primaryTraceNote": "A practitioner handbook; no supporting study has been obtained."
         }
       ]
+    },
+    {
+      "claimKey": "EPI-TREM-001",
+      "claimText": "Tremblay states in 2019 that long studies in older people, run for up to fifteen years, found mortality 67 per cent lower in the group using Epitalon, alongside improvements in short-term memory, bone density and influenza rates, and that by extrapolation he believes twenty to thirty years could be added to a life.",
+      "plainLanguageText": "Tremblay says long Russian studies found far fewer deaths among older people taking Epitalon, and that he believes it could add twenty to thirty years to a life.",
+      "claimCategory": "efficacy",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance because it is the strongest longevity claim anywhere in this index and because it is made about a compound a member of the public can buy. It is an expert's account of studies he does not identify, and he flags the life-extension figure himself as an extrapolation he believes rather than a finding. It should be read against the same speaker's remarks minutes later in the same interview, and in 2022, about a study that was not going well; all three are on this record.",
+      "uncertaintyText": "No study is named and none is held. The mortality figure, the population, the comparator and the analysis are all unknown here. The twenty-to-thirty-year figure is explicitly an extrapolation. The speaker owns the company that manufactures and sells the compound.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb1-t22",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The account of the studies, the mortality figure, the secondary benefits and the extrapolation, as he gives them.",
+          "populationModel": "Older people in studies the speaker describes but does not identify. Not studies this index holds.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "He names no study and this index holds none. The turn itself was read directly in the held transcript."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-TREM-002",
+      "claimText": "Tremblay states in the same 2019 interview that a study then in progress appeared to show the opposite of longevity — that instead of living longer the animals were dying younger — describing the direction as not looking good while saying he remained in favour of Epitalon pending the final result; in 2022 he states that the study still had not reported, and that the preliminary telomere marker it released showed shortening rather than lengthening.",
+      "plainLanguageText": "In the same conversation, Tremblay said a study then under way looked bad — the animals appeared to be dying younger, not living longer. Three years later he said the study still had not reported and that its early telomere results showed shortening.",
+      "claimCategory": "efficacy",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance and deliberately placed beside the claim above, because the two come from the same speaker, one of them minutes after the other. Nothing here adjudicates between them. What the record shows is a source who reports a very strong benefit and, unprompted, reports a study pointing the other way — which is more informative than either statement alone and is the reason both are kept.",
+      "uncertaintyText": "The study is not named, not held, and by his own account had still not reported three years later. Whether it has since is unknown here. A preliminary marker in an unreported study is not a result.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb1-t30",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The 2019 remark about the ongoing study's direction.",
+          "populationModel": "An animal study the speaker describes but does not identify.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No study named; the turn was read directly in the held transcript."
+        },
+        {
+          "locationKey": "tremblay-eb2-t26",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The 2022 statement that the study had not reported and that its preliminary telomere marker showed shortening.",
+          "populationModel": "The same unidentified animal study, three years later.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "No study named; the turn was read directly in the held transcript."
+        }
+      ]
+    },
+    {
+      "claimKey": "EPI-TREM-003",
+      "claimText": "Tremblay states that he gives little credit to the telomere-lengthening evidence for Epitalon, on the grounds that telomere length varies between tissues, that the studies were done around twenty years earlier when telomere measurement was less developed, and that ageing is multifactorial rather than reducible to telomere length.",
+      "plainLanguageText": "Tremblay says he does not put much weight on the telomere results for Epitalon: telomere length differs between tissues, the studies are old, and ageing is not just about telomeres.",
+      "claimCategory": "evidence-quality",
+      "importance": "high",
+      "interpretationNotes": "Recorded because the index's existing Epitalon record carries a practitioner handbook's report of a specific telomere-elongation result, and here a second practitioner source — who sells the compound and is otherwise enthusiastic about it — discounts that line of evidence and says why. Neither source is adjudicated. A reader seeing both gets something neither gives alone.",
+      "uncertaintyText": "Neither the telomere studies nor any critique of them is held. His reasons are argument rather than analysis, and this index has run no literature screen for Epitalon that would test either position.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb2-t26",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "His reasons for discounting the telomere evidence: tissue variation, the age of the studies, and the multifactorial nature of ageing.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+        }
+      ]
     }
   ],
   "notYetSupported": [
@@ -229,6 +317,15 @@
       "verificationIssueKey": null,
       "researchQuestion": "What literature exists for epitalon, and how much of it originates outside the one institute the handbook names?",
       "opportunityType": "human_evidence"
+    },
+    {
+      "gapType": "conflicting_sources",
+      "statement": "Whether Epitalon lengthens telomeres, shortens them, or does neither.",
+      "why": "The index now holds two practitioner sources pointing opposite ways. A handbook reports a specific elongation result; a second practitioner source discounts the telomere evidence and reports a preliminary marker showing shortening in a study that had not reported. Neither underlying study is held.",
+      "whatWouldResolveIt": "The original telomere studies, and the report of the study described as in progress.",
+      "verificationIssueKey": null,
+      "researchQuestion": "What has Epitalon administration been shown to do to telomere length, in which tissues, and by what measurement method?",
+      "opportunityType": "independent_replication"
     }
   ],
   "routes": [

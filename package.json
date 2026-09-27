@@ -34,6 +34,7 @@
     "sources:register-official": "tsx scripts/sources/register-official-sources.ts",
     "evidence:submit": "tsx scripts/evidence/submit-packet.ts",
     "evidence:locators": "tsx scripts/evidence/verify-locators.ts",
+    "evidence:transcript-locators": "tsx --tsconfig tsconfig.scripts.json scripts/sources/verify-transcript-locators.ts",
     "pdf": "tsx scripts/publishing/build-pdf.ts",
     "qa:metrics": "tsx scripts/qa/metrics.ts",
     "screenshots": "tsx scripts/qa/screenshots.ts",

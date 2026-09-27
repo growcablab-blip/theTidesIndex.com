@@ -109,6 +109,14 @@
       "sourceKey": "SRC-004",
       "locatorText": "file p. 2",
       "section": "Fat loss table, Ipamorelin / CJC-1295 No DAC row"
+    },
+    {
+      "key": "tremblay-eb1-t103-modgrf",
+      "sourceKey": "SRC-206",
+      "locatorText": "transcript, turn 103 (Tremblay)",
+      "pageStart": null,
+      "section": "the first group will be stronger at promoting the actual secretion",
+      "notes": "The division of labour he describes between the two classes, and the rationale for combining them at smaller amounts."
     }
   ],
   "claims": [
@@ -198,6 +206,24 @@
           "interpretation": "States a half-life of about 30 minutes for CJC 1295 without DAC.",
           "primaryTrace": "cited_not_obtained",
           "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
+        }
+      ]
+    },
+    {
+      "claimKey": "MODGRF-TREM-001",
+      "claimText": "Tremblay describes the growth-hormone-releasing-hormone analogue and the secretagogue as acting on different parts of the same process — one stronger at promoting secretion, the other at the peak concentration reached — and states that combining them produces a greater effect than either alone, so that much smaller amounts of each are needed.",
+      "plainLanguageText": "Tremblay says this compound and a secretagogue work on different parts of the same process, so together they do more than either alone and less of each is needed.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Recorded on this record as well as on ipamorelin's, because the claim is about the pair and a reader arriving at either compound needs it. The index holds this pairing from a practitioner handbook as a regimen; what this source adds is the reason, and an implication that runs towards smaller amounts rather than larger.",
+      "uncertaintyText": "No study of the combination is held or cited and no amounts are given. Whether the described division of labour holds, and at what doses, is not established here.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb1-t103-modgrf",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The division of labour between the two classes and the statement that combining them allows much smaller amounts of each.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
         }
       ]
     }

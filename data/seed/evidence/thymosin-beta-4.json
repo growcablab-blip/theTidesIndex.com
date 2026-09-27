@@ -139,6 +139,22 @@
       "sourceKey": "SRC-001",
       "locatorText": "file pp. 185-186 of the held copy",
       "section": "TB4 in action — dosage and possible side effects"
+    },
+    {
+      "key": "tremblay-eb2-t38",
+      "sourceKey": "SRC-216",
+      "locatorText": "transcript, turn 38 (Tremblay)",
+      "pageStart": null,
+      "section": "Thymosin Beta-4 is like a key chain",
+      "notes": "The key-chain account of thymosin beta-4: a 43-residue peptide whose fractions act separately, four of which he says have been isolated and synthesised."
+    },
+    {
+      "key": "tremblay-eb2-t52",
+      "sourceKey": "SRC-216",
+      "locatorText": "transcript, turn 52 (Tremblay)",
+      "pageStart": null,
+      "section": "They never found an increase in cancerous activity",
+      "notes": "His answer on the pro-cancer signal: a Petri-dish finding weighed against what he reports clinicians observing in practice."
     }
   ],
   "claims": [
@@ -418,6 +434,43 @@
           "primaryTraceNote": "A secondary source. Where it cites primary literature it does so by superscript, link or not at all, and none of those citations has been obtained and read by this index."
         }
       ]
+    },
+    {
+      "claimKey": "TB4-TREM-001",
+      "claimText": "Tremblay describes thymosin beta-4 as a 43-residue peptide that behaves like a key chain, with different fractions acting on different receptors, and states that researchers broke it down and isolated four fractions with separable activities, one of which appears in a review of bioregulators and is small enough that he suggests it may act in the way Epitalon is proposed to.",
+      "plainLanguageText": "Tremblay describes thymosin beta-4 as a bunch of keys on one ring: different pieces of the molecule do different jobs, and four of those pieces have been separated out.",
+      "claimCategory": "mechanism",
+      "importance": "high",
+      "interpretationNotes": "Recorded because it bears directly on the identity architecture this index already maintains: if fractions of thymosin beta-4 have separable activities, then a product containing a fraction is not interchangeable with one containing the whole peptide, which is the distinction the TB-500 record turns on. The suggestion that one fraction may work as Epitalon is proposed to is his speculation and is labelled as such.",
+      "uncertaintyText": "No study identifying the four fractions is named or held. Which fractions, which activities and which receptors are not established here, and the comparison with Epitalon is offered as a possibility rather than a finding.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb2-t38",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The key-chain account, the isolation of four fractions, and the suggested resemblance between one fraction and Epitalon.",
+          "primaryTrace": "cited_not_obtained",
+          "primaryTraceNote": "He refers to work he does not identify. The turn itself was read directly in the held transcript."
+        }
+      ]
+    },
+    {
+      "claimKey": "TB4-TREM-002",
+      "claimText": "Tremblay acknowledges a reported pro-cancer activity of thymosin beta-4 found in a Petri dish, argues that a molecule with several activities has to be weighed on its net effect, and states that in his experience consulting with doctors who used thymosin beta-4 as a base peptide in therapies including cancer, they never found an increase in cancerous activity, describing this as empirical.",
+      "plainLanguageText": "Tremblay accepts that a laboratory study found a cancer-promoting effect, but says that doctors he has worked with, who used thymosin beta-4 in people including cancer patients, did not see cancer get worse. He calls that observation empirical.",
+      "claimCategory": "safety",
+      "importance": "critical",
+      "interpretationNotes": "Recorded at critical importance because it is a safety reassurance about cancer offered on the basis of unsystematic clinical observation, in a compound with a reported in-vitro pro-cancer signal. He labels it empirical himself, and that label is preserved rather than smoothed away. Practitioner observation of an absence is among the weakest forms of safety evidence: nobody counted, nobody followed up, and nothing was compared. It is recorded because he says it and because a reader will meet the argument elsewhere without the caveat.",
+      "uncertaintyText": "No patient series, registry or follow-up is held or described. How many patients, over what period, with what cancers and with what surveillance are all unknown. An absence noticed in practice is not an absence measured. The speaker owns the company that manufactures and sells the compound.",
+      "evidence": [
+        {
+          "locationKey": "tremblay-eb2-t52",
+          "evidenceTypeKey": "expert_commentary",
+          "interpretation": "The acknowledgement of the in-vitro finding, the net-effect argument, and the clinical observation he reports, with his own word for it.",
+          "populationModel": "Patients of doctors he consulted with, in numbers and over a period he does not state. Not a study.",
+          "primaryTrace": "full_text_supports",
+          "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+        }
+      ]
     }
   ],
   "notYetSupported": [
@@ -501,6 +554,15 @@
       "verificationIssueKey": null,
       "researchQuestion": "Is increased thymosin beta-4 expression in tumour tissue a cause, a consequence or a marker of malignancy, and what does that imply for administering it?",
       "opportunityType": "mechanism_confirmation"
+    },
+    {
+      "gapType": "safety_not_established",
+      "statement": "Whether thymosin beta-4 affects cancer risk or progression in people.",
+      "why": "A held practitioner source acknowledges an in-vitro pro-cancer finding and answers it with unsystematic clinical observation, which he labels empirical. Nothing held measures either.",
+      "whatWouldResolveIt": "Follow-up data from any population given thymosin beta-4, and the in-vitro work the concern rests on.",
+      "verificationIssueKey": null,
+      "researchQuestion": "Has cancer incidence or progression been measured in anyone given thymosin beta-4, and over what period?",
+      "opportunityType": "long_term_outcomes"
     }
   ],
   "routes": [

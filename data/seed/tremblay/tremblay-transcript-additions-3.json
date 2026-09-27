@@ -1,0 +1,236 @@
+{
+  "ipamorelin": {
+    "locations": [
+      {
+        "key": "tremblay-eb1-t101",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 101 (Tremblay)",
+        "pageStart": null,
+        "section": "the third generation took away the hunger aspects",
+        "notes": "Ipamorelin placed in a generation of secretagogues he describes as not raising cortisol, prolactin or hunger."
+      },
+      {
+        "key": "tremblay-eb1-t103",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 103 (Tremblay)",
+        "pageStart": null,
+        "section": "when you combine them, you get one plus one equal three",
+        "notes": "The stated rationale for pairing a secretagogue with a growth-hormone-releasing-hormone analogue, and for using less of each."
+      },
+      {
+        "key": "tremblay-eb1-t83",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 83 (Tremblay)",
+        "pageStart": null,
+        "section": "you adjust your dosages according to your response of IGF 1 levels",
+        "notes": "IGF-1 as the marker to titrate against, with a stated reason for keeping it inside a range rather than maximising it."
+      },
+      {
+        "key": "tremblay-eb1-t111",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 111 (Tremblay)",
+        "pageStart": null,
+        "section": "not to eat at least an hour before and not eat like half an hour after",
+        "notes": "The fasting window, with the mechanism he gives: glucose at the time of dosing suppresses hepatic IGF-1 synthesis."
+      },
+      {
+        "key": "tremblay-eb1-t60-ghs",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 60 (Tremblay)",
+        "pageStart": null,
+        "section": "If you take too much of a growth hormone secretagogue",
+        "notes": "The exception he makes to his own general claim that most peptides cannot be overdosed."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "IPA-TREM-001",
+        "claimText": "Tremblay states that the later generation of growth hormone secretagogues, naming ipamorelin, does not produce the hunger, cortisol and prolactin elevation that earlier generations did, and that this is why he favours it.",
+        "plainLanguageText": "Tremblay says ipamorelin belongs to a later generation of these compounds that does not cause hunger or raise cortisol and prolactin the way earlier ones did.",
+        "claimCategory": "mechanism",
+        "importance": "high",
+        "interpretationNotes": "Recorded because it is a selectivity claim that a reader would use to choose between compounds, and because the index holds the earlier-generation comparison nowhere else. It is a practitioner's characterisation, not a measurement, and no comparative study is held.",
+        "uncertaintyText": "No study measuring cortisol, prolactin or appetite across secretagogue generations is held or cited. The speaker owns the company that manufactures and sells these compounds.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t101",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The generational account and the specific claim about hunger, cortisol and prolactin.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "IPA-TREM-002",
+        "claimText": "Tremblay states that combining a growth hormone secretagogue with a growth-hormone-releasing-hormone analogue produces a greater effect than either alone, because one acts more strongly on the secretion itself and the other on the peak reached, and that the combination therefore allows much smaller amounts of each.",
+        "plainLanguageText": "Tremblay says the two kinds of growth hormone compound work on different parts of the same process, so using them together gives a bigger effect from smaller amounts of each.",
+        "claimCategory": "mechanism",
+        "importance": "high",
+        "interpretationNotes": "Recorded because it is the stated rationale for a pairing that appears throughout practitioner practice, and because the implication runs towards using less rather than more, which is worth a reader seeing. His 'one plus one equals three' is a figure of speech and is not reproduced as a quantity.",
+        "uncertaintyText": "No study of the combination is held or cited, and no amounts are given for either compound in this passage. Whether the synergy is as described, and at what doses, is not established here.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t103",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The division of labour between the two classes and the claim that combining them allows smaller amounts of each.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "IPA-TREM-003",
+        "claimText": "Tremblay states that IGF-1 is the marker to monitor and to adjust growth hormone secretagogue dosing against, that too little IGF-1 is associated with cardiovascular disease and too much with cancer so the aim is to stay within the normal range, and that glucose at the time of dosing suppresses hepatic IGF-1 synthesis, so it is good practice not to eat for at least an hour before and about half an hour after a dose.",
+        "plainLanguageText": "Tremblay says the blood marker to watch is IGF-1, that the aim is to stay in the normal range rather than push it high, and that eating around the time of a dose blunts the effect — so he suggests leaving an hour before and half an hour after.",
+        "claimCategory": "monitoring",
+        "importance": "high",
+        "interpretationNotes": "The most practically useful material the held transcripts contribute, and the index holds nothing comparable: the practitioner handbook records secretagogue regimens with no monitoring target and no timing rationale. Recorded as monitoring rather than as a protocol because it is a rule for adjusting any regimen rather than a regimen itself; it is also carried on the protocol record as monitoring guidance. The aim he states — stay in range, do not maximise — is the opposite of how these compounds are often used, and that is worth preserving exactly.",
+        "uncertaintyText": "No study establishing an IGF-1 target range for this use is held or cited, and no threshold is given. The association he cites between IGF-1 extremes and disease is stated without a source. The fasting window is reasoning from glucose physiology rather than a measured comparison.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t83",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "IGF-1 as the marker to check regularly and titrate against, and the reason for keeping it in range.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          },
+          {
+            "locationKey": "tremblay-eb1-t111",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The fasting window and the glucose mechanism he gives for it.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      },
+      {
+        "claimKey": "IPA-TREM-004",
+        "claimText": "Tremblay excepts growth hormone secretagogues from his general claim that most peptides cannot be overdosed, stating that too much produces side effects not from the peptide itself but from the growth hormone it causes to be secreted, and naming carpal tunnel syndrome and IGF-1 rising far too high.",
+        "plainLanguageText": "Tremblay says most peptides cannot really be overdosed, but growth hormone secretagogues are an exception: too much causes problems through the growth hormone they release, such as carpal tunnel syndrome or IGF-1 going much too high.",
+        "claimCategory": "safety",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance, and recorded precisely because the exception is easy to lose. A derived summary of this collection reported the general claim — that overdosing most peptides means only that it did not work — without the exception. Reading the transcript shows he states the exception in the same breath, names two specific consequences, and attributes them to the hormone rather than the peptide. Both halves belong on the record, and the exception belongs on this compound.",
+        "uncertaintyText": "The general claim remains unsupported by anything held, and a regulator's published risk list for unauthorised injectable peptides is broader than the exception he makes. No incidence data for carpal tunnel syndrome or excessive IGF-1 in this use is held.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t60-ghs",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The exception itself: side effects from the effect of the peptide rather than the peptide, with carpal tunnel syndrome and excessive IGF-1 named.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      }
+    ],
+    "protocols": [
+      {
+        "protocolKey": "IPA-PR-TREMBLAY-TITRATED",
+        "objectiveContext": "Restoring growth hormone secretion while keeping IGF-1 within the normal range, as Tremblay frames it.",
+        "populationModel": "Not specified by the source.",
+        "routeKey": "subcutaneous",
+        "formulation": "Not stated.",
+        "regulatoryContext": "An expert practitioner's approach given in a podcast interview. Not approved labelling, not a study regimen and not a Tides position. The speaker manufactures and sells the compound.",
+        "evidenceTypeKey": "expert_commentary",
+        "amountReported": null,
+        "amountUnit": null,
+        "frequencyText": "Not stated in the held transcript",
+        "timingText": "Away from food: the source advises not eating for at least an hour before a dose and about half an hour after, so that glucose does not suppress the IGF-1 response",
+        "durationText": null,
+        "titrationText": "Adjusted against measured IGF-1, with the aim of remaining inside the normal range rather than maximising it. No target figure is given.",
+        "combinationsText": "The source pairs a secretagogue with a growth-hormone-releasing-hormone analogue, stating that the two act on different parts of the same process so that much smaller amounts of each are needed. He names no amounts for either.",
+        "monitoringText": "IGF-1, checked regularly, as the marker to adjust against. The source states that too little IGF-1 is associated with cardiovascular disease and too much with cancer, and gives no threshold.",
+        "contraindicationsText": null,
+        "safetyNotes": "The source excepts growth hormone secretagogues from his general claim that peptides cannot be overdosed, naming carpal tunnel syndrome and excessive IGF-1 as consequences of too much — attributing them to the growth hormone released rather than to the peptide.",
+        "locationKey": "tremblay-eb1-t83"
+      }
+    ],
+    "notYetSupported": [
+      {
+        "gapType": "numerical_threshold_not_established",
+        "statement": "What IGF-1 range growth hormone secretagogue dosing should be titrated to.",
+        "why": "A held practitioner source makes IGF-1 the marker to adjust against and states that both extremes carry risk, without giving any figure, and cites no study establishing a target.",
+        "whatWouldResolveIt": "A source giving an IGF-1 range for this use, with the population it applies to and the outcome it was chosen against.",
+        "verificationIssueKey": null,
+        "researchQuestion": "What IGF-1 range is appropriate when titrating growth hormone secretagogues, and against what outcome was it established?",
+        "opportunityType": "human_pharmacokinetics"
+      }
+    ]
+  },
+  "cjc-1295": {
+    "locations": [
+      {
+        "key": "tremblay-eb1-t105",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 105 (Tremblay)",
+        "pageStart": null,
+        "section": "the mice who were given the DAC version getting bad cases of cancer",
+        "notes": "The stated reason for avoiding the albumin-binding form, attributed to a biochemist he says was in the group that invented the molecule in Montreal."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "CJC-TREM-001",
+        "claimText": "Tremblay states that he avoids the albumin-binding (DAC) form of CJC-1295, on the basis of a recollection related to him by a biochemist he says worked in the Montreal group that invented the molecule, that mice given the DAC version developed blood cancer, which he attributes to the drug-affinity complex binding to albumin; he states that the how and why were not investigated.",
+        "plainLanguageText": "Tremblay says he avoids the long-acting DAC form of CJC-1295, because a colleague who worked in the group that invented it told him mice given that version developed blood cancer.",
+        "claimCategory": "safety",
+        "importance": "critical",
+        "interpretationNotes": "Recorded at critical importance and framed exactly as it arrives: a second-hand recollection of an unpublished animal observation, relayed by a named-but-unidentified colleague, about a form of the compound the index already carries as a separate record. It is not evidence that CJC-1295 with DAC causes cancer, and nothing here says it is. It is recorded because it is the stated reason a practising expert refuses to use a widely sold form, and a reader weighing that form is entitled to know what the refusal rests on — including how thin it is.",
+        "uncertaintyText": "Nothing documents this. No study, no publication, no data, and by his own account the mechanism was never investigated. The colleague is not named and the work is unpublished. A recollection of an unpublished animal finding cannot establish a human risk, and this index does not treat it as doing so. The speaker owns a company that sells the alternative form.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t105",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The account in full: the Montreal origin of the molecule, the colleague's recollection, the blood cancer in mice given the DAC version, the albumin-binding explanation, and the statement that it was not investigated further.",
+            "populationModel": "Mice, in an unpublished experiment recalled by a third party. Not a study this index holds, and not human.",
+            "primaryTrace": "cited_not_obtained",
+            "primaryTraceNote": "Unpublished work relayed second hand; nothing is held. The turn itself was read directly in the held transcript."
+          }
+        ]
+      }
+    ],
+    "notYetSupported": [
+      {
+        "gapType": "safety_not_established",
+        "statement": "Whether the albumin-binding form of CJC-1295 carries any oncological risk.",
+        "why": "A held practitioner source refuses to use it on the strength of a second-hand recollection of unpublished mouse work, whose mechanism he says was never investigated. Nothing documenting it is held, and nothing refuting it is held either.",
+        "whatWouldResolveIt": "The original animal work, or any toxicology or follow-up data for the drug-affinity-complex form.",
+        "verificationIssueKey": null,
+        "researchQuestion": "What toxicology exists for the albumin-binding form of CJC-1295, and does anything support or refute the reported animal finding?",
+        "opportunityType": "human_safety"
+      }
+    ]
+  },
+  "mod-grf-1-29": {
+    "locations": [
+      {
+        "key": "tremblay-eb1-t103-modgrf",
+        "sourceKey": "SRC-206",
+        "locatorText": "transcript, turn 103 (Tremblay)",
+        "pageStart": null,
+        "section": "the first group will be stronger at promoting the actual secretion",
+        "notes": "The division of labour he describes between the two classes, and the rationale for combining them at smaller amounts."
+      }
+    ],
+    "claims": [
+      {
+        "claimKey": "MODGRF-TREM-001",
+        "claimText": "Tremblay describes the growth-hormone-releasing-hormone analogue and the secretagogue as acting on different parts of the same process — one stronger at promoting secretion, the other at the peak concentration reached — and states that combining them produces a greater effect than either alone, so that much smaller amounts of each are needed.",
+        "plainLanguageText": "Tremblay says this compound and a secretagogue work on different parts of the same process, so together they do more than either alone and less of each is needed.",
+        "claimCategory": "mechanism",
+        "importance": "high",
+        "interpretationNotes": "Recorded on this record as well as on ipamorelin's, because the claim is about the pair and a reader arriving at either compound needs it. The index holds this pairing from a practitioner handbook as a regimen; what this source adds is the reason, and an implication that runs towards smaller amounts rather than larger.",
+        "uncertaintyText": "No study of the combination is held or cited and no amounts are given. Whether the described division of labour holds, and at what doses, is not established here.",
+        "evidence": [
+          {
+            "locationKey": "tremblay-eb1-t103-modgrf",
+            "evidenceTypeKey": "expert_commentary",
+            "interpretation": "The division of labour between the two classes and the statement that combining them allows much smaller amounts of each.",
+            "primaryTrace": "full_text_supports",
+            "primaryTraceNote": "Read directly in the held transcript at the recorded turn."
+          }
+        ]
+      }
+    ]
+  }
+}
