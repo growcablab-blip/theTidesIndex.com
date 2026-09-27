@@ -23,13 +23,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import shutil
 from pathlib import Path
 
 import fitz  # PyMuPDF
 
 ROOT = Path(__file__).resolve().parents[2]
-INTAKE = Path(r"C:\Velara Medical\Research Docs")
+INTAKE = Path(os.environ.get("TIDES_INTAKE_DIR", ""))  # owner-supplied intake folder,
+# outside this repository; set TIDES_INTAKE_DIR to re-run this historical script
 SCRATCH_DOWNLOADS = Path(
     r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
     r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\intake"
