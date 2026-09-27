@@ -17,6 +17,7 @@ those are recorded as different states.
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 import time
@@ -27,10 +28,7 @@ from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "SOURCE_MANIFEST.json"
-OUT = pathlib.Path(
-    r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-    r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\funding-proposal.json"
-)
+OUT = pathlib.Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "funding-proposal.json"
 EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 INDUSTRY = re.compile(

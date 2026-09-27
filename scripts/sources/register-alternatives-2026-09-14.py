@@ -29,6 +29,7 @@ Idempotent.
 from __future__ import annotations
 
 import hashlib
+import os
 import json
 import shutil
 from pathlib import Path
@@ -36,13 +37,12 @@ from pathlib import Path
 import fitz
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRATCH = Path(r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-               r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\alt")
+SCRATCH = Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "alt"
 SNAP = ROOT / "data" / "private" / "source-snapshots"
 SOURCES = ROOT / "sources"
 REGISTER = ROOT / "data" / "seed" / "source-artifacts" / "intake-2026-09-14.json"
-BANGA_THIRD = Path(r"C:\Users\ianbu\Downloads"
-                   r"\1048107782-Ebook-Therapeutic-Peptides-and-Proteins-Formulation-Processing-and-Delivery-Systems-Third-Edition.pdf")
+BANGA_THIRD = Path(os.environ.get("TIDES_INTAKE_DIR", "review")) / (
+    "1048107782-Ebook-Therapeutic-Peptides-and-Proteins-Formulation-Processing-and-Delivery-Systems-Third-Edition.pdf")
 TODAY = "2026-09-14"
 
 REVIEW_LIMITS = (

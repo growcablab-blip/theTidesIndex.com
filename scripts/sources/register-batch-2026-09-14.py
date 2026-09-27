@@ -33,8 +33,7 @@ ROOT = Path(__file__).resolve().parents[2]
 INTAKE = Path(os.environ.get("TIDES_INTAKE_DIR", ""))  # owner-supplied intake folder,
 # outside this repository; set TIDES_INTAKE_DIR to re-run this historical script
 SCRATCH_DOWNLOADS = Path(
-    r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-    r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\intake"
+    Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "intake"
 )
 SOURCES = ROOT / "sources"
 REGISTRY_DIR = ROOT / "data" / "sources" / "registry"

@@ -22,14 +22,14 @@ private snapshots pinned by DOI, retrieval date and hash. Idempotent.
 from __future__ import annotations
 
 import hashlib
+import os
 import json
 import re
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RAW = Path(r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-           r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\reta-ecosystem\raw")
+RAW = Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "raw"
 SNAP = ROOT / "data" / "private" / "source-snapshots" / "abstracts"
 TODAY = "2026-09-14"
 

@@ -21,13 +21,17 @@
  * Findings are printed and written to the scratchpad as JSON. The script makes
  * no judgement about practitioner mode, which is supposed to carry amounts.
  */
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import { chromium, type Browser, type Page } from 'playwright-core';
 
 const BASE = process.env.TIDES_BASE_URL ?? 'http://localhost:3000';
-const OUT =
-  'C:/Users/ianbu/AppData/Local/Temp/claude/C--The-Tides-Index' +
-  '/32f9e6c6-4fcf-4e60-b98b-623e91076bee/scratchpad/patient-audit.json';
+/**
+ * Where the audit lands. `review/` is the repository's ignored directory for
+ * working captures, so the default keeps the output beside the other review
+ * artefacts without ever committing it.
+ */
+const OUT = process.env.TIDES_AUDIT_OUT ?? 'review/patient-audit.json';
 
 const SLUGS = [
   'bpc-157',
@@ -179,6 +183,8 @@ async function main(): Promise<void> {
     await browser.close();
   }
 
+  // The default output directory is ignored by git and may not exist yet.
+  mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, JSON.stringify({ checked, findings }, null, 2), 'utf8');
 
   console.log('');

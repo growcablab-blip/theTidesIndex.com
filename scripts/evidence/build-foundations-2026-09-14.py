@@ -32,14 +32,14 @@ again after this script.
 from __future__ import annotations
 
 import hashlib
+import os
 import json
 import re
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRATCH = Path(r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-               r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\foundations2")
+SCRATCH = Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "foundations2"
 SNAP = ROOT / "data" / "private" / "source-snapshots" / "foundations"
 HELD_REVIEWS = ROOT / "data" / "private" / "source-snapshots" / "reviews"
 MANIFEST = ROOT / "SOURCE_MANIFEST.json"

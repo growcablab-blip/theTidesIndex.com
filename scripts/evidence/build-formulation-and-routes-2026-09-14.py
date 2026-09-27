@@ -33,14 +33,14 @@ deleting any.
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
 import fitz
 
 ROOT = Path(__file__).resolve().parents[2]
-EXTRACT = Path(r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-               r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\extract")
+EXTRACT = Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "extract"
 SNAP = ROOT / "data" / "private" / "source-snapshots" / "reviews"
 TODAY = "2026-09-14"
 

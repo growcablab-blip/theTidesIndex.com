@@ -17,16 +17,14 @@ has, and it is answered from the text rather than guessed from an affiliation.
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 import sys
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-PROPOSAL = pathlib.Path(
-    r"C:\Users\ianbu\AppData\Local\Temp\claude\C--The-Tides-Index"
-    r"\32f9e6c6-4fcf-4e60-b98b-623e91076bee\scratchpad\funding-proposal.json"
-)
+PROPOSAL = pathlib.Path(os.environ.get("TIDES_SCRATCH_DIR", "review")) / "funding-proposal.json"
 
 # The disclosure names the company that makes or sells the compound the record
 # is about. Read from the statements printed by fetch-funding.py, one at a time.
