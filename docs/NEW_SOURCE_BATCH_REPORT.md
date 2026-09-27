@@ -1,6 +1,6 @@
 # New source batch report
 
-Intake of `C:\Velara Medical\Research Docs`, 14 September 2026. Branch
+Intake of an owner-supplied research folder outside this repository, 14 September 2026. Branch
 `phase-a-foundation`. Not deployed, noindex intact, nothing published, no
 compound added.
 

@@ -1,13 +1,13 @@
 # V1 SECTION 5 — TREMBLAY ARCHIVE REVIEW AND INGESTION
 
 Date: 26 September 2026. Baseline: `e532970` (Section 4, tranche 2).
-Archive: `C:\Velara Medical\Website\velara-medical\Research`.
+Archive: the owner-supplied archive folder named in the Section 5 brief, outside this repository.
 
 **Status: archive reviewed in full; source collection registered; no claim or protocol published, and
 the reason is structural rather than editorial.**
 
-The storage path sits inside a Velara filesystem. No Velara branding, product, positioning, inventory,
-pricing or organisational identity enters The Tides Index, and none appears in this work.
+The archive was supplied from a folder outside this repository. Where a file sits on a disk confers
+no authorship, affiliation or identity on The Tides Index, and none appears in this work.
 
 ---
 

@@ -16,14 +16,67 @@
 
 export interface IndexingEnv {
   readonly flag: string | undefined;
+  /** What the sitemap and canonical URLs will be built from. */
+  readonly siteUrl: string | undefined;
 }
 
 export function currentIndexingEnv(): IndexingEnv {
-  return { flag: process.env.TIDES_ALLOW_INDEXING };
+  return {
+    flag: process.env.TIDES_ALLOW_INDEXING,
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+  };
 }
 
+/**
+ * A public origin: https, with a dotted host that is not a development name.
+ *
+ * The default when the variable is unset is the production domain, so an unset
+ * variable is fine. What this catches is a *set* one that points somewhere
+ * private — most obviously a development `.env` copied into the deployment,
+ * which is how a sitemap full of `http://localhost:3000/` URLs gets published
+ * on the day indexing is opened.
+ */
+function isPublicOrigin(value: string): boolean {
+  let parsed: URL;
+  try {
+    parsed = new URL(value);
+  } catch {
+    return false;
+  }
+  if (parsed.protocol !== 'https:') return false;
+  const host = parsed.hostname.toLowerCase();
+  if (!host.includes('.')) return false;
+  if (host === '127.0.0.1' || host === '[::1]') return false;
+  return !/(^|\.)(localhost|local|test|internal)$/.test(host);
+}
+
+/**
+ * Two conditions, and the second is not decoration.
+ *
+ * Lifting the block is meant to be one deliberate act, but one act that can
+ * half-succeed is worse than two: `TIDES_ALLOW_INDEXING=1` alongside a site URL
+ * left pointing at a development machine opens crawling *and* advertises a
+ * sitemap of unreachable URLs, and it does it silently. Requiring a public
+ * origin makes the switch all-or-nothing.
+ */
 export function indexingAllowed(env: IndexingEnv): boolean {
-  return env.flag === '1';
+  if (env.flag !== '1') return false;
+  return env.siteUrl === undefined || isPublicOrigin(env.siteUrl);
+}
+
+/** Why indexing is still blocked, for an operator reading a deployment log. */
+export function indexingRefusal(env: IndexingEnv): string | null {
+  if (env.flag !== '1') {
+    return 'Indexing is blocked. Set TIDES_ALLOW_INDEXING=1 to open it.';
+  }
+  if (env.siteUrl !== undefined && !isPublicOrigin(env.siteUrl)) {
+    return (
+      `Indexing is blocked although TIDES_ALLOW_INDEXING=1, because ` +
+      `NEXT_PUBLIC_SITE_URL is "${env.siteUrl}", which is not a public https origin. ` +
+      'Canonical URLs and the sitemap would be built from it.'
+    );
+  }
+  return null;
 }
 
 /**

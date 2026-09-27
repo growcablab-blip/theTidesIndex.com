@@ -1,14 +1,15 @@
 # TREMBLAY ARCHIVE INVENTORY
 
 Date: 26 September 2026. Baseline: `e532970` (Section 4, tranche 2).
-Archive reviewed: `C:\Velara Medical\Website\velara-medical\Research`, recursively.
+Archive reviewed: the owner-supplied archive folder named in the Section 5 brief, recursively.
+It sits outside this repository and its path is deliberately not recorded here.
 
 **This is the authoritative inventory of the archive supplied for Section 5.** It records what the
 archive contains, what it does not contain, and the provenance determination that follows.
 
-The storage path sits inside a Velara filesystem. That is a fact about a disk and nothing else: no
-Velara branding, product, positioning or identity enters The Tides Index, and none appears anywhere
-in this work.
+The archive was supplied from a folder outside this repository. Where a file happens to sit on a
+disk is a fact about storage and nothing else: it confers no authorship, no affiliation and no
+identity on The Tides Index, and none appears anywhere in this work.
 
 ---
 
