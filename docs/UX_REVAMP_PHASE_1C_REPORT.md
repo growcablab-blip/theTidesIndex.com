@@ -229,14 +229,17 @@ hairline along the bottom edge. No wave.
 | `npm run typecheck` | **Clean** |
 | `npx vitest run tests/unit` | **489 passed, 35 files** — 20 new |
 | Integration: peptide-experience, every-compound-renders, reading-mode | **28 passed** |
+| `npx vitest run tests/integration` (full) | **435 passed, 37 files**, 46 minutes |
 | `npm run qa:doses` | **Clean** |
 | `npm run build` | **Clean** |
 | Horizontal overflow, 390 / 1440 | **None**, both pages, local and live |
 | Live routes, both modes | **200** |
 | `robots.txt` | `Disallow: /` — indexing still off |
 
-The full integration suite was running when this was written; its result
-belongs here and the work should not be considered released until it passes.
+The full integration suite passed after the deploy: **435 tests across 37
+files**. Nothing in this pass touched shared query or schema code — the
+changes are components, one domain module and stylesheet additions — and the
+suite confirms it.
 
 ---
 
