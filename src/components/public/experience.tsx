@@ -69,7 +69,7 @@ export function SourceDrawer({
   readonly children?: ReactNode;
 }) {
   if (citations.length === 0) return null;
-  const heading = label ?? `Sources for this section (${String(citations.length)})`;
+  const heading = label ?? `Sources (${String(citations.length)})`;
   return (
     <details className="group mt-5 border-t border-rule/70 pt-3">
       {/* Slate, not the site accent. Teal is what the findings are allowed to

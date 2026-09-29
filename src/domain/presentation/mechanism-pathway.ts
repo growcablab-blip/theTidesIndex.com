@@ -28,8 +28,8 @@
 export const PATHWAY_STAGES = [
   {
     key: 'signal',
-    label: 'What is reported to act',
-    detail: 'Receptor and signalling changes the sources report.',
+    label: 'Where it acts',
+    detail: 'Receptor and signalling changes the research reports.',
   },
   {
     key: 'molecular',
@@ -43,8 +43,8 @@ export const PATHWAY_STAGES = [
   },
   {
     key: 'observed',
-    label: 'Observed in the model',
-    detail: 'What was measured in the animal or the culture.',
+    label: 'Observed in the study',
+    detail: 'What was measured in the animal or laboratory study.',
   },
 ] as const;
 

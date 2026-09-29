@@ -82,13 +82,13 @@ export function PathwayDiagram({
         ))}
       </div>
       <p className="mt-6 max-w-[74ch] text-sm leading-relaxed text-on-deep-soft">
-        Each box is a phrase from the record named under it, in the order the sources describe.
-        An arrow here means <em>reported next</em>, not <em>causes</em>: nothing held tests one
-        step against another.{' '}
+        Each step is taken word for word from the research named beneath it, in the order the
+        sources describe. An arrow means <em>reported next</em>, not <em>causes</em> — no study
+        has tested one step against another.{' '}
         {hasHuman ? null : (
           <strong className="font-medium text-on-deep">
-            No step on this diagram rests on evidence from people — every record behind it is an
-            animal or a cell study.
+            No step here rests on evidence from people: every study behind this diagram is animal
+            or laboratory research.
           </strong>
         )}
       </p>
@@ -274,7 +274,7 @@ export function ProtocolDataCard({
 
         {simple ? (
           <p className="mt-4 rounded-lg border border-rule bg-mist/50 px-4 py-3 text-sm leading-relaxed text-slate">
-            Amounts, frequency and duration are not shown in this reading.
+            Amounts, frequency and duration are not shown in this view.
           </p>
         ) : null}
 
@@ -338,9 +338,9 @@ export function ProtocolDataCard({
 // ---------------------------------------------------------------------------
 
 const COLUMNS = [
-  { key: 'agree', title: 'Where they agree', accent: '#1f6b73', empty: 'Nothing. No field of a reported regimen is stated the same way by every record of either kind.' },
+  { key: 'agree', title: 'Where they agree', accent: '#1f6b73', empty: 'Nothing: no part of a protocol is described the same way by every source of either kind.' },
   { key: 'differ', title: 'Where they differ', accent: '#4f46e5', empty: 'Nothing: every field that is stated is stated the same way.' },
-  { key: 'unknown', title: 'What none of them settles', accent: '#5d6b72', empty: 'Every field is stated by every record.' },
+  { key: 'unknown', title: 'What none of them settles', accent: '#5d6b72', empty: 'Every source states every part of its protocol.' },
 ] as const;
 
 /**

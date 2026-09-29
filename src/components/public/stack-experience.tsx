@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { PractitionerProtocol } from '@/server/public/shapes';
 import type { CombinationReport, StackMemberReading, StackPage } from '@/server/public/stacks';
-import { Band, BandHeading, CompoundMark, Tag } from './visual-system';
+import { Band, BandHeading, CompoundMark } from './visual-system';
 import { NumberedStep, ProtocolDataCard } from './research-visuals';
 import { protocolSourceName } from './compound-experience';
 
@@ -207,14 +207,14 @@ function MemberCard({
       )}
       <dl className="mt-5 grid grid-cols-2 gap-px border-t border-rule bg-rule">
         <div className="bg-warm-white px-5 py-4">
-          <dt className="label-micro text-slate">Human-evidence statements</dt>
+          <dt className="label-micro text-slate">Human-evidence findings</dt>
           <dd className="numeric mt-1.5 font-serif text-3xl leading-none text-deep-tide">{human}</dd>
         </div>
         {/* Simple reading holds no regimen, so a count of them would read as
             "none exist" rather than "none is shown here". */}
         <div className="bg-warm-white px-5 py-4">
           <dt className="label-micro text-slate">
-            {simple ? 'Full record' : 'Source-reported regimens'}
+            {simple ? 'Full research' : 'Reported protocols'}
           </dt>
           <dd className="mt-1.5">
             {simple ? (
@@ -250,8 +250,8 @@ function CombinationReportCard({
         <p className="label-micro text-slate">{report.evidenceTypeLabel}</p>
         <h3 className="mt-1 font-serif text-xl leading-snug text-ink">{report.sourceName}</h3>
         <p className="mt-1.5 text-sm text-slate">
-          On the {report.memberName} record
-          {report.partnerNames.length === 0 ? null : ` · names ${report.partnerNames.join(' and ')}`}
+          Reported for {report.memberName}
+          {report.partnerNames.length === 0 ? null : ` · with ${report.partnerNames.join(' and ')}`}
         </p>
       </div>
       <div className="py-5 pr-5 pl-7">
@@ -266,10 +266,10 @@ function CombinationReportCard({
             key={a.term}
             className="mt-4 rounded-lg border border-amber-300/70 bg-amber-50/70 px-4 py-3.5 text-sm leading-relaxed text-ink-soft"
           >
-            <span className="label-micro mb-1.5 block text-amber-700">Which compound is not determinable</span>
-            This record names <strong className="font-medium text-ink">{a.term}</strong>, which the
-            register holds as a name for {a.candidates.join(' and ')} alike. Which of them was given
-            cannot be determined from the record, and this index does not choose one.
+            <span className="label-micro mb-1.5 block text-amber-700">Which compound is unclear</span>
+            This source says <strong className="font-medium text-ink">{a.term}</strong>, a name used
+            for {a.candidates.join(' and ')} alike. Which one was used cannot be determined from the
+            report, and Tides does not choose for it.
           </p>
         ))}
         {report.citations.length === 0 ? null : (
@@ -329,40 +329,50 @@ export function StackExperience({
       <Band tone="deep" grid className="pt-10 pb-14 md:pt-14 md:pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
-            <p className="label-micro text-cyan">Combination · What sources report using together</p>
-            <h1 className="mt-4 max-w-[16ch] font-serif text-4xl leading-[1.02] tracking-[-0.02em] text-on-deep md:text-6xl">
+            <p className="label-micro text-cyan">Research combination</p>
+            <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.02em] text-on-deep md:text-7xl">
               {stack.title}
             </h1>
-            <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-on-deep-soft">
+            <p className="mt-4 font-serif text-2xl leading-snug text-cyan-soft/90 md:text-3xl">
+              {stack.subtitle}
+            </p>
+            <p className="mt-7 max-w-[56ch] text-lg leading-relaxed text-on-deep-soft">
               {reports.length === 0
-                ? 'No source held by this index reports these compounds being used together.'
-                : `${String(reports.length)} held record${reports.length === 1 ? '' : 's'} report${
-                    reports.length === 1 ? 's' : ''
-                  } these compounds being used together, drawn from ${String(sourceCount)} identifiable source${
-                    sourceCount === 1 ? '' : 's'
-                  }.`}
+                ? 'No source Tides holds reports these compounds being used together.'
+                : `BPC-157 and TB-500 are discussed together across practitioner and research sources. Tides tracks what research shows for each compound separately, which sources report combining them, and how much evidence exists for the combination itself.`}
             </p>
-            <p className="mt-4 max-w-[56ch] leading-relaxed text-on-deep-soft">
-              {humanReports.length === 0
-                ? 'None of them is a record of what happened to people.'
-                : humanResolved.length === 0
-                  ? `${String(humanReports.length)} of them ${
-                      humanReports.length === 1 ? 'is' : 'are'
-                    } a record of what happened to people — and the second compound is named there in a way that does not identify which of these it was.`
-                  : `${String(humanResolved.length)} of them ${
-                      humanResolved.length === 1 ? 'is' : 'are'
-                    } a record of what happened to people.`}
-            </p>
-            <p className="mt-6 max-w-[58ch] border-l-2 border-cyan-soft/30 pl-4 text-sm leading-relaxed text-on-deep-faint">
-              No study held here compares the combination against either compound alone. Nothing on
-              this page is a recommendation, and no combined regimen is stated anywhere on it.
-            </p>
-            {stack.members.length === 0 ? null : (
-              <ul className="mt-7 flex flex-wrap gap-2">
-                {stack.members.map((m) => (
-                  <Tag key={m.slug}>{m.name}</Tag>
+
+            {/* The naming problem is prominent but secondary: visible on the
+                first screen, and deliberately not inside the headline. */}
+            {ambiguousTerms.length === 0 ? null : (
+              <div className="mt-7 max-w-[56ch] rounded-xl border border-amber-300/30 bg-amber-100/[0.06] px-5 py-4">
+                <p className="label-micro text-amber-200/90">A note on TB-500</p>
+                <p className="mt-2 text-sm leading-relaxed text-on-deep-soft">
+                  Sources do not always distinguish TB-500 from thymosin beta-4 consistently. Tides
+                  preserves that uncertainty rather than assuming the terms are interchangeable, so
+                  both compounds appear here and reports that do not identify which was used say so.
+                </p>
+              </div>
+            )}
+
+            {reports.length === 0 ? null : (
+              <dl className="mt-8 grid max-w-[38rem] grid-cols-2 gap-2.5 sm:grid-cols-3">
+                {[
+                  { value: String(sourceCount), label: 'Sources' },
+                  { value: String(reports.length), label: 'Combination reports' },
+                  {
+                    value: humanReports.length === 0 ? 'None' : 'Limited',
+                    label: 'Direct human evidence',
+                  },
+                ].map((r) => (
+                  <div key={r.label} className="glass px-4 py-3.5">
+                    <dt className="label-micro text-on-deep-faint">{r.label}</dt>
+                    <dd className="numeric mt-1.5 font-serif text-2xl leading-none text-on-deep">
+                      {r.value}
+                    </dd>
+                  </div>
                 ))}
-              </ul>
+              </dl>
             )}
           </div>
 
@@ -381,28 +391,28 @@ export function StackExperience({
         <BandHeading
           tone="deep"
           eyebrow="How to read this"
-          title="Three different questions, kept apart"
-          lede="A combination page invites one mistake above all others: reading evidence about each compound as evidence about the pair. These are not the same question and this page never merges them."
+          title="Understanding the evidence"
+          lede="Research around this combination falls into three layers. Looking at them separately makes it easier to see what is known — and where the evidence is still thin."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <NumberedStep index={1} title="Individual evidence" accent="#22d3ee">
-            What is known about each compound alone. Answered on each compound&rsquo;s own record,
-            summarised below and linked.
+          <NumberedStep index={1} title="Each compound" accent="#22d3ee">
+            What research tells us about {stack.members.map((m) => m.name).join(', ')}{' '}
+            individually. Summarised below, with the full record for each one linked.
           </NumberedStep>
-          <NumberedStep index={2} title="Combination reports" accent="#2563eb">
-            Who reports using them together, and for what. Answered by the records below, each under
-            the name of the source that reports it.
+          <NumberedStep index={2} title="Used together" accent="#2563eb">
+            What practitioners and other sources report when the compounds are combined — each
+            report under the name of the source that published it.
           </NumberedStep>
-          <NumberedStep index={3} title="Direct combination evidence" accent="#7c6ce0" emphasis>
+          <NumberedStep index={3} title="The combination itself" accent="#7c6ce0" emphasis>
             {humanReports.length === 0
-              ? 'What has been studied about the combination itself. Nothing held here — the honest answer, and the most important line on the page.'
+              ? 'What has actually been studied about using them together. Nothing so far — no study Tides holds compares the combination against either compound alone.'
               : humanResolved.length === 0
-                ? `${String(humanReports.length)} held record${
+                ? `What has actually been studied about using them together. ${String(humanReports.length)} report${
                     humanReports.length === 1 ? '' : 's'
-                  } describe${humanReports.length === 1 ? 's' : ''} people given a second compound alongside — under a name that does not identify which. None is a trial of the combination against either compound alone.`
-                : `${String(humanResolved.length)} held record${
+                  } involve${humanReports.length === 1 ? 's' : ''} human use with a second compound, named in a way that does not identify which one. No study compares the combination against either compound alone.`
+                : `What has actually been studied about using them together. ${String(humanResolved.length)} report${
                     humanResolved.length === 1 ? '' : 's'
-                  } of people given both. None is a trial of the combination against either compound alone.`}
+                  } involve${humanResolved.length === 1 ? 's' : ''} human use of both. No study compares the combination against either compound alone.`}
           </NumberedStep>
         </div>
       </Band>
@@ -410,9 +420,9 @@ export function StackExperience({
       {/* ── 3 · The compounds individually ───────────────────────────── */}
       <Band id="members" tone="light" className="py-16 md:py-24">
         <BandHeading
-          eyebrow="Individually"
-          title="What each compound is, on its own record"
-          lede="These summaries are the compounds' own. Nothing here is altered by their appearing on a combination page."
+          eyebrow="Each compound"
+          title="What research shows for each one"
+          lede="Each compound has its own body of research, unchanged by appearing on a combination page."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {stack.members.map((m, i) => (
@@ -429,12 +439,12 @@ export function StackExperience({
       {/* ── 4 · The combination reports ──────────────────────────────── */}
       <Band id="combination" tone="ivory" className="py-16 md:py-24">
         <BandHeading
-          eyebrow="Together"
-          title="Every held record that names the pairing"
-          lede="Each card is one source saying it uses these together. That several sources say so is a fact about the sources, not evidence that the combination works."
+          eyebrow="Used together"
+          title="Sources that report combining them"
+          lede="Each card is one source describing its own approach. That several sources describe the same pairing tells you what is commonly done — not that it works."
         />
         {reports.length === 0 ? (
-          <p className="mt-10 text-ink-soft">No held record names these compounds being used together.</p>
+          <p className="mt-10 text-ink-soft">No source reports combining these compounds.</p>
         ) : (
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {reports.map((r, i) => (
@@ -450,19 +460,23 @@ export function StackExperience({
 
       {/* ── 5 · What none of this establishes ────────────────────────── */}
       <Band id="unsettled" tone="soft" className="py-16 md:py-24">
-        <BandHeading eyebrow="Unsettled" title="What none of this establishes" />
+        <BandHeading
+          eyebrow="Open questions"
+          title="What remains uncertain"
+          lede="The questions this research does not answer."
+        />
         <ul className="mt-10 grid gap-4 md:grid-cols-2">
           {[
-            'Whether using these together does more than using either alone. No held record compares them.',
+            'Whether using these together does more than using either alone. No study compares them.',
             'Whether the combination is safer, or less safe, than either compound by itself.',
-            'Whether the practitioner sources reached the same pairing independently, or from each other.',
+            'Whether these sources arrived at the pairing independently, or from one another.',
             humanReports.length === 0
-              ? 'What happens to people given both, in any setting. No held record describes it.'
-              : 'What the combination contributed in the records where people received both: those records were not designed to separate it.',
+              ? 'What happens to people given both, in any setting. No source describes it.'
+              : 'What the combination itself contributed where people received both — those reports were not designed to separate it.',
             ...(ambiguousTerms.length === 0
               ? []
               : [
-                  `Which compound was actually given, where a record names ${ambiguousTerms.join(' or ')}. The register holds that name for more than one of these compounds, because sources use it for more than one; the records do not settle it.`,
+                  `Which compound was actually used, where a source says ${ambiguousTerms.join(' or ')}. Sources use that name for more than one of these compounds, and the reports do not settle which was meant.`,
                 ]),
           ].map((line) => (
             <li
@@ -479,9 +493,9 @@ export function StackExperience({
       {simple ? null : (
         <Band id="regimens" tone="light" className="py-16 md:py-24">
           <BandHeading
-            eyebrow="Reported regimens"
-            title="What each source reports for the compounds separately"
-            lede="Shown separately on purpose. These are single-compound regimens; no source held here states a combined amount, and this index does not assemble one."
+            eyebrow="Reported protocols"
+            title="Protocols for each compound on its own"
+            lede="These are single-compound protocols. No source states a combined amount, and Tides does not assemble one."
           />
           <div className="mt-10 grid gap-14">
             {byMember
@@ -509,7 +523,7 @@ export function StackExperience({
 
       {/* ── 7 · Onward ───────────────────────────────────────────────── */}
       <Band id="records" tone="deep" className="py-16 md:py-24">
-        <BandHeading tone="deep" eyebrow="Full records" title="Read the compounds in full" />
+        <BandHeading tone="deep" eyebrow="Go deeper" title="Read the full research for each" />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {stack.members.map((m, i) => (
             <Link
@@ -525,15 +539,15 @@ export function StackExperience({
                   {m.name}
                 </span>
                 <span className="block text-sm text-on-deep-faint">
-                  Evidence, sources and regulatory status
+                  Research, sources and regulatory status
                 </span>
               </span>
             </Link>
           ))}
         </div>
         <p className="mt-8 max-w-[72ch] text-sm leading-relaxed text-on-deep-faint">
-          Compounds are named here because sources name them, not because this index endorses the
-          pairing. Each carries its own uncertainties, which are on its own record.
+          These compounds appear together because sources report using them together, not because
+          Tides endorses the pairing. Each has its own uncertainties, set out on its own page.
         </p>
       </Band>
     </>

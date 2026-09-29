@@ -34,7 +34,17 @@ import { readPublishedPeptidePage, type PeptidePage } from './queries';
  */
 export interface StackDefinition {
   readonly slug: string;
+  /** The public headline. Short enough to read as a title. */
   readonly title: string;
+  /**
+   * The research area, in the sources' own vocabulary.
+   *
+   * Every substantive word has to appear in the objectives of the records this
+   * page actually shows, and `tests/unit/stack-register.test.ts` checks that
+   * against the register. A subtitle is the most-read line on the page; an
+   * unsupported one would be the worst possible place to be loose.
+   */
+  readonly subtitle: string;
   /** What the page does, in navigational terms. Never a claim about the pairing. */
   readonly summary: string;
   readonly memberSlugs: readonly string[];
@@ -43,9 +53,10 @@ export interface StackDefinition {
 export const STACK_DEFINITIONS: readonly StackDefinition[] = [
   {
     slug: 'bpc-157-tb-500',
-    title: 'BPC-157 with TB-500 and thymosin beta-4',
+    title: 'BPC-157 + TB-500',
+    subtitle: 'Recovery and tissue-repair research',
     summary:
-      'What each compound is on its own, which identifiable sources report using them together, and what has actually been studied about the combination itself — kept apart.',
+      'What research shows for each compound on its own, which sources report using them together, and how much has been studied about the combination itself.',
     memberSlugs: ['bpc-157', 'tb-500', 'thymosin-beta-4'],
   },
 ];
@@ -122,6 +133,7 @@ export interface StackMemberReading {
 export interface StackPage {
   readonly slug: string;
   readonly title: string;
+  readonly subtitle: string;
   readonly members: readonly StackMemberReading[];
   /** Every held report of two members being used together. */
   readonly combination: readonly CombinationReport[];
@@ -350,6 +362,7 @@ export async function readStackPage(
   return {
     slug: definition.slug,
     title: definition.title,
+    subtitle: definition.subtitle,
     members,
     combination,
     combinationHuman: combination.filter((c) => c.isHumanEvidence),

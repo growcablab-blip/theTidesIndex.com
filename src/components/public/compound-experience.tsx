@@ -4,6 +4,7 @@ import type { PractitionerProtocol, SimpleProtocol } from '@/server/public/shape
 import type { StackLink } from '@/server/public/stacks';
 import { compareProtocols } from '@/domain/presentation/protocol-comparison';
 import { rankProse } from '@/domain/presentation/prose';
+import { researchInterests } from '@/domain/presentation/research-interests';
 import { pathwayHasHumanEvidence, resolvePathway } from '@/domain/presentation/mechanism-pathway';
 import { Band, BandHeading, CompoundMark, MolecularField, Tag, TelemetryRow } from './visual-system';
 import {
@@ -39,59 +40,6 @@ import { Disclosure } from './disclosure';
 // Deriving what a reader sees, from what the record holds
 // ---------------------------------------------------------------------------
 
-/**
- * Research-area chips.
- *
- * Each fires only when a phrase appears in a *held* protocol objective, so a
- * chip is always traceable to a record on this page. Deliberately a short,
- * explicit table rather than anything clever: a chip is a claim about what the
- * compound is studied for, and an inferred one would be a claim nobody made.
- */
-const INTEREST_SIGNALS: readonly (readonly [RegExp, string])[] = [
-  [/tendon|ligament|tissue repair|joint|musculoskelet/i, 'Tissue and joint repair'],
-  [/heal|recovery|repair/i, 'Healing and recovery'],
-  [/gastro|gut|intestin|ulcer|colitis/i, 'Gastrointestinal research'],
-  [/inflamm/i, 'Inflammation'],
-  [/skin|derma|hair/i, 'Skin and hair'],
-  [/cystitis|bladder|urolog/i, 'Urological research'],
-  [/knee|pain/i, 'Pain research'],
-  [/muscle|hypertroph|anabolic/i, 'Muscle'],
-  [/sleep/i, 'Sleep'],
-  [/cognit|neuro|brain/i, 'Neurological research'],
-  [/immune/i, 'Immune research'],
-  [/metabol|fat loss|weight/i, 'Metabolic research'],
-];
-
-export interface ResearchInterest {
-  readonly label: string;
-  /** How many held regimens name this context. */
-  readonly count: number;
-  /** One matching objective, verbatim, so the card cites rather than asserts. */
-  readonly example: string;
-}
-
-/**
- * What this compound is studied for, read off the held regimens.
- *
- * The example is a record's own objective text, unedited. A card that
- * explained an interest in its own words would be writing scientific content,
- * which this pass is explicitly not allowed to do.
- */
-export function researchInterests(protocols: readonly SimpleProtocol[]): ResearchInterest[] {
-  const found: ResearchInterest[] = [];
-  for (const [pattern, label] of INTEREST_SIGNALS) {
-    if (found.some((f) => f.label === label)) continue;
-    const matches = protocols.filter((p) => pattern.test(p.objectiveContext));
-    if (matches.length === 0) continue;
-    found.push({
-      label,
-      count: matches.length,
-      example: matches[0]?.objectiveContext ?? '',
-    });
-  }
-  return found.slice(0, 6);
-}
-
 /** Distinct source keys behind a set of claims, per evidence lane. */
 export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLaneReading[] {
   const lanes: Record<string, { sources: Set<string>; claims: Set<string> }> = {
@@ -114,7 +62,7 @@ export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLaneReadi
     {
       key: 'human',
       label: 'Human',
-      meaning: 'Measured in people. The only lane that can show what a compound does in a person.',
+      meaning: 'Research in people — the only kind that can show what a compound does in a person.',
       sources: lanes['human']?.sources.size ?? 0,
       claims: lanes['human']?.claims.size ?? 0,
     },
@@ -122,15 +70,15 @@ export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLaneReadi
       key: 'preclinical',
       label: 'Preclinical',
       meaning:
-        'Animals, cells and computation. A reason to study something in people, not a result in them.',
+        'Animal, cell and computational research. A reason to study something in people, not a result in them.',
       sources: lanes['preclinical']?.sources.size ?? 0,
       claims: lanes['preclinical']?.claims.size ?? 0,
     },
     {
       key: 'reference_opinion',
-      label: 'Practitioner and reference',
+      label: 'Practitioner reports',
       meaning:
-        'What experts and handbooks report doing and observing. Attributed, never a trial.',
+        'What clinicians and handbooks report doing and observing. Always attributed, never a trial.',
       sources: lanes['reference_opinion']?.sources.size ?? 0,
       claims: lanes['reference_opinion']?.claims.size ?? 0,
     },
@@ -237,23 +185,23 @@ export function CompoundExperience({
   const summary = simple ? peptide.simpleSummary : peptide.practitionerSummary;
 
   const readings = [
-    { value: String(sourceCount), label: 'Sources cited', detail: 'Distinct works behind the statements' },
+    { value: String(sourceCount), label: 'Published sources', detail: 'Behind the research on this page' },
     {
       value: String(humanLane?.claims ?? 0),
-      label: 'Human-evidence statements',
-      detail: `From ${String(humanLane?.sources ?? 0)} ${(humanLane?.sources ?? 0) === 1 ? 'source' : 'sources'}`,
+      label: 'Human evidence',
+      detail: `Findings from ${String(humanLane?.sources ?? 0)} ${(humanLane?.sources ?? 0) === 1 ? 'source' : 'sources'}`,
     },
     ...(simple
       ? []
       : [
           {
             value: String(protocols.length),
-            label: 'Reported regimens',
-            detail: 'Each under its own source’s name',
+            label: 'Reported protocols',
+            detail: 'Each published under its source’s name',
           },
         ]),
     ...(routeNames.length > 0
-      ? [{ value: String(routeNames.length), label: 'Routes reported', detail: routeNames.join(' · ') }]
+      ? [{ value: String(routeNames.length), label: 'Routes researched', detail: routeNames.join(' · ') }]
       : []),
     {
       value: peptide.lastReviewedAt === null ? 'Not yet' : 'Recorded',
@@ -269,8 +217,11 @@ export function CompoundExperience({
       <Band tone="deep" grid className="pt-10 pb-14 md:pt-14 md:pb-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
+            {/* The compound's own reviewed category, which both readings
+                carry — rather than an interest inferred from protocols that
+                simple reading cannot see. */}
             <p className="label-micro text-cyan">
-              Peptide{interests[0] === undefined ? '' : ` · ${interests[0].label}`}
+              Peptide{peptide.categoryLabel === null ? '' : ` · ${peptide.categoryLabel}`}
             </p>
             <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.02em] text-on-deep md:text-7xl">
               {peptide.canonicalName}
@@ -345,18 +296,18 @@ export function CompoundExperience({
       {interests.length === 0 ? null : (
         <Band id="interests" tone="soft" className="py-16 md:py-24">
           <BandHeading
-            eyebrow="Why it is studied"
-            title="What the held regimens are for"
-            lede="Read off the objectives the sources themselves state. Each card quotes one of them; none of this is an indication, and none of it means the compound works."
+            eyebrow="Research context"
+            title="Why it is being researched"
+            lede="The areas the published protocols set out to address, in the sources’ own words. These are research contexts, not approved uses."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {interests.map((interest, i) => (
               <InterestCard
                 key={interest.label}
                 title={interest.label}
-                detail={`${String(interest.count)} of ${String(protocols.length)} held ${
-                  protocols.length === 1 ? 'regimen names' : 'regimens name'
-                } this context. One states it as: “${interest.example}”`}
+                detail={`Named in ${String(interest.count)} of ${String(protocols.length)} reported ${
+                  protocols.length === 1 ? 'protocol' : 'protocols'
+                }. One describes it as: “${interest.example}”`}
                 index={i}
               />
             ))}
@@ -369,8 +320,8 @@ export function CompoundExperience({
         <BandHeading
           tone="deep"
           eyebrow="The evidence"
-          title="What kind of evidence stands behind this"
-          lede="Three different kinds of thing, kept apart. A count is not a grade, and nothing here is scored."
+          title="What the evidence looks like"
+          lede="Research on this compound comes in three kinds, and they answer different questions. Counts show how much of each exists — they are not a grade."
         />
         <div className="mt-10">
           <EvidenceLandscape lanes={lanes} />
@@ -396,8 +347,8 @@ export function CompoundExperience({
         <Band id="research" tone="light" className="py-16 md:py-24">
           <BandHeading
             eyebrow="Findings"
-            title="What the research says"
-            lede="What has been reported, and how far it has been shown. Read each with the lane it came from."
+            title="What the research has found"
+            lede="Each finding is labelled with the kind of research behind it, because an animal result and a human result answer different questions."
           />
           <div className="mt-10 space-y-8">
             {[...mechanism, ...effects, ...evidenceBase].map((c) => (
@@ -412,17 +363,17 @@ export function CompoundExperience({
       <Band id="protocols" tone="ivory" className="py-16 md:py-24">
         <BandHeading
           eyebrow="Reported protocols"
-          title="What identifiable sources report doing"
+          title="Protocols reported by named sources"
           lede={
             <>
-              Each card is one source&rsquo;s regimen, under that source&rsquo;s name. There is no
-              Tides dose and there will not be one: these are not averaged, reconciled or ranked.
+              Each card is one source&rsquo;s approach, published under that source&rsquo;s name.
+              Tides never averages them into a single dose.
             </>
           }
         />
         {protocols.length === 0 ? (
           <p className="mt-10 max-w-[62ch] text-ink-soft">
-            No source-reported protocol has been published for this compound.
+            No source has published a protocol for this compound.
           </p>
         ) : (
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -443,8 +394,8 @@ export function CompoundExperience({
           <div id="compare" className="mt-20 md:mt-24">
             <BandHeading
               eyebrow="Compare"
-              title="Where the sources agree, and where they do not"
-              lede="Every line is counted off the records themselves. No source is adjudicated here, because nothing held settles it."
+              title="How the sources differ"
+              lede="Counted directly from the protocols above. Where sources disagree, Tides shows the disagreement rather than picking a winner."
             />
             <div className="mt-10">
               <ComparisonMatrix comparison={comparison} />
@@ -458,8 +409,8 @@ export function CompoundExperience({
         <Band id="stacks" tone="soft" className="py-16 md:py-24">
           <BandHeading
             eyebrow="Combinations"
-            title="Reported alongside"
-            lede="Appearing together in a source is not evidence that the pairing works. Each page below separates what is known about the compounds individually from what is known about them together."
+            title="Researched alongside"
+            lede="Compounds that sources report using with this one. Each page keeps the evidence for the individual compounds separate from the evidence for the combination."
           />
           <div className="mt-10 grid gap-5">
             {stackLinks.map((link) => (
@@ -488,8 +439,8 @@ export function CompoundExperience({
           <div id="routes">
             <BandHeading
               eyebrow="Administration"
-              title="How it is reported to be given"
-              lede="Route evidence is specific to a compound and a formulation. That one peptide is absorbed by a route says nothing about another."
+              title="How it is given in research"
+              lede="Route findings apply to one compound in one formulation. That a peptide is absorbed by a route says nothing about another."
             />
             {routeNames.length === 0 ? null : (
               <ul className="mt-7 flex flex-wrap gap-2.5">
@@ -516,8 +467,8 @@ export function CompoundExperience({
           <div id="safety" className="mt-20 md:mt-24">
             <BandHeading
               eyebrow="Safety"
-              title="What is known about harm"
-              lede="Absence of reported harm is not evidence of safety, and a small study cannot show a rare effect."
+              title="What is known about safety"
+              lede="No reported harm is not the same as evidence of safety: small studies cannot detect rare effects."
             />
             <div className="mt-10 space-y-8">
               {safety.map((c) => (
@@ -531,9 +482,9 @@ export function CompoundExperience({
         {peptide.gaps.length === 0 ? null : (
           <div id="unknowns" className="mt-20 md:mt-24">
             <BandHeading
-              eyebrow="Unsettled"
-              title="What this index does not know"
-              lede="Recorded as absences rather than left out. An unanswered question is a finding."
+              eyebrow="Open questions"
+              title="What remains uncertain"
+              lede="Questions the research does not currently answer. Tides records these rather than leaving them out."
             />
             <ul className="mt-10 grid gap-4 md:grid-cols-2">
               {peptide.gaps.map((gap) => (
@@ -552,7 +503,7 @@ export function CompoundExperience({
           <BandHeading
             eyebrow="Quality"
             title="What is in the vial is a separate question"
-            lede="Identity, purity, sterility and storage are properties of a supplied material, not of a compound."
+            lede="Identity, purity, sterility and storage describe a supplied material, not a compound. Research findings say nothing about what a given vial contains."
           />
           <p className="mt-6">
             <Link
@@ -572,8 +523,8 @@ export function CompoundExperience({
             <BandHeading
               tone="deep"
               eyebrow="Context"
-              title="Regulatory and sport context"
-              lede="One jurisdiction at one date. It bears on whether something may be sold, not on what has been studied."
+              title="Regulatory and sport status"
+              lede="Each entry is one jurisdiction on one date. Status affects whether a compound may be sold — not what research has found."
             />
             {peptide.regulatoryStatuses.length === 0 ? null : (
               <ul className="mt-8 grid gap-3 md:grid-cols-2">
@@ -601,10 +552,10 @@ export function CompoundExperience({
 
         {remaining.length === 0 ? null : (
           <div id="references" className="mt-16 md:mt-20">
-            <BandHeading tone="deep" eyebrow="Depth" title="The rest of the record" />
+            <BandHeading tone="deep" eyebrow="More" title="Further research notes" />
             <div className="mt-8 rounded-2xl border border-cyan-soft/15 bg-on-deep/[0.04] px-5 py-2">
               <Disclosure
-                summary={`Further statements on this compound (${String(remaining.length)})`}
+                summary={`Further findings on this compound (${String(remaining.length)})`}
               >
                 <div className="space-y-8 pt-4">
                   {remaining.map((c) => (
