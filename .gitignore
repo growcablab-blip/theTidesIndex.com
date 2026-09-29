@@ -49,4 +49,10 @@ publishing/pdf/generated/
 /build/
 
 # Screenshots and other review captures. A snapshot of a moment.
-review/
+#
+# Anchored. Unanchored, this matched `src/app/admin/review/` as well — and
+# though git itself kept those files because they are already tracked, the
+# Railway CLI applies these patterns to its own upload walk and dropped the
+# directory, failing the build on a module that is present in the repository.
+# Same fault as the `coverage/` rule that hid the coverage page.
+/review/
