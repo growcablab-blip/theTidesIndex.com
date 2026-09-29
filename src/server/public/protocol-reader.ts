@@ -86,7 +86,7 @@ export async function readProtocols(
     const result = await tx.execute(sql`
       select p.id, p.protocol_key, p.objective_context, p.population_model,
              r.name as route_name, p.regulatory_context,
-             et.public_label as evidence_type_label,
+             et.public_label as evidence_type_label, et.is_human_evidence,
              ${
                preview
                  ? sql`(p.monitoring_text is not null) as has_monitoring_guidance,
@@ -110,6 +110,7 @@ export async function readProtocols(
       routeName: str(p.route_name),
       regulatoryContext: str(p.regulatory_context),
       evidenceTypeLabel: String(p.evidence_type_label),
+      isHumanEvidence: Boolean(p.is_human_evidence),
       hasMonitoringGuidance: Boolean(p.has_monitoring_guidance),
       hasSafetyGuidance: Boolean(p.has_safety_guidance),
       sources: sourcesByProtocol.get(String(p.id)) ?? [],
@@ -117,7 +118,8 @@ export async function readProtocols(
   }
 
   const result = await tx.execute(sql`
-    select p.*, r.name as route_name, et.public_label as evidence_type_label
+    select p.*, r.name as route_name, et.public_label as evidence_type_label,
+           et.is_human_evidence
     from ${sql.raw(rel('public_v_protocol_practitioner'))} p
     left join ${sql.raw(rel('public_v_routes'))} r on r.key = p.route_key
     join ${sql.raw(rel('public_v_evidence_types'))} et on et.key = p.evidence_type_key
@@ -133,6 +135,7 @@ export async function readProtocols(
     routeName: str(p.route_name),
     regulatoryContext: str(p.regulatory_context),
     evidenceTypeLabel: String(p.evidence_type_label),
+    isHumanEvidence: Boolean(p.is_human_evidence),
     hasMonitoringGuidance: p.monitoring_text !== null,
     hasSafetyGuidance: p.contraindications_text !== null || p.safety_notes !== null,
     formulation: str(p.formulation),

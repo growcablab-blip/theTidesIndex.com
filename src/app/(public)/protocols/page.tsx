@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getReadingMode } from '@/server/public/reading-mode';
 import { getProtocolLibrary } from '@/server/public/queries';
 import { previewProtocolLibrary } from '@/server/public/preview';
+import { listPublishedStacks } from '@/server/public/stacks';
 import type { LibraryProtocol, ProtocolLibraryFilters } from '@/server/public/protocol-library';
 import { Callout, Container, EmptyState, Section } from '@/components/public/primitives';
 import { ModeSwitch } from '@/components/public/mode-switch';
@@ -81,6 +82,7 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
   const mode = await getReadingMode();
   const simple = mode === 'simple';
 
+  const stacks = await listPublishedStacks();
   const publicLibrary = await getProtocolLibrary(mode, filters);
   const library =
     publicLibrary.totalCount > 0
@@ -350,6 +352,32 @@ export default async function ProtocolsPage({ searchParams }: { searchParams: Se
           </p>
         </Callout>
       </div>
+
+      {stacks.length === 0 ? null : (
+        <Section id="combinations" title="Compounds sources report using together">
+          <p className="mb-5 max-w-[66ch] text-slate">
+            A combination page keeps three questions apart: what is known about each compound
+            alone, which identifiable sources report using them together, and what has been
+            studied about the combination itself. No combined regimen is stated on any of them.
+          </p>
+          <div className="grid gap-4">
+            {stacks.map((stack) => (
+              <Link
+                key={stack.slug}
+                href={`/protocols/stacks/${stack.slug}`}
+                className="group block rounded-xl border border-rule bg-warm-white p-5 transition-colors hover:border-scientific-teal/60"
+              >
+                <p className="font-serif text-lg text-ink group-hover:text-scientific-teal">
+                  {stack.title}
+                </p>
+                <p className="mt-1.5 max-w-[66ch] text-sm leading-relaxed text-slate">
+                  {stack.summary}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section id="compounds" title={narrowed ? 'Compounds matching these filters' : 'Choose a compound to compare'}>
         <p className="mb-5 max-w-[66ch] text-slate">

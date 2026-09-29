@@ -143,6 +143,14 @@ export interface SimpleProtocol {
   readonly routeName: string | null;
   readonly regulatoryContext: string | null;
   readonly evidenceTypeLabel: string;
+  /**
+   * Whether the record describes people rather than a source's advice or an
+   * animal model. Carried in both readings because it is a fact about the
+   * kind of record, not a regimen detail — and because comparing a handbook's
+   * regimen with a trial's as though they were the same kind of statement is
+   * the single easiest way to mislead on this subject.
+   */
+  readonly isHumanEvidence: boolean;
   readonly hasMonitoringGuidance: boolean;
   readonly hasSafetyGuidance: boolean;
   readonly sources: readonly Citation[];

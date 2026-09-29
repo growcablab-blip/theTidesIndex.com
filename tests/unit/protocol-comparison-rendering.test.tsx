@@ -26,6 +26,7 @@ function protocol(id: string, sourceKey: string, fields: Partial<PractitionerPro
     evidenceTypeKey: 'practitioner_reference',
     evidenceTypeLabel: 'Practitioner reference',
     evidenceClass: 'reference' as LibraryProtocol['evidenceClass'],
+    isHumanEvidence: false,
     hasMonitoringGuidance: false,
     hasSafetyGuidance: false,
     formulation: null,

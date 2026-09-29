@@ -41,6 +41,8 @@ import { ReferenceList } from '@/components/public/citation';
 import { RecordInPreparation } from '@/components/public/record-in-preparation';
 import { previewPeptidePage } from '@/server/public/preview';
 import { PrintHeader } from '@/components/public/print-header';
+import { CompoundExperience } from '@/components/public/compound-experience';
+import { stacksForCompound } from '@/server/public/stacks';
 import { PreviewBanner, ReviewStatusPanel } from '@/components/public/record-status';
 import { EvidenceAtAGlance } from '@/components/public/evidence-at-a-glance';
 import {
@@ -108,6 +110,14 @@ const TITLES = {
  * until the next deploy. It also means a build does not need database access,
  * which keeps deployment independent of the database being reachable.
  */
+/**
+ * Compounds served by the research-first prototype.
+ *
+ * One entry while the owner reviews it. Everything else keeps the record
+ * layout, on the same data, so the two can be judged side by side.
+ */
+const EXPERIENCE_SLUGS = new Set(['bpc-157']);
+
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
@@ -286,6 +296,51 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
     { id: 'references', label: 'References', count: citations.length },
     { id: 'record', label: 'About this record' },
   ];
+
+  /*
+   * The research-first prototype, for the compounds named in EXPERIENCE_SLUGS.
+   *
+   * A switch rather than a rewrite. The record layout below is unchanged and
+   * still serves the other twenty-seven compounds, so the two can be compared
+   * live on the same data before anything is rolled out — and rolling back is
+   * removing a slug from a list.
+   */
+  if (EXPERIENCE_SLUGS.has(peptide.slug)) {
+    return (
+      <Container width="wide" className="py-8 sm:py-12">
+        <PrintHeader
+          title={peptide.canonicalName}
+          mode={mode}
+          path={path}
+          version={peptide.version}
+          lastReviewed={formatDate(peptide.lastReviewedAt)}
+        />
+        <nav aria-label="Breadcrumb" className="no-print mb-6 text-sm text-slate">
+          <Link href="/peptides" className="hover:text-deep-tide">
+            Compounds
+          </Link>
+          <span className="mx-2" aria-hidden="true">
+            /
+          </span>
+          <span className="text-ink-soft">{peptide.canonicalName}</span>
+        </nav>
+        <div className="no-print mb-6 flex flex-wrap items-center justify-between gap-4">
+          <ModeExplainer mode={mode} />
+          <ModeSwitch mode={mode} path={path} />
+        </div>
+        <PreviewBanner state={peptide} />
+        <CompoundExperience
+          peptide={peptide}
+          simple={simple}
+          stackLinks={stacksForCompound(peptide.slug).map((stack) => ({
+            href: `/protocols/stacks/${stack.slug}`,
+            title: stack.title,
+            summary: stack.summary,
+          }))}
+        />
+      </Container>
+    );
+  }
 
   return (
     <Container width="wide" className="py-8 sm:py-12">

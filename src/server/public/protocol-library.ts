@@ -295,7 +295,7 @@ export async function readProtocolLibrary(
     await tx.execute(sql`
       select p.*, pe.slug as peptide_slug, pe.canonical_name as peptide_name,
              r.name as route_name, et.public_label as evidence_type_label,
-             et.evidence_class
+             et.evidence_class, et.is_human_evidence
         from ${rel('public_v_protocol_practitioner')} p
         join ${rel('public_v_peptides')} pe on pe.id = p.peptide_id
         join ${rel('public_v_evidence_types')} et on et.key = p.evidence_type_key
@@ -318,6 +318,7 @@ export async function readProtocolLibrary(
     evidenceTypeKey: String(p.evidence_type_key),
     evidenceTypeLabel: String(p.evidence_type_label),
     evidenceClass: p.evidence_class as EvidenceClass,
+    isHumanEvidence: Boolean(p.is_human_evidence),
     hasMonitoringGuidance: p.monitoring_text !== null,
     hasSafetyGuidance: p.contraindications_text !== null || p.safety_notes !== null,
     formulation: str(p.formulation),

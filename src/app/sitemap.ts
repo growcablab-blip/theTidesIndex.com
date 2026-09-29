@@ -5,6 +5,7 @@ import {
   listQualityRegister,
   listSources,
 } from '@/server/public/queries';
+import { listPublishedStacks } from '@/server/public/stacks';
 
 /**
  * The sitemap, built from the database rather than from a hand-kept list.
@@ -54,11 +55,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const site = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thetidesindex.com';
   const url = (path: string): string => `${site}${path}`;
 
-  const [peptides, quality, learning, sources] = await Promise.all([
+  const [peptides, quality, learning, sources, stacks] = await Promise.all([
     listPeptides(),
     listQualityRegister(),
     listLearningTopics(),
     listSources(),
+    listPublishedStacks(),
   ]);
 
   const entries: MetadataRoute.Sitemap = [
@@ -71,6 +73,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Sources are public whether or not anything cites them yet: the register is
     // itself a published statement about what this index holds.
     ...sources.map((s) => ({ url: url(`/sources/${s.sourceKey}`) })),
+    // Only combinations whose compounds are published: the others have no page.
+    ...stacks.map((s) => ({ url: url(`/protocols/stacks/${s.slug}`) })),
   ];
 
   /*

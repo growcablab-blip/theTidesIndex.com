@@ -21,6 +21,7 @@ import { drizzle } from 'drizzle-orm/postgres-js';
 import { sql } from 'drizzle-orm';
 import * as schema from '@db/schema';
 import { readPeptidePagePreview } from '@/server/public/queries';
+import { readStackPage, STACK_DEFINITIONS } from '@/server/public/stacks';
 import { findDoses } from '@/domain/presentation/dose-text';
 
 const url = process.env.DATABASE_URL;
@@ -52,6 +53,26 @@ try {
     for (const hit of found) console.log(`  ${slug}${hit.path}
       …${hit.context}…`);
     console.log(`  ${slug.padEnd(20)} ${found.length === 0 ? 'clean' : `${String(found.length)} hit(s)`}`);
+  }
+
+  // Combination pages are a second patient surface, reading the same records
+  // through a different query. A boundary that holds on the compound page can
+  // still fail here, so it is scanned rather than assumed.
+  console.log(
+    `
+Scanning patient payloads for ${String(STACK_DEFINITIONS.length)} combination page(s)
+`,
+  );
+  for (const definition of STACK_DEFINITIONS) {
+    const stack = await readStackPage(db, definition.slug, 'simple');
+    const found = stack === null ? [] : findDoses(stack);
+    hits += found.length;
+    for (const hit of found) {
+      console.log(`  ${definition.slug}${hit.path}
+      …${hit.context}…`);
+    }
+    const state = stack === null ? 'not published' : found.length === 0 ? 'clean' : `${String(found.length)} hit(s)`;
+    console.log(`  ${definition.slug.padEnd(20)} ${state}`);
   }
 
   console.log(hits === 0 ? '\nNo dose-shaped strings in any patient payload.\n' : `\n${String(hits)} hit(s).\n`);
