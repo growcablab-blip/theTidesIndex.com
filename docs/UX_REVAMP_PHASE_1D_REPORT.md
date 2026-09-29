@@ -170,14 +170,16 @@ subtitle to the records.
 | `npm run typecheck` | **Clean** |
 | `npx vitest run tests/unit` | **524 passed, 37 files** — 35 new |
 | Integration: peptide-experience, every-compound-renders, reading-mode, public-surface | **39 passed** |
+| `npx vitest run tests/integration` (full) | **435 passed, 37 files**, 42 minutes |
 | `npm run qa:doses` | **Clean** |
 | `npm run build` | **Clean** |
 | Live, both pages, both readings | **200** |
 | Dose figures, simple reading | **0** on both pages (11 and 20 in practitioner) |
 | `robots.txt` | `Disallow: /` |
 
-The full integration suite was running when this was written, because
-`StackPage` gained a field. Its result belongs here.
+The full integration suite was run because `StackPage` gained a field, which
+is shared domain rather than component copy. It passed: **435 tests across 37
+files**, unchanged from Phase 1C.
 
 ---
 
