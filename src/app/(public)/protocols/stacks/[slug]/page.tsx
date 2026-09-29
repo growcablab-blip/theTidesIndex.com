@@ -30,8 +30,12 @@ export default async function StackRoute({ params }: { params: Promise<{ slug: s
 
   return (
     <>
+      {/* Shrink-wrapped: the switch right-aligns its own caption, which flies
+          to the far edge if it is given the width of the page. */}
       <div className="mx-auto max-w-[72rem] px-4 pt-6 md:px-8">
-        <ModeSwitch mode={mode} path={`/protocols/stacks/${stack.slug}`} />
+        <div className="inline-block">
+          <ModeSwitch mode={mode} path={`/protocols/stacks/${stack.slug}`} />
+        </div>
       </div>
       <StackExperience stack={stack} simple={mode === 'simple'} />
     </>

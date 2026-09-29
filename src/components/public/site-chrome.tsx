@@ -7,9 +7,11 @@ import { Container } from './primitives';
  *
  * The header carries the logo, the primary sections, and search — and stops
  * there. The logo is the supplied brand artwork (`public/brand/`); its accessible
- * name is the organisation's name, so screen readers hear "The Tides Index". On a reference, chrome that competes with the content is a cost paid on
- * every page. The tide motif appears once, as a rule beneath the header, and
- * nowhere else.
+ * name is the organisation's name, so screen readers hear "The Tides Index".
+ *
+ * On a reference, chrome that competes with the content is a cost paid on every
+ * page. The header carries no decorative motif of its own: its bottom border is
+ * the separation, and nothing sits under it.
  */
 
 /*
@@ -111,7 +113,6 @@ export function SiteHeader() {
             </Link>
           </div>
         </Container>
-        <hr className="tide-rule border-0" aria-hidden="true" />
       </header>
 
       {/* The primary sections stay reachable on small screens without a menu

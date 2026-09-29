@@ -72,17 +72,23 @@ export function SourceDrawer({
   const heading = label ?? `Sources for this section (${String(citations.length)})`;
   return (
     <details className="group mt-5 border-t border-rule/70 pt-3">
-      <summary className="cursor-pointer list-none text-sm text-scientific-teal marker:content-none hover:text-deep-tide">
-        <span className="underline decoration-rule underline-offset-4 group-open:no-underline">
-          {heading}
+      {/* Slate, not the site accent. Teal is what the findings are allowed to
+          spend; a citation marker that outranks them inverts the page. */}
+      <summary className="flex cursor-pointer list-none items-center gap-1.5 text-2xs tracking-[0.08em] text-slate uppercase marker:content-none hover:text-deep-tide">
+        <span
+          aria-hidden="true"
+          className="text-[0.6rem] leading-none transition-transform group-open:rotate-90"
+        >
+          &#9656;
         </span>
+        {heading}
       </summary>
       <div className="mt-4 space-y-4">
         {children}
         <ul className="space-y-3">
           {citations.map((c) => (
             <li key={`${c.sourceKey}-${c.locatorText ?? ''}`} className="text-sm leading-relaxed">
-              <span className="font-medium text-ink">{c.sourceTitle}</span>
+              <span className="text-ink">{c.sourceTitle}</span>
               <span className="text-slate">
                 {c.authors.length > 0 ? ` · ${c.authors[0]!}` : ''}
                 {c.year === null ? '' : ` · ${String(c.year)}`}

@@ -9,8 +9,9 @@
    sparingly enough that when it does appear it means something.
 
    "Tides" is carried by rhythm rather than imagery — a consistent vertical
-   cadence, layered surfaces that recede as they go back, and a single curved
-   rule that separates major movements of a page. No waves, no beaches.
+   cadence, layered surfaces that recede as they go back, and a single hairline
+   rule that separates major movements of a page. No waves, no beaches: that
+   rule is a spectrum, and the promise in this sentence is now kept.
    ========================================================================== */
 
 @theme {
@@ -177,17 +178,32 @@ p {
   left: 0;
 }
 
-/* The one place the tide metaphor is drawn rather than felt: a layered rule
-   that separates major movements of a page. Two offset curves, low contrast. */
+:root {
+  /* Teal through indigo to cyan, fading out at both ends. Defined once and
+     used by the movement rule and the editorial break. */
+  --movement-rule: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-tide-teal) 55%, transparent) 18%,
+    color-mix(in srgb, #4f46e5 45%, transparent) 50%,
+    color-mix(in srgb, #22d3ee 50%, transparent) 78%,
+    transparent 100%
+  );
+}
+
+/* The rule that separates major movements of a page.
+ *
+ * It used to be a repeating SVG of two sine paths — which is to say, waves, on
+ * a site called The Tides Index, directly beneath a comment promising there
+ * were none. It is now a hairline that fades from teal through indigo to cyan
+ * and out: a spectrum, which belongs to instrumentation rather than to the sea.
+ */
 .tide-rule {
-  height: 10px;
+  height: 2px;
   width: 100%;
   border: 0;
-  background-repeat: repeat-x;
-  background-size: 96px 10px;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='10' viewBox='0 0 96 10'%3E%3Cpath d='M0 7c12 0 12-4 24-4s12 4 24 4 12-4 24-4 12 4 24 4' fill='none' stroke='%23d6e0e2' stroke-width='1'/%3E%3Cpath d='M0 4c12 0 12-3 24-3s12 3 24 3 12-3 24-3 12 3 24 3' fill='none' stroke='%23e6edee' stroke-width='1'/%3E%3C/svg%3E");
-  opacity: 0.9;
+  background-image: var(--movement-rule);
+  opacity: 0.55;
 }
 
 /* Long reference pages carry a lot of small metadata. This keeps it legible
@@ -236,15 +252,15 @@ p {
   position: relative;
   padding-top: calc(var(--rhythm) * 2.5);
 }
+/* The same hairline as `.tide-rule`, and for the same reason: this break was
+   the second copy of the wave motif. */
 .editorial-break::before {
   content: '';
   position: absolute;
   inset: 0 0 auto 0;
-  height: 10px;
-  background-repeat: repeat-x;
-  background-size: 96px 10px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='10' viewBox='0 0 96 10'%3E%3Cpath d='M0 7c12 0 12-4 24-4s12 4 24 4 12-4 24-4 12 4 24 4' fill='none' stroke='%23d6e0e2' stroke-width='1'/%3E%3C/svg%3E");
-  opacity: 0.9;
+  height: 2px;
+  background-image: var(--movement-rule);
+  opacity: 0.45;
 }
 
 /* The journey line: a quiet vertical thread joining numbered steps. */

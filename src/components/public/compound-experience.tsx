@@ -3,6 +3,7 @@ import type { PeptidePage, PublicClaim } from '@/server/public/queries';
 import type { PractitionerProtocol, SimpleProtocol } from '@/server/public/shapes';
 import type { StackLink } from '@/server/public/stacks';
 import { compareProtocols } from '@/domain/presentation/protocol-comparison';
+import { rankProse } from '@/domain/presentation/prose';
 import {
   AgreementDifference,
   CompoundHero,
@@ -516,28 +517,53 @@ function SummaryParagraph({ text }: { readonly text: string }) {
   );
 }
 
-/** A claim as prose, with its uncertainty, and no card around it. */
+const LANE_LABEL: Readonly<Record<string, string>> = {
+  human: 'Human',
+  preclinical: 'Preclinical',
+  reference_opinion: 'Practitioner',
+};
+
+/**
+ * One claim, ranked so it can be scanned.
+ *
+ * These records run to five or six hundred characters and in a single block
+ * nothing in them can be found. The lead sentence — which in every record on
+ * this page carries the finding — is set at reading size and the remainder
+ * follows under it in paragraphs.
+ *
+ * Nothing is summarised and nothing is hidden. `rankProse` moves no words, and
+ * the whole text is on the page either way; what changes is which part of it
+ * the eye lands on first.
+ */
 function ClaimProse({ claim, simple }: { readonly claim: PublicClaim; readonly simple: boolean }) {
   const body = simple && claim.plainLanguageText !== null ? claim.plainLanguageText : claim.claimText;
+  const { lead, rest } = rankProse(body);
   const lanes = [...new Set(claim.evidence.map((e) => e.evidenceClass))];
   return (
     <div className="max-w-[68ch]">
-      <p className="leading-relaxed text-ink">{body}</p>
-      <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate">
+      {/* The kind of evidence comes before the statement, not after it: a
+          reader deciding whether to read a paragraph is owed that first. */}
+      <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-2xs tracking-[0.1em] text-slate uppercase">
         {lanes.map((lane) => (
-          <span key={lane} className="rounded border border-rule px-1.5 py-0.5">
-            {lane === 'human' ? 'Human' : lane === 'preclinical' ? 'Preclinical' : 'Practitioner'}
-          </span>
+          <span key={lane}>{LANE_LABEL[lane] ?? lane}</span>
         ))}
         {claim.evidence.length > 0 ? (
-          <span>
+          <span className="normal-case tracking-normal text-slate/80">
             {String(claim.evidence.length)}{' '}
             {claim.evidence.length === 1 ? 'citation' : 'citations'}
           </span>
         ) : null}
       </p>
+      <p className="mt-1.5 text-[1.0625rem] leading-relaxed text-ink">{lead}</p>
+      {/* Index keys: this list is derived from one string, never reordered,
+          and two paragraphs of a claim can legitimately read alike. */}
+      {rest.map((paragraph, i) => (
+        <p key={i} className="mt-2.5 leading-relaxed text-ink-soft">
+          {paragraph}
+        </p>
+      ))}
       {claim.uncertaintyText === null ? null : (
-        <p className="mt-2 border-l-2 border-rule pl-3 text-sm leading-relaxed text-ink-soft">
+        <p className="mt-3 border-l-2 border-rule pl-3.5 text-sm leading-relaxed text-ink-soft">
           {claim.uncertaintyText}
         </p>
       )}
