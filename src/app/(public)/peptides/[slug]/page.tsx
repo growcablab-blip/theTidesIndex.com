@@ -306,29 +306,36 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
    * removing a slug from a list.
    */
   if (EXPERIENCE_SLUGS.has(peptide.slug)) {
+    /*
+     * Full-bleed. The prototype's bands run edge to edge and hold their own
+     * gutters, so it is deliberately not wrapped in a Container — the chrome
+     * above it keeps one.
+     */
     return (
-      <Container width="wide" className="py-8 sm:py-12">
-        <PrintHeader
-          title={peptide.canonicalName}
-          mode={mode}
-          path={path}
-          version={peptide.version}
-          lastReviewed={formatDate(peptide.lastReviewedAt)}
-        />
-        <nav aria-label="Breadcrumb" className="no-print mb-6 text-sm text-slate">
-          <Link href="/peptides" className="hover:text-deep-tide">
-            Compounds
-          </Link>
-          <span className="mx-2" aria-hidden="true">
-            /
-          </span>
-          <span className="text-ink-soft">{peptide.canonicalName}</span>
-        </nav>
-        <div className="no-print mb-6 flex flex-wrap items-center justify-between gap-4">
-          <ModeExplainer mode={mode} />
-          <ModeSwitch mode={mode} path={path} />
-        </div>
-        <PreviewBanner state={peptide} />
+      <>
+        <Container width="wide" className="pt-8">
+          <PrintHeader
+            title={peptide.canonicalName}
+            mode={mode}
+            path={path}
+            version={peptide.version}
+            lastReviewed={formatDate(peptide.lastReviewedAt)}
+          />
+          <nav aria-label="Breadcrumb" className="no-print mb-5 text-sm text-slate">
+            <Link href="/peptides" className="hover:text-deep-tide">
+              Compounds
+            </Link>
+            <span className="mx-2" aria-hidden="true">
+              /
+            </span>
+            <span className="text-ink-soft">{peptide.canonicalName}</span>
+          </nav>
+          <div className="no-print mb-7 flex flex-wrap items-center justify-between gap-4">
+            <ModeExplainer mode={mode} />
+            <ModeSwitch mode={mode} path={path} />
+          </div>
+          <PreviewBanner state={peptide} />
+        </Container>
         <CompoundExperience
           peptide={peptide}
           simple={simple}
@@ -338,7 +345,7 @@ export default async function PeptidePage({ params }: { params: Promise<{ slug: 
             summary: stack.summary,
           }))}
         />
-      </Container>
+      </>
     );
   }
 

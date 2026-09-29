@@ -4,30 +4,35 @@ import type { PractitionerProtocol, SimpleProtocol } from '@/server/public/shape
 import type { StackLink } from '@/server/public/stacks';
 import { compareProtocols } from '@/domain/presentation/protocol-comparison';
 import { rankProse } from '@/domain/presentation/prose';
+import { pathwayHasHumanEvidence, resolvePathway } from '@/domain/presentation/mechanism-pathway';
+import { Band, BandHeading, CompoundMark, MolecularField, Tag, TelemetryRow } from './visual-system';
 import {
-  AgreementDifference,
-  CompoundHero,
+  ComparisonMatrix,
   EvidenceLandscape,
-  Movement,
-  ReportedProtocolCard,
-  SourceDrawer,
-  type EvidenceLane,
-} from './experience';
+  InterestCard,
+  PathwayDiagram,
+  ProtocolDataCard,
+  type EvidenceLaneReading,
+} from './research-visuals';
+import { SourceDrawer } from './experience';
 import { Disclosure } from './disclosure';
 
 /**
  * The research-first compound experience.
  *
- * Same records, different order. The record page opened with review state and
- * nomenclature — the order the evidence system cares about. A reader arrives
- * wanting to know what the compound is, what it is being studied for, how it is
- * thought to work, what the evidence actually amounts to, and what identifiable
- * sources report doing with it. Regulatory context is real and stays; it stops
- * being the first thing anybody learns.
+ * Same records, different order and — since Phase 1C — a different register.
+ * The record page opened with review state and nomenclature, the order the
+ * evidence system cares about. A reader arrives wanting to know what the
+ * compound is, what it is studied for, how it is thought to work, what the
+ * evidence amounts to, and what identifiable sources report doing with it.
  *
- * Every section below renders records that already exist. Nothing is composed,
- * inferred or filled in: where a record has no data for a field, the field does
- * not appear.
+ * The page alternates surfaces on purpose. Read entirely on white a reference
+ * looks like a white paper however good the words are; read entirely on black
+ * it looks like a brochure. The deep bands carry the visuals, the light bands
+ * carry the reading, and the rhythm is what makes it feel composed.
+ *
+ * Nothing below is composed, inferred or filled in. Where a record has no data
+ * for a field, the field does not appear.
  */
 
 // ---------------------------------------------------------------------------
@@ -57,18 +62,39 @@ const INTEREST_SIGNALS: readonly (readonly [RegExp, string])[] = [
   [/metabol|fat loss|weight/i, 'Metabolic research'],
 ];
 
-export function researchInterests(protocols: readonly SimpleProtocol[]): string[] {
-  const text = protocols.map((p) => p.objectiveContext).join(' | ');
-  const found: string[] = [];
+export interface ResearchInterest {
+  readonly label: string;
+  /** How many held regimens name this context. */
+  readonly count: number;
+  /** One matching objective, verbatim, so the card cites rather than asserts. */
+  readonly example: string;
+}
+
+/**
+ * What this compound is studied for, read off the held regimens.
+ *
+ * The example is a record's own objective text, unedited. A card that
+ * explained an interest in its own words would be writing scientific content,
+ * which this pass is explicitly not allowed to do.
+ */
+export function researchInterests(protocols: readonly SimpleProtocol[]): ResearchInterest[] {
+  const found: ResearchInterest[] = [];
   for (const [pattern, label] of INTEREST_SIGNALS) {
-    if (pattern.test(text) && !found.includes(label)) found.push(label);
+    if (found.some((f) => f.label === label)) continue;
+    const matches = protocols.filter((p) => pattern.test(p.objectiveContext));
+    if (matches.length === 0) continue;
+    found.push({
+      label,
+      count: matches.length,
+      example: matches[0]?.objectiveContext ?? '',
+    });
   }
-  return found.slice(0, 5);
+  return found.slice(0, 6);
 }
 
 /** Distinct source keys behind a set of claims, per evidence lane. */
-export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLane[] {
-  const lanes: Record<EvidenceLane['key'], { sources: Set<string>; claims: Set<string> }> = {
+export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLaneReading[] {
+  const lanes: Record<string, { sources: Set<string>; claims: Set<string> }> = {
     human: { sources: new Set(), claims: new Set() },
     preclinical: { sources: new Set(), claims: new Set() },
     reference_opinion: { sources: new Set(), claims: new Set() },
@@ -77,9 +103,10 @@ export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLane[] {
   for (const claim of claims) {
     for (const record of claim.evidence) {
       const key = record.evidenceClass;
-      if (!(key in lanes)) continue;
-      lanes[key].claims.add(claim.id);
-      if (record.citation !== null) lanes[key].sources.add(record.citation.sourceKey);
+      const lane = lanes[key];
+      if (lane === undefined) continue;
+      lane.claims.add(claim.id);
+      if (record.citation !== null) lane.sources.add(record.citation.sourceKey);
     }
   }
 
@@ -88,22 +115,24 @@ export function evidenceLanes(claims: readonly PublicClaim[]): EvidenceLane[] {
       key: 'human',
       label: 'Human',
       meaning: 'Measured in people. The only lane that can show what a compound does in a person.',
-      sources: lanes.human.sources.size,
-      claims: lanes.human.claims.size,
+      sources: lanes['human']?.sources.size ?? 0,
+      claims: lanes['human']?.claims.size ?? 0,
     },
     {
       key: 'preclinical',
       label: 'Preclinical',
-      meaning: 'Animals, cells and computation. A reason to study something in people, not a result in them.',
-      sources: lanes.preclinical.sources.size,
-      claims: lanes.preclinical.claims.size,
+      meaning:
+        'Animals, cells and computation. A reason to study something in people, not a result in them.',
+      sources: lanes['preclinical']?.sources.size ?? 0,
+      claims: lanes['preclinical']?.claims.size ?? 0,
     },
     {
       key: 'reference_opinion',
       label: 'Practitioner and reference',
-      meaning: 'What experts and handbooks report doing and observing. Attributed, never a trial.',
-      sources: lanes.reference_opinion.sources.size,
-      claims: lanes.reference_opinion.claims.size,
+      meaning:
+        'What experts and handbooks report doing and observing. Attributed, never a trial.',
+      sources: lanes['reference_opinion']?.sources.size ?? 0,
+      claims: lanes['reference_opinion']?.claims.size ?? 0,
     },
   ];
 }
@@ -135,6 +164,9 @@ function citationsOf(claims: readonly PublicClaim[]) {
   return [...seen.values()];
 }
 
+/** Accents for the protocol cards. Identity only; never a rank or a quality. */
+const PROTOCOL_ACCENTS = ['#22d3ee', '#2563eb', '#4f46e5', '#7c6ce0', '#1f6b73', '#5d8a99'];
+
 // ---------------------------------------------------------------------------
 // The page
 // ---------------------------------------------------------------------------
@@ -147,11 +179,8 @@ export function CompoundExperience({
   readonly peptide: PeptidePage;
   readonly simple: boolean;
   /**
-   * Published combination pages this compound appears in.
-   *
-   * Derived from the stack register by the route, not written here: a hard-coded
-   * "commonly stacked with" sentence in a component is a medical claim nobody
-   * reviewed.
+   * Published combination pages this compound appears in. Derived from the
+   * stack register by the route, never written here.
    */
   readonly stackLinks?: readonly StackLink[];
 }) {
@@ -163,12 +192,14 @@ export function CompoundExperience({
       c.evidence.flatMap((e) => (e.citation === null ? [] : [e.citation.sourceKey])),
     ),
   ).size;
-  const routeNames = [...new Set(peptide.routes.map((r) => r.routeName).filter((n): n is string => n !== null))];
+  const routeNames = [
+    ...new Set(peptide.routes.map((r) => r.routeName).filter((n): n is string => n !== null)),
+  ];
 
   /*
-   * Simple mode never receives a practitioner protocol, so the comparison
-   * cannot be computed there at all — which is the boundary doing its own
-   * work rather than a component remembering to hide something.
+   * Simple reading never receives a practitioner protocol, so the comparison
+   * cannot be computed there at all — the boundary doing its own work rather
+   * than a component remembering to hide something.
    */
   const reported: readonly PractitionerProtocol[] = simple
     ? []
@@ -185,335 +216,440 @@ export function CompoundExperience({
   const identity = claimsInCategories(peptide.claims, ['identity']);
 
   const covered = new Set(
-    [...mechanism, ...effects, ...evidenceBase, ...administration, ...safety, ...regulatory, ...identity].map(
-      (c) => c.id,
-    ),
+    [
+      ...mechanism,
+      ...effects,
+      ...evidenceBase,
+      ...administration,
+      ...safety,
+      ...regulatory,
+      ...identity,
+    ].map((c) => c.id),
   );
   const remaining = peptide.claims.filter((c) => !covered.has(c.id));
 
+  // The diagram is assembled from the records on this page and disappears if
+  // they do. See `mechanism-pathway.ts` for the guarantee.
+  const pathway = resolvePathway(peptide.slug, peptide.claims);
+  const pathwayHuman = pathwayHasHumanEvidence(pathway);
+
+  const humanLane = lanes.find((l) => l.key === 'human');
+  const summary = simple ? peptide.simpleSummary : peptide.practitionerSummary;
+
+  const readings = [
+    { value: String(sourceCount), label: 'Sources cited', detail: 'Distinct works behind the statements' },
+    {
+      value: String(humanLane?.claims ?? 0),
+      label: 'Human-evidence statements',
+      detail: `From ${String(humanLane?.sources ?? 0)} ${(humanLane?.sources ?? 0) === 1 ? 'source' : 'sources'}`,
+    },
+    ...(simple
+      ? []
+      : [
+          {
+            value: String(protocols.length),
+            label: 'Reported regimens',
+            detail: 'Each under its own source’s name',
+          },
+        ]),
+    ...(routeNames.length > 0
+      ? [{ value: String(routeNames.length), label: 'Routes reported', detail: routeNames.join(' · ') }]
+      : []),
+    {
+      value: peptide.lastReviewedAt === null ? 'Not yet' : 'Recorded',
+      label: 'Human review',
+      detail: peptide.lastReviewedAt === null ? 'Source-linked, unreviewed' : peptide.lastReviewedAt,
+      muted: true,
+    },
+  ].slice(0, 4);
+
   return (
     <>
-      <CompoundHero
-        peptide={peptide}
-        interests={interests}
-        sourceCount={sourceCount}
-        protocolCount={protocols.length}
-        showProtocolCount={!simple}
-        routeNames={routeNames}
-      />
+      {/* ── 1 · Hero ─────────────────────────────────────────────────── */}
+      <Band tone="deep" grid className="pt-10 pb-14 md:pt-14 md:pb-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <div>
+            <p className="label-micro text-cyan">
+              Peptide{interests[0] === undefined ? '' : ` · ${interests[0].label}`}
+            </p>
+            <h1 className="mt-4 font-serif text-5xl leading-[0.98] tracking-[-0.02em] text-on-deep md:text-7xl">
+              {peptide.canonicalName}
+            </h1>
+            {peptide.shortDescription === null ? null : (
+              <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-on-deep-soft md:text-xl">
+                {peptide.shortDescription}
+              </p>
+            )}
+            {interests.length === 0 ? null : (
+              <ul className="mt-7 flex flex-wrap gap-2">
+                {interests.map((i) => (
+                  <Tag key={i.label}>{i.label}</Tag>
+                ))}
+              </ul>
+            )}
+            <p className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-on-deep-faint">
+              <span className="inline-flex items-center gap-1.5">
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-cyan anim-pulse" />
+                Source-linked
+              </span>
+              <span aria-hidden="true">·</span>
+              <span>
+                {peptide.lastReviewedAt === null
+                  ? 'Human review not yet recorded'
+                  : `Human review recorded ${peptide.lastReviewedAt}`}
+              </span>
+              <Link
+                href="/methodology"
+                className="underline decoration-cyan-soft/30 underline-offset-4 hover:text-on-deep"
+              >
+                What that means
+              </Link>
+            </p>
+          </div>
 
-      {/* The review state stays truthful and stops shouting. */}
-      <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate">
-        <span className="inline-flex items-center gap-1.5">
-          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-scientific-teal" />
-          Source-linked
-        </span>
-        <span aria-hidden="true">·</span>
-        <span>
-          {peptide.lastReviewedAt === null
-            ? 'Human review not yet recorded'
-            : `Human review recorded ${peptide.lastReviewedAt}`}
-        </span>
-        <Link href="/methodology" className="underline decoration-rule underline-offset-4 hover:text-deep-tide">
-          What that means
-        </Link>
-      </p>
-
-      {/* 1 · Understand ---------------------------------------------------- */}
-      <Movement id="understand" eyebrow="Start here" title={`What ${peptide.canonicalName} is`}>
-        <div className="max-w-[68ch] space-y-4 text-lg leading-relaxed text-ink">
-          {(simple ? peptide.simpleSummary : peptide.practitionerSummary)
-            ?.split('\n\n')
-            .filter((p) => p.trim() !== '')
-            .map((paragraph) => <SummaryParagraph key={paragraph.slice(0, 40)} text={paragraph} />) ?? (
-            <p className="text-ink-soft">A summary has not been written for this record yet.</p>
-          )}
+          {/* The visual sits in the layout, not in a card. */}
+          <div className="relative -mx-5 h-[20rem] sm:h-[24rem] md:mx-0 lg:h-[30rem]">
+            <MolecularField />
+          </div>
         </div>
-        {identity.length === 0 ? null : (
-          <SourceDrawer label={`What the name refers to (${String(identity.length)})`} citations={citationsOf(identity)}>
-            <ul className="space-y-3">
-              {identity.map((c) => (
-                <li key={c.id} className="text-sm leading-relaxed text-ink-soft">
-                  {c.claimText}
-                </li>
-              ))}
-            </ul>
-          </SourceDrawer>
+
+        <div className="mt-10 md:mt-12">
+          <TelemetryRow readings={readings} />
+        </div>
+      </Band>
+
+      {/* ── 2 · What it is ───────────────────────────────────────────── */}
+      <Band id="understand" tone="light" className="py-16 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr] lg:gap-16">
+          <div>
+            <BandHeading eyebrow="Start here" title={`What ${peptide.canonicalName} is`} />
+            <div className="mt-8 text-tide-teal/45">
+              <CompoundMark slug={peptide.slug} size={96} />
+            </div>
+          </div>
+          <div>
+            {summary === null ? null : <SummaryProse text={summary} />}
+            {identity.length === 0 ? null : (
+              <div className="mt-8 space-y-6 border-t border-rule pt-8">
+                {identity.map((c) => (
+                  <ClaimProse key={c.id} claim={c} simple={simple} />
+                ))}
+                <SourceDrawer citations={citationsOf(identity)} />
+              </div>
+            )}
+          </div>
+        </div>
+      </Band>
+
+      {/* ── 3 · Research interests ───────────────────────────────────── */}
+      {interests.length === 0 ? null : (
+        <Band id="interests" tone="soft" className="py-16 md:py-24">
+          <BandHeading
+            eyebrow="Why it is studied"
+            title="What the held regimens are for"
+            lede="Read off the objectives the sources themselves state. Each card quotes one of them; none of this is an indication, and none of it means the compound works."
+          />
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {interests.map((interest, i) => (
+              <InterestCard
+                key={interest.label}
+                title={interest.label}
+                detail={`${String(interest.count)} of ${String(protocols.length)} held ${
+                  protocols.length === 1 ? 'regimen names' : 'regimens name'
+                } this context. One states it as: “${interest.example}”`}
+                index={i}
+              />
+            ))}
+          </div>
+        </Band>
+      )}
+
+      {/* ── 4 · Evidence landscape and mechanism ─────────────────────── */}
+      <Band id="evidence" tone="deep" grid className="py-16 md:py-24">
+        <BandHeading
+          tone="deep"
+          eyebrow="The evidence"
+          title="What kind of evidence stands behind this"
+          lede="Three different kinds of thing, kept apart. A count is not a grade, and nothing here is scored."
+        />
+        <div className="mt-10">
+          <EvidenceLandscape lanes={lanes} />
+        </div>
+
+        {pathway.length === 0 ? null : (
+          <div id="mechanism" className="mt-20 md:mt-28">
+            <BandHeading
+              tone="deep"
+              eyebrow="Mechanism"
+              title="How it is thought to work"
+              lede="Proposed mechanisms, at the population each was observed in. A mechanism is a reason to look, not a result."
+            />
+            <div className="mt-10">
+              <PathwayDiagram stages={pathway} hasHuman={pathwayHuman} />
+            </div>
+          </div>
         )}
-      </Movement>
+      </Band>
 
-      {/* 2 · Evidence landscape -------------------------------------------- */}
-      <Movement
-        id="evidence"
-        eyebrow="The evidence"
-        title="What kind of evidence stands behind this"
-        lede="Three different kinds of thing, kept apart. A count is not a grade, and nothing here is scored."
-      >
-        <EvidenceLandscape lanes={lanes} />
-      </Movement>
-
-      {/* 3 · Mechanism ------------------------------------------------------ */}
-      {mechanism.length === 0 ? null : (
-        <Movement
-          id="mechanism"
-          eyebrow="Mechanism"
-          title="How it is thought to work"
-          lede="Proposed mechanisms, at the population each was observed in. A mechanism is a reason to look, not a result."
-        >
-          <div className="space-y-5">
-            {mechanism.map((c) => (
+      {/* ── 5 · What the research says ───────────────────────────────── */}
+      {mechanism.length + effects.length + evidenceBase.length === 0 ? null : (
+        <Band id="research" tone="light" className="py-16 md:py-24">
+          <BandHeading
+            eyebrow="Findings"
+            title="What the research says"
+            lede="What has been reported, and how far it has been shown. Read each with the lane it came from."
+          />
+          <div className="mt-10 space-y-8">
+            {[...mechanism, ...effects, ...evidenceBase].map((c) => (
               <ClaimProse key={c.id} claim={c} simple={simple} />
             ))}
           </div>
-          <SourceDrawer citations={citationsOf(mechanism)} />
-        </Movement>
+          <SourceDrawer citations={citationsOf([...mechanism, ...effects, ...evidenceBase])} />
+        </Band>
       )}
 
-      {/* 4 · What the research says ----------------------------------------- */}
-      {effects.length + evidenceBase.length === 0 ? null : (
-        <Movement
-          id="research"
-          eyebrow="Findings"
-          title="What the research says"
-          lede="What has been reported, and how far it has been shown. Read each with the lane it came from."
-        >
-          <div className="space-y-5">
-            {[...effects, ...evidenceBase].map((c) => (
-              <ClaimProse key={c.id} claim={c} simple={simple} />
-            ))}
-          </div>
-          <SourceDrawer citations={citationsOf([...effects, ...evidenceBase])} />
-        </Movement>
-      )}
-
-      {/* 5 · Reported protocols -------------------------------------------- */}
-      <Movement
-        id="protocols"
-        eyebrow="Reported protocols"
-        title="What identifiable sources report doing"
-        lede={
-          <>
-            Each card is one source&rsquo;s regimen, under that source&rsquo;s name. There is no
-            Tides dose and there will not be one: these are not averaged, reconciled or ranked.
-          </>
-        }
-      >
+      {/* ── 6 · Reported protocols ───────────────────────────────────── */}
+      <Band id="protocols" tone="ivory" className="py-16 md:py-24">
+        <BandHeading
+          eyebrow="Reported protocols"
+          title="What identifiable sources report doing"
+          lede={
+            <>
+              Each card is one source&rsquo;s regimen, under that source&rsquo;s name. There is no
+              Tides dose and there will not be one: these are not averaged, reconciled or ranked.
+            </>
+          }
+        />
         {protocols.length === 0 ? (
-          <p className="text-ink-soft">
+          <p className="mt-10 max-w-[62ch] text-ink-soft">
             No source-reported protocol has been published for this compound.
           </p>
         ) : (
-          <div className="grid gap-5 lg:grid-cols-2">
-            {protocols.map((protocol) => (
-              <ReportedProtocolCard
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {protocols.map((protocol, i) => (
+              <ProtocolDataCard
                 key={protocol.id}
                 sourceName={protocolSourceName(protocol)}
-                contextLabel={protocol.evidenceTypeLabel}
                 protocol={protocol}
                 simple={simple}
+                accent={PROTOCOL_ACCENTS[i % PROTOCOL_ACCENTS.length] ?? '#22d3ee'}
+                citations={protocol.sources}
               />
             ))}
           </div>
         )}
-      </Movement>
 
-      {/* 6 · Compare ------------------------------------------------------- */}
-      {comparison === null ? null : (
-        <Movement
-          id="compare"
-          eyebrow="Compare"
-          title="Where the sources agree, and where they do not"
-          lede="Read across rather than down. Every line is counted off the records themselves; no source is adjudicated here, because nothing held settles it."
-        >
-          <AgreementDifference
-            agree={{
-              heading: 'Where the sources agree',
-              points: comparison.agree,
-              emptyText:
-                'Nothing. No field of a reported regimen is stated the same way by every record of either kind.',
-            }}
-            differ={{
-              heading: 'Where they differ',
-              points: comparison.differ,
-              emptyText: 'Nothing: every field that is stated is stated the same way.',
-            }}
-            unknown={{
-              heading: 'What none of them settles',
-              points: comparison.unknown,
-              emptyText: 'Every field is stated by every record.',
-            }}
-          />
-        </Movement>
-      )}
+        {comparison === null ? null : (
+          <div id="compare" className="mt-20 md:mt-24">
+            <BandHeading
+              eyebrow="Compare"
+              title="Where the sources agree, and where they do not"
+              lede="Every line is counted off the records themselves. No source is adjudicated here, because nothing held settles it."
+            />
+            <div className="mt-10">
+              <ComparisonMatrix comparison={comparison} />
+            </div>
+          </div>
+        )}
+      </Band>
 
-      {/* 7 · Stack --------------------------------------------------------- */}
+      {/* ── 7 · Combinations ─────────────────────────────────────────── */}
       {stackLinks.length === 0 ? null : (
-        <Movement
-          id="stacks"
-          eyebrow="Combinations"
-          title="Reported alongside"
-          lede="Appearing together in a source is not evidence that the pairing works. Each page below separates what is known about the compounds individually from what is known about them together."
-        >
-          <div className="grid gap-4">
+        <Band id="stacks" tone="soft" className="py-16 md:py-24">
+          <BandHeading
+            eyebrow="Combinations"
+            title="Reported alongside"
+            lede="Appearing together in a source is not evidence that the pairing works. Each page below separates what is known about the compounds individually from what is known about them together."
+          />
+          <div className="mt-10 grid gap-5">
             {stackLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group block rounded-xl border border-rule/70 bg-warm-white p-6 transition-colors hover:border-scientific-teal/60"
+                className="group relative overflow-hidden rounded-2xl border border-rule bg-warm-white p-7 transition-colors hover:border-scientific-teal/60 md:p-9"
               >
-                <p className="font-serif text-xl text-deep-tide group-hover:text-scientific-teal">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-cyan to-indigo-500"
+                />
+                <p className="font-serif text-2xl text-deep-tide group-hover:text-scientific-teal md:text-3xl">
                   {link.title}
                 </p>
-                <p className="mt-2 max-w-[62ch] text-sm leading-relaxed text-ink-soft">
-                  {link.summary}
-                </p>
+                <p className="mt-3 max-w-[68ch] leading-relaxed text-ink-soft">{link.summary}</p>
               </Link>
             ))}
           </div>
-        </Movement>
+        </Band>
       )}
 
-      {/* 8 · Administration ------------------------------------------------ */}
-      {administration.length === 0 && routeNames.length === 0 ? null : (
-        <Movement
-          id="routes"
-          eyebrow="Administration"
-          title="How it is reported to be given"
-          lede="Route evidence is specific to a compound and a formulation. That one peptide is absorbed by a route says nothing about another."
-        >
-          {routeNames.length === 0 ? null : (
-            <ul className="mb-6 flex flex-wrap gap-2">
-              {routeNames.map((r) => (
-                <li
-                  key={r}
-                  className="rounded-full border border-rule bg-mist/50 px-3 py-1 text-sm text-ink"
-                >
-                  {r}
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="space-y-5">
-            {administration.map((c) => (
-              <ClaimProse key={c.id} claim={c} simple={simple} />
-            ))}
-          </div>
-          <SourceDrawer citations={citationsOf(administration)} />
-        </Movement>
-      )}
-
-      {/* 9 · Safety and unknowns ------------------------------------------- */}
-      <Movement
-        id="safety"
-        eyebrow="Safety and uncertainty"
-        title="What is reported, and what is not established"
-        lede="Observations from sources, kept apart from the questions nobody here can answer."
-      >
-        {safety.length === 0 ? null : (
-          <div className="space-y-5">
-            {safety.map((c) => (
-              <ClaimProse key={c.id} claim={c} simple={simple} />
-            ))}
-          </div>
-        )}
-        {peptide.gaps.length === 0 ? null : (
-          <div className={safety.length === 0 ? '' : 'mt-8'}>
-            <h3 className="font-serif text-lg text-ink">What this index cannot tell you</h3>
-            <ul className="mt-4 space-y-3">
-              {peptide.gaps.slice(0, 6).map((gap) => (
-                <li key={gap.id} className="max-w-[68ch] border-l-2 border-rule pl-4">
-                  <p className="leading-relaxed text-ink">{gap.statement}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-ink-soft">{gap.whyNotSupported}</p>
-                </li>
-              ))}
-            </ul>
-            {peptide.gaps.length > 6 ? (
-              <p className="mt-3 text-sm text-slate">
-                {String(peptide.gaps.length - 6)} further open questions are recorded here.
-              </p>
-            ) : null}
-          </div>
-        )}
-        <SourceDrawer citations={citationsOf(safety)} />
-      </Movement>
-
-      {/* 10 · Quality ------------------------------------------------------ */}
-      <Movement id="quality" eyebrow="Quality" title="What is in the vial is a separate question">
-        <p className="max-w-[68ch] leading-relaxed text-ink-soft">
-          Identity, purity, sterility and storage are properties of a supplied material, not of a
-          compound. They are covered in their own section rather than repeated here.
-        </p>
-        <p className="mt-4">
-          <Link
-            href="/quality"
-            className="text-scientific-teal underline decoration-rule underline-offset-4 hover:text-deep-tide"
-          >
-            How peptides are tested, and what each test proves
-          </Link>
-        </p>
-      </Movement>
-
-      {/* 11 · Regulatory --------------------------------------------------- */}
-      {regulatory.length === 0 && peptide.regulatoryStatuses.length === 0 ? null : (
-        <Movement
-          id="regulatory"
-          eyebrow="Context"
-          title="Regulatory and sport context"
-          lede="One jurisdiction at one date. It bears on whether something may be sold, not on what has been studied."
-        >
-          {peptide.regulatoryStatuses.length === 0 ? null : (
-            <ul className="mb-6 space-y-3">
-              {peptide.regulatoryStatuses.map((status) => (
-                <li key={status.id} className="max-w-[68ch] text-sm leading-relaxed text-ink-soft">
-                  <span className="font-medium text-ink">{status.jurisdiction}</span>
-                  {status.indicationContext === null ? '' : ` · ${status.indicationContext}`}
-                  {' — '}
-                  {status.status}, checked {status.checkedAt}
-                </li>
-              ))}
-            </ul>
-          )}
-          <div className="space-y-5">
-            {regulatory.map((c) => (
-              <ClaimProse key={c.id} claim={c} simple={simple} />
-            ))}
-          </div>
-          <SourceDrawer citations={citationsOf(regulatory)} />
-        </Movement>
-      )}
-
-      {/* 12 · Everything else ---------------------------------------------- */}
-      {remaining.length === 0 ? null : (
-        <Movement id="references" eyebrow="Depth" title="The rest of the record">
-          <Disclosure summary={`Further statements on this compound (${String(remaining.length)})`}>
-            <div className="space-y-5 pt-4">
-              {remaining.map((c) => (
+      {/* ── 8 · Administration, safety, unknowns ─────────────────────── */}
+      <Band tone="light" className="py-16 md:py-24">
+        {administration.length === 0 && routeNames.length === 0 ? null : (
+          <div id="routes">
+            <BandHeading
+              eyebrow="Administration"
+              title="How it is reported to be given"
+              lede="Route evidence is specific to a compound and a formulation. That one peptide is absorbed by a route says nothing about another."
+            />
+            {routeNames.length === 0 ? null : (
+              <ul className="mt-7 flex flex-wrap gap-2.5">
+                {routeNames.map((name) => (
+                  <li
+                    key={name}
+                    className="rounded-full border border-rule bg-mist/60 px-4 py-1.5 text-sm text-ink-soft"
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="mt-8 space-y-8">
+              {administration.map((c) => (
                 <ClaimProse key={c.id} claim={c} simple={simple} />
               ))}
             </div>
-          </Disclosure>
-        </Movement>
-      )}
+            <SourceDrawer citations={citationsOf(administration)} />
+          </div>
+        )}
+
+        {safety.length === 0 ? null : (
+          <div id="safety" className="mt-20 md:mt-24">
+            <BandHeading
+              eyebrow="Safety"
+              title="What is known about harm"
+              lede="Absence of reported harm is not evidence of safety, and a small study cannot show a rare effect."
+            />
+            <div className="mt-10 space-y-8">
+              {safety.map((c) => (
+                <ClaimProse key={c.id} claim={c} simple={simple} />
+              ))}
+            </div>
+            <SourceDrawer citations={citationsOf(safety)} />
+          </div>
+        )}
+
+        {peptide.gaps.length === 0 ? null : (
+          <div id="unknowns" className="mt-20 md:mt-24">
+            <BandHeading
+              eyebrow="Unsettled"
+              title="What this index does not know"
+              lede="Recorded as absences rather than left out. An unanswered question is a finding."
+            />
+            <ul className="mt-10 grid gap-4 md:grid-cols-2">
+              {peptide.gaps.map((gap) => (
+                <li key={gap.id} className="rounded-2xl border border-rule bg-mist/40 p-6">
+                  <p className="font-serif text-lg leading-snug text-ink">{gap.statement}</p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">
+                    {gap.whyNotSupported}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div id="quality" className="mt-20 md:mt-24">
+          <BandHeading
+            eyebrow="Quality"
+            title="What is in the vial is a separate question"
+            lede="Identity, purity, sterility and storage are properties of a supplied material, not of a compound."
+          />
+          <p className="mt-6">
+            <Link
+              href="/quality"
+              className="text-scientific-teal underline decoration-rule underline-offset-4 hover:text-deep-tide"
+            >
+              How peptides are tested, and what each test proves
+            </Link>
+          </p>
+        </div>
+      </Band>
+
+      {/* ── 9 · Context and the rest of the record ───────────────────── */}
+      <Band tone="deep" className="py-16 md:py-24">
+        {regulatory.length === 0 && peptide.regulatoryStatuses.length === 0 ? null : (
+          <div id="regulatory">
+            <BandHeading
+              tone="deep"
+              eyebrow="Context"
+              title="Regulatory and sport context"
+              lede="One jurisdiction at one date. It bears on whether something may be sold, not on what has been studied."
+            />
+            {peptide.regulatoryStatuses.length === 0 ? null : (
+              <ul className="mt-8 grid gap-3 md:grid-cols-2">
+                {peptide.regulatoryStatuses.map((status) => (
+                  <li key={status.id} className="glass px-5 py-4 text-sm leading-relaxed">
+                    <span className="label-micro block text-on-deep-faint">
+                      {status.jurisdiction}
+                    </span>
+                    <span className="mt-1.5 block text-on-deep">{status.status}</span>
+                    <span className="mt-1 block text-on-deep-faint">
+                      {status.indicationContext === null ? '' : `${status.indicationContext} · `}
+                      checked {status.checkedAt}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="mt-8 space-y-8">
+              {regulatory.map((c) => (
+                <ClaimProse key={c.id} claim={c} simple={simple} deep />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {remaining.length === 0 ? null : (
+          <div id="references" className="mt-16 md:mt-20">
+            <BandHeading tone="deep" eyebrow="Depth" title="The rest of the record" />
+            <div className="mt-8 rounded-2xl border border-cyan-soft/15 bg-on-deep/[0.04] px-5 py-2">
+              <Disclosure
+                summary={`Further statements on this compound (${String(remaining.length)})`}
+              >
+                <div className="space-y-8 pt-4">
+                  {remaining.map((c) => (
+                    <ClaimProse key={c.id} claim={c} simple={simple} deep />
+                  ))}
+                </div>
+              </Disclosure>
+            </div>
+          </div>
+        )}
+      </Band>
     </>
   );
 }
 
-function SummaryParagraph({ text }: { readonly text: string }) {
-  // The summaries carry **bold** lead-ins. Rendered without a markdown
-  // dependency: split on the marker and emphasise the odd segments.
-  const parts = text.split('**');
+// ---------------------------------------------------------------------------
+// Prose
+// ---------------------------------------------------------------------------
+
+/** The record's summary, with its **bold** runs, and no markdown dependency. */
+function SummaryProse({ text }: { readonly text: string }) {
+  const paragraphs = text.split(/\n{2,}/).filter((p) => p.trim() !== '');
   return (
-    <p>
-      {parts.map((part, index) =>
-        index % 2 === 1 ? (
-          <strong key={`${part.slice(0, 12)}-${String(index)}`} className="font-medium text-ink">
-            {part}
-          </strong>
-        ) : (
-          <span key={`${part.slice(0, 12)}-${String(index)}`}>{part}</span>
-        ),
-      )}
-    </p>
+    <div className="space-y-5">
+      {paragraphs.map((paragraph, i) => (
+        <p
+          key={paragraph.slice(0, 40)}
+          className={
+            i === 0
+              ? 'text-xl leading-relaxed text-ink md:text-[1.35rem] md:leading-[1.6]'
+              : 'leading-relaxed text-ink-soft'
+          }
+        >
+          {paragraph.split(/(\*\*[^*]+\*\*)/).map((part, j) =>
+            part.startsWith('**') && part.endsWith('**') ? (
+              <strong key={`${String(i)}-${String(j)}`} className="font-medium text-ink">
+                {part.slice(2, -2)}
+              </strong>
+            ) : (
+              part
+            ),
+          )}
+        </p>
+      ))}
+    </div>
   );
 }
 
@@ -535,35 +671,59 @@ const LANE_LABEL: Readonly<Record<string, string>> = {
  * the whole text is on the page either way; what changes is which part of it
  * the eye lands on first.
  */
-function ClaimProse({ claim, simple }: { readonly claim: PublicClaim; readonly simple: boolean }) {
-  const body = simple && claim.plainLanguageText !== null ? claim.plainLanguageText : claim.claimText;
+function ClaimProse({
+  claim,
+  simple,
+  deep = false,
+}: {
+  readonly claim: PublicClaim;
+  readonly simple: boolean;
+  readonly deep?: boolean;
+}) {
+  const body =
+    simple && claim.plainLanguageText !== null ? claim.plainLanguageText : claim.claimText;
   const { lead, rest } = rankProse(body);
   const lanes = [...new Set(claim.evidence.map((e) => e.evidenceClass))];
   return (
     <div className="max-w-[68ch]">
       {/* The kind of evidence comes before the statement, not after it: a
           reader deciding whether to read a paragraph is owed that first. */}
-      <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-2xs tracking-[0.1em] text-slate uppercase">
+      <p
+        className={`label-micro flex flex-wrap items-center gap-x-2.5 gap-y-1 ${
+          deep ? 'text-on-deep-faint' : 'text-slate'
+        }`}
+      >
         {lanes.map((lane) => (
           <span key={lane}>{LANE_LABEL[lane] ?? lane}</span>
         ))}
         {claim.evidence.length > 0 ? (
-          <span className="normal-case tracking-normal text-slate/80">
+          <span className="tracking-normal normal-case opacity-80">
             {String(claim.evidence.length)}{' '}
             {claim.evidence.length === 1 ? 'citation' : 'citations'}
           </span>
         ) : null}
       </p>
-      <p className="mt-1.5 text-[1.0625rem] leading-relaxed text-ink">{lead}</p>
+      <p
+        className={`mt-2 text-lg leading-relaxed ${deep ? 'text-on-deep' : 'text-ink'}`}
+      >
+        {lead}
+      </p>
       {/* Index keys: this list is derived from one string, never reordered,
           and two paragraphs of a claim can legitimately read alike. */}
       {rest.map((paragraph, i) => (
-        <p key={i} className="mt-2.5 leading-relaxed text-ink-soft">
+        <p
+          key={i}
+          className={`mt-3 leading-relaxed ${deep ? 'text-on-deep-soft' : 'text-ink-soft'}`}
+        >
           {paragraph}
         </p>
       ))}
       {claim.uncertaintyText === null ? null : (
-        <p className="mt-3 border-l-2 border-rule pl-3.5 text-sm leading-relaxed text-ink-soft">
+        <p
+          className={`mt-4 border-l-2 pl-4 text-sm leading-relaxed ${
+            deep ? 'border-cyan-soft/25 text-on-deep-soft' : 'border-rule text-ink-soft'
+          }`}
+        >
           {claim.uncertaintyText}
         </p>
       )}

@@ -36,6 +36,29 @@
   --color-rule-soft: #e6edee;
   --color-surface-sunk: #eef4f4;
 
+  /* --- Research-surface palette (Phase 1C) ------------------------------
+     The two prototypes needed a register the reference layout never had: a
+     dark, instrument-like surface to alternate against the editorial white.
+     These are additions, not replacements — nothing above changed, so the
+     other twenty-seven records look exactly as they did.
+
+     Luminous values are for use ON the deep surfaces only. Contrast was
+     measured against `--color-abyss`, not assumed. */
+  --color-abyss: #05161f;
+  --color-abyss-2: #0a2230;
+  --color-deep-navy: #0d2b3d;
+  --color-cyan: #22d3ee;
+  --color-cyan-soft: #a5f3fc;
+  --color-sci-blue: #2563eb;
+  --color-indigo: #4f46e5;
+  --color-violet: #7c6ce0;
+  --color-ivory: #f7f4ed;
+
+  /* Text on the deep surfaces. */
+  --color-on-deep: #eaf4f6;
+  --color-on-deep-soft: #a9c4cd;
+  --color-on-deep-faint: #6f8e99;
+
   /* --- Evidence semantics ----------------------------------------------
      Three classes, three restrained tints. Never the only signal: every use
      is paired with a word, and the shapes differ too. */
@@ -137,10 +160,26 @@ h2,
 h3,
 h4 {
   font-family: var(--font-serif);
-  color: var(--color-ink);
   text-wrap: balance;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+/* The default heading colour, and only the colour, is layered.
+ *
+ * Unlayered author rules beat every layered one whatever the specificity, and
+ * Tailwind's utilities are layered — so while this declaration sat with its
+ * siblings above, `text-on-deep` and `text-warm-white` on a heading were
+ * silently discarded. Every dark-panel heading on the prototypes was being
+ * painted ink on navy. In `@layer base` the default still applies to any
+ * heading that asks for nothing, and a utility now wins as it should. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+  }
 }
 
 p {
@@ -614,4 +653,156 @@ p {
   [class*='backdrop-blur'] {
     backdrop-filter: none !important;
   }
+}
+
+/* ==========================================================================
+   PHASE 1C — the research-surface system.
+
+   Scoped to the two transformed prototypes. Everything here is additive: no
+   existing class changed, so the reference layout that serves the other
+   twenty-seven compounds is untouched.
+
+   The organising idea is rhythm. A reference read entirely on white reads as a
+   white paper however good the words are; a page that is entirely dark reads as
+   a marketing site. So the prototypes alternate deliberately — an immersive
+   deep band, then editorial white, then a soft technical tint — and the
+   surfaces below are the vocabulary for that.
+   ========================================================================== */
+
+/* --- Surfaces ----------------------------------------------------------- */
+
+.surface-deep {
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 78% 12%, color-mix(in srgb, var(--color-sci-blue) 26%, transparent) 0%, transparent 58%),
+    radial-gradient(90% 70% at 12% 4%, color-mix(in srgb, var(--color-tide-teal) 32%, transparent) 0%, transparent 62%),
+    radial-gradient(100% 80% at 50% 108%, color-mix(in srgb, var(--color-indigo) 22%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg, var(--color-abyss-2) 0%, var(--color-abyss) 100%);
+  color: var(--color-on-deep);
+}
+
+.surface-soft-tech {
+  background:
+    radial-gradient(80% 60% at 88% 0%, color-mix(in srgb, var(--color-cyan) 9%, transparent) 0%, transparent 60%),
+    radial-gradient(70% 60% at 4% 100%, color-mix(in srgb, var(--color-indigo) 7%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, var(--color-mist) 0%, var(--color-warm-white) 100%);
+}
+
+.surface-ivory {
+  background: linear-gradient(180deg, var(--color-ivory) 0%, var(--color-warm-white) 100%);
+}
+
+/* A faint instrument grid. Decorative, never the only thing carrying meaning. */
+.grid-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-cyan) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-cyan) 12%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(70% 60% at 70% 30%, #000 0%, transparent 78%);
+  opacity: 0.5;
+}
+
+/* --- Panels ------------------------------------------------------------- */
+
+/* A translucent panel for use on a deep surface. Blur is progressive: without
+   backdrop-filter support the background colour alone still passes contrast. */
+.glass {
+  background: color-mix(in srgb, var(--color-on-deep) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-cyan-soft) 16%, transparent);
+  border-radius: 14px;
+}
+@supports (backdrop-filter: blur(1px)) {
+  .glass {
+    backdrop-filter: blur(10px) saturate(1.1);
+    background: color-mix(in srgb, var(--color-on-deep) 5%, transparent);
+  }
+}
+
+.glass-strong {
+  background: color-mix(in srgb, var(--color-abyss) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-cyan-soft) 22%, transparent);
+  border-radius: 16px;
+}
+@supports (backdrop-filter: blur(1px)) {
+  .glass-strong {
+    backdrop-filter: blur(14px) saturate(1.15);
+  }
+}
+
+/* --- Data typography ---------------------------------------------------- */
+
+/* Figures read as instrument readings rather than body copy: tabular so
+   columns of them align, and tight so they carry at display size. */
+.numeric {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'ss01' 1;
+  letter-spacing: -0.02em;
+}
+
+.label-micro {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* --- Motion -------------------------------------------------------------
+   Restrained on purpose: drift and a slow pulse, nothing that competes with
+   reading. Everything here is decorative, so all of it stops under
+   prefers-reduced-motion and nothing is lost when it does. */
+
+@keyframes tides-drift {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(0, -10px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes tides-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.85; }
+}
+
+@keyframes tides-trace {
+  from { stroke-dashoffset: var(--trace-length, 400); }
+  to   { stroke-dashoffset: 0; }
+}
+
+.anim-drift { animation: tides-drift 14s ease-in-out infinite; }
+.anim-drift-slow { animation: tides-drift 22s ease-in-out infinite; }
+.anim-pulse { animation: tides-pulse 6s ease-in-out infinite; }
+.anim-trace {
+  stroke-dasharray: var(--trace-length, 400);
+  animation: tides-trace 2.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-drift,
+  .anim-drift-slow,
+  .anim-pulse,
+  .anim-trace {
+    animation: none !important;
+  }
+  .anim-trace { stroke-dashoffset: 0; }
+}
+
+/* Print: the deep surfaces cost a page of toner and say nothing a reader
+   needs on paper. */
+@media print {
+  .surface-deep,
+  .surface-soft-tech,
+  .surface-ivory {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .glass,
+  .glass-strong {
+    background: #fff !important;
+    border-color: #bbb !important;
+    backdrop-filter: none !important;
+  }
+  .grid-accent::before { display: none !important; }
 }

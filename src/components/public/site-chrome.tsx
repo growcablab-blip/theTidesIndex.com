@@ -10,8 +10,9 @@ import { Container } from './primitives';
  * name is the organisation's name, so screen readers hear "The Tides Index".
  *
  * On a reference, chrome that competes with the content is a cost paid on every
- * page. The header carries no decorative motif of its own: its bottom border is
- * the separation, and nothing sits under it.
+ * page — but chrome that looks provisional is a cost too. The bar is tall
+ * enough to hold the wordmark at a confident size, and the only ornament is the
+ * movement hairline along its bottom edge. No wave, and nothing beneath it.
  */
 
 /*
@@ -69,9 +70,12 @@ export function SiteHeader() {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <header className="no-print sticky top-0 z-40 border-b border-rule bg-warm-white/95 backdrop-blur-sm">
+      {/* More presence, same restraint: a taller bar, a larger wordmark, and a
+          hairline of the movement spectrum along the bottom edge in place of
+          the flat rule. Still chrome — nothing here competes with a record. */}
+      <header className="no-print relative sticky top-0 z-40 border-b border-rule bg-warm-white/92 backdrop-blur-md">
         <Container width="wide">
-          <div className="flex h-16 items-center justify-between gap-6">
+          <div className="flex h-[4.75rem] items-center justify-between gap-6 md:h-[5.25rem]">
             <Link href="/" className="flex shrink-0 items-center" aria-label="The Tides Index — home">
               {/*
                 The logo carries its own tagline, so the separate descriptor is
@@ -85,17 +89,17 @@ export function SiteHeader() {
                 height={437}
                 loading="eager"
                 fetchPriority="high"
-                className="h-11 w-auto"
+                className="h-12 w-auto md:h-[3.25rem]"
               />
             </Link>
 
             <nav aria-label="Primary" className="hidden md:block">
-              <ul className="flex items-center gap-7 text-sm">
+              <ul className="flex items-center gap-8 text-[0.9375rem]">
                 {PRIMARY_NAV.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-ink-soft transition-colors hover:text-deep-tide"
+                      className="relative text-ink-soft transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-tide-teal after:transition-all hover:text-deep-tide hover:after:w-full"
                     >
                       {item.label}
                     </Link>
@@ -106,13 +110,14 @@ export function SiteHeader() {
 
             <Link
               href="/search"
-              className="flex items-center gap-2 rounded-md border border-rule bg-mist px-3 py-1.5 text-sm text-slate transition-colors hover:border-tide-teal hover:text-deep-tide"
+              className="flex items-center gap-2 rounded-lg border border-rule bg-mist px-3.5 py-2 text-sm text-slate transition-colors hover:border-tide-teal hover:bg-sea-glass/40 hover:text-deep-tide"
             >
               <SearchGlyph />
               <span className="hidden sm:inline">Search</span>
             </Link>
           </div>
         </Container>
+        <span aria-hidden="true" className="tide-rule absolute inset-x-0 bottom-0 block" />
       </header>
 
       {/* The primary sections stay reachable on small screens without a menu
