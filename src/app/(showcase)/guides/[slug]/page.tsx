@@ -16,7 +16,12 @@ export function generateStaticParams(): { slug: string }[] {
   return PROTOCOL_GUIDES.filter(isGuideReady).map((g) => ({ slug: g.slug }));
 }
 
-export const dynamicParams = false;
+/*
+ * Unknown slugs are left to render on demand rather than refused with
+ * `dynamicParams = false`: that refusal is answered by the root not-found page,
+ * which belongs to the research application and links to search. Rendering
+ * lets `notFound()` below reach the holding experience's own not-found page.
+ */
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
