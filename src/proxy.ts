@@ -1,5 +1,15 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { currentSurface, isPublicSurfacePath } from '@/domain/publishing/surface';
+
+/*
+ * Nothing on the public surface is served that is not on its allowlist.
+ * Refused paths are rewritten to a route that always calls notFound(), so the
+ * holding experience's own not-found page answers, with a 404 status. It must
+ * be a real, dynamic route: a rewrite to a path with no route, or to an unknown
+ * slug on a statically generated route, hangs in the standalone server.
+ */
+const PUBLIC_SURFACE_NOT_FOUND = '/not-in-index';
 
 /**
  * Refreshes the Supabase session cookie and keeps unauthenticated visitors out
@@ -13,6 +23,13 @@ import { NextResponse, type NextRequest } from 'next/server';
  * refuse it.
  */
 export default async function proxy(request: NextRequest) {
+  // The public deployment serves the holding experience and nothing else —
+  // no research pages, no search, no admin. Decided before any session work.
+  if (currentSurface() === 'public') {
+    if (isPublicSurfacePath(request.nextUrl.pathname)) return NextResponse.next({ request });
+    return NextResponse.rewrite(new URL(PUBLIC_SURFACE_NOT_FOUND, request.url));
+  }
+
   let response = NextResponse.next({ request });
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

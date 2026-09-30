@@ -22,6 +22,12 @@ import { LEARNING_JOURNEY } from '@/domain/learn/journey';
  */
 export const dynamic = 'force-dynamic';
 
+/*
+ * This was the home page until the public holding experience took `/`. It stays
+ * here, reachable by direct route, as the entry to the research application.
+ */
+export const metadata = { title: 'Research reference' };
+
 const DEPTHS = [
   {
     time: 'In 60 seconds',

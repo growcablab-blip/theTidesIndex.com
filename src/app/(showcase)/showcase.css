@@ -1,0 +1,623 @@
+/* ==========================================================================
+   The Tides Index — public holding experience
+
+   A separate register from the editorial reference: a dark, luminous research
+   environment. Everything is scoped under `.sx` so none of it can leak into the
+   research application's pages, which keep their own stylesheet untouched.
+
+   Motion rules
+   - Only transform, opacity and stroke-dashoffset are animated.
+   - Nothing that carries text moves after it has arrived.
+   - `prefers-reduced-motion: reduce` shows every element in its final state.
+   ========================================================================== */
+
+.sx {
+  --sx-bg: #030c13;
+  --sx-bg-2: #06141e;
+  --sx-panel: rgb(10 30 44 / 0.55);
+  --sx-panel-solid: #0a1d2a;
+  --sx-line: rgb(140 220 240 / 0.12);
+  --sx-line-strong: rgb(140 220 240 / 0.24);
+  --sx-text: #eaf4f7;
+  --sx-soft: #a8c3cc;
+  --sx-faint: #6d8b97;
+  --sx-cyan: #22d3ee;
+  --sx-cyan-soft: #a5f3fc;
+  --sx-blue: #3b82f6;
+  --sx-indigo: #6366f1;
+  --sx-violet: #8b7cf6;
+  --sx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--sx-bg);
+  color: var(--sx-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sx ::selection {
+  background: rgb(34 211 238 / 0.35);
+  color: #fff;
+}
+
+.sx a:focus-visible,
+.sx button:focus-visible,
+.sx summary:focus-visible {
+  outline: 2px solid var(--sx-cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --- Typography --------------------------------------------------------- */
+
+.sx-mono {
+  font-family: var(--font-sx-mono), ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.sx-eyebrow {
+  font-family: var(--font-sx-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sx-cyan-soft);
+}
+
+.sx-display {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  font-size: clamp(2.35rem, 5.4vw + 0.4rem, 4.85rem);
+  text-wrap: balance;
+}
+
+.sx-h2 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-size: clamp(2.1rem, 5.4vw, 4.25rem);
+  text-wrap: balance;
+}
+
+.sx-h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+}
+
+.sx-lede {
+  color: var(--sx-soft);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* Luminous text: a gradient clipped to the glyphs. */
+.sx-glow-text {
+  background: linear-gradient(100deg, #eaffff 0%, var(--sx-cyan) 38%, var(--sx-blue) 70%, var(--sx-violet) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Layout ------------------------------------------------------------- */
+
+.sx-wrap {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px) {
+  .sx-wrap { padding-inline: 2rem; }
+}
+@media (min-width: 1024px) {
+  .sx-wrap { padding-inline: 3rem; }
+}
+
+.sx-section {
+  position: relative;
+  padding-block: clamp(5rem, 11vw, 9.5rem);
+}
+
+/* Anchored sections clear the fixed header. */
+.sx [id] { scroll-margin-top: 5.5rem; }
+
+/* --- Atmosphere --------------------------------------------------------- */
+
+/* A faint measurement grid, fading out at the edges. */
+.sx-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgb(140 220 240 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(140 220 240 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
+}
+
+.sx-aura {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.55;
+}
+
+/* Divider between movements: a hairline that brightens in the middle. */
+.sx-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(34 211 238 / 0.45), rgb(99 102 241 / 0.4), transparent);
+}
+
+/* --- Header ------------------------------------------------------------- */
+
+.sx-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  transition: background-color 0.5s var(--sx-ease), border-color 0.5s var(--sx-ease), backdrop-filter 0.5s;
+  border-bottom: 1px solid transparent;
+}
+.sx[data-scrolled] .sx-header {
+  background: rgb(3 12 19 / 0.72);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  border-bottom-color: var(--sx-line);
+}
+
+.sx-navlink {
+  position: relative;
+  font-family: var(--font-sx-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sx-soft);
+  transition: color 0.3s;
+}
+.sx-navlink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--sx-cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--sx-ease);
+}
+.sx-navlink:hover { color: var(--sx-text); }
+.sx-navlink:hover::after { transform: scaleX(1); }
+
+.sx-menu > summary { list-style: none; cursor: pointer; }
+.sx-menu > summary::-webkit-details-marker { display: none; }
+.sx-menu[open] .sx-menu-icon-open { display: none; }
+.sx-menu:not([open]) .sx-menu-icon-close { display: none; }
+
+/* --- Buttons ------------------------------------------------------------ */
+
+.sx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.1rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: transform 0.35s var(--sx-ease), box-shadow 0.35s var(--sx-ease), background-color 0.35s, border-color 0.35s;
+}
+.sx-btn-primary {
+  color: #03141c;
+  background: linear-gradient(120deg, #b9f6ff, var(--sx-cyan) 45%, #38bdf8);
+  box-shadow: 0 0 0 1px rgb(165 243 252 / 0.4), 0 10px 40px -10px rgb(34 211 238 / 0.7);
+}
+.sx-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgb(165 243 252 / 0.7), 0 16px 50px -8px rgb(34 211 238 / 0.85);
+}
+.sx-btn-ghost {
+  color: var(--sx-text);
+  border: 1px solid var(--sx-line-strong);
+  background: rgb(10 30 44 / 0.35);
+}
+.sx-btn-ghost:hover {
+  border-color: rgb(34 211 238 / 0.6);
+  background: rgb(34 211 238 / 0.08);
+}
+.sx-btn .sx-arrow { transition: transform 0.35s var(--sx-ease); }
+.sx-btn:hover .sx-arrow { transform: translateX(3px); }
+
+/* --- Panels ------------------------------------------------------------- */
+
+.sx-glass {
+  background: linear-gradient(160deg, rgb(20 50 70 / 0.55), rgb(8 22 34 / 0.55));
+  border: 1px solid var(--sx-line);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+}
+
+/* A panel whose border catches light along its top edge. */
+.sx-card {
+  position: relative;
+  border-radius: 1.5rem;
+  background: linear-gradient(170deg, rgb(16 42 60 / 0.8), rgb(6 18 28 / 0.9));
+  border: 1px solid var(--sx-line);
+  overflow: hidden;
+  isolation: isolate;
+}
+.sx-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(165 243 252 / 0.5), transparent);
+  z-index: 2;
+}
+
+/* --- Hero --------------------------------------------------------------- */
+
+.sx-hero {
+  position: relative;
+  min-height: max(40rem, 100svh);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sx-hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.sx-figure-wrap {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  /* Phone: the figure stands behind the headline, cropped at the hips. */
+  right: -28%;
+  top: 7%;
+  height: 88%;
+  aspect-ratio: 600 / 900;
+  opacity: 0.55;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 96%);
+}
+@media (min-width: 640px) {
+  .sx-figure-wrap { right: -12%; opacity: 0.7; }
+}
+@media (min-width: 1024px) {
+  .sx-figure-wrap {
+    right: 3%;
+    top: 4%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+@media (min-width: 1440px) {
+  .sx-figure-wrap { right: 8%; }
+}
+
+/* Parallax is applied by the motion script through these custom properties. */
+.sx-parallax {
+  transform: translate3d(calc(var(--sx-px, 0) * var(--depth, 10px)), calc(var(--sx-py, 0) * var(--depth, 10px)), 0);
+  transition: transform 0.9s var(--sx-ease);
+  will-change: transform;
+}
+
+/* Legibility scrim behind the headline on small screens. */
+.sx-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(3 12 19 / 0.92) 0%, rgb(3 12 19 / 0.55) 55%, transparent 80%),
+    linear-gradient(to top, var(--sx-bg) 0%, transparent 28%);
+}
+@media (min-width: 1024px) {
+  .sx-hero-scrim {
+    background:
+      linear-gradient(90deg, rgb(3 12 19 / 0.85) 0%, rgb(3 12 19 / 0.25) 45%, transparent 65%),
+      linear-gradient(to top, var(--sx-bg) 0%, transparent 25%);
+  }
+}
+
+.sx-hud {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.8rem;
+  font-family: var(--font-sx-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sx-soft);
+  background: rgb(6 20 30 / 0.55);
+  border: 1px solid var(--sx-line-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+@media (min-width: 1024px) {
+  .sx-hud { display: block; }
+}
+.sx-hud-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--sx-cyan);
+  box-shadow: 0 0 10px var(--sx-cyan);
+  margin-right: 0.5rem;
+  vertical-align: 1px;
+  animation: sx-blink 2.4s ease-in-out infinite;
+}
+
+.sx-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  z-index: 3;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 3.25rem;
+  background: linear-gradient(to bottom, transparent, rgb(165 243 252 / 0.2));
+  overflow: hidden;
+}
+.sx-scroll-cue::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 40%;
+  background: var(--sx-cyan);
+  animation: sx-drip 2.6s var(--sx-ease) infinite;
+}
+
+/* --- The figure's internal motion -------------------------------------- */
+
+.sx-fig-scan { animation: sx-scan 7s linear infinite; }
+.sx-fig-pulse { animation: sx-pulse 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.sx-fig-breathe { animation: sx-breathe 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.sx-fig-signal {
+  stroke-dasharray: 26 420;
+  animation: sx-signal 5.5s linear infinite;
+}
+.sx-fig-orbit {
+  stroke-dasharray: 3 11;
+  animation: sx-orbit 40s linear infinite;
+}
+.sx-fig-node { animation: sx-blink 3s ease-in-out infinite; }
+.sx-spin-slow { animation: sx-spin 60s linear infinite; transform-box: fill-box; transform-origin: center; }
+
+/* --- Reveal on scroll ---------------------------------------------------
+   Hidden only once the motion script has announced itself on <html>, so a
+   visitor without JavaScript sees everything immediately. */
+
+.sx[data-motion] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 1.1s var(--sx-ease), transform 1.1s var(--sx-ease);
+  transition-delay: var(--delay, 0s);
+}
+.sx[data-motion] [data-reveal='scale'] {
+  transform: scale(0.965);
+}
+.sx[data-motion] [data-reveal][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Line-art that draws itself once revealed. */
+.sx[data-motion] [data-shown] .sx-draw,
+.sx[data-motion] .sx-draw[data-shown] {
+  stroke-dashoffset: 0;
+}
+.sx[data-motion] .sx-draw {
+  stroke-dasharray: var(--len, 600);
+  stroke-dashoffset: var(--len, 600);
+  transition: stroke-dashoffset 2.4s var(--sx-ease);
+  transition-delay: var(--delay, 0.2s);
+}
+
+/* --- Telemetry ---------------------------------------------------------- */
+
+.sx-stat-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-size: clamp(3rem, 7.5vw, 5.5rem);
+}
+
+.sx-meter {
+  position: relative;
+  height: 2px;
+  background: rgb(140 220 240 / 0.1);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.sx-meter::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, var(--sx-cyan), transparent);
+  animation: sx-sweep 3.8s var(--sx-ease) infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* --- Gallery ------------------------------------------------------------ */
+
+.sx-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(78%, 1fr);
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 0.5rem;
+  overscroll-behavior-x: contain;
+}
+.sx-rail::-webkit-scrollbar { display: none; }
+.sx-rail > * { scroll-snap-align: start; }
+@media (min-width: 768px) {
+  .sx-rail {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+  }
+}
+
+.sx-artwork-frame {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: radial-gradient(120% 80% at 50% 0%, rgb(34 211 238 / 0.14), transparent 60%), #061621;
+  border: 1px solid var(--sx-line-strong);
+  box-shadow: 0 40px 80px -40px rgb(34 211 238 / 0.35), 0 0 0 1px rgb(0 0 0 / 0.4);
+}
+
+.sx-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  color: var(--sx-text);
+  background: rgb(34 211 238 / 0.07);
+  border: 1px solid rgb(34 211 238 / 0.22);
+}
+
+.sx-lift {
+  transition: transform 0.6s var(--sx-ease), border-color 0.6s, box-shadow 0.6s;
+}
+.sx-lift:hover {
+  transform: translateY(-4px);
+  border-color: rgb(34 211 238 / 0.35);
+  box-shadow: 0 30px 60px -30px rgb(34 211 238 / 0.35);
+}
+
+/* --- Keyframes ---------------------------------------------------------- */
+
+@keyframes sx-scan {
+  0% { transform: translateY(-180px); opacity: 0; }
+  8% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(940px); opacity: 0; }
+}
+@keyframes sx-pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.55; }
+  45% { transform: scale(1.08); opacity: 1; }
+}
+@keyframes sx-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.025); opacity: 1; }
+}
+@keyframes sx-signal {
+  from { stroke-dashoffset: 446; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes sx-orbit {
+  to { stroke-dashoffset: -1400; }
+}
+@keyframes sx-blink {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+@keyframes sx-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes sx-drip {
+  0% { top: -40%; }
+  100% { top: 110%; }
+}
+@keyframes sx-sweep {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
+@keyframes sx-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+@keyframes sx-draw-loop {
+  0% { stroke-dashoffset: var(--len, 600); }
+  45%, 70% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: calc(var(--len, 600) * -1); }
+}
+@keyframes sx-bar {
+  0%, 100% { transform: scaleX(0.35); }
+  50% { transform: scaleX(1); }
+}
+@keyframes sx-ticker {
+  to { transform: translateX(-50%); }
+}
+
+/* Page-load entrance for the hero. Pure CSS, so it never waits on hydration. */
+@keyframes sx-rise {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+.sx-enter { animation: sx-rise 1.3s var(--sx-ease) var(--delay, 0s) both; }
+
+@keyframes sx-scan-short {
+  0% { transform: translateY(20px); opacity: 0; }
+  15%, 80% { opacity: 0.8; }
+  100% { transform: translateY(205px); opacity: 0; }
+}
+.sx-scan-short { animation: sx-scan-short 3.6s ease-in-out infinite; }
+
+.sx-float { animation: sx-float 7s ease-in-out infinite; }
+.sx-draw-loop { stroke-dasharray: var(--len, 600); animation: sx-draw-loop 6s var(--sx-ease) infinite; animation-delay: var(--delay, 0s); }
+.sx-bar { transform-origin: left; animation: sx-bar 5s var(--sx-ease) infinite; animation-delay: var(--delay, 0s); }
+.sx-ticker { animation: sx-ticker 38s linear infinite; }
+
+/* --- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .sx *,
+  .sx *::before,
+  .sx *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .sx[data-motion] [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  .sx[data-motion] .sx-draw,
+  .sx .sx-draw-loop {
+    stroke-dashoffset: 0;
+  }
+  .sx .sx-fig-scan,
+  .sx .sx-fig-signal { display: none; }
+  .sx-parallax { transform: none; }
+}
+
+/* Smooth in-page travel between sections, only where motion is welcome. */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.sx) { scroll-behavior: smooth; }
+}
+
+/* The research application's headings are serif and ink by default. Here they
+   are the display sans and take their colour from the surface. Only family and
+   colour are reset, so the size and tracking classes keep control. */
+.sx :is(h1, h2, h3, h4) {
+  font-family: var(--font-sans);
+  color: inherit;
+}
+
+/* Overscroll and the area behind the fixed header stay dark. */
+body:has(.sx) { background-color: #030c13; }

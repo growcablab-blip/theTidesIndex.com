@@ -1,0 +1,99 @@
+'use client';
+
+import { useEffect } from 'react';
+
+/**
+ * One small script drives every non-canvas motion on the holding experience,
+ * so the page has a single client boundary for behaviour instead of dozens:
+ *
+ *   [data-reveal]   fades and rises in once it enters the viewport
+ *   [data-count]    counts up to its server-rendered value when revealed
+ *   [data-scan]     a looping decorative scan readout (00–99)
+ *   .sx root        gets data-scrolled after the hero, and --sx-px / --sx-py
+ *                   for pointer parallax on `.sx-parallax` layers
+ *
+ * Everything it animates is already present and correct in the server HTML.
+ * Without JavaScript, or under reduced motion, the page is simply complete.
+ */
+export function ShowcaseMotion() {
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>('.sx');
+    if (root === null) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // `data-motion` is set on the root by the layout's inline script before
+    // paint. It is deliberately not set here: after a client-side navigation
+    // the sections are simply shown, rather than hidden and flashed back in.
+
+    // --- Reveal and count --------------------------------------------------
+    const countUp = (el: HTMLElement) => {
+      const target = Number(el.dataset.count);
+      if (!Number.isFinite(target) || reduced) return;
+      const duration = 1800;
+      const t0 = performance.now();
+      const tick = (t: number) => {
+        const k = Math.min(1, (t - t0) / duration);
+        const eased = 1 - Math.pow(1 - k, 4);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      el.textContent = '0';
+      requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const el = entry.target as HTMLElement;
+          el.dataset.shown = '';
+          el.querySelectorAll<HTMLElement>('[data-count]').forEach(countUp);
+          io.unobserve(el);
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+    );
+    root.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+    // --- Header state ------------------------------------------------------
+    const onScroll = () => {
+      if (window.scrollY > 40) root.dataset.scrolled = '';
+      else delete root.dataset.scrolled;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // --- Pointer parallax (mouse only; touch devices keep still) ----------
+    let raf = 0;
+    const onPointer = (e: PointerEvent) => {
+      if (reduced || e.pointerType !== 'mouse') return;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        root.style.setProperty('--sx-px', ((e.clientX / window.innerWidth - 0.5) * 2).toFixed(3));
+        root.style.setProperty('--sx-py', ((e.clientY / window.innerHeight - 0.5) * 2).toFixed(3));
+      });
+    };
+    window.addEventListener('pointermove', onPointer, { passive: true });
+
+    // --- Decorative scan readouts -----------------------------------------
+    const scans = Array.from(root.querySelectorAll<HTMLElement>('[data-scan]'));
+    let n = 0;
+    const scanTimer = reduced
+      ? 0
+      : window.setInterval(() => {
+          n = (n + 1) % 100;
+          scans.forEach((el, i) => {
+            el.textContent = String((n + i * 37) % 100).padStart(2, '0');
+          });
+        }, 120);
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('pointermove', onPointer);
+      cancelAnimationFrame(raf);
+      window.clearInterval(scanTimer);
+    };
+  }, []);
+
+  return null;
+}
