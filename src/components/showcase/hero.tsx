@@ -1,93 +1,97 @@
-import { MolecularField } from './molecular-field';
-import { ResearchFigure } from './research-figure';
+import { getImageProps } from 'next/image';
+import { HeroStage } from './hero/hero-stage';
 
 /**
- * The opening: a visual moment first, a sentence second.
+ * The opening: a human research system, entered through a peptide.
  *
- * Layers, back to front: measurement grid and auras, the molecular field
- * (canvas), the research figure (SVG), a legibility scrim, then the headline
- * and the floating readouts. The figure and the readouts sit on parallax
- * layers of different depth, so the scene has volume under the pointer.
+ * The hero is a pinned stage inside a taller track (about 1.9 screens), so a
+ * short scroll plays the sequence — peptide, receptors, signal, the body
+ * responding — and then the page moves on to what is useful.
+ *
+ * Layers, back to front: the still (a frame rendered from the same 3D scene,
+ * and the whole visual for reduced motion or no WebGL), the live WebGL canvas,
+ * a legibility scrim, the copy, and the phase indicator. The copy is ordinary
+ * DOM throughout and never part of a rendered frame.
  */
 
-const HUD = [
-  { label: 'Neural', detail: 'Signaling field', className: 'right-[31%] top-[16%] xl:right-[33%]', depth: '14px' },
-  { label: 'Vascular', detail: 'Circulation map', className: 'right-[4%] top-[42%] xl:right-[7%]', depth: '22px' },
-  { label: 'Cellular', detail: 'Tissue lattice', className: 'right-[37%] top-[60%] xl:right-[39%]', depth: '10px' },
+const PHASES = [
+  { key: 'peptide', label: 'Peptide structure' },
+  { key: 'receptor', label: 'Receptor signaling' },
+  { key: 'system', label: 'System response' },
 ] as const;
+
+function HeroStill() {
+  const common = { alt: '', sizes: '100vw', quality: 75 } as const;
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({ ...common, src: '/hero/still-desktop.jpg', width: 2400, height: 1350 });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({ ...common, src: '/hero/still-mobile.jpg', width: 1170, height: 2532 });
+  return (
+    <picture className="sx-hero-still">
+      <source media="(min-width: 820px)" srcSet={desktop} />
+      <source media="(max-width: 819px)" srcSet={mobile} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text -- decorative; alt="" comes from getImageProps */}
+      <img {...rest} fetchPriority="high" />
+    </picture>
+  );
+}
 
 export function Hero() {
   return (
-    <section className="sx-hero" aria-labelledby="hero-title">
-      <div className="sx-grid-bg" aria-hidden="true" />
-      <div
-        className="sx-aura"
-        aria-hidden="true"
-        style={{ width: '46rem', height: '46rem', right: '-10rem', top: '-8rem', background: 'radial-gradient(circle, rgb(34 211 238 / 0.35), transparent 65%)' }}
-      />
-      <div
-        className="sx-aura"
-        aria-hidden="true"
-        style={{ width: '40rem', height: '40rem', right: '14rem', bottom: '-18rem', background: 'radial-gradient(circle, rgb(99 102 241 / 0.4), transparent 65%)' }}
-      />
+    <section id="hero" className="sx-hero-track" aria-labelledby="hero-title" data-phase="peptide">
+      <div className="sx-hero-stage">
+        <HeroStill />
+        <HeroStage trackId="hero" />
+        <div className="sx-hero-scrim" aria-hidden="true" />
 
-      <MolecularField className="sx-hero-canvas" />
-
-      <div className="sx-figure-wrap">
-        <div className="sx-parallax h-full w-full" style={{ '--depth': '-12px' } as React.CSSProperties}>
-          <ResearchFigure className="h-full w-full" />
-        </div>
-      </div>
-
-      <div className="sx-hero-scrim" aria-hidden="true" />
-
-      {HUD.map((h, i) => (
-        <div key={h.label} className={`sx-hud ${h.className}`} aria-hidden="true">
-          <div className="sx-parallax sx-enter" style={{ '--depth': h.depth, '--delay': `${String(1.1 + i * 0.25)}s` } as React.CSSProperties}>
-            <p>
-              <span className="sx-hud-dot" style={{ animationDelay: `${String(i * 0.6)}s` }} />
-              {h.label}
+        <div className="sx-wrap sx-hero-copy relative z-[4]">
+          <div className="max-w-[54rem]">
+            <p className="sx-eyebrow sx-enter flex items-center gap-3" style={{ '--delay': '0.15s' } as React.CSSProperties}>
+              <span className="inline-block h-px w-10 bg-[var(--sx-cyan)]" aria-hidden="true" />
+              Independent peptide science
             </p>
-            <p className="mt-1.5 text-[var(--sx-faint)]">
-              {h.detail} · <span data-scan>00</span>
+
+            <h1 id="hero-title" className="sx-display mt-6 sm:mt-7">
+              <span className="sx-enter block" style={{ '--delay': '0.3s' } as React.CSSProperties}>
+                Peptide research,
+              </span>
+              <span className="sx-enter sx-glow-text block pb-2" style={{ '--delay': '0.45s' } as React.CSSProperties}>
+                made understandable.
+              </span>
+            </h1>
+
+            <p className="sx-lede sx-enter mt-5 max-w-[36ch] sm:mt-7" style={{ '--delay': '0.65s' } as React.CSSProperties}>
+              Explore the science. Compare reported protocols. Understand what we know
+              <span className="text-[var(--sx-text)]"> — and what we don&rsquo;t.</span>
             </p>
+
+            <div className="sx-enter mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4" style={{ '--delay': '0.85s' } as React.CSSProperties}>
+              <a href="#protocols" className="sx-btn sx-btn-primary">
+                Explore protocols <span className="sx-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="#building" className="sx-btn sx-btn-ghost">
+                Discover Tides
+              </a>
+            </div>
           </div>
         </div>
-      ))}
 
-      <div className="sx-wrap relative z-[4] pb-24 pt-32 sm:pt-36">
-        <div className="max-w-[54rem]">
-          <p className="sx-eyebrow sx-enter flex items-center gap-3" style={{ '--delay': '0.15s' } as React.CSSProperties}>
-            <span className="inline-block h-px w-10 bg-[var(--sx-cyan)]" aria-hidden="true" />
-            Independent peptide science
-          </p>
+        <ol className="sx-hero-phases sx-enter" aria-hidden="true" style={{ '--delay': '1.2s' } as React.CSSProperties}>
+          {PHASES.map((ph, i) => (
+            <li key={ph.key} data-step={ph.key}>
+              <span className="sx-mono">{String(i + 1).padStart(2, '0')}</span>
+              <span>{ph.label}</span>
+            </li>
+          ))}
+          <li className="sx-hero-progress" aria-hidden="true">
+            <span />
+          </li>
+        </ol>
 
-          <h1 id="hero-title" className="sx-display mt-7">
-            <span className="sx-enter block" style={{ '--delay': '0.3s' } as React.CSSProperties}>
-              Peptide research,
-            </span>
-            <span className="sx-enter sx-glow-text block pb-2" style={{ '--delay': '0.45s' } as React.CSSProperties}>
-              made understandable.
-            </span>
-          </h1>
-
-          <p className="sx-lede sx-enter mt-7 max-w-[36ch]" style={{ '--delay': '0.65s' } as React.CSSProperties}>
-            Explore the science. Compare reported protocols. Understand what we know
-            <span className="text-[var(--sx-text)]"> — and what we don&rsquo;t.</span>
-          </p>
-
-          <div className="sx-enter mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4" style={{ '--delay': '0.85s' } as React.CSSProperties}>
-            <a href="#protocols" className="sx-btn sx-btn-primary">
-              Explore protocols <span className="sx-arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="#building" className="sx-btn sx-btn-ghost">
-              Discover Tides
-            </a>
-          </div>
-        </div>
+        <div className="sx-scroll-cue" aria-hidden="true" />
       </div>
-
-      <div className="sx-scroll-cue" aria-hidden="true" />
     </section>
   );
 }

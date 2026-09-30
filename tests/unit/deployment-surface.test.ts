@@ -23,7 +23,7 @@ describe('currentSurface', () => {
 
 describe('isPublicSurfacePath', () => {
   it('serves the home page and guide pages', () => {
-    for (const path of ['/', '/guides/recovery-protocol', '/guides/recovery-protocol/', '/robots.txt']) {
+    for (const path of ['/', '/guides/recovery-protocol', '/guides/recovery-protocol/', '/robots.txt', '/hero/figure.bin', '/hero/still-desktop.jpg']) {
       expect(isPublicSurfacePath(path), path).toBe(true);
     }
   });
@@ -50,6 +50,10 @@ describe('isPublicSurfacePath', () => {
       '/guides',
       '/guides/a/b',
       '/guides/../admin',
+      '/hero',
+      '/hero/',
+      '/hero/../admin',
+      '/hero/nested/file.bin',
     ]) {
       expect(isPublicSurfacePath(path), path).toBe(false);
     }

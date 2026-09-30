@@ -11,6 +11,8 @@ export default tseslint.config(
       'coverage/**',
       'db/migrations/**',
       'next-env.d.ts',
+      // Local review material (git-ignored), including other projects kept for reference.
+      'review/**',
     ],
   },
 

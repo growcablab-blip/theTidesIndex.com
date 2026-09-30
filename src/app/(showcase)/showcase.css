@@ -261,96 +261,214 @@
   z-index: 2;
 }
 
-/* --- Hero --------------------------------------------------------------- */
+/* --- Hero ---------------------------------------------------------------
+   A pinned stage inside a taller track: a short scroll plays the sequence,
+   then the page continues. `--hp` (0…1) is written by the hero script. */
 
-.sx-hero {
+.sx-hero-track {
+  --hp: 0;
   position: relative;
-  min-height: max(40rem, 100svh);
+  height: 190svh;
+}
+/* No sequence to play: the stage is simply the first screen. */
+.sx-hero-track[data-tier='c'] { height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .sx-hero-track { height: auto; }
+}
+
+.sx-hero-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 36rem;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   overflow: hidden;
   isolation: isolate;
-}
-
-.sx-hero-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.sx-figure-wrap {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  /* Phone: the figure stands behind the headline, cropped at the hips. */
-  right: -28%;
-  top: 7%;
-  height: 88%;
-  aspect-ratio: 600 / 900;
-  opacity: 0.55;
-  mask-image: linear-gradient(to bottom, #000 55%, transparent 96%);
-}
-@media (min-width: 640px) {
-  .sx-figure-wrap { right: -12%; opacity: 0.7; }
+  background: var(--sx-bg);
 }
 @media (min-width: 1024px) {
-  .sx-figure-wrap {
-    right: 3%;
-    top: 4%;
-    height: 100%;
-    opacity: 1;
-  }
-}
-@media (min-width: 1440px) {
-  .sx-figure-wrap { right: 8%; }
+  .sx-hero-stage { align-items: center; }
 }
 
-/* Parallax is applied by the motion script through these custom properties. */
-.sx-parallax {
-  transform: translate3d(calc(var(--sx-px, 0) * var(--depth, 10px)), calc(var(--sx-py, 0) * var(--depth, 10px)), 0);
-  transition: transform 0.9s var(--sx-ease);
-  will-change: transform;
+/* The still: a frame of the same scene, fully resolved. */
+.sx-hero-still {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.sx-hero-still img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+@media (min-width: 820px) {
+  .sx-hero-still img { object-position: 70% 50%; }
 }
 
-/* Legibility scrim behind the headline on small screens. */
+.sx-hero-gl {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.4s var(--sx-ease);
+}
+.sx-hero-gl[data-live='on'] { opacity: 1; }
+
+/* Legibility: copy sits low on a phone and left on a desktop. */
 .sx-hero-scrim {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgb(3 12 19 / 0.92) 0%, rgb(3 12 19 / 0.55) 55%, transparent 80%),
-    linear-gradient(to top, var(--sx-bg) 0%, transparent 28%);
+    linear-gradient(to top, rgb(3 12 19 / 0.96) 0%, rgb(3 12 19 / 0.78) 34%, rgb(3 12 19 / 0.1) 62%, transparent 75%),
+    linear-gradient(to bottom, rgb(3 12 19 / 0.55) 0%, transparent 16%);
 }
 @media (min-width: 1024px) {
   .sx-hero-scrim {
     background:
-      linear-gradient(90deg, rgb(3 12 19 / 0.85) 0%, rgb(3 12 19 / 0.25) 45%, transparent 65%),
-      linear-gradient(to top, var(--sx-bg) 0%, transparent 25%);
+      linear-gradient(90deg, rgb(3 12 19 / 0.82) 0%, rgb(3 12 19 / 0.35) 36%, transparent 55%),
+      linear-gradient(to top, var(--sx-bg) 0%, transparent 18%),
+      linear-gradient(to bottom, rgb(3 12 19 / 0.5) 0%, transparent 14%);
   }
 }
 
-.sx-hud {
+/* The copy steps back as the body takes over the stage. */
+.sx-hero-copy {
+  padding-bottom: 6.5rem;
+  opacity: calc(1 - clamp(0, (var(--hp) - 0.5) * 3.2, 1));
+  transform: translate3d(0, calc(clamp(0, (var(--hp) - 0.5) * 3.2, 1) * -2.5rem), 0);
+}
+@media (min-width: 1024px) {
+  .sx-hero-copy { padding-bottom: 0; }
+}
+/* While the copy is invisible it is not in the way. */
+.sx-hero-track[data-phase='system'] .sx-hero-copy { pointer-events: none; }
+.sx-hero-track[data-tier='c'] .sx-hero-copy { opacity: 1; transform: none; pointer-events: auto; }
+
+/* Phase indicator: where the sequence is. On a phone, only the current
+   phase, on one line at the foot of the screen, clear of the figure. */
+.sx-hero-phases {
   position: absolute;
-  z-index: 3;
-  display: none;
-  padding: 0.7rem 0.9rem;
-  border-radius: 0.8rem;
+  z-index: 4;
+  left: 1.25rem;
+  bottom: 1.6rem;
+  display: flex;
+  gap: 0.5rem;
   font-family: var(--font-sx-mono), ui-monospace, monospace;
-  font-size: 0.625rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sx-faint);
+}
+@media (min-width: 1024px) {
+  .sx-hero-phases { left: 3rem; bottom: 2.5rem; gap: 2rem; font-size: 0.64rem; }
+}
+.sx-hero-phases li { display: flex; align-items: center; gap: 0.6rem; transition: color 0.6s; }
+.sx-hero-phases li span:first-child { color: var(--sx-cyan-soft); opacity: 0.5; transition: opacity 0.6s; }
+.sx-hero-track[data-phase='peptide'] [data-step='peptide'],
+.sx-hero-track[data-phase='receptor'] [data-step='receptor'],
+.sx-hero-track[data-phase='system'] [data-step='system'] { color: var(--sx-text); }
+.sx-hero-track[data-phase='peptide'] [data-step='peptide'] span:first-child,
+.sx-hero-track[data-phase='receptor'] [data-step='receptor'] span:first-child,
+.sx-hero-track[data-phase='system'] [data-step='system'] span:first-child { opacity: 1; }
+.sx-hero-progress {
+  position: relative;
+  width: 4.5rem;
+  height: 1px;
+  background: rgb(140 220 240 / 0.18);
+}
+.sx-hero-progress span {
+  position: absolute;
+  inset: 0;
+  background: var(--sx-cyan);
+  transform-origin: left;
+  transform: scaleX(var(--hp));
+}
+@media (max-width: 1023px) {
+  .sx-hero-progress { display: none; }
+  .sx-hero-track[data-phase='peptide'] .sx-hero-phases li:not([data-step='peptide']),
+  .sx-hero-track[data-phase='receptor'] .sx-hero-phases li:not([data-step='receptor']),
+  .sx-hero-track[data-phase='system'] .sx-hero-phases li:not([data-step='system']) { display: none; }
+}
+/* Nothing to indicate without the sequence. */
+.sx-hero-track[data-tier='c'] .sx-hero-phases { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .sx-hero-phases { display: none; }
+}
+
+/* Labels the engine projects onto the scene. Desktop only: on a phone the
+   phase indicator carries the same information without covering the body. */
+.sx-hero-labels {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  display: none;
+}
+@media (min-width: 1024px) {
+  .sx-hero-labels[data-live='on'] { display: block; }
+}
+.sx-hero-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform, opacity;
+}
+.sx-hero-label::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  border: 1px solid var(--sx-cyan-soft);
+  box-shadow: 0 0 10px rgb(34 211 238 / 0.6);
+}
+.sx-hero-label-line {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sx-cyan-soft), rgb(165 243 252 / 0.2));
+  transform-origin: left;
+  transform: rotate(-24deg);
+}
+.sx-hero-label[data-side='left'] .sx-hero-label-line {
+  left: auto;
+  right: 4px;
+  transform-origin: right;
+  transform: rotate(24deg);
+  background: linear-gradient(270deg, var(--sx-cyan-soft), rgb(165 243 252 / 0.2));
+}
+.sx-hero-label[data-side='left'] .sx-hero-label-card {
+  left: auto;
+  right: 44px;
+}
+.sx-hero-label-card {
+  position: absolute;
+  left: 44px;
+  top: -40px;
+  white-space: nowrap;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.7rem;
+  font-family: var(--font-sx-mono), ui-monospace, monospace;
+  font-size: 0.6rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--sx-soft);
-  background: rgb(6 20 30 / 0.55);
+  background: rgb(4 16 25 / 0.55);
   border: 1px solid var(--sx-line-strong);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
-@media (min-width: 1024px) {
-  .sx-hud { display: block; }
-}
+
 .sx-hud-dot {
   display: inline-block;
   width: 6px;
@@ -386,16 +504,11 @@
 
 /* --- The figure's internal motion -------------------------------------- */
 
-.sx-fig-scan { animation: sx-scan 7s linear infinite; }
 .sx-fig-pulse { animation: sx-pulse 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 .sx-fig-breathe { animation: sx-breathe 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 .sx-fig-signal {
   stroke-dasharray: 26 420;
   animation: sx-signal 5.5s linear infinite;
-}
-.sx-fig-orbit {
-  stroke-dasharray: 3 11;
-  animation: sx-orbit 40s linear infinite;
 }
 .sx-fig-node { animation: sx-blink 3s ease-in-out infinite; }
 .sx-spin-slow { animation: sx-spin 60s linear infinite; transform-box: fill-box; transform-origin: center; }
@@ -512,12 +625,6 @@
 
 /* --- Keyframes ---------------------------------------------------------- */
 
-@keyframes sx-scan {
-  0% { transform: translateY(-180px); opacity: 0; }
-  8% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { transform: translateY(940px); opacity: 0; }
-}
 @keyframes sx-pulse {
   0%, 100% { transform: scale(0.92); opacity: 0.55; }
   45% { transform: scale(1.08); opacity: 1; }
@@ -529,9 +636,6 @@
 @keyframes sx-signal {
   from { stroke-dashoffset: 446; }
   to { stroke-dashoffset: 0; }
-}
-@keyframes sx-orbit {
-  to { stroke-dashoffset: -1400; }
 }
 @keyframes sx-blink {
   0%, 100% { opacity: 0.35; }
@@ -601,9 +705,7 @@
   .sx .sx-draw-loop {
     stroke-dashoffset: 0;
   }
-  .sx .sx-fig-scan,
   .sx .sx-fig-signal { display: none; }
-  .sx-parallax { transform: none; }
 }
 
 /* Smooth in-page travel between sections, only where motion is welcome. */

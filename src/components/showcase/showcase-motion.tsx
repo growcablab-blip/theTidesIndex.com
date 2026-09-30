@@ -9,8 +9,7 @@ import { useEffect } from 'react';
  *   [data-reveal]   fades and rises in once it enters the viewport
  *   [data-count]    counts up to its server-rendered value when revealed
  *   [data-scan]     a looping decorative scan readout (00–99)
- *   .sx root        gets data-scrolled after the hero, and --sx-px / --sx-py
- *                   for pointer parallax on `.sx-parallax` layers
+ *   .sx root        gets data-scrolled once the page leaves the top
  *
  * Everything it animates is already present and correct in the server HTML.
  * Without JavaScript, or under reduced motion, the page is simply complete.
@@ -62,18 +61,6 @@ export function ShowcaseMotion() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // --- Pointer parallax (mouse only; touch devices keep still) ----------
-    let raf = 0;
-    const onPointer = (e: PointerEvent) => {
-      if (reduced || e.pointerType !== 'mouse') return;
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        root.style.setProperty('--sx-px', ((e.clientX / window.innerWidth - 0.5) * 2).toFixed(3));
-        root.style.setProperty('--sx-py', ((e.clientY / window.innerHeight - 0.5) * 2).toFixed(3));
-      });
-    };
-    window.addEventListener('pointermove', onPointer, { passive: true });
-
     // --- Decorative scan readouts -----------------------------------------
     const scans = Array.from(root.querySelectorAll<HTMLElement>('[data-scan]'));
     let n = 0;
@@ -89,8 +76,6 @@ export function ShowcaseMotion() {
     return () => {
       io.disconnect();
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('pointermove', onPointer);
-      cancelAnimationFrame(raf);
       window.clearInterval(scanTimer);
     };
   }, []);
