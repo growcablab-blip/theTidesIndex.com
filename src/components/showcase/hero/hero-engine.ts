@@ -174,7 +174,7 @@ export class HeroEngine {
   private glows?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
   private motes?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
   private molecule?: THREE.Group;
-  private readonly moleculeMats: THREE.MeshPhysicalMaterial[] = [];
+  private readonly moleculeMats: THREE.MeshStandardMaterial[] = [];
 
   private readonly helixM = new THREE.Matrix4();
   private readonly memM = new THREE.Matrix4();
@@ -415,17 +415,16 @@ export class HeroEngine {
     });
     const ribbonMesh = new THREE.Mesh(ribbonGeo, ribbonMat);
 
-    // Atoms: smaller and sharper, dark glass with controlled highlights.
-    const atomMat = new THREE.MeshPhysicalMaterial({
-      metalness: 0.2,
-      roughness: 0.1,
-      clearcoat: 1,
-      clearcoatRoughness: 0.05,
+    // Atoms: smaller and sharper, dark glass with controlled highlights. A
+    // standard material: clear coat is kept for the ribbon, where it shows.
+    const atomMat = new THREE.MeshStandardMaterial({
+      metalness: 0.35,
+      roughness: 0.12,
       envMap: env,
-      envMapIntensity: 1.2,
+      envMapIntensity: 1.25,
       transparent: true,
     });
-    const atoms = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 4), atomMat, solid.atoms.length);
+    const atoms = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 3), atomMat, solid.atoms.length);
     const m = new THREE.Matrix4();
     const c = new THREE.Color();
     // side chains as small dark-glass beads; colour only as a quiet signal
@@ -439,8 +438,8 @@ export class HeroEngine {
     });
 
     // Bonds: fine, precise rods.
-    const bondMat = new THREE.MeshPhysicalMaterial({ color: 0x7cc7d2, metalness: 0.6, roughness: 0.2, clearcoat: 1, envMap: env, transparent: true });
-    const bonds = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1, 10, 1, true), bondMat, solid.bonds.length);
+    const bondMat = new THREE.MeshStandardMaterial({ color: 0x7cc7d2, metalness: 0.6, roughness: 0.2, envMap: env, transparent: true });
+    const bonds = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1, 8, 1, true), bondMat, solid.bonds.length);
     const up = new THREE.Vector3(0, 1, 0);
     const q = new THREE.Quaternion();
     const a = new THREE.Vector3();
