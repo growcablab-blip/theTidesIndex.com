@@ -53,7 +53,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     focus: 'Recovery & tissue repair',
     compounds: ['BPC-157', 'TB-500', 'GHK-Cu', 'KPV'],
     description:
-      'A visual guide to a four-compound recovery research protocol, laid out so it can be read at a glance and returned to.',
+      'A recovery-focused research protocol bringing four compounds together in one visual guide.',
     state: 'in_preparation',
     artwork: null,
     accent: 'cyan',

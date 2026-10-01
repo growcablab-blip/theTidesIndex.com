@@ -141,9 +141,8 @@ export function ShowcaseFooter() {
 
         <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <p className="max-w-[78ch] text-xs leading-relaxed text-[var(--sx-faint)]">
-            The Tides Index is an independent educational research reference. Protocol guides describe what
-            published sources and practitioners report; they are not medical advice or a recommendation to use
-            any compound. Speak with a qualified clinician about any treatment decision.
+            The Tides Index is an independent, educational peptide research reference. It sells nothing and
+            recommends no treatment.
           </p>
           <p className="sx-mono shrink-0 text-[0.68rem] tracking-[0.18em] text-[var(--sx-faint)]">
             THETIDESINDEX.COM · © {new Date().getFullYear()}

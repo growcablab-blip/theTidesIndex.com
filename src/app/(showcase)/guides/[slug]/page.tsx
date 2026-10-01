@@ -65,7 +65,15 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 className="h-auto w-full"
               />
             </a>
-            <p className="mt-3 text-sm text-[var(--tides-soft)]">Tap the guide to open it at full resolution.</p>
+            {/* On a phone the surest way to read fine print is the image itself, where pinch-zoom is native. */}
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href={guide.artwork.src} target="_blank" rel="noopener" className="sx-btn sx-btn-quiet !min-h-[2.9rem] text-sm">
+                View full size
+              </a>
+              <a href={guide.artwork.src} download className="sx-btn sx-btn-quiet !min-h-[2.9rem] text-sm">
+                Save image
+              </a>
+            </div>
           </div>
 
           <aside className="sx-enter lg:sticky lg:top-28 lg:self-start" style={{ '--delay': '0.15s' } as React.CSSProperties}>

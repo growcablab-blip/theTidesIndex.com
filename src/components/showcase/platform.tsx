@@ -37,7 +37,7 @@ function Scene({ src, alt, sizes, className = '', position = 'center' }: {
 
 const LAYERS = [
   { title: 'Evidence', body: 'Human research, preclinical work and practitioner reports — each kept distinct, each traced to its source.' },
-  { title: 'Protocols', body: 'How reported approaches are actually laid out, side by side, attributed to whoever reported them.' },
+  { title: 'Protocols', body: 'How reported approaches compare, side by side — each credited to its source.' },
   { title: 'Quality', body: 'What makes the material in the vial what it claims to be — identity, purity, testing and care.' },
 ] as const;
 
@@ -240,7 +240,7 @@ export function QualityPreview() {
               <figcaption>
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--tides-mineral)]">Purity, read as a trace</p>
                 <p className="mt-2 max-w-[34ch] text-[var(--tides-soft)]">
-                  One dominant peak, and what sits beside it. An illustration of the kind of evidence quality rests on.
+                  One dominant peak, and the small ones beside it that quality testing looks for. Illustrative.
                 </p>
               </figcaption>
               <SampleVial />

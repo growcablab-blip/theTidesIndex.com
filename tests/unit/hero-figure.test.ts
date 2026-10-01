@@ -13,6 +13,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   BRAIN,
+  buildHelixRibbon,
   buildHelixSolid,
   buildNetwork,
   buildStory,
@@ -119,6 +120,22 @@ describe('structures inside the figure', () => {
       expect(a).toBeLessThan(solid.atoms.length);
       expect(b).toBeLessThan(solid.atoms.length);
     }
+  });
+});
+
+describe('peptide ribbon', () => {
+  it('is a closed, finite mesh along the helix', () => {
+    const r = buildHelixRibbon();
+    expect(r.position.every(Number.isFinite)).toBe(true);
+    expect(r.normal.every(Number.isFinite)).toBe(true);
+    const verts = r.position.length / 3;
+    for (const i of r.index) expect(i).toBeLessThan(verts);
+  });
+
+  it('adds fine branches only inside the body', () => {
+    const plain = buildNetwork();
+    const branched = buildNetwork(mesh);
+    expect(branched.position.length).toBeGreaterThan(plain.position.length);
   });
 });
 

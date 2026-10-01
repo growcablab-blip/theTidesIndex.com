@@ -35,6 +35,8 @@ export function isPublicSurfacePath(pathname: string): boolean {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   if (PUBLIC_EXACT.has(path)) return true;
   if (/^\/guides\/[a-z0-9-]+$/.test(path)) return true;
+  // A guide's own artwork files (images pass the matcher already; a PDF would not).
+  if (/^\/guides\/[a-z0-9-]+\.(png|jpe?g|webp|avif|pdf)$/i.test(path)) return true;
   // The hero's own assets: its geometry file and stills. The proxy's matcher
   // lets common image types through already; `.bin` and friends come here.
   return /^\/hero\/[a-z0-9-]+\.[a-z0-9]+$/.test(path);

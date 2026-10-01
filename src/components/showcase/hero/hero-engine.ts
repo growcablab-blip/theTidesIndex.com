@@ -27,6 +27,7 @@ import {
   ATOM_KIND,
   BRAIN,
   buildBrainLinks,
+  buildHelixRibbon,
   buildHelixSolid,
   buildNetwork,
   buildStory,
@@ -111,24 +112,25 @@ function track(keys: readonly Key[], t: number): number {
  */
 const CAM = {
   landscape: {
-    x: [[0, 1.3], [0.45, 1.25], [0.75, 0.4], [1, 0]],
-    y: [[0, 2.35], [0.45, 2.15], [0.75, 1.4], [1, 0.45]],
-    z: [[0, 11.4], [0.45, 12.6], [0.75, 15.5], [1, 19]],
-    lx: [[0, 1.0], [0.45, 1.3], [0.75, 0.3], [1, 0]],
-    ly: [[0, 2.0], [0.45, 1.95], [0.75, 1.3], [1, 0.2]],
-    lz: [[0, 1.6], [0.45, 1.0], [0.75, 0.4], [1, 0]],
-    shiftX: [[0, -0.38], [0.45, -0.34], [0.75, -0.28], [1, -0.2]],
+    x: [[0, 1.15], [0.45, 1.2], [0.75, 0.4], [1, 0]],
+    y: [[0, 2.15], [0.45, 2.05], [0.75, 1.4], [1, 0.45]],
+    z: [[0, 13.2], [0.45, 13.6], [0.75, 16], [1, 19.5]],
+    lx: [[0, 1.05], [0.45, 1.25], [0.75, 0.3], [1, 0]],
+    ly: [[0, 1.75], [0.45, 1.8], [0.75, 1.3], [1, 0.2]],
+    lz: [[0, 1.3], [0.45, 1.0], [0.75, 0.4], [1, 0]],
+    shiftX: [[0, -0.31], [0.45, -0.29], [0.75, -0.25], [1, -0.2]],
     shiftY: [[0, 0], [1, 0]],
   },
   portrait: {
     x: [[0, 0.55], [0.45, 0.65], [0.75, 0.25], [1, 0]],
-    y: [[0, 2.9], [0.45, 2.7], [0.75, 1.6], [1, 0.5]],
-    z: [[0, 13.5], [0.45, 14.5], [0.75, 18], [1, 22]],
-    lx: [[0, 0.45], [0.45, 0.55], [0.75, 0.2], [1, 0]],
-    ly: [[0, 2.7], [0.45, 2.5], [0.75, 1.3], [1, 0.2]],
-    lz: [[0, 1.4], [0.45, 1.0], [0.75, 0.4], [1, 0]],
+    y: [[0, 2.5], [0.45, 2.4], [0.75, 1.6], [1, 0.5]],
+    z: [[0, 17.5], [0.45, 17.5], [0.75, 19.5], [1, 22]],
+    lx: [[0, 0.5], [0.45, 0.6], [0.75, 0.2], [1, 0]],
+    ly: [[0, 2.3], [0.45, 2.2], [0.75, 1.3], [1, 0.2]],
+    lz: [[0, 1.2], [0.45, 1.0], [0.75, 0.4], [1, 0]],
     shiftX: [[0, 0], [1, 0]],
-    shiftY: [[0, -0.34], [0.45, -0.3], [0.75, -0.16], [1, -0.06]],
+    // the subject sits in the top of the screen, above the copy
+    shiftY: [[0, -0.33], [0.45, -0.33], [0.75, -0.16], [1, -0.06]],
   },
 } as const satisfies Record<string, Record<string, readonly Key[]>>;
 
@@ -138,14 +140,14 @@ const CAM = {
  * copy, which sits in the lower half of a phone screen.
  */
 const PLACES = {
-  landscape: { helix: new THREE.Vector3(1.95, 1.5, 3.9), membrane: new THREE.Vector3(2.75, 1.75, 1.5), scale: 1 },
+  landscape: { helix: new THREE.Vector3(2.15, 2.45, 3.2), membrane: new THREE.Vector3(2.75, 1.85, 1.5), scale: 0.95 },
   // beside the chest, clear of the face and the header on a tall, narrow screen
-  portrait: { helix: new THREE.Vector3(1.35, 2.2, 3.1), membrane: new THREE.Vector3(1.35, 2.9, 1.6), scale: 0.72 },
+  portrait: { helix: new THREE.Vector3(1.55, 3.0, 2.6), membrane: new THREE.Vector3(1.75, 3.55, 1.9), scale: 0.66 },
 } as const;
 
 /** The peptide is shown larger than life, so it reads as an object with depth. */
 const HELIX_SCALE = 1.08;
-const HELIX_LABEL_OFFSET = new THREE.Vector3(0.35, 1.9, 0);
+const HELIX_LABEL_OFFSET = new THREE.Vector3(0.7, -1.75, 0.2);
 const MEMBRANE_LABEL_OFFSET = new THREE.Vector3(0.9, 1.35, 0.3);
 
 /** Label anchors: two in world space for the story, three on the body. */
@@ -172,7 +174,7 @@ export class HeroEngine {
   private glows?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
   private motes?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
   private molecule?: THREE.Group;
-  private readonly moleculeMats: THREE.MeshStandardMaterial[] = [];
+  private readonly moleculeMats: THREE.MeshPhysicalMaterial[] = [];
 
   private readonly helixM = new THREE.Matrix4();
   private readonly memM = new THREE.Matrix4();
@@ -297,7 +299,7 @@ export class HeroEngine {
       this.buildFigure(await this.drain(sampleFigure(mesh, { surface: b.surface, interior: b.interior, brain: b.brain })));
       this.buildGlows();
       this.buildMotes();
-      const network = buildNetwork();
+      const network = buildNetwork(mesh);
       this.buildNetwork(network);
       this.ready = true;
       this.perf.ready = true;
@@ -380,31 +382,65 @@ export class HeroEngine {
     const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
     pmrem.dispose();
 
-    const key = new THREE.DirectionalLight(0xe8f6ff, 2.2);
+    // Controlled studio light: a soft key, a cool rim to cut the silhouette, almost no fill.
+    const key = new THREE.DirectionalLight(0xeef8ff, 2.4);
     key.position.set(-3, 5, 6);
-    const rim = new THREE.DirectionalLight(0x22d3ee, 3.0);
-    rim.position.set(4, 1, -5);
-    this.scene.add(key, rim, new THREE.AmbientLight(0x10324a, 0.6));
+    const rim = new THREE.DirectionalLight(0x5fe3f5, 3.2);
+    rim.position.set(4, 1.5, -5);
+    const under = new THREE.DirectionalLight(0x6366f1, 0.8);
+    under.position.set(0, -4, 2);
+    this.scene.add(key, rim, under, new THREE.AmbientLight(0x0b2534, 0.35));
 
     const solid = buildHelixSolid();
     const group = new THREE.Group();
     group.matrixAutoUpdate = false;
 
-    const atomMat = new THREE.MeshStandardMaterial({ metalness: 0.7, roughness: 0.18, envMap: env, envMapIntensity: 1.0, transparent: true });
-    const atoms = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 3), atomMat, solid.atoms.length);
+    // The backbone as a ribbon of clear-coated glass — the hero of the object.
+    const ribbon = buildHelixRibbon();
+    const ribbonGeo = new THREE.BufferGeometry();
+    ribbonGeo.setAttribute('position', new THREE.BufferAttribute(ribbon.position, 3));
+    ribbonGeo.setAttribute('normal', new THREE.BufferAttribute(ribbon.normal, 3));
+    ribbonGeo.setIndex(new THREE.BufferAttribute(ribbon.index, 1));
+    const ribbonMat = new THREE.MeshPhysicalMaterial({
+      color: 0x0e4b58,
+      emissive: 0x05303a,
+      emissiveIntensity: 0.6,
+      metalness: 0.05,
+      roughness: 0.12,
+      clearcoat: 1,
+      clearcoatRoughness: 0.04,
+      envMap: env,
+      envMapIntensity: 1.35,
+      transparent: true,
+    });
+    const ribbonMesh = new THREE.Mesh(ribbonGeo, ribbonMat);
+
+    // Atoms: smaller and sharper, dark glass with controlled highlights.
+    const atomMat = new THREE.MeshPhysicalMaterial({
+      metalness: 0.2,
+      roughness: 0.1,
+      clearcoat: 1,
+      clearcoatRoughness: 0.05,
+      envMap: env,
+      envMapIntensity: 1.2,
+      transparent: true,
+    });
+    const atoms = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 4), atomMat, solid.atoms.length);
     const m = new THREE.Matrix4();
     const c = new THREE.Color();
-    // graphite and glass; colour only as a signal
-    const SIDE = ['#8fb9c3', '#8fb9c3', '#4f5fb8', '#8fb9c3', '#1f8d9e'];
+    // side chains as small dark-glass beads; colour only as a quiet signal
+    const SIDE = ['#28485a', '#28485a', '#3c4a9e', '#28485a', '#147f90'];
     solid.atoms.forEach(([x, y, z, r, k], i) => {
-      m.makeScale(r, r, r).setPosition(x, y, z);
+      const rr = r * (k === ATOM_KIND.side ? 0.55 : 0.6);
+      m.makeScale(rr, rr, rr).setPosition(x, y, z);
       atoms.setMatrixAt(i, m);
-      c.set(k === ATOM_KIND.backbone ? '#1a2a34' : k === ATOM_KIND.alpha ? '#135f6c' : SIDE[i % SIDE.length]!);
+      c.set(k === ATOM_KIND.backbone ? '#132530' : k === ATOM_KIND.alpha ? '#0f5966' : SIDE[i % SIDE.length]!);
       atoms.setColorAt(i, c);
     });
 
-    const bondMat = new THREE.MeshStandardMaterial({ color: 0x4f9aa6, emissive: 0x0a3a42, emissiveIntensity: 0.35, metalness: 0.5, roughness: 0.3, envMap: env, transparent: true });
-    const bonds = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1, 8, 1, true), bondMat, solid.bonds.length);
+    // Bonds: fine, precise rods.
+    const bondMat = new THREE.MeshPhysicalMaterial({ color: 0x7cc7d2, metalness: 0.6, roughness: 0.2, clearcoat: 1, envMap: env, transparent: true });
+    const bonds = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1, 10, 1, true), bondMat, solid.bonds.length);
     const up = new THREE.Vector3(0, 1, 0);
     const q = new THREE.Quaternion();
     const a = new THREE.Vector3();
@@ -416,16 +452,16 @@ export class HeroEngine {
       b.set(pb[0], pb[1], pb[2]);
       const dir = b.clone().sub(a);
       q.setFromUnitVectors(up, dir.clone().normalize());
-      m.compose(a.clone().add(b).multiplyScalar(0.5), q, new THREE.Vector3(0.022, dir.length(), 0.022));
+      m.compose(a.clone().add(b).multiplyScalar(0.5), q, new THREE.Vector3(0.011, dir.length(), 0.011));
       bonds.setMatrixAt(n, m);
     });
 
-    atoms.frustumCulled = false;
-    bonds.frustumCulled = false;
-    atoms.renderOrder = 3;
-    bonds.renderOrder = 3;
-    group.add(atoms, bonds);
-    this.moleculeMats.push(atomMat, bondMat);
+    for (const o of [ribbonMesh, atoms, bonds]) {
+      o.frustumCulled = false;
+      o.renderOrder = 3;
+    }
+    group.add(ribbonMesh, atoms, bonds);
+    this.moleculeMats.push(ribbonMat, atomMat, bondMat);
     this.molecule = group;
     this.scene.add(group);
   }
@@ -491,6 +527,7 @@ export class HeroEngine {
       uReveal: { value: 0 },
       uFocus: { value: 10 },
       uAperture: { value: 0 },
+      uSkin: { value: 0.12 },
     });
     this.story = new THREE.Points(geo, mat);
     this.story.frustumCulled = false;
@@ -505,7 +542,7 @@ export class HeroEngine {
   private buildGlows() {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([...HEART, ...BRAIN]), 3));
-    geo.setAttribute('aSize', new THREE.BufferAttribute(new Float32Array([1.5, 2.1]), 1));
+    geo.setAttribute('aSize', new THREE.BufferAttribute(new Float32Array([0.9, 1.25]), 1));
     geo.setAttribute('aColor', new THREE.BufferAttribute(new Float32Array([0.75, 0.97, 1.0, 0.6, 0.55, 1.0]), 3));
     const mat = this.additive(GLOW_VERT, GLOW_FRAG, {
       uPx: { value: 1 },
@@ -768,7 +805,9 @@ export class HeroEngine {
     }
     this.tmpE.set(0.12 + Math.sin(t * 0.3) * 0.05, -0.25 + Math.sin(t * 0.23) * 0.08, 0.05);
     this.tmpQ.setFromEuler(this.tmpE);
-    this.memM.compose(place.membrane, this.tmpQ, this.tmpV.set(1, 1, 1));
+    // on a narrow screen the membrane is scaled with the peptide, so it never covers the body
+    const ms = shot ? 1 : base.scale;
+    this.memM.compose(place.membrane, this.tmpQ, this.tmpV.set(ms, ms, ms));
     if (shot) {
       this.body.visible = shot.show.body;
       if (this.story) this.story.visible = shot.show.story;
@@ -816,11 +855,13 @@ export class HeroEngine {
       u.uReveal!.value = reveal;
       u.uFocus!.value = focus;
       u.uAperture!.value = aperture;
+      // While the solid peptide is whole its particle skin is only a whisper.
+      u.uSkin!.value = o?.moleculeOpacity !== undefined ? 0.12 : 0.12 + 0.88 * dissolve;
     }
     if (this.glows) {
       const u = this.glows.material.uniforms;
       u.uTime!.value = t;
-      u.uStrength!.value = (0.18 + 0.82 * activate) * this.intro;
+      u.uStrength!.value = (0.14 + 0.46 * activate) * this.intro;
     }
     if (this.motes) {
       const u = this.motes.material.uniforms;

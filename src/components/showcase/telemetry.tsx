@@ -23,7 +23,7 @@ export function Telemetry({ data }: { data: ShowcaseTelemetry | null }) {
       {data !== null ? (
         <div className="sx-wrap relative pb-6 pt-16 sm:pt-20">
           <p className="max-w-[46ch] text-lg leading-relaxed text-[var(--sx-soft)]" data-reveal>
-            Behind every guide is a source-linked research index, read live from its published record.
+            Behind every guide is a growing, source-linked research index.
           </p>
           <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {READOUTS.map((r, i) => (

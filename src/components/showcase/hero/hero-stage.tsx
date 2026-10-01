@@ -42,7 +42,9 @@ export function HeroStage({ trackId }: { trackId: string }) {
     const shot = isShotName(shotName) ? SHOTS[shotName] : undefined;
     const poster = tooling && (search.get('hero') === 'poster' || shot !== undefined);
     // The still is rendered at full density and the display's own resolution.
-    const tier = poster ? { ...detectTier('?tier=a'), maxDpr: 3 } : detectTier(window.location.search);
+    // Stills are rendered at full density and the display's own resolution, with
+    // a smaller point cap so close compositions keep a crisp skin rather than soft discs.
+    const tier = poster ? { ...detectTier('?tier=a'), maxDpr: 3, maxPointPx: 5 } : detectTier(window.location.search);
     track.dataset.tier = tier.tier;
     if (tier.tier === 'c') return;
 

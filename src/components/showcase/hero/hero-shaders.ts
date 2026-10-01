@@ -96,7 +96,7 @@ export const FIGURE_VERT = /* glsl */ `
     vec4 mv = viewMatrix * wp;
     vec3 wn = normalize(mat3(modelMatrix) * (n + vec3(0.0, 0.0, 1e-4)));
     vec3 v = normalize(cameraPosition - wp.xyz);
-    float fres = pow(1.0 - abs(dot(wn, v)), 3.0);
+    float fres = pow(1.0 - abs(dot(wn, v)), 3.6);
 
     // arrival: the body resolves from the feet up
     float line = mix(-6.5, 6.5, uIntro);
@@ -116,8 +116,9 @@ export const FIGURE_VERT = /* glsl */ `
     col = mix(col, vec3(0.9, 1.0, 1.0), front * 0.6);
 
     // nearly clear face-on; the form is drawn by its edges, as a hologram is
-    float a = surface * (0.016 + 0.46 * fres + 0.045 * lit + 0.4 * front + 0.2 * scan * (0.3 + fres))
-            + interior * (0.018 + 0.03 * lit + 0.18 * front)
+    // imaging, not glow: clear faces, a defined edge, almost no haze
+    float a = surface * (0.012 + 0.55 * fres + 0.04 * lit + 0.38 * front + 0.18 * scan * (0.3 + fres))
+            + interior * (0.006 + 0.012 * lit + 0.1 * front)
             + brain * (0.12 + 0.34 * lit + 0.22 * sin(uTime * 2.0 + aRand.w * 30.0) * lit);
     a += edgeLight * 0.8;
 
@@ -126,7 +127,7 @@ export const FIGURE_VERT = /* glsl */ `
     a *= 1.0 - back * 0.55;
     a *= shown;
 
-    float size = mix(0.025, 0.045, interior) * (0.7 + aRand.w * 0.6);
+    float size = mix(0.019, 0.03, interior) * (0.75 + aRand.w * 0.5);
     size *= 1.0 + brain * 0.1 + front * 0.6;
     float dist = max(0.0001, -mv.z);
     // depth of field: out of focus, a point grows and fades — it defocuses
@@ -146,8 +147,9 @@ export const POINT_FRAG = /* glsl */ `
   varying float vA;
   void main() {
     float d = length(gl_PointCoord - 0.5);
-    float m = smoothstep(0.5, 0.0, d);
-    gl_FragColor = vec4(vCol, m * m * vA);
+    // a crisp dot with a short falloff — precise, not a soft glow
+    float m = smoothstep(0.5, 0.28, d);
+    gl_FragColor = vec4(vCol, m * vA);
   }
 `;
 
@@ -182,10 +184,12 @@ export const SHELL_FRAG = /* glsl */ `
   void main() {
     vec3 v = normalize(cameraPosition - vW);
     float f = 1.0 - abs(dot(normalize(vN), v));
-    float rim = pow(f, 2.6);
+    float rim = pow(f, 4.0);
+    // a clean contour line at the silhouette, as an imaging view draws it
+    float edge = smoothstep(0.86, 0.97, f) * (1.0 - smoothstep(0.985, 1.0, f));
 
     // contour slices, as a scanner would take them
-    float k = vBody.y * 3.2;
+    float k = vBody.y * 6.0;
     float w = fwidth(k) * 1.3;
     float slice = 1.0 - smoothstep(0.0, w, abs(fract(k) - 0.5) - (0.5 - w));
     float scan = exp(-pow((vBody.y - uScanY) * 2.6, 2.0));
@@ -199,7 +203,11 @@ export const SHELL_FRAG = /* glsl */ `
 
     vec3 col = mix(vec3(0.35, 0.7, 0.85), vec3(0.2, 0.85, 0.95), lit);
     col = mix(col, vec3(0.9, 1.0, 1.0), front * 0.5);
-    float a = rim * (0.3 + 0.16 * lit) + slice * (0.012 + 0.07 * rim) + scan * (0.03 + 0.16 * rim) + front * 0.1;
+    // soft directional shading gives the glass a body, not just an outline
+    vec3 keyDir = normalize(vec3(-0.45, 0.6, 0.65));
+    float shade = 0.5 + 0.5 * dot(normalize(vN), keyDir);
+    float fill = shade * shade * (1.0 - rim) * 0.05;
+    float a = fill + rim * (0.26 + 0.14 * lit) + edge * (0.34 + 0.2 * lit) + slice * (0.018 + 0.05 * rim) + scan * (0.025 + 0.12 * rim) + front * 0.08;
     gl_FragColor = vec4(col, a * shown);
   }
 `;
@@ -263,6 +271,7 @@ export const STORY_VERT = /* glsl */ `
   uniform float uReveal;
   uniform float uFocus;      // distance to the plane in focus
   uniform float uAperture;   // how quickly things leave it
+  uniform float uSkin;       // how present the particle skin is around the solid peptide
 
   varying vec3 vCol;
   varying float vA;
@@ -301,10 +310,10 @@ export const STORY_VERT = /* glsl */ `
     col = mix(col, vec3(0.9, 1.0, 1.0), sin(b * 3.14159) * 0.35);
 
     float size = mix(0.036, 0.034, a);
-    size = mix(size, 0.034, b);
+    size = mix(size, 0.02, b);
     size *= 0.7 + aRand.w * 0.6;
-    float alpha = mix(0.34, 0.42, a);
-    alpha = mix(alpha, 0.55 + 0.25 * sin(uTime * 2.2 + aRand.w * 40.0), b);
+    float alpha = mix(0.34 * uSkin, 0.42, a);
+    alpha = mix(alpha, 0.38 + 0.2 * sin(uTime * 2.2 + aRand.w * 40.0), b);
     alpha *= smoothstep(0.0, 0.25, uIntro);
 
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
@@ -350,9 +359,9 @@ export const GLOW_FRAG = /* glsl */ `
   varying float vA;
   void main() {
     float d = length(gl_PointCoord - 0.5) * 2.0;
-    float core = exp(-d * d * 18.0);
-    float halo = exp(-d * d * 3.2);
-    gl_FragColor = vec4(vCol, (core * 0.9 + halo * 0.35) * vA * step(d, 1.0));
+    float core = exp(-d * d * 40.0);
+    float halo = exp(-d * d * 7.0);
+    gl_FragColor = vec4(vCol, (core * 0.9 + halo * 0.12) * vA * step(d, 1.0));
   }
 `;
 
@@ -370,7 +379,7 @@ export const MOTE_VERT = /* glsl */ `
     float d = max(0.5, -mv.z);
     // the nearer, the bigger and the fainter: that is what defocus looks like
     gl_PointSize = clamp((0.16 + aR.x * 0.3) * uPx / d, 6.0, 110.0);
-    vA = (0.05 + 0.07 * aR.y) * smoothstep(0.8, 3.0, d);
+    vA = (0.025 + 0.035 * aR.y) * smoothstep(0.8, 3.0, d);
     gl_Position = projectionMatrix * mv;
   }
 `;

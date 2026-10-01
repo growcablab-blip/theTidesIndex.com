@@ -55,3 +55,35 @@ The existing research service is not changed by any of this.
 See the header of `src/domain/showcase/protocol-guides.ts`: put the artwork in
 `public/guides/`, set `artwork` with its path and pixel size, and set `state` to
 `'ready'`. The guide then appears in the library and at `/guides/<slug>`.
+
+## Switching thetidesindex.com to the public service (after owner approval)
+
+Current state: `tides-public` (branch `public-holding-experience`) serves the
+holding experience at its Railway preview domain; `theTidesIndex.com`
+(branch `phase-a-foundation`) is the research service. The main domain is not
+attached to either yet.
+
+Before the switch, confirm on the preview:
+
+- [ ] the home page answers 200 with live telemetry, and 200 with the band
+      hidden when the database is unreachable (the band fails closed)
+- [ ] every finished guide's page and artwork load (`/guides/<slug>`)
+- [ ] research, search, `/reference`, `/admin` and `/sitemap.xml` answer the
+      branded 404 on the public service
+- [ ] `robots.txt` disallows everything and pages carry `noindex, nofollow`
+- [ ] tested on at least one real phone
+
+The switch itself:
+
+1. In Railway, attach `thetidesindex.com` (and `www`, redirecting to the apex)
+   as a custom domain on **`tides-public`** — not on the research service.
+2. Point DNS (Cloudflare) at the target Railway gives; keep the proxy mode the
+   research service already uses.
+3. `NEXT_PUBLIC_SITE_URL` may stay unset on `tides-public`: metadata already
+   defaults to `https://thetidesindex.com`.
+4. Leave `TIDES_ALLOW_INDEXING` unset. Lifting it is a separate, later owner
+   decision — and before it is lifted, the public service needs a sitemap that
+   lists only public pages (today `/sitemap.xml` is blocked there).
+5. Re-run the checks above against `https://thetidesindex.com`.
+
+The research service keeps its Railway domain and is not changed by the switch.

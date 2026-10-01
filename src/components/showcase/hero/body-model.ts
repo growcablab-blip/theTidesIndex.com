@@ -258,7 +258,12 @@ export interface Network {
 /** Longest origin-to-point distance the signal has to travel, for normalising. */
 export const NETWORK_REACH = 10;
 
-export function buildNetwork(): Network {
+/**
+ * The networks. Given the mesh's occupancy, fine branches are added off the main
+ * paths — the finer mapping an imaging view shows — and kept only where they
+ * stay inside the body.
+ */
+export function buildNetwork(mesh?: Pick<FigureMesh, 'grid' | 'occupancy'>): Network {
   const verts: number[] = [];
   const dist: number[] = [];
   const kind: number[] = [];
@@ -282,6 +287,28 @@ export function buildNetwork(): Network {
           seed.push(s);
         }
         samples.push([a[0], a[1], a[2], k]);
+        // fine branches: short, slightly curved twigs off the path
+        if (mesh && i % 3 === 0 && rand() < 0.55) {
+          const len = 0.1 + rand() * 0.24;
+          const d0 = [rand() - 0.5, rand() - 0.5, rand() - 0.5];
+          const dl = Math.sqrt(d0[0]! ** 2 + d0[1]! ** 2 + d0[2]! ** 2) || 1;
+          const dir = d0.map((v) => v / dl);
+          const mid: P3 = [a[0] + dir[0]! * len * 0.5 + (rand() - 0.5) * 0.04, a[1] + dir[1]! * len * 0.5, a[2] + dir[2]! * len * 0.5];
+          const end: P3 = [a[0] + dir[0]! * len, a[1] + dir[1]! * len + (rand() - 0.5) * 0.04, a[2] + dir[2]! * len];
+          if (isInside(mesh, ...mid) && isInside(mesh, ...end)) {
+            for (const [p, q] of [[a, mid], [mid, end]] as const) {
+              for (const v of [p, q]) {
+                verts.push(v[0], v[1], v[2]);
+                const dx = v[0] - origin[0];
+                const dy = v[1] - origin[1];
+                const dz = v[2] - origin[2];
+                dist.push(Math.sqrt(dx * dx + dy * dy + dz * dz) / NETWORK_REACH);
+                kind.push(k);
+                seed.push(s);
+              }
+            }
+          }
+        }
       }
     }
   };
@@ -542,4 +569,72 @@ export function buildHelixSolid(): HelixSolid {
     }
   }
   return { atoms, bonds };
+}
+
+// ---------------------------------------------------------------------------
+// The peptide's backbone as a ribbon — the language of structure renders
+// ---------------------------------------------------------------------------
+
+export interface RibbonGeometry {
+  readonly position: Float32Array;
+  readonly normal: Float32Array;
+  readonly index: Uint32Array;
+}
+
+/**
+ * A flat ribbon traced through the helix's α-carbons, broad face outward, as
+ * protein structure visualizations draw a helix. Generic geometry, the same
+ * helix the atoms and particles form.
+ */
+export function buildHelixRibbon(perSpan = 14, segments = 14): RibbonGeometry {
+  const solid = buildHelixSolid();
+  const ca = solid.atoms.filter((a) => a[4] === ATOM_KIND.alpha).map((a): P3 => [a[0], a[1], a[2]]);
+  const pts = smooth(ca, perSpan);
+  const n = pts.length;
+  const width = 0.12;
+  const thickness = 0.022;
+  const position = new Float32Array(n * segments * 3);
+  const normal = new Float32Array(n * segments * 3);
+  const norm3 = (v: P3): P3 => {
+    const l = Math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]) || 1;
+    return [v[0] / l, v[1] / l, v[2] / l];
+  };
+  const cross = (a: P3, b: P3): P3 => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  for (let i = 0; i < n; i++) {
+    const p = pts[i]!;
+    const prev = pts[Math.max(0, i - 1)]!;
+    const next = pts[Math.min(n - 1, i + 1)]!;
+    const t = norm3([next[0] - prev[0], next[1] - prev[1], next[2] - prev[2]]);
+    const radial = norm3([p[0], 0, p[2]]);
+    const b = norm3(cross(t, radial));
+    const r = cross(b, t);
+    // taper at both ends, so the ribbon begins and ends cleanly
+    const u = i / (n - 1);
+    const taper = Math.min(1, Math.min(u, 1 - u) / 0.08);
+    const w = width * (0.25 + 0.75 * taper);
+    for (let s = 0; s < segments; s++) {
+      const th = (s / segments) * Math.PI * 2;
+      const cw = Math.cos(th);
+      const sn = Math.sin(th);
+      const o = (i * segments + s) * 3;
+      for (let k = 0; k < 3; k++) {
+        position[o + k] = p[k]! + cw * w * b[k]! + sn * thickness * r[k]!;
+      }
+      const nn = norm3([cw / w * b[0] + sn / thickness * r[0], cw / w * b[1] + sn / thickness * r[1], cw / w * b[2] + sn / thickness * r[2]]);
+      normal.set(nn, o);
+    }
+  }
+  const index = new Uint32Array((n - 1) * segments * 6);
+  let q = 0;
+  for (let i = 0; i < n - 1; i++) {
+    for (let s = 0; s < segments; s++) {
+      const a = i * segments + s;
+      const b = i * segments + ((s + 1) % segments);
+      const c = (i + 1) * segments + s;
+      const d = (i + 1) * segments + ((s + 1) % segments);
+      index.set([a, c, b, b, c, d], q);
+      q += 6;
+    }
+  }
+  return { position, normal, index };
 }

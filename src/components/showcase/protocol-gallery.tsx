@@ -21,7 +21,11 @@ import {
  */
 
 export function ProtocolGallery() {
-  const [featured, ...rest] = PROTOCOL_GUIDES;
+  // Ready guides lead, in register order; finished artwork always comes first.
+  const ordered = [...PROTOCOL_GUIDES].sort((a, b) => Number(isGuideReady(b)) - Number(isGuideReady(a)));
+  const [featured, ...rest] = ordered;
+  // A quiet "more coming" row or two — fewer as real guides arrive, none once the shelf is full.
+  const upcoming = Math.max(0, Math.min(UPCOMING_GUIDE_SLOTS - 1, 3 - ordered.length));
 
   return (
     <section id="protocols" className="sx-light" aria-labelledby="protocols-title">
@@ -46,16 +50,17 @@ export function ProtocolGallery() {
               <GuideCard guide={guide} />
             </div>
           ))}
-          {Array.from({ length: Math.max(0, UPCOMING_GUIDE_SLOTS - 1) }, (_, i) => (
+          {Array.from({ length: upcoming }, (_, i) => (
             <div key={`upcoming-${String(i)}`} data-reveal style={{ '--delay': `${String((rest.length + i) * 0.08)}s` } as React.CSSProperties}>
               <UpcomingSlot />
             </div>
           ))}
         </div>
 
+        {/* The page's one contextual statement, where it matters: under the guides. */}
         <p className="mt-12 max-w-[68ch] pb-[clamp(4rem,8vw,6rem)] text-sm leading-relaxed text-[var(--tides-soft)]" data-reveal>
-          Protocol guides summarise what published sources and practitioners report, for research and education.
-          They are not medical advice.
+          Guides summarise what published research and practitioners report. They are for education, not medical
+          advice — speak with a qualified clinician about any treatment decision.
         </p>
       </div>
       <div className="sx-handback" aria-hidden="true" />
@@ -112,7 +117,7 @@ function FeaturedGuide({ guide }: { guide: ProtocolGuide }) {
               Explore the guide <span className="sx-arrow" aria-hidden="true">→</span>
             </Link>
           ) : (
-            <p className="text-sm font-medium text-[var(--tides-soft)]">Final artwork arriving shortly.</p>
+            <p className="text-sm font-medium text-[var(--tides-soft)]">Coming to the library soon.</p>
           )}
         </div>
       </div>
@@ -195,7 +200,7 @@ function UpcomingSlot() {
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--tides-mineral)]">In preparation</p>
         <p className="mt-1.5 text-lg font-semibold tracking-[-0.015em] text-[var(--tides-deep)]">Next protocol guide</p>
-        <p className="mt-1 text-sm text-[var(--tides-soft)]">Added to the library as its artwork is finished.</p>
+        <p className="mt-1 text-sm text-[var(--tides-soft)]">Coming to the library soon.</p>
       </div>
     </div>
   );
