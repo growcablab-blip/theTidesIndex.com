@@ -55,9 +55,10 @@ export function ShowcaseHeader() {
 
           <nav aria-label="Primary" className="hidden md:block">
             <ul className="flex items-center gap-10">
-              {SHOWCASE_NAV.map((item) => (
+              {SHOWCASE_NAV.map((item, i) => (
                 <li key={item.href}>
-                  <a href={item.href} className="sx-navlink">
+                  {/* Protocols is the one thing to do today; it is marked, not boxed. */}
+                  <a href={item.href} className="sx-navlink" data-primary={i === 0 ? '' : undefined}>
                     {item.label}
                   </a>
                 </li>
@@ -65,12 +66,6 @@ export function ShowcaseHeader() {
             </ul>
           </nav>
 
-          {/* Wrapped: `.sx-btn` sets its own display, which would override `hidden`. */}
-          <div className="hidden md:block">
-            <Link href="/#protocols" className="sx-btn sx-btn-ghost !min-h-[2.5rem] !px-5 text-sm">
-              Protocol guides
-            </Link>
-          </div>
 
           <details className="sx-menu relative md:hidden">
             <summary
@@ -130,7 +125,7 @@ export function ShowcaseFooter() {
           </div>
 
           <div data-reveal style={{ '--delay': '0.1s' } as React.CSSProperties}>
-            <p className="sx-eyebrow">About The Tides Index</p>
+            <p className="sx-kicker">About The Tides Index</p>
             <dl className="mt-6 grid gap-x-10 gap-y-7 sm:grid-cols-2">
               {POSITIONING.map(([title, body]) => (
                 <div key={title} className="border-l border-[var(--sx-line-strong)] pl-4">

@@ -22,20 +22,25 @@
  * where its labels' anchors are and nothing else.
  */
 import * as THREE from 'three';
-import { MarchingCubes } from 'three/examples/jsm/objects/MarchingCubes.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import {
+  ATOM_KIND,
   BRAIN,
-  boundsTransform,
   buildBrainLinks,
+  buildHelixSolid,
   buildNetwork,
   buildStory,
   HEART,
   mulberry32,
+  sampleFigure,
+  type FigureMesh,
+  type FigureParticles,
   type StoryTargets,
   type Work,
 } from './body-model';
-import { decodeFigure, FIGURE_URL } from './figure-format';
+import { decodeFigure, dequantizeNormals, dequantizePositions, FIGURE_URL } from './figure-format';
 import type { TierBudget } from './hero-tier';
+import type { ShotSpec } from './hero-shots';
 import {
   BACKDROP_FRAG,
   BACKDROP_VERT,
@@ -72,6 +77,8 @@ interface Options {
   tier: TierBudget;
   /** Render a fixed, fully resolved frame for the static still (review tooling only). */
   poster?: boolean;
+  /** Render a fixed art-directed composition for a section still (review tooling only). */
+  shot?: ShotSpec | undefined;
   onReady: () => void;
   onFrame?: ((labels: readonly LabelFrame[], p: number) => void) | undefined;
   onContextLost: () => void;
@@ -131,10 +138,13 @@ const CAM = {
  * copy, which sits in the lower half of a phone screen.
  */
 const PLACES = {
-  landscape: { helix: new THREE.Vector3(1.75, 1.35, 3.3), membrane: new THREE.Vector3(2.75, 1.75, 1.5) },
-  portrait: { helix: new THREE.Vector3(1.05, 3.55, 3.0), membrane: new THREE.Vector3(1.35, 3.1, 1.6) },
+  landscape: { helix: new THREE.Vector3(1.95, 1.5, 3.9), membrane: new THREE.Vector3(2.75, 1.75, 1.5), scale: 1 },
+  // beside the chest, clear of the face and the header on a tall, narrow screen
+  portrait: { helix: new THREE.Vector3(1.35, 2.2, 3.1), membrane: new THREE.Vector3(1.35, 2.9, 1.6), scale: 0.72 },
 } as const;
 
+/** The peptide is shown larger than life, so it reads as an object with depth. */
+const HELIX_SCALE = 1.08;
 const HELIX_LABEL_OFFSET = new THREE.Vector3(0.35, 1.9, 0);
 const MEMBRANE_LABEL_OFFSET = new THREE.Vector3(0.9, 1.35, 0.3);
 
@@ -161,6 +171,8 @@ export class HeroEngine {
   private story?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
   private glows?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
   private motes?: THREE.Points<THREE.BufferGeometry, THREE.ShaderMaterial>;
+  private molecule?: THREE.Group;
+  private readonly moleculeMats: THREE.MeshStandardMaterial[] = [];
 
   private readonly helixM = new THREE.Matrix4();
   private readonly memM = new THREE.Matrix4();
@@ -169,6 +181,8 @@ export class HeroEngine {
   private readonly tmpQ = new THREE.Quaternion();
   private readonly tmpE = new THREE.Euler();
   private readonly spin = new THREE.Quaternion();
+  private readonly helixAt = new THREE.Vector3();
+  private readonly membraneAt = new THREE.Vector3();
   private static readonly UP = new THREE.Vector3(0, 1, 0);
 
   private pTarget = 0;
@@ -210,8 +224,8 @@ export class HeroEngine {
       alpha: false,
       powerPreference: 'high-performance',
       stencil: false,
-      depth: false,
-      preserveDrawingBuffer: opts.poster === true,
+      depth: true,
+      preserveDrawingBuffer: opts.poster === true || opts.shot !== undefined,
     });
     this.renderer.setClearColor(0x030c13, 1);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -270,7 +284,17 @@ export class HeroEngine {
       if (!res.ok) throw new Error(`figure: ${String(res.status)}`);
       const file = decodeFigure(await res.arrayBuffer());
       if (this.disposed) return;
-      this.buildFigure(file);
+      const mesh: FigureMesh = {
+        position: dequantizePositions(file),
+        normal: dequantizeNormals(file),
+        index: file.indices,
+        grid: file.grid,
+        occupancy: file.occupancy,
+      };
+      this.buildShell(mesh);
+      this.buildMolecule();
+      const b = this.budget;
+      this.buildFigure(await this.drain(sampleFigure(mesh, { surface: b.surface, interior: b.interior, brain: b.brain })));
       this.buildGlows();
       this.buildMotes();
       const network = buildNetwork();
@@ -282,7 +306,6 @@ export class HeroEngine {
       // Second wave, after the first frames are on screen.
       const story = await this.drain(buildStory(this.budget.story, network));
       this.buildStory(story);
-      this.buildShell(file.density, file.gridSize, file.densityRange);
     } catch (error) {
       if (!this.disposed) {
         console.error('[hero] failed to start', error);
@@ -291,38 +314,13 @@ export class HeroEngine {
     }
   }
 
-  private buildFigure(file: ReturnType<typeof decodeFigure>) {
-    const b = this.budget;
-    const take = [
-      { from: 0, n: Math.min(b.surface, file.surface), kind: 0 },
-      { from: file.surface, n: Math.min(b.interior, file.interior), kind: 1 },
-      { from: file.surface + file.interior, n: Math.min(b.brain, file.brain), kind: 2 },
-    ];
-    const total = take.reduce((s, t) => s + t.n, 0);
-    const pos = new Int16Array(total * 3);
-    const nor = new Int8Array(total * 3);
-    const kind = new Uint8Array(total);
-    let o = 0;
-    for (const t of take) {
-      pos.set(file.positions.subarray(t.from * 3, (t.from + t.n) * 3), o * 3);
-      if (t.kind === 0) nor.set(file.normals.subarray(0, t.n * 3), o * 3);
-      kind.fill(t.kind, o, o + t.n);
-      o += t.n;
-    }
-    const rand = mulberry32(211);
-    const rnd = new Uint8Array(total * 4);
-    for (let i = 0; i < rnd.length; i++) rnd[i] = Math.floor(rand() * 256);
-
+  private buildFigure(f: FigureParticles) {
     const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3, true));
-    geo.setAttribute('aNormal', new THREE.BufferAttribute(nor, 3, true));
-    geo.setAttribute('aKind', new THREE.BufferAttribute(kind, 1, false));
-    geo.setAttribute('aRand', new THREE.BufferAttribute(rnd, 4, true));
-
-    const { centre, half } = boundsTransform();
+    geo.setAttribute('position', new THREE.BufferAttribute(f.position, 3));
+    geo.setAttribute('aNormal', new THREE.BufferAttribute(f.normal, 3));
+    geo.setAttribute('aKind', new THREE.BufferAttribute(f.kind, 1));
+    geo.setAttribute('aRand', new THREE.BufferAttribute(f.rand, 4));
     const mat = this.additive(FIGURE_VERT, POINT_FRAG, {
-      uCentre: { value: new THREE.Vector3(...centre) },
-      uHalf: { value: new THREE.Vector3(...half) },
       uTime: { value: 0 },
       uPx: { value: 1 },
       uMaxPx: { value: 20 },
@@ -332,6 +330,8 @@ export class HeroEngine {
       uScanY: { value: 0 },
       uCentreDepth: { value: 10 },
       uHeart: { value: new THREE.Vector3(...HEART) },
+      uFocus: { value: 10 },
+      uAperture: { value: 0 },
     });
     this.figure = new THREE.Points(geo, mat);
     this.figure.frustumCulled = false;
@@ -340,8 +340,12 @@ export class HeroEngine {
     this.updatePx();
   }
 
-  private buildShell(density: Int8Array, size: number, range: number) {
-    const { centre, half } = boundsTransform();
+  /** The body as glass: the mesh itself, read through its fresnel rim. */
+  private buildShell(mesh: FigureMesh) {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(mesh.position, 3));
+    geo.setAttribute('normal', new THREE.BufferAttribute(mesh.normal, 3));
+    geo.setIndex(new THREE.BufferAttribute(mesh.index, 1));
     const mat = new THREE.ShaderMaterial({
       vertexShader: SHELL_VERT,
       fragmentShader: SHELL_FRAG,
@@ -351,8 +355,6 @@ export class HeroEngine {
       side: THREE.DoubleSide,
       blending: THREE.AdditiveBlending,
       uniforms: {
-        uCentre: { value: new THREE.Vector3(...centre) },
-        uHalf: { value: new THREE.Vector3(...half) },
         uIntro: { value: 0 },
         uActivate: { value: 0 },
         uWave: { value: 0 },
@@ -361,16 +363,71 @@ export class HeroEngine {
         uHeart: { value: new THREE.Vector3(...HEART) },
       },
     });
-    const mc = new MarchingCubes(size, mat, false, false, 60000);
-    for (let i = 0; i < density.length; i++) mc.field[i] = (density[i]! / 127) * range;
-    mc.isolation = 0;
-    mc.update();
-    mc.position.set(...centre);
-    mc.scale.set(...half);
-    mc.frustumCulled = false;
-    mc.renderOrder = 1;
+    const shell = new THREE.Mesh(geo, mat);
+    shell.frustumCulled = false;
+    shell.renderOrder = 1;
     this.shellMat = mat;
-    this.body.add(mc);
+    this.body.add(shell);
+  }
+
+  /**
+   * The peptide as a physical object: lit spheres for its atoms and thin bonds
+   * between them, reflecting a soft studio environment. The particle helix is
+   * its skin of light; when the story moves on, the solid dissolves first.
+   */
+  private buildMolecule() {
+    const pmrem = new THREE.PMREMGenerator(this.renderer);
+    const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    pmrem.dispose();
+
+    const key = new THREE.DirectionalLight(0xe8f6ff, 2.2);
+    key.position.set(-3, 5, 6);
+    const rim = new THREE.DirectionalLight(0x22d3ee, 3.0);
+    rim.position.set(4, 1, -5);
+    this.scene.add(key, rim, new THREE.AmbientLight(0x10324a, 0.6));
+
+    const solid = buildHelixSolid();
+    const group = new THREE.Group();
+    group.matrixAutoUpdate = false;
+
+    const atomMat = new THREE.MeshStandardMaterial({ metalness: 0.7, roughness: 0.18, envMap: env, envMapIntensity: 1.0, transparent: true });
+    const atoms = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 3), atomMat, solid.atoms.length);
+    const m = new THREE.Matrix4();
+    const c = new THREE.Color();
+    // graphite and glass; colour only as a signal
+    const SIDE = ['#8fb9c3', '#8fb9c3', '#4f5fb8', '#8fb9c3', '#1f8d9e'];
+    solid.atoms.forEach(([x, y, z, r, k], i) => {
+      m.makeScale(r, r, r).setPosition(x, y, z);
+      atoms.setMatrixAt(i, m);
+      c.set(k === ATOM_KIND.backbone ? '#1a2a34' : k === ATOM_KIND.alpha ? '#135f6c' : SIDE[i % SIDE.length]!);
+      atoms.setColorAt(i, c);
+    });
+
+    const bondMat = new THREE.MeshStandardMaterial({ color: 0x4f9aa6, emissive: 0x0a3a42, emissiveIntensity: 0.35, metalness: 0.5, roughness: 0.3, envMap: env, transparent: true });
+    const bonds = new THREE.InstancedMesh(new THREE.CylinderGeometry(1, 1, 1, 8, 1, true), bondMat, solid.bonds.length);
+    const up = new THREE.Vector3(0, 1, 0);
+    const q = new THREE.Quaternion();
+    const a = new THREE.Vector3();
+    const b = new THREE.Vector3();
+    solid.bonds.forEach(([i, j], n) => {
+      const pa = solid.atoms[i]!;
+      const pb = solid.atoms[j]!;
+      a.set(pa[0], pa[1], pa[2]);
+      b.set(pb[0], pb[1], pb[2]);
+      const dir = b.clone().sub(a);
+      q.setFromUnitVectors(up, dir.clone().normalize());
+      m.compose(a.clone().add(b).multiplyScalar(0.5), q, new THREE.Vector3(0.022, dir.length(), 0.022));
+      bonds.setMatrixAt(n, m);
+    });
+
+    atoms.frustumCulled = false;
+    bonds.frustumCulled = false;
+    atoms.renderOrder = 3;
+    bonds.renderOrder = 3;
+    group.add(atoms, bonds);
+    this.moleculeMats.push(atomMat, bondMat);
+    this.molecule = group;
+    this.scene.add(group);
   }
 
   private buildNetwork(net: ReturnType<typeof buildNetwork>) {
@@ -432,6 +489,8 @@ export class HeroEngine {
       uPx: { value: 1 },
       uMaxPx: { value: 20 },
       uReveal: { value: 0 },
+      uFocus: { value: 10 },
+      uAperture: { value: 0 },
     });
     this.story = new THREE.Points(geo, mat);
     this.story.frustumCulled = false;
@@ -630,12 +689,13 @@ export class HeroEngine {
   // ───────────────────────────── the frame ─────────────────────────────
 
   private update(dt: number) {
-    const poster = this.opts.poster === true;
-    this.time = poster ? 14 : this.time + dt;
+    const shot = this.opts.shot;
+    const poster = this.opts.poster === true || shot !== undefined;
+    this.time = shot ? shot.time : poster ? 14 : this.time + dt;
     this.intro = poster ? 1 : Math.min(1, this.intro + dt / 2.6);
     // Scroll is followed, not mirrored: the damping is the difference between a
     // film and a slideshow dragged by hand.
-    this.p = poster ? 1 : this.p + (this.pTarget - this.p) * (1 - Math.exp(-dt * 5));
+    this.p = shot ? shot.p : poster ? 1 : this.p + (this.pTarget - this.p) * (1 - Math.exp(-dt * 5));
     const p = this.p;
     const t = this.time;
     this.pointerSmooth.lerp(this.pointer, 1 - Math.exp(-dt * 3));
@@ -644,38 +704,47 @@ export class HeroEngine {
 
     // ── choreography
     // holds between the moves, so each state is seen before it changes
-    const uAB = ss(0.14, 0.34, p);
-    const uBC = ss(0.5, 0.74, p);
-    const activate = ss(0.64, 0.84, p);
-    const wave = 11.5 * ss(0.64, 0.98, p);
-    const reveal = 1.05 * ss(0.66, 0.98, p);
+    const o = shot?.overrides;
+    const uAB = o?.uAB ?? ss(0.14, 0.34, p);
+    const uBC = o?.uBC ?? ss(0.5, 0.74, p);
+    const activate = o?.activate ?? ss(0.64, 0.84, p);
+    const wave = o?.wave ?? 11.5 * ss(0.64, 0.98, p);
+    const reveal = o?.reveal ?? 1.05 * ss(0.66, 0.98, p);
     const scanY = Math.sin(t * 0.33) * 5.2;
 
     // ── the body: a slow, living turn
-    this.body.rotation.y = Math.sin(t * 0.13) * 0.3 * (1 - activate * 0.4) + px * 0.22 + 0.12;
+    this.body.rotation.y = shot ? shot.bodyYaw : Math.sin(t * 0.13) * 0.3 * (1 - activate * 0.4) + px * 0.22 + 0.12;
     this.body.position.y = Math.sin(t * 0.4) * 0.03;
     this.body.updateMatrixWorld();
     this.heartW.set(...HEART).applyMatrix4(this.body.matrixWorld);
 
     // ── camera
-    const cam = this.portrait ? CAM.portrait : CAM.landscape;
-    const drift = poster ? 0 : 1;
-    this.camera.position.set(
-      track(cam.x, p) + px * 0.35 + drift * Math.sin(t * 0.21) * 0.06,
-      track(cam.y, p) + py * 0.2 + drift * Math.cos(t * 0.17) * 0.05,
-      track(cam.z, p),
-    );
-    this.camera.lookAt(track(cam.lx, p), track(cam.ly, p), track(cam.lz, p));
-    this.camera.updateMatrixWorld();
     const pm = this.camera.projectionMatrix;
-    this.camera.updateProjectionMatrix();
-    pm.elements[8] = track(cam.shiftX, p);
-    pm.elements[9] = track(cam.shiftY, p);
-    if (poster) {
-      // The still sits under the copy for visitors without the sequence, so it
-      // keeps the figure clear of the headline, as the opening frame does.
-      pm.elements[8] = this.portrait ? 0 : -0.36;
-      pm.elements[9] = this.portrait ? -0.12 : 0;
+    if (shot) {
+      this.camera.fov = shot.fov ?? FOV;
+      this.camera.position.set(...shot.camera);
+      this.camera.lookAt(...shot.look);
+      this.camera.updateMatrixWorld();
+      this.camera.updateProjectionMatrix();
+    } else {
+      const cam = this.portrait ? CAM.portrait : CAM.landscape;
+      const drift = poster ? 0 : 1;
+      this.camera.position.set(
+        track(cam.x, p) + px * 0.35 + drift * Math.sin(t * 0.21) * 0.06,
+        track(cam.y, p) + py * 0.2 + drift * Math.cos(t * 0.17) * 0.05,
+        track(cam.z, p),
+      );
+      this.camera.lookAt(track(cam.lx, p), track(cam.ly, p), track(cam.lz, p));
+      this.camera.updateMatrixWorld();
+      this.camera.updateProjectionMatrix();
+      pm.elements[8] = track(cam.shiftX, p);
+      pm.elements[9] = track(cam.shiftY, p);
+      if (poster) {
+        // The still sits under the copy for visitors without the sequence, so it
+        // keeps the figure clear of the headline, as the opening frame does.
+        pm.elements[8] = this.portrait ? 0 : -0.36;
+        pm.elements[9] = this.portrait ? -0.12 : 0;
+      }
     }
     this.camera.projectionMatrixInverse.copy(pm).invert();
 
@@ -683,14 +752,36 @@ export class HeroEngine {
     this.tmpE.set(0.35 + py * 0.15, t * 0.25 + px * 0.3, 0.85);
     this.tmpQ.setFromEuler(this.tmpE);
     this.tmpQ.multiply(this.spin.setFromAxisAngle(HeroEngine.UP, t * 0.45));
-    const place = this.portrait ? PLACES.portrait : PLACES.landscape;
-    this.helixM.compose(place.helix, this.tmpQ, this.tmpV.set(1, 1, 1));
+    const base = this.portrait ? PLACES.portrait : PLACES.landscape;
+    const helixAt = shot?.helixAt ? this.helixAt.set(...shot.helixAt) : base.helix;
+    const membraneAt = shot?.membraneAt ? this.membraneAt.set(...shot.membraneAt) : base.membrane;
+    const place = { helix: helixAt, membrane: membraneAt };
+    const dissolve = ss(0.12, 0.27, p);
+    const hs = (shot?.helixScale ?? HELIX_SCALE * base.scale) * (1 - 0.2 * dissolve);
+    this.helixM.compose(place.helix, this.tmpQ, this.tmpV.set(hs, hs, hs));
+    if (this.molecule) {
+      this.molecule.matrix.copy(this.helixM);
+      this.molecule.matrixWorldNeedsUpdate = true;
+      const opacity = o?.moleculeOpacity ?? (1 - dissolve) * ss(0.35, 1, this.intro);
+      this.molecule.visible = opacity > 0.01 && (shot?.show.molecule ?? true);
+      for (const mat of this.moleculeMats) mat.opacity = opacity;
+    }
     this.tmpE.set(0.12 + Math.sin(t * 0.3) * 0.05, -0.25 + Math.sin(t * 0.23) * 0.08, 0.05);
     this.tmpQ.setFromEuler(this.tmpE);
     this.memM.compose(place.membrane, this.tmpQ, this.tmpV.set(1, 1, 1));
+    if (shot) {
+      this.body.visible = shot.show.body;
+      if (this.story) this.story.visible = shot.show.story;
+      if (this.motes) this.motes.visible = shot.show.motes;
+    }
 
     // ── uniforms
     const centreDepth = this.camera.position.distanceTo(this.tmpV.set(0, 1, 0));
+    // Focus pulls from the peptide to the body as the story moves into it.
+    const focus = shot
+      ? this.camera.position.distanceTo(this.tmpV.set(...shot.focus))
+      : THREE.MathUtils.lerp(this.camera.position.distanceTo(place.helix), centreDepth, ss(0.28, 0.6, p));
+    const aperture = shot ? shot.aperture : poster ? 0 : 0.012 + 0.075 * (1 - ss(0.78, 1, p));
     if (this.figure) {
       const u = this.figure.material.uniforms;
       u.uTime!.value = t;
@@ -699,6 +790,8 @@ export class HeroEngine {
       u.uWave!.value = wave;
       u.uScanY!.value = scanY;
       u.uCentreDepth!.value = centreDepth;
+      u.uFocus!.value = focus;
+      u.uAperture!.value = aperture;
     }
     if (this.shellMat) {
       const u = this.shellMat.uniforms;
@@ -721,6 +814,8 @@ export class HeroEngine {
       u.uTime!.value = t;
       u.uIntro!.value = poster ? 1 : Math.min(1, (t - this.storyIntroStart) / 2.4);
       u.uReveal!.value = reveal;
+      u.uFocus!.value = focus;
+      u.uAperture!.value = aperture;
     }
     if (this.glows) {
       const u = this.glows.material.uniforms;

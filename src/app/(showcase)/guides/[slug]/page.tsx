@@ -7,9 +7,9 @@ import { guideBySlug, isGuideReady, PROTOCOL_GUIDES } from '@/domain/showcase/pr
 /**
  * A single protocol guide — the page a practitioner shares.
  *
- * The owner's artwork is the whole content: shown as large as the screen
- * allows, and linked to the full-resolution file so it can be zoomed on a
- * phone or saved. A guide without finished artwork does not have a page.
+ * Set in the Protocol Library's light register: warm ivory, the guide's artwork
+ * as large as the screen allows, linked to the full-resolution file so it can
+ * be zoomed on a phone or saved. A guide without finished artwork has no page.
  */
 
 export function generateStaticParams(): { slug: string }[] {
@@ -40,10 +40,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   if (guide === null || !isGuideReady(guide)) notFound();
 
   return (
-    <article className="relative pb-24 pt-28 sm:pt-32">
-      <div className="sx-grid-bg" aria-hidden="true" />
-      <div className="sx-wrap relative">
-        <Link href="/#protocols" className="sx-navlink inline-flex items-center gap-2">
+    <article className="sx-light min-h-screen pb-24 pt-28 sm:pt-32">
+      <div className="sx-wrap">
+        <Link href="/#protocols" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--tides-mineral)]">
           <span aria-hidden="true">←</span> Protocol library
         </Link>
 
@@ -53,7 +52,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               href={guide.artwork.src}
               target="_blank"
               rel="noopener"
-              className="sx-artwork-frame group block"
+              className="sx-poster block"
               aria-label={`Open ${guide.title} at full resolution`}
             >
               <Image
@@ -66,35 +65,32 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 className="h-auto w-full"
               />
             </a>
-            <p className="sx-mono mt-3 text-[0.65rem] tracking-[0.2em] text-[var(--sx-faint)]">
-              TAP THE GUIDE TO OPEN IT AT FULL RESOLUTION
-            </p>
+            <p className="mt-3 text-sm text-[var(--tides-soft)]">Tap the guide to open it at full resolution.</p>
           </div>
 
           <aside className="sx-enter lg:sticky lg:top-28 lg:self-start" style={{ '--delay': '0.15s' } as React.CSSProperties}>
-            <p className="sx-eyebrow">{guide.focus}</p>
-            <h1 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.04] tracking-[-0.03em]">
+            <p className="sx-kicker">{guide.focus}</p>
+            <h1 className="mt-5 text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-[var(--tides-deep)]">
               {guide.title}
             </h1>
-            <p className="sx-lede mt-5 !text-[1.05rem]">{guide.description}</p>
+            <span className="sx-gold-rule mt-6" aria-hidden="true" />
+            <p className="mt-6 text-[1.05rem] leading-relaxed text-[var(--tides-graphite)]">{guide.description}</p>
 
-            <p className="sx-eyebrow mt-8 !text-[var(--sx-faint)]">Compounds in this guide</p>
-            <ul className="mt-4 flex flex-wrap gap-2.5">
+            <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Compounds in this guide">
               {guide.compounds.map((c) => (
-                <li key={c} className="sx-chip">{c}</li>
+                <li key={c} className="sx-chip-light">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--tides-mineral)]" aria-hidden="true" />
+                  {c}
+                </li>
               ))}
             </ul>
 
-            <div className="sx-card mt-10 px-5 py-5">
-              <p className="sx-mono text-[0.62rem] tracking-[0.22em] text-[var(--sx-cyan-soft)]">RESEARCH CONTEXT</p>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--sx-soft)]">
-                This guide summarises what published sources and practitioners report, for research and
-                education. It is not medical advice. Speak with a qualified clinician about any treatment
-                decision.
-              </p>
-            </div>
+            <p className="mt-10 border-t border-[var(--tides-rule)] pt-6 text-sm leading-relaxed text-[var(--tides-soft)]">
+              This guide summarises what published sources and practitioners report, for research and education. It is
+              not medical advice.
+            </p>
 
-            <Link href="/" className="sx-btn sx-btn-ghost mt-8">
+            <Link href="/" className="sx-btn sx-btn-deep mt-8">
               Explore The Tides Index
             </Link>
           </aside>

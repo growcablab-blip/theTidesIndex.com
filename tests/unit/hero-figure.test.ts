@@ -1,109 +1,148 @@
 /**
- * The hero figure: its geometry, and the pre-built file the renderer streams.
+ * The hero figure: the committed mesh file, the point cloud sampled from it, and
+ * the structures laid inside it.
  *
- * The figure is generated once at build time (`npm run hero:geometry`) and
- * committed. These tests hold the model to its promises — points on the
- * surface, networks inside the body, deterministic output — and check that the
- * committed file is readable and matches the model's current bounds, so a
- * change to the body that is not followed by a rebuild fails here.
+ * The figure is the CC0 MakeHuman base mesh, re-posed at build time
+ * (`npm run hero:geometry`) and committed as `public/hero/figure.bin` together
+ * with its generated landmarks. These tests hold the pieces to each other: the
+ * file decodes, the landmarks sit inside the body the file describes, the
+ * networks run inside it, and sampling is deterministic.
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  BODY_BOUNDS,
-  bodySdf,
   BRAIN,
+  buildHelixSolid,
   buildNetwork,
   buildStory,
   HEART,
   runNow,
   sampleFigure,
+  type FigureMesh,
 } from '@/components/showcase/hero/body-model';
-import { decodeFigure, encodeFigure, FIGURE_URL } from '@/components/showcase/hero/figure-format';
+import {
+  decodeFigure,
+  dequantizeNormals,
+  dequantizePositions,
+  encodeFigure,
+  FIGURE_BOUNDS,
+  FIGURE_URL,
+  isInside,
+} from '@/components/showcase/hero/figure-format';
+import { LANDMARKS } from '@/components/showcase/hero/figure-landmarks';
 
-describe('body model', () => {
-  const small = runNow(sampleFigure({ surface: 400, interior: 100, brain: 50 }));
+const bytes = readFileSync(join(process.cwd(), 'public', FIGURE_URL));
+const file = decodeFigure(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
+const mesh: FigureMesh = {
+  position: dequantizePositions(file),
+  normal: dequantizeNormals(file),
+  index: file.indices,
+  grid: file.grid,
+  occupancy: file.occupancy,
+};
 
-  it('places surface particles on the surface', () => {
-    for (let i = 0; i < 400; i++) {
-      const d = bodySdf(small.position[i * 3]!, small.position[i * 3 + 1]!, small.position[i * 3 + 2]!);
-      expect(Math.abs(d)).toBeLessThan(0.013);
+describe('committed figure file', () => {
+  it('is a human-scale mesh inside its bounds', () => {
+    expect(file.vertices).toBeGreaterThan(10000);
+    expect(file.triangles).toBeGreaterThan(20000);
+    let minY = Infinity;
+    let maxY = -Infinity;
+    for (let i = 1; i < mesh.position.length; i += 3) {
+      minY = Math.min(minY, mesh.position[i]!);
+      maxY = Math.max(maxY, mesh.position[i]!);
     }
+    // 10 units tall, feet at −5 (within quantization)
+    expect(minY).toBeCloseTo(-5, 1);
+    expect(maxY - minY).toBeCloseTo(10, 1);
   });
 
-  it('places interior particles inside the body', () => {
-    for (let i = 400; i < 500; i++) {
-      expect(bodySdf(small.position[i * 3]!, small.position[i * 3 + 1]!, small.position[i * 3 + 2]!)).toBeLessThan(0);
-    }
+  it('references only real vertices', () => {
+    for (const i of file.indices) expect(i).toBeLessThan(file.vertices);
   });
 
-  it('is deterministic', () => {
-    const again = runNow(sampleFigure({ surface: 400, interior: 100, brain: 50 }));
-    expect(Array.from(again.position.slice(0, 60))).toEqual(Array.from(small.position.slice(0, 60)));
-  });
-
-  it('keeps the heart and the brain inside the body, and the body inside its bounds', () => {
-    expect(bodySdf(...HEART)).toBeLessThan(0);
-    expect(bodySdf(...BRAIN)).toBeLessThan(0);
-    for (let i = 0; i < small.count; i++) {
-      for (let axis = 0; axis < 3; axis++) {
-        const v = small.position[i * 3 + axis]!;
-        expect(v).toBeGreaterThan(BODY_BOUNDS.min[axis]!);
-        expect(v).toBeLessThan(BODY_BOUNDS.max[axis]!);
-      }
-    }
-  });
-
-  it('runs the neural and vascular networks inside the body', () => {
-    const net = buildNetwork();
-    let outside = 0;
-    for (let i = 0; i < net.position.length; i += 3) {
-      if (bodySdf(net.position[i]!, net.position[i + 1]!, net.position[i + 2]!) > 0.02) outside++;
-    }
-    expect(outside / (net.position.length / 3)).toBeLessThan(0.02);
-    expect(Math.max(...net.dist)).toBeLessThanOrEqual(1);
-  });
-
-  it('builds story targets of the requested size', () => {
-    const story = runNow(buildStory(500, buildNetwork()));
-    for (const arr of [story.helix, story.membrane, story.network, story.helixColor, story.membraneColor, story.networkColor]) {
-      expect(arr.length).toBe(1500);
-      expect(arr.every(Number.isFinite)).toBe(true);
+  it('puts the heart, the brain and the joints inside the body', () => {
+    expect(isInside(mesh, ...HEART)).toBe(true);
+    expect(isInside(mesh, ...BRAIN)).toBe(true);
+    for (const name of ['neck', 'spine2', 'pelvis', 'lKnee', 'rKnee', 'lElbow', 'rElbow'] as const) {
+      expect(isInside(mesh, ...LANDMARKS[name]), name).toBe(true);
     }
   });
 });
 
-describe('figure file', () => {
-  it('round-trips through the format', () => {
-    const fig = runNow(sampleFigure({ surface: 30, interior: 10, brain: 5 }));
-    const field = new Float32Array(8 ** 3).map((_, i) => ((i % 7) - 3) / 10);
-    const buf = encodeFigure({ surface: 30, interior: 10, brain: 5, position: fig.position, normal: fig.normal, gridSize: 8, field, densityRange: 0.25 });
-    const file = decodeFigure(buf);
-    expect([file.surface, file.interior, file.brain, file.gridSize]).toEqual([30, 10, 5, 8]);
-    expect(file.normals.length).toBe(90);
-    expect(file.density[3]).toBe(0);
+describe('figure sampling', () => {
+  const small = runNow(sampleFigure(mesh, { surface: 500, interior: 150, brain: 60 }));
+
+  it('is deterministic', () => {
+    const again = runNow(sampleFigure(mesh, { surface: 500, interior: 150, brain: 60 }));
+    expect(Array.from(again.position.slice(0, 90))).toEqual(Array.from(small.position.slice(0, 90)));
+  });
+
+  it('keeps every point inside the figure bounds', () => {
+    for (let i = 0; i < small.count; i++) {
+      for (let a = 0; a < 3; a++) {
+        const v = small.position[i * 3 + a]!;
+        expect(v).toBeGreaterThanOrEqual(FIGURE_BOUNDS.min[a]! - 1e-3);
+        expect(v).toBeLessThanOrEqual(FIGURE_BOUNDS.max[a]! + 1e-3);
+      }
+    }
+  });
+
+  it('places interior haze inside the body', () => {
+    for (let i = 500; i < 650; i++) {
+      expect(isInside(mesh, small.position[i * 3]!, small.position[i * 3 + 1]!, small.position[i * 3 + 2]!)).toBe(true);
+    }
+  });
+});
+
+describe('structures inside the figure', () => {
+  it('runs the neural and vascular networks inside the body', () => {
+    const net = buildNetwork();
+    let outside = 0;
+    for (let i = 0; i < net.position.length; i += 3) {
+      if (!isInside(mesh, net.position[i]!, net.position[i + 1]!, net.position[i + 2]!)) outside++;
+    }
+    // the occupancy grid is coarse at the thinnest limbs; almost all must be inside
+    expect(outside / (net.position.length / 3)).toBeLessThan(0.08);
+    expect(Math.max(...net.dist)).toBeLessThanOrEqual(1);
+  });
+
+  it('builds story targets and the solid peptide', () => {
+    const story = runNow(buildStory(400, buildNetwork()));
+    for (const arr of [story.helix, story.membrane, story.network]) {
+      expect(arr.length).toBe(1200);
+      expect(arr.every(Number.isFinite)).toBe(true);
+    }
+    const solid = buildHelixSolid();
+    expect(solid.atoms.length).toBeGreaterThan(40);
+    for (const [a, b] of solid.bonds) {
+      expect(a).toBeLessThan(solid.atoms.length);
+      expect(b).toBeLessThan(solid.atoms.length);
+    }
+  });
+});
+
+describe('figure file format', () => {
+  it('round-trips a small mesh', () => {
+    const position = new Float32Array([0, 0, 0, 1, 0, 0, 0, 1, 0]);
+    const normal = new Float32Array([0, 0, 1, 0, 0, 1, 0, 0, 1]);
+    const occupancy = new Uint8Array(1);
+    occupancy[0] = 0b101;
+    const buf = encodeFigure({ position, normal, index: new Uint16Array([0, 1, 2]), grid: [2, 2, 2], occupancy });
+    const f = decodeFigure(buf);
+    expect([f.vertices, f.triangles]).toEqual([3, 1]);
+    expect(Array.from(f.indices)).toEqual([0, 1, 2]);
+    expect(f.occupancy[0]).toBe(0b101);
   });
 
   it('rejects a truncated file', () => {
-    const fig = runNow(sampleFigure({ surface: 3, interior: 1, brain: 1 }));
-    const buf = encodeFigure({ surface: 3, interior: 1, brain: 1, position: fig.position, normal: fig.normal, gridSize: 4, field: new Float32Array(64), densityRange: 0.25 });
+    const buf = encodeFigure({
+      position: new Float32Array(9),
+      normal: new Float32Array(9),
+      index: new Uint16Array([0, 1, 2]),
+      grid: [2, 2, 2],
+      occupancy: new Uint8Array(1),
+    });
     expect(() => decodeFigure(buf.slice(0, buf.byteLength - 1))).toThrow(/truncated/);
-  });
-
-  it('the committed file is readable and matches the model', () => {
-    const bytes = readFileSync(join(process.cwd(), 'public', FIGURE_URL));
-    const file = decodeFigure(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
-    expect(file.surface).toBeGreaterThan(10000);
-    // Spot-check: decoded surface points sit on the current model's surface.
-    const { min, max } = BODY_BOUNDS;
-    for (let i = 0; i < 200; i++) {
-      const p = [0, 1, 2].map((a) => {
-        const c = (min[a]! + max[a]!) / 2;
-        const h = (max[a]! - min[a]!) / 2;
-        return c + (file.positions[i * 3 + a]! / 32767) * h;
-      }) as [number, number, number];
-      expect(Math.abs(bodySdf(...p)), 'rebuild with `npm run hero:geometry`').toBeLessThan(0.02);
-    }
   });
 });

@@ -139,13 +139,6 @@
   mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
 }
 
-.sx-aura {
-  position: absolute;
-  border-radius: 9999px;
-  pointer-events: none;
-  filter: blur(80px);
-  opacity: 0.55;
-}
 
 /* Divider between movements: a hairline that brightens in the middle. */
 .sx-divider {
@@ -192,6 +185,19 @@
   transition: transform 0.4s var(--sx-ease);
 }
 .sx-navlink:hover { color: var(--sx-text); }
+.sx-navlink[data-primary] { color: var(--sx-text); }
+.sx-navlink[data-primary]::before {
+  content: '';
+  position: absolute;
+  left: -0.85rem;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 9999px;
+  background: var(--sx-cyan);
+  box-shadow: 0 0 8px var(--sx-cyan);
+}
 .sx-navlink:hover::after { transform: scaleX(1); }
 
 .sx-menu > summary { list-style: none; cursor: pointer; }
@@ -234,32 +240,6 @@
 }
 .sx-btn .sx-arrow { transition: transform 0.35s var(--sx-ease); }
 .sx-btn:hover .sx-arrow { transform: translateX(3px); }
-
-/* --- Panels ------------------------------------------------------------- */
-
-.sx-glass {
-  background: linear-gradient(160deg, rgb(20 50 70 / 0.55), rgb(8 22 34 / 0.55));
-  border: 1px solid var(--sx-line);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
-}
-
-/* A panel whose border catches light along its top edge. */
-.sx-card {
-  position: relative;
-  border-radius: 1.5rem;
-  background: linear-gradient(170deg, rgb(16 42 60 / 0.8), rgb(6 18 28 / 0.9));
-  border: 1px solid var(--sx-line);
-  overflow: hidden;
-  isolation: isolate;
-}
-.sx-card::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(165 243 252 / 0.5), transparent);
-  z-index: 2;
-}
 
 /* --- Hero ---------------------------------------------------------------
    A pinned stage inside a taller track: a short scroll plays the sequence,
@@ -502,17 +482,6 @@
   animation: sx-drip 2.6s var(--sx-ease) infinite;
 }
 
-/* --- The figure's internal motion -------------------------------------- */
-
-.sx-fig-pulse { animation: sx-pulse 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.sx-fig-breathe { animation: sx-breathe 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.sx-fig-signal {
-  stroke-dasharray: 26 420;
-  animation: sx-signal 5.5s linear infinite;
-}
-.sx-fig-node { animation: sx-blink 3s ease-in-out infinite; }
-.sx-spin-slow { animation: sx-spin 60s linear infinite; transform-box: fill-box; transform-origin: center; }
-
 /* --- Reveal on scroll ---------------------------------------------------
    Hidden only once the motion script has announced itself on <html>, so a
    visitor without JavaScript sees everything immediately. */
@@ -553,120 +522,185 @@
   font-size: clamp(3rem, 7.5vw, 5.5rem);
 }
 
-.sx-meter {
+
+/* --- The light register -----------------------------------------------------
+   Dark is exploration and immersion; light is clarity and use. The light
+   sections share the protocol cards' palette so the site and the guides read
+   as one brand: warm ivory, white, deep teal, graphite, a mineral teal, and a
+   very little champagne gold. */
+
+.sx {
+  --tides-ivory: #f7f4ed;
+  --tides-paper: #ffffff;
+  --tides-deep: #073f49;
+  --tides-graphite: #263238;
+  --tides-mineral: #2b7a80;
+  --tides-gold: #c4a46b;
+  --tides-soft: #56666c;
+  --tides-rule: rgb(7 63 73 / 0.12);
+}
+
+.sx-light {
   position: relative;
-  height: 2px;
-  background: rgb(140 220 240 / 0.1);
-  overflow: hidden;
-  border-radius: 2px;
+  background: var(--tides-ivory);
+  color: var(--tides-graphite);
 }
-.sx-meter::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  width: 35%;
-  background: linear-gradient(90deg, transparent, var(--sx-cyan), transparent);
-  animation: sx-sweep 3.8s var(--sx-ease) infinite;
-  animation-delay: var(--delay, 0s);
-}
+.sx-light .sx-h2,
+.sx-light .sx-h3 { color: var(--tides-deep); }
+.sx-light .sx-lede { color: var(--tides-soft); }
+.sx-light a:focus-visible { outline-color: var(--tides-mineral); }
 
-/* --- Gallery ------------------------------------------------------------ */
-
-.sx-rail {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(78%, 1fr);
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding-bottom: 0.5rem;
-  overscroll-behavior-x: contain;
-}
-.sx-rail::-webkit-scrollbar { display: none; }
-.sx-rail > * { scroll-snap-align: start; }
-@media (min-width: 768px) {
-  .sx-rail {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    overflow: visible;
-  }
-}
-
-.sx-artwork-frame {
-  position: relative;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  background: radial-gradient(120% 80% at 50% 0%, rgb(34 211 238 / 0.14), transparent 60%), #061621;
-  border: 1px solid var(--sx-line-strong);
-  box-shadow: 0 40px 80px -40px rgb(34 211 238 / 0.35), 0 0 0 1px rgb(0 0 0 / 0.4);
-}
-
-.sx-chip {
+.sx-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 9999px;
-  font-size: 0.8125rem;
-  color: var(--sx-text);
-  background: rgb(34 211 238 / 0.07);
-  border: 1px solid rgb(34 211 238 / 0.22);
+  gap: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sx-cyan-soft);
+}
+.sx-kicker::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+}
+.sx-light .sx-kicker { color: var(--tides-mineral); }
+
+/* Warm accent: the champagne hairline the protocol cards use, sparingly. */
+.sx-gold-rule {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: var(--tides-gold);
 }
 
-.sx-lift {
-  transition: transform 0.6s var(--sx-ease), border-color 0.6s, box-shadow 0.6s;
+/* Dark to light: a long, soft handover rather than a hard edge. */
+.sx-handover {
+  height: clamp(6rem, 14vw, 11rem);
+  background: linear-gradient(to bottom, #062c35 0%, #0d4a53 22%, #9fbfbd 62%, var(--tides-ivory) 100%);
 }
-.sx-lift:hover {
+.sx-handback {
+  height: clamp(5rem, 11vw, 9rem);
+  background: linear-gradient(to bottom, var(--tides-ivory) 0%, #b9c9c4 38%, #0c3a44 78%, var(--sx-bg) 100%);
+}
+
+.sx-btn-deep {
+  color: #fff;
+  background: var(--tides-deep);
+  box-shadow: 0 12px 30px -14px rgb(7 63 73 / 0.7);
+}
+.sx-btn-deep:hover { background: #0a4f5b; transform: translateY(-1px); }
+.sx-btn-quiet {
+  color: var(--tides-deep);
+  border: 1px solid var(--tides-rule);
+  background: rgb(255 255 255 / 0.6);
+}
+
+/* Protocol posters: the owner's artwork is the focal point, framed like paper. */
+.sx-poster {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--tides-paper);
+  border: 1px solid var(--tides-rule);
+  box-shadow: 0 1px 0 rgb(7 63 73 / 0.05), 0 40px 90px -45px rgb(7 63 73 / 0.45);
+}
+.sx-poster-lift { transition: transform 0.7s var(--sx-ease), box-shadow 0.7s var(--sx-ease); }
+.sx-poster-lift:hover {
   transform: translateY(-4px);
-  border-color: rgb(34 211 238 / 0.35);
-  box-shadow: 0 30px 60px -30px rgb(34 211 238 / 0.35);
+  box-shadow: 0 1px 0 rgb(7 63 73 / 0.05), 0 50px 100px -45px rgb(7 63 73 / 0.55);
 }
+
+.sx-chip-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--tides-graphite);
+  background: var(--tides-paper);
+  border: 1px solid var(--tides-rule);
+}
+
+/* Rendered scenes: large, rounded, gently moving with the page. */
+.sx-scene {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  background: #04101a;
+  isolation: isolate;
+}
+.sx-scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sx-scene [data-parallax] {
+  position: absolute;
+  inset: -6% 0;
+  will-change: transform;
+}
+.sx-scene-edge {
+  box-shadow: inset 0 0 0 1px rgb(140 220 240 / 0.08);
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* A label pinned to a point in a rendered scene. */
+/* No `display` here: visibility is set per pin with utilities (hidden / sm:flex). */
+.sx-pin {
+  position: absolute;
+  z-index: 3;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--sx-text);
+  white-space: nowrap;
+}
+.sx-pin::before {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid var(--sx-cyan-soft);
+  box-shadow: 0 0 12px rgb(34 211 238 / 0.7);
+  background: rgb(34 211 238 / 0.25);
+}
+.sx-pin span {
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  background: rgb(4 16 25 / 0.55);
+  border: 1px solid rgb(140 220 240 / 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Editorial columns: a rule, a title, a sentence — not a card. */
+.sx-column {
+  border-top: 1px solid var(--sx-line-strong);
+  padding-top: 1.25rem;
+}
+.sx-light .sx-column { border-top-color: var(--tides-rule); }
 
 /* --- Keyframes ---------------------------------------------------------- */
 
-@keyframes sx-pulse {
-  0%, 100% { transform: scale(0.92); opacity: 0.55; }
-  45% { transform: scale(1.08); opacity: 1; }
-}
-@keyframes sx-breathe {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.025); opacity: 1; }
-}
-@keyframes sx-signal {
-  from { stroke-dashoffset: 446; }
-  to { stroke-dashoffset: 0; }
-}
 @keyframes sx-blink {
   0%, 100% { opacity: 0.35; }
   50% { opacity: 1; }
 }
-@keyframes sx-spin {
-  to { transform: rotate(360deg); }
-}
 @keyframes sx-drip {
   0% { top: -40%; }
   100% { top: 110%; }
-}
-@keyframes sx-sweep {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(320%); }
-}
-@keyframes sx-float {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -10px, 0); }
-}
-@keyframes sx-draw-loop {
-  0% { stroke-dashoffset: var(--len, 600); }
-  45%, 70% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: calc(var(--len, 600) * -1); }
-}
-@keyframes sx-bar {
-  0%, 100% { transform: scaleX(0.35); }
-  50% { transform: scaleX(1); }
-}
-@keyframes sx-ticker {
-  to { transform: translateX(-50%); }
 }
 
 /* Page-load entrance for the hero. Pure CSS, so it never waits on hydration. */
@@ -676,17 +710,7 @@
 }
 .sx-enter { animation: sx-rise 1.3s var(--sx-ease) var(--delay, 0s) both; }
 
-@keyframes sx-scan-short {
-  0% { transform: translateY(20px); opacity: 0; }
-  15%, 80% { opacity: 0.8; }
-  100% { transform: translateY(205px); opacity: 0; }
-}
-.sx-scan-short { animation: sx-scan-short 3.6s ease-in-out infinite; }
 
-.sx-float { animation: sx-float 7s ease-in-out infinite; }
-.sx-draw-loop { stroke-dasharray: var(--len, 600); animation: sx-draw-loop 6s var(--sx-ease) infinite; animation-delay: var(--delay, 0s); }
-.sx-bar { transform-origin: left; animation: sx-bar 5s var(--sx-ease) infinite; animation-delay: var(--delay, 0s); }
-.sx-ticker { animation: sx-ticker 38s linear infinite; }
 
 /* --- Reduced motion ----------------------------------------------------- */
 
@@ -701,11 +725,7 @@
     opacity: 1;
     transform: none;
   }
-  .sx[data-motion] .sx-draw,
-  .sx .sx-draw-loop {
-    stroke-dashoffset: 0;
-  }
-  .sx .sx-fig-signal { display: none; }
+  .sx[data-motion] .sx-draw { stroke-dashoffset: 0; }
 }
 
 /* Smooth in-page travel between sections, only where motion is welcome. */

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { HeroEngine, LabelFrame } from './hero-engine';
 import { detectTier } from './hero-tier';
+import { isShotName, SHOTS } from './hero-shots';
 
 /**
  * The live layer of the hero: decides the tier, drives the engine from scroll,
@@ -36,7 +37,10 @@ export function HeroStage({ trackId }: { trackId: string }) {
     if (track === null || canvas === null) return;
 
     const search = new URLSearchParams(window.location.search);
-    const poster = process.env.NODE_ENV !== 'production' && search.get('hero') === 'poster';
+    const tooling = process.env.NODE_ENV !== 'production';
+    const shotName = tooling && search.get('hero') === 'shot' ? search.get('name') : null;
+    const shot = isShotName(shotName) ? SHOTS[shotName] : undefined;
+    const poster = tooling && (search.get('hero') === 'poster' || shot !== undefined);
     // The still is rendered at full density and the display's own resolution.
     const tier = poster ? { ...detectTier('?tier=a'), maxDpr: 3 } : detectTier(window.location.search);
     track.dataset.tier = tier.tier;
@@ -76,6 +80,7 @@ export function HeroStage({ trackId }: { trackId: string }) {
       engine = new HeroEngine(canvas, {
         tier,
         poster,
+        shot,
         onReady: () => {
           if (cancelled) return;
           setLive('on');

@@ -9,6 +9,7 @@ import { useEffect } from 'react';
  *   [data-reveal]   fades and rises in once it enters the viewport
  *   [data-count]    counts up to its server-rendered value when revealed
  *   [data-scan]     a looping decorative scan readout (00–99)
+ *   [data-parallax] drifts with the page by up to N px (rendered scenes)
  *   .sx root        gets data-scrolled once the page leaves the top
  *
  * Everything it animates is already present and correct in the server HTML.
@@ -61,6 +62,29 @@ export function ShowcaseMotion() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    // --- Parallax on rendered scenes -----------------------------------------
+    // One rAF per scroll, only for elements on screen; transforms only.
+    const layers = reduced ? [] : Array.from(root.querySelectorAll<HTMLElement>('[data-parallax]'));
+    let parallaxFrame = 0;
+    const drift = () => {
+      parallaxFrame = 0;
+      const vh = window.innerHeight;
+      for (const el of layers) {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -vh * 0.2 || r.top > vh * 1.2) continue;
+        const k = (r.top + r.height / 2 - vh / 2) / vh;
+        const amount = Number(el.dataset.parallax) || 30;
+        el.style.transform = `translate3d(0, ${(k * -amount).toFixed(1)}px, 0)`;
+      }
+    };
+    const onParallax = () => {
+      if (parallaxFrame === 0) parallaxFrame = requestAnimationFrame(drift);
+    };
+    if (layers.length > 0) {
+      drift();
+      window.addEventListener('scroll', onParallax, { passive: true });
+    }
+
     // --- Decorative scan readouts -----------------------------------------
     const scans = Array.from(root.querySelectorAll<HTMLElement>('[data-scan]'));
     let n = 0;
@@ -76,6 +100,8 @@ export function ShowcaseMotion() {
     return () => {
       io.disconnect();
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', onParallax);
+      cancelAnimationFrame(parallaxFrame);
       window.clearInterval(scanTimer);
     };
   }, []);

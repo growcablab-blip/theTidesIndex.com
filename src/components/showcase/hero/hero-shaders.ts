@@ -67,8 +67,6 @@ export const FIGURE_VERT = /* glsl */ `
   attribute float aKind;
   attribute vec4 aRand;
 
-  uniform vec3 uCentre;
-  uniform vec3 uHalf;
   uniform float uTime;
   uniform float uPx;
   uniform float uMaxPx;
@@ -78,13 +76,14 @@ export const FIGURE_VERT = /* glsl */ `
   uniform float uScanY;
   uniform float uCentreDepth;
   uniform vec3 uHeart;
+  uniform float uFocus;      // distance to the plane in focus
+  uniform float uAperture;   // how quickly things leave it
 
   varying vec3 vCol;
   varying float vA;
 
   void main() {
-    // positions arrive as normalized int16: back to body units
-    vec3 p = uCentre + position * uHalf;
+    vec3 p = position;
     vec3 n = aNormal;
     float surface = step(aKind, 0.5);
     float interior = step(0.5, aKind) * step(aKind, 1.5);
@@ -130,6 +129,10 @@ export const FIGURE_VERT = /* glsl */ `
     float size = mix(0.025, 0.045, interior) * (0.7 + aRand.w * 0.6);
     size *= 1.0 + brain * 0.1 + front * 0.6;
     float dist = max(0.0001, -mv.z);
+    // depth of field: out of focus, a point grows and fades — it defocuses
+    float coc = clamp(abs(dist - uFocus) * uAperture, 0.0, 3.0);
+    size *= 1.0 + coc * 1.6;
+    a /= 1.0 + coc * 2.2;
     gl_Position = projectionMatrix * mv;
     gl_PointSize = clamp(size * uPx / dist, 1.0, uMaxPx);
     vCol = col;
@@ -156,14 +159,11 @@ export const SHELL_VERT = /* glsl */ `
   varying vec3 vN;
   varying vec3 vW;
   varying vec3 vBody;
-  uniform vec3 uCentre;
-  uniform vec3 uHalf;
   void main() {
-    vBody = uCentre + position * uHalf;
+    vBody = position;
     vec4 wp = modelMatrix * vec4(position, 1.0);
     vW = wp.xyz;
-    // the mesh is non-uniformly scaled; correct the normal for it
-    vN = normalize(mat3(modelMatrix) * (normal / uHalf));
+    vN = normalize(mat3(modelMatrix) * normal);
     gl_Position = projectionMatrix * viewMatrix * wp;
   }
 `;
@@ -261,6 +261,8 @@ export const STORY_VERT = /* glsl */ `
   uniform float uPx;
   uniform float uMaxPx;
   uniform float uReveal;
+  uniform float uFocus;      // distance to the plane in focus
+  uniform float uAperture;   // how quickly things leave it
 
   varying vec3 vCol;
   varying float vA;
@@ -309,6 +311,9 @@ export const STORY_VERT = /* glsl */ `
     float dist = max(0.0001, -mv.z);
     // particles brushing past the lens fade instead of becoming discs
     alpha *= smoothstep(0.3, 1.6, dist);
+    float coc = clamp(abs(dist - uFocus) * uAperture, 0.0, 3.0);
+    size *= 1.0 + coc * 1.6;
+    alpha /= 1.0 + coc * 2.2;
     gl_Position = projectionMatrix * mv;
     gl_PointSize = clamp(size * uPx / dist, 1.0, uMaxPx);
     vCol = col;

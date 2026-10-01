@@ -8,13 +8,16 @@ import { Building, Expansion, PlatformPreview, QualityPreview } from '@/componen
 /**
  * Home — the public holding experience.
  *
- *   1  hero                  a visual moment, then one promise
- *   2  telemetry             live counts from the published record
- *   3  protocol library      the guides that are useful today
- *   4  what Tides builds     the connected map, in one sentence
- *   5  platform preview      glimpses of the research engine
- *   6  quality               the material behind the science
- *   7  expanding             what arrives next
+ *   dark      hero                  a person, a peptide, a signal — then one promise
+ *   teal      telemetry             live counts, handing over into the light
+ *   ivory     protocol library      the guides that are useful today
+ *   dark      everything connects   the whole path, in one rendered scene
+ *   dark      research platform     the engine taking shape, in large images
+ *   light     quality               the material behind the science
+ *   dark      expanding · footer    what arrives next; the page comes to rest
+ *
+ * Dark is exploration; light is clarity and use. Motion falls away down the
+ * page, from the live hero to an almost still footer.
  *
  * The research application's entry page moved to /reference.
  */
@@ -34,10 +37,8 @@ export default async function HomePage() {
       <Hero />
       <Telemetry data={telemetry} />
       <ProtocolGallery />
-      <div className="sx-divider" aria-hidden="true" />
       <Building />
       <PlatformPreview />
-      <div className="sx-divider" aria-hidden="true" />
       <QualityPreview />
       <Expansion />
     </>
