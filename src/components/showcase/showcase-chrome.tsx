@@ -19,23 +19,24 @@ export const SHOWCASE_NAV = [
   { href: '/#about', label: 'About' },
 ] as const;
 
-function Wordmark() {
+/**
+ * The brand logo — the supplied artwork, reversed for the dark chrome. Its
+ * accessible name is the organisation's name. Height is fixed and width
+ * follows the artwork's proportions (1200 × 437).
+ */
+function Logo({ size = 'header' }: { size?: 'header' | 'footer' }) {
+  const header = size === 'header';
   return (
-    <Link href="/" className="group flex items-center gap-3" aria-label="The Tides Index — home">
+    <Link href="/" className="inline-flex shrink-0 items-center" aria-label="The Tides Index — home">
       <Image
-        src="/brand/tides-index-mark.png"
-        alt=""
-        width={512}
-        height={512}
-        priority
-        className="h-9 w-9 transition-transform duration-700 group-hover:rotate-[20deg] sm:h-10 sm:w-10"
+        src="/brand/tides-index-logo-reversed.png"
+        alt="The Tides Index"
+        width={1200}
+        height={437}
+        priority={header}
+        sizes={header ? '(min-width: 768px) 176px, 132px' : '264px'}
+        className={header ? 'h-12 w-auto md:h-16' : 'h-20 w-auto sm:h-24'}
       />
-      <span className="flex flex-col leading-none">
-        <span className="sx-mono text-[0.58rem] tracking-[0.42em] text-[var(--sx-cyan-soft)]">THE</span>
-        <span className="mt-1 text-[1.05rem] font-semibold tracking-[0.2em] text-[var(--sx-text)] sm:text-[1.15rem]">
-          TIDES INDEX
-        </span>
-      </span>
     </Link>
   );
 }
@@ -51,7 +52,7 @@ export function ShowcaseHeader() {
       </a>
       <header className="sx-header">
         <div className="sx-wrap flex h-[4.5rem] items-center justify-between md:h-20">
-          <Wordmark />
+          <Logo />
 
           <nav aria-label="Primary" className="hidden md:block">
             <ul className="flex items-center gap-10">
@@ -117,7 +118,7 @@ export function ShowcaseFooter() {
       <div className="sx-wrap py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-20">
           <div data-reveal>
-            <Wordmark />
+            <Logo size="footer" />
             <p className="sx-lede mt-6 max-w-[34ch] !text-base">
               Independent peptide science, made understandable — for practitioners and for the people they
               care for.
