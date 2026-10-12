@@ -29,8 +29,8 @@ export interface TierBudget {
 }
 
 const BUDGET: Record<Tier, Omit<TierBudget, 'tier' | 'reason'>> = {
-  a: { surface: 22000, interior: 4000, brain: 2000, story: 14000, motes: 70, maxDpr: 1.75, maxPointPx: 26 },
-  b: { surface: 11000, interior: 2000, brain: 1200, story: 6000, motes: 30, maxDpr: 1.5, maxPointPx: 16 },
+  a: { surface: 22000, interior: 4000, brain: 2000, story: 14000, motes: 70, maxDpr: 2, maxPointPx: 26 },
+  b: { surface: 11000, interior: 2000, brain: 1200, story: 6000, motes: 30, maxDpr: 2, maxPointPx: 16 },
   c: { surface: 0, interior: 0, brain: 0, story: 0, motes: 0, maxDpr: 1, maxPointPx: 0 },
 };
 
@@ -71,6 +71,6 @@ export function detectTier(search: string = window.location.search): TierBudget 
   if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 820) return make('b', 'touch or small viewport');
   if ((nav.deviceMemory ?? 8) <= 4) return make('b', 'device memory ≤ 4 GB');
   if ((nav.hardwareConcurrency ?? 8) <= 4) return make('b', '≤ 4 logical cores');
-  if (integratedGpuAtHighRes(gl)) return { ...make('b', 'integrated GPU at high resolution'), maxDpr: 0.9 };
+  if (integratedGpuAtHighRes(gl)) return { ...make('b', 'integrated GPU at high resolution'), maxDpr: 1.25 };
   return make('a', 'desktop-class device');
 }

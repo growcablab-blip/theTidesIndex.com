@@ -99,7 +99,7 @@ export const SHOTS = {
   },
   /** Everything at once: the peptide, the receptors, the signal, the person. */
   connect: {
-    size: [2000, 1000],
+    size: [3200, 1600],
     p: 0.7,
     time: 16,
     camera: [-0.9, 2.55, 9.2],

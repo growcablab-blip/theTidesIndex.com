@@ -21,7 +21,7 @@ const PHASES = [
 ] as const;
 
 function HeroStill() {
-  const common = { alt: '', sizes: '100vw', quality: 75 } as const;
+  const common = { alt: '', sizes: '100vw', quality: 90 } as const;
   const {
     props: { srcSet: desktop },
   } = getImageProps({ ...common, src: '/hero/still-desktop.jpg', width: 2400, height: 1350 });

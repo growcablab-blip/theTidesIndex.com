@@ -222,7 +222,8 @@ export class HeroEngine {
     this.budget = opts.tier;
     this.renderer = new THREE.WebGLRenderer({
       canvas,
-      antialias: false,
+      // MSAA: smooth edges on the ribbon, atoms and contour lines.
+      antialias: true,
       alpha: false,
       powerPreference: 'high-performance',
       stencil: false,
@@ -623,7 +624,7 @@ export class HeroEngine {
     this.portrait = w / h < 0.9;
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
-    const dpr = Math.max(0.75, Math.min(window.devicePixelRatio || 1, this.budget.maxDpr) * this.dprScale);
+    const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, this.budget.maxDpr) * this.dprScale);
     this.renderer.setPixelRatio(dpr);
     this.renderer.setSize(w, h, false);
     this.perf.dpr = Number(dpr.toFixed(2));
@@ -711,7 +712,7 @@ export class HeroEngine {
     }
     if (++this.badWindows < 2) return;
     this.badWindows = 0;
-    if (this.renderer.getPixelRatio() > 0.8) {
+    if (this.renderer.getPixelRatio() > 1.05) {
       this.dprScale *= 0.8;
       this.perf.qualitySteps++;
       this.resize();

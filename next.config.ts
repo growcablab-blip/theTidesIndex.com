@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   typedRoutes: true,
+  images: {
+    // 90 for the hero and scene renders: dark gradients band and block at 75.
+    qualities: [75, 90],
+    formats: ['image/avif', 'image/webp'],
+  },
   headers() {
     return Promise.resolve([
       {

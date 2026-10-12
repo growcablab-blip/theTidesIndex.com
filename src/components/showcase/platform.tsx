@@ -24,7 +24,7 @@ function Scene({ src, alt, sizes, className = '', position = 'center' }: {
   return (
     <div className={`sx-scene ${className}`}>
       <div data-parallax="36">
-        <Image src={src} alt={alt} fill sizes={sizes} style={{ objectPosition: position }} />
+        <Image src={src} alt={alt} fill sizes={sizes} quality={90} style={{ objectPosition: position }} />
       </div>
       <span className="sx-scene-edge" aria-hidden="true" />
     </div>
@@ -68,6 +68,7 @@ export function Building() {
               alt="A peptide, receptor signalling and a translucent human figure lit from within, in one continuous scene."
               fill
               sizes="100vw"
+              quality={90}
               className="object-[68%_50%] sm:object-center"
             />
           </div>

@@ -60,7 +60,8 @@ for (const shot of CAPTURES.filter((c) => !only || c.file.includes(only))) {
   const dataUrl = await page.evaluate(() => {
     const canvas = document.querySelector<HTMLCanvasElement>('canvas.sx-hero-gl');
     if (!canvas) throw new Error('hero canvas not found');
-    return canvas.toDataURL('image/jpeg', 0.88);
+    // High quality master: the image optimizer compresses it again for delivery.
+    return canvas.toDataURL('image/jpeg', 0.96);
   });
   const out = join(root, 'public', shot.file);
   mkdirSync(dirname(out), { recursive: true });
