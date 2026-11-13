@@ -49,16 +49,90 @@ export interface ProtocolGuide {
 export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
   {
     slug: 'recovery-protocol',
-    title: 'Recovery Research Protocol',
-    focus: 'Recovery & tissue repair',
+    title: 'Recovery & Tissue Repair',
+    focus: 'Repair · recover · move forward',
     compounds: ['BPC-157', 'TB-500', 'GHK-Cu', 'KPV'],
     description:
-      'A recovery-focused research protocol bringing four compounds together in one visual guide.',
-    state: 'in_preparation',
-    artwork: null,
+      'A research-focused protocol designed to support tissue repair, modulate inflammatory signaling and promote recovery.',
+    state: 'ready',
+    artwork: { src: '/guides/recovery-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index Recovery & Tissue Repair protocol card: compound panels, preparation steps, protocol options and research context.' },
     accent: 'cyan',
   },
+  {
+    slug: 'appetite-weight-protocol',
+    title: 'Appetite & Weight Management',
+    focus: 'Appetite control · metabolic support',
+    compounds: ['Tirzepatide', 'Retatrutide'],
+    description:
+      'A research-focused protocol framework exploring alternative GLP-pathway approaches for appetite control and weight management support.',
+    state: 'ready',
+    artwork: { src: '/guides/appetite-weight-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index Appetite & Weight Management protocol card: compound panels, preparation steps, protocol options and research context.' },
+    accent: 'blue',
+  },
+  {
+    slug: 'cellular-energy-protocol',
+    title: 'Cellular Energy & Vitality',
+    focus: 'Energize · support · restore',
+    compounds: ['SS-31', 'MOTS-c', 'NAD+', '5-Amino-1MQ'],
+    description:
+      'A research-focused protocol framework exploring mitochondrial function, cellular energy, metabolic support and vitality.',
+    state: 'ready',
+    artwork: { src: '/guides/cellular-energy-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index Cellular Energy & Vitality protocol card: compound panels, preparation steps, protocol options and research context.' },
+    accent: 'indigo',
+  },
+  {
+    slug: 'gh-axis-protocol',
+    title: 'GH-Axis & Body Recomposition',
+    focus: 'Body recomposition · immune support',
+    compounds: ['Tesamorelin', 'Sermorelin', 'CJC-1295 (no DAC)', 'Ipamorelin', 'Thymosin Alpha-1'],
+    description:
+      'A research-focused protocol framework exploring GH-axis support, body recomposition pathways and immune support.',
+    state: 'ready',
+    artwork: { src: '/guides/gh-axis-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index GH-Axis & Body Recomposition protocol card: compound panels, preparation steps, protocol options and research context.' },
+    accent: 'blue',
+  },
+  {
+    slug: 'sleep-circadian-protocol',
+    title: 'Sleep / Circadian / Recovery',
+    focus: 'Restore · reset · recover',
+    compounds: ['DSIP', 'Epitalon'],
+    description:
+      'A research-focused protocol framework exploring sleep support, circadian regulation and recovery pathways.',
+    state: 'ready',
+    artwork: { src: '/guides/sleep-circadian-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index Sleep / Circadian / Recovery protocol card: compound panels, preparation steps, protocol options and research context.' },
+    accent: 'violet',
+  },
+  {
+    slug: 'brain-stress-energy-protocol',
+    title: 'Brain / Stress / Energy',
+    focus: 'Focus · calm · cellular energy',
+    compounds: ['Semax', 'Selank', 'NAD+ (nasal)'],
+    description:
+      'A research-focused protocol framework exploring intranasal support for cognitive pathways, stress modulation and cellular energy.',
+    state: 'ready',
+    artwork: { src: '/guides/brain-stress-energy-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index Brain / Stress / Energy protocol card: compound panels, preparation steps, protocol options and research context.' },
+    accent: 'indigo',
+  },
+  {
+    slug: 'sexual-reproductive-protocol',
+    title: 'Sexual / Reproductive',
+    focus: 'Reproductive signaling · libido support',
+    compounds: ['PT-141', 'Kisspeptin-10'],
+    description:
+      'A research-focused protocol framework exploring investigational peptides for sexual and reproductive health support. Two separate protocols, not automatically combined.',
+    state: 'ready',
+    artwork: { src: '/guides/sexual-reproductive-protocol.webp', width: 3200, height: 4141, alt: 'The Tides Index Sexual / Reproductive protocol card: compound panels, preparation steps, protocol options and research context.' },
+    accent: 'violet',
+  },
 ];
+
+/** The cover of the full compendium, shown with the library. */
+export const COMPENDIUM_COVER: GuideArtwork = {
+  src: '/guides/compendium-cover.webp',
+  width: 3200,
+  height: 4141,
+  alt: 'Cover of The Tides Index Peptide Protocols, a research-focused visual compendium.',
+};
 
 /** A guide can be opened only when its artwork exists and it is marked ready. */
 export function isGuideReady(

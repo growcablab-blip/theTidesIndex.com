@@ -44,7 +44,7 @@ export function ProtocolGallery() {
 
         {featured !== undefined ? <FeaturedGuide guide={featured} /> : null}
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:mt-16">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {rest.map((guide, i) => (
             <div key={guide.slug} data-reveal style={{ '--delay': `${String(i * 0.08)}s` } as React.CSSProperties}>
               <GuideCard guide={guide} />
@@ -85,6 +85,7 @@ function FeaturedGuide({ guide }: { guide: ProtocolGuide }) {
               height={guide.artwork.height}
               alt={guide.artwork.alt}
               sizes="(min-width: 1024px) 40vw, 92vw"
+              quality={90}
               className="h-auto w-full"
             />
           </Link>
@@ -130,8 +131,9 @@ function GuideCard({ guide }: { guide: ProtocolGuide }) {
   const body = (
     <>
       {ready ? (
-        <div className="relative aspect-[4/5]">
-          <Image src={guide.artwork.src} alt={guide.artwork.alt} fill sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 92vw" className="object-cover object-top" />
+        <div className="relative aspect-[4/3] overflow-hidden">
+          {/* The card's own title band: the artwork introduces itself. */}
+          <Image src={guide.artwork.src} alt={guide.artwork.alt} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw" quality={90} className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" />
         </div>
       ) : (
         <PosterSlot guide={guide} compact />
@@ -144,7 +146,7 @@ function GuideCard({ guide }: { guide: ProtocolGuide }) {
     </>
   );
   return ready ? (
-    <Link href={guideHref(guide)} className="sx-poster sx-poster-lift block h-full">
+    <Link href={guideHref(guide)} className="group sx-poster sx-poster-lift block h-full">
       {body}
     </Link>
   ) : (

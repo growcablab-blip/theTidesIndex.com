@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getShowcaseTelemetry } from '@/server/public/showcase';
 import { Hero } from '@/components/showcase/hero';
+import { COMPENDIUM_COVER } from '@/domain/showcase/protocol-guides';
 import { Telemetry } from '@/components/showcase/telemetry';
 import { ProtocolGallery } from '@/components/showcase/protocol-gallery';
 import { Building, Expansion, PlatformPreview, QualityPreview } from '@/components/showcase/platform';
@@ -27,6 +28,10 @@ export const metadata: Metadata = {
   title: { absolute: 'The Tides Index — Peptide research, made understandable' },
   description:
     'Explore the science. Compare reported protocols. Understand what we know — and what we don’t. Independent, source-linked peptide research.',
+  // Shared links show the protocol compendium's cover.
+  openGraph: {
+    images: [{ url: COMPENDIUM_COVER.src, width: COMPENDIUM_COVER.width, height: COMPENDIUM_COVER.height, alt: COMPENDIUM_COVER.alt }],
+  },
 };
 
 export default async function HomePage() {

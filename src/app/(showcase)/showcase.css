@@ -156,6 +156,9 @@
   transition: background-color 0.5s var(--sx-ease), border-color 0.5s var(--sx-ease), backdrop-filter 0.5s;
   border-bottom: 1px solid transparent;
 }
+/* Pages that open on a light surface (guide pages) keep the header dark from
+   the top, so the reversed logo and the navigation stay legible. */
+.sx:has(.sx-light-top) .sx-header,
 .sx[data-scrolled] .sx-header {
   background: rgb(3 12 19 / 0.72);
   backdrop-filter: blur(14px) saturate(1.3);

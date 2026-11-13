@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { guideBySlug, isGuideReady, PROTOCOL_GUIDES } from '@/domain/showcase/protocol-guides';
+import { guideBySlug, guideHref, isGuideReady, PROTOCOL_GUIDES } from '@/domain/showcase/protocol-guides';
 
 /**
  * A single protocol guide — the page a practitioner shares.
@@ -38,9 +38,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const guide = guideBySlug(slug);
   if (guide === null || !isGuideReady(guide)) notFound();
+  // The other finished guides, so a reader can move through the library.
+  const others = PROTOCOL_GUIDES.filter((g) => g.slug !== guide.slug && isGuideReady(g));
 
   return (
-    <article className="sx-light min-h-screen pb-24 pt-28 sm:pt-32">
+    <article className="sx-light sx-light-top min-h-screen pb-24 pt-28 sm:pt-32">
       <div className="sx-wrap">
         <Link href="/#protocols" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--tides-mineral)]">
           <span aria-hidden="true">←</span> Protocol library
@@ -62,6 +64,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 alt={guide.artwork.alt}
                 priority
                 sizes="(min-width: 1024px) 64vw, 100vw"
+                quality={90}
                 className="h-auto w-full"
               />
             </a>
@@ -103,6 +106,28 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             </Link>
           </aside>
         </div>
+
+        {others.length > 0 ? (
+          <nav aria-labelledby="more-guides" className="mt-20 border-t border-[var(--tides-rule)] pt-10">
+            <h2 id="more-guides" className="text-xl font-semibold tracking-[-0.015em] text-[var(--tides-deep)]">
+              More protocol guides
+            </h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {others.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={guideHref(g)}
+                    className="sx-poster sx-poster-lift flex h-full flex-col px-5 py-4"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--tides-mineral)]">{g.focus}</span>
+                    <span className="mt-1.5 text-lg font-semibold tracking-[-0.015em] text-[var(--tides-deep)]">{g.title}</span>
+                    <span className="mt-1 text-sm text-[var(--tides-soft)]">{g.compounds.join(' · ')}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
       </div>
     </article>
   );
