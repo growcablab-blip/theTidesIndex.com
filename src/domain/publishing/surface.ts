@@ -21,7 +21,7 @@ export function currentSurface(env: Record<string, string | undefined> = process
   return env.TIDES_SURFACE?.trim().toLowerCase() === 'public' ? 'public' : 'research';
 }
 
-/** Exact paths the public surface serves, beyond the guide pages. */
+/** Exact paths the public surface serves, beyond the guide and compound pages. */
 const PUBLIC_EXACT = new Set(['/', '/robots.txt', '/icon.png', '/apple-icon.png']);
 
 /**
@@ -35,6 +35,10 @@ export function isPublicSurfacePath(pathname: string): boolean {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   if (PUBLIC_EXACT.has(path)) return true;
   if (/^\/guides\/[a-z0-9-]+$/.test(path)) return true;
+  // Compound research profiles. The route itself refuses any slug that is not
+  // on the exposure list, so widening the allowlist here does not publish the
+  // library — it only lets the gate be reached.
+  if (/^\/compounds\/[a-z0-9-]+$/.test(path)) return true;
   // A guide's own artwork files (images pass the matcher already; a PDF would not).
   if (/^\/guides\/[a-z0-9-]+\.(png|jpe?g|webp|avif|pdf)$/i.test(path)) return true;
   // The hero's own assets: its geometry file and stills. The proxy's matcher

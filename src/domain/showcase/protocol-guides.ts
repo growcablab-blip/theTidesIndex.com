@@ -38,6 +38,19 @@ export interface ProtocolGuide {
   readonly focus: string;
   /** Compounds the guide covers, in the order the artwork presents them. */
   readonly compounds: readonly string[];
+  /**
+   * Register slugs for the compounds above that have a published record.
+   *
+   * Slugs, never display names. The register holds "Thymosin beta-4" as an
+   * alias of `tb-500` and vice versa, so matching a guide's printed name
+   * against the register resolves TB-500 to the wrong compound — the exact
+   * conflation the combination page exists to refuse. A slug cannot do that.
+   *
+   * Shorter than `compounds` wherever the guide names something the register
+   * does not yet carry. A name without a slug simply does not become a link;
+   * nothing is invented to make one.
+   */
+  readonly compoundSlugs: readonly string[];
   /** One plain sentence about what the guide lets a reader do. Never a claim. */
   readonly description: string;
   readonly state: GuideState;
@@ -52,6 +65,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'Recovery & Tissue Repair',
     focus: 'Repair · recover · move forward',
     compounds: ['BPC-157', 'TB-500', 'GHK-Cu', 'KPV'],
+    compoundSlugs: ['bpc-157', 'tb-500', 'ghk-cu', 'kpv'],
     description:
       'A research-focused protocol designed to support tissue repair, modulate inflammatory signaling and promote recovery.',
     state: 'ready',
@@ -63,6 +77,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'Appetite & Weight Management',
     focus: 'Appetite control · metabolic support',
     compounds: ['Tirzepatide', 'Retatrutide'],
+    compoundSlugs: ['retatrutide'],
     description:
       'A research-focused protocol framework exploring alternative GLP-pathway approaches for appetite control and weight management support.',
     state: 'ready',
@@ -74,6 +89,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'Cellular Energy & Vitality',
     focus: 'Energize · support · restore',
     compounds: ['SS-31', 'MOTS-c', 'NAD+', '5-Amino-1MQ'],
+    compoundSlugs: ['mots-c'],
     description:
       'A research-focused protocol framework exploring mitochondrial function, cellular energy, metabolic support and vitality.',
     state: 'ready',
@@ -85,6 +101,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'GH-Axis & Body Recomposition',
     focus: 'Body recomposition · immune support',
     compounds: ['Tesamorelin', 'Sermorelin', 'CJC-1295 (no DAC)', 'Ipamorelin', 'Thymosin Alpha-1'],
+    compoundSlugs: ['tesamorelin', 'sermorelin', 'cjc-1295', 'ipamorelin', 'thymosin-alpha-1'],
     description:
       'A research-focused protocol framework exploring GH-axis support, body recomposition pathways and immune support.',
     state: 'ready',
@@ -96,6 +113,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'Sleep / Circadian / Recovery',
     focus: 'Restore · reset · recover',
     compounds: ['DSIP', 'Epitalon'],
+    compoundSlugs: ['dsip', 'epitalon'],
     description:
       'A research-focused protocol framework exploring sleep support, circadian regulation and recovery pathways.',
     state: 'ready',
@@ -107,6 +125,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'Brain / Stress / Energy',
     focus: 'Focus · calm · cellular energy',
     compounds: ['Semax', 'Selank', 'NAD+ (nasal)'],
+    compoundSlugs: ['semax', 'selank'],
     description:
       'A research-focused protocol framework exploring intranasal support for cognitive pathways, stress modulation and cellular energy.',
     state: 'ready',
@@ -118,6 +137,7 @@ export const PROTOCOL_GUIDES: readonly ProtocolGuide[] = [
     title: 'Sexual / Reproductive',
     focus: 'Reproductive signaling · libido support',
     compounds: ['PT-141', 'Kisspeptin-10'],
+    compoundSlugs: ['pt-141'],
     description:
       'A research-focused protocol framework exploring investigational peptides for sexual and reproductive health support. Two separate protocols, not automatically combined.',
     state: 'ready',

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { guideBySlug, guideHref, isGuideReady, PROTOCOL_GUIDES } from '@/domain/showcase/protocol-guides';
+import { readGuideCompounds, type GuideCompound } from '@/server/public/guide-research';
 
 /**
  * A single protocol guide — the page a practitioner shares.
@@ -34,12 +35,47 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+function CompoundLine({ compound, linked }: { compound: GuideCompound; linked: boolean }) {
+  const counts = [
+    `${String(compound.sources)} ${compound.sources === 1 ? 'source' : 'sources'}`,
+    compound.humanClaims > 0
+      ? `${String(compound.humanClaims)} human-evidence ${compound.humanClaims === 1 ? 'finding' : 'findings'}`
+      : 'no human evidence yet',
+    `${String(compound.protocols)} reported ${compound.protocols === 1 ? 'protocol' : 'protocols'}`,
+  ].join(' · ');
+  return (
+    <>
+      <span className="flex items-baseline justify-between gap-3">
+        <span className="font-semibold text-[var(--tides-deep)]">{compound.name}</span>
+        {linked ? (
+          <span className="shrink-0 text-xs font-semibold text-[var(--tides-mineral)]">
+            View research &rarr;
+          </span>
+        ) : null}
+      </span>
+      {compound.categoryLabel === null ? null : (
+        <span className="mt-0.5 block text-xs text-[var(--tides-soft)]">
+          {compound.categoryLabel}
+        </span>
+      )}
+      <span className="mt-1.5 block text-xs text-[var(--tides-graphite)]">{counts}</span>
+    </>
+  );
+}
+
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const guide = guideBySlug(slug);
   if (guide === null || !isGuideReady(guide)) notFound();
   // The other finished guides, so a reader can move through the library.
   const others = PROTOCOL_GUIDES.filter((g) => g.slug !== guide.slug && isGuideReady(g));
+  /*
+   * The published records behind the compounds this guide names. Joined on the
+   * slugs the guide declares, never on the names its artwork prints: the
+   * register holds "Thymosin beta-4" as an alias of `tb-500` and the reverse,
+   * so a name match would link TB-500 to the wrong compound.
+   */
+  const research = await readGuideCompounds(guide.compoundSlugs);
 
   return (
     <article className="sx-light sx-light-top min-h-screen pb-24 pt-28 sm:pt-32">
@@ -95,6 +131,39 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 </li>
               ))}
             </ul>
+
+            {research.length === 0 ? null : (
+              <section className="mt-10 border-t border-[var(--tides-rule)] pt-7" aria-labelledby="research-behind">
+                <h2
+                  id="research-behind"
+                  className="text-[0.6875rem] font-semibold tracking-[0.14em] text-[var(--tides-mineral)] uppercase"
+                >
+                  The research behind this guide
+                </h2>
+                <ul className="mt-5 space-y-3">
+                  {research.map((c) => (
+                    <li key={c.slug}>
+                      {c.exposed ? (
+                        <Link
+                          href={`/compounds/${c.slug}`}
+                          className="group block rounded-xl border border-[var(--tides-rule)] px-4 py-3.5 transition-colors hover:border-[var(--tides-mineral)]"
+                        >
+                          <CompoundLine compound={c} linked />
+                        </Link>
+                      ) : (
+                        <div className="rounded-xl border border-[var(--tides-rule)] px-4 py-3.5">
+                          <CompoundLine compound={c} linked={false} />
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs leading-relaxed text-[var(--tides-soft)]">
+                  Counts are read live from the published index. A compound is listed here only
+                  once its record is published.
+                </p>
+              </section>
+            )}
 
             <p className="mt-10 border-t border-[var(--tides-rule)] pt-6 text-sm leading-relaxed text-[var(--tides-soft)]">
               This guide summarises what published sources and practitioners report, for research and education. It is

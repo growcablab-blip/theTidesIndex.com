@@ -17,7 +17,23 @@ import {
   type ProtocolGuide,
 } from '@/domain/showcase/protocol-guides';
 
-const ALLOWED_FIELDS = new Set(['slug', 'title', 'focus', 'compounds', 'description', 'state', 'artwork', 'accent']);
+/*
+ * Presentation and reference fields. `compoundSlugs` is a reference into the
+ * compound register — the join that lets a guide link to published research —
+ * and carries no regimen data itself. Anything describing an amount, a
+ * frequency or a duration still has no business here.
+ */
+const ALLOWED_FIELDS = new Set([
+  'slug',
+  'title',
+  'focus',
+  'compounds',
+  'compoundSlugs',
+  'description',
+  'state',
+  'artwork',
+  'accent',
+]);
 
 /** Units and cadence words that would mean a regimen has leaked into the copy. */
 const DOSING_PATTERN = /\b\d+(\.\d+)?\s?(mg|mcg|µg|iu|ml|units?)\b|\b(daily|weekly|twice|per day|per week|dose|dosing|inject)/i;
@@ -64,6 +80,7 @@ describe('isGuideReady', () => {
     title: 'Example',
     focus: 'Example focus',
     compounds: ['A'],
+    compoundSlugs: [],
     description: 'An example.',
     state: 'in_preparation',
     artwork: null,
