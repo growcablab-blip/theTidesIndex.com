@@ -13,16 +13,19 @@ import { readGuideCompounds, type GuideCompound } from '@/server/public/guide-re
  * be zoomed on a phone or saved. A guide without finished artwork has no page.
  */
 
-export function generateStaticParams(): { slug: string }[] {
-  return PROTOCOL_GUIDES.filter(isGuideReady).map((g) => ({ slug: g.slug }));
-}
-
 /*
- * Unknown slugs are left to render on demand rather than refused with
- * `dynamicParams = false`: that refusal is answered by the root not-found page,
- * which belongs to the research application and links to search. Rendering
- * lets `notFound()` below reach the holding experience's own not-found page.
+ * Rendered on demand, like every other showcase page that reads data.
+ *
+ * The artwork alone would prerender happily, but the research counts below come
+ * from the index, and the database is on the private network — which a build
+ * container cannot reach. Prerendering these slugs made `next build` hang in
+ * "Collecting page data" and the deployment fail. Rendering on demand also
+ * means a newly published record shows on the guide without a rebuild.
+ *
+ * Unknown slugs reach `notFound()` below, which is answered by the holding
+ * experience's own not-found page rather than the research application's.
  */
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
