@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { guideBySlug, guideHref, isGuideReady, PROTOCOL_GUIDES } from '@/domain/showcase/protocol-guides';
-import { readGuideCompounds, type GuideCompound } from '@/server/public/guide-research';
+import { isExposedCompound, readGuideCompounds, type GuideCompound } from '@/server/public/guide-research';
 
 /**
  * A single protocol guide — the page a practitioner shares.
@@ -77,8 +77,16 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
    * slugs the guide declares, never on the names its artwork prints: the
    * register holds "Thymosin beta-4" as an alias of `tb-500` and the reverse,
    * so a name match would link TB-500 to the wrong compound.
+   *
+   * Shown only on a guide that leads somewhere: unless one of its compounds has
+   * a published profile the public surface will serve, a list of counts is a
+   * dead end, and the guide stays as its artwork alone. Today that is the
+   * Recovery guide. A guide lights up when a compound it names is approved for
+   * the public surface, not when its record is published.
    */
-  const research = await readGuideCompounds(guide.compoundSlugs);
+  const research = guide.compoundSlugs.some(isExposedCompound)
+    ? await readGuideCompounds(guide.compoundSlugs)
+    : [];
 
   return (
     <article className="sx-light sx-light-top min-h-screen pb-24 pt-28 sm:pt-32">

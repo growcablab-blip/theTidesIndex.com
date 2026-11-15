@@ -18,6 +18,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { PROTOCOL_GUIDES, isGuideReady } from '@/domain/showcase/protocol-guides';
 import { isPublicSurfacePath } from '@/domain/publishing/surface';
+import { isExposedCompound } from '@/server/public/guide-research';
 
 interface SeedPeptide {
   readonly slug: string;
@@ -127,6 +128,32 @@ describe('finished guides', () => {
       // Slugs are optional — a guide may name only unregistered compounds —
       // but whatever it declares has to be real, which the suite above checks.
       expect(Array.isArray(guide.compoundSlugs)).toBe(true);
+    }
+  });
+});
+
+describe('which guides show the research block', () => {
+  /*
+   * A guide renders the block only if one of its compounds has a profile the
+   * public surface will serve. Counts with nothing to open are a dead end, and
+   * a guide gaining a block is a visible change to a page the owner approved —
+   * so the set is asserted, not merely derived.
+   */
+  const showing = PROTOCOL_GUIDES.filter((g) => g.compoundSlugs.some(isExposedCompound)).map(
+    (g) => g.slug,
+  );
+
+  it('is exactly the Recovery guide today', () => {
+    expect(showing).toEqual(['recovery-protocol']);
+  });
+
+  it('leaves every other guide as its artwork alone', () => {
+    for (const guide of PROTOCOL_GUIDES.filter(isGuideReady)) {
+      if (guide.slug === 'recovery-protocol') continue;
+      expect(
+        guide.compoundSlugs.some(isExposedCompound),
+        `${guide.slug} would gain a research block`,
+      ).toBe(false);
     }
   });
 });
